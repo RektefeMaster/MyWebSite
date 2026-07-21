@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import Reveal from "./Reveal";
+import WordReveal from "./WordReveal";
 import { gsap, useGSAP, attachScrollReveal } from "@/lib/gsap";
 
 type Stat = {
@@ -81,16 +82,17 @@ export default function Stats() {
       className="scroll-mt-[var(--nav-offset)] bg-band px-5 py-16 md:px-10 md:py-24 text-band-fg md:px-10 md:py-28"
     >
       <div className="mx-auto max-w-7xl">
-        <Reveal>
-          <div className="mb-14 max-w-2xl md:mb-16">
+        <div className="mb-14 max-w-2xl md:mb-16">
+          <Reveal>
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-band-fg/40">
               {t("label")}
             </p>
-            <h2 className="text-3xl font-bold leading-tight tracking-tight md:text-5xl">
-              {t("title")}
-            </h2>
-          </div>
-        </Reveal>
+          </Reveal>
+          <WordReveal
+            text={t("title")}
+            className="text-3xl font-bold leading-tight tracking-tight md:text-5xl"
+          />
+        </div>
 
         <div ref={gridRef} className="grid gap-4 sm:grid-cols-2">
           {items.map((item) => (

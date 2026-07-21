@@ -5,6 +5,7 @@ import { blogPosts } from "@/data/blog";
 import { getBlogArticle } from "@/data/blog-content";
 import { formatBlogDate } from "@/lib/blog-format";
 import Reveal from "./Reveal";
+import WordReveal from "./WordReveal";
 import Magnetic from "./Magnetic";
 
 type BlogTeaserProps = {
@@ -22,30 +23,35 @@ export default async function BlogTeaser({ locale }: BlogTeaserProps) {
       className="scroll-mt-[var(--nav-offset)] border-t border-foreground/8 bg-paper px-5 py-16 md:px-10 md:py-28"
     >
       <div className="mx-auto max-w-7xl">
-        <Reveal>
-          <div className="mb-12 flex flex-col items-start justify-between gap-6 md:mb-16 md:flex-row md:items-end">
-            <div className="max-w-xl">
+        <div className="mb-12 flex flex-col items-start justify-between gap-6 md:mb-16 md:flex-row md:items-end">
+          <div className="max-w-xl">
+            <Reveal>
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
                 {t("teaserLabel")}
               </p>
-              <h2 className="text-4xl font-bold tracking-tight md:text-6xl">
-                {t("teaserTitle")}
-              </h2>
+            </Reveal>
+            <WordReveal
+              text={t("teaserTitle")}
+              className="text-4xl font-bold tracking-tight md:text-6xl"
+            />
+            <Reveal delay={120}>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-foreground/50">
                 {t("teaserBlurb")}
               </p>
-            </div>
+            </Reveal>
+          </div>
+          <Reveal delay={80}>
             <Magnetic strength={0.3}>
               <Link
                 href="/blog"
-                className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-ink"
+                className="link-underline inline-flex min-h-11 items-center gap-2 text-sm font-bold text-ink"
               >
                 {t("teaserAll")}
                 <span aria-hidden>→</span>
               </Link>
             </Magnetic>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
 
         <div className="grid gap-3 md:grid-cols-3">
           {posts.map((post, i) => {

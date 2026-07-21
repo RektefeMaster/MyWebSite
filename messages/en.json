@@ -199,7 +199,9 @@
     "blurb": "Digital products that work for your brand — web, software, AI. Clear scope, measurable outcomes.",
     "ctaWork": "View work",
     "ctaContact": "Let’s talk",
-    "scroll": "Explore"
+    "scroll": "Explore",
+    "metaStudio": "Digital product studio",
+    "metaLocation": "Malatya · Worldwide"
   },
   "projects": {
     "label": "Selected work",
@@ -260,6 +262,19 @@
           "Advanced SEO & performance",
           "QA and launch",
           "60 days technical support"
+        ]
+      },
+      {
+        "title": "Logo & Brand Identity",
+        "description": "A distinctive logo and a consistent visual identity system that make your brand recognizable at first glance.",
+        "includes": [
+          "Discovery and brand analysis",
+          "Original logo design (multiple directions)",
+          "Color palette and typography",
+          "Logo variations (horizontal, vertical, icon)",
+          "Usage guidelines (mini brandbook)",
+          "Social media and favicon sets",
+          "Vector source files (SVG, PDF, PNG)"
         ]
       },
       {
@@ -383,13 +398,14 @@
     "items": []
   },
   "clients": {
-    "label": "Selected Projects",
+    "label": "Services",
     "names": [
-      "Wholesale Cabinet Creations",
-      "METEK",
-      "Rektefe",
-      "Block Pump",
-      "WCC Admin"
+      "Web design",
+      "Software",
+      "AI",
+      "Automation",
+      "Admin panels",
+      "Performance"
     ]
   },
   "stats": {
@@ -444,6 +460,7 @@
       "Starter website",
       "Corporate website",
       "Premium web experience",
+      "Logo & brand identity",
       "E-commerce site",
       "Admin panel",
       "Web or mobile app",

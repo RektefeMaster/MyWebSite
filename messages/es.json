@@ -199,7 +199,9 @@
     "blurb": "Productos digitales para tu marca — web, software e IA. Alcance claro, resultados medibles.",
     "ctaWork": "Ver trabajos",
     "ctaContact": "Hablemos",
-    "scroll": "Explorar"
+    "scroll": "Explorar",
+    "metaStudio": "Estudio de producto digital",
+    "metaLocation": "Malatya · Todo el mundo"
   },
   "projects": {
     "label": "Trabajos seleccionados",
@@ -260,6 +262,19 @@
           "SEO y rendimiento avanzados",
           "QA y lanzamiento",
           "60 días de soporte"
+        ]
+      },
+      {
+        "title": "Logo e Identidad de Marca",
+        "description": "Un logo distintivo y un sistema de identidad visual coherente que hacen tu marca reconocible a primera vista.",
+        "includes": [
+          "Descubrimiento y análisis de marca",
+          "Diseño de logo original (varias direcciones)",
+          "Paleta de color y tipografía",
+          "Variaciones del logo (horizontal, vertical, icono)",
+          "Guía de uso (mini manual de marca)",
+          "Sets para redes sociales y favicon",
+          "Archivos vectoriales fuente (SVG, PDF, PNG)"
         ]
       },
       {
@@ -383,13 +398,14 @@
     "items": []
   },
   "clients": {
-    "label": "Selected Projects",
+    "label": "Servicios",
     "names": [
-      "Wholesale Cabinet Creations",
-      "METEK",
-      "Rektefe",
-      "Block Pump",
-      "WCC Admin"
+      "Diseño web",
+      "Software",
+      "IA",
+      "Automatización",
+      "Paneles",
+      "Rendimiento"
     ]
   },
   "stats": {
@@ -444,6 +460,7 @@
       "Sitio web inicial",
       "Sitio corporativo",
       "Experiencia web premium",
+      "Logo e identidad de marca",
       "E-commerce",
       "Panel de administración",
       "App web o móvil",

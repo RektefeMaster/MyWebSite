@@ -38,18 +38,27 @@ export default function Magnetic({
     const rect = wrap.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
+    // overwrite: her harekette önceki tween'i öldür — takip başına tek aktif
+    // tween (yüzlerce çakışan tween birikmesin)
     gsap.to(el, {
       x: x * strength,
       y: y * strength,
       duration: 0.45,
       ease: "power3.out",
+      overwrite: true,
     });
   }
 
   function onLeave() {
     const el = inner.current;
     if (!el) return;
-    gsap.to(el, { x: 0, y: 0, duration: 0.7, ease: "elastic.out(1, 0.4)" });
+    gsap.to(el, {
+      x: 0,
+      y: 0,
+      duration: 0.7,
+      ease: "elastic.out(1, 0.4)",
+      overwrite: true,
+    });
   }
 
   return (

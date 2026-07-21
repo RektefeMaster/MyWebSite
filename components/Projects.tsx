@@ -7,6 +7,7 @@ import { projects } from "@/data/projects";
 import ProjectCard from "./ProjectCard";
 import { Link } from "@/i18n/navigation";
 import Reveal from "./Reveal";
+import WordReveal from "./WordReveal";
 import Magnetic from "./Magnetic";
 import { gsap, useGSAP, Flip, attachScrollReveal } from "@/lib/gsap";
 
@@ -80,21 +81,24 @@ export default function Projects({ variant = "full" }: ProjectsProps) {
       className="scroll-mt-[var(--nav-offset)] bg-background px-5 py-16 md:px-10 md:py-24"
     >
       <div className="mx-auto max-w-7xl">
-        <Reveal>
-          <div className="mb-16 grid items-end gap-6 md:grid-cols-[1fr_1.2fr] md:gap-12">
-            <div>
+        <div className="mb-16 grid items-end gap-6 md:grid-cols-[1fr_1.2fr] md:gap-12">
+          <div>
+            <Reveal>
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
                 {t("label")}
               </p>
-              <h2 className="text-6xl font-bold tracking-tight md:text-8xl">
-                {t("title")}
-              </h2>
-            </div>
+            </Reveal>
+            <WordReveal
+              text={t("title")}
+              className="text-6xl font-bold tracking-tight md:text-8xl"
+            />
+          </div>
+          <Reveal delay={120}>
             <p className="max-w-md text-sm leading-relaxed text-foreground/50 md:justify-self-end md:pb-2">
               {t("blurb")}
             </p>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
 
         <div
           ref={gridRef}
@@ -112,7 +116,7 @@ export default function Projects({ variant = "full" }: ProjectsProps) {
             <Magnetic strength={0.35}>
               <Link
                 href="/work"
-                className="inline-block rounded-full bg-ink px-8 py-3.5 text-sm font-bold text-ink-fg"
+                className="btn-sheen inline-block rounded-full bg-ink px-8 py-3.5 text-sm font-bold text-ink-fg"
               >
                 {t("seeCase")}
               </Link>

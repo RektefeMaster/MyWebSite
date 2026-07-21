@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Reveal from "./Reveal";
+import WordReveal from "./WordReveal";
 
 type Card = {
   href: "/manifesto" | "/work" | "/approach" | "/services" | "/blog";
@@ -60,19 +61,22 @@ export default function Showcase() {
       className="scroll-mt-[var(--nav-offset)] border-t border-foreground/8 bg-paper px-5 py-16 md:px-10 md:py-28"
     >
       <div className="mx-auto max-w-7xl">
-        <Reveal>
-          <div className="mb-12 max-w-2xl md:mb-16">
+        <div className="mb-12 max-w-2xl md:mb-16">
+          <Reveal>
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
               {t("label")}
             </p>
-            <h2 className="text-4xl font-bold tracking-tight md:text-6xl">
-              {t("title")}
-            </h2>
+          </Reveal>
+          <WordReveal
+            text={t("title")}
+            className="text-4xl font-bold tracking-tight md:text-6xl"
+          />
+          <Reveal delay={120}>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-foreground/50">
               {t("blurb")}
             </p>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
 
         <div className="grid gap-3 md:grid-cols-2">
           {cards.map((card, i) => (

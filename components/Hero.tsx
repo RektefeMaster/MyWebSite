@@ -101,6 +101,27 @@ export default function Hero() {
         active={active}
       />
 
+      {/* Sinematik atmosfer — canvas üstünde, metnin altında */}
+      <div
+        aria-hidden
+        data-atmosphere-idle={!active}
+        className="pointer-events-none absolute inset-0 z-[1] overflow-hidden"
+      >
+        <div className="hero-glow" />
+        <div className="hero-vignette" />
+        <div className="hero-grain" />
+      </div>
+
+      {/* Üst-sol: stüdyo künyesi */}
+      <div
+        data-hero-fade
+        className="pointer-events-none absolute left-5 top-[calc(var(--nav-offset)+1rem)] z-10 hidden text-[11px] font-semibold uppercase leading-relaxed tracking-[0.18em] text-ink/45 md:left-16 md:block"
+      >
+        <span className="text-lime">●</span> {t("metaStudio")}
+        <br />
+        {t("metaLocation")}
+      </div>
+
       {/* Alt-sağ: kısa vaat + CTA */}
       <div
         ref={copyRef}
@@ -120,10 +141,15 @@ export default function Hero() {
             <Magnetic strength={0.28} className="w-full sm:w-auto">
               <Link
                 href="/work"
-                className="inline-flex w-full min-h-10 items-center justify-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-ink-fg sm:w-auto"
+                className="btn-sheen group inline-flex w-full min-h-10 items-center justify-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-ink-fg sm:w-auto"
               >
                 {t("ctaWork")}
-                <span aria-hidden>→</span>
+                <span
+                  aria-hidden
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                >
+                  →
+                </span>
               </Link>
             </Magnetic>
             <Magnetic strength={0.26} className="w-full sm:w-auto">

@@ -39,7 +39,7 @@ export default function Availability() {
             <Magnetic strength={0.35}>
               <Link
                 href={{ pathname: "/", hash: "contact" }}
-                className="inline-block rounded-full bg-lime px-7 py-3.5 text-sm font-bold text-on-lime"
+                className="btn-sheen inline-block rounded-full bg-lime px-7 py-3.5 text-sm font-bold text-on-lime"
               >
                 {t("cta")}
               </Link>

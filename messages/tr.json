@@ -199,7 +199,9 @@
     "blurb": "Web, yazılım ve yapay zekâ ile markanıza çalışan dijital ürünler. Net kapsam, ölçülebilir sonuç.",
     "ctaWork": "İşleri incele",
     "ctaContact": "Projeni konuşalım",
-    "scroll": "Keşfetmeye başla"
+    "scroll": "Keşfetmeye başla",
+    "metaStudio": "Dijital ürün stüdyosu",
+    "metaLocation": "Malatya · Dünya geneli"
   },
   "projects": {
     "label": "Seçili işler",
@@ -260,6 +262,19 @@
           "İleri SEO ve performans",
           "Test ve yayınlama süreci",
           "60 gün teknik destek"
+        ]
+      },
+      {
+        "title": "Logo ve Marka Kimliği",
+        "description": "Markanızı ilk bakışta ayırt edilebilir kılan özgün logo ve tutarlı görsel kimlik sistemi.",
+        "includes": [
+          "Keşif ve marka analizi",
+          "Özgün logo tasarımı (birkaç yön)",
+          "Renk paleti ve tipografi seçimi",
+          "Logo varyasyonları (yatay, dikey, ikon)",
+          "Kullanım kuralları (mini marka kılavuzu)",
+          "Sosyal medya ve favicon setleri",
+          "Vektör kaynak dosyalar (SVG, PDF, PNG)"
         ]
       },
       {
@@ -383,13 +398,14 @@
     "items": []
   },
   "clients": {
-    "label": "Selected Projects",
+    "label": "Hizmetler",
     "names": [
-      "Wholesale Cabinet Creations",
-      "METEK",
-      "Rektefe",
-      "Block Pump",
-      "WCC Admin"
+      "Web tasarım",
+      "Yazılım",
+      "Yapay zekâ",
+      "Otomasyon",
+      "Yönetim paneli",
+      "Performans"
     ]
   },
   "stats": {
@@ -444,6 +460,7 @@
       "Başlangıç web sitesi",
       "Kurumsal web sitesi",
       "Premium web deneyimi",
+      "Logo ve marka kimliği",
       "E-ticaret sitesi",
       "Yönetim paneli",
       "Web veya mobil uygulama",

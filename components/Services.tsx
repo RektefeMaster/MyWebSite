@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Reveal from "./Reveal";
+import WordReveal from "./WordReveal";
 import Magnetic from "./Magnetic";
 import { gsap, useGSAP, ScrollTrigger, attachScrollReveal } from "@/lib/gsap";
 
@@ -132,18 +133,19 @@ export default function Services({ variant = "full" }: ServicesProps) {
     >
       <div className="mx-auto max-w-7xl">
         {isTeaser && (
-          <Reveal>
-            <div className="mb-10 flex flex-col gap-4 md:mb-14 md:flex-row md:items-end md:justify-between">
-              <div>
+          <div className="mb-10 flex flex-col gap-4 md:mb-14 md:flex-row md:items-end md:justify-between">
+            <div>
+              <Reveal>
                 <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
                   {t("label")}
                 </p>
-                <h2 className="text-3xl font-bold tracking-tight md:text-5xl">
-                  {t("title")}
-                </h2>
-              </div>
+              </Reveal>
+              <WordReveal
+                text={t("title")}
+                className="text-3xl font-bold tracking-tight md:text-5xl"
+              />
             </div>
-          </Reveal>
+          </div>
         )}
 
         <div ref={listRef} className="space-y-3">
@@ -243,10 +245,15 @@ export default function Services({ variant = "full" }: ServicesProps) {
             <Magnetic strength={0.3}>
               <Link
                 href="/services"
-                className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-ink"
+                className="group inline-flex min-h-11 items-center gap-2 text-sm font-bold text-ink"
               >
-                {t("seeAll")}
-                <span aria-hidden>→</span>
+                <span className="link-underline">{t("seeAll")}</span>
+                <span
+                  aria-hidden
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                >
+                  →
+                </span>
               </Link>
             </Magnetic>
           </div>

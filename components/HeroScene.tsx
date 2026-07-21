@@ -162,12 +162,20 @@ function GlassM({
   useEffect(() => () => geometry.dispose(), [geometry]);
 
   const mesh = useRef<THREE.Mesh>(null);
+  const intro = useRef(0);
   const { viewport } = useThree();
   const scale = Math.min(viewport.width, viewport.height) * (lite ? 0.26 : 0.23);
 
-  useFrame((state) => {
+  useFrame((state, delta) => {
     const parent = mesh.current;
     if (!parent || reduced) return;
+
+    // Giriş — ilk ~1sn'de yumuşak ölçek + oturma
+    if (intro.current < 1) {
+      intro.current = Math.min(1, intro.current + delta * 1.15);
+      const e = 1 - Math.pow(1 - intro.current, 3); // easeOutCubic
+      parent.scale.setScalar(scale * (0.86 + 0.14 * e));
+    }
 
     const t = state.clock.elapsedTime;
     parent.rotation.y = Math.sin(t * (lite ? 0.3 : 0.38)) * (lite ? 0.4 : 0.62);
@@ -202,15 +210,15 @@ function GlassM({
       frustumCulled={false}
     >
       <MeshTransmissionMaterial
-        samples={lite ? 4 : 6}
-        resolution={lite ? 320 : 512}
+        samples={lite ? 5 : 10}
+        resolution={lite ? 384 : 640}
         transmission={1}
         thickness={lite ? 0.5 : 0.65}
-        roughness={dark ? 0.16 : 0.12}
+        roughness={dark ? 0.14 : 0.1}
         metalness={dark ? 0.14 : 0.08}
         ior={1.4}
-        chromaticAberration={lite ? 0.02 : 0.035}
-        anisotropicBlur={0.06}
+        chromaticAberration={lite ? 0.02 : 0.04}
+        anisotropicBlur={lite ? 0.06 : 0.1}
         distortion={0}
         temporalDistortion={0}
         clearcoat={0.75}

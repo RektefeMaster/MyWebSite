@@ -196,7 +196,7 @@ export default function Contact() {
             <Magnetic strength={0.25} className="mt-6 block">
               <button
                 type="submit"
-                className="w-full min-h-12 rounded-full bg-lime py-3.5 text-sm font-bold text-on-lime transition-transform active:scale-[0.99]"
+                className="btn-sheen w-full min-h-12 rounded-full bg-lime py-3.5 text-sm font-bold text-on-lime transition-transform active:scale-[0.99]"
               >
                 {t("send")}
               </button>

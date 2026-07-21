@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import Reveal from "./Reveal";
+import WordReveal from "./WordReveal";
 
 /** Sahte referans yerine çalışma ilkeleri */
 export default function WorkingPrinciples() {
@@ -14,16 +15,17 @@ export default function WorkingPrinciples() {
       className="scroll-mt-[var(--nav-offset)] bg-paper px-5 py-16 md:px-10 md:py-28"
     >
       <div className="mx-auto max-w-7xl">
-        <Reveal>
-          <div className="mb-14 max-w-2xl md:mb-16">
+        <div className="mb-14 max-w-2xl md:mb-16">
+          <Reveal>
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
               {t("label")}
             </p>
-            <h2 className="text-5xl font-bold tracking-tight md:text-7xl">
-              {t("title")}
-            </h2>
-          </div>
-        </Reveal>
+          </Reveal>
+          <WordReveal
+            text={t("title")}
+            className="text-5xl font-bold tracking-tight md:text-7xl"
+          />
+        </div>
 
         <div className="grid gap-3 md:grid-cols-2">
           {items.map((item, i) => (

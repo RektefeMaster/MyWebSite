@@ -511,3 +511,223 @@ html::-webkit-scrollbar-thumb {
     animation-duration: 40s;
   }
 }
+
+/* ─────────────────────────────────────────────
+   Craft layer — seçim, bağlantı, buton, imleç,
+   hero atmosferi ve başlık reveal yardımcıları
+   ───────────────────────────────────────────── */
+
+/* Metin seçimi — marka lime */
+::selection {
+  background: color-mix(in srgb, var(--lime) 82%, transparent);
+  color: var(--on-lime);
+}
+
+/* Tutarlı odak halkası (klavye) */
+:where(a, button, [role="button"], input, textarea, select, summary):focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--lime) 85%, var(--foreground));
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Animasyonlu alt çizgi — metin bağlantıları için */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1.5px;
+  transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  padding-bottom: 1px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link-underline:hover,
+  .group:hover .link-underline,
+  a:hover > .link-underline {
+    background-size: 100% 1.5px;
+  }
+}
+
+/* Buton parlaması — birincil CTA'lar üzerinde ışık geçişi */
+.btn-sheen {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    color-mix(in srgb, #fff 45%, transparent) 48%,
+    transparent 62%
+  );
+  transform: translateX(-130%);
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-sheen:hover::after {
+    transform: translateX(130%);
+    transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+/* ── Hero atmosferi ── */
+
+/* İnce film greni — her iki temada */
+.hero-grain {
+  position: absolute;
+  /* Yalnızca ±4% kayma için gereken taşma — daha az harmanlanan alan */
+  inset: -14%;
+  pointer-events: none;
+  opacity: 0.42;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-shift 7s steps(6) infinite;
+  will-change: transform;
+}
+
+.dark .hero-grain {
+  opacity: 0.3;
+  mix-blend-mode: overlay;
+}
+
+@keyframes grain-shift {
+  0% { transform: translate3d(0, 0, 0); }
+  20% { transform: translate3d(-4%, 3%, 0); }
+  40% { transform: translate3d(3%, -4%, 0); }
+  60% { transform: translate3d(-3%, 2%, 0); }
+  80% { transform: translate3d(4%, -2%, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+/* Kenar karartma — sinematik derinlik */
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    120% 100% at 50% 42%,
+    transparent 52%,
+    color-mix(in srgb, #000 22%, transparent) 100%
+  );
+}
+
+.dark .hero-vignette {
+  background: radial-gradient(
+    120% 100% at 50% 42%,
+    transparent 46%,
+    color-mix(in srgb, #000 55%, transparent) 100%
+  );
+}
+
+/* Yavaş dönen yumuşak ışık — sahneye canlılık */
+.hero-glow {
+  position: absolute;
+  pointer-events: none;
+  width: 62vmax;
+  height: 62vmax;
+  left: 50%;
+  top: 42%;
+  translate: -50% -50%;
+  border-radius: 999px;
+  filter: blur(64px);
+  opacity: 0.32;
+  mix-blend-mode: screen;
+  background: radial-gradient(
+    circle at 50% 50%,
+    color-mix(in srgb, var(--lime) 26%, transparent) 0%,
+    transparent 62%
+  );
+  animation: hero-glow-drift 14s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.dark .hero-glow {
+  opacity: 0.45;
+}
+
+/* Hero görüş dışındayken atmosfer animasyonlarını duraklat — boşa
+   harmanlama/blur kompozit maliyeti olmasın (görsel değişmez) */
+[data-atmosphere-idle="true"] .hero-grain,
+[data-atmosphere-idle="true"] .hero-glow {
+  animation-play-state: paused;
+}
+
+@keyframes hero-glow-drift {
+  0% { transform: translate3d(-8%, -4%, 0) scale(1); }
+  100% { transform: translate3d(10%, 6%, 0) scale(1.12); }
+}
+
+/* ── Başlık reveal (WordReveal) ── */
+.word-reveal-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-block: 0.12em;
+  margin-block: -0.12em;
+}
+
+.word-reveal-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* ─────────────────────────────────────────────
+   Sinematik intro — ilk yükleme perdesi
+   ───────────────────────────────────────────── */
+.intro-root {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #0d0c0b;
+  color: #f4f2ec;
+  overflow: hidden;
+  will-change: transform;
+  /* Failsafe: JS çalışmazsa perde kilitli kalmasın */
+  animation: intro-failsafe 0.6s ease 4.6s forwards;
+}
+
+/* İlk boyamadan itibaren gizle — dönen ziyaretçi / reduced-motion */
+:root[data-intro="skip"] .intro-root {
+  display: none;
+}
+
+@keyframes intro-failsafe {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* Kilit: overflow:hidden KULLANMA — scrollbar'ı kaldırıp 10px reflow/zıplama
+   yaratıyor. Scroll'u event ile engelliyoruz (Intro.tsx); burada sadece
+   dokunmatik kaydırmayı kesiyoruz. Böylece layout genişliği sabit kalır. */
+html.intro-lock {
+  touch-action: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-grain,
+  .hero-glow {
+    animation: none;
+  }
+
+  .btn-sheen::after {
+    display: none;
+  }
+
+  .intro-root {
+    display: none;
+  }
+}
