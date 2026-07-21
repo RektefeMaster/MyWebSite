@@ -1,56 +1,42 @@
 "use client";
 
-import { useRef } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import Reveal from "./Reveal";
 import Magnetic from "./Magnetic";
-import { gsap, useGSAP } from "@/lib/gsap";
 
-/** Tek vaka — sticky anlatı + renkli sahne */
+const FEATURED_SHOTS = [
+  {
+    src: "/projects/wcc/featured/01-hero.jpg",
+    alt: "Wholesale Cabinet Creations — ana sayfa",
+    span: "col-span-4 row-span-2 min-h-[240px] md:min-h-[340px]",
+  },
+  {
+    src: "/projects/wcc/featured/02-kitchen.jpg",
+    alt: "Wholesale Cabinet Creations — mutfak dolapları",
+    span: "col-span-2 min-h-[140px] md:min-h-[164px]",
+  },
+  {
+    src: "/projects/wcc/featured/03-projects.jpg",
+    alt: "Wholesale Cabinet Creations — proje galerisi",
+    span: "col-span-2 min-h-[140px] md:min-h-[164px]",
+  },
+  {
+    src: "/projects/wcc/featured/04-brands.jpg",
+    alt: "Wholesale Cabinet Creations — markalar",
+    span: "col-span-6 min-h-[140px] md:min-h-[180px]",
+  },
+] as const;
+
+/** Tek vaka — sticky anlatı + site görselleri */
 export default function FeaturedCase() {
   const t = useTranslations("featured");
   const outcomes = t.raw("outcomes") as string[];
-  const sceneRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(
-    () => {
-      const scene = sceneRef.current;
-      if (!scene) return;
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-      const orbs = scene.querySelectorAll("[data-orb]");
-      gsap.to(orbs[0] ?? null, {
-        y: 24,
-        x: -12,
-        duration: 4.5,
-        ease: "sine.inOut",
-        yoyo: true,
-        repeat: -1,
-      });
-      gsap.to(orbs[1] ?? null, {
-        y: -18,
-        x: 16,
-        duration: 5.2,
-        ease: "sine.inOut",
-        yoyo: true,
-        repeat: -1,
-        delay: 0.4,
-      });
-      gsap.to(orbs[2] ?? null, {
-        rotate: 12,
-        duration: 7,
-        ease: "sine.inOut",
-        yoyo: true,
-        repeat: -1,
-      });
-    },
-    { scope: sceneRef }
-  );
 
   return (
     <section
       id="featured"
-      className="border-t border-foreground/8 bg-paper px-5 py-14 md:px-10 md:py-24"
+      className="cv-auto border-t border-foreground/8 bg-paper px-5 py-14 md:px-10 md:py-24"
     >
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
         <div className="min-w-0 lg:sticky lg:top-40 lg:self-start">
@@ -95,33 +81,42 @@ export default function FeaturedCase() {
         </div>
 
         <Reveal from="right" y={0} className="min-w-0">
-          <div
-            ref={sceneRef}
-            className="relative aspect-[4/5] w-full min-w-0 overflow-hidden rounded-[2rem] bg-band md:aspect-square lg:min-h-[560px]"
-          >
-            <div
-              data-orb
-              className="absolute left-0 top-16 size-48 -translate-x-1/4 rounded-full bg-lime/90 blur-[2px] md:size-64"
-            />
-            <div
-              data-orb
-              className="absolute bottom-24 right-0 size-40 translate-x-1/4 rounded-full bg-lime/55 md:size-52"
-            />
-            <div
-              data-orb
-              className="absolute left-1/3 top-1/3 size-28 -rotate-6 rounded-3xl border border-band-fg/15 bg-band-fg/5 backdrop-blur-sm md:size-36"
-            />
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-foreground/8 bg-background md:rounded-[2rem]">
+            <div className="grid grid-cols-6 gap-2 p-2 md:gap-2.5 md:p-2.5">
+              {FEATURED_SHOTS.map((shot, i) => (
+                <div
+                  key={shot.src}
+                  className={`relative overflow-hidden rounded-[1rem] bg-stone md:rounded-[1.15rem] ${shot.span}`}
+                >
+                  <Image
+                    src={shot.src}
+                    alt={shot.alt}
+                    fill
+                    sizes={
+                      i === 0
+                        ? "(max-width: 1024px) 90vw, 520px"
+                        : i === 3
+                          ? "(max-width: 1024px) 90vw, 560px"
+                          : "(max-width: 1024px) 40vw, 220px"
+                    }
+                    quality={88}
+                    priority={i === 0}
+                    loading={i === 0 ? "eager" : "lazy"}
+                    decoding="async"
+                    className="object-cover object-top transition-transform duration-700 ease-out [@media(hover:hover)_and_(pointer:fine)]:hover:scale-[1.03]"
+                  />
+                </div>
+              ))}
+            </div>
 
-            <div className="absolute inset-0 bg-gradient-to-t from-band via-band/35 to-transparent" />
-
-            <div className="absolute inset-x-0 bottom-0 p-7 md:p-10">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-lime">
+            <div className="border-t border-foreground/8 px-6 py-5 md:px-8 md:py-6">
+              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-foreground/35">
                 {t("sceneLabel")}
               </p>
-              <p className="mt-3 max-w-sm text-2xl font-bold leading-tight tracking-tight text-band-fg md:text-3xl">
+              <p className="mt-2 max-w-md text-lg font-bold leading-tight tracking-tight md:text-xl">
                 {t("sceneTitle")}
               </p>
-              <p className="mt-3 max-w-sm text-sm leading-relaxed text-band-fg/55">
+              <p className="mt-2 max-w-md text-sm leading-relaxed text-foreground/50">
                 {t("sceneBody")}
               </p>
             </div>

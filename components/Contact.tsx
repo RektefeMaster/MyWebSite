@@ -72,7 +72,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="scroll-mt-[var(--nav-offset)] bg-band px-5 py-20 text-band-fg md:px-10 md:py-28"
+      className="cv-auto scroll-mt-[var(--nav-offset)] bg-band px-5 py-20 text-band-fg md:px-10 md:py-28"
     >
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <Reveal>

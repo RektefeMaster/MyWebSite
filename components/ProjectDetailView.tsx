@@ -19,6 +19,7 @@ export default async function ProjectDetailView({
   const t = await getTranslations("projectUi");
   const nav = await getTranslations("nav");
   const a11y = await getTranslations("a11y");
+  const name = detail.title ?? project.name;
 
   return (
     <article className="bg-background">
@@ -37,7 +38,7 @@ export default async function ProjectDetailView({
                 {nav("work")}
               </Link>
               <span className="text-foreground/25">/</span>
-              <span className="text-ink/70">{project.name}</span>
+              <span className="text-ink/70">{name}</span>
             </nav>
           </Reveal>
 
@@ -46,7 +47,7 @@ export default async function ProjectDetailView({
               {detail.tag}
             </p>
             <h1 className="font-display max-w-4xl text-3xl leading-[1.08] tracking-tight md:text-5xl lg:text-6xl">
-              {project.name}
+              {name}
             </h1>
             <p className="font-subtitle mt-5 max-w-2xl text-base leading-relaxed text-foreground/55 md:text-lg">
               {detail.summary}
@@ -77,12 +78,7 @@ export default async function ProjectDetailView({
 
         <div className="mx-auto max-w-7xl px-4 pb-12 md:px-10 md:pb-16">
           <Reveal delay={80}>
-            <div
-              className="project-stage relative aspect-[800/620] w-full overflow-hidden rounded-[1.75rem] px-4 py-6 md:rounded-[2rem] md:px-10 md:py-10"
-              style={{
-                backgroundImage: `radial-gradient(100% 70% at 28% 18%, ${project.colors[1]}28 0%, transparent 50%), var(--project-stage-gradient)`,
-              }}
-            >
+            <div className="relative aspect-[800/620] w-full md:aspect-[16/10]">
               <DeviceMockup project={project} variant="hero" priority />
             </div>
           </Reveal>

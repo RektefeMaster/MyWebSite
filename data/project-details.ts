@@ -1,4 +1,6 @@
 export type ProjectDetail = {
+  /** Kart / detay başlığı; yoksa projects.ts name kullanılır */
+  title?: string;
   tag: string;
   summary: string;
   whatTitle: string;
@@ -16,7 +18,7 @@ export const projectDetails: ProjectDetailsByLocale = {
     wcc: {
       tag: "Kurumsal web",
       summary:
-        "ABD merkezli bir mobilya markası için yüksek performanslı, SEO odaklı ve görsel olarak premium bir kurumsal web deneyimi.",
+        "ABD merkezli bir mobilya markası için yüksek performanslı, SEO odaklı ve görsel olarak seçkin bir kurumsal web deneyimi.",
       whatTitle: "Ne yaptık?",
       what: [
         "Markanın üretim kalitesini yansıtan özgün arayüz ve animasyonlar.",
@@ -27,12 +29,12 @@ export const projectDetails: ProjectDetailsByLocale = {
       howTitle: "Nasıl çalışıyor?",
       how: [
         "Ziyaretçi ürün ve hizmetleri net bir hiyerarşiyle gezer.",
-        "CTA’lar teklif formuna veya iletişime yönlendirir.",
+        "Eylem butonları teklif formuna veya iletişime yönlendirir.",
         "İçerik paneli üzerinden sayfalar ve medya güncellenir.",
         "SEO ve performans ayarları yayın öncesi optimize edilir.",
       ],
-      stack: ["Next.js", "UI/UX", "SEO", "CMS", "Performans"],
-      result: "Canlı site: premium algı, mobil performans ve yönetilebilir içerik.",
+      stack: ["React", "Vite", "TypeScript"],
+      result: "Canlı site: seçkin algı, mobil performans ve yönetilebilir içerik.",
     },
     aydnnacar: {
       tag: "Marka & e-katalog",
@@ -43,7 +45,7 @@ export const projectDetails: ProjectDetailsByLocale = {
         "Markaya özel tipografi ve sakin renk dili.",
         "Salon, yemek, yatak koleksiyonlarını öne çıkaran slider ve katalog.",
         "Ürün detayına giden net gezinme ve iletişim yolları.",
-        "Mobilde de bozulmayan premium sunum.",
+        "Mobilde de bozulmayan seçkin sunum.",
       ],
       howTitle: "Nasıl çalışıyor?",
       how: [
@@ -52,7 +54,7 @@ export const projectDetails: ProjectDetailsByLocale = {
         "Ölçü, kumaş ve teslimat için iletişim adımına yönlendirilir.",
         "İçerik güncellemeleri koleksiyon yapısı üzerinden ölçeklenir.",
       ],
-      stack: ["Next.js", "Editoryal UI", "Katalog", "Responsive"],
+      stack: ["Next.js", "React", "TypeScript"],
     },
     wuffbutik: {
       tag: "Butik web",
@@ -62,7 +64,7 @@ export const projectDetails: ProjectDetailsByLocale = {
       what: [
         "Butik kimliğine uygun tipografi ve görsel dil.",
         "Koleksiyon, çizgiler ve iletişim odaklı net bilgi mimarisi.",
-        "WhatsApp / mesaj CTA’larıyla hızlı dönüşüm yolu.",
+        "WhatsApp / mesaj butonlarıyla hızlı dönüşüm yolu.",
         "Hafif, hızlı ve mobilde akıcı arayüz.",
       ],
       howTitle: "Nasıl çalışıyor?",
@@ -72,7 +74,7 @@ export const projectDetails: ProjectDetailsByLocale = {
         "Mesaj butonu ile doğrudan iletişime düşer.",
         "İçerik sade tutulduğu için güncelleme ve bakım kolaydır.",
       ],
-      stack: ["Next.js", "Marka UI", "CTA akışı", "Mobil öncelik"],
+      stack: ["Next.js", "React", "TypeScript"],
     },
     "altitude-residence": {
       tag: "Lüks gayrimenkul",
@@ -82,27 +84,27 @@ export const projectDetails: ProjectDetailsByLocale = {
       what: [
         "Ultra-lüks markaya özel tipografi, görsel dil ve sinematik hero.",
         "Rezidans hikâyesini yükseklik / ritim metaforuyla anlatan sayfa akışı.",
-        "Arrange a viewing CTA’sıyla net randevu ve satış yolu.",
-        "Masaüstü ve mobilde bozulmayan premium sunum.",
+        "“Görüntüleme randevusu” butonuyla net randevu ve satış yolu.",
+        "Masaüstü ve mobilde bozulmayan seçkin sunum.",
       ],
       howTitle: "Nasıl çalışıyor?",
       how: [
         "İlk ekran markayı ve yaşam vaadini editoryal bir karede kurar.",
         "Ziyaretçi rezidansları ve konum hikâyesini gezer.",
-        "CTA doğrudan görüntüleme / iletişim adımına yönlendirir.",
+        "Buton doğrudan görüntüleme / iletişim adımına yönlendirir.",
         "İçerik ve medya markanın lüks tonunu koruyarak güncellenir.",
       ],
-      stack: ["Next.js", "Luxury UI", "Motion", "Conversion"],
-      result: "Canlı site: premium algı, net randevu yolu, mobil uyum.",
+      stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
+      result: "Canlı site: seçkin algı, net randevu yolu, mobil uyum.",
     },
     "casa-aurelia": {
       tag: "Butik otel",
       summary:
-        "Roma’da beş yıldızlı butik otel Casa Aurelia için sakin, atmosferik bir rezervasyon vitrini — Eng/Ita dil desteğiyle.",
+        "Roma’da beş yıldızlı butik otel Casa Aurelia için sakin, atmosferik bir rezervasyon vitrini — İngilizce ve İtalyanca dil desteğiyle.",
       whatTitle: "Ne yaptık?",
       what: [
         "Otelin karakterini yansıtan sinematik hero ve tipografi.",
-        "Book now odaklı net rezervasyon / iletişim akışı.",
+        "Rezervasyon odaklı net iletişim akışı.",
         "İngilizce ve İtalyanca dil seçimi.",
         "Mobilde de bozulmayan lüks sunum.",
       ],
@@ -110,77 +112,88 @@ export const projectDetails: ProjectDetailsByLocale = {
       how: [
         "İlk ekran markayı ve Roma konumunu tek kompozisyonda anlatır.",
         "Ziyaretçi otel hikâyesini ve odaları gezer.",
-        "Book now CTA’sı rezervasyon / iletişime düşer.",
-        "Dil anahtarıyla içerik Eng ↔ Ita arasında geçer.",
+        "Rezervasyon butonu rezervasyon / iletişime düşer.",
+        "Dil anahtarıyla içerik İngilizce ↔ İtalyanca arasında geçer.",
       ],
-      stack: ["Next.js", "Hospitality UI", "i18n", "Booking CTA"],
+      stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
       result: "Canlı site: butik otel algısı, dil desteği, net rezervasyon yolu.",
     },
     "whatsapp-bot": {
+      title: "WhatsApp Sohbet Asistanı",
       tag: "Otomasyon",
       summary:
-        "WhatsApp üzerinden 7/24 yanıt veren, lead toplayan ve randevu yönlendiren akıllı sohbet botu.",
+        "Telefona bakmanıza gerek kalmadan WhatsApp’tan gelen müşteriyle sizin yerinize konuşur. Fiyatlarınızı ve hizmetlerinizi bilir. Randevu olmayan boş saatleri bilir, gelenleri oraya yönlendirir. Dolu saatleri de bilir, randevuları ona göre alır. İptal olunca boş kalan saati de bilir. Randevu saatinden 1 saat önce sahibine bildirim gider — son dakika iptallerinin önüne geçer. Soruları cevaplar, sizin gibi konuşur.",
       whatTitle: "Ne yaptık?",
       what: [
-        "Hazır diyalog akışları: karşılama, paket seçimi, randevu.",
-        "Lead bilgisi (ihtiyaç, bütçe) otomatik toplanır.",
-        "Canlı panelden sohbet ve bot durumu izlenir.",
-        "Yanıt süresi saniyelere iner, gece de çalışır.",
+        "Fiyatlarınızı ve hizmetlerinizi bota yazdık; müşteri sorduğunda uydurmaz, sizin söylediğinizle cevaplar.",
+        "Boş saatleri bilir: o saatte randevu yoksa müşteriyi oraya yönlendirir.",
+        "Dolu saatleri bilir: o saatte zaten biri varsa yeni randevuyu oraya koymaz.",
+        "İptal edilince boş kalan saati de bilir; yeni müşteriye o saati açar.",
+        "Randevu saatinden 1 saat önce sahibine bildirim gönderir — unutma ve son dakika iptali azalır.",
+        "Soru sorar, sorulara cevap verir; yetişemediği yerde size haber verir.",
       ],
       howTitle: "Nasıl çalışıyor?",
       how: [
-        "Müşteri WhatsApp’tan yazar; bot intent’i anlar.",
-        "Hazır menülerle doğru pakete veya bilgiye yönlendirir.",
-        "Uygun lead’ler CRM’e veya size bildirim olarak düşer.",
-        "İsterseniz insan desteğe sorunsuz devredilir.",
+        "Müşteri WhatsApp’tan yazar. Bot sizin gibi karşılar, ne istediğini sorar.",
+        "Fiyatı ve hizmeti anlatır. Boş saatleri gösterir, dolu olanlara dokunmaz.",
+        "Müşteri saat seçince randevu alınır. İptal ederse o saat yine boşalır.",
+        "Saatten 1 saat önce hatırlatma gider. İsterseniz her şey CRM paneline düşer.",
       ],
-      stack: ["WhatsApp API", "Flow builder", "Lead capture", "Bildirimler"],
-      result: "İlk yanıt ort. saniyeler; kayıp mesaj azalır.",
+      stack: ["WhatsApp Cloud API", "n8n", "Python", "PostgreSQL"],
+      result:
+        "Telefona yapışmadan iş yürür. Boş saatler dolar, dolu saatler çakışmaz, iptaller düzgün işler, 1 saat kala hatırlatma gider.",
     },
     "instagram-bot": {
+      title: "Instagram DM Asistanı",
       tag: "Otomasyon",
       summary:
-        "Instagram DM’lerini sınıflandıran, sık sorulara otomatik yanıt veren ve sıcak lead’leri ayıran bot.",
+        "Instagram DM’de de aynı iş. Telefona bakmadan müşteriyle sizin gibi konuşur. Fiyat ve hizmetlerinizi bilir. Boş saatleri bilir, gelen randevuları oraya yönlendirir. Dolu saatleri bilir, ona göre alır. İptal olunca boş kalan saati de bilir. Saatten 1 saat önce randevu sahibine bildirim gider. Soru sorar, cevaplar.",
       whatTitle: "Ne yaptık?",
       what: [
-        "DM inbox + otomatik yanıt motoru.",
-        "Satış, destek, işbirliği gibi intent etiketleri.",
-        "Şablon mesajlar ve ürün/bilgi kartları.",
-        "CRM’e lead aktarımı.",
+        "DM’ye yazanın karşısına sizin adınıza çıkan sohbet kurduk.",
+        "Fiyat ve hizmet cevapları WhatsApp’takiyle aynı — iki yerde farklı şey söylemez.",
+        "Boş saatleri bilir, randevuyu oraya alır. Dolu saatlere koymaz.",
+        "İptal olunca boş kalan saati açar. Saatten 1 saat önce hatırlatma gönderir.",
+        "Botun yetmediği konuşmaları size veya CRM’e iletir.",
       ],
       howTitle: "Nasıl çalışıyor?",
       how: [
-        "Gelen DM bot tarafından okunur ve etiketlenir.",
-        "Sık sorulara anında şablon yanıt gider.",
-        "Satın alma niyeti yüksek olanlar size iletilir.",
-        "Panelden konuşmalar ve kurallar yönetilir.",
+        "Birisi Instagram’dan DM atar. Bot karşılar, gerekirse soru sorar, fiyatı anlatır.",
+        "Randevu isteyince boş saatleri gösterir, doluları göstermez. Seçilen saat kaydolur.",
+        "İptal olursa o saat yine boşalır. Saatten 1 saat önce hatırlatma gider.",
+        "WhatsApp asistanıyla aynı takvimi kullanır; isterseniz CRM’de birleşir.",
       ],
-      stack: ["Instagram Messaging", "Intent", "Şablonlar", "CRM sync"],
+      stack: ["Instagram Graph API", "n8n", "Python", "Supabase"],
+      result:
+        "Instagram DM’si dağılmaz: sorular cevaplanır, randevular boş saatlere yazılır, 1 saat kala hatırlatma gider — telefona bakmadan.",
     },
     crm: {
+      title: "CRM Satış Paneli",
       tag: "Yazılım",
       summary:
-        "Satış pipeline’ını, kişileri ve görevleri tek panelde toplayan sade ve hızlı bir CRM.",
+        "WhatsApp ve Instagram asistanlarıyla birlikte çalışan panel. Botların konuştuğu müşteriler, aldığı randevular, iptaller ve notlar tek yerde. Kim ne zaman gelecek, hangi saat boş, hangi saat dolu, WhatsApp’tan mı Instagram’dan mı geldi — hepsi orada görünür.",
       whatTitle: "Ne yaptık?",
       what: [
-        "Kanban satış pipeline’ı (yeni → görüşme → teklif → kazanıldı).",
-        "KPI kartları: açık fırsat, ciro, kazanma oranı.",
-        "Kişi, görev ve entegrasyon yapısına hazır iskelet.",
-        "WhatsApp / form lead’leriyle bağlanabilir yapı.",
+        "Satışın adım adım ilerlediği sade bir panel kurduk.",
+        "WhatsApp ve Instagram botlarını bağladık: randevu alınca kart kendiliğinden açılır.",
+        "Kartta kanal, saat, boş/dolu durumu, notlar ve konuşma özeti durur.",
+        "Bugün kim gelecek, kim iptal etti, hangi saatler boş — hepsi panelden okunur.",
       ],
       howTitle: "Nasıl çalışıyor?",
       how: [
-        "Yeni lead kart olarak pipeline’a düşer.",
-        "Ekip kartı aşamalar arasında sürükler / günceller.",
-        "Teklif ve kazanılan işler raporlanır.",
-        "Bildirimler ve otomasyonlarla takip kaçmaz.",
+        "Bot boş bir saate randevu yazınca panelde kart oluşur — telefonda olmasanız bile.",
+        "Kartı ilerletir, not ekler, kime ait olduğunu seçersiniz. WhatsApp veya Instagram özeti aynı müşteride kalır.",
+        "İptal olunca o saat yine boşalır; panel de güncellenir.",
+        "İki bot ayrı yerde konuşur, CRM’de her şey tek listede toplanır.",
       ],
-      stack: ["Dashboard", "Pipeline", "Raporlama", "Entegrasyon"],
+      stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
+      result:
+        "Botlar konuşur, boş saatleri doldurur, 1 saat kala hatırlatır; CRM hepsini bir yerde tutar. Siz yokken sistem dolmaya devam eder.",
     },
     "css-system": {
       tag: "Tasarım sistemi",
       summary:
-        "Markaya özel renk, tipografi, bileşen ve spacing token’larıyla tutarlı arayüz üreten CSS design system.",
+        "Markaya özel renk, tipografi, bileşen ve boşluk kurallarıyla tutarlı arayüz üreten CSS tasarım sistemi.",
       whatTitle: "Ne yaptık?",
       what: [
         "Color, type, radius ve spacing token’ları.",
@@ -195,7 +208,7 @@ export const projectDetails: ProjectDetailsByLocale = {
         "Yeni sayfa eklerken stil dağılmaz, hız artar.",
         "Marka güncellemesi tek noktadan yayılır.",
       ],
-      stack: ["Design tokens", "CSS", "UI Kit", "Docs"],
+      stack: ["CSS Custom Properties", "Design Tokens"],
     },
   },
   en: {
@@ -217,7 +230,7 @@ export const projectDetails: ProjectDetailsByLocale = {
         "Pages and media update from the admin panel.",
         "SEO and performance are tuned before launch.",
       ],
-      stack: ["Next.js", "UI/UX", "SEO", "CMS", "Performance"],
+      stack: ["React", "Vite", "TypeScript"],
     },
     aydnnacar: {
       tag: "Brand & catalogue",
@@ -237,7 +250,7 @@ export const projectDetails: ProjectDetailsByLocale = {
         "Size, fabric, and delivery go through contact.",
         "Content scales through the collection structure.",
       ],
-      stack: ["Next.js", "Editorial UI", "Catalogue", "Responsive"],
+      stack: ["Next.js", "React", "TypeScript"],
     },
     wuffbutik: {
       tag: "Boutique web",
@@ -257,7 +270,7 @@ export const projectDetails: ProjectDetailsByLocale = {
         "Message CTA opens direct chat.",
         "Lean content keeps updates easy.",
       ],
-      stack: ["Next.js", "Brand UI", "CTA flow", "Mobile-first"],
+      stack: ["Next.js", "React", "TypeScript"],
     },
     "altitude-residence": {
       tag: "Luxury real estate",
@@ -277,7 +290,7 @@ export const projectDetails: ProjectDetailsByLocale = {
         "CTA routes to viewing / contact.",
         "Content stays true to the luxury tone.",
       ],
-      stack: ["Next.js", "Luxury UI", "Motion", "Conversion"],
+      stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
       result: "Live site: premium feel, clear viewing path, mobile polish.",
     },
     "casa-aurelia": {
@@ -298,68 +311,80 @@ export const projectDetails: ProjectDetailsByLocale = {
         "Book now CTA leads to reservation / contact.",
         "Language toggle switches Eng ↔ Ita content.",
       ],
-      stack: ["Next.js", "Hospitality UI", "i18n", "Booking CTA"],
+      stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
       result: "Live site: boutique-hotel feel, bilingual, clear booking path.",
     },
     "whatsapp-bot": {
+      title: "WhatsApp Conversation Assistant",
       tag: "Automation",
       summary:
-        "A WhatsApp bot that replies 24/7, captures leads, and routes appointments.",
+        "Talks to WhatsApp customers for you so you don’t have to watch your phone. Knows your prices and services. Knows free hours with no appointment and directs people there. Knows busy hours and books around them. Knows when a cancel frees a slot again. Sends a reminder 1 hour before to the appointment holder — cuts last-minute no-shows. Asks and answers questions, talks like you.",
       whatTitle: "What we built",
       what: [
-        "Dialog flows: welcome, packages, booking.",
-        "Automatic capture of need and budget.",
-        "Live panel for chats and bot status.",
-        "First reply in seconds, even at night.",
+        "Your prices and services are in the bot — it doesn’t make numbers up.",
+        "It knows free hours: if nothing is booked, it sends people there.",
+        "It knows busy hours: if someone already has that slot, it won’t double-book.",
+        "When someone cancels, it knows that hour is free again and can offer it.",
+        "1 hour before the appointment it notifies the holder — fewer last-minute cancels.",
+        "It asks and answers questions; harder cases go to you.",
       ],
       howTitle: "How it works",
       how: [
-        "Customer messages WhatsApp; bot reads intent.",
-        "Menus guide to the right package or info.",
-        "Qualified leads notify you or land in CRM.",
-        "Handoff to a human when needed.",
+        "Customer messages WhatsApp. Bot greets like you and asks what they need.",
+        "It explains price and service. Shows free hours, skips busy ones.",
+        "They pick a time, it’s booked. Cancel and that hour opens again.",
+        "Reminder goes out 1 hour before. Optionally everything lands in CRM.",
       ],
-      stack: ["WhatsApp API", "Flow builder", "Lead capture", "Alerts"],
+      stack: ["WhatsApp Cloud API", "n8n", "Python", "PostgreSQL"],
+      result:
+        "Work keeps moving without you on the phone. Free hours fill, busy ones don’t clash, cancels free slots cleanly, reminder goes out 1 hour before.",
     },
     "instagram-bot": {
+      title: "Instagram DM Assistant",
       tag: "Automation",
       summary:
-        "An Instagram DM bot that classifies messages, auto-replies FAQs, and flags hot leads.",
+        "Same thing in Instagram DMs. Talks like you without watching your phone. Knows prices and services. Knows free hours and sends bookings there. Knows busy hours and books around them. Knows when a cancel frees a slot. Reminder 1 hour before. Asks and answers questions.",
       whatTitle: "What we built",
       what: [
-        "DM inbox plus auto-reply engine.",
-        "Intent tags: sales, support, collab.",
-        "Templates and info cards.",
-        "Lead sync to CRM.",
+        "Chat that greets DMs in your name.",
+        "Same prices and services as WhatsApp — no mismatch between channels.",
+        "Knows free hours and books there. Won’t put people on busy hours.",
+        "Cancel frees the hour. Reminder 1 hour before.",
+        "Hard chats go to you or CRM.",
       ],
       howTitle: "How it works",
       how: [
-        "Incoming DMs are read and tagged.",
-        "FAQs get instant template replies.",
-        "High-intent chats are escalated to you.",
-        "Rules and threads are managed in the panel.",
+        "Someone DMs. Bot greets, asks if needed, explains prices.",
+        "For booking it shows free hours, not busy ones. Chosen time is saved.",
+        "Cancel opens that hour again. Reminder 1 hour before.",
+        "Same calendar as WhatsApp; can merge in CRM.",
       ],
-      stack: ["Instagram Messaging", "Intent", "Templates", "CRM sync"],
+      stack: ["Instagram Graph API", "n8n", "Python", "Supabase"],
+      result:
+        "DM inbox stays tidy: questions answered, bookings on free hours, reminder 1 hour before — without watching your phone.",
     },
     crm: {
+      title: "CRM Sales Panel",
       tag: "Software",
       summary:
-        "A lean CRM that keeps pipeline, contacts, and tasks in one panel.",
+        "Panel that works with the WhatsApp and Instagram assistants. Customers the bots talked to, appointments, cancels, and notes in one place. Who’s coming when, which hours are free or busy, WhatsApp or Instagram — all there.",
       whatTitle: "What we built",
       what: [
-        "Kanban pipeline: new → meeting → proposal → won.",
-        "KPI cards for opportunities, revenue, win rate.",
-        "Ready structure for contacts, tasks, integrations.",
-        "Connectable to WhatsApp and form leads.",
+        "A plain sales panel that moves step by step.",
+        "WhatsApp and Instagram bots linked: booking opens a card on its own.",
+        "Card shows channel, time, free/busy, notes, and chat summary.",
+        "Who’s coming today, who cancelled, what’s still free — readable on the panel.",
       ],
       howTitle: "How it works",
       how: [
-        "New leads become cards on the board.",
-        "Team moves cards across stages.",
-        "Proposals and wins are reported.",
-        "Alerts keep follow-ups from slipping.",
+        "Bot books a free hour → card appears, even if you’re not on the phone.",
+        "You move the card, add notes, assign owner. WhatsApp or Instagram summary stays on the same customer.",
+        "Cancel frees the hour; panel updates too.",
+        "Two bots talk in different places; CRM keeps one list.",
       ],
-      stack: ["Dashboard", "Pipeline", "Reporting", "Integrations"],
+      stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
+      result:
+        "Bots talk, fill free hours, remind 1 hour before; CRM keeps it all in one place. While you’re away, the system keeps filling.",
     },
     "css-system": {
       tag: "Design system",
@@ -379,7 +404,7 @@ export const projectDetails: ProjectDetailsByLocale = {
         "New pages stay consistent and ship faster.",
         "Brand updates propagate from one place.",
       ],
-      stack: ["Design tokens", "CSS", "UI Kit", "Docs"],
+      stack: ["CSS Custom Properties", "Design Tokens"],
     },
   },
 };
@@ -392,7 +417,7 @@ projectDetails.es = {
   wcc: {
     tag: "Web corporativa",
     summary:
-      "Sitio corporativo premium, rápido y preparado para SEO para una marca de mobiliario en EE. UU.",
+      "Sitio corporativo de alto nivel, rápido y preparado para SEO para una marca de mobiliario en EE. UU.",
     whatTitle: "Qué hicimos",
     what: [
       "UI y motion a medida que reflejan calidad de fabricación.",
@@ -403,11 +428,11 @@ projectDetails.es = {
     howTitle: "Cómo funciona",
     how: [
       "El visitante recorre productos y servicios con jerarquía clara.",
-      "Los CTA llevan a presupuesto o contacto.",
+      "Los botones llevan a presupuesto o contacto.",
       "Páginas y medios se actualizan desde el panel.",
       "SEO y rendimiento se optimizan antes del lanzamiento.",
     ],
-    stack: ["Next.js", "UI/UX", "SEO", "CMS", "Rendimiento"],
+    stack: ["React", "Vite", "TypeScript"],
   },
   aydnnacar: {
     tag: "Marca y catálogo",
@@ -418,7 +443,7 @@ projectDetails.es = {
       "Tipografía y color propios de la marca.",
       "Slider de colecciones y catálogo de productos.",
       "Rutas claras a detalle y contacto.",
-      "Presentación premium en móvil.",
+      "Presentación cuidada en móvil.",
     ],
     howTitle: "Cómo funciona",
     how: [
@@ -427,7 +452,7 @@ projectDetails.es = {
       "Medida, tela y entrega van por contacto.",
       "El contenido escala con la estructura de colecciones.",
     ],
-    stack: ["Next.js", "UI editorial", "Catálogo", "Responsive"],
+    stack: ["Next.js", "React", "TypeScript"],
   },
   wuffbutik: {
     tag: "Web boutique",
@@ -437,17 +462,17 @@ projectDetails.es = {
     what: [
       "Lenguaje visual acorde a la boutique.",
       "Arquitectura clara de colecciones y contacto.",
-      "CTA de mensaje para conversión rápida.",
+      "Botón de mensaje para conversión rápida.",
       "UI ligera y rápida en móvil.",
     ],
     howTitle: "Cómo funciona",
     how: [
       "La primera pantalla explica marca y vitrina.",
       "El visitante entra en las líneas de colección.",
-      "El CTA abre el chat directo.",
+      "El botón abre el chat directo.",
       "Contenido ligero = mantenimiento fácil.",
     ],
-    stack: ["Next.js", "Brand UI", "Flujo CTA", "Mobile-first"],
+    stack: ["Next.js", "React", "TypeScript"],
   },
   "altitude-residence": {
     tag: "Inmobiliaria de lujo",
@@ -457,18 +482,18 @@ projectDetails.es = {
     what: [
       "Tipografía y hero cinematográfico de ultra lujo.",
       "Flujo que cuenta la residencia con metáfora de altura y tempo.",
-      "CTA Arrange a viewing hacia cita / contacto.",
-      "Presentación premium en desktop y móvil.",
+      "Botón “Agendar visita” hacia cita / contacto.",
+      "Presentación cuidada en escritorio y móvil.",
     ],
     howTitle: "Cómo funciona",
     how: [
       "La primera pantalla fija marca y promesa de vida.",
       "El visitante explora residencias e historia de ubicación.",
-      "El CTA lleva a visita / contacto.",
+      "El botón lleva a visita / contacto.",
       "El contenido mantiene el tono de lujo.",
     ],
-    stack: ["Next.js", "Luxury UI", "Motion", "Conversion"],
-    result: "Sitio en vivo: sensación premium, ruta de visita clara, móvil pulido.",
+    stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
+    result: "Sitio en vivo: sensación cuidada, ruta de visita clara, móvil pulido.",
   },
   "casa-aurelia": {
     tag: "Hotel boutique",
@@ -477,7 +502,7 @@ projectDetails.es = {
     whatTitle: "Qué hicimos",
     what: [
       "Hero cinematográfico y tipografía acorde al hotel.",
-      "Flujo Book now hacia reserva / contacto.",
+      "Flujo de reserva hacia contacto.",
       "Selector de idioma inglés e italiano.",
       "Presentación de lujo también en móvil.",
     ],
@@ -485,72 +510,85 @@ projectDetails.es = {
     how: [
       "La primera pantalla cuenta marca y ubicación en Roma.",
       "El visitante recorre la historia del hotel y las habitaciones.",
-      "Book now lleva a reserva / contacto.",
+      "El botón de reserva lleva a reserva / contacto.",
       "El interruptor de idioma cambia Eng ↔ Ita.",
     ],
-    stack: ["Next.js", "Hospitality UI", "i18n", "Booking CTA"],
+    stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
     result: "Sitio en vivo: sensación boutique, bilingüe, ruta de reserva clara.",
   },
   "whatsapp-bot": {
-    tag: "Automatización",
+    title: "WhatsApp Gesprächsassistent",
+    tag: "Automation",
     summary:
-      "Bot de WhatsApp que responde 24/7, captura leads y agenda citas.",
-    whatTitle: "Qué hicimos",
+      "Spricht WhatsApp-Kunden für Sie, ohne dass Sie am Handy hängen. Kennt Preise und Leistungen. Kennt freie Stunden ohne Termin und schickt Leute dorthin. Kennt belegte Stunden und bucht danach. Kennt, wenn eine Absage eine Stunde wieder freimacht. Erinnert 1 Stunde vorher den Termininhaber — weniger Last-Minute-Absagen. Fragt und antwortet, spricht wie Sie.",
+    whatTitle: "Was wir gebaut haben",
     what: [
-      "Flujos: bienvenida, paquetes, cita.",
-      "Captura automática de necesidad y presupuesto.",
-      "Panel en vivo de chats y estado del bot.",
-      "Primera respuesta en segundos.",
+      "Ihre Preise und Leistungen stehen im Bot — er erfindet keine Zahlen.",
+      "Er kennt freie Stunden: ist nichts gebucht, schickt er dorthin.",
+      "Er kennt belegte Stunden: sitzt schon jemand, kommt kein zweiter Termin drauf.",
+      "Nach Absage weiß er, dass die Stunde wieder frei ist, und kann sie anbieten.",
+      "1 Stunde vor dem Termin Benachrichtigung an den Inhaber — weniger Vergessen und Last-Minute-Absagen.",
+      "Fragt und antwortet; Schwieriges geht an Sie.",
     ],
-    howTitle: "Cómo funciona",
+    howTitle: "So funktioniert es",
     how: [
-      "El cliente escribe; el bot lee la intención.",
-      "Menús guían al paquete o información correcta.",
-      "Leads cualificados avisan o van al CRM.",
-      "Se puede pasar a un humano sin fricción.",
+      "Kunde schreibt per WhatsApp. Bot begrüßt wie Sie und fragt den Bedarf.",
+      "Erklärt Preis und Leistung. Zeigt freie Stunden, lässt belegte weg.",
+      "Kunde wählt Stunde, Termin ist gebucht. Absage → Stunde wieder frei.",
+      "Erinnerung geht 1 Stunde vorher raus. Optional alles ins CRM.",
     ],
-    stack: ["WhatsApp API", "Flow builder", "Lead capture", "Alertas"],
+    stack: ["WhatsApp Cloud API", "n8n", "Python", "PostgreSQL"],
+    result:
+      "Arbeit läuft weiter ohne Handy-Zwang. Freie Stunden füllen sich, belegte kollidieren nicht, Absagen geben sauber frei, Erinnerung 1 Stunde vorher.",
   },
   "instagram-bot": {
-    tag: "Automatización",
+    title: "Instagram-DM-Assistent",
+    tag: "Automation",
     summary:
-      "Bot de Instagram DM que clasifica mensajes, responde FAQs y marca leads calientes.",
-    whatTitle: "Qué hicimos",
+      "Dasselbe in Instagram-DMs. Spricht wie Sie ohne Handy-Check. Kennt Preise und Leistungen. Kennt freie Stunden und schickt Termine dorthin. Kennt belegte und bucht danach. Kennt, wenn Absage eine Stunde freimacht. Erinnerung 1 Stunde vorher. Fragt und antwortet.",
+    whatTitle: "Was wir gebaut haben",
     what: [
-      "Inbox DM + motor de auto-respuesta.",
-      "Etiquetas: ventas, soporte, colaboración.",
-      "Plantillas y tarjetas de información.",
-      "Sync de leads al CRM.",
+      "Chat, der DMs in Ihrem Namen begrüßt.",
+      "Gleiche Preise und Leistungen wie WhatsApp — kein Kanal-Widerspruch.",
+      "Kennt freie Stunden und bucht dort. Setzt niemanden auf belegte.",
+      "Absage gibt die Stunde frei. Erinnerung 1 Stunde vorher.",
+      "Schwere Chats gehen an Sie oder CRM.",
     ],
-    howTitle: "Cómo funciona",
+    howTitle: "So funktioniert es",
     how: [
-      "Los DM se leen y etiquetan.",
-      "Las FAQ reciben plantilla al instante.",
-      "Alta intención se escala a ti.",
-      "Reglas e hilos se gestionan en el panel.",
+      "Jemand schreibt per DM. Bot begrüßt, fragt bei Bedarf, erklärt Preise.",
+      "Zum Buchen zeigt er freie Stunden, nicht belegte. Gewählte wird gespeichert.",
+      "Absage öffnet die Stunde wieder. Erinnerung 1 Stunde vorher.",
+      "Gleicher Kalender wie WhatsApp; kann im CRM zusammenlaufen.",
     ],
-    stack: ["Instagram Messaging", "Intent", "Plantillas", "CRM sync"],
+    stack: ["Instagram Graph API", "n8n", "Python", "Supabase"],
+    result:
+      "DM-Posteingang bleibt geordnet: Fragen beantwortet, Termine auf freie Stunden, Erinnerung 1 Stunde vorher — ohne Handy-Check.",
   },
   crm: {
+    title: "CRM Verkaufspanel",
     tag: "Software",
     summary:
-      "CRM ágil que une pipeline, contactos y tareas en un panel.",
-    whatTitle: "Qué hicimos",
+      "Panel, das mit WhatsApp- und Instagram-Assistenten arbeitet. Kunden, mit denen die Bots sprachen, Termine, Absagen und Notizen an einem Ort. Wer wann kommt, welche Stunden frei oder belegt, WhatsApp oder Instagram — alles dort.",
+    whatTitle: "Was wir gebaut haben",
     what: [
-      "Pipeline kanban: nuevo → reunión → propuesta → ganado.",
-      "KPI de oportunidades, ingresos y win rate.",
-      "Base para contactos, tareas e integraciones.",
-      "Conectable a WhatsApp y formularios.",
+      "Ein schlichtes Verkaufspanel, das Schritt für Schritt läuft.",
+      "WhatsApp- und Instagram-Bots verbunden: Buchung öffnet von allein eine Karte.",
+      "Auf der Karte: Kanal, Zeit, frei/belegt, Notizen und Chat-Summary.",
+      "Wer kommt heute, wer stornierte, was noch frei ist — am Panel lesbar.",
     ],
-    howTitle: "Cómo funciona",
+    howTitle: "So funktioniert es",
     how: [
-      "Los leads nuevos son tarjetas en el tablero.",
-      "El equipo mueve tarjetas entre etapas.",
-      "Propuestas y cierres se reportan.",
-      "Alertas evitan perder seguimientos.",
+      "Bot bucht eine freie Stunde → Karte erscheint, auch wenn Sie nicht am Handy sind.",
+      "Sie schieben die Karte, ergänzen Notizen, wählen Owner. WhatsApp- oder Instagram-Summary bleibt am selben Kunden.",
+      "Absage gibt die Stunde frei; Panel aktualisiert sich mit.",
+      "Zwei Bots sprechen an getrennten Orten; CRM hält eine Liste.",
     ],
-    stack: ["Dashboard", "Pipeline", "Reporting", "Integraciones"],
+    stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
+    result:
+      "Bots sprechen, füllen freie Stunden, erinnern 1 Stunde vorher; CRM hält alles an einem Ort. Während Sie weg sind, füllt sich das System weiter.",
   },
+
   "css-system": {
     tag: "Design system",
     summary:
@@ -569,7 +607,7 @@ projectDetails.es = {
       "Las páginas nuevas se mantienen consistentes.",
       "Un cambio de marca se propaga desde un punto.",
     ],
-    stack: ["Design tokens", "CSS", "UI Kit", "Docs"],
+    stack: ["CSS Custom Properties", "Design Tokens"],
   },
 };
 
@@ -588,11 +626,11 @@ projectDetails.de = {
     howTitle: "So funktioniert es",
     how: [
       "Besucher sehen Produkte und Services in klarer Hierarchie.",
-      "CTAs führen zu Quote oder Kontakt.",
+      "Schaltflächen führen zu Angebot oder Kontakt.",
       "Seiten und Media werden im Panel aktualisiert.",
       "SEO und Performance werden vor Launch optimiert.",
     ],
-    stack: ["Next.js", "UI/UX", "SEO", "CMS", "Performance"],
+    stack: ["React", "Vite", "TypeScript"],
   },
   aydnnacar: {
     tag: "Marke & Katalog",
@@ -612,7 +650,7 @@ projectDetails.de = {
       "Maß, Stoff und Lieferung laufen über Kontakt.",
       "Content skaliert über die Collection-Struktur.",
     ],
-    stack: ["Next.js", "Editorial UI", "Katalog", "Responsive"],
+    stack: ["Next.js", "React", "TypeScript"],
   },
   wuffbutik: {
     tag: "Boutique Web",
@@ -622,17 +660,17 @@ projectDetails.de = {
     what: [
       "Markenpassende Typografie und Visuals.",
       "Klare IA für Collections und Kontakt.",
-      "Message-CTAs für schnelle Conversion.",
+      "Nachricht-Schaltflächen für schnelle Conversion.",
       "Leichte, schnelle Mobile-UI.",
     ],
     howTitle: "So funktioniert es",
     how: [
       "Erster Screen erklärt Marke und Vitrine.",
       "Besucher gehen in Collection-Linien.",
-      "CTA öffnet direkten Chat.",
+      "Schaltfläche öffnet direkten Chat.",
       "Schlanker Content hält Updates einfach.",
     ],
-    stack: ["Next.js", "Brand UI", "CTA-Flow", "Mobile-first"],
+    stack: ["Next.js", "React", "TypeScript"],
   },
   "altitude-residence": {
     tag: "Luxury Real Estate",
@@ -642,17 +680,17 @@ projectDetails.de = {
     what: [
       "Ultra-Luxury Typografie, Visual Language und cinematic Hero.",
       "Seitenfluss, der die Residence über Höhe und Tempo erzählt.",
-      "Klarer Pfad über Arrange-a-viewing-CTA.",
+      "Klarer Pfad über die Schaltfläche „Besichtigung vereinbaren“.",
       "Premium-Darstellung auf Desktop und Mobile.",
     ],
     howTitle: "So funktioniert es",
     how: [
       "Erster Screen setzt Marke und Lifestyle-Promise.",
       "Besucher erkunden Residences und Location-Story.",
-      "CTA führt zu Viewing / Kontakt.",
+      "Schaltfläche führt zu Besichtigung / Kontakt.",
       "Content bleibt im Luxury-Ton.",
     ],
-    stack: ["Next.js", "Luxury UI", "Motion", "Conversion"],
+    stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
     result: "Live-Site: Premium-Feeling, klarer Viewing-Pfad, Mobile-Polish.",
   },
   "casa-aurelia": {
@@ -670,16 +708,16 @@ projectDetails.de = {
     how: [
       "Erster Screen erzählt Marke und Rom-Location.",
       "Besucher sehen Hotel-Story und Zimmer.",
-      "Book now führt zu Reservierung / Kontakt.",
+      "„Jetzt buchen“ führt zu Reservierung / Kontakt.",
       "Sprach-Toggle wechselt Eng ↔ Ita.",
     ],
-    stack: ["Next.js", "Hospitality UI", "i18n", "Booking CTA"],
+    stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
     result: "Live-Site: Boutique-Feeling, bilingual, klarer Booking-Pfad.",
   },
   "whatsapp-bot": {
     tag: "Automation",
     summary:
-      "WhatsApp-Bot, der 24/7 antwortet, Leads erfasst und Termine steuert.",
+      "WhatsApp-Bot, der 24/7 antwortet, Kunden erfasst und Termine steuert.",
     whatTitle: "Was wir gebaut haben",
     what: [
       "Dialog-Flows: Welcome, Pakete, Booking.",
@@ -691,21 +729,21 @@ projectDetails.de = {
     how: [
       "Kunde schreibt; Bot liest Intent.",
       "Menüs führen zum richtigen Paket.",
-      "Qualifizierte Leads melden oder landen im CRM.",
+      "Qualifizierte Kunden melden oder landen im CRM.",
       "Nahtlose Übergabe an einen Menschen möglich.",
     ],
-    stack: ["WhatsApp API", "Flow builder", "Lead capture", "Alerts"],
+    stack: ["WhatsApp Cloud API", "n8n", "Python", "PostgreSQL"],
   },
   "instagram-bot": {
     tag: "Automation",
     summary:
-      "Instagram-DM-Bot, der Nachrichten klassifiziert, FAQs beantwortet und Hot Leads markiert.",
+      "Instagram-DM-Bot, der Nachrichten klassifiziert, FAQs beantwortet und heiße Interessenten markiert.",
     whatTitle: "Was wir gebaut haben",
     what: [
       "DM-Inbox plus Auto-Reply-Engine.",
       "Intent-Tags: Sales, Support, Collab.",
       "Templates und Info-Cards.",
-      "Lead-Sync ins CRM.",
+      "Kunden-Sync ins CRM.",
     ],
     howTitle: "So funktioniert es",
     how: [
@@ -714,7 +752,7 @@ projectDetails.de = {
       "Hohe Kaufabsicht wird an dich eskaliert.",
       "Regeln und Threads werden im Panel gesteuert.",
     ],
-    stack: ["Instagram Messaging", "Intent", "Templates", "CRM sync"],
+    stack: ["Instagram Graph API", "n8n", "Python", "Supabase"],
   },
   crm: {
     tag: "Software",
@@ -729,12 +767,12 @@ projectDetails.de = {
     ],
     howTitle: "So funktioniert es",
     how: [
-      "Neue Leads werden Karten auf dem Board.",
+      "Neue Kunden werden Karten auf dem Board.",
       "Team bewegt Karten über Stages.",
       "Angebote und Wins werden berichtet.",
       "Alerts verhindern verlorene Follow-ups.",
     ],
-    stack: ["Dashboard", "Pipeline", "Reporting", "Integrationen"],
+    stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
   },
   "css-system": {
     tag: "Design System",
@@ -754,7 +792,7 @@ projectDetails.de = {
       "Neue Seiten bleiben konsistent und schneller.",
       "Marken-Updates propagieren von einem Punkt.",
     ],
-    stack: ["Design tokens", "CSS", "UI Kit", "Docs"],
+    stack: ["CSS Custom Properties", "Design Tokens"],
   },
 };
 

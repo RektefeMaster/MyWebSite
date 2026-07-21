@@ -3,7 +3,6 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Flip } from "gsap/Flip";
 
 let registered = false;
 
@@ -57,7 +56,9 @@ export function attachScrollReveal(
 export function registerGsap() {
   if (registered || typeof window === "undefined") return;
 
-  gsap.registerPlugin(useGSAP, ScrollTrigger, Flip);
+  // Flip yalnızca Projects "load more" anında dinamik yüklenir —
+  // ilk bundle'a dahil etme.
+  gsap.registerPlugin(useGSAP, ScrollTrigger);
 
   gsap.config({
     nullTargetWarn: false,
@@ -81,4 +82,4 @@ export function registerGsap() {
 
 registerGsap();
 
-export { gsap, useGSAP, ScrollTrigger, Flip };
+export { gsap, useGSAP, ScrollTrigger };

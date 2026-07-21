@@ -13,9 +13,9 @@
     "blog": "Blog",
     "projects": "Proyectos",
     "contact": "Contacto",
-    "bookMeeting": "Llamada de descubrimiento",
-    "cta": "Hablemos del proyecto",
-    "ctaShort": "Hablar"
+    "bookMeeting": "Primera llamada",
+    "cta": "Hablemos de tu proyecto",
+    "ctaShort": "Hablemos"
   },
   "pages": {
     "manifesto": {
@@ -24,10 +24,10 @@
       "heroLabel": "Manifiesto",
       "heroTitle": "Experiencias digitales originales.",
       "heroBlurb": "Diseño, software y tecnología en un solo sistema.",
-      "ctaLabel": "Empieza ya",
-      "ctaTitle": "Hablemos de tu proyecto — un paso breve basta.",
-      "ctaBlurb": "Comparte el objetivo y la necesidad. En 24 horas tendrás una hoja de ruta clara.",
-      "ctaButton": "Reservar llamada de descubrimiento"
+      "ctaLabel": "Empecemos",
+      "ctaTitle": "Hablemos de tu proyecto — un mensaje basta.",
+      "ctaBlurb": "Comparte el objetivo y lo que necesitas. En 24 horas tendrás una hoja de ruta clara.",
+      "ctaButton": "Agendar una llamada"
     },
     "approach": {
       "metaTitle": "Enfoque — METEK",
@@ -35,7 +35,7 @@
       "heroLabel": "Enfoque",
       "heroTitle": "Método.",
       "heroBlurb": "Del descubrimiento al lanzamiento. Cada paso atado a un resultado medible.",
-      "ctaLabel": "Empieza ya",
+      "ctaLabel": "Empecemos",
       "ctaTitle": "Apliquemos el método a tu proyecto.",
       "ctaBlurb": "Del descubrimiento al lanzamiento: alcance claro, actualizaciones constantes, resultados medibles.",
       "ctaButton": "Hablar del proceso"
@@ -46,10 +46,10 @@
       "heroLabel": "Trabajo",
       "heroTitle": "Proyectos seleccionados.",
       "heroBlurb": "Una selección de productos digitales que diseñamos y desarrollamos.",
-      "ctaLabel": "Empieza ya",
-      "ctaTitle": "Que el próximo caso sea el tuyo.",
+      "ctaLabel": "Empecemos",
+      "ctaTitle": "Que el próximo proyecto sea el tuyo.",
       "ctaBlurb": "Comparte sector y objetivo — te propongo solución y ruta.",
-      "ctaButton": "Enviar brief del proyecto"
+      "ctaButton": "Enviar resumen del proyecto"
     },
     "services": {
       "metaTitle": "Servicios — METEK",
@@ -57,10 +57,10 @@
       "heroLabel": "Servicios",
       "heroTitle": "Servicios.",
       "heroBlurb": "Web, software y automatización. Definimos el alcance juntos.",
-      "ctaLabel": "Empieza ya",
-      "ctaTitle": "Hablemos de tu proyecto — un paso breve basta.",
+      "ctaLabel": "Empecemos",
+      "ctaTitle": "Hablemos de tu proyecto — un mensaje basta.",
       "ctaBlurb": "Cuéntame qué necesitas. En 24 horas tendrás una hoja de ruta clara — sin estimaciones vagas.",
-      "ctaButton": "Reservar llamada de descubrimiento"
+      "ctaButton": "Agendar una llamada"
     },
     "blog": {
       "metaTitle": "Blog — METEK",
@@ -68,10 +68,10 @@
       "heroLabel": "Blog",
       "heroTitle": "Notas y perspectivas.",
       "heroBlurb": "Escritos seleccionados sobre sistemas de identidad, web editorial y proceso.",
-      "ctaLabel": "Empieza ya",
+      "ctaLabel": "Empecemos",
       "ctaTitle": "Convirtamos estas ideas en producto.",
       "ctaBlurb": "¿Quieres aplicar este enfoque a tu marca?",
-      "ctaButton": "Contactar"
+      "ctaButton": "Escribirnos"
     }
   },
   "blog": {
@@ -83,7 +83,7 @@
     "readMinutes": "{count} min de lectura",
     "relatedLabel": "Continuar",
     "relatedTitle": "Artículos relacionados.",
-    "articleCta": "Hablemos del proyecto",
+    "articleCta": "Hablemos de tu proyecto",
     "articleCtaBlurb": "¿Quieres adaptar este enfoque a tu marca?",
     "crumbHome": "Inicio",
     "crumbBlog": "Blog",
@@ -154,7 +154,7 @@
     "title": "Una experiencia digital de nueva generación para una marca de mobiliario tradicional",
     "blurb": "Para Wholesale Cabinet Creations diseñamos una experiencia web de alto rendimiento que refleja la calidad de fabricación en digital. El proyecto se desarrolló de extremo a extremo con animación a medida, rendimiento móvil, SEO y sistema de contenidos.",
     "outcomes": [
-      "Una presencia de marca más fuerte y premium.",
+      "Una presencia de marca más fuerte y cuidada.",
       "Mejor rendimiento móvil y experiencia de uso.",
       "Contenido, medios y SEO en un solo panel."
     ],
@@ -198,7 +198,7 @@
     "line3": "que funciona.",
     "blurb": "Productos digitales para tu marca — web, software e IA. Alcance claro, resultados medibles.",
     "ctaWork": "Ver trabajos",
-    "ctaContact": "Hablemos",
+    "ctaContact": "Hablemos de tu proyecto",
     "scroll": "Explorar",
     "metaStudio": "Estudio de producto digital",
     "metaLocation": "Malatya · Todo el mundo"
@@ -220,7 +220,7 @@
     "label": "Servicios",
     "title": "En qué trabajamos",
     "included": "Qué incluye",
-    "cta": "Hablar de este servicio",
+    "cta": "Escribir sobre este servicio",
     "seeAll": "Ver todos los servicios",
     "items": [
       {
@@ -251,7 +251,7 @@
         ]
       },
       {
-        "title": "Experiencia digital premium",
+        "title": "Experiencia digital a medida",
         "description": "Diseño y software a medida para diferenciarse con claridad.",
         "includes": [
           "Lenguaje visual propio",
@@ -291,46 +291,46 @@
         ]
       },
       {
-        "title": "WhatsApp Chatbot",
-        "description": "Bot inteligente de WhatsApp que responde 24/7, captura leads y agenda reuniones.",
+        "title": "Asistente de chat de WhatsApp",
+        "description": "Habla con el cliente de WhatsApp como tú — sin mirar el teléfono. Conoce precios y servicios. Sabe las horas libres y dirige las citas allí. Sabe las ocupadas y agenda en consecuencia. Si cancelan, sabe que esa hora quedó libre. Avisa 1 hora antes — menos cancelaciones de última hora.",
         "includes": [
-          "Flujos de bienvenida y routing",
-          "Captura de leads",
-          "Agenda / disponibilidad",
-          "Mensajes plantilla",
-          "Panel de chat en vivo",
-          "Notificaciones y seguimiento",
+          "Chat como tú (con tus precios y servicios)",
+          "Sabe horas libres y dirige las citas allí",
+          "Sabe horas ocupadas y no las solapa",
+          "Tras cancelar, abre de nuevo la hora",
+          "Aviso 1 hora antes de la cita",
+          "Trabaja con el panel CRM",
           "Instalación y formación"
         ]
       },
       {
-        "title": "Instagram DM Bot",
-        "description": "Automatización de Instagram con respuestas automáticas, opciones rápidas y flujo de citas en DM.",
+        "title": "Asistente de DM de Instagram",
+        "description": "En los DM de Instagram lo mismo. Sin mirar el teléfono: conoce precios y servicios, horas libres, ocupadas y las que quedan libres al cancelar. Aviso 1 hora antes.",
         "includes": [
-          "Respuestas DM automáticas",
-          "Flujos de respuesta rápida",
-          "Escenarios de lead y colaboración",
-          "Derivación a cita",
-          "Panel de inbox",
-          "Gestión de plantillas",
+          "Chat en DM a tu nombre",
+          "Respuestas de precio, servicio y preguntas frecuentes",
+          "Citas en horas libres, no en ocupadas",
+          "Tras cancelar, abre de nuevo la hora",
+          "Aviso 1 hora antes",
+          "Trabaja con el panel CRM",
           "Instalación y formación"
         ]
       },
       {
-        "title": "CRM Platform",
-        "description": "CRM de ventas ligero para pipeline, contactos y tareas — conectable a formularios y WhatsApp.",
+        "title": "Panel CRM de ventas",
+        "description": "Trabaja con los asistentes de WhatsApp e Instagram. Citas, cancelaciones y clientes en un panel. Qué horas libres, quién viene cuándo — lo miras ahí.",
         "includes": [
-          "Pipeline Kanban",
-          "Fichas de contacto y empresa",
-          "Tareas y follow-up",
-          "KPIs e informes",
-          "Integración form / WhatsApp",
-          "Roles y acceso",
+          "Panel de ventas",
+          "Enlace al asistente de WhatsApp",
+          "Enlace al asistente de Instagram DM",
+          "Registro automático al agendar",
+          "Tras cancelar, la hora vuelve a libre",
+          "Resumen diario y recordatorios",
           "Instalación y formación"
         ]
       },
       {
-        "title": "CSS Design System",
+        "title": "Sistema de diseño CSS",
         "description": "Tokens de marca para color, tipografía, componentes y spacing — UI kit y docs coherentes.",
         "includes": [
           "Set de design tokens",
@@ -346,10 +346,10 @@
   },
   "process": {
     "label": "Proceso",
-    "title": "Del discovery al launch",
+    "title": "Del descubrimiento al lanzamiento",
     "steps": [
       {
-        "title": "Discovery",
+        "title": "Descubrimiento",
         "body": [
           "Objetivos, audiencia y límites técnicos.",
           "El alcance y el éxito se definen aquí."
@@ -445,12 +445,12 @@
     "label": "Contacto",
     "titleLine1": "Construyamos el",
     "titleLine2": "próximo proyecto.",
-    "blurb": "Escribe para un sitio, panel, automatización o producto de IA. Tras un brief corto propongo el siguiente paso.",
+    "blurb": "Escribe para un sitio, panel, automatización o producto de IA. Tras un resumen corto propongo el siguiente paso.",
     "name": "Nombre",
     "email": "Correo",
     "interestedIn": "Me interesa",
     "message": "Cuéntame objetivo y plazos en pocas líneas",
-    "send": "Enviar el brief",
+    "send": "Enviar mensaje",
     "sentHint": "Abriendo tu app de correo… Suelo responder en 24 horas.",
     "mailSubject": "Consulta de proyecto",
     "mailName": "Nombre",
@@ -459,7 +459,7 @@
     "interests": [
       "Sitio web inicial",
       "Sitio corporativo",
-      "Experiencia web premium",
+      "Experiencia web a medida",
       "Logo e identidad de marca",
       "E-commerce",
       "Panel de administración",
@@ -477,7 +477,7 @@
     "manifesto": "Manifiesto",
     "work": "Trabajo",
     "approach": "Enfoque",
-    "bookMeeting": "Llamada de descubrimiento",
+    "bookMeeting": "Agendar una llamada",
     "services": "Servicios",
     "blog": "Blog",
     "projects": "Proyectos",
@@ -490,8 +490,35 @@
     "location": "Malatya, Türkiye · Remoto a nivel mundial",
     "instagram": "Instagram"
   },
+  "tech": {
+    "label": "Tecnología",
+    "title": "Con esto entrego.",
+    "blurb": "No es un stack de prueba: herramientas que uso en producción y mantengo. Elijo lo que encaja en el trabajo, no lo que está de moda.",
+    "groups": [
+      {
+        "title": "Web y producto",
+        "blurb": "Sitios y paneles rápidos, listos para SEO, sólidos en móvil. Motion y scroll bajo control.",
+        "items": ["Next.js", "React", "TypeScript", "Vite", "Tailwind CSS", "GSAP", "Lenis"]
+      },
+      {
+        "title": "Apps móviles",
+        "blurb": "Una base de código para iOS y Android. UI lista para tienda, releases estables.",
+        "items": ["Flutter", "Dart"]
+      },
+      {
+        "title": "Automatización y mensajería",
+        "blurb": "Bots de WhatsApp / Instagram, flujos de cita, recordatorios. El trabajo manual pasa a sistema.",
+        "items": ["Python", "n8n", "WhatsApp Cloud API", "Instagram Graph API"]
+      },
+      {
+        "title": "Datos e infraestructura",
+        "blurb": "Clientes, citas y ventas quedan bien guardados. Panel y bots leen la misma fuente.",
+        "items": ["PostgreSQL", "Supabase"]
+      }
+    ]
+  },
   "workingPrinciples": {
-    "label": "Working Principles",
+    "label": "Principios de trabajo",
     "title": "Cómo trabajo.",
     "items": [
       "Comunicación directa y transparente",
@@ -502,7 +529,7 @@
   },
   "whatsapp": {
     "label": "WhatsApp",
-    "prefill": "Hola METEK Digital — me gustaría agendar una llamada de descubrimiento sobre un proyecto.",
+    "prefill": "Hola METEK Digital — me gustaría agendar una llamada sobre un proyecto.",
     "cta": "Escribir por WhatsApp",
     "fab": "Chat rápido"
   },

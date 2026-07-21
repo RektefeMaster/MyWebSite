@@ -21,6 +21,8 @@ export default function Hero() {
   const copyRef = useRef<HTMLDivElement>(null);
   const cueRef = useRef<HTMLAnchorElement>(null);
   const [active, setActive] = useState(true);
+  // Intro / idle sonrası mount — 3D JS'i ilk boyamayla yarıştırmadan
+  const [sceneMounted, setSceneMounted] = useState(false);
 
   // 3D başlık — tam Türkçe glif desteği
   preload("/fonts/SpaceGrotesk-Bold.ttf", {
@@ -38,6 +40,45 @@ export default function Hero() {
     );
     io.observe(el);
     return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    let idleId = 0;
+    let failsafe = 0;
+
+    const mount = () => {
+      if (!cancelled) setSceneMounted(true);
+    };
+
+    const scheduleIdle = () => {
+      if (typeof window.requestIdleCallback === "function") {
+        idleId = window.requestIdleCallback(mount, { timeout: 180 });
+      } else {
+        idleId = window.setTimeout(mount, 0);
+      }
+    };
+
+    const onIntroDone = () => scheduleIdle();
+
+    if (document.documentElement.dataset.intro !== "play") {
+      scheduleIdle();
+    } else {
+      window.addEventListener("metek:intro-done", onIntroDone);
+      // CSS failsafe ~4.6s — sahnede asılı kalmasın
+      failsafe = window.setTimeout(mount, 5000);
+    }
+
+    return () => {
+      cancelled = true;
+      window.removeEventListener("metek:intro-done", onIntroDone);
+      if (typeof window.cancelIdleCallback === "function") {
+        window.cancelIdleCallback(idleId);
+      } else {
+        window.clearTimeout(idleId);
+      }
+      window.clearTimeout(failsafe);
+    };
   }, []);
 
   useGSAP(
@@ -96,10 +137,14 @@ export default function Hero() {
       id="home"
       className="relative h-[100svh] max-h-[1100px] min-h-[560px] overflow-hidden bg-gradient-to-b from-[#f5f5f5] via-[#dedede] to-[#c6c6c6] dark:from-[#1c1b18] dark:via-[#141311] dark:to-[#0c0b0a]"
     >
-      <HeroScene
-        lines={[t("line1"), t("line2"), t("line3")]}
-        active={active}
-      />
+      {sceneMounted ? (
+        <HeroScene
+          lines={[t("line1"), t("line2"), t("line3")]}
+          active={active}
+        />
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-b from-[#f5f5f5] via-[#dedede] to-[#c6c6c6] dark:from-[#1c1b18] dark:via-[#141311] dark:to-[#0c0b0a]" />
+      )}
 
       {/* Sinematik atmosfer — canvas üstünde, metnin altında */}
       <div
@@ -112,10 +157,10 @@ export default function Hero() {
         <div className="hero-grain" />
       </div>
 
-      {/* Üst-sol: stüdyo künyesi */}
+      {/* Üst-sol: stüdyo künyesi — mobilde de görünür (profesyonellik) */}
       <div
         data-hero-fade
-        className="pointer-events-none absolute left-5 top-[calc(var(--nav-offset)+1rem)] z-10 hidden text-[11px] font-semibold uppercase leading-relaxed tracking-[0.18em] text-ink/45 md:left-16 md:block"
+        className="pointer-events-none absolute left-5 top-[calc(var(--nav-offset)+0.65rem)] z-10 text-[10px] font-semibold uppercase leading-relaxed tracking-[0.16em] text-ink/45 sm:text-[11px] md:left-16 md:top-[calc(var(--nav-offset)+1rem)] md:tracking-[0.18em]"
       >
         <span className="text-lime">●</span> {t("metaStudio")}
         <br />
@@ -141,7 +186,7 @@ export default function Hero() {
             <Magnetic strength={0.28} className="w-full sm:w-auto">
               <Link
                 href="/work"
-                className="btn-sheen group inline-flex w-full min-h-10 items-center justify-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-ink-fg sm:w-auto"
+                className="btn-sheen group inline-flex w-full min-h-11 items-center justify-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-ink-fg touch-manipulation sm:w-auto sm:min-h-10"
               >
                 {t("ctaWork")}
                 <span
@@ -155,7 +200,7 @@ export default function Hero() {
             <Magnetic strength={0.26} className="w-full sm:w-auto">
               <Link
                 href={{ pathname: "/", hash: "contact" }}
-                className="inline-flex w-full min-h-10 items-center justify-center rounded-full border border-ink/15 bg-surface/75 px-5 py-2.5 text-sm font-bold text-ink backdrop-blur-sm sm:w-auto"
+                className="inline-flex w-full min-h-11 items-center justify-center rounded-full border border-ink/15 bg-surface/75 px-5 py-2.5 text-sm font-bold text-ink backdrop-blur-sm touch-manipulation sm:w-auto sm:min-h-10"
               >
                 {t("ctaContact")}
               </Link>
@@ -167,7 +212,7 @@ export default function Hero() {
       <a
         ref={cueRef}
         href="#projects"
-        className="absolute bottom-[max(1.25rem,calc(0.75rem+var(--safe-bottom)))] left-5 z-10 inline-flex items-center gap-1.5 rounded-full bg-ink/5 px-3.5 py-2 text-xs font-semibold text-ink/70 backdrop-blur-sm transition-colors hover:bg-ink/10 hover:text-ink md:bottom-8 md:left-16 md:bg-transparent md:px-0 md:py-0 md:text-sm md:font-medium md:text-lime md:backdrop-blur-none"
+        className="absolute bottom-[max(1.25rem,calc(0.75rem+var(--safe-bottom)))] left-5 z-10 inline-flex min-h-10 items-center gap-1.5 rounded-full bg-ink/5 px-3.5 py-2 text-xs font-semibold text-ink/70 backdrop-blur-sm transition-colors touch-manipulation hover:bg-ink/10 hover:text-ink md:bottom-8 md:left-16 md:min-h-0 md:bg-transparent md:px-0 md:py-0 md:text-sm md:font-medium md:text-lime md:backdrop-blur-none"
       >
         {t("scroll")}
         <span aria-hidden className="md:ml-0.5">

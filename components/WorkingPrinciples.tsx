@@ -12,7 +12,7 @@ export default function WorkingPrinciples() {
   return (
     <section
       id="principles-home"
-      className="scroll-mt-[var(--nav-offset)] bg-paper px-5 py-16 md:px-10 md:py-28"
+      className="cv-auto scroll-mt-[var(--nav-offset)] bg-paper px-5 py-16 md:px-10 md:py-28"
     >
       <div className="mx-auto max-w-7xl">
         <div className="mb-14 max-w-2xl md:mb-16">

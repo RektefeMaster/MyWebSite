@@ -127,7 +127,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
   return (
     <section
       id="services"
-      className={`scroll-mt-[var(--nav-offset)] px-5 md:px-10 ${
+      className={`cv-auto scroll-mt-[var(--nav-offset)] px-5 md:px-10 ${
         isTeaser ? "py-20 md:py-28" : "pb-20 pt-4 md:pb-28 md:pt-8"
       }`}
     >

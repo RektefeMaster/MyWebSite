@@ -16,18 +16,23 @@ const items = [
 async function shot(page, fileUrl, out, w, h) {
   mkdirSync(dirname(out), { recursive: true });
   await page.setViewportSize({ width: w, height: h });
-  await page.goto(fileUrl, { waitUntil: "load" });
-  await page.waitForTimeout(500);
+  await page.goto(fileUrl, { waitUntil: "networkidle", timeout: 60000 }).catch(async () => {
+    await page.goto(fileUrl, { waitUntil: "load" });
+  });
+  await page.evaluate(async () => {
+    if (document.fonts?.ready) await document.fonts.ready;
+  }).catch(() => {});
+  await page.waitForTimeout(800);
   await page.screenshot({
     path: out,
     type: "jpeg",
-    quality: 96,
+    quality: 98,
     fullPage: false,
   });
 }
 
 const browser = await chromium.launch({ headless: true });
-const context = await browser.newContext({ deviceScaleFactor: 2 });
+const context = await browser.newContext({ deviceScaleFactor: 3 });
 const page = await context.newPage();
 
 for (const id of items) {

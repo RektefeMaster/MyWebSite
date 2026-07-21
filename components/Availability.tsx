@@ -12,7 +12,7 @@ export default function Availability() {
   return (
     <section
       id="availability"
-      className="scroll-mt-[var(--nav-offset)] px-5 py-14 md:px-10 md:py-16 md:py-20"
+      className="cv-auto scroll-mt-[var(--nav-offset)] px-5 py-14 md:px-10 md:py-16 md:py-20"
     >
       <Reveal>
         <div className="relative mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 overflow-hidden rounded-[2rem] bg-band px-7 py-10 text-band-fg md:flex-row md:items-center md:px-12 md:py-12">

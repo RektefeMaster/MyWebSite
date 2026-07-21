@@ -13,9 +13,9 @@
     "blog": "Blog",
     "projects": "Projekte",
     "contact": "Kontakt",
-    "bookMeeting": "Kennenlerngespräch",
-    "cta": "Projekt besprechen",
-    "ctaShort": "Starten"
+    "bookMeeting": "Gespräch vereinbaren",
+    "cta": "Sprechen wir über Ihr Projekt",
+    "ctaShort": "Sprechen wir"
   },
   "pages": {
     "manifesto": {
@@ -24,10 +24,10 @@
       "heroLabel": "Manifest",
       "heroTitle": "Originäre digitale Erlebnisse.",
       "heroBlurb": "Design, Software und Technologie in einem System.",
-      "ctaLabel": "Jetzt starten",
-      "ctaTitle": "Sprechen wir über Ihr Projekt — ein kurzer Schritt genügt.",
-      "ctaBlurb": "Ziel und Bedarf schildern. Innerhalb von 24 Stunden erhalten Sie eine klare Roadmap.",
-      "ctaButton": "Gespräch buchen"
+      "ctaLabel": "Loslegen",
+      "ctaTitle": "Sprechen wir über Ihr Projekt — eine Nachricht genügt.",
+      "ctaBlurb": "Schildern Sie Ziel und Bedarf. Innerhalb von 24 Stunden erhalten Sie einen klaren Fahrplan.",
+      "ctaButton": "Gespräch vereinbaren"
     },
     "approach": {
       "metaTitle": "Ansatz — METEK",
@@ -35,9 +35,9 @@
       "heroLabel": "Ansatz",
       "heroTitle": "Methode.",
       "heroBlurb": "Von der Bedarfsaufnahme bis zum Go-live. Jeder Schritt an ein messbares Ergebnis gebunden.",
-      "ctaLabel": "Jetzt starten",
+      "ctaLabel": "Loslegen",
       "ctaTitle": "Methode auf Ihr Projekt anwenden.",
-      "ctaBlurb": "Von der Bedarfsaufnahme bis zum Go-live: klarer Umfang, stetige Updates, messbare Ergebnisse.",
+      "ctaBlurb": "Von der Bedarfsaufnahme bis zum Go-live: klarer Umfang, stetige Aktualisierungen, messbare Ergebnisse.",
       "ctaButton": "Prozess besprechen"
     },
     "work": {
@@ -46,10 +46,10 @@
       "heroLabel": "Arbeit",
       "heroTitle": "Ausgewählte Projekte.",
       "heroBlurb": "Eine Auswahl digitaler Produkte, die wir für Marken gestalten und bauen.",
-      "ctaLabel": "Jetzt starten",
+      "ctaLabel": "Loslegen",
       "ctaTitle": "Machen wir Ihr nächstes Projekt.",
       "ctaBlurb": "Branche und Ziel teilen — ich skizziere Lösung und Weg.",
-      "ctaButton": "Projektbrief senden"
+      "ctaButton": "Projektbeschreibung senden"
     },
     "services": {
       "metaTitle": "Leistungen — METEK",
@@ -57,10 +57,10 @@
       "heroLabel": "Leistungen",
       "heroTitle": "Leistungen.",
       "heroBlurb": "Web, Software und Automatisierung. Den Umfang klären wir gemeinsam.",
-      "ctaLabel": "Jetzt starten",
-      "ctaTitle": "Sprechen wir über Ihr Projekt — ein kurzer Schritt genügt.",
-      "ctaBlurb": "Schildern Sie Ihren Bedarf. Innerhalb von 24 Stunden erhalten Sie eine klare Roadmap — keine vagen Schätzungen.",
-      "ctaButton": "Gespräch buchen"
+      "ctaLabel": "Loslegen",
+      "ctaTitle": "Sprechen wir über Ihr Projekt — eine Nachricht genügt.",
+      "ctaBlurb": "Schildern Sie Ihren Bedarf. Innerhalb von 24 Stunden erhalten Sie einen klaren Fahrplan — keine vagen Schätzungen.",
+      "ctaButton": "Gespräch vereinbaren"
     },
     "blog": {
       "metaTitle": "Blog — METEK",
@@ -68,7 +68,7 @@
       "heroLabel": "Blog",
       "heroTitle": "Notizen und Perspektiven.",
       "heroBlurb": "Ausgewählte Texte zu Identitätssystemen, editorialem Web und Projektprozess.",
-      "ctaLabel": "Jetzt starten",
+      "ctaLabel": "Loslegen",
       "ctaTitle": "Ideen in ein Produkt verwandeln.",
       "ctaBlurb": "Diesen Ansatz für Ihre Marke besprechen?",
       "ctaButton": "Kontakt aufnehmen"
@@ -83,7 +83,7 @@
     "readMinutes": "{count} Min. Lesezeit",
     "relatedLabel": "Weiter",
     "relatedTitle": "Verwandte Artikel.",
-    "articleCta": "Projekt besprechen",
+    "articleCta": "Sprechen wir über Ihr Projekt",
     "articleCtaBlurb": "Diesen Ansatz für Ihre Marke anpassen?",
     "crumbHome": "Start",
     "crumbBlog": "Blog",
@@ -149,14 +149,14 @@
     ]
   },
   "featured": {
-    "label": "Featured Project",
+    "label": "Ausgewähltes Projekt",
     "client": "Wholesale Cabinet Creations — 2026",
     "title": "Eine digitale Erfahrung der nächsten Generation für eine traditionelle Möbelmarke",
-    "blurb": "Für Wholesale Cabinet Creations entwarfen wir eine hochperformante Web-Erfahrung, die Fertigungsqualität digital sichtbar macht. Das Projekt wurde End-to-End mit Custom-Animation, Mobile Performance, SEO und CMS umgesetzt.",
+    "blurb": "Für Wholesale Cabinet Creations entwarfen wir eine hochperformante Web-Erfahrung, die Fertigungsqualität digital sichtbar macht. Das Projekt wurde durchgängig mit individueller Animation, mobiler Performance, SEO und Content-System umgesetzt.",
     "outcomes": [
-      "Stärkere, premiumere Markenpräsenz online.",
-      "Bessere Mobile Performance und User Experience.",
-      "Content, Media und SEO in einem Panel."
+      "Stärkere, hochwertigere Markenpräsenz online.",
+      "Bessere mobile Performance und Nutzererfahrung.",
+      "Inhalt, Medien und SEO in einem Panel."
     ],
     "cta": "Weitere Projekte",
     "sceneLabel": "Ergebnis",
@@ -189,8 +189,8 @@
     "badge": "Verfügbarkeit",
     "title": "Verfügbarkeit für neue Projekte",
     "blurb": "Ich nehme bewusst begrenzte Projekte an, damit jedes genug Fokus bekommt.",
-    "slots": "2 Projekt-Slots für August 2026",
-    "cta": "Gespräch buchen"
+    "slots": "2 Projektplätze für August 2026",
+    "cta": "Gespräch vereinbaren"
   },
   "hero": {
     "line1": "Von der Idee",
@@ -198,7 +198,7 @@
     "line3": "Produkt.",
     "blurb": "Digitale Produkte für Ihre Marke — Web, Software, KI. Klarer Umfang, messbare Ergebnisse.",
     "ctaWork": "Arbeiten ansehen",
-    "ctaContact": "Sprechen wir",
+    "ctaContact": "Sprechen wir über Ihr Projekt",
     "scroll": "Entdecken",
     "metaStudio": "Digital-Produktstudio",
     "metaLocation": "Malatya · Weltweit"
@@ -220,47 +220,47 @@
     "label": "Leistungen",
     "title": "Woran wir arbeiten",
     "included": "Enthalten",
-    "cta": "Über diesen Service sprechen",
-    "seeAll": "Alle Services ansehen",
+    "cta": "Zu dieser Leistung schreiben",
+    "seeAll": "Alle Leistungen ansehen",
     "items": [
       {
-        "title": "Starter-Website",
-        "description": "Schnelle, moderne, professionelle Website für kleine Unternehmen und Personal Brands.",
+        "title": "Einstiegs-Website",
+        "description": "Schnelle, moderne, professionelle Website für kleine Unternehmen und Personalmarken.",
         "includes": [
           "1–5 Seiten",
-          "Custom UI",
-          "Mobile responsive",
+          "Individuelles Interface-Design",
+          "Mobiloptimiert",
           "Basis-SEO",
           "Kontakt & WhatsApp",
-          "Performance",
+          "Performance-Optimierung",
           "15 Tage Support"
         ]
       },
       {
-        "title": "Corporate Website",
+        "title": "Unternehmens-Website",
         "description": "Umfassende Web-Lösung für stärkere Markenwirkung und Conversion.",
         "includes": [
           "5–12 Seiten",
-          "Custom UI/UX",
-          "Animation",
+          "Individuelles UI/UX",
+          "Animation und Mikrointeraktionen",
           "Blog oder CMS",
-          "Advanced SEO",
-          "Analytics",
-          "Speed & Security",
+          "Erweitertes SEO",
+          "Analytik",
+          "Geschwindigkeit & Sicherheit",
           "30 Tage Support"
         ]
       },
       {
-        "title": "Premium Digital Experience",
-        "description": "Custom Design und Engineering für klare Differenzierung.",
+        "title": "Hochwertiges digitales Erlebnis",
+        "description": "Individuelles Design und Engineering für klare Differenzierung.",
         "includes": [
           "Eigene Designsprache",
-          "3D oder Advanced Animation",
-          "Custom Admin",
-          "CRM, API & Automation",
-          "KI-Features",
-          "Advanced SEO & Performance",
-          "QA und Launch",
+          "3D oder fortgeschrittene Animation",
+          "Individuelles Admin-Panel",
+          "CRM, API & Automatisierung",
+          "KI-Funktionen",
+          "Erweitertes SEO & Performance",
+          "Qualitätssicherung und Go-live",
           "60 Tage Support"
         ]
       },
@@ -268,98 +268,98 @@
         "title": "Logo & Markenidentität",
         "description": "Ein unverwechselbares Logo und ein konsistentes visuelles Identitätssystem, die Ihre Marke auf den ersten Blick erkennbar machen.",
         "includes": [
-          "Discovery und Markenanalyse",
+          "Bedarfsaufnahme und Markenanalyse",
           "Individuelles Logo-Design (mehrere Richtungen)",
           "Farbpalette und Typografie",
           "Logo-Varianten (horizontal, vertikal, Icon)",
-          "Nutzungsrichtlinien (Mini-Brandbook)",
+          "Nutzungsrichtlinien (Mini-Markenbuch)",
           "Social-Media- und Favicon-Sets",
           "Vektor-Quelldateien (SVG, PDF, PNG)"
         ]
       },
       {
-        "title": "Custom Software & Automation",
+        "title": "Individualsoftware & Automatisierung",
         "description": "Panels, Apps und KI-Systeme, die Prozesse digitalisieren.",
         "includes": [
           "Bedarfsanalyse",
           "Technische Architektur",
           "Web- oder Mobile-App",
-          "Admin Panel",
+          "Admin-Panel",
           "API & Integrationen",
-          "Automationsszenarien",
-          "Security und Tests"
+          "Automatisierungsszenarien",
+          "Sicherheit und Tests"
         ]
       },
       {
-        "title": "WhatsApp Chatbot",
-        "description": "Intelligenter WhatsApp-Bot: 24/7 Antworten, Lead-Capture und Termin-Routing.",
+        "title": "WhatsApp Gesprächsassistent",
+        "description": "Spricht WhatsApp-Kunden wie Sie — ohne Handy-Zwang. Kennt Preise und Leistungen. Kennt freie Stunden und schickt Termine dorthin. Kennt belegte und bucht danach. Nach Absage weiß er, dass die Stunde frei ist. Erinnerung 1 Stunde vorher — weniger Last-Minute-Absagen.",
         "includes": [
-          "Begrüßungs- und Routing-Flows",
-          "Lead-Erfassung",
-          "Termin- / Verfügbarkeitsflow",
-          "Vorlagen-Nachrichten",
-          "Live-Chat-Panel",
-          "Benachrichtigungen & Follow-up",
-          "Setup und Training"
+          "Chat wie Sie (mit Preisen und Leistungen)",
+          "Kennt freie Stunden, schickt Termine dorthin",
+          "Kennt belegte Stunden, keine Doppelbuchung",
+          "Nach Absage Stunde wieder frei",
+          "Erinnerung 1 Stunde vorher",
+          "Arbeitet mit dem CRM-Panel",
+          "Einrichtung und Schulung"
         ]
       },
       {
-        "title": "Instagram DM Bot",
-        "description": "Instagram-Automation mit Auto-Reply, Quick Replies und Terminflow in DMs.",
+        "title": "Instagram-DM-Assistent",
+        "description": "In Instagram-DMs dasselbe. Ohne Handy-Check: kennt Preise und Leistungen, freie Stunden, belegte und nach Absage wieder freie. Erinnerung 1 Stunde vorher.",
         "includes": [
-          "Automatische DM-Antworten",
-          "Quick-Reply-Flows",
-          "Lead- & Collab-Szenarien",
-          "Termin-Routing",
-          "Inbox-Panel",
-          "Vorlagen-Management",
-          "Setup und Training"
+          "DM-Chat in Ihrem Namen",
+          "Antworten zu Preis, Leistung und FAQs",
+          "Termine auf freie Stunden, nicht auf belegte",
+          "Nach Absage Stunde wieder frei",
+          "Erinnerung 1 Stunde vorher",
+          "Arbeitet mit dem CRM-Panel",
+          "Einrichtung und Schulung"
         ]
       },
       {
-        "title": "CRM Platform",
-        "description": "Schlankes Sales-CRM für Pipeline, Kontakte und Tasks — anbindbar an Formulare und WhatsApp.",
+        "title": "CRM Verkaufspanel",
+        "description": "Arbeitet mit WhatsApp- und Instagram-Assistenten. Termine, Absagen und Kunden in einem Panel. Welche Stunden frei, wer wann kommt — dort nachsehen.",
         "includes": [
-          "Kanban-Sales-Pipeline",
-          "Kontakt- & Firmenkarten",
-          "Tasks und Follow-ups",
-          "KPIs und Reports",
-          "Form- / WhatsApp-Integration",
-          "Rollen und Zugriff",
-          "Setup und Training"
+          "Verkaufspanel",
+          "WhatsApp-Assistent-Anbindung",
+          "Instagram-DM-Assistent-Anbindung",
+          "Automatischer Eintrag bei Buchung",
+          "Nach Absage Stunde wieder frei",
+          "Tagesübersicht und Erinnerungen",
+          "Einrichtung und Schulung"
         ]
       },
       {
-        "title": "CSS Design System",
-        "description": "Brand-Tokens für Farbe, Type, Komponenten und Spacing — konsistentes UI Kit und Docs.",
+        "title": "CSS Designsystem",
+        "description": "Marken-Tokens für Farbe, Typografie, Komponenten und Abstände — konsistentes UI-Kit und Dokumentation.",
         "includes": [
           "Design-Token-Set",
-          "Typeskala",
+          "Typografie-Skala",
           "Buttons und Basiskomponenten",
-          "Spacing- / Radius-System",
+          "Abstands- / Radius-System",
           "Dokumentationsfläche",
-          "Web- und Admin-Alignment",
-          "Handoff-Guide"
+          "Web- und Admin-Abstimmung",
+          "Übergabe-Leitfaden"
         ]
       }
     ]
   },
   "process": {
     "label": "Prozess",
-    "title": "Von Discovery bis Launch",
+    "title": "Von der Bedarfsaufnahme bis zum Go-live",
     "steps": [
       {
-        "title": "Discovery",
+        "title": "Bedarfsaufnahme",
         "body": [
-          "Ziele, Zielgruppe und technische Constraints.",
-          "Scope und Erfolgskriterien werden hier gesetzt."
+          "Ziele, Zielgruppe und technische Rahmenbedingungen.",
+          "Umfang und Erfolgskriterien werden hier gesetzt."
         ]
       },
       {
         "title": "Strategie",
         "body": [
           "Informationsarchitektur und Produktrichtung.",
-          "Roadmap vor Design und Build."
+          "Fahrplan vor Design und Entwicklung."
         ]
       },
       {
@@ -372,21 +372,21 @@
       {
         "title": "Entwicklung",
         "body": [
-          "Performance, Security, Skalierbarkeit.",
-          "Panels, APIs und Automation in einem System."
+          "Performance, Sicherheit, Skalierbarkeit.",
+          "Panels, APIs und Automatisierung in einem System."
         ]
       },
       {
-        "title": "Testing",
+        "title": "Test",
         "body": [
-          "Geräte, Speed und kritische Flows.",
-          "Reibung vor Launch entfernt."
+          "Geräte, Geschwindigkeit und kritische Abläufe.",
+          "Reibung vor dem Go-live entfernt."
         ]
       },
       {
-        "title": "Launch",
+        "title": "Go-live",
         "body": [
-          "Go-live, Monitoring und Support.",
+          "Veröffentlichung, Monitoring und Support.",
           "Iteration bei Bedarf."
         ]
       }
@@ -445,26 +445,26 @@
     "label": "Kontakt",
     "titleLine1": "Bauen wir das",
     "titleLine2": "nächste Projekt.",
-    "blurb": "Schreiben Sie für Website, Panel, Automation oder KI-Produkt. Nach kurzem Briefing schlage ich den nächsten Schritt vor.",
+    "blurb": "Schreiben Sie für Website, Panel, Automatisierung oder KI-Produkt. Nach kurzer Beschreibung schlage ich den nächsten Schritt vor.",
     "name": "Name",
     "email": "E-Mail",
     "interestedIn": "Ich interessiere mich für",
     "message": "Ziel und Zeitplan in wenigen Zeilen",
-    "send": "Briefing senden",
+    "send": "Nachricht senden",
     "sentHint": "E-Mail-App wird geöffnet… Antwort meist innerhalb von 24 Stunden.",
     "mailSubject": "Projektanfrage",
     "mailName": "Name",
     "mailEmail": "E-Mail",
     "mailInterest": "Interesse",
     "interests": [
-      "Starter-Website",
-      "Corporate Website",
-      "Premium Web Experience",
+      "Einstiegs-Website",
+      "Unternehmens-Website",
+      "Hochwertiges Web-Erlebnis",
       "Logo & Markenidentität",
       "E-Commerce",
-      "Admin Panel",
+      "Admin-Panel",
       "Web- oder Mobile-App",
-      "KI und Automation",
+      "KI und Automatisierung",
       "Website-Relaunch",
       "Andere"
     ],
@@ -477,7 +477,7 @@
     "manifesto": "Manifest",
     "work": "Arbeit",
     "approach": "Ansatz",
-    "bookMeeting": "Kennenlerngespräch",
+    "bookMeeting": "Gespräch vereinbaren",
     "services": "Leistungen",
     "blog": "Blog",
     "projects": "Projekte",
@@ -490,19 +490,46 @@
     "location": "Malatya, Türkiye · Remote weltweit",
     "instagram": "Instagram"
   },
+  "tech": {
+    "label": "Technologie",
+    "title": "Damit liefere ich.",
+    "blurb": "Kein Trial-Stack — Werkzeuge, die ich in Produktion fahre und pflege. Ich wähle, was zum Job passt, nicht was hip ist.",
+    "groups": [
+      {
+        "title": "Web & Produkt-UI",
+        "blurb": "Schnelle, SEO-fähige Sites und Panels, die mobil halten. Motion und Scroll unter Kontrolle.",
+        "items": ["Next.js", "React", "TypeScript", "Vite", "Tailwind CSS", "GSAP", "Lenis"]
+      },
+      {
+        "title": "Mobile Apps",
+        "blurb": "Eine Codebasis für iOS und Android. Store-reife UI, stabile Releases.",
+        "items": ["Flutter", "Dart"]
+      },
+      {
+        "title": "Automation & Messaging",
+        "blurb": "WhatsApp- / Instagram-Bots, Terminflows, Erinnerungen. Handarbeit wird System.",
+        "items": ["Python", "n8n", "WhatsApp Cloud API", "Instagram Graph API"]
+      },
+      {
+        "title": "Daten & Infrastruktur",
+        "blurb": "Kunden-, Termin- und Verkaufsdaten bleiben sauber. Panel und Bots lesen dieselbe Quelle.",
+        "items": ["PostgreSQL", "Supabase"]
+      }
+    ]
+  },
   "workingPrinciples": {
-    "label": "Working Principles",
+    "label": "Arbeitsprinzipien",
     "title": "Wie ich arbeite.",
     "items": [
       "Direkte und transparente Kommunikation",
-      "Regelmäßige Projekt-Updates",
-      "Performance- und security-first Entwicklung",
-      "Technischer Support nach Delivery"
+      "Regelmäßige Projektaktualisierungen",
+      "Performance- und sicherheitsorientierte Entwicklung",
+      "Technischer Support nach der Übergabe"
     ]
   },
   "whatsapp": {
     "label": "WhatsApp",
-    "prefill": "Hallo METEK Digital — ich möchte ein Kennenlerngespräch zu einem Projekt vereinbaren.",
+    "prefill": "Hallo METEK Digital — ich möchte ein Gespräch zu einem Projekt vereinbaren.",
     "cta": "Per WhatsApp schreiben",
     "fab": "Schnell schreiben"
   },

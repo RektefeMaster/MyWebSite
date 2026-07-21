@@ -309,18 +309,16 @@ export default function HeroScene({
     () => document.documentElement.classList.contains("dark")
   );
   const mountedRef = useRef(true);
-  const lite = useMemo(
+  const [lite, setLite] = useState(
     () =>
       window.matchMedia("(pointer: coarse)").matches ||
-      window.matchMedia("(max-width: 768px)").matches,
-    []
+      window.matchMedia("(max-width: 768px)").matches
   );
   const [dpr, setDpr] = useState(() =>
     Math.min(lite ? 1.25 : 1.5, window.devicePixelRatio)
   );
-  const reduced = useMemo(
-    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-    []
+  const [reduced, setReduced] = useState(
+    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches
   );
   const [tabVisible, setTabVisible] = useState(true);
 
@@ -328,6 +326,33 @@ export default function HeroScene({
     mountedRef.current = true;
     return () => {
       mountedRef.current = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    const coarseMq = window.matchMedia("(pointer: coarse)");
+    const narrowMq = window.matchMedia("(max-width: 768px)");
+    const reducedMq = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const syncLite = () => {
+      const next = coarseMq.matches || narrowMq.matches;
+      setLite((prev) => {
+        if (prev === next) return prev;
+        setDpr(Math.min(next ? 1.25 : 1.5, window.devicePixelRatio));
+        return next;
+      });
+    };
+    const syncReduced = () => setReduced(reducedMq.matches);
+
+    syncLite();
+    syncReduced();
+    coarseMq.addEventListener("change", syncLite);
+    narrowMq.addEventListener("change", syncLite);
+    reducedMq.addEventListener("change", syncReduced);
+    return () => {
+      coarseMq.removeEventListener("change", syncLite);
+      narrowMq.removeEventListener("change", syncLite);
+      reducedMq.removeEventListener("change", syncReduced);
     };
   }, []);
 
@@ -364,12 +389,14 @@ export default function HeroScene({
         frameloop={frameloop}
         camera={{ position: [0, 0, 5], fov: lite ? 38 : 35 }}
         dpr={dpr}
+        // Lite'ta pointer etkileşimi yok — R3F event sistemini uyut
+        style={lite ? { pointerEvents: "none" } : undefined}
         gl={{
           antialias: !lite,
           alpha: false,
           stencil: false,
           depth: true,
-          powerPreference: lite ? "default" : "high-performance",
+          powerPreference: lite ? "low-power" : "high-performance",
           toneMapping: THREE.ACESFilmicToneMapping,
           toneMappingExposure: 1.08,
         }}

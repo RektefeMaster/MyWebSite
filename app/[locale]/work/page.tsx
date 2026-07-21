@@ -1,9 +1,11 @@
+import dynamic from "next/dynamic";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
-import FeaturedCase from "@/components/FeaturedCase";
-import Projects from "@/components/Projects";
 import PageCta from "@/components/PageCta";
+
+const FeaturedCase = dynamic(() => import("@/components/FeaturedCase"));
+const Projects = dynamic(() => import("@/components/Projects"));
 
 export async function generateMetadata({
   params,

@@ -14,7 +14,7 @@
     "projects": "Projeler",
     "contact": "İletişim",
     "bookMeeting": "Keşif görüşmesi",
-    "cta": "Projeni konuşalım",
+    "cta": "Projenizi konuşalım",
     "ctaShort": "Konuşalım"
   },
   "pages": {
@@ -24,10 +24,10 @@
       "heroLabel": "Manifesto",
       "heroTitle": "Özgün dijital deneyimler.",
       "heroBlurb": "Tasarım, yazılım ve teknolojiyi tek sistemde birleştiriyoruz.",
-      "ctaLabel": "Hemen başla",
-      "ctaTitle": "Projeni konuşalım — kısa bir adım yeter.",
-      "ctaBlurb": "Hedefi ve ihtiyacı yazın; 24 saat içinde net bir yol haritası çıkarayım.",
-      "ctaButton": "Keşif görüşmesi ayarla"
+      "ctaLabel": "Birlikte başlayalım",
+      "ctaTitle": "Projenizi konuşalım — bir mesaj yeter.",
+      "ctaBlurb": "Hedefinizi ve ihtiyacınızı yazın; 24 saat içinde net bir yol haritası çıkarayım.",
+      "ctaButton": "Görüşme planla"
     },
     "approach": {
       "metaTitle": "Yaklaşım — METEK",
@@ -35,7 +35,7 @@
       "heroLabel": "Yaklaşım",
       "heroTitle": "Yöntem.",
       "heroBlurb": "Keşiften yayına. Her adım ölçülebilir sonuca bağlanır.",
-      "ctaLabel": "Hemen başla",
+      "ctaLabel": "Birlikte başlayalım",
       "ctaTitle": "Yöntemi projenize uyarlayalım.",
       "ctaBlurb": "Keşiften yayına: net kapsam, düzenli güncelleme, ölçülebilir sonuç.",
       "ctaButton": "Süreci konuşalım"
@@ -46,10 +46,10 @@
       "heroLabel": "İşler",
       "heroTitle": "Seçili projeler.",
       "heroBlurb": "Markalar için tasarladığımız ve geliştirdiğimiz dijital ürünlerden bir seçki.",
-      "ctaLabel": "Hemen başla",
+      "ctaLabel": "Birlikte başlayalım",
       "ctaTitle": "Sıradaki proje sizinki olsun.",
-      "ctaBlurb": "Sektörünüzü ve hedefi yazın — uygun çözüm ve yol haritasını çıkarayım.",
-      "ctaButton": "Proje brief’i gönder"
+      "ctaBlurb": "Sektörünüzü ve hedefinizi yazın — uygun çözümü ve yol haritasını çıkarayım.",
+      "ctaButton": "Proje özetini gönder"
     },
     "services": {
       "metaTitle": "Hizmetler — METEK",
@@ -57,10 +57,10 @@
       "heroLabel": "Hizmetler",
       "heroTitle": "Hizmetler.",
       "heroBlurb": "Web, yazılım ve otomasyon. Kapsamı birlikte netleştiriyoruz.",
-      "ctaLabel": "Hemen başla",
-      "ctaTitle": "Projeni konuşalım — kısa bir adım yeter.",
-      "ctaBlurb": "İhtiyacını yaz, 24 saat içinde net bir yol haritası çıkarayım. Tahmin yok, net kapsam var.",
-      "ctaButton": "Keşif görüşmesi ayarla"
+      "ctaLabel": "Birlikte başlayalım",
+      "ctaTitle": "Projenizi konuşalım — bir mesaj yeter.",
+      "ctaBlurb": "İhtiyacınızı yazın; 24 saat içinde net bir yol haritası çıkarayım. Tahmin yok, net kapsam var.",
+      "ctaButton": "Görüşme planla"
     },
     "blog": {
       "metaTitle": "Blog — METEK",
@@ -68,10 +68,10 @@
       "heroLabel": "Blog",
       "heroTitle": "Notlar ve bakışlar.",
       "heroBlurb": "Kimlik sistemleri, editoryal web ve proje süreci üzerine seçili yazılar.",
-      "ctaLabel": "Hemen başla",
+      "ctaLabel": "Birlikte başlayalım",
       "ctaTitle": "Bu fikirleri ürüne çevirelim.",
       "ctaBlurb": "Yazıdaki yaklaşımı kendi markanız için konuşmak ister misiniz?",
-      "ctaButton": "İletişime geç"
+      "ctaButton": "Bizimle iletişime geçin"
     }
   },
   "blog": {
@@ -83,7 +83,7 @@
     "readMinutes": "{count} dk okuma",
     "relatedLabel": "Devamı",
     "relatedTitle": "İlgili yazılar.",
-    "articleCta": "Projeyi konuşalım",
+    "articleCta": "Projenizi konuşalım",
     "articleCtaBlurb": "Bu konuyu kendi projeniz için konuşmak ister misiniz?",
     "crumbHome": "Ana sayfa",
     "crumbBlog": "Blog",
@@ -154,7 +154,7 @@
     "title": "Geleneksel Bir Mobilya Markası İçin Yeni Nesil Dijital Deneyim",
     "blurb": "Wholesale Cabinet Creations için markanın üretim kalitesini dijitalde güçlü biçimde yansıtan, yüksek performanslı ve görsel olarak farklılaşan bir web deneyimi tasarlandı. Proje; özel animasyonlar, mobil uyumluluk, SEO altyapısı ve içerik yönetim sistemiyle uçtan uca geliştirildi.",
     "outcomes": [
-      "Daha güçlü ve premium bir marka algısı oluşturuldu.",
+      "Daha güçlü ve seçkin bir marka algısı oluşturuldu.",
       "Mobil performans ve kullanıcı deneyimi iyileştirildi.",
       "İçerik, medya ve SEO yönetimi tek panelde birleştirildi."
     ],
@@ -189,8 +189,8 @@
     "badge": "Müsaitlik",
     "title": "Yeni Projeler İçin Müsaitlik",
     "blurb": "Her projeye yeterli odak ayırabilmek için aynı anda sınırlı sayıda iş kabul ediyorum.",
-    "slots": "Ağustos 2026 için 2 proje slotu",
-    "cta": "Görüşme ayarla"
+    "slots": "Ağustos 2026 için 2 proje yeri",
+    "cta": "Görüşme planla"
   },
   "hero": {
     "line1": "Fikirden",
@@ -198,7 +198,7 @@
     "line3": "ürüne.",
     "blurb": "Web, yazılım ve yapay zekâ ile markanıza çalışan dijital ürünler. Net kapsam, ölçülebilir sonuç.",
     "ctaWork": "İşleri incele",
-    "ctaContact": "Projeni konuşalım",
+    "ctaContact": "Projenizi konuşalım",
     "scroll": "Keşfetmeye başla",
     "metaStudio": "Dijital ürün stüdyosu",
     "metaLocation": "Malatya · Dünya geneli"
@@ -220,7 +220,7 @@
     "label": "Hizmetler",
     "title": "Ne üzerine çalışıyoruz",
     "included": "Pakete dahil",
-    "cta": "Bu hizmeti konuşalım",
+    "cta": "Bu hizmet için yazın",
     "seeAll": "Tüm hizmetleri gör",
     "items": [
       {
@@ -241,7 +241,7 @@
         "description": "Güçlü marka algısı ve müşteri dönüşümü hedefleyen işletmeler için kapsamlı web çözümü.",
         "includes": [
           "5–12 sayfa",
-          "Özgün UI/UX tasarım",
+          "Özgün arayüz ve deneyim tasarımı",
           "Animasyon ve mikro etkileşimler",
           "Blog veya içerik sistemi",
           "Gelişmiş SEO altyapısı",
@@ -251,7 +251,7 @@
         ]
       },
       {
-        "title": "Premium Dijital Deneyim",
+        "title": "Üst Düzey Dijital Deneyim",
         "description": "Markasını rakiplerinden belirgin şekilde ayırmak isteyen işletmeler için özel tasarım ve yazılım.",
         "includes": [
           "Tamamen özgün tasarım dili",
@@ -291,52 +291,52 @@
         ]
       },
       {
-        "title": "WhatsApp Chatbot",
-        "description": "WhatsApp üzerinden 7/24 yanıt veren, lead toplayan ve randevu yönlendiren akıllı sohbet botu.",
+        "title": "WhatsApp Sohbet Asistanı",
+        "description": "Telefona bakmadan WhatsApp’tan gelen müşteriyle sizin gibi konuşur. Fiyat ve hizmetlerinizi bilir. Boş saatleri bilir, gelen randevuları oraya yönlendirir. Dolu saatleri bilir, ona göre alır. İptal olunca boş kalan saati de bilir. Saatten 1 saat önce randevu sahibine bildirim gider — son dakika iptallerinin önüne geçer.",
         "includes": [
-          "Karşılama ve yönlendirme akışları",
-          "Lead form ve ihtiyaç toplama",
-          "Randevu / müsaitlik senaryosu",
-          "Şablon mesajlar",
-          "Canlı sohbet paneli",
-          "Bildirim ve takip",
-          "Kurulum ve eğitim"
+          "Sizin gibi sohbet (fiyat ve hizmet bilgisiyle)",
+          "Boş saatleri bilme, randevuyu oraya yönlendirme",
+          "Dolu saatleri bilme, çakışmadan alma",
+          "İptal olunca boş kalan saati açma",
+          "Saatten 1 saat önce hatırlatma bildirimi",
+          "CRM paneli ile birlikte çalışma",
+          "Kurulum ve kullanım eğitimi"
         ]
       },
       {
-        "title": "Instagram DM Bot",
-        "description": "DM inbox’ta otomatik yanıt, hızlı seçenekler ve randevu akışıyla satışa giden Instagram otomasyonu.",
+        "title": "Instagram DM Asistanı",
+        "description": "Instagram DM’de de aynı. Telefona bakmadan fiyat ve hizmetlerinizi bilir. Boş saatleri bilir, randevuları oraya yönlendirir. Dolu saatleri bilir, ona göre alır. İptal olunca boş kalan saati de bilir. Saatten 1 saat önce bildirim gider.",
         "includes": [
-          "Otomatik DM yanıtları",
-          "Hızlı seçenek / buton akışları",
-          "Lead ve işbirliği senaryoları",
-          "Randevu yönlendirme",
-          "Inbox paneli",
-          "Şablon yönetimi",
-          "Kurulum ve eğitim"
+          "DM’de sizin adınıza sohbet",
+          "Fiyat, hizmet ve sık sorulara cevap",
+          "Boş saatlere yönlendirme, dolu saatlere koymama",
+          "İptalde boş kalan saati açma",
+          "Saatten 1 saat önce hatırlatma",
+          "CRM paneli ile birlikte çalışma",
+          "Kurulum ve kullanım eğitimi"
         ]
       },
       {
-        "title": "CRM Platform",
-        "description": "Pipeline, kişiler ve görevleri tek panelde yöneten sade satış CRM’i. Form ve WhatsApp ile bağlanabilir.",
+        "title": "CRM Satış Paneli",
+        "description": "WhatsApp ve Instagram asistanlarıyla birlikte çalışır. Botların aldığı randevular, iptaller ve müşteriler tek panelde. Hangi saat boş, kim ne zaman gelecek oradan bakarsınız.",
         "includes": [
-          "Kanban satış pipeline",
-          "Kişi ve şirket kartları",
-          "Görev ve takip",
-          "KPI ve raporlar",
-          "Form / WhatsApp entegrasyonu",
-          "Rol ve erişim",
-          "Kurulum ve eğitim"
+          "Satış paneli",
+          "WhatsApp asistanı bağlantısı",
+          "Instagram DM asistanı bağlantısı",
+          "Randevu alınca otomatik kayıt",
+          "İptalde saatin yeniden boşalması",
+          "Günlük özet ve hatırlatmalar",
+          "Kurulum ve kullanım eğitimi"
         ]
       },
       {
-        "title": "CSS Design System",
-        "description": "Markaya özel renk, tipografi, bileşen ve spacing token’larıyla tutarlı UI kit ve dokümantasyon.",
+        "title": "CSS Tasarım Sistemi",
+        "description": "Markaya özel renk, tipografi, bileşen ve boşluk kurallarıyla tutarlı arayüz kiti ve dokümantasyon.",
         "includes": [
-          "Design token seti",
+          "Tasarım token seti",
           "Tipografi ölçeği",
           "Buton ve temel bileşenler",
-          "Spacing / radius sistemi",
+          "Boşluk / köşe yuvarlaklığı sistemi",
           "Dokümantasyon yüzeyi",
           "Web ve panel uyumu",
           "Teslim ve kullanım rehberi"
@@ -443,14 +443,14 @@
   },
   "contact": {
     "label": "İletişim",
-    "titleLine1": "Aklında bir proje",
+    "titleLine1": "Aklınızda bir proje",
     "titleLine2": "var mı?",
-    "blurb": "Yeni bir site, panel, otomasyon veya yapay zekâ ürünü için yazın. Kısa bir brief sonrası net bir sonraki adım öneririm.",
+    "blurb": "Yeni bir site, panel, otomasyon veya yapay zekâ ürünü için yazın. Kısa bir özetten sonra net bir sonraki adım öneririm.",
     "name": "İsim",
     "email": "E-posta",
-    "interestedIn": "İlgilendiğin alan",
+    "interestedIn": "İlgilendiğiniz alan",
     "message": "Hedefinizi ve zamanlamanızı kısaca yazın",
-    "send": "Brief’i gönder",
+    "send": "Talebi gönder",
     "sentHint": "E-posta uygulaman açılıyor… Genelde 24 saat içinde dönüş yaparım.",
     "mailSubject": "Proje talebi",
     "mailName": "İsim",
@@ -459,7 +459,7 @@
     "interests": [
       "Başlangıç web sitesi",
       "Kurumsal web sitesi",
-      "Premium web deneyimi",
+      "Üst düzey web deneyimi",
       "Logo ve marka kimliği",
       "E-ticaret sitesi",
       "Yönetim paneli",
@@ -469,7 +469,7 @@
       "Diğer"
     ],
     "response": "Genelde 24 saat içinde dönüş yaparım. Acil konular için WhatsApp daha hızlı.",
-    "emailCta": "E-posta yaz"
+    "emailCta": "E-posta yazın"
   },
   "footer": {
     "tagline": "Özgün tasarım. Sağlam yazılım. Ölçülebilir sonuç.",
@@ -477,7 +477,7 @@
     "manifesto": "Manifesto",
     "work": "İşler",
     "approach": "Yaklaşım",
-    "bookMeeting": "Keşif görüşmesi",
+    "bookMeeting": "Keşif görüşmesi planla",
     "services": "Hizmetler",
     "blog": "Blog",
     "projects": "Projeler",
@@ -490,8 +490,35 @@
     "location": "Malatya, Türkiye · Dünya çapında uzaktan hizmet",
     "instagram": "Instagram"
   },
+  "tech": {
+    "label": "Teknoloji",
+    "title": "Bunlarla iş çıkarırım.",
+    "blurb": "Her araç için deneme sürümü değil — üretimde kullandığım, bakımını yaptığım stack. Projede doğru olanı seçerim; moda olanı değil.",
+    "groups": [
+      {
+        "title": "Web ve ürün arayüzü",
+        "blurb": "Hızlı, SEO’ya uygun, mobilde bozulmayan siteler ve paneller. Animasyon ve kaydırma da kontrol altında.",
+        "items": ["Next.js", "React", "TypeScript", "Vite", "Tailwind CSS", "GSAP", "Lenis"]
+      },
+      {
+        "title": "Mobil uygulama",
+        "blurb": "iOS ve Android için tek kod tabanı. Mağaza kalitesinde arayüz, stabil yayın.",
+        "items": ["Flutter", "Dart"]
+      },
+      {
+        "title": "Otomasyon ve mesajlaşma",
+        "blurb": "WhatsApp / Instagram botları, randevu akışları, hatırlatmalar. Elle yapılan işi sisteme bağlarım.",
+        "items": ["Python", "n8n", "WhatsApp Cloud API", "Instagram Graph API"]
+      },
+      {
+        "title": "Veri ve altyapı",
+        "blurb": "Müşteri, randevu ve satış kayıtları güvenli durur. Panel ile bot aynı kaynağı okur.",
+        "items": ["PostgreSQL", "Supabase"]
+      }
+    ]
+  },
   "workingPrinciples": {
-    "label": "Working Principles",
+    "label": "Çalışma İlkeleri",
     "title": "Nasıl çalışırım.",
     "items": [
       "Doğrudan ve şeffaf iletişim",
@@ -503,8 +530,8 @@
   "whatsapp": {
     "label": "WhatsApp",
     "prefill": "Merhaba METEK Digital — bir proje için keşif görüşmesi yapmak istiyorum.",
-    "cta": "WhatsApp’tan yaz",
-    "fab": "Hızlı yaz"
+    "cta": "WhatsApp’tan yazın",
+    "fab": "Hızlı yazın"
   },
   "a11y": {
     "breadcrumb": "Sayfa yolu",

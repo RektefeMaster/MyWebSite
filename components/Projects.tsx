@@ -9,11 +9,13 @@ import { Link } from "@/i18n/navigation";
 import Reveal from "./Reveal";
 import WordReveal from "./WordReveal";
 import Magnetic from "./Magnetic";
-import { gsap, useGSAP, Flip, attachScrollReveal } from "@/lib/gsap";
+import { gsap, useGSAP, attachScrollReveal } from "@/lib/gsap";
 
 /** Ana sayfa: canlı web siteleri (bot/CRM/CSS ürünlerinin üstünde) */
 const TEASER_COUNT = projects.findIndex((p) => !p.url);
 const FIRST_PRODUCT_INDEX = TEASER_COUNT;
+
+let flipRegistered = false;
 
 type ProjectsProps = {
   /** teaser: ana sayfa vitrin (web siteleri + detaya link), full: /work detay */
@@ -51,13 +53,19 @@ export default function Projects({ variant = "full" }: ProjectsProps) {
     return () => mm.revert();
   }, []);
 
-  function loadMore() {
+  async function loadMore() {
     const grid = gridRef.current;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (!grid || reduced) {
       setVisible(projects.length);
       return;
+    }
+
+    const { Flip } = await import("gsap/Flip");
+    if (!flipRegistered) {
+      gsap.registerPlugin(Flip);
+      flipRegistered = true;
     }
 
     const state = Flip.getState(grid.querySelectorAll("[data-project-item]"));
@@ -80,7 +88,7 @@ export default function Projects({ variant = "full" }: ProjectsProps) {
   return (
     <section
       id="projects"
-      className="scroll-mt-[var(--nav-offset)] bg-background px-5 py-16 md:px-10 md:py-24"
+      className="cv-auto scroll-mt-[var(--nav-offset)] bg-background px-5 py-16 md:px-10 md:py-24"
     >
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 grid items-end gap-6 md:grid-cols-[1fr_1.2fr] md:gap-12">
@@ -112,8 +120,8 @@ export default function Projects({ variant = "full" }: ProjectsProps) {
               data-project-item
               className={
                 index === FIRST_PRODUCT_INDEX
-                  ? "sm:col-start-1 lg:col-start-1"
-                  : undefined
+                  ? "cv-card sm:col-start-1 lg:col-start-1"
+                  : "cv-card"
               }
             >
               <ProjectCard project={project} />

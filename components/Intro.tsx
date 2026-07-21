@@ -32,6 +32,7 @@ export default function Intro() {
       // Perde bu yüklemede oynamıyorsa sessizce kaldır.
       if (document.documentElement.dataset.intro !== "play") {
         setVisible(false);
+        window.dispatchEvent(new Event("metek:intro-done"));
         return;
       }
 
@@ -83,6 +84,8 @@ export default function Intro() {
         window.__lenis?.start();
         ScrollTrigger.refresh();
         setVisible(false);
+        // Hero 3D'nin intro sırasında rekabet etmeden mount olması için
+        window.dispatchEvent(new Event("metek:intro-done"));
       };
 
       gsap.set([labelLRef.current, labelRRef.current], { opacity: 0, y: 10 });

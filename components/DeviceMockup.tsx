@@ -1,5 +1,37 @@
 import Image from "next/image";
+import type { CSSProperties, ReactNode } from "react";
 import type { Project } from "@/data/projects";
+
+/**
+ * Official Apple Product Bezel frames (via Monkr / Apple Design Resources).
+ * Screen fractions measured from the PNG alpha cutout.
+ */
+const IPHONE = {
+  frameSrc: "/devices/iphone-16-pro/natural-titanium.png",
+  maskSrc: "/devices/iphone-16-pro/display.svg",
+  frameW: 1508,
+  frameH: 3279,
+  screen: {
+    left: 0.1008,
+    top: 0.10034,
+    width: 0.79907,
+    height: 0.79933,
+    radius: "12.2%",
+  },
+} as const;
+
+const MACBOOK = {
+  frameSrc: "/devices/macbook-pro-16/silver.png",
+  frameW: 4893,
+  frameH: 3164,
+  screen: {
+    left: 0.16697,
+    top: 0.16751,
+    width: 0.66626,
+    height: 0.6653,
+    radius: "1.1%",
+  },
+} as const;
 
 function ScreenContent({
   src,
@@ -23,8 +55,10 @@ function ScreenContent({
         alt={alt}
         fill
         sizes={sizes}
-        quality={priority ? 90 : 75}
+        quality={priority ? 92 : 85}
         priority={priority}
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
         className="object-cover object-top"
       />
     );
@@ -55,6 +89,85 @@ function ScreenContent({
   );
 }
 
+function DeviceFrame({
+  frameSrc,
+  frameW,
+  frameH,
+  screen,
+  maskSrc,
+  children,
+  className,
+  style,
+  priority = false,
+  sizes,
+}: {
+  frameSrc: string;
+  frameW: number;
+  frameH: number;
+  screen: {
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+    radius: string;
+  };
+  maskSrc?: string;
+  children: ReactNode;
+  className?: string;
+  style?: CSSProperties;
+  priority?: boolean;
+  sizes: string;
+}) {
+  return (
+    <div
+      className={className}
+      style={{
+        aspectRatio: `${frameW} / ${frameH}`,
+        ...style,
+      }}
+    >
+      <div className="relative h-full w-full">
+        <div
+          className="absolute overflow-hidden bg-black"
+          style={{
+            left: `${screen.left * 100}%`,
+            top: `${screen.top * 100}%`,
+            width: `${screen.width * 100}%`,
+            height: `${screen.height * 100}%`,
+            borderRadius: maskSrc ? undefined : screen.radius,
+            ...(maskSrc
+              ? {
+                  WebkitMaskImage: `url(${maskSrc})`,
+                  maskImage: `url(${maskSrc})`,
+                  WebkitMaskSize: "100% 100%",
+                  maskSize: "100% 100%",
+                  WebkitMaskRepeat: "no-repeat",
+                  maskRepeat: "no-repeat",
+                }
+              : null),
+          }}
+        >
+          {children}
+        </div>
+
+        <Image
+          src={frameSrc}
+          alt=""
+          fill
+          sizes={sizes}
+          priority={priority}
+          quality={95}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          draggable={false}
+          className="pointer-events-none z-10 select-none object-contain"
+          aria-hidden
+        />
+      </div>
+    </div>
+  );
+}
+
 type DeviceMockupProps = {
   project: Project;
   variant?: "card" | "hero";
@@ -74,125 +187,63 @@ export default function DeviceMockup({
       role="img"
       aria-label={project.name}
     >
-      {/* Soft stage / desk */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-[8%] bottom-[6%] h-[18%] rounded-[100%] bg-black/[0.12] blur-2xl"
-      />
-
-      {/* Laptop */}
-      <div
+      {/* MacBook Pro 16" — official Apple product bezel */}
+      <DeviceFrame
+        {...MACBOOK}
+        priority={priority}
+        sizes={
+          isHero
+            ? "(max-width: 768px) 90vw, 900px"
+            : "(max-width: 640px) 80vw, (max-width: 1024px) 42vw, 340px"
+        }
         className={
           isHero
-            ? "absolute left-[3%] top-[7%] w-[78%] md:left-[5%] md:top-[9%] md:w-[74%]"
-            : "absolute left-[1.5%] top-[5%] w-[79%]"
+            ? "absolute left-[4%] top-[4%] w-[76%] drop-shadow-[0_28px_50px_rgba(0,0,0,0.3)] md:left-[6%] md:top-[6%] md:w-[72%]"
+            : "absolute left-[2%] top-[2%] w-[80%] drop-shadow-[0_18px_34px_rgba(0,0,0,0.24)]"
         }
       >
-        {/* Lid */}
-        <div className="relative rounded-t-[12px] bg-gradient-to-b from-[#3a3a3c] via-[#2c2c2e] to-[#1c1c1e] p-[1.4%] pb-[1.1%] shadow-[0_28px_50px_-18px_rgba(0,0,0,0.55)] ring-1 ring-black/40 md:rounded-t-[14px]">
-          {/* Camera bar */}
-          <div className="relative mb-[1.2%] flex h-[7px] items-center justify-center md:h-[9px]">
-            <div className="size-[5px] rounded-full bg-[#0a0a0a] ring-1 ring-white/10 md:size-[6px]">
-              <div className="mx-auto mt-[1.5px] size-[2px] rounded-full bg-[#1e3a5f]/80" />
-            </div>
-          </div>
+        <ScreenContent
+          src={project.desktopImage}
+          alt={`${project.name} masaüstü`}
+          colors={project.colors}
+          label={project.name}
+          priority={priority}
+          sizes={
+            isHero
+              ? "(max-width: 768px) 80vw, 720px"
+              : "(max-width: 640px) 70vw, (max-width: 1024px) 34vw, 280px"
+          }
+        />
+      </DeviceFrame>
 
-          {/* Screen */}
-          <div className="relative aspect-[16/10] overflow-hidden rounded-[4px] bg-[#050505] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]">
-            <ScreenContent
-              src={project.desktopImage}
-              alt={`${project.name} masaüstü`}
-              colors={project.colors}
-              label={project.name}
-              priority={priority}
-              sizes={
-                isHero
-                  ? "(max-width: 768px) 90vw, 960px"
-                  : "(max-width: 640px) 75vw, (max-width: 1024px) 38vw, 28vw"
-              }
-            />
-            {/* Glass reflection */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.09] via-transparent to-black/20"
-            />
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-x-0 top-0 h-[28%] bg-gradient-to-b from-white/[0.07] to-transparent"
-            />
-          </div>
-        </div>
-
-        {/* Hinge */}
-        <div className="relative z-[1] h-[3px] bg-gradient-to-b from-[#52525b] via-[#3f3f46] to-[#27272a]" />
-
-        {/* Base */}
-        <div className="relative mx-auto w-[108%] -translate-x-[3.7%]">
-          <div className="h-[11px] rounded-b-[12px] bg-gradient-to-b from-[#d4d4d8] via-[#b8b8be] to-[#9a9aa3] shadow-[0_10px_18px_-8px_rgba(0,0,0,0.45)] md:h-[13px] md:rounded-b-[14px]">
-            <div className="mx-auto h-[3px] w-[16%] rounded-b-[3px] bg-[#7c7c86]/75" />
-          </div>
-          {/* Front lip */}
-          <div className="mx-auto mt-px h-[2px] w-[102%] -translate-x-[1%] rounded-b-full bg-gradient-to-b from-[#8b8b93] to-[#6b6b74]" />
-        </div>
-      </div>
-
-      {/* Phone */}
-      <div
+      {/* iPhone 16 Pro — official Apple product bezel */}
+      <DeviceFrame
+        {...IPHONE}
+        priority={priority}
+        sizes={
+          isHero
+            ? "(max-width: 768px) 34vw, 260px"
+            : "(max-width: 640px) 34vw, 150px"
+        }
         className={
           isHero
-            ? "absolute bottom-[3%] right-[2%] z-10 w-[27%] max-w-[210px] md:right-[5%] md:bottom-[4%] md:w-[23%] md:max-w-[250px]"
-            : "absolute bottom-[3%] right-[1.5%] z-10 w-[29%] max-w-[128px]"
+            ? "absolute right-[4%] bottom-[2%] z-20 w-[26%] max-w-[230px] drop-shadow-[0_22px_40px_rgba(0,0,0,0.4)] md:right-[6%] md:bottom-[3%] md:w-[24%] md:max-w-[250px]"
+            : "absolute right-[1%] bottom-[2%] z-20 w-[30%] max-w-[132px] drop-shadow-[0_16px_28px_rgba(0,0,0,0.32)]"
         }
       >
-        <div className="relative rounded-[1.55rem] bg-gradient-to-b from-[#3f3f46] via-[#18181b] to-[#09090b] p-[5%] shadow-[0_26px_40px_-14px_rgba(0,0,0,0.65)] ring-1 ring-white/15 md:rounded-[1.75rem]">
-          {/* Side buttons */}
-          <div
-            aria-hidden
-            className="absolute -left-[2px] top-[16%] h-[7%] w-[2px] rounded-l-sm bg-[#52525b]"
-          />
-          <div
-            aria-hidden
-            className="absolute -left-[2px] top-[26%] h-[11%] w-[2px] rounded-l-sm bg-[#52525b]"
-          />
-          <div
-            aria-hidden
-            className="absolute -right-[2px] top-[24%] h-[13%] w-[2px] rounded-r-sm bg-[#52525b]"
-          />
-
-          <div className="relative aspect-[9/19.5] overflow-hidden rounded-[1.15rem] bg-black ring-1 ring-black/40 md:rounded-[1.3rem]">
-            <ScreenContent
-              src={project.mobileImage}
-              alt={`${project.name} mobil`}
-              colors={project.colors}
-              label={project.name.split(" ")[0] ?? project.name}
-              priority={priority}
-              sizes={
-                isHero
-                  ? "(max-width: 768px) 32vw, 250px"
-                  : "(max-width: 640px) 30vw, 128px"
-              }
-            />
-
-            {/* Dynamic Island */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute top-[2.6%] left-1/2 z-20 h-[3.8%] w-[32%] -translate-x-1/2 rounded-full bg-black shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
-            />
-
-            {/* Home indicator */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute bottom-[1.8%] left-1/2 z-20 h-[1.2%] w-[34%] -translate-x-1/2 rounded-full bg-white/35"
-            />
-
-            {/* Glass */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-black/25"
-            />
-          </div>
-        </div>
-      </div>
+        <ScreenContent
+          src={project.mobileImage}
+          alt={`${project.name} mobil`}
+          colors={project.colors}
+          label={project.name.split(" ")[0] ?? project.name}
+          priority={priority}
+          sizes={
+            isHero
+              ? "(max-width: 768px) 30vw, 220px"
+              : "(max-width: 640px) 30vw, 130px"
+          }
+        />
+      </DeviceFrame>
     </div>
   );
 }

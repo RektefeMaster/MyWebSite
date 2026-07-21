@@ -490,25 +490,35 @@ html::-webkit-scrollbar-thumb {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
+/* Offscreen bölümleri boyama/layout dışına al — görünür olunca aynı görünüm */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}
+
+.cv-card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 520px;
+}
+
+@media (max-width: 640px) {
+  .cv-auto {
+    contain-intrinsic-size: auto 640px;
   }
 
-  body {
-    transition: none;
-  }
-
-  .theme-toggle__field,
-  .theme-toggle__filament,
-  .theme-toggle__knob {
-    transition: none;
+  .cv-card {
+    contain-intrinsic-size: auto 480px;
   }
 }
 
+/* Dokunmatik: 300ms tap gecikmesini kaldır, hover sticky önle */
 @media (pointer: coarse) {
   .marquee-track {
     animation-duration: 40s;
+  }
+
+  :where(a, button, [role="button"], summary) {
+    touch-action: manipulation;
   }
 }
 
@@ -718,6 +728,20 @@ html.intro-lock {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+
+  body {
+    transition: none;
+  }
+
+  .theme-toggle__field,
+  .theme-toggle__filament,
+  .theme-toggle__knob {
+    transition: none;
+  }
+
   .hero-grain,
   .hero-glow {
     animation: none;

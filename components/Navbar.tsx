@@ -170,7 +170,7 @@ export default function Navbar() {
                 <Link
                   key={`m-${link.label}`}
                   href={link.href}
-                  className={`inline-flex min-h-8 shrink-0 items-center rounded-full px-3.5 py-1.5 text-[11px] font-semibold transition-colors ${
+                  className={`inline-flex min-h-9 shrink-0 items-center rounded-full px-3.5 py-1.5 text-[11px] font-semibold transition-colors touch-manipulation ${
                     isActive
                       ? "bg-ink text-ink-fg"
                       : "bg-foreground/[0.04] text-ink/60 active:bg-foreground/[0.08]"
