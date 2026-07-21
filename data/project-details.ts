@@ -74,6 +74,48 @@ export const projectDetails: ProjectDetailsByLocale = {
       ],
       stack: ["Next.js", "Marka UI", "CTA akışı", "Mobil öncelik"],
     },
+    "altitude-residence": {
+      tag: "Lüks gayrimenkul",
+      summary:
+        "Altitude Private Residences için karanlık, editoryal bir lüks konut deneyimi — şehir silüeti, ritim ve randevu odaklı dönüşüm.",
+      whatTitle: "Ne yaptık?",
+      what: [
+        "Ultra-lüks markaya özel tipografi, görsel dil ve sinematik hero.",
+        "Rezidans hikâyesini yükseklik / ritim metaforuyla anlatan sayfa akışı.",
+        "Arrange a viewing CTA’sıyla net randevu ve satış yolu.",
+        "Masaüstü ve mobilde bozulmayan premium sunum.",
+      ],
+      howTitle: "Nasıl çalışıyor?",
+      how: [
+        "İlk ekran markayı ve yaşam vaadini editoryal bir karede kurar.",
+        "Ziyaretçi rezidansları ve konum hikâyesini gezer.",
+        "CTA doğrudan görüntüleme / iletişim adımına yönlendirir.",
+        "İçerik ve medya markanın lüks tonunu koruyarak güncellenir.",
+      ],
+      stack: ["Next.js", "Luxury UI", "Motion", "Conversion"],
+      result: "Canlı site: premium algı, net randevu yolu, mobil uyum.",
+    },
+    "casa-aurelia": {
+      tag: "Butik otel",
+      summary:
+        "Roma’da beş yıldızlı butik otel Casa Aurelia için sakin, atmosferik bir rezervasyon vitrini — Eng/Ita dil desteğiyle.",
+      whatTitle: "Ne yaptık?",
+      what: [
+        "Otelin karakterini yansıtan sinematik hero ve tipografi.",
+        "Book now odaklı net rezervasyon / iletişim akışı.",
+        "İngilizce ve İtalyanca dil seçimi.",
+        "Mobilde de bozulmayan lüks sunum.",
+      ],
+      howTitle: "Nasıl çalışıyor?",
+      how: [
+        "İlk ekran markayı ve Roma konumunu tek kompozisyonda anlatır.",
+        "Ziyaretçi otel hikâyesini ve odaları gezer.",
+        "Book now CTA’sı rezervasyon / iletişime düşer.",
+        "Dil anahtarıyla içerik Eng ↔ Ita arasında geçer.",
+      ],
+      stack: ["Next.js", "Hospitality UI", "i18n", "Booking CTA"],
+      result: "Canlı site: butik otel algısı, dil desteği, net rezervasyon yolu.",
+    },
     "whatsapp-bot": {
       tag: "Otomasyon",
       summary:
@@ -216,6 +258,48 @@ export const projectDetails: ProjectDetailsByLocale = {
         "Lean content keeps updates easy.",
       ],
       stack: ["Next.js", "Brand UI", "CTA flow", "Mobile-first"],
+    },
+    "altitude-residence": {
+      tag: "Luxury real estate",
+      summary:
+        "A dark, editorial luxury residence experience for Altitude — city skyline, tempo, and viewing-led conversion.",
+      whatTitle: "What we built",
+      what: [
+        "Ultra-luxury typography, visual language, and cinematic hero.",
+        "Page flow that tells the residence story through height and tempo.",
+        "Clear path via Arrange a viewing CTA.",
+        "Premium presentation on desktop and mobile.",
+      ],
+      howTitle: "How it works",
+      how: [
+        "First screen sets brand and lifestyle promise.",
+        "Visitors explore residences and location story.",
+        "CTA routes to viewing / contact.",
+        "Content stays true to the luxury tone.",
+      ],
+      stack: ["Next.js", "Luxury UI", "Motion", "Conversion"],
+      result: "Live site: premium feel, clear viewing path, mobile polish.",
+    },
+    "casa-aurelia": {
+      tag: "Boutique hotel",
+      summary:
+        "An atmospheric booking showcase for five-star boutique hotel Casa Aurelia in Rome — with Eng/Ita support.",
+      whatTitle: "What we built",
+      what: [
+        "Cinematic hero and typography that match the hotel’s character.",
+        "Book-now focused reservation / contact flow.",
+        "English and Italian language switch.",
+        "Luxury presentation that holds on mobile.",
+      ],
+      howTitle: "How it works",
+      how: [
+        "First screen tells brand and Rome location in one frame.",
+        "Visitors browse the hotel story and rooms.",
+        "Book now CTA leads to reservation / contact.",
+        "Language toggle switches Eng ↔ Ita content.",
+      ],
+      stack: ["Next.js", "Hospitality UI", "i18n", "Booking CTA"],
+      result: "Live site: boutique-hotel feel, bilingual, clear booking path.",
     },
     "whatsapp-bot": {
       tag: "Automation",
@@ -365,6 +449,48 @@ projectDetails.es = {
     ],
     stack: ["Next.js", "Brand UI", "Flujo CTA", "Mobile-first"],
   },
+  "altitude-residence": {
+    tag: "Inmobiliaria de lujo",
+    summary:
+      "Experiencia editorial oscura para Altitude Private Residences — skyline, ritmo y conversión a visita.",
+    whatTitle: "Qué hicimos",
+    what: [
+      "Tipografía y hero cinematográfico de ultra lujo.",
+      "Flujo que cuenta la residencia con metáfora de altura y tempo.",
+      "CTA Arrange a viewing hacia cita / contacto.",
+      "Presentación premium en desktop y móvil.",
+    ],
+    howTitle: "Cómo funciona",
+    how: [
+      "La primera pantalla fija marca y promesa de vida.",
+      "El visitante explora residencias e historia de ubicación.",
+      "El CTA lleva a visita / contacto.",
+      "El contenido mantiene el tono de lujo.",
+    ],
+    stack: ["Next.js", "Luxury UI", "Motion", "Conversion"],
+    result: "Sitio en vivo: sensación premium, ruta de visita clara, móvil pulido.",
+  },
+  "casa-aurelia": {
+    tag: "Hotel boutique",
+    summary:
+      "Escaparate atmosférico de reserva para el hotel boutique de cinco estrellas Casa Aurelia en Roma — Eng/Ita.",
+    whatTitle: "Qué hicimos",
+    what: [
+      "Hero cinematográfico y tipografía acorde al hotel.",
+      "Flujo Book now hacia reserva / contacto.",
+      "Selector de idioma inglés e italiano.",
+      "Presentación de lujo también en móvil.",
+    ],
+    howTitle: "Cómo funciona",
+    how: [
+      "La primera pantalla cuenta marca y ubicación en Roma.",
+      "El visitante recorre la historia del hotel y las habitaciones.",
+      "Book now lleva a reserva / contacto.",
+      "El interruptor de idioma cambia Eng ↔ Ita.",
+    ],
+    stack: ["Next.js", "Hospitality UI", "i18n", "Booking CTA"],
+    result: "Sitio en vivo: sensación boutique, bilingüe, ruta de reserva clara.",
+  },
   "whatsapp-bot": {
     tag: "Automatización",
     summary:
@@ -507,6 +633,48 @@ projectDetails.de = {
       "Schlanker Content hält Updates einfach.",
     ],
     stack: ["Next.js", "Brand UI", "CTA-Flow", "Mobile-first"],
+  },
+  "altitude-residence": {
+    tag: "Luxury Real Estate",
+    summary:
+      "Dunkle, editoriale Luxury-Residence-Erfahrung für Altitude — Skyline, Tempo und Viewing-Conversion.",
+    whatTitle: "Was wir gebaut haben",
+    what: [
+      "Ultra-Luxury Typografie, Visual Language und cinematic Hero.",
+      "Seitenfluss, der die Residence über Höhe und Tempo erzählt.",
+      "Klarer Pfad über Arrange-a-viewing-CTA.",
+      "Premium-Darstellung auf Desktop und Mobile.",
+    ],
+    howTitle: "So funktioniert es",
+    how: [
+      "Erster Screen setzt Marke und Lifestyle-Promise.",
+      "Besucher erkunden Residences und Location-Story.",
+      "CTA führt zu Viewing / Kontakt.",
+      "Content bleibt im Luxury-Ton.",
+    ],
+    stack: ["Next.js", "Luxury UI", "Motion", "Conversion"],
+    result: "Live-Site: Premium-Feeling, klarer Viewing-Pfad, Mobile-Polish.",
+  },
+  "casa-aurelia": {
+    tag: "Boutique Hotel",
+    summary:
+      "Atmosphärisches Booking-Showcase für das Fünf-Sterne-Boutique-Hotel Casa Aurelia in Rom — Eng/Ita.",
+    whatTitle: "Was wir gebaut haben",
+    what: [
+      "Cinematic Hero und Typografie passend zum Hotel.",
+      "Book-now-fokussierter Reservierungs-/Kontaktfluss.",
+      "Sprachumschaltung Englisch und Italienisch.",
+      "Luxury-Präsentation auch mobil.",
+    ],
+    howTitle: "So funktioniert es",
+    how: [
+      "Erster Screen erzählt Marke und Rom-Location.",
+      "Besucher sehen Hotel-Story und Zimmer.",
+      "Book now führt zu Reservierung / Kontakt.",
+      "Sprach-Toggle wechselt Eng ↔ Ita.",
+    ],
+    stack: ["Next.js", "Hospitality UI", "i18n", "Booking CTA"],
+    result: "Live-Site: Boutique-Feeling, bilingual, klarer Booking-Pfad.",
   },
   "whatsapp-bot": {
     tag: "Automation",

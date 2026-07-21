@@ -24,6 +24,16 @@ const sites = [
     url: "https://wuffbutik.vercel.app/",
     waitFor: "text=WUUF",
   },
+  {
+    id: "altitude-residence",
+    url: "https://altitude-residence.vercel.app/",
+    waitFor: "text=Altitude",
+  },
+  {
+    id: "casa-aurelia",
+    url: "https://casa-aurelia-jet.vercel.app/",
+    waitFor: "text=CASA AURELIA",
+  },
 ];
 
 async function hideChrome(page) {

@@ -33,6 +33,22 @@ export const projects: Project[] = [
     mobileImage: "/projects/wuffbutik/mobile.jpg",
   },
   {
+    id: "altitude-residence",
+    name: "Altitude Residences",
+    colors: ["#0a0a0a", "#c4b5a0"],
+    url: "https://altitude-residence.vercel.app/",
+    desktopImage: "/projects/altitude-residence/desktop.jpg",
+    mobileImage: "/projects/altitude-residence/mobile.jpg",
+  },
+  {
+    id: "casa-aurelia",
+    name: "Casa Aurelia Roma",
+    colors: ["#0a1620", "#d8d2c4"],
+    url: "https://casa-aurelia-jet.vercel.app/",
+    desktopImage: "/projects/casa-aurelia/desktop.jpg",
+    mobileImage: "/projects/casa-aurelia/mobile.jpg",
+  },
+  {
     id: "whatsapp-bot",
     name: "WhatsApp Chatbot",
     colors: ["#0b141a", "#25D366"],

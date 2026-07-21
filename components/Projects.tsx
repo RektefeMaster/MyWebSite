@@ -11,10 +11,12 @@ import WordReveal from "./WordReveal";
 import Magnetic from "./Magnetic";
 import { gsap, useGSAP, Flip, attachScrollReveal } from "@/lib/gsap";
 
-const TEASER_COUNT = 7;
+/** Ana sayfa: canlı web siteleri (bot/CRM/CSS ürünlerinin üstünde) */
+const TEASER_COUNT = projects.findIndex((p) => !p.url);
+const FIRST_PRODUCT_INDEX = TEASER_COUNT;
 
 type ProjectsProps = {
-  /** teaser: ana sayfa vitrin (3 kart + detaya link), full: /work detay */
+  /** teaser: ana sayfa vitrin (web siteleri + detaya link), full: /work detay */
   variant?: "teaser" | "full";
 };
 
@@ -22,7 +24,7 @@ export default function Projects({ variant = "full" }: ProjectsProps) {
   const t = useTranslations("projects");
   const isTeaser = variant === "teaser";
   const [visible, setVisible] = useState(
-    isTeaser ? TEASER_COUNT : projects.length
+    isTeaser ? Math.max(TEASER_COUNT, 0) : projects.length
   );
   const gridRef = useRef<HTMLDivElement>(null);
 
@@ -104,8 +106,16 @@ export default function Projects({ variant = "full" }: ProjectsProps) {
           ref={gridRef}
           className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
         >
-          {projects.slice(0, visible).map((project) => (
-            <div key={project.id} data-project-item>
+          {projects.slice(0, visible).map((project, index) => (
+            <div
+              key={project.id}
+              data-project-item
+              className={
+                index === FIRST_PRODUCT_INDEX
+                  ? "sm:col-start-1 lg:col-start-1"
+                  : undefined
+              }
+            >
               <ProjectCard project={project} />
             </div>
           ))}
