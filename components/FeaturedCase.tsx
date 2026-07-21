@@ -69,7 +69,7 @@ export default function FeaturedCase() {
             <Magnetic strength={0.3} className="mt-10 inline-block">
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-bold text-ink-fg"
+                className="btn-stable btn-stable--chip inline-flex gap-2 rounded-full bg-ink px-6 py-3 text-sm font-bold text-ink-fg"
               >
                 {t("cta")}
                 <span aria-hidden className="text-lime">

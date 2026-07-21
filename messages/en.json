@@ -14,8 +14,8 @@
     "projects": "Projects",
     "contact": "Contact",
     "bookMeeting": "Book a call",
-    "cta": "Let’s talk about your project",
-    "ctaShort": "Let’s talk"
+    "cta": "Start a project",
+    "ctaShort": "Start"
   },
   "pages": {
     "manifesto": {
@@ -24,10 +24,10 @@
       "heroLabel": "Manifesto",
       "heroTitle": "Original digital experiences.",
       "heroBlurb": "Design, software, and technology in one system.",
-      "ctaLabel": "Let’s begin",
-      "ctaTitle": "Let’s talk about your project — one message is enough.",
-      "ctaBlurb": "Share your goal and what you need. Within 24 hours you’ll get a clear roadmap.",
-      "ctaButton": "Book an intro call"
+      "ctaLabel": "Next step",
+      "ctaTitle": "Got a project in mind?",
+      "ctaBlurb": "Tell me what you’re building and when you need it. I’ll reply within a day with a clear plan.",
+      "ctaButton": "Book a call"
     },
     "approach": {
       "metaTitle": "Approach — METEK",
@@ -35,10 +35,10 @@
       "heroLabel": "Approach",
       "heroTitle": "Method.",
       "heroBlurb": "From discovery to launch. Every step tied to a measurable outcome.",
-      "ctaLabel": "Let’s begin",
-      "ctaTitle": "Apply the method to your project.",
-      "ctaBlurb": "From discovery to launch: clear scope, steady updates, measurable outcomes.",
-      "ctaButton": "Talk through the process"
+      "ctaLabel": "Next step",
+      "ctaTitle": "Want to see how this fits your brief?",
+      "ctaBlurb": "Discovery through launch — tight scope, steady updates, outcomes you can check.",
+      "ctaButton": "See process"
     },
     "work": {
       "metaTitle": "Work — METEK",
@@ -46,10 +46,10 @@
       "heroLabel": "Work",
       "heroTitle": "Selected projects.",
       "heroBlurb": "A selection of digital products we design and build for brands.",
-      "ctaLabel": "Let’s begin",
-      "ctaTitle": "Make the next project yours.",
-      "ctaBlurb": "Share your sector and goal — I’ll outline the right solution and path.",
-      "ctaButton": "Send project details"
+      "ctaLabel": "Next step",
+      "ctaTitle": "Looking for something in this vein?",
+      "ctaBlurb": "Send a short brief — sector, goal, timing. I’ll come back with a fit check and next steps.",
+      "ctaButton": "Send a brief"
     },
     "services": {
       "metaTitle": "Services — METEK",
@@ -57,10 +57,10 @@
       "heroLabel": "Services",
       "heroTitle": "Services.",
       "heroBlurb": "Web, software, and automation. We clarify scope together.",
-      "ctaLabel": "Let’s begin",
-      "ctaTitle": "Let’s talk about your project — one message is enough.",
-      "ctaBlurb": "Share what you need. Within 24 hours you’ll get a clear roadmap — no vague estimates.",
-      "ctaButton": "Book an intro call"
+      "ctaLabel": "Next step",
+      "ctaTitle": "Not sure which service fits?",
+      "ctaBlurb": "Describe what you need. I’ll map it to a real scope — no padded quotes.",
+      "ctaButton": "Book a call"
     },
     "blog": {
       "metaTitle": "Blog — METEK",
@@ -68,9 +68,9 @@
       "heroLabel": "Blog",
       "heroTitle": "Notes and perspectives.",
       "heroBlurb": "Selected writing on identity systems, editorial web, and project process.",
-      "ctaLabel": "Let’s begin",
-      "ctaTitle": "Turn these ideas into a product.",
-      "ctaBlurb": "Want to apply this approach to your brand?",
+      "ctaLabel": "Next step",
+      "ctaTitle": "Want this approach on your brand?",
+      "ctaBlurb": "Happy to dig into how it would work for you.",
       "ctaButton": "Get in touch"
     }
   },
@@ -79,12 +79,12 @@
     "teaserLabel": "Blog",
     "teaserTitle": "Selected notes.",
     "teaserBlurb": "Notes on web, software, and digital products.",
-    "teaserAll": "Read all articles",
+    "teaserAll": "All articles",
     "readMinutes": "{count} min read",
     "relatedLabel": "Continue",
     "relatedTitle": "Related articles.",
-    "articleCta": "Let’s talk about your project",
-    "articleCtaBlurb": "Want to discuss this for your project?",
+    "articleCta": "Start a project",
+    "articleCtaBlurb": "If this sparked something for your brand, I’m happy to talk it through.",
     "crumbHome": "Home",
     "crumbBlog": "Blog",
     "categories": {
@@ -158,7 +158,7 @@
       "Improved mobile performance and user experience.",
       "Content, media, and SEO managed in one panel."
     ],
-    "cta": "View more projects",
+    "cta": "More projects",
     "sceneLabel": "Outcome",
     "sceneTitle": "Manufacturing quality, visible online.",
     "sceneBody": "Performance, SEO, and content management in one system."
@@ -187,18 +187,18 @@
   },
   "availability": {
     "badge": "Availability",
-    "title": "Availability for new projects",
-    "blurb": "I take a limited number of projects at a time so each one gets proper focus.",
-    "slots": "2 project slots for August 2026",
+    "title": "Open for a few new projects",
+    "blurb": "I keep the roster small so each brief gets proper attention.",
+    "slots": "2 openings for August 2026",
     "cta": "Book a call"
   },
   "hero": {
     "line1": "From idea",
     "line2": "to working",
     "line3": "product.",
-    "blurb": "Digital products that work for your brand — web, software, AI. Clear scope, measurable outcomes.",
-    "ctaWork": "View work",
-    "ctaContact": "Let’s talk about your project",
+    "blurb": "Web, software, and AI products built for your brand — scoped tightly, measured in outcomes.",
+    "ctaWork": "See work",
+    "ctaContact": "Start a project",
     "scroll": "Explore",
     "metaStudio": "Digital product studio",
     "metaLocation": "Malatya · Worldwide"
@@ -206,13 +206,13 @@
   "projects": {
     "label": "Selected work",
     "title": "Projects",
-    "blurb": "A selection of web, panel, and digital product work. Each project is built with custom design and solid engineering.",
-    "loadMore": "View all projects",
+    "blurb": "Web, panels, and digital products — each one custom-designed and engineered to hold up.",
+    "loadMore": "Show all",
     "seeCase": "All work"
   },
   "projectUi": {
-    "view": "View project",
-    "live": "View site",
+    "view": "View",
+    "live": "Live",
     "stack": "Tech stack",
     "back": "Back to work",
     "gallery": "Page frames",
@@ -222,8 +222,8 @@
     "label": "Services",
     "title": "What we work on",
     "included": "What's included",
-    "cta": "Discuss this service",
-    "seeAll": "See all services",
+    "cta": "Ask about it",
+    "seeAll": "All services",
     "items": [
       {
         "title": "Starter Website",
@@ -445,15 +445,15 @@
   },
   "contact": {
     "label": "Contact",
-    "titleLine1": "Let’s build the",
-    "titleLine2": "next project.",
-    "blurb": "Write for a new site, panel, automation, or AI product. After a short note I’ll propose a clear next step.",
+    "titleLine1": "Have a project?",
+    "titleLine2": "Tell me about it.",
+    "blurb": "New site, panel, automation, or AI product — send a short note and I’ll propose a clear next step.",
     "name": "Name",
     "email": "Email",
     "interestedIn": "I'm interested in",
-    "message": "Share your goal and timing in a few lines",
-    "send": "Send message",
-    "sentHint": "Opening your email app… I usually reply within 24 hours.",
+    "message": "A few lines on your goal and timing",
+    "send": "Send",
+    "sentHint": "Opening your email app… I usually reply within a day.",
     "mailSubject": "Project enquiry",
     "mailName": "Name",
     "mailEmail": "Email",
@@ -470,7 +470,7 @@
       "Website redesign",
       "Other"
     ],
-    "response": "I usually reply within 24 hours. For urgent topics, WhatsApp is faster.",
+    "response": "I usually reply within a day. For something urgent, WhatsApp is faster.",
     "emailCta": "Email me"
   },
   "footer": {
@@ -479,7 +479,7 @@
     "manifesto": "Manifesto",
     "work": "Work",
     "approach": "Approach",
-    "bookMeeting": "Book an intro call",
+    "bookMeeting": "Book a call",
     "services": "Services",
     "blog": "Blog",
     "projects": "Projects",
@@ -500,22 +500,41 @@
       {
         "title": "Web & product UI",
         "blurb": "Fast, SEO-ready sites and panels that hold up on mobile. Motion and scroll stay under control.",
-        "items": ["Next.js", "React", "TypeScript", "Vite", "Tailwind CSS", "GSAP", "Lenis"]
+        "items": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Vite",
+          "Tailwind CSS",
+          "GSAP",
+          "Lenis"
+        ]
       },
       {
         "title": "Mobile apps",
         "blurb": "One codebase for iOS and Android. Store-ready UI, stable releases.",
-        "items": ["Flutter", "Dart"]
+        "items": [
+          "Flutter",
+          "Dart"
+        ]
       },
       {
         "title": "Automation & messaging",
         "blurb": "WhatsApp / Instagram bots, booking flows, reminders. Hand work becomes a system.",
-        "items": ["Python", "n8n", "WhatsApp Cloud API", "Instagram Graph API"]
+        "items": [
+          "Python",
+          "n8n",
+          "WhatsApp Cloud API",
+          "Instagram Graph API"
+        ]
       },
       {
         "title": "Data & infrastructure",
         "blurb": "Customer, booking, and sales records stay solid. Panel and bots read the same source.",
-        "items": ["PostgreSQL", "Supabase"]
+        "items": [
+          "PostgreSQL",
+          "Supabase"
+        ]
       }
     ]
   },
@@ -531,9 +550,9 @@
   },
   "whatsapp": {
     "label": "WhatsApp",
-    "prefill": "Hello METEK Digital — I’d like to book an intro call about a project.",
-    "cta": "Message on WhatsApp",
-    "fab": "Quick chat"
+    "prefill": "Hi — I’d like to talk about a project with METEK.",
+    "cta": "WhatsApp",
+    "fab": "Chat"
   },
   "a11y": {
     "breadcrumb": "Breadcrumb",

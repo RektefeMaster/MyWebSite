@@ -150,7 +150,7 @@ export default function Navbar() {
                 <Link
                   href={{ pathname: "/", hash: "contact" }}
                   aria-label={t("cta")}
-                  className="btn-sheen inline-flex min-h-10 items-center rounded-full bg-lime px-3.5 py-2 text-xs font-bold text-on-lime md:min-h-0 md:px-5 md:py-2.5 md:text-sm"
+                  className="btn-sheen btn-stable btn-stable--nav inline-flex min-h-10 rounded-full bg-lime px-3.5 py-2 text-xs font-bold text-on-lime md:min-h-0 md:px-5 md:py-2.5 md:text-sm"
                 >
                   <span className="sm:hidden" aria-hidden="true">
                     {t("ctaShort")}

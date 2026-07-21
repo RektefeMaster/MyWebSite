@@ -119,14 +119,14 @@ export default async function BlogArticleView({
               <Magnetic strength={0.3} className="w-full sm:w-auto">
                 <Link
                   href={{ pathname: "/", hash: "contact" }}
-                  className="inline-flex w-full min-h-12 items-center justify-center rounded-full bg-ink px-6 py-3 text-sm font-bold text-ink-fg sm:w-auto"
+                  className="btn-stable btn-stable--cta inline-flex w-full min-h-12 rounded-full bg-ink px-6 py-3 text-sm font-bold text-ink-fg sm:w-auto"
                 >
                   {t("articleCta")}
                 </Link>
               </Magnetic>
               <WhatsAppButton
                 variant="outline"
-                className="w-full justify-center sm:w-auto"
+                className="btn-stable btn-stable--cta w-full sm:w-auto"
               />
             </div>
           </div>

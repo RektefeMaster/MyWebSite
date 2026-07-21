@@ -176,11 +176,11 @@ export default function Services({ variant = "full" }: ServicesProps) {
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="flex-1 text-lg font-bold tracking-tight md:text-xl">
+                  <span className="min-w-0 flex-1 text-lg font-bold tracking-tight md:text-xl">
                     {item.title}
                   </span>
                   <span
-                    className={`inline-flex size-8 items-center justify-center rounded-full text-xl leading-none transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                    className={`inline-flex size-8 shrink-0 items-center justify-center rounded-full text-xl leading-none transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                       isOpen
                         ? "rotate-45 bg-band-fg/10 text-lime"
                         : "rotate-0 text-foreground/30"
@@ -208,7 +208,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
                       <Magnetic strength={0.32} className="mt-5 inline-block">
                         <Link
                           href={{ pathname: "/", hash: "contact" }}
-                          className="inline-flex min-h-11 items-center gap-2 rounded-full bg-lime px-5 py-2.5 text-sm font-bold text-on-lime transition-transform hover:scale-[1.02]"
+                          className="btn-stable btn-stable--chip inline-flex min-h-11 gap-2 rounded-full bg-lime px-5 py-2.5 text-sm font-bold text-on-lime transition-transform hover:scale-[1.02]"
                         >
                           {t("cta")}
                           <span aria-hidden>→</span>

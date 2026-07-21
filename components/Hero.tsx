@@ -208,7 +208,7 @@ export default function Hero() {
             <Magnetic strength={0.28} className="w-full sm:w-auto">
               <Link
                 href="/work"
-                className="btn-sheen group inline-flex w-full min-h-11 items-center justify-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-ink-fg touch-manipulation sm:w-auto sm:min-h-10"
+                className="btn-sheen btn-stable btn-stable--hero group inline-flex w-full min-h-11 gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-ink-fg touch-manipulation sm:w-auto sm:min-h-10"
               >
                 {t("ctaWork")}
                 <span
@@ -222,7 +222,7 @@ export default function Hero() {
             <Magnetic strength={0.26} className="w-full sm:w-auto">
               <Link
                 href={{ pathname: "/", hash: "contact" }}
-                className="inline-flex w-full min-h-11 items-center justify-center rounded-full border border-ink/15 bg-surface/75 px-5 py-2.5 text-sm font-bold text-ink backdrop-blur-sm touch-manipulation sm:w-auto sm:min-h-10"
+                className="btn-stable btn-stable--hero inline-flex w-full min-h-11 rounded-full border border-ink/15 bg-surface/75 px-5 py-2.5 text-sm font-bold text-ink backdrop-blur-sm touch-manipulation sm:w-auto sm:min-h-10"
               >
                 {t("ctaContact")}
               </Link>

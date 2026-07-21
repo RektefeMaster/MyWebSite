@@ -14,7 +14,7 @@ export default function WhatsAppFab() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t("label")}
-      className="wa-fab fixed z-[90] inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3.5 text-sm font-bold text-white shadow-[0_12px_32px_-8px_rgba(37,211,102,0.65)] lg:hidden"
+      className="wa-fab btn-stable fixed z-[90] inline-flex min-w-[6.75rem] gap-2 rounded-full bg-[#25D366] px-4 py-3.5 text-sm font-bold text-white shadow-[0_12px_32px_-8px_rgba(37,211,102,0.65)] lg:hidden"
     >
       <WhatsAppIcon className="size-5 shrink-0" />
       <span>{t("fab")}</span>

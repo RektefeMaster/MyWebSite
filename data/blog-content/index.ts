@@ -11,12 +11,12 @@ export async function getBlogArticle(
   locale: string,
   slug: string
 ): Promise<BlogArticle | undefined> {
-  const load = byLocale[locale] ?? byLocale.tr;
+  const load = byLocale[locale] ?? byLocale.en;
   const pack = await load();
   if (pack[slug]) return pack[slug];
-  if (locale !== "tr") {
-    const tr = await byLocale.tr();
-    return tr[slug];
+  if (locale !== "en") {
+    const en = await byLocale.en();
+    return en[slug];
   }
   return undefined;
 }

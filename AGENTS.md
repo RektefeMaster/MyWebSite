@@ -25,7 +25,7 @@ METEK Digital stüdyo sitesi (kurucu: Nurullah Aydın). Next.js 16 (App Router) 
   - JSON-LD (`app/[locale]/layout.tsx` body): `ProfessionalService`/`Organization` + `WebSite` grafiği. `<` → `<` ile kaçırılır.
   - Twitter kartı + `metadataBase` layout `generateMetadata` içinde.
   - `proxy.ts` matcher metadata rotalarını (icon vb.) i18n yönlendirmesinden muaf tutar — yoksa 307.
-- **i18n**: tr (varsayılan) / en / es / de. Rotalama `i18n/routing.ts`, metinler `messages/*.json`, proxy.ts locale yönlendirmesi yapar.
+- **i18n**: en (varsayılan) / tr / es / de. Rotalama `i18n/routing.ts` (`localePrefix: as-needed` → `/` = EN), metinler `messages/*.json`, proxy.ts locale yönlendirmesi yapar.
 - **Projeler**: `data/projects.ts` içindeki liste; kartlarda gerçekçi laptop+telefon mockup (`ProjectCard.tsx`). Ekran görselleri: `desktopImage` / `mobileImage` → dosyalar `public/projects/{id}/`. Path yoksa renkli placeholder.
 - **Blog**: meta `data/blog.ts`, yazılar `data/blog-content/{tr,en,es,de}.ts`. Liste `/blog`, detay `/blog/[slug]`.
 

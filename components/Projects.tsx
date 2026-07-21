@@ -134,7 +134,7 @@ export default function Projects({ variant = "full" }: ProjectsProps) {
             <Magnetic strength={0.35}>
               <Link
                 href="/work"
-                className="btn-sheen inline-block rounded-full bg-ink px-8 py-3.5 text-sm font-bold text-ink-fg"
+                className="btn-sheen btn-stable btn-stable--chip inline-flex rounded-full bg-ink px-8 py-3.5 text-sm font-bold text-ink-fg"
               >
                 {t("seeCase")}
               </Link>
@@ -147,7 +147,7 @@ export default function Projects({ variant = "full" }: ProjectsProps) {
                 <button
                   type="button"
                   onClick={loadMore}
-                  className="rounded-full bg-lime px-8 py-3.5 text-sm font-bold"
+                  className="btn-stable btn-stable--chip inline-flex rounded-full bg-lime px-8 py-3.5 text-sm font-bold"
                 >
                   {t("loadMore")}
                 </button>

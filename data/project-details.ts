@@ -338,11 +338,11 @@ export const projectDetails: ProjectDetailsByLocale = {
       stack: ["React", "Vite", "TypeScript"],
       result:
         "Live site: premium corporate feel, fast mobile performance, and an easily managed content flow.",
-      ctaLabel: "Next project",
-      ctaTitle: "Want a site like this for your manufacturing brand?",
+      ctaLabel: "Up next",
+      ctaTitle: "Need a site like this for a manufacturing brand?",
       ctaBlurb:
-        "Let’s build a corporate site that reflects your production quality, stays SEO-ready, and makes the quote flow unmistakable. Send a short brief — I’ll return a clear scope and roadmap.",
-      ctaButton: "Let’s talk about your project",
+        "If production quality has to show online — and quotes need a clear path — send a short brief. I’ll reply with scope and next steps.",
+      ctaButton: "Start a project",
     },
     aydnnacar: {
       tag: "Brand & catalogue",
@@ -366,11 +366,11 @@ export const projectDetails: ProjectDetailsByLocale = {
       ],
       stack: ["Next.js", "React", "TypeScript"],
       result: "Live site: a catalogue with showroom feel and a clear contact path.",
-      ctaLabel: "Next project",
-      ctaTitle: "Want an editorial catalogue for your furniture brand?",
+      ctaLabel: "Up next",
+      ctaTitle: "Need an editorial catalogue for furniture?",
       ctaBlurb:
-        "Let’s build a calm, premium digital showroom that presents your collections with real showroom feel. Send a short brief and I’ll return a clear scope.",
-      ctaButton: "Let’s talk about your project",
+        "Collections, measurements, contact — presented like a showroom. Send a brief and I’ll outline the build.",
+      ctaButton: "Ask about this",
     },
     wuffbutik: {
       tag: "Boutique web",
@@ -394,11 +394,11 @@ export const projectDetails: ProjectDetailsByLocale = {
       ],
       stack: ["Next.js", "React", "TypeScript"],
       result: "Live site: boutique feel with a fast WhatsApp conversion path.",
-      ctaLabel: "Next project",
-      ctaTitle: "Want a storefront with WhatsApp conversion for your boutique?",
+      ctaLabel: "Up next",
+      ctaTitle: "Need a boutique site that converts on WhatsApp?",
       ctaBlurb:
-        "Let’s bring your store atmosphere online with a showcase that drops straight into WhatsApp. Send a short brief and I’ll return a clear scope.",
-      ctaButton: "Let’s talk about your project",
+        "Store atmosphere online, chat path that actually gets used. Send a brief — I’ll map the scope.",
+      ctaButton: "Ask about this",
     },
     "altitude-residence": {
       tag: "Luxury real estate",
@@ -422,11 +422,11 @@ export const projectDetails: ProjectDetailsByLocale = {
       ],
       stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
       result: "Live site: premium feel, clear viewing path, mobile polish.",
-      ctaLabel: "Next project",
-      ctaTitle: "Want a viewing-led site for your luxury residence project?",
+      ctaLabel: "Up next",
+      ctaTitle: "Need a viewing-led site for a residence project?",
       ctaBlurb:
-        "Let’s build an editorial experience that tells your residence story and flows cleanly into a viewing appointment. Send a short brief and I’ll return scope and roadmap.",
-      ctaButton: "Let’s talk about your project",
+        "Story first, appointment second — without the fluff. Send a brief and I’ll come back with a plan.",
+      ctaButton: "Start a project",
     },
     "casa-aurelia": {
       tag: "Boutique hotel",
@@ -450,11 +450,11 @@ export const projectDetails: ProjectDetailsByLocale = {
       ],
       stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
       result: "Live site: boutique-hotel feel, bilingual, clear booking path.",
-      ctaLabel: "Next project",
-      ctaTitle: "Want a booking experience like this for your boutique hotel brand?",
+      ctaLabel: "Up next",
+      ctaTitle: "Need a booking site for a boutique hotel?",
       ctaBlurb:
-        "Let’s tell your hotel’s story atmospherically, in multiple languages, with a clear path to booking. Send a short brief and I’ll return a clear scope.",
-      ctaButton: "Let’s talk about your project",
+        "Atmosphere, language support, a clean path to book. Send a brief — I’ll outline what that takes.",
+      ctaButton: "Ask about this",
     },
     "seraphine-atelier": {
       tag: "Fashion e-commerce",
@@ -479,11 +479,11 @@ export const projectDetails: ProjectDetailsByLocale = {
       stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
       result:
         "Live site: couture feel, lookbook rhythm, and private-hour conversion. Quiet-luxury tone stays consistent from desktop to mobile.",
-      ctaLabel: "Next project",
-      ctaTitle: "Want a fashion house like this?",
+      ctaLabel: "Up next",
+      ctaTitle: "Need a fashion house site in this register?",
       ctaBlurb:
-        "Let’s adapt cinematic hero, lookbook rhythm, and appointment-led conversion to your brand. Send a short brief — I’ll return a clear scope and roadmap.",
-      ctaButton: "Let’s talk about your project",
+        "Hero, lookbook rhythm, appointments that convert. Send a brief and I’ll sketch the scope.",
+      ctaButton: "Start a project",
     },
     "whatsapp-bot": {
       title: "WhatsApp Conversation Assistant",
@@ -509,11 +509,11 @@ export const projectDetails: ProjectDetailsByLocale = {
       stack: ["WhatsApp Cloud API", "n8n", "Python", "PostgreSQL"],
       result:
         "Work keeps moving without you on the phone. Free hours fill, busy ones don’t clash, cancels free slots cleanly, reminder goes out 1 hour before.",
-      ctaLabel: "Next project",
-      ctaTitle: "Want a WhatsApp appointment assistant for your business?",
+      ctaLabel: "Up next",
+      ctaTitle: "Need a WhatsApp assistant for bookings?",
       ctaBlurb:
-        "Let’s build an assistant that knows your prices, your free hours, and your appointment flow. Send a short brief and I’ll scope it out.",
-      ctaButton: "Let’s talk about your project",
+        "Prices, free hours, reminders — without living on your phone. Send a brief and I’ll scope the setup.",
+      ctaButton: "Ask about this",
     },
     "instagram-bot": {
       title: "Instagram DM Assistant",
@@ -538,11 +538,11 @@ export const projectDetails: ProjectDetailsByLocale = {
       stack: ["Instagram Graph API", "n8n", "Python", "Supabase"],
       result:
         "DM inbox stays tidy: questions answered, bookings on free hours, reminder 1 hour before — without watching your phone.",
-      ctaLabel: "Next project",
-      ctaTitle: "Want the same assistant for your Instagram DMs?",
+      ctaLabel: "Up next",
+      ctaTitle: "Need the same assistant in Instagram DMs?",
       ctaBlurb:
-        "Let’s build an assistant that shares the same calendar as WhatsApp and keeps your DMs tidy. Send a short brief and I’ll scope it out.",
-      ctaButton: "Let’s talk about your project",
+        "Same calendar as WhatsApp, cleaner inbox. Send a brief — I’ll scope it.",
+      ctaButton: "Ask about this",
     },
     crm: {
       title: "CRM Sales Panel",
@@ -566,11 +566,11 @@ export const projectDetails: ProjectDetailsByLocale = {
       stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
       result:
         "Bots talk, fill free hours, remind 1 hour before; CRM keeps it all in one place. While you’re away, the system keeps filling.",
-      ctaLabel: "Next project",
-      ctaTitle: "Want a CRM panel that talks to your bots?",
+      ctaLabel: "Up next",
+      ctaTitle: "Need a CRM that sits with your bots?",
       ctaBlurb:
-        "Let’s bring the appointments and customers your WhatsApp and Instagram assistants collect into one panel. Send a short brief and I’ll scope it out.",
-      ctaButton: "Let’s talk about your project",
+        "Bookings and customers from WhatsApp and Instagram, in one place. Send a brief and I’ll outline the panel.",
+      ctaButton: "Ask about this",
     },
     "css-system": {
       tag: "Design system",
@@ -595,11 +595,11 @@ export const projectDetails: ProjectDetailsByLocale = {
       stack: ["CSS Custom Properties", "Design Tokens"],
       result:
         "Result: brand updates propagate from one place, and new pages ship fast without style drift.",
-      ctaLabel: "Next project",
-      ctaTitle: "Want a consistent design system for your brand?",
+      ctaLabel: "Up next",
+      ctaTitle: "Need a design system your team can actually use?",
       ctaBlurb:
-        "Let’s build a token-based, scalable CSS design system so your web and admin UI speak the same language. Send a short brief and I’ll scope it out.",
-      ctaButton: "Let’s talk about your project",
+        "Tokens, components, docs — web and admin speaking the same language. Send a brief and I’ll scope it.",
+      ctaButton: "Ask about this",
     },
   },
 };
@@ -1192,8 +1192,8 @@ export function getProjectDetail(
   locale: string,
   id: string
 ): ProjectDetail | undefined {
-  const pack = projectDetails[locale] ?? projectDetails.tr;
-  const detail = pack[id] ?? projectDetails.tr[id] ?? projectDetails.en[id];
+  const pack = projectDetails[locale] ?? projectDetails.en;
+  const detail = pack[id] ?? projectDetails.en[id] ?? projectDetails.tr[id];
   if (!detail) return undefined;
   const gallery = detail.gallery ?? getProjectGallery(locale, id);
   return gallery ? { ...detail, gallery } : detail;

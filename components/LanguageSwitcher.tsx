@@ -22,7 +22,7 @@ export default function LanguageSwitcher() {
           type="button"
           onClick={() => router.replace(pathname, { locale: l })}
           aria-pressed={l === locale}
-          className={`min-h-8 min-w-8 rounded-full px-2 py-1 text-[11px] font-bold uppercase transition-colors ${
+          className={`inline-flex min-h-8 w-9 items-center justify-center rounded-full text-[11px] font-bold uppercase transition-colors ${
             l === locale
               ? "bg-ink text-ink-fg"
               : "text-ink/55 hover:text-ink"

@@ -14,8 +14,8 @@
     "projects": "Proyectos",
     "contact": "Contacto",
     "bookMeeting": "Primera llamada",
-    "cta": "Hablemos de tu proyecto",
-    "ctaShort": "Hablemos"
+    "cta": "Empezar proyecto",
+    "ctaShort": "Empezar"
   },
   "pages": {
     "manifesto": {
@@ -27,7 +27,7 @@
       "ctaLabel": "Empecemos",
       "ctaTitle": "Hablemos de tu proyecto — un mensaje basta.",
       "ctaBlurb": "Comparte el objetivo y lo que necesitas. En 24 horas tendrás una hoja de ruta clara.",
-      "ctaButton": "Agendar una llamada"
+      "ctaButton": "Agendar"
     },
     "approach": {
       "metaTitle": "Enfoque — METEK",
@@ -38,7 +38,7 @@
       "ctaLabel": "Empecemos",
       "ctaTitle": "Apliquemos el método a tu proyecto.",
       "ctaBlurb": "Del descubrimiento al lanzamiento: alcance claro, actualizaciones constantes, resultados medibles.",
-      "ctaButton": "Hablar del proceso"
+      "ctaButton": "Ver proceso"
     },
     "work": {
       "metaTitle": "Trabajo — METEK",
@@ -49,7 +49,7 @@
       "ctaLabel": "Empecemos",
       "ctaTitle": "Que el próximo proyecto sea el tuyo.",
       "ctaBlurb": "Comparte sector y objetivo — te propongo solución y ruta.",
-      "ctaButton": "Enviar resumen del proyecto"
+      "ctaButton": "Enviar brief"
     },
     "services": {
       "metaTitle": "Servicios — METEK",
@@ -60,7 +60,7 @@
       "ctaLabel": "Empecemos",
       "ctaTitle": "Hablemos de tu proyecto — un mensaje basta.",
       "ctaBlurb": "Cuéntame qué necesitas. En 24 horas tendrás una hoja de ruta clara — sin estimaciones vagas.",
-      "ctaButton": "Agendar una llamada"
+      "ctaButton": "Agendar"
     },
     "blog": {
       "metaTitle": "Blog — METEK",
@@ -71,7 +71,7 @@
       "ctaLabel": "Empecemos",
       "ctaTitle": "Convirtamos estas ideas en producto.",
       "ctaBlurb": "¿Quieres aplicar este enfoque a tu marca?",
-      "ctaButton": "Escribirnos"
+      "ctaButton": "Contacto"
     }
   },
   "blog": {
@@ -83,7 +83,7 @@
     "readMinutes": "{count} min de lectura",
     "relatedLabel": "Continuar",
     "relatedTitle": "Artículos relacionados.",
-    "articleCta": "Hablemos de tu proyecto",
+    "articleCta": "Empezar proyecto",
     "articleCtaBlurb": "¿Quieres adaptar este enfoque a tu marca?",
     "crumbHome": "Inicio",
     "crumbBlog": "Blog",
@@ -158,7 +158,7 @@
       "Mejor rendimiento móvil y experiencia de uso.",
       "Contenido, medios y SEO en un solo panel."
     ],
-    "cta": "Ver más proyectos",
+    "cta": "Más proyectos",
     "sceneLabel": "Resultado",
     "sceneTitle": "Calidad de fabricación, visible online.",
     "sceneBody": "Rendimiento, SEO y gestión de contenidos en un sistema."
@@ -190,15 +190,15 @@
     "title": "Disponibilidad para nuevos proyectos",
     "blurb": "Acepto un número limitado de proyectos a la vez para dar foco a cada uno.",
     "slots": "2 plazas de proyecto para agosto 2026",
-    "cta": "Agendar llamada"
+    "cta": "Agendar"
   },
   "hero": {
     "line1": "De la idea",
     "line2": "al producto",
     "line3": "que funciona.",
     "blurb": "Productos digitales para tu marca — web, software e IA. Alcance claro, resultados medibles.",
-    "ctaWork": "Ver trabajos",
-    "ctaContact": "Hablemos de tu proyecto",
+    "ctaWork": "Trabajos",
+    "ctaContact": "Empezar proyecto",
     "scroll": "Explorar",
     "metaStudio": "Estudio de producto digital",
     "metaLocation": "Malatya · Todo el mundo"
@@ -207,12 +207,12 @@
     "label": "Trabajos seleccionados",
     "title": "Proyectos",
     "blurb": "Una selección de web, paneles y productos digitales. Cada proyecto se construye con diseño a medida e ingeniería sólida.",
-    "loadMore": "Ver todos los proyectos",
-    "seeCase": "Todo el trabajo"
+    "loadMore": "Ver todos",
+    "seeCase": "Trabajos"
   },
   "projectUi": {
-    "view": "Ver proyecto",
-    "live": "Ver sitio",
+    "view": "Ver",
+    "live": "Sitio",
     "stack": "Tecnología",
     "back": "Volver a trabajos",
     "gallery": "Fotogramas",
@@ -222,8 +222,8 @@
     "label": "Servicios",
     "title": "En qué trabajamos",
     "included": "Qué incluye",
-    "cta": "Escribir sobre este servicio",
-    "seeAll": "Ver todos los servicios",
+    "cta": "Consultar",
+    "seeAll": "Servicios",
     "items": [
       {
         "title": "Sitio web inicial",
@@ -452,7 +452,7 @@
     "email": "Correo",
     "interestedIn": "Me interesa",
     "message": "Cuéntame objetivo y plazos en pocas líneas",
-    "send": "Enviar mensaje",
+    "send": "Enviar",
     "sentHint": "Abriendo tu app de correo… Suelo responder en 24 horas.",
     "mailSubject": "Consulta de proyecto",
     "mailName": "Nombre",
@@ -471,7 +471,7 @@
       "Otro"
     ],
     "response": "Suelo responder en 24 horas. Si es urgente, WhatsApp es más rápido.",
-    "emailCta": "Escribir email"
+    "emailCta": "Email"
   },
   "footer": {
     "tagline": "Diseño original. Software sólido. Resultados medibles.",
@@ -479,7 +479,7 @@
     "manifesto": "Manifiesto",
     "work": "Trabajo",
     "approach": "Enfoque",
-    "bookMeeting": "Agendar una llamada",
+    "bookMeeting": "Agendar",
     "services": "Servicios",
     "blog": "Blog",
     "projects": "Proyectos",
@@ -500,22 +500,41 @@
       {
         "title": "Web y producto",
         "blurb": "Sitios y paneles rápidos, listos para SEO, sólidos en móvil. Motion y scroll bajo control.",
-        "items": ["Next.js", "React", "TypeScript", "Vite", "Tailwind CSS", "GSAP", "Lenis"]
+        "items": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Vite",
+          "Tailwind CSS",
+          "GSAP",
+          "Lenis"
+        ]
       },
       {
         "title": "Apps móviles",
         "blurb": "Una base de código para iOS y Android. UI lista para tienda, releases estables.",
-        "items": ["Flutter", "Dart"]
+        "items": [
+          "Flutter",
+          "Dart"
+        ]
       },
       {
         "title": "Automatización y mensajería",
         "blurb": "Bots de WhatsApp / Instagram, flujos de cita, recordatorios. El trabajo manual pasa a sistema.",
-        "items": ["Python", "n8n", "WhatsApp Cloud API", "Instagram Graph API"]
+        "items": [
+          "Python",
+          "n8n",
+          "WhatsApp Cloud API",
+          "Instagram Graph API"
+        ]
       },
       {
         "title": "Datos e infraestructura",
         "blurb": "Clientes, citas y ventas quedan bien guardados. Panel y bots leen la misma fuente.",
-        "items": ["PostgreSQL", "Supabase"]
+        "items": [
+          "PostgreSQL",
+          "Supabase"
+        ]
       }
     ]
   },
@@ -532,8 +551,8 @@
   "whatsapp": {
     "label": "WhatsApp",
     "prefill": "Hola METEK Digital — me gustaría agendar una llamada sobre un proyecto.",
-    "cta": "Escribir por WhatsApp",
-    "fab": "Chat rápido"
+    "cta": "WhatsApp",
+    "fab": "Chat"
   },
   "a11y": {
     "breadcrumb": "Ruta de navegación",

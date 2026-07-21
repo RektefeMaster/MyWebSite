@@ -20,7 +20,7 @@ export default function WhatsAppButton({
   switch (variant) {
     case "nav":
       styles =
-        "inline-flex min-h-10 items-center gap-1.5 rounded-full bg-[#25D366] px-3.5 py-2 text-xs font-bold text-white md:min-h-0 md:px-4 md:text-sm";
+        "btn-stable inline-flex min-h-10 min-w-[7.25rem] gap-1.5 rounded-full bg-[#25D366] px-3.5 py-2 text-xs font-bold text-white md:min-h-0 md:px-4 md:text-sm";
       break;
     case "footer":
       styles =
@@ -44,6 +44,8 @@ export default function WhatsAppButton({
   }
 
   const showCtaLabel = variant === "outline" || variant === "outlineOnDark";
+  // Tüm dillerde aynı etiket — locale kayması olmasın
+  const text = t("label");
 
   return (
     <a
@@ -62,7 +64,7 @@ export default function WhatsAppButton({
               : "size-3.5"
         }
       />
-      {showCtaLabel ? t("cta") : t("label")}
+      {text}
     </a>
   );
 }

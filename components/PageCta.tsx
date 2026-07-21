@@ -43,7 +43,7 @@ export default function PageCta({ label, title, blurb, cta }: PageCtaProps) {
             <Magnetic strength={0.3} className="w-full sm:w-auto">
               <Link
                 href={{ pathname: "/", hash: "contact" }}
-                className="btn-sheen inline-flex w-full min-h-12 items-center justify-center gap-2 rounded-full bg-lime px-8 py-4 text-sm font-bold text-on-lime transition-transform duration-200 hover:scale-[1.02] sm:w-auto"
+                className="btn-sheen btn-stable btn-stable--cta inline-flex w-full min-h-12 gap-2 rounded-full bg-lime px-8 py-4 text-sm font-bold text-on-lime transition-transform duration-200 hover:scale-[1.02] sm:w-auto"
               >
                 {cta}
                 <span aria-hidden>→</span>
@@ -51,7 +51,7 @@ export default function PageCta({ label, title, blurb, cta }: PageCtaProps) {
             </Magnetic>
             <WhatsAppButton
               variant="outlineOnDark"
-              className="w-full justify-center sm:w-auto"
+              className="btn-stable btn-stable--cta w-full sm:w-auto"
             />
           </div>
         </div>

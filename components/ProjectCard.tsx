@@ -42,10 +42,10 @@ export default function ProjectCard({ project }: { project: Project }) {
           </p>
         ) : null}
 
-        <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
+        <div className="mt-4 grid w-full max-w-[18rem] grid-cols-2 gap-2">
           <Link
             href={`/work/${project.id}`}
-            className="inline-flex min-h-11 items-center gap-1.5 rounded-full border border-foreground/10 bg-paper px-4 py-2.5 text-xs font-bold text-ink transition-colors touch-manipulation hover:border-ink/25 hover:bg-surface md:min-h-10"
+            className="btn-stable btn-stable--pair inline-flex min-h-11 gap-1.5 rounded-full border border-foreground/10 bg-paper px-3 py-2.5 text-xs font-bold text-ink transition-colors touch-manipulation hover:border-ink/25 hover:bg-surface md:min-h-10"
           >
             {t("view")}
             <span aria-hidden>→</span>
@@ -55,12 +55,14 @@ export default function ProjectCard({ project }: { project: Project }) {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-ink px-4 py-2.5 text-xs font-bold text-ink-fg transition-colors touch-manipulation hover:bg-ink/90 md:min-h-10"
+              className="btn-stable btn-stable--pair inline-flex min-h-11 gap-1.5 rounded-full bg-ink px-3 py-2.5 text-xs font-bold text-ink-fg transition-colors touch-manipulation hover:bg-ink/90 md:min-h-10"
             >
               {t("live")}
               <span aria-hidden>↗</span>
             </a>
-          ) : null}
+          ) : (
+            <span aria-hidden className="invisible" />
+          )}
         </div>
       </div>
     </article>

@@ -14,8 +14,8 @@
     "projects": "Projeler",
     "contact": "İletişim",
     "bookMeeting": "Keşif görüşmesi",
-    "cta": "Projenizi konuşalım",
-    "ctaShort": "Konuşalım"
+    "cta": "Proje başlat",
+    "ctaShort": "Başla"
   },
   "pages": {
     "manifesto": {
@@ -27,7 +27,7 @@
       "ctaLabel": "Birlikte başlayalım",
       "ctaTitle": "Projenizi konuşalım — bir mesaj yeter.",
       "ctaBlurb": "Hedefinizi ve ihtiyacınızı yazın; 24 saat içinde net bir yol haritası çıkarayım.",
-      "ctaButton": "Görüşme planla"
+      "ctaButton": "Görüşme al"
     },
     "approach": {
       "metaTitle": "Yaklaşım — METEK",
@@ -38,7 +38,7 @@
       "ctaLabel": "Birlikte başlayalım",
       "ctaTitle": "Yöntemi projenize uyarlayalım.",
       "ctaBlurb": "Keşiften yayına: net kapsam, düzenli güncelleme, ölçülebilir sonuç.",
-      "ctaButton": "Süreci konuşalım"
+      "ctaButton": "Süreci gör"
     },
     "work": {
       "metaTitle": "İşler — METEK",
@@ -49,7 +49,7 @@
       "ctaLabel": "Birlikte başlayalım",
       "ctaTitle": "Sıradaki proje sizinki olsun.",
       "ctaBlurb": "Sektörünüzü ve hedefinizi yazın — uygun çözümü ve yol haritasını çıkarayım.",
-      "ctaButton": "Proje özetini gönder"
+      "ctaButton": "Brief gönder"
     },
     "services": {
       "metaTitle": "Hizmetler — METEK",
@@ -60,7 +60,7 @@
       "ctaLabel": "Birlikte başlayalım",
       "ctaTitle": "Projenizi konuşalım — bir mesaj yeter.",
       "ctaBlurb": "İhtiyacınızı yazın; 24 saat içinde net bir yol haritası çıkarayım. Tahmin yok, net kapsam var.",
-      "ctaButton": "Görüşme planla"
+      "ctaButton": "Görüşme al"
     },
     "blog": {
       "metaTitle": "Blog — METEK",
@@ -71,7 +71,7 @@
       "ctaLabel": "Birlikte başlayalım",
       "ctaTitle": "Bu fikirleri ürüne çevirelim.",
       "ctaBlurb": "Yazıdaki yaklaşımı kendi markanız için konuşmak ister misiniz?",
-      "ctaButton": "Bizimle iletişime geçin"
+      "ctaButton": "İletişim"
     }
   },
   "blog": {
@@ -83,7 +83,7 @@
     "readMinutes": "{count} dk okuma",
     "relatedLabel": "Devamı",
     "relatedTitle": "İlgili yazılar.",
-    "articleCta": "Projenizi konuşalım",
+    "articleCta": "Proje başlat",
     "articleCtaBlurb": "Bu konuyu kendi projeniz için konuşmak ister misiniz?",
     "crumbHome": "Ana sayfa",
     "crumbBlog": "Blog",
@@ -158,7 +158,7 @@
       "Mobil performans ve kullanıcı deneyimi iyileştirildi.",
       "İçerik, medya ve SEO yönetimi tek panelde birleştirildi."
     ],
-    "cta": "Diğer projelere bak",
+    "cta": "Diğer projeler",
     "sceneLabel": "Sonuç",
     "sceneTitle": "Üretim kalitesi, dijitalde görünür.",
     "sceneBody": "Performans, SEO ve içerik yönetimi aynı sistemde."
@@ -190,16 +190,16 @@
     "title": "Yeni Projeler İçin Müsaitlik",
     "blurb": "Her projeye yeterli odak ayırabilmek için aynı anda sınırlı sayıda iş kabul ediyorum.",
     "slots": "Ağustos 2026 için 2 proje yeri",
-    "cta": "Görüşme planla"
+    "cta": "Görüşme al"
   },
   "hero": {
     "line1": "Fikirden",
     "line2": "çalışan",
     "line3": "ürüne.",
     "blurb": "Web, yazılım ve yapay zekâ ile markanıza çalışan dijital ürünler. Net kapsam, ölçülebilir sonuç.",
-    "ctaWork": "İşleri incele",
-    "ctaContact": "Projenizi konuşalım",
-    "scroll": "Keşfetmeye başla",
+    "ctaWork": "İşler",
+    "ctaContact": "Proje başlat",
+    "scroll": "Keşfet",
     "metaStudio": "Dijital ürün stüdyosu",
     "metaLocation": "Malatya · Dünya geneli"
   },
@@ -207,12 +207,12 @@
     "label": "Seçili işler",
     "title": "Projeler",
     "blurb": "Web, panel ve dijital ürün çalışmalarından bir kesit. Her proje özgün tasarım ve sağlam yazılımla kurulur.",
-    "loadMore": "Daha fazla göster",
+    "loadMore": "Hepsini gör",
     "seeCase": "Tüm işler"
   },
   "projectUi": {
     "view": "İncele",
-    "live": "Siteyi gör",
+    "live": "Canlı",
     "stack": "Teknoloji",
     "back": "İşlere dön",
     "gallery": "Sayfa kareleri",
@@ -222,8 +222,8 @@
     "label": "Hizmetler",
     "title": "Ne üzerine çalışıyoruz",
     "included": "Pakete dahil",
-    "cta": "Bu hizmet için yazın",
-    "seeAll": "Tüm hizmetleri gör",
+    "cta": "Bilgi al",
+    "seeAll": "Tüm hizmetler",
     "items": [
       {
         "title": "Başlangıç Web Sitesi",
@@ -452,7 +452,7 @@
     "email": "E-posta",
     "interestedIn": "İlgilendiğiniz alan",
     "message": "Hedefinizi ve zamanlamanızı kısaca yazın",
-    "send": "Talebi gönder",
+    "send": "Gönder",
     "sentHint": "E-posta uygulaman açılıyor… Genelde 24 saat içinde dönüş yaparım.",
     "mailSubject": "Proje talebi",
     "mailName": "İsim",
@@ -471,7 +471,7 @@
       "Diğer"
     ],
     "response": "Genelde 24 saat içinde dönüş yaparım. Acil konular için WhatsApp daha hızlı.",
-    "emailCta": "E-posta yazın"
+    "emailCta": "E-posta"
   },
   "footer": {
     "tagline": "Özgün tasarım. Sağlam yazılım. Ölçülebilir sonuç.",
@@ -479,7 +479,7 @@
     "manifesto": "Manifesto",
     "work": "İşler",
     "approach": "Yaklaşım",
-    "bookMeeting": "Keşif görüşmesi planla",
+    "bookMeeting": "Görüşme al",
     "services": "Hizmetler",
     "blog": "Blog",
     "projects": "Projeler",
@@ -500,22 +500,41 @@
       {
         "title": "Web ve ürün arayüzü",
         "blurb": "Hızlı, SEO’ya uygun, mobilde bozulmayan siteler ve paneller. Animasyon ve kaydırma da kontrol altında.",
-        "items": ["Next.js", "React", "TypeScript", "Vite", "Tailwind CSS", "GSAP", "Lenis"]
+        "items": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Vite",
+          "Tailwind CSS",
+          "GSAP",
+          "Lenis"
+        ]
       },
       {
         "title": "Mobil uygulama",
         "blurb": "iOS ve Android için tek kod tabanı. Mağaza kalitesinde arayüz, stabil yayın.",
-        "items": ["Flutter", "Dart"]
+        "items": [
+          "Flutter",
+          "Dart"
+        ]
       },
       {
         "title": "Otomasyon ve mesajlaşma",
         "blurb": "WhatsApp / Instagram botları, randevu akışları, hatırlatmalar. Elle yapılan işi sisteme bağlarım.",
-        "items": ["Python", "n8n", "WhatsApp Cloud API", "Instagram Graph API"]
+        "items": [
+          "Python",
+          "n8n",
+          "WhatsApp Cloud API",
+          "Instagram Graph API"
+        ]
       },
       {
         "title": "Veri ve altyapı",
         "blurb": "Müşteri, randevu ve satış kayıtları güvenli durur. Panel ile bot aynı kaynağı okur.",
-        "items": ["PostgreSQL", "Supabase"]
+        "items": [
+          "PostgreSQL",
+          "Supabase"
+        ]
       }
     ]
   },
@@ -532,8 +551,8 @@
   "whatsapp": {
     "label": "WhatsApp",
     "prefill": "Merhaba METEK Digital — bir proje için keşif görüşmesi yapmak istiyorum.",
-    "cta": "WhatsApp’tan yazın",
-    "fab": "Hızlı yazın"
+    "cta": "WhatsApp",
+    "fab": "Yaz"
   },
   "a11y": {
     "breadcrumb": "Sayfa yolu",

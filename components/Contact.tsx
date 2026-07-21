@@ -93,10 +93,10 @@ export default function Contact() {
               {t("response")}
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <WhatsAppButton />
+              <WhatsAppButton className="btn-stable btn-stable--cta justify-center" />
               <a
                 href={`mailto:${EMAIL}`}
-                className="inline-flex min-h-12 items-center justify-center rounded-full border border-band-fg/15 px-5 py-3 text-sm font-semibold text-band-fg/80 transition-colors hover:border-band-fg/35 hover:text-band-fg"
+                className="btn-stable btn-stable--cta inline-flex min-h-12 rounded-full border border-band-fg/15 px-5 py-3 text-sm font-semibold text-band-fg/80 transition-colors hover:border-band-fg/35 hover:text-band-fg"
               >
                 {t("emailCta")}
               </a>

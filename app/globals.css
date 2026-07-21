@@ -528,6 +528,52 @@ html::-webkit-scrollbar-thumb {
   }
 }
 
+/* Locale-stable CTA — dil değişince hug-width oynamasın */
+.btn-stable {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn-stable--nav {
+  min-width: 9.75rem;
+}
+
+.btn-stable--nav-short {
+  min-width: 4.75rem;
+}
+
+.btn-stable--hero {
+  min-width: 9.5rem;
+}
+
+.btn-stable--cta {
+  min-width: 11.5rem;
+}
+
+.btn-stable--pair {
+  min-width: 7.25rem;
+}
+
+.btn-stable--chip {
+  min-width: 7.5rem;
+}
+
+@media (max-width: 639px) {
+  .btn-stable--nav {
+    min-width: 4.75rem;
+  }
+
+  .btn-stable--hero,
+  .btn-stable--cta,
+  .btn-stable--pair {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
 /* Dokunmatik: 300ms tap gecikmesini kaldır, hover sticky önle */
 @media (pointer: coarse) {
   .marquee-track {

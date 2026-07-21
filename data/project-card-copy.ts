@@ -192,6 +192,6 @@ export function getProjectCardCopy(
   locale: string,
   id: string
 ): ProjectCardCopy | undefined {
-  const pack = projectCardCopy[locale] ?? projectCardCopy.tr;
-  return pack[id] ?? projectCardCopy.tr?.[id] ?? projectCardCopy.en?.[id];
+  const pack = projectCardCopy[locale] ?? projectCardCopy.en;
+  return pack[id] ?? projectCardCopy.en?.[id] ?? projectCardCopy.tr?.[id];
 }
