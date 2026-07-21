@@ -1,0 +1,97 @@
+"use client";
+
+import { useRef } from "react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { gsap, useGSAP } from "@/lib/gsap";
+
+type Crumb = {
+  label: string;
+  href?: "/" | "/manifesto" | "/work" | "/approach" | "/services" | "/blog";
+};
+
+type PageHeroProps = {
+  label: string;
+  title: string;
+  blurb?: string;
+  crumbs?: Crumb[];
+};
+
+/**
+ * Alt sayfa üst bandı — glass hissi, net hiyerarşi.
+ */
+export default function PageHero({ label, title, blurb, crumbs }: PageHeroProps) {
+  const t = useTranslations("a11y");
+  const ref = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      const el = ref.current;
+      if (!el) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      gsap.from(el.querySelectorAll("[data-ph]"), {
+        opacity: 0,
+        y: 22,
+        stagger: 0.08,
+        duration: 0.7,
+        ease: "power2.out",
+        delay: 0.15,
+      });
+    },
+    { scope: ref }
+  );
+
+  return (
+    <div
+      ref={ref}
+      className="page-hero relative overflow-hidden border-b border-foreground/8 bg-gradient-to-b from-paper via-paper to-background"
+    >
+      <div aria-hidden className="page-hero__wash pointer-events-none absolute inset-0" />
+
+      <div className="relative mx-auto max-w-7xl px-5 pb-12 pt-[calc(var(--nav-offset)+1.25rem)] md:px-10 md:pb-16 md:pt-32">
+        {crumbs && crumbs.length > 0 && (
+          <nav
+            data-ph
+            aria-label={t("breadcrumb")}
+            className="mb-6 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground/40"
+          >
+            {crumbs.map((c, i) => (
+              <span key={c.label} className="flex items-center gap-2">
+                {i > 0 && <span className="text-foreground/25">/</span>}
+                {c.href ? (
+                  <Link href={c.href} className="transition-colors hover:text-ink">
+                    {c.label}
+                  </Link>
+                ) : (
+                  <span className="text-ink/70">{c.label}</span>
+                )}
+              </span>
+            ))}
+          </nav>
+        )}
+
+        <p
+          data-ph
+          className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-foreground/40"
+        >
+          {label}
+        </p>
+        <h1
+          data-ph
+          className="font-display max-w-4xl text-4xl leading-[1.05] tracking-tight md:text-6xl lg:text-7xl"
+        >
+          {title}
+        </h1>
+        {blurb && (
+          <p
+            data-ph
+            className="font-subtitle mt-5 max-w-xl text-sm leading-relaxed text-foreground/55 md:text-base"
+          >
+            {blurb}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}

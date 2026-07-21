@@ -1,0 +1,498 @@
+{
+  "meta": {
+    "title": "METEK Digital — Diseño web, software e IA",
+    "description": "METEK Digital desarrolla sitios web a medida, paneles, automatizaciones y productos digitales con IA."
+  },
+  "nav": {
+    "about": "Sobre mí",
+    "home": "Inicio",
+    "manifesto": "Manifiesto",
+    "work": "Trabajo",
+    "approach": "Enfoque",
+    "services": "Servicios",
+    "blog": "Blog",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "bookMeeting": "Llamada de descubrimiento",
+    "cta": "Hablemos del proyecto",
+    "ctaShort": "Hablar"
+  },
+  "pages": {
+    "manifesto": {
+      "metaTitle": "Manifiesto — METEK",
+      "metaDescription": "Diseño original, software sólido y resultados medibles. El enfoque de METEK Digital.",
+      "heroLabel": "Manifiesto",
+      "heroTitle": "Experiencias digitales originales.",
+      "heroBlurb": "Diseño, software y tecnología en un solo sistema.",
+      "ctaLabel": "Empieza ya",
+      "ctaTitle": "Hablemos de tu proyecto — un paso breve basta.",
+      "ctaBlurb": "Comparte el objetivo y la necesidad. En 24 horas tendrás una hoja de ruta clara.",
+      "ctaButton": "Reservar llamada de descubrimiento"
+    },
+    "approach": {
+      "metaTitle": "Enfoque — METEK",
+      "metaDescription": "Claridad, sistema, tempo y resultado — cómo pienso el trabajo de marca.",
+      "heroLabel": "Enfoque",
+      "heroTitle": "Método.",
+      "heroBlurb": "Del descubrimiento al lanzamiento. Cada paso atado a un resultado medible.",
+      "ctaLabel": "Empieza ya",
+      "ctaTitle": "Apliquemos el método a tu proyecto.",
+      "ctaBlurb": "Del descubrimiento al lanzamiento: alcance claro, actualizaciones constantes, resultados medibles.",
+      "ctaButton": "Hablar del proceso"
+    },
+    "work": {
+      "metaTitle": "Trabajo — METEK",
+      "metaDescription": "Proyectos web y de software seleccionados. Diseño a medida, ingeniería sólida.",
+      "heroLabel": "Trabajo",
+      "heroTitle": "Proyectos seleccionados.",
+      "heroBlurb": "Una selección de productos digitales que diseñamos y desarrollamos.",
+      "ctaLabel": "Empieza ya",
+      "ctaTitle": "Que el próximo caso sea el tuyo.",
+      "ctaBlurb": "Comparte sector y objetivo — te propongo solución y ruta.",
+      "ctaButton": "Enviar brief del proyecto"
+    },
+    "services": {
+      "metaTitle": "Servicios — METEK",
+      "metaDescription": "Sitios web, software a medida, automatización e IA.",
+      "heroLabel": "Servicios",
+      "heroTitle": "Servicios.",
+      "heroBlurb": "Web, software y automatización. Definimos el alcance juntos.",
+      "ctaLabel": "Empieza ya",
+      "ctaTitle": "Hablemos de tu proyecto — un paso breve basta.",
+      "ctaBlurb": "Cuéntame qué necesitas. En 24 horas tendrás una hoja de ruta clara — sin estimaciones vagas.",
+      "ctaButton": "Reservar llamada de descubrimiento"
+    },
+    "blog": {
+      "metaTitle": "Blog — METEK",
+      "metaDescription": "Notas sobre web, software y productos digitales.",
+      "heroLabel": "Blog",
+      "heroTitle": "Notas y perspectivas.",
+      "heroBlurb": "Escritos seleccionados sobre sistemas de identidad, web editorial y proceso.",
+      "ctaLabel": "Empieza ya",
+      "ctaTitle": "Convirtamos estas ideas en producto.",
+      "ctaBlurb": "¿Quieres aplicar este enfoque a tu marca?",
+      "ctaButton": "Contactar"
+    }
+  },
+  "blog": {
+    "view": "Leer",
+    "teaserLabel": "Blog",
+    "teaserTitle": "Notas seleccionadas.",
+    "teaserBlurb": "Perspectivas breves sobre identidad, experiencia digital y proceso.",
+    "teaserAll": "Leer todos los artículos",
+    "readMinutes": "{count} min de lectura",
+    "relatedLabel": "Continuar",
+    "relatedTitle": "Artículos relacionados.",
+    "articleCta": "Hablemos del proyecto",
+    "articleCtaBlurb": "¿Quieres adaptar este enfoque a tu marca?",
+    "crumbHome": "Inicio",
+    "crumbBlog": "Blog",
+    "categories": {
+      "identity": "Identidad",
+      "digital": "Digital",
+      "process": "Proceso",
+      "strategy": "Estrategia"
+    },
+    "author": "Nurullah Aydın"
+  },
+  "showcase": {
+    "label": "Índice",
+    "title": "Áreas de trabajo.",
+    "blurb": "Manifiesto, trabajo, método, servicios y blog.",
+    "view": "Ver",
+    "cards": {
+      "manifesto": {
+        "label": "Manifiesto",
+        "title": "La identidad primero",
+        "body": "La tesis de la marca y la base del sistema visual."
+      },
+      "work": {
+        "label": "Trabajo",
+        "title": "Trabajo seleccionado",
+        "body": "Un caso de estudio y una selección del portafolio."
+      },
+      "approach": {
+        "label": "Enfoque",
+        "title": "Método",
+        "body": "Principios, proceso y modelo de entrega."
+      },
+      "services": {
+        "label": "Servicios",
+        "title": "Servicios",
+        "body": "Paquetes, alcance e inversión."
+      },
+      "blog": {
+        "label": "Blog",
+        "title": "Notas y perspectivas",
+        "body": "Escritos sobre identidad, web y proceso."
+      }
+    }
+  },
+  "marquee": {
+    "items": [
+      "Diseño web",
+      "Software",
+      "IA",
+      "Automatización",
+      "Paneles",
+      "Rendimiento"
+    ]
+  },
+  "manifesto": {
+    "label": "Manifiesto",
+    "stamp": "METEK Digital",
+    "lines": [
+      "No produzco trabajos que solo se ven bien.",
+      "Llevo el carácter de la marca al digital.",
+      "Uno diseño, software y tecnología en un sistema.",
+      "Cada proyecto se construye para distinguirse y dar resultado."
+    ]
+  },
+  "featured": {
+    "label": "Proyecto destacado",
+    "client": "Wholesale Cabinet Creations — 2026",
+    "title": "Una experiencia digital de nueva generación para una marca de mobiliario tradicional",
+    "blurb": "Para Wholesale Cabinet Creations diseñamos una experiencia web de alto rendimiento que refleja la calidad de fabricación en digital. El proyecto se desarrolló de extremo a extremo con animación a medida, rendimiento móvil, SEO y sistema de contenidos.",
+    "outcomes": [
+      "Una presencia de marca más fuerte y premium.",
+      "Mejor rendimiento móvil y experiencia de uso.",
+      "Contenido, medios y SEO en un solo panel."
+    ],
+    "cta": "Ver más proyectos",
+    "sceneLabel": "Resultado",
+    "sceneTitle": "Calidad de fabricación, visible online.",
+    "sceneBody": "Rendimiento, SEO y gestión de contenidos en un sistema."
+  },
+  "principles": {
+    "label": "Enfoque",
+    "title": "Cómo pienso",
+    "items": [
+      {
+        "title": "Claridad",
+        "body": "Corto el ruido. El mensaje se lee de un vistazo; cada capa tiene un propósito."
+      },
+      {
+        "title": "Sistema",
+        "body": "No visuales sueltos — reglas de identidad y componentes que escalan."
+      },
+      {
+        "title": "Tempo",
+        "body": "Decisiones rápidas, ejecución meticulosa. La fecha de lanzamiento es real."
+      },
+      {
+        "title": "Resultado",
+        "body": "La belleza no basta. Se miden confianza, recuerdo y conversión."
+      }
+    ]
+  },
+  "availability": {
+    "badge": "Disponibilidad",
+    "title": "Disponibilidad para nuevos proyectos",
+    "blurb": "Acepto un número limitado de proyectos a la vez para dar foco a cada uno.",
+    "slots": "2 plazas de proyecto para agosto 2026",
+    "cta": "Agendar llamada"
+  },
+  "hero": {
+    "line1": "De la idea",
+    "line2": "al producto",
+    "line3": "que funciona.",
+    "blurb": "Productos digitales para tu marca — web, software e IA. Alcance claro, resultados medibles.",
+    "ctaWork": "Ver trabajos",
+    "ctaContact": "Hablemos",
+    "scroll": "Explorar"
+  },
+  "projects": {
+    "label": "Trabajos seleccionados",
+    "title": "Proyectos",
+    "blurb": "Una selección de web, paneles y productos digitales. Cada proyecto se construye con diseño a medida e ingeniería sólida.",
+    "loadMore": "Ver todos los proyectos",
+    "seeCase": "Todo el trabajo"
+  },
+  "projectUi": {
+    "view": "Ver proyecto",
+    "live": "Ver sitio",
+    "stack": "Tecnología",
+    "back": "Volver a trabajos"
+  },
+  "services": {
+    "label": "Servicios",
+    "title": "En qué trabajamos",
+    "included": "Qué incluye",
+    "cta": "Hablar de este servicio",
+    "seeAll": "Ver todos los servicios",
+    "items": [
+      {
+        "title": "Sitio web inicial",
+        "description": "Sitio rápido, moderno y profesional para pequeños negocios y marcas personales.",
+        "includes": [
+          "1–5 páginas",
+          "UI a medida",
+          "Responsive",
+          "SEO básico",
+          "Contacto y WhatsApp",
+          "Optimización de rendimiento",
+          "15 días de soporte"
+        ]
+      },
+      {
+        "title": "Sitio web corporativo",
+        "description": "Solución web completa para empresas que buscan marca fuerte y conversión.",
+        "includes": [
+          "5–12 páginas",
+          "UI/UX a medida",
+          "Animación",
+          "Blog o CMS",
+          "SEO avanzado",
+          "Analítica",
+          "Velocidad y seguridad",
+          "30 días de soporte"
+        ]
+      },
+      {
+        "title": "Experiencia digital premium",
+        "description": "Diseño y software a medida para diferenciarse con claridad.",
+        "includes": [
+          "Lenguaje visual propio",
+          "3D o animación avanzada",
+          "Panel admin",
+          "CRM, API y automatización",
+          "Funciones de IA",
+          "SEO y rendimiento avanzados",
+          "QA y lanzamiento",
+          "60 días de soporte"
+        ]
+      },
+      {
+        "title": "Software y automatización a medida",
+        "description": "Paneles, aplicaciones y sistemas de IA que digitalizan operaciones.",
+        "includes": [
+          "Análisis de necesidades",
+          "Arquitectura técnica",
+          "App web o móvil",
+          "Panel admin",
+          "API e integraciones",
+          "Escenarios de automatización",
+          "Seguridad y pruebas"
+        ]
+      },
+      {
+        "title": "WhatsApp Chatbot",
+        "description": "Bot inteligente de WhatsApp que responde 24/7, captura leads y agenda reuniones.",
+        "includes": [
+          "Flujos de bienvenida y routing",
+          "Captura de leads",
+          "Agenda / disponibilidad",
+          "Mensajes plantilla",
+          "Panel de chat en vivo",
+          "Notificaciones y seguimiento",
+          "Instalación y formación"
+        ]
+      },
+      {
+        "title": "Instagram DM Bot",
+        "description": "Automatización de Instagram con respuestas automáticas, opciones rápidas y flujo de citas en DM.",
+        "includes": [
+          "Respuestas DM automáticas",
+          "Flujos de respuesta rápida",
+          "Escenarios de lead y colaboración",
+          "Derivación a cita",
+          "Panel de inbox",
+          "Gestión de plantillas",
+          "Instalación y formación"
+        ]
+      },
+      {
+        "title": "CRM Platform",
+        "description": "CRM de ventas ligero para pipeline, contactos y tareas — conectable a formularios y WhatsApp.",
+        "includes": [
+          "Pipeline Kanban",
+          "Fichas de contacto y empresa",
+          "Tareas y follow-up",
+          "KPIs e informes",
+          "Integración form / WhatsApp",
+          "Roles y acceso",
+          "Instalación y formación"
+        ]
+      },
+      {
+        "title": "CSS Design System",
+        "description": "Tokens de marca para color, tipografía, componentes y spacing — UI kit y docs coherentes.",
+        "includes": [
+          "Set de design tokens",
+          "Escala tipográfica",
+          "Botones y componentes base",
+          "Sistema de spacing / radius",
+          "Superficie de documentación",
+          "Alineación web y admin",
+          "Guía de entrega"
+        ]
+      }
+    ]
+  },
+  "process": {
+    "label": "Proceso",
+    "title": "Del discovery al launch",
+    "steps": [
+      {
+        "title": "Discovery",
+        "body": [
+          "Objetivos, audiencia y límites técnicos.",
+          "El alcance y el éxito se definen aquí."
+        ]
+      },
+      {
+        "title": "Estrategia",
+        "body": [
+          "Arquitectura de información y dirección de producto.",
+          "La hoja de ruta queda clara antes de diseñar."
+        ]
+      },
+      {
+        "title": "Diseño",
+        "body": [
+          "Interfaz, interacción y lenguaje visual.",
+          "Cada pantalla lleva el carácter de la marca."
+        ]
+      },
+      {
+        "title": "Desarrollo",
+        "body": [
+          "Código orientado a rendimiento y seguridad.",
+          "Paneles, API y automatización en un sistema."
+        ]
+      },
+      {
+        "title": "Pruebas",
+        "body": [
+          "Dispositivos, velocidad y flujos críticos.",
+          "Se limpia la fricción antes del lanzamiento."
+        ]
+      },
+      {
+        "title": "Lanzamiento",
+        "body": [
+          "Publicación, monitoreo y soporte posterior.",
+          "La mejora continúa cuando hace falta."
+        ]
+      }
+    ]
+  },
+  "testimonials": {
+    "label": "Testimonios",
+    "title": "Pronto.",
+    "items": []
+  },
+  "clients": {
+    "label": "Selected Projects",
+    "names": [
+      "Wholesale Cabinet Creations",
+      "METEK",
+      "Rektefe",
+      "Block Pump",
+      "WCC Admin"
+    ]
+  },
+  "stats": {
+    "label": "Por qué importa",
+    "title": "Una presencia de marca fuerte genera confianza — y la confianza impulsa resultados.",
+    "items": [
+      {
+        "value": "81%",
+        "label": "de los usuarios necesita confiar en una marca antes de comprar"
+      },
+      {
+        "value": "55%",
+        "label": "de la primera impresión se forma con elementos visuales"
+      },
+      {
+        "value": "+80%",
+        "label": "el reconocimiento de marca sube con consistencia de color y visual"
+      },
+      {
+        "value": "+23%",
+        "label": "la consistencia entre canales puede aumentar los ingresos"
+      }
+    ]
+  },
+  "about": {
+    "label": "Estudio",
+    "titleLead": "METEK",
+    "titleRest": "Digital",
+    "p1": "METEK Digital desarrolla diseño web, software y productos digitales con IA.",
+    "p2": "El fundador Nurullah Aydın une diseño, software y tecnología en un solo sistema.",
+    "highlight": "Diseño original. Software sólido.",
+    "p3": "Cada proyecto se construye para ser distintivo y orientado a resultados.",
+    "role": "Fundador",
+    "name": "Nurullah Aydın"
+  },
+  "contact": {
+    "label": "Contacto",
+    "titleLine1": "Construyamos el",
+    "titleLine2": "próximo proyecto.",
+    "blurb": "Escribe para un sitio, panel, automatización o producto de IA. Tras un brief corto propongo el siguiente paso.",
+    "name": "Nombre",
+    "email": "Correo",
+    "interestedIn": "Me interesa",
+    "message": "Cuéntame objetivo y plazos en pocas líneas",
+    "send": "Enviar el brief",
+    "sentHint": "Abriendo tu app de correo… Suelo responder en 24 horas.",
+    "mailSubject": "Consulta de proyecto",
+    "mailName": "Nombre",
+    "mailEmail": "Correo",
+    "mailInterest": "Interés",
+    "interests": [
+      "Sitio web inicial",
+      "Sitio corporativo",
+      "Experiencia web premium",
+      "E-commerce",
+      "Panel de administración",
+      "App web o móvil",
+      "IA y automatización",
+      "Rediseño de sitio",
+      "Otro"
+    ],
+    "response": "Suelo responder en 24 horas. Si es urgente, WhatsApp es más rápido.",
+    "emailCta": "Escribir email"
+  },
+  "footer": {
+    "tagline": "Diseño original. Software sólido. Resultados medibles.",
+    "quickLinks": "Enlaces rápidos",
+    "manifesto": "Manifiesto",
+    "work": "Trabajo",
+    "approach": "Enfoque",
+    "bookMeeting": "Llamada de descubrimiento",
+    "services": "Servicios",
+    "blog": "Blog",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "address": "admin@metehtec.com · metehtec@gmail.com",
+    "follow": "Seguir",
+    "rights": "Todos los derechos reservados.",
+    "brand": "METEK Digital",
+    "founder": "Fundador: Nurullah Aydın",
+    "location": "Malatya, Türkiye · Remoto a nivel mundial",
+    "instagram": "Instagram"
+  },
+  "workingPrinciples": {
+    "label": "Working Principles",
+    "title": "Cómo trabajo.",
+    "items": [
+      "Comunicación directa y transparente",
+      "Actualizaciones regulares del proyecto",
+      "Desarrollo orientado a rendimiento y seguridad",
+      "Soporte técnico tras la entrega"
+    ]
+  },
+  "whatsapp": {
+    "label": "WhatsApp",
+    "prefill": "Hola METEK Digital — me gustaría agendar una llamada de descubrimiento sobre un proyecto.",
+    "cta": "Escribir por WhatsApp",
+    "fab": "Chat rápido"
+  },
+  "a11y": {
+    "breadcrumb": "Ruta de navegación",
+    "language": "Idioma",
+    "themeToDark": "Cambiar a tema oscuro",
+    "themeToLight": "Cambiar a tema claro"
+  }
+}

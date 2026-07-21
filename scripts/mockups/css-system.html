@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CSS Design System</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    background: #f4f2ec; color: #161616; min-height: 100vh;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 28px 40px; }
+  .top {
+    display: flex; justify-content: space-between; align-items: end;
+    margin-bottom: 24px;
+  }
+  .top h1 { font-size: 28px; letter-spacing: -0.04em; font-weight: 800; }
+  .top p { color: #666; font-size: 13px; margin-top: 4px; }
+  .chip {
+    background: #161616; color: #c8e84a; font-size: 11px; font-weight: 800;
+    padding: 8px 12px; border-radius: 999px;
+  }
+  .grid {
+    display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 14px;
+  }
+  .card {
+    background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 20px;
+    padding: 18px; min-height: 220px;
+  }
+  .card h2 {
+    font-size: 11px; text-transform: uppercase; letter-spacing: .14em;
+    color: #888; margin-bottom: 14px;
+  }
+  .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .swatch { height: 72px; border-radius: 14px; position: relative; }
+  .swatch span {
+    position: absolute; left: 8px; bottom: 8px; font-size: 10px; font-weight: 700;
+    background: rgba(255,255,255,.85); padding: 2px 6px; border-radius: 999px;
+  }
+  .type .xl { font-size: 34px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+  .type .lg { font-size: 20px; font-weight: 700; margin-top: 10px; }
+  .type .md { font-size: 14px; color: #555; margin-top: 8px; line-height: 1.5; }
+  .btns { display: flex; flex-wrap: wrap; gap: 8px; }
+  .btns button {
+    border: 0; border-radius: 999px; padding: 10px 14px; font-weight: 800; font-size: 12px;
+  }
+  .primary { background: #161616; color: #fff; }
+  .accent { background: #c8e84a; color: #161616; }
+  .ghost { background: transparent; border: 1px solid #161616 !important; }
+  .space { display: flex; flex-direction: column; gap: 10px; }
+  .space i {
+    display: block; height: 12px; background: #e7e4dc; border-radius: 6px;
+    font-style: normal;
+  }
+  .space i:nth-child(1) { width: 40%; }
+  .space i:nth-child(2) { width: 65%; }
+  .space i:nth-child(3) { width: 85%; }
+  .space i:nth-child(4) { width: 100%; }
+  .tokens {
+    margin-top: 14px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px;
+  }
+  .code {
+    background: #161616; color: #d6d3d1; border-radius: 20px; padding: 18px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px;
+    line-height: 1.6; min-height: 220px;
+  }
+  .code .c { color: #c8e84a; }
+  .code .k { color: #93c5fd; }
+  .preview {
+    background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 20px;
+    padding: 18px; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .preview .hero {
+    background: linear-gradient(135deg, #161616, #2a2a2a);
+    color: #fff; border-radius: 16px; padding: 22px; min-height: 140px;
+  }
+  .preview .hero b { font-size: 22px; letter-spacing: -0.03em; display: block; }
+  .preview .hero p { color: #a8a29e; font-size: 12px; margin-top: 8px; max-width: 220px; line-height: 1.4; }
+  .preview .row { display: flex; gap: 8px; margin-top: 14px; }
+  .m-status { display: none; }
+  @media (max-width: 500px) {
+    .m-status {
+      display: flex; justify-content: space-between; align-items: center;
+      height: 44px; padding: 12px 18px 0; font-size: 14px; font-weight: 600;
+      background: #efece4;
+    }
+    .wrap { padding: 12px 14px 20px; }
+    .grid, .tokens { grid-template-columns: 1fr; }
+    .top { flex-direction: column; align-items: start; gap: 10px; }
+    .type .xl { font-size: 28px; }
+    .tokens .code { min-height: auto; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+  <div class="m-status">
+    <span>09:46</span>
+    <span style="opacity:.85;font-size:12px">■■■  5G  🔋</span>
+  </div>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <h1>CSS Design System</h1>
+        <p>Token, tipografi, bileşen ve spacing — tek kaynak</p>
+      </div>
+      <span class="chip">METEK UI Kit</span>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h2>Color tokens</h2>
+        <div class="swatches">
+          <div class="swatch" style="background:#161616"><span>ink</span></div>
+          <div class="swatch" style="background:#c8e84a"><span>lime</span></div>
+          <div class="swatch" style="background:#f4f2ec"><span>paper</span></div>
+          <div class="swatch" style="background:#dcd8d0"><span>stone</span></div>
+        </div>
+      </div>
+      <div class="card type">
+        <h2>Typography</h2>
+        <div class="xl">Display</div>
+        <div class="lg">Heading / 20</div>
+        <div class="md">Body text for product UI, docs and marketing surfaces.</div>
+      </div>
+      <div class="card">
+        <h2>Components</h2>
+        <div class="btns">
+          <button class="primary">Primary</button>
+          <button class="accent">Accent</button>
+          <button class="ghost">Ghost</button>
+        </div>
+        <div class="space" style="margin-top:18px">
+          <i></i><i></i><i></i><i></i>
+        </div>
+      </div>
+    </div>
+    <div class="tokens">
+      <pre class="code"><span class="k">:root</span> {
+  <span class="c">--color-ink</span>: #161616;
+  <span class="c">--color-lime</span>: #c8e84a;
+  <span class="c">--radius-pill</span>: 999px;
+  <span class="c">--space-4</span>: 1rem;
+  <span class="c">--font-display</span>: 2.5rem;
+}
+
+<span class="k">.btn-primary</span> {
+  background: var(--color-ink);
+  border-radius: var(--radius-pill);
+}</pre>
+      <div class="preview">
+        <div class="hero">
+          <b>Özgün arayüz dili</b>
+          <p>Markaya özel token’larla tutarlı web ve panel arayüzleri.</p>
+          <div class="row">
+            <button class="accent">Keşfet</button>
+            <button class="ghost" style="color:#fff;border-color:#fff!important">Docs</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,26 +1,513 @@
 @import "tailwindcss";
 
+/* Light — sıcak taş / mürekkep / lime */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #e6e4df;
+  --foreground: #121212;
+  --lime: #c8e84a;
+  --on-lime: #141311;
+  --ink: #161616;
+  --ink-fg: #f7f5f0;
+  --paper: #f4f2ec;
+  --stone: #dcd8d0;
+  --surface: #ffffff;
+  --mute: rgba(18, 18, 18, 0.55);
+  --band: #161616;
+  --band-fg: #f7f5f0;
+  --glass: rgba(255, 255, 255, 0.52);
+  --glass-strong: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-border-scrolled: rgba(22, 22, 22, 0.08);
+  --hairline: rgba(18, 18, 18, 0.1);
+  --project-stage-gradient: linear-gradient(
+    165deg,
+    #f3f3f5 0%,
+    #e8e8ec 48%,
+    #dedee3 100%
+  );
+  --page-hero-wash:
+    radial-gradient(
+      ellipse 80% 60% at 10% -10%,
+      rgba(200, 232, 74, 0.35),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 90% 0%,
+      rgba(22, 22, 22, 0.06),
+      transparent 50%
+    );
+  --process-head-ring: 0 0 0 3px rgba(22, 22, 22, 0.9),
+    0 0 14px rgba(200, 232, 74, 0.7);
+  --nav-offset: 8.5rem;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --theme-ease: color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+/* Dark — sıcak kömür, stüdyo gecesi (mor/neon yok) */
+.dark {
+  --background: #121110;
+  --foreground: #ebe8e1;
+  --lime: #d0ec5a;
+  --on-lime: #141311;
+  --ink: #ebe8e1;
+  --ink-fg: #141311;
+  --paper: #1a1916;
+  --stone: #262420;
+  --surface: #1f1e1a;
+  --mute: rgba(235, 232, 225, 0.55);
+  --band: #0c0b0a;
+  --band-fg: #ebe8e1;
+  --glass: rgba(26, 25, 22, 0.72);
+  --glass-strong: rgba(26, 25, 22, 0.92);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-scrolled: rgba(255, 255, 255, 0.1);
+  --hairline: rgba(235, 232, 225, 0.1);
+  --project-stage-gradient: linear-gradient(
+    165deg,
+    #2a2824 0%,
+    #1f1e1a 48%,
+    #181714 100%
+  );
+  --page-hero-wash:
+    radial-gradient(
+      ellipse 80% 60% at 10% -10%,
+      rgba(208, 236, 90, 0.18),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 90% 0%,
+      rgba(235, 232, 225, 0.06),
+      transparent 50%
+    );
+  --process-head-ring: 0 0 0 3px rgba(18, 17, 16, 0.95),
+    0 0 16px rgba(208, 236, 90, 0.45);
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-lime: var(--lime);
+  --color-on-lime: var(--on-lime);
+  --color-ink: var(--ink);
+  --color-ink-fg: var(--ink-fg);
+  --color-paper: var(--paper);
+  --color-stone: var(--stone);
+  --color-surface: var(--surface);
+  --color-mute: var(--mute);
+  --color-band: var(--band);
+  --color-band-fg: var(--band-fg);
+  --color-hairline: var(--hairline);
+  --font-sans: var(--font-grotesk), system-ui, sans-serif;
+  --font-display: var(--font-goks), var(--font-grotesk), system-ui, sans-serif;
+  --font-subtitle: var(--font-vireon), var(--font-grotesk), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: auto;
+  scroll-padding-top: calc(var(--nav-offset) + var(--safe-top));
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-grotesk), system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+  -webkit-tap-highlight-color: transparent;
+  transition: var(--theme-ease);
+}
+
+/*
+  Özel tipografi — yalnızca sınıf ile:
+  .font-display  → Goks (büyük başlık, örn. PageHero)
+  .font-subtitle → Vireon (alt yazı / blurb)
+*/
+.font-display {
+  font-family: var(--font-goks), var(--font-grotesk), system-ui, sans-serif;
+  font-weight: 400;
+  font-synthesis: none;
+}
+
+.font-display.font-bold {
+  font-weight: 400;
+}
+
+.font-subtitle {
+  font-family: var(--font-vireon), var(--font-grotesk), system-ui, sans-serif;
+  font-synthesis: none;
+}
+
+/* Marka kimliği — M. işareti her zaman Space Grotesk */
+.brand-mark {
+  font-family: var(--font-grotesk), system-ui, sans-serif;
+  font-weight: 700;
+  font-synthesis: none;
+}
+
+main {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+/* Custom scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink) transparent;
+}
+
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--ink);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+.nav-glass {
+  background: var(--glass);
+  border-color: var(--glass-border);
+  backdrop-filter: blur(18px) saturate(1.35);
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  transition:
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.nav-shell.is-scrolled .nav-glass {
+  background: var(--glass-strong);
+  border-color: var(--glass-border-scrolled);
+  box-shadow: 0 12px 40px -28px rgba(0, 0, 0, 0.45);
+}
+
+.dark .nav-shell.is-scrolled .nav-glass {
+  box-shadow: 0 12px 40px -24px rgba(0, 0, 0, 0.75);
+}
+
+.nav-mobile-rail {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 12px,
+    #000 calc(100% - 12px),
+    transparent 100%
+  );
+}
+
+.nav-mobile-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.wa-fab {
+  right: max(1rem, env(safe-area-inset-right, 0px));
+  bottom: max(1.25rem, calc(0.75rem + var(--safe-bottom)));
+}
+
+/* Alt sayfa hero — tema uyumlu wash */
+.page-hero__wash {
+  opacity: 0.35;
+  background-image: var(--page-hero-wash);
+}
+
+.dark .page-hero__wash {
+  opacity: 0.55;
+}
+
+/* Proje kart / detay sahne zemini */
+.project-stage {
+  background-color: var(--stone);
+  background-size: cover;
+}
+
+/* Süreç timeline — renk CSS’te, GSAP yalnızca scale */
+.process-fill {
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--lime) 85%, #fff) 0%,
+    var(--lime) 45%,
+    color-mix(in srgb, var(--lime) 70%, #161616) 100%
+  );
+}
+
+.process-head {
+  box-shadow: var(--process-head-ring);
+}
+
+.process-dot {
+  background-color: var(--ink);
+  transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.process-dot[data-lit="true"] {
+  background-color: var(--lime);
+}
+
+/* ── Theme toggle: cam kapsül ── */
+.theme-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 999px;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 3px;
+}
+
+.theme-toggle__glass {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--foreground) 12%, transparent);
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--surface) 55%, transparent) 0%,
+      color-mix(in srgb, var(--stone) 70%, transparent) 100%
+    );
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 55%, transparent),
+    inset 0 -1px 0 color-mix(in srgb, #000 12%, transparent),
+    0 1px 2px color-mix(in srgb, #000 8%, transparent);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+}
+
+.dark .theme-toggle__glass {
+  border-color: color-mix(in srgb, #fff 12%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 14%, transparent),
+    inset 0 -1px 0 color-mix(in srgb, #000 40%, transparent),
+    0 1px 3px color-mix(in srgb, #000 45%, transparent);
+}
+
+.theme-toggle__field {
+  position: absolute;
+  inset: 2px;
+  border-radius: inherit;
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.theme-toggle__field--day {
+  background:
+    radial-gradient(
+      120% 90% at 18% 40%,
+      #f3efe6 0%,
+      #e0dcd2 55%,
+      #cfcabf 100%
+    );
+  opacity: 1;
+}
+
+.theme-toggle__field--night {
+  background:
+    radial-gradient(
+      120% 90% at 82% 55%,
+      #2a2824 0%,
+      #181714 50%,
+      #0e0d0b 100%
+    );
+  opacity: 0;
+}
+
+.dark .theme-toggle__field--day {
+  opacity: 0;
+}
+
+.dark .theme-toggle__field--night {
+  opacity: 1;
+}
+
+.theme-toggle__sheen {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    115deg,
+    color-mix(in srgb, #fff 38%, transparent) 0%,
+    transparent 42%,
+    transparent 58%,
+    color-mix(in srgb, #fff 10%, transparent) 100%
+  );
+  opacity: 0.55;
+}
+
+.dark .theme-toggle__sheen {
+  opacity: 0.28;
+}
+
+.theme-toggle__knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 1.375rem;
+  height: 1.375rem;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* html.dark FOUC script ile gelince knob anında doğru konumda */
+.dark .theme-toggle__knob {
+  transform: translate3d(22px, 0, 0);
+}
+
+.theme-toggle__knob-glass {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background:
+    radial-gradient(
+      120% 100% at 30% 22%,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.35) 38%,
+      rgba(210, 210, 205, 0.2) 70%,
+      rgba(140, 140, 135, 0.35) 100%
+    );
+  border: 1px solid color-mix(in srgb, #fff 55%, transparent);
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.dark .theme-toggle__knob-glass {
+  background:
+    radial-gradient(
+      120% 100% at 30% 22%,
+      rgba(255, 255, 255, 0.55) 0%,
+      rgba(200, 198, 190, 0.22) 40%,
+      rgba(40, 38, 34, 0.55) 100%
+    );
+  border-color: color-mix(in srgb, #fff 22%, transparent);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.theme-toggle__filament {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--lime);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent),
+    0 0 10px color-mix(in srgb, var(--lime) 55%, transparent);
+  transform: translate(-50%, -50%);
+  transition: box-shadow 0.4s ease;
+}
+
+.dark .theme-toggle__filament {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, #000 35%, transparent),
+    0 0 12px color-mix(in srgb, var(--lime) 65%, transparent);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .theme-toggle:hover .theme-toggle__knob-glass {
+    box-shadow:
+      0 3px 10px rgba(0, 0, 0, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark .theme-toggle:hover .theme-toggle__knob-glass {
+    box-shadow:
+      0 3px 12px rgba(0, 0, 0, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* Marka marquee — GPU, sürekli */
+@keyframes marquee-x {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-33.333%, 0, 0);
+  }
+}
+
+.marquee-track {
+  animation: marquee-x 28s linear infinite;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-offset: 9.75rem;
+  }
+
+  .marquee-track {
+    animation-duration: 36s;
+  }
+
+  .nav-glass {
+    backdrop-filter: blur(14px) saturate(1.2);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+
+  body {
+    transition: none;
+  }
+
+  .theme-toggle__field,
+  .theme-toggle__filament,
+  .theme-toggle__knob {
+    transition: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .marquee-track {
+    animation-duration: 40s;
+  }
 }

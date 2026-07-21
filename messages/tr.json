@@ -1,0 +1,498 @@
+{
+  "meta": {
+    "title": "METEK Digital — Web Tasarım, Yazılım ve Yapay Zekâ",
+    "description": "METEK Digital; markalar için özgün web siteleri, yönetim panelleri, otomasyonlar ve yapay zekâ destekli dijital ürünler geliştirir."
+  },
+  "nav": {
+    "about": "Hakkımda",
+    "home": "Ana sayfa",
+    "manifesto": "Manifesto",
+    "work": "İşler",
+    "approach": "Yaklaşım",
+    "services": "Hizmetler",
+    "blog": "Blog",
+    "projects": "Projeler",
+    "contact": "İletişim",
+    "bookMeeting": "Keşif görüşmesi",
+    "cta": "Projeni konuşalım",
+    "ctaShort": "Konuşalım"
+  },
+  "pages": {
+    "manifesto": {
+      "metaTitle": "Manifesto — METEK",
+      "metaDescription": "Özgün tasarım, sağlam yazılım ve ölçülebilir sonuç. METEK Digital yaklaşımı.",
+      "heroLabel": "Manifesto",
+      "heroTitle": "Özgün dijital deneyimler.",
+      "heroBlurb": "Tasarım, yazılım ve teknolojiyi tek sistemde birleştiriyoruz.",
+      "ctaLabel": "Hemen başla",
+      "ctaTitle": "Projeni konuşalım — kısa bir adım yeter.",
+      "ctaBlurb": "Hedefi ve ihtiyacı yazın; 24 saat içinde net bir yol haritası çıkarayım.",
+      "ctaButton": "Keşif görüşmesi ayarla"
+    },
+    "approach": {
+      "metaTitle": "Yaklaşım — METEK",
+      "metaDescription": "Keşiften yayına: strateji, tasarım, geliştirme ve test.",
+      "heroLabel": "Yaklaşım",
+      "heroTitle": "Yöntem.",
+      "heroBlurb": "Keşiften yayına. Her adım ölçülebilir sonuca bağlanır.",
+      "ctaLabel": "Hemen başla",
+      "ctaTitle": "Yöntemi projenize uyarlayalım.",
+      "ctaBlurb": "Keşiften yayına: net kapsam, düzenli güncelleme, ölçülebilir sonuç.",
+      "ctaButton": "Süreci konuşalım"
+    },
+    "work": {
+      "metaTitle": "İşler — METEK",
+      "metaDescription": "Seçili web ve yazılım projeleri. Özgün tasarım, sağlam geliştirme.",
+      "heroLabel": "İşler",
+      "heroTitle": "Seçili projeler.",
+      "heroBlurb": "Markalar için tasarladığımız ve geliştirdiğimiz dijital ürünlerden bir seçki.",
+      "ctaLabel": "Hemen başla",
+      "ctaTitle": "Sıradaki proje sizinki olsun.",
+      "ctaBlurb": "Sektörünüzü ve hedefi yazın — uygun çözüm ve yol haritasını çıkarayım.",
+      "ctaButton": "Proje brief’i gönder"
+    },
+    "services": {
+      "metaTitle": "Hizmetler — METEK",
+      "metaDescription": "Web sitesi, özel yazılım, otomasyon ve yapay zekâ çözümleri.",
+      "heroLabel": "Hizmetler",
+      "heroTitle": "Hizmetler.",
+      "heroBlurb": "Web, yazılım ve otomasyon. Kapsamı birlikte netleştiriyoruz.",
+      "ctaLabel": "Hemen başla",
+      "ctaTitle": "Projeni konuşalım — kısa bir adım yeter.",
+      "ctaBlurb": "İhtiyacını yaz, 24 saat içinde net bir yol haritası çıkarayım. Tahmin yok, net kapsam var.",
+      "ctaButton": "Keşif görüşmesi ayarla"
+    },
+    "blog": {
+      "metaTitle": "Blog — METEK",
+      "metaDescription": "Web, yazılım ve dijital ürün üzerine notlar.",
+      "heroLabel": "Blog",
+      "heroTitle": "Notlar ve bakışlar.",
+      "heroBlurb": "Kimlik sistemleri, editoryal web ve proje süreci üzerine seçili yazılar.",
+      "ctaLabel": "Hemen başla",
+      "ctaTitle": "Bu fikirleri ürüne çevirelim.",
+      "ctaBlurb": "Yazıdaki yaklaşımı kendi markanız için konuşmak ister misiniz?",
+      "ctaButton": "İletişime geç"
+    }
+  },
+  "blog": {
+    "view": "Oku",
+    "teaserLabel": "Blog",
+    "teaserTitle": "Seçili yazılar.",
+    "teaserBlurb": "Web, yazılım ve dijital ürün üzerine notlar.",
+    "teaserAll": "Tüm yazıları oku",
+    "readMinutes": "{count} dk okuma",
+    "relatedLabel": "Devamı",
+    "relatedTitle": "İlgili yazılar.",
+    "articleCta": "Projeyi konuşalım",
+    "articleCtaBlurb": "Bu konuyu kendi projeniz için konuşmak ister misiniz?",
+    "crumbHome": "Ana sayfa",
+    "crumbBlog": "Blog",
+    "categories": {
+      "identity": "Kimlik",
+      "digital": "Dijital",
+      "process": "Süreç",
+      "strategy": "Strateji"
+    },
+    "author": "Nurullah Aydın"
+  },
+  "showcase": {
+    "label": "Dizin",
+    "title": "Çalışma alanları.",
+    "blurb": "Manifesto, işler, yöntem, hizmetler ve blog.",
+    "view": "Görüntüle",
+    "cards": {
+      "manifesto": {
+        "label": "Manifesto",
+        "title": "Kimlik önce gelir",
+        "body": "Markanın tez cümlesi ve görsel sistemin temeli."
+      },
+      "work": {
+        "label": "İşler",
+        "title": "Seçili işler",
+        "body": "Seçili web ve yazılım projeleri."
+      },
+      "approach": {
+        "label": "Yaklaşım",
+        "title": "Yöntem",
+        "body": "İlkeler, süreç ve teslim modeli."
+      },
+      "services": {
+        "label": "Hizmetler",
+        "title": "Hizmetler",
+        "body": "Web, yazılım, otomasyon ve yapay zekâ."
+      },
+      "blog": {
+        "label": "Blog",
+        "title": "Notlar ve bakışlar",
+        "body": "Nurullah Aydın imzasıyla seçili yazılar."
+      }
+    }
+  },
+  "marquee": {
+    "items": [
+      "Web tasarım",
+      "Yazılım",
+      "Yapay zekâ",
+      "Otomasyon",
+      "Yönetim paneli",
+      "Performans"
+    ]
+  },
+  "manifesto": {
+    "label": "Manifesto",
+    "stamp": "METEK Digital",
+    "lines": [
+      "Sadece güzel görünen işler üretmiyorum.",
+      "Markanın karakterini dijitale taşıyorum.",
+      "Tasarımı, yazılımı ve teknolojiyi tek sistemde birleştiriyorum.",
+      "Her projeyi ayırt edilebilir ve sonuç odaklı tasarlıyorum."
+    ]
+  },
+  "featured": {
+    "label": "Öne çıkan proje",
+    "client": "Wholesale Cabinet Creations — 2026",
+    "title": "Geleneksel Bir Mobilya Markası İçin Yeni Nesil Dijital Deneyim",
+    "blurb": "Wholesale Cabinet Creations için markanın üretim kalitesini dijitalde güçlü biçimde yansıtan, yüksek performanslı ve görsel olarak farklılaşan bir web deneyimi tasarlandı. Proje; özel animasyonlar, mobil uyumluluk, SEO altyapısı ve içerik yönetim sistemiyle uçtan uca geliştirildi.",
+    "outcomes": [
+      "Daha güçlü ve premium bir marka algısı oluşturuldu.",
+      "Mobil performans ve kullanıcı deneyimi iyileştirildi.",
+      "İçerik, medya ve SEO yönetimi tek panelde birleştirildi."
+    ],
+    "cta": "Diğer projelere bak",
+    "sceneLabel": "Sonuç",
+    "sceneTitle": "Üretim kalitesi, dijitalde görünür.",
+    "sceneBody": "Performans, SEO ve içerik yönetimi aynı sistemde."
+  },
+  "principles": {
+    "label": "Yaklaşım",
+    "title": "Nasıl düşünürüm",
+    "items": [
+      {
+        "title": "Netlik",
+        "body": "Gürültüyü keserim. Mesaj bir bakışta okunur; her katman bir işe yarar."
+      },
+      {
+        "title": "Sistem",
+        "body": "Tek seferlik görseller değil — ölçeklenen kimlik kuralları ve bileşenler."
+      },
+      {
+        "title": "Tempo",
+        "body": "Hızlı karar, titiz uygulama. Lansman tarihi gerçek bir hedef olur."
+      },
+      {
+        "title": "Sonuç",
+        "body": "Güzellik yeterli değil. Güven, hatırlanırlık ve dönüşüm ölçülür."
+      }
+    ]
+  },
+  "availability": {
+    "badge": "Müsaitlik",
+    "title": "Yeni Projeler İçin Müsaitlik",
+    "blurb": "Her projeye yeterli odak ayırabilmek için aynı anda sınırlı sayıda iş kabul ediyorum.",
+    "slots": "Ağustos 2026 için 2 proje slotu",
+    "cta": "Görüşme ayarla"
+  },
+  "hero": {
+    "line1": "Fikirden",
+    "line2": "çalışan",
+    "line3": "ürüne.",
+    "blurb": "Web, yazılım ve yapay zekâ ile markanıza çalışan dijital ürünler. Net kapsam, ölçülebilir sonuç.",
+    "ctaWork": "İşleri incele",
+    "ctaContact": "Projeni konuşalım",
+    "scroll": "Keşfetmeye başla"
+  },
+  "projects": {
+    "label": "Seçili işler",
+    "title": "Projeler",
+    "blurb": "Web, panel ve dijital ürün çalışmalarından bir kesit. Her proje özgün tasarım ve sağlam yazılımla kurulur.",
+    "loadMore": "Daha fazla göster",
+    "seeCase": "Tüm işler"
+  },
+  "projectUi": {
+    "view": "İncele",
+    "live": "Siteyi gör",
+    "stack": "Teknoloji",
+    "back": "İşlere dön"
+  },
+  "services": {
+    "label": "Hizmetler",
+    "title": "Ne üzerine çalışıyoruz",
+    "included": "Pakete dahil",
+    "cta": "Bu hizmeti konuşalım",
+    "seeAll": "Tüm hizmetleri gör",
+    "items": [
+      {
+        "title": "Başlangıç Web Sitesi",
+        "description": "Küçük işletmeler ve kişisel markalar için hızlı, modern ve profesyonel web sitesi.",
+        "includes": [
+          "1–5 sayfa",
+          "Özgün arayüz tasarımı",
+          "Mobil uyumluluk",
+          "Temel SEO",
+          "İletişim ve WhatsApp entegrasyonu",
+          "Performans optimizasyonu",
+          "15 gün teknik destek"
+        ]
+      },
+      {
+        "title": "Kurumsal Web Sitesi",
+        "description": "Güçlü marka algısı ve müşteri dönüşümü hedefleyen işletmeler için kapsamlı web çözümü.",
+        "includes": [
+          "5–12 sayfa",
+          "Özgün UI/UX tasarım",
+          "Animasyon ve mikro etkileşimler",
+          "Blog veya içerik sistemi",
+          "Gelişmiş SEO altyapısı",
+          "Analitik entegrasyonu",
+          "Hız ve güvenlik optimizasyonu",
+          "30 gün teknik destek"
+        ]
+      },
+      {
+        "title": "Premium Dijital Deneyim",
+        "description": "Markasını rakiplerinden belirgin şekilde ayırmak isteyen işletmeler için özel tasarım ve yazılım.",
+        "includes": [
+          "Tamamen özgün tasarım dili",
+          "3D veya ileri seviye animasyonlar",
+          "Özel yönetim paneli",
+          "CRM, API ve otomasyon entegrasyonları",
+          "Yapay zekâ özellikleri",
+          "İleri SEO ve performans",
+          "Test ve yayınlama süreci",
+          "60 gün teknik destek"
+        ]
+      },
+      {
+        "title": "Özel Yazılım ve Otomasyon",
+        "description": "İş süreçlerini dijitalleştiren yönetim panelleri, uygulamalar ve yapay zekâ sistemleri.",
+        "includes": [
+          "İhtiyaç ve sistem analizi",
+          "Teknik mimari",
+          "Web veya mobil uygulama",
+          "Yönetim paneli",
+          "API ve üçüncü taraf entegrasyonları",
+          "Otomasyon senaryoları",
+          "Güvenlik ve test süreçleri"
+        ]
+      },
+      {
+        "title": "WhatsApp Chatbot",
+        "description": "WhatsApp üzerinden 7/24 yanıt veren, lead toplayan ve randevu yönlendiren akıllı sohbet botu.",
+        "includes": [
+          "Karşılama ve yönlendirme akışları",
+          "Lead form ve ihtiyaç toplama",
+          "Randevu / müsaitlik senaryosu",
+          "Şablon mesajlar",
+          "Canlı sohbet paneli",
+          "Bildirim ve takip",
+          "Kurulum ve eğitim"
+        ]
+      },
+      {
+        "title": "Instagram DM Bot",
+        "description": "DM inbox’ta otomatik yanıt, hızlı seçenekler ve randevu akışıyla satışa giden Instagram otomasyonu.",
+        "includes": [
+          "Otomatik DM yanıtları",
+          "Hızlı seçenek / buton akışları",
+          "Lead ve işbirliği senaryoları",
+          "Randevu yönlendirme",
+          "Inbox paneli",
+          "Şablon yönetimi",
+          "Kurulum ve eğitim"
+        ]
+      },
+      {
+        "title": "CRM Platform",
+        "description": "Pipeline, kişiler ve görevleri tek panelde yöneten sade satış CRM’i. Form ve WhatsApp ile bağlanabilir.",
+        "includes": [
+          "Kanban satış pipeline",
+          "Kişi ve şirket kartları",
+          "Görev ve takip",
+          "KPI ve raporlar",
+          "Form / WhatsApp entegrasyonu",
+          "Rol ve erişim",
+          "Kurulum ve eğitim"
+        ]
+      },
+      {
+        "title": "CSS Design System",
+        "description": "Markaya özel renk, tipografi, bileşen ve spacing token’larıyla tutarlı UI kit ve dokümantasyon.",
+        "includes": [
+          "Design token seti",
+          "Tipografi ölçeği",
+          "Buton ve temel bileşenler",
+          "Spacing / radius sistemi",
+          "Dokümantasyon yüzeyi",
+          "Web ve panel uyumu",
+          "Teslim ve kullanım rehberi"
+        ]
+      }
+    ]
+  },
+  "process": {
+    "label": "Süreç",
+    "title": "Keşiften yayına",
+    "steps": [
+      {
+        "title": "Keşif",
+        "body": [
+          "Hedefleri, kitleyi ve teknik kısıtları netleştiririm.",
+          "Kapsam ve başarı kriterleri burada kilitlenir."
+        ]
+      },
+      {
+        "title": "Strateji",
+        "body": [
+          "Bilgi mimarisi, öncelikler ve ürün yönü belirlenir.",
+          "Tasarım ve geliştirmeye geçmeden önce yol haritası netleşir."
+        ]
+      },
+      {
+        "title": "Tasarım",
+        "body": [
+          "Arayüz, etkileşim ve görsel dil kurulur.",
+          "Her ekran markanın karakterini ve kullanım hedefini taşır."
+        ]
+      },
+      {
+        "title": "Geliştirme",
+        "body": [
+          "Performans, güvenlik ve ölçeklenebilirlik odaklı kodlanır.",
+          "Gerekirse panel, API ve otomasyonlar aynı sistemde birleşir."
+        ]
+      },
+      {
+        "title": "Test",
+        "body": [
+          "Cihaz, hız, erişilebilirlik ve kritik akışlar kontrol edilir.",
+          "Yayından önce hatalar ve sürtünme noktaları temizlenir."
+        ]
+      },
+      {
+        "title": "Yayın",
+        "body": [
+          "Canlıya alınır, izlenir ve teslim sonrası destek sunulur.",
+          "Gerekirse ölçüm ve iyileştirme döngüsü devam eder."
+        ]
+      }
+    ]
+  },
+  "testimonials": {
+    "label": "Referanslar",
+    "title": "Referanslar yakında.",
+    "items": []
+  },
+  "clients": {
+    "label": "Selected Projects",
+    "names": [
+      "Wholesale Cabinet Creations",
+      "METEK",
+      "Rektefe",
+      "Block Pump",
+      "WCC Admin"
+    ]
+  },
+  "stats": {
+    "label": "Neden önemli",
+    "title": "Güçlü bir marka görünümü, güven ve dönüşümü doğrudan etkiler.",
+    "items": [
+      {
+        "value": "81%",
+        "label": "kullanıcı satın almadan önce markaya güvenmek ister"
+      },
+      {
+        "value": "55%",
+        "label": "ilk izlenim görsel unsurlarla oluşur"
+      },
+      {
+        "value": "+80%",
+        "label": "renk ve görsel tutarlılık marka bilinirliğini artırır"
+      },
+      {
+        "value": "+23%",
+        "label": "kanallar arası tutarlılık geliri yükseltir"
+      }
+    ]
+  },
+  "about": {
+    "label": "Stüdyo",
+    "titleLead": "METEK",
+    "titleRest": "Digital",
+    "p1": "METEK Digital; web tasarım, yazılım ve yapay zekâ destekli dijital ürünler geliştiren bir stüdyodur.",
+    "p2": "Kurucu Nurullah Aydın; tasarımı, yazılımı ve teknolojiyi tek sistemde birleştirir.",
+    "highlight": "Özgün tasarım. Sağlam yazılım.",
+    "p3": "Her proje ayırt edilebilir ve sonuç odaklı kurulur.",
+    "role": "Kurucu",
+    "name": "Nurullah Aydın"
+  },
+  "contact": {
+    "label": "İletişim",
+    "titleLine1": "Aklında bir proje",
+    "titleLine2": "var mı?",
+    "blurb": "Yeni bir site, panel, otomasyon veya yapay zekâ ürünü için yazın. Kısa bir brief sonrası net bir sonraki adım öneririm.",
+    "name": "İsim",
+    "email": "E-posta",
+    "interestedIn": "İlgilendiğin alan",
+    "message": "Hedefinizi ve zamanlamanızı kısaca yazın",
+    "send": "Brief’i gönder",
+    "sentHint": "E-posta uygulaman açılıyor… Genelde 24 saat içinde dönüş yaparım.",
+    "mailSubject": "Proje talebi",
+    "mailName": "İsim",
+    "mailEmail": "E-posta",
+    "mailInterest": "İlgi alanı",
+    "interests": [
+      "Başlangıç web sitesi",
+      "Kurumsal web sitesi",
+      "Premium web deneyimi",
+      "E-ticaret sitesi",
+      "Yönetim paneli",
+      "Web veya mobil uygulama",
+      "Yapay zekâ ve otomasyon",
+      "Mevcut siteyi yenileme",
+      "Diğer"
+    ],
+    "response": "Genelde 24 saat içinde dönüş yaparım. Acil konular için WhatsApp daha hızlı.",
+    "emailCta": "E-posta yaz"
+  },
+  "footer": {
+    "tagline": "Özgün tasarım. Sağlam yazılım. Ölçülebilir sonuç.",
+    "quickLinks": "Hızlı bağlantılar",
+    "manifesto": "Manifesto",
+    "work": "İşler",
+    "approach": "Yaklaşım",
+    "bookMeeting": "Keşif görüşmesi",
+    "services": "Hizmetler",
+    "blog": "Blog",
+    "projects": "Projeler",
+    "contact": "İletişim",
+    "address": "admin@metehtec.com · metehtec@gmail.com",
+    "follow": "Takip et",
+    "rights": "Tüm hakları saklıdır.",
+    "brand": "METEK Digital",
+    "founder": "Kurucu: Nurullah Aydın",
+    "location": "Malatya, Türkiye · Dünya çapında uzaktan hizmet",
+    "instagram": "Instagram"
+  },
+  "workingPrinciples": {
+    "label": "Working Principles",
+    "title": "Nasıl çalışırım.",
+    "items": [
+      "Doğrudan ve şeffaf iletişim",
+      "Düzenli proje güncellemeleri",
+      "Performans ve güvenlik odaklı geliştirme",
+      "Teslim sonrası teknik destek"
+    ]
+  },
+  "whatsapp": {
+    "label": "WhatsApp",
+    "prefill": "Merhaba METEK Digital — bir proje için keşif görüşmesi yapmak istiyorum.",
+    "cta": "WhatsApp’tan yaz",
+    "fab": "Hızlı yaz"
+  },
+  "a11y": {
+    "breadcrumb": "Sayfa yolu",
+    "language": "Dil seçimi",
+    "themeToDark": "Koyu temaya geç",
+    "themeToLight": "Açık temaya geç"
+  }
+}

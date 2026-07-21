@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Instagram DM Bot</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #000; color: #f5f5f5; min-height: 100vh;
+  }
+  .shell {
+    display: grid; grid-template-columns: 360px 1fr;
+    min-height: 100vh; max-width: 100%;
+  }
+  .inbox {
+    border-right: 1px solid #262626; background: #000;
+    display: flex; flex-direction: column;
+  }
+  .head {
+    height: 60px; padding: 0 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid #262626;
+  }
+  .head h1 { font-size: 16px; font-weight: 700; }
+  .badge {
+    font-size: 10px; font-weight: 800; letter-spacing: .08em;
+    text-transform: uppercase; color: #fff;
+    background: linear-gradient(90deg, #f58529, #dd2a7b, #8134af);
+    padding: 5px 9px; border-radius: 999px;
+  }
+  .thread {
+    display: flex; gap: 12px; padding: 12px 16px; align-items: center;
+  }
+  .thread.active { background: #121212; }
+  .av {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: linear-gradient(135deg, #f58529, #dd2a7b 45%, #8134af);
+    padding: 2px;
+  }
+  .av i {
+    display: block; width: 100%; height: 100%; border-radius: 50%;
+    background: #1a1a1a; border: 2px solid #000;
+  }
+  .thread b { font-size: 14px; display: block; }
+  .thread p { font-size: 13px; color: #a8a8a8; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 220px; }
+  .stage { display: flex; flex-direction: column; min-height: 100vh; background: #000; }
+  .bar {
+    height: 60px; border-bottom: 1px solid #262626;
+    display: flex; align-items: center; gap: 12px; padding: 0 20px;
+  }
+  .bar .av { width: 28px; height: 28px; }
+  .bar b { font-size: 14px; }
+  .bar span { font-size: 12px; color: #a8a8a8; display: block; }
+  .messages {
+    flex: 1; padding: 28px 36px; display: flex; flex-direction: column; gap: 10px;
+    justify-content: flex-end;
+  }
+  .bubble {
+    max-width: 420px; padding: 11px 14px; border-radius: 22px;
+    font-size: 14px; line-height: 1.4;
+  }
+  .in { background: #262626; align-self: flex-start; }
+  .out {
+    align-self: flex-end;
+    background: linear-gradient(135deg, #833ab4, #fd1d1d 55%, #fcb045);
+  }
+  .quick {
+    display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 10px;
+  }
+  .quick span {
+    border: 1px solid #363636; border-radius: 999px; padding: 8px 12px;
+    font-size: 12px; color: #e0e0e0; background: #121212;
+  }
+  .composer {
+    border-top: 1px solid #262626; padding: 12px 16px 16px;
+    display: flex; gap: 10px; align-items: center;
+  }
+  .composer input {
+    flex: 1; background: transparent; border: 1px solid #363636;
+    border-radius: 999px; padding: 12px 16px; color: #fff; font-size: 14px; outline: none;
+  }
+  .composer button {
+    border: 0; background: transparent; color: #0095f6;
+    font-weight: 700; font-size: 14px;
+  }
+  .m-status { display: none; }
+
+  @media (max-width: 500px) {
+    .shell { grid-template-columns: 1fr; }
+    .inbox { display: none; }
+    .m-status {
+      display: flex; justify-content: space-between; align-items: center;
+      height: 44px; padding: 12px 18px 0; font-size: 14px; font-weight: 600;
+    }
+    .m-status .right { display: flex; gap: 6px; font-size: 12px; opacity: .9; }
+    .bar { height: 54px; padding: 0 12px; }
+    .messages { padding: 16px 12px; }
+    .bubble { max-width: 82%; }
+    .composer { padding: 10px 12px 14px; }
+  }
+</style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="inbox">
+      <div class="head"><h1>metek.digital</h1><span class="badge">Auto DM</span></div>
+      <div class="thread active">
+        <div class="av"><i style="background:linear-gradient(135deg,#f472b6,#a78bfa)"></i></div>
+        <div><b>ayse.studio</b><p>Aktif · fiyat listesi soruldu</p></div>
+      </div>
+      <div class="thread">
+        <div class="av"><i style="background:linear-gradient(135deg,#22d3ee,#6366f1)"></i></div>
+        <div><b>nord.brand</b><p>Stok sorusu · yanıtlandı</p></div>
+      </div>
+      <div class="thread">
+        <div class="av"><i style="background:linear-gradient(135deg,#fbbf24,#f97316)"></i></div>
+        <div><b>cafe.line</b><p>İşbirliği talebi</p></div>
+      </div>
+      <div class="thread">
+        <div class="av"><i style="background:linear-gradient(135deg,#34d399,#0ea5e9)"></i></div>
+        <div><b>block.pump</b><p>Randevu onaylandı</p></div>
+      </div>
+    </aside>
+
+    <section class="stage">
+      <div class="m-status">
+        <span>09:44</span>
+        <span class="right"><span>■■■</span><span>5G</span><span>🔋</span></span>
+      </div>
+      <div class="bar">
+        <div class="av"><i style="background:linear-gradient(135deg,#f472b6,#a78bfa)"></i></div>
+        <div>
+          <b>ayse.studio</b>
+          <span>Instagram · otomatik yanıt</span>
+        </div>
+      </div>
+      <div class="messages">
+        <div class="bubble in">Merhaba, web sitesi fiyatlarınızı paylaşır mısınız?</div>
+        <div class="bubble out">Tabii — kısaca ihtiyacını sorayım. Kaç sayfalık bir site düşünüyorsun?</div>
+        <div class="bubble in">5 sayfa, marka sitesi. Animasyon da olsun.</div>
+        <div class="bubble out">Anladım. Premium Deneyim paketi uygun. Keşif görüşmesi için uygun bir gün seçebilirsin:</div>
+        <div class="quick">
+          <span>Salı 11:00</span>
+          <span>Çarşamba 15:00</span>
+          <span>Perşembe 14:00</span>
+        </div>
+        <div class="bubble in">Perşembe 14:00 uygun.</div>
+        <div class="bubble out">Harika — randevu oluşturuldu. Takvim daveti ve özet mesaj olarak iletilecek.</div>
+      </div>
+      <div class="composer">
+        <input value="Mesaj…" readonly />
+        <button>Gönder</button>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
