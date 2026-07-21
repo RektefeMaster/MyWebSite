@@ -186,17 +186,21 @@ html::-webkit-scrollbar-thumb {
 .nav-glass {
   background: var(--glass);
   border-color: var(--glass-border);
-  backdrop-filter: blur(18px) saturate(1.35);
-  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  /* Top'ta hafif blur — scroll'da güçlenir (Safari compositor maliyeti ↓) */
+  backdrop-filter: blur(10px) saturate(1.2);
+  -webkit-backdrop-filter: blur(10px) saturate(1.2);
   transition:
     background 0.35s ease,
     box-shadow 0.35s ease,
-    border-color 0.35s ease;
+    border-color 0.35s ease,
+    backdrop-filter 0.35s ease;
 }
 
 .nav-shell.is-scrolled .nav-glass {
   background: var(--glass-strong);
   border-color: var(--glass-border-scrolled);
+  backdrop-filter: blur(18px) saturate(1.35);
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
   box-shadow: 0 12px 40px -28px rgba(0, 0, 0, 0.45);
 }
 
@@ -472,7 +476,20 @@ html::-webkit-scrollbar-thumb {
 
 .marquee-track {
   animation: marquee-x 28s linear infinite;
-  will-change: transform;
+}
+
+/* Sekme gizliyken boşa compositor işi yapma */
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-track {
+    will-change: transform;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    transform: none;
+  }
 }
 
 @media (max-width: 768px) {
@@ -667,6 +684,12 @@ html::-webkit-scrollbar-thumb {
 [data-atmosphere-idle="true"] .hero-grain,
 [data-atmosphere-idle="true"] .hero-glow {
   animation-play-state: paused;
+  will-change: auto;
+}
+
+/* Reveal bittikten sonra kalıcı compositing layer bırakma */
+.word-reveal-inner.is-settled {
+  will-change: auto;
 }
 
 @keyframes hero-glow-drift {

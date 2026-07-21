@@ -32,20 +32,24 @@ export default function Process() {
       ).matches;
 
       gsap.set(fill, { scaleY: 0, transformOrigin: "top center", force3D: true });
-      gsap.set(head, { top: "0%", yPercent: -50, force3D: true });
+      gsap.set(head, { top: 0, yPercent: -50, y: 0, force3D: true });
 
       const setFill = gsap.quickSetter(fill, "scaleY");
-      const setHeadTop = gsap.quickSetter(head, "top", "%");
+      const setHeadY = gsap.quickSetter(head, "y", "px");
+      let trackH = track.offsetHeight;
 
       ScrollTrigger.create({
         trigger: track,
         start: "top 75%",
         end: "bottom 50%",
         scrub: reduced ? true : 0.35,
+        onRefresh: () => {
+          trackH = track.offsetHeight;
+        },
         onUpdate: (self) => {
           const p = self.progress;
           setFill(p);
-          setHeadTop(p * 100);
+          setHeadY(p * trackH);
           if (progressLabel) {
             progressLabel.textContent = `${Math.round(p * 100)}%`;
           }

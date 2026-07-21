@@ -4,9 +4,11 @@ import { FormEvent, useState } from "react";
 import { useTranslations } from "next-intl";
 import Reveal from "./Reveal";
 import Magnetic from "./Magnetic";
-import CurvedInput from "./CurvedInput";
+import dynamic from "next/dynamic";
 import WhatsAppButton from "./WhatsAppButton";
 import { SITE } from "@/lib/site";
+
+const CurvedInput = dynamic(() => import("./CurvedInput"));
 
 const EMAIL = SITE.email;
 

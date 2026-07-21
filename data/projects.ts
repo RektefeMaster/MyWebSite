@@ -49,6 +49,14 @@ export const projects: Project[] = [
     mobileImage: "/projects/casa-aurelia/mobile.jpg",
   },
   {
+    id: "seraphine-atelier",
+    name: "Séraphine Atelier",
+    colors: ["#f0eeea", "#1a1a1a"],
+    url: "https://seraphine-atelier.vercel.app/",
+    desktopImage: "/projects/seraphine-atelier/desktop.jpg",
+    mobileImage: "/projects/seraphine-atelier/mobile.jpg",
+  },
+  {
     id: "whatsapp-bot",
     name: "WhatsApp Chatbot",
     colors: ["#0b141a", "#25D366"],

@@ -214,7 +214,9 @@
     "view": "İncele",
     "live": "Siteyi gör",
     "stack": "Teknoloji",
-    "back": "İşlere dön"
+    "back": "İşlere dön",
+    "gallery": "Sayfa kareleri",
+    "galleryHint": "Canlı siteden seçili ekranlar"
   },
   "services": {
     "label": "Hizmetler",

@@ -5,7 +5,6 @@ import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
   Environment,
-  Float,
   Lightformer,
   MeshTransmissionMaterial,
   PerformanceMonitor,
@@ -92,7 +91,7 @@ function HeroText({ lines, dark }: { lines: string[]; dark: boolean }) {
     <group position={[-viewport.width * 0.06, 0.12, -0.6]}>
       {lines.map((line, i) => (
         <Text
-          key={`${i}-${line}-${dark ? "d" : "l"}`}
+          key={`${i}-${line}`}
           font="/fonts/SpaceGrotesk-Bold.ttf"
           fontSize={fontSize}
           maxWidth={viewport.width * 0.9}
@@ -178,10 +177,15 @@ function GlassM({
     }
 
     const t = state.clock.elapsedTime;
+    // Float yerine tek useFrame — aynı canlılık, bir RAF daha az
     parent.rotation.y = Math.sin(t * (lite ? 0.3 : 0.38)) * (lite ? 0.4 : 0.62);
     parent.rotation.z = Math.sin(t * 0.26) * 0.08 - 0.05;
-
     if (!lite) {
+      parent.position.y = THREE.MathUtils.lerp(
+        parent.position.y,
+        Math.sin(t * 0.55) * 0.06 + state.pointer.y * 0.35,
+        0.07
+      );
       parent.rotation.x = THREE.MathUtils.lerp(
         parent.rotation.x,
         state.pointer.y * 0.45,
@@ -192,15 +196,10 @@ function GlassM({
         state.pointer.x * 0.75,
         0.07
       );
-      parent.position.y = THREE.MathUtils.lerp(
-        parent.position.y,
-        state.pointer.y * 0.35,
-        0.07
-      );
     }
   });
 
-  const meshEl = (
+  return (
     <mesh
       ref={mesh}
       geometry={geometry}
@@ -229,14 +228,6 @@ function GlassM({
         envMapIntensity={dark ? 1.35 : 1.1}
       />
     </mesh>
-  );
-
-  if (lite || reduced) return meshEl;
-
-  return (
-    <Float speed={1} rotationIntensity={0.18} floatIntensity={0.28}>
-      {meshEl}
-    </Float>
   );
 }
 
@@ -321,13 +312,26 @@ export default function HeroScene({
     () => window.matchMedia("(prefers-reduced-motion: reduce)").matches
   );
   const [tabVisible, setTabVisible] = useState(true);
+  /** Intro perdesi açıkken sürekli loop yerine ısıt-sonra-dur */
+  const [introCovering, setIntroCovering] = useState(
+    () => document.documentElement.dataset.intro === "play"
+  );
+  const [baked, setBaked] = useState(false);
 
   useEffect(() => {
     mountedRef.current = true;
+    window.__metekHeroReady = false;
     return () => {
       mountedRef.current = false;
     };
   }, []);
+
+  useEffect(() => {
+    if (!introCovering) return;
+    const onDone = () => setIntroCovering(false);
+    window.addEventListener("metek:intro-done", onDone);
+    return () => window.removeEventListener("metek:intro-done", onDone);
+  }, [introCovering]);
 
   useEffect(() => {
     const coarseMq = window.matchMedia("(pointer: coarse)");
@@ -371,8 +375,15 @@ export default function HeroScene({
     return () => obs.disconnect();
   }, []);
 
-  const running = active && tabVisible && !reduced;
-  const frameloop = reduced ? "demand" : running ? "always" : "never";
+  const visible = active && tabVisible && !reduced;
+  // Intro altında: birkaç frame ısıt, sonra demand (GPU boş). Perde kalkınca always.
+  const running = visible && !introCovering;
+  const warming = visible && introCovering && !baked;
+  const frameloop = reduced
+    ? "demand"
+    : running || warming
+      ? "always"
+      : "never";
   const clear = dark ? DARK_BG.mid : LIGHT_BG.mid;
 
   return (
@@ -415,13 +426,32 @@ export default function HeroScene({
           canvas.addEventListener("webglcontextlost", onLost, false);
           canvas.addEventListener("webglcontextrestored", onRestored, false);
           gl.setClearColor(clear, 1);
+          setBaked(false);
           setReady(true);
-          invalidate();
+          window.__metekHeroReady = true;
+          window.dispatchEvent(new Event("metek:hero-ready"));
+          // Transmission FBO için birkaç frame; sonra intro altında idle
+          let frames = 0;
+          const bake = () => {
+            frames += 1;
+            invalidate();
+            if (frames < 10) {
+              requestAnimationFrame(bake);
+            } else if (mountedRef.current) {
+              setBaked(true);
+            }
+          };
+          requestAnimationFrame(bake);
         }}
       >
         <PerformanceMonitor
           flipflops={3}
           onDecline={() => setDpr((d) => Math.max(1, +(d - 0.25).toFixed(2)))}
+          onIncline={() =>
+            setDpr((d) =>
+              Math.min(lite ? 1.25 : 1.5, +(d + 0.25).toFixed(2), window.devicePixelRatio)
+            )
+          }
           onFallback={() => setDpr(1)}
         />
         <ThemeExposure dark={dark} />

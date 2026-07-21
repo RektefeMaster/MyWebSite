@@ -64,7 +64,6 @@ export default function SmoothScroll({
     let tick: ((time: number) => void) | null = null;
     let t1 = 0;
     let t2 = 0;
-    let t3 = 0;
     let cancelled = false;
     const onLoad = () => ScrollTrigger.refresh();
 
@@ -161,9 +160,8 @@ export default function SmoothScroll({
           gsap.ticker.add(tick);
 
           const refresh = () => ScrollTrigger.refresh();
-          t1 = window.setTimeout(refresh, 100);
-          t2 = window.setTimeout(refresh, 600);
-          t3 = window.setTimeout(refresh, 1400);
+          t1 = window.setTimeout(refresh, 120);
+          t2 = window.setTimeout(refresh, 700);
           void document.fonts?.ready.then(refresh);
           window.addEventListener("load", onLoad);
 
@@ -184,7 +182,6 @@ export default function SmoothScroll({
       window.removeEventListener("hashchange", onHashChange);
       window.clearTimeout(t1);
       window.clearTimeout(t2);
-      window.clearTimeout(t3);
       window.removeEventListener("load", onLoad);
       const lenis = lenisRef.current;
       if (lenis && onLenisScroll) lenis.off("scroll", onLenisScroll);
@@ -214,7 +211,7 @@ export default function SmoothScroll({
 
     if (!hash || hash === "#") {
       scrollTop();
-      const timers = [50, 200].map((ms) =>
+      const timers = [80, 280].map((ms) =>
         window.setTimeout(scrollTop, ms)
       );
       return () => timers.forEach((id) => window.clearTimeout(id));
@@ -247,7 +244,7 @@ export default function SmoothScroll({
     };
 
     run();
-    const timers = [50, 200, 450, 900].map((ms) =>
+    const timers = [80, 320, 800].map((ms) =>
       window.setTimeout(run, ms)
     );
     return () => timers.forEach((id) => window.clearTimeout(id));

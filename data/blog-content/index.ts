@@ -1,20 +1,22 @@
 import type { BlogArticle } from "../blog";
-import tr from "./tr";
-import en from "./en";
-import es from "./es";
-import de from "./de";
 
-const byLocale: Record<string, Record<string, BlogArticle>> = {
-  tr,
-  en,
-  es,
-  de,
+const byLocale: Record<string, () => Promise<Record<string, BlogArticle>>> = {
+  tr: () => import("./tr").then((m) => m.default),
+  en: () => import("./en").then((m) => m.default),
+  es: () => import("./es").then((m) => m.default),
+  de: () => import("./de").then((m) => m.default),
 };
 
-export function getBlogArticle(
+export async function getBlogArticle(
   locale: string,
   slug: string
-): BlogArticle | undefined {
-  const pack = byLocale[locale] ?? byLocale.tr;
-  return pack[slug] ?? byLocale.tr[slug];
+): Promise<BlogArticle | undefined> {
+  const load = byLocale[locale] ?? byLocale.tr;
+  const pack = await load();
+  if (pack[slug]) return pack[slug];
+  if (locale !== "tr") {
+    const tr = await byLocale.tr();
+    return tr[slug];
+  }
+  return undefined;
 }

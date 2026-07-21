@@ -12,7 +12,13 @@ export default async function BlogIndex({ locale }: BlogIndexProps) {
   const t = await getTranslations({ locale, namespace: "blog" });
   const [featured, ...rest] = blogPosts;
 
-  const featuredArticle = getBlogArticle(locale, featured.slug)!;
+  const featuredArticle = (await getBlogArticle(locale, featured.slug))!;
+  const restArticles = await Promise.all(
+    rest.map(async (post) => ({
+      post,
+      article: (await getBlogArticle(locale, post.slug))!,
+    }))
+  );
 
   return (
     <section className="bg-background px-5 py-14 md:px-10 md:py-20">
@@ -30,23 +36,20 @@ export default async function BlogIndex({ locale }: BlogIndexProps) {
             featured
           />
 
-          {rest.map((post, i) => {
-            const article = getBlogArticle(locale, post.slug)!;
-            return (
-              <BlogCard
-                key={post.slug}
-                post={post}
-                title={article.title}
-                excerpt={article.excerpt}
-                categoryLabel={t(`categories.${post.category}`)}
-                dateLabel={formatBlogDate(post.date, locale)}
-                readLabel={t("readMinutes", { count: post.readMinutes })}
-                viewLabel={t("view")}
-                imageAlt={article.imageAlt}
-                delay={(i + 1) * 50}
-              />
-            );
-          })}
+          {restArticles.map(({ post, article }, i) => (
+            <BlogCard
+              key={post.slug}
+              post={post}
+              title={article.title}
+              excerpt={article.excerpt}
+              categoryLabel={t(`categories.${post.category}`)}
+              dateLabel={formatBlogDate(post.date, locale)}
+              readLabel={t("readMinutes", { count: post.readMinutes })}
+              viewLabel={t("view")}
+              imageAlt={article.imageAlt}
+              delay={(i + 1) * 50}
+            />
+          ))}
         </div>
       </div>
     </section>

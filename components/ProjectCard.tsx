@@ -3,13 +3,13 @@
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import type { Project } from "@/data/projects";
-import { getProjectDetail } from "@/data/project-details";
+import { getProjectCardCopy } from "@/data/project-card-copy";
 import DeviceMockup from "./DeviceMockup";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const t = useTranslations("projectUi");
   const locale = useLocale();
-  const detail = getProjectDetail(locale, project.id);
+  const detail = getProjectCardCopy(locale, project.id);
   const name = detail?.title ?? project.name;
 
   return (

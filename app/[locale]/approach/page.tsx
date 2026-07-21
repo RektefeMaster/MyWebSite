@@ -2,7 +2,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import Principles from "@/components/Principles";
-import Process from "@/components/Process";
+import ApproachBelowFold from "@/components/ApproachBelowFold";
 import PageCta from "@/components/PageCta";
 
 export async function generateMetadata({
@@ -37,7 +37,7 @@ export default async function ApproachPage({
         ]}
       />
       <Principles />
-      <Process />
+      <ApproachBelowFold />
       <PageCta
         label={t("ctaLabel")}
         title={t("ctaTitle")}

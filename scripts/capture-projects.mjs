@@ -34,6 +34,11 @@ const sites = [
     url: "https://casa-aurelia-jet.vercel.app/",
     waitFor: "text=CASA AURELIA",
   },
+  {
+    id: "seraphine-atelier",
+    url: "https://seraphine-atelier.vercel.app/",
+    waitFor: "text=SÉRAPHINE",
+  },
 ];
 
 async function hideChrome(page) {
@@ -111,18 +116,32 @@ async function capture(page, site, outPath, width, height) {
 }
 
 const browser = await chromium.launch({ headless: true });
-const context = await browser.newContext({
-  deviceScaleFactor: 3,
-  locale: "tr-TR",
-});
-const page = await context.newPage();
+
+/** next/image deviceSizes max=1920 — fazlası boşa dosya şişirir, UI kalitesi aynı kalır */
+const DESKTOP_DPR = 1920 / 1600; // → 1920×1200
+const MOBILE_DPR = 3; // 390×3 → 1170 (telefon mockup için yeterli)
 
 for (const site of sites) {
   const dir = join(root, "public/projects", site.id);
+  mkdirSync(dir, { recursive: true });
   console.log("Capturing", site.id, "←", site.url);
-  await capture(page, site, join(dir, "desktop.jpg"), 1600, 1000);
+
+  const deskCtx = await browser.newContext({
+    deviceScaleFactor: DESKTOP_DPR,
+    locale: "tr-TR",
+  });
+  const deskPage = await deskCtx.newPage();
+  await capture(deskPage, site, join(dir, "desktop.jpg"), 1600, 1000);
+  await deskCtx.close();
   console.log("  desktop ok");
-  await capture(page, site, join(dir, "mobile.jpg"), 390, 844);
+
+  const mobCtx = await browser.newContext({
+    deviceScaleFactor: MOBILE_DPR,
+    locale: "tr-TR",
+  });
+  const mobPage = await mobCtx.newPage();
+  await capture(mobPage, site, join(dir, "mobile.jpg"), 390, 844);
+  await mobCtx.close();
   console.log("  mobile ok");
 }
 

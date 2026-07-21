@@ -214,7 +214,9 @@
     "view": "Ver proyecto",
     "live": "Ver sitio",
     "stack": "Tecnología",
-    "back": "Volver a trabajos"
+    "back": "Volver a trabajos",
+    "gallery": "Fotogramas",
+    "galleryHint": "Pantallas seleccionadas del sitio en vivo"
   },
   "services": {
     "label": "Servicios",

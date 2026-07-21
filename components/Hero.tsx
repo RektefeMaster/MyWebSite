@@ -8,7 +8,13 @@ import { Link } from "@/i18n/navigation";
 import Magnetic from "./Magnetic";
 import { gsap, useGSAP } from "@/lib/gsap";
 
-const HeroScene = dynamic(() => import("./HeroScene"), {
+/** Chunk'ı erken çek — intro ısınmasında mount anında hazır olsun */
+const loadHeroScene = () => import("./HeroScene");
+if (typeof window !== "undefined") {
+  void loadHeroScene();
+}
+
+const HeroScene = dynamic(loadHeroScene, {
   ssr: false,
   loading: () => (
     <div className="absolute inset-0 bg-gradient-to-b from-[#f5f5f5] via-[#dedede] to-[#c6c6c6] dark:from-[#1c1b18] dark:via-[#141311] dark:to-[#0c0b0a]" />
@@ -21,7 +27,10 @@ export default function Hero() {
   const copyRef = useRef<HTMLDivElement>(null);
   const cueRef = useRef<HTMLAnchorElement>(null);
   const [active, setActive] = useState(true);
-  // Intro / idle sonrası mount — 3D JS'i ilk boyamayla yarıştırmadan
+  /**
+   * Intro'nun ilk saniyesinde WebGL mount etme — GSAP perde ile GPU yarışmasın.
+   * Intro ortasında `metek:hero-warm` ile ısınır; perde açılmadan hazır olur.
+   */
   const [sceneMounted, setSceneMounted] = useState(false);
 
   // 3D başlık — tam Türkçe glif desteği
@@ -53,30 +62,32 @@ export default function Hero() {
 
     const scheduleIdle = () => {
       if (typeof window.requestIdleCallback === "function") {
-        idleId = window.requestIdleCallback(mount, { timeout: 180 });
+        idleId = window.requestIdleCallback(mount, { timeout: 120 });
       } else {
         idleId = window.setTimeout(mount, 0);
       }
     };
 
-    const onIntroDone = () => scheduleIdle();
-
     if (document.documentElement.dataset.intro !== "play") {
       scheduleIdle();
-    } else {
-      window.addEventListener("metek:intro-done", onIntroDone);
-      // CSS failsafe ~4.6s — sahnede asılı kalmasın
-      failsafe = window.setTimeout(mount, 5000);
+      return () => {
+        cancelled = true;
+        if (typeof window.cancelIdleCallback === "function") {
+          window.cancelIdleCallback(idleId);
+        } else {
+          window.clearTimeout(idleId);
+        }
+      };
     }
+
+    const onWarm = () => mount();
+    window.addEventListener("metek:hero-warm", onWarm);
+    // Sayaç + bekleme kaçırılırsa yine de aç
+    failsafe = window.setTimeout(mount, 3200);
 
     return () => {
       cancelled = true;
-      window.removeEventListener("metek:intro-done", onIntroDone);
-      if (typeof window.cancelIdleCallback === "function") {
-        window.cancelIdleCallback(idleId);
-      } else {
-        window.clearTimeout(idleId);
-      }
+      window.removeEventListener("metek:hero-warm", onWarm);
       window.clearTimeout(failsafe);
     };
   }, []);
@@ -108,28 +119,39 @@ export default function Hero() {
         }
       });
 
-      mm.add(
-        "(prefers-reduced-motion: no-preference) and (pointer: fine)",
-        () => {
-          if (!cue) return;
-          const bob = gsap.to(cue, {
-            y: 6,
-            duration: 1.35,
-            ease: "sine.inOut",
-            yoyo: true,
-            repeat: -1,
-            delay: 1.5,
-          });
-          return () => {
-            bob.kill();
-          };
-        }
-      );
-
       return () => mm.revert();
     },
     { scope: sectionRef }
   );
+
+  // Scroll cue bob — yalnızca hero görünürken ve fine pointer'da
+  useEffect(() => {
+    const cue = cueRef.current;
+    if (!cue) return;
+
+    if (!active) {
+      gsap.killTweensOf(cue);
+      gsap.set(cue, { y: 0 });
+      return;
+    }
+
+    const mm = gsap.matchMedia();
+    mm.add(
+      "(prefers-reduced-motion: no-preference) and (pointer: fine)",
+      () => {
+        const bob = gsap.to(cue, {
+          y: 6,
+          duration: 1.35,
+          ease: "sine.inOut",
+          yoyo: true,
+          repeat: -1,
+          delay: 1.5,
+        });
+        return () => bob.kill();
+      }
+    );
+    return () => mm.revert();
+  }, [active]);
 
   return (
     <section

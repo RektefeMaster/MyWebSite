@@ -16,6 +16,12 @@ type BlogTeaserProps = {
 export default async function BlogTeaser({ locale }: BlogTeaserProps) {
   const t = await getTranslations({ locale, namespace: "blog" });
   const posts = blogPosts.slice(0, 3);
+  const articles = await Promise.all(
+    posts.map(async (post) => ({
+      post,
+      article: (await getBlogArticle(locale, post.slug))!,
+    }))
+  );
 
   return (
     <section
@@ -54,9 +60,7 @@ export default async function BlogTeaser({ locale }: BlogTeaserProps) {
         </div>
 
         <div className="grid gap-3 md:grid-cols-3">
-          {posts.map((post, i) => {
-            const article = getBlogArticle(locale, post.slug)!;
-            return (
+          {articles.map(({ post, article }, i) => (
               <Reveal key={post.slug} delay={i * 60}>
                 <Link
                   href={`/blog/${post.slug}`}
@@ -97,8 +101,7 @@ export default async function BlogTeaser({ locale }: BlogTeaserProps) {
                   </div>
                 </Link>
               </Reveal>
-            );
-          })}
+          ))}
         </div>
       </div>
     </section>

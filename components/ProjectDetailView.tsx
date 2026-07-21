@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import type { Project } from "@/data/projects";
@@ -6,11 +7,21 @@ import Reveal from "./Reveal";
 import Magnetic from "./Magnetic";
 import WhatsAppButton from "./WhatsAppButton";
 import DeviceMockup from "./DeviceMockup";
+import PageCta from "./PageCta";
 
 type ProjectDetailViewProps = {
   project: Project;
   detail: ProjectDetail;
 };
+
+const DEFAULT_GALLERY_SPANS = [
+  "col-span-4 row-span-2 min-h-[220px] md:min-h-[320px]",
+  "col-span-2 min-h-[130px] md:min-h-[154px]",
+  "col-span-2 min-h-[130px] md:min-h-[154px]",
+  "col-span-3 min-h-[140px] md:min-h-[170px]",
+  "col-span-3 min-h-[140px] md:min-h-[170px]",
+  "col-span-6 min-h-[140px] md:min-h-[190px]",
+] as const;
 
 export default async function ProjectDetailView({
   project,
@@ -20,6 +31,8 @@ export default async function ProjectDetailView({
   const nav = await getTranslations("nav");
   const a11y = await getTranslations("a11y");
   const name = detail.title ?? project.name;
+  const gallery = detail.gallery ?? [];
+  const hasCta = Boolean(detail.ctaTitle && detail.ctaButton);
 
   return (
     <article className="bg-background">
@@ -59,13 +72,26 @@ export default async function ProjectDetailView({
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex w-full min-h-12 items-center justify-center rounded-full bg-ink px-6 py-3 text-sm font-bold text-ink-fg sm:w-auto"
+                    className="inline-flex w-full min-h-12 items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-bold text-ink-fg sm:w-auto"
                   >
                     {t("live")}
+                    <span aria-hidden>↗</span>
                   </a>
                 </Magnetic>
               ) : null}
-              <WhatsAppButton className="w-full justify-center sm:w-auto" />
+              {hasCta ? (
+                <Magnetic strength={0.25} className="w-full sm:w-auto">
+                  <Link
+                    href={{ pathname: "/", hash: "contact" }}
+                    className="inline-flex w-full min-h-12 items-center justify-center gap-2 rounded-full bg-lime px-6 py-3 text-sm font-bold text-on-lime sm:w-auto"
+                  >
+                    {detail.ctaButton}
+                    <span aria-hidden>→</span>
+                  </Link>
+                </Magnetic>
+              ) : (
+                <WhatsAppButton className="w-full justify-center sm:w-auto" />
+              )}
               <Link
                 href="/work"
                 className="inline-flex min-h-10 items-center text-sm font-bold text-ink/60 transition-colors hover:text-ink"
@@ -84,6 +110,56 @@ export default async function ProjectDetailView({
           </Reveal>
         </div>
       </header>
+
+      {gallery.length > 0 ? (
+        <section className="border-b border-foreground/8 bg-paper px-5 py-12 md:px-10 md:py-16">
+          <div className="mx-auto max-w-7xl">
+            <Reveal>
+              <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-foreground/35">
+                {t("gallery")}
+              </p>
+              <p className="mb-6 max-w-lg text-sm text-foreground/50 md:text-[15px]">
+                {t("galleryHint")}
+              </p>
+            </Reveal>
+            <Reveal delay={60}>
+              <div className="overflow-hidden rounded-[1.75rem] border border-foreground/8 bg-background md:rounded-[2rem]">
+                <div className="grid grid-cols-6 gap-2 p-2 md:gap-2.5 md:p-2.5">
+                  {gallery.map((shot, i) => (
+                    <div
+                      key={shot.src}
+                      className={`relative overflow-hidden rounded-[1rem] bg-stone md:rounded-[1.15rem] ${
+                        shot.span ??
+                        DEFAULT_GALLERY_SPANS[
+                          Math.min(i, DEFAULT_GALLERY_SPANS.length - 1)
+                        ]
+                      }`}
+                    >
+                      <Image
+                        src={shot.src}
+                        alt={shot.alt}
+                        fill
+                        sizes={
+                          i === 0
+                            ? "(max-width: 1024px) 90vw, 720px"
+                            : i === gallery.length - 1 && gallery.length >= 4
+                              ? "(max-width: 1024px) 90vw, 960px"
+                              : "(max-width: 1024px) 45vw, 320px"
+                        }
+                        quality={88}
+                        priority={false}
+                        loading="lazy"
+                        decoding="async"
+                        className="object-cover object-top transition-transform duration-700 ease-out [@media(hover:hover)_and_(pointer:fine)]:hover:scale-[1.03]"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      ) : null}
 
       <div className="mx-auto max-w-3xl px-5 py-12 md:px-10 md:py-20">
         <div className="space-y-12">
@@ -154,6 +230,15 @@ export default async function ProjectDetailView({
           </Reveal>
         </div>
       </div>
+
+      {hasCta ? (
+        <PageCta
+          label={detail.ctaLabel ?? ""}
+          title={detail.ctaTitle!}
+          blurb={detail.ctaBlurb ?? ""}
+          cta={detail.ctaButton!}
+        />
+      ) : null}
     </article>
   );
 }

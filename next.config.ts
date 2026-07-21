@@ -3,6 +3,9 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin();
 
+const STATIC_CACHE =
+  "public, max-age=31536000, immutable";
+
 const nextConfig: NextConfig = {
   // R3F's renderer disposal clashes with StrictMode's double-invoked effects
   // (the WebGL context is force-lost on the first cleanup and never restored)
@@ -20,7 +23,28 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },
   experimental: {
-    optimizePackageImports: ["gsap", "@react-three/drei"],
+    optimizePackageImports: [
+      "gsap",
+      "@react-three/drei",
+      "three",
+      "@react-three/fiber",
+    ],
+  },
+  async headers() {
+    return [
+      {
+        source: "/fonts/:path*",
+        headers: [{ key: "Cache-Control", value: STATIC_CACHE }],
+      },
+      {
+        source: "/projects/:path*",
+        headers: [{ key: "Cache-Control", value: STATIC_CACHE }],
+      },
+      {
+        source: "/devices/:path*",
+        headers: [{ key: "Cache-Control", value: STATIC_CACHE }],
+      },
+    ];
   },
 };
 

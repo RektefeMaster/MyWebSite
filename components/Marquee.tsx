@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 
 type MarqueeProps = {
@@ -13,6 +14,18 @@ export default function Marquee({ variant = "section" }: MarqueeProps) {
   const items = t.raw("items") as string[];
   const track = [...items, ...items, ...items];
   const isHeader = variant === "header";
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    const sync = () => {
+      el.style.animationPlayState = document.hidden ? "paused" : "running";
+    };
+    sync();
+    document.addEventListener("visibilitychange", sync);
+    return () => document.removeEventListener("visibilitychange", sync);
+  }, []);
 
   return (
     <div
@@ -24,6 +37,7 @@ export default function Marquee({ variant = "section" }: MarqueeProps) {
       }
     >
       <div
+        ref={trackRef}
         className={`marquee-track flex w-max items-center ${
           isHeader ? "py-2" : ""
         }`}

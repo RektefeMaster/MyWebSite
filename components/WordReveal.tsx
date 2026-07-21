@@ -41,6 +41,13 @@ export default function WordReveal({
       });
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const settle = () => {
+          inners.forEach((node) => node.classList.add("is-settled"));
+        };
+        const unsettle = () => {
+          inners.forEach((node) => node.classList.remove("is-settled"));
+        };
+
         const tween = gsap.fromTo(
           inners,
           { yPercent: 118, opacity: 0 },
@@ -53,9 +60,17 @@ export default function WordReveal({
             delay,
             force3D: true,
             paused: true,
+            onComplete: settle,
+            onReverseComplete: unsettle,
           }
         );
-        attachScrollReveal(tween, el, { enter: "top 88%" });
+        attachScrollReveal(tween, el, {
+          enter: "top 88%",
+          onEnter: () => {
+            if (tween.progress() >= 1) settle();
+          },
+          onLeaveBack: unsettle,
+        });
       });
 
       return () => mm.revert();

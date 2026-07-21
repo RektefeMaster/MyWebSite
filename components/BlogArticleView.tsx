@@ -23,6 +23,12 @@ export default async function BlogArticleView({
   const t = await getTranslations({ locale, namespace: "blog" });
   const a11y = await getTranslations({ locale, namespace: "a11y" });
   const related = getRelatedPosts(meta.slug, 2);
+  const relatedArticles = await Promise.all(
+    related.map(async (post) => ({
+      post,
+      article: (await getBlogArticle(locale, post.slug))!,
+    }))
+  );
 
   return (
     <article className="bg-background">
@@ -139,44 +145,41 @@ export default async function BlogArticleView({
               </h2>
             </Reveal>
             <div className="grid gap-4 md:grid-cols-2">
-              {related.map((post, i) => {
-                const a = getBlogArticle(locale, post.slug)!;
-                return (
-                  <Reveal key={post.slug} delay={i * 60}>
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      className="group flex h-full overflow-hidden rounded-3xl border border-foreground/10 bg-surface transition-colors hover:border-ink md:min-h-[200px]"
-                    >
-                      <div className="relative hidden w-[38%] shrink-0 sm:block">
-                        <Image
-                          src={post.image}
-                          alt={a.imageAlt}
-                          fill
-                          sizes="200px"
-                          className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                        />
+              {relatedArticles.map(({ post, article: a }, i) => (
+                <Reveal key={post.slug} delay={i * 60}>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="group flex h-full overflow-hidden rounded-3xl border border-foreground/10 bg-surface transition-colors hover:border-ink md:min-h-[200px]"
+                  >
+                    <div className="relative hidden w-[38%] shrink-0 sm:block">
+                      <Image
+                        src={post.image}
+                        alt={a.imageAlt}
+                        fill
+                        sizes="200px"
+                        className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      />
+                    </div>
+                    <div className="flex flex-1 flex-col justify-between p-6 md:p-8">
+                      <div>
+                        <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground/35">
+                          {t(`categories.${post.category}`)}
+                        </p>
+                        <h3 className="text-lg font-bold tracking-tight md:text-xl">
+                          {a.title}
+                        </h3>
+                        <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-foreground/50">
+                          {a.excerpt}
+                        </p>
                       </div>
-                      <div className="flex flex-1 flex-col justify-between p-6 md:p-8">
-                        <div>
-                          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground/35">
-                            {t(`categories.${post.category}`)}
-                          </p>
-                          <h3 className="text-lg font-bold tracking-tight md:text-xl">
-                            {a.title}
-                          </h3>
-                          <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-foreground/50">
-                            {a.excerpt}
-                          </p>
-                        </div>
-                        <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-ink">
-                          {t("view")}
-                          <span aria-hidden>→</span>
-                        </span>
-                      </div>
-                    </Link>
-                  </Reveal>
-                );
-              })}
+                      <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-ink">
+                        {t("view")}
+                        <span aria-hidden>→</span>
+                      </span>
+                    </div>
+                  </Link>
+                </Reveal>
+              ))}
             </div>
           </div>
         </aside>

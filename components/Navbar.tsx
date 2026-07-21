@@ -65,25 +65,31 @@ export default function Navbar() {
         },
       });
 
+      let scrolled = header.classList.contains("is-scrolled");
       ScrollTrigger.create({
         start: 0,
         end: "max",
         onUpdate: (self) => {
           setProgress?.(self.progress);
-          if (self.scroll() > 20) header.classList.add("is-scrolled");
-          else header.classList.remove("is-scrolled");
+          const next = self.scroll() > 20;
+          if (next === scrolled) return;
+          scrolled = next;
+          header.classList.toggle("is-scrolled", next);
         },
       });
     });
 
     mm.add("(prefers-reduced-motion: reduce)", () => {
+      let scrolled = header.classList.contains("is-scrolled");
       ScrollTrigger.create({
         start: 0,
         end: "max",
         onUpdate: (self) => {
           setProgress?.(self.progress);
-          if (self.scroll() > 20) header.classList.add("is-scrolled");
-          else header.classList.remove("is-scrolled");
+          const next = self.scroll() > 20;
+          if (next === scrolled) return;
+          scrolled = next;
+          header.classList.toggle("is-scrolled", next);
         },
       });
     });

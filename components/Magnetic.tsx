@@ -15,14 +15,17 @@ export default function Magnetic({
 }) {
   const root = useRef<HTMLDivElement>(null);
   const inner = useRef<HTMLDivElement>(null);
+  const enabled = useRef(false);
+  const rectCache = useRef<DOMRect | null>(null);
 
   useGSAP(
     () => {
       const el = inner.current;
       if (!el) return;
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      if (window.matchMedia("(pointer: coarse)").matches) return;
-
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const coarse = window.matchMedia("(pointer: coarse)").matches;
+      enabled.current = !reduce && !coarse;
+      if (!enabled.current) return;
       gsap.set(el, { x: 0, y: 0 });
     },
     { scope: root }
@@ -31,15 +34,17 @@ export default function Magnetic({
   function onMove(e: MouseEvent<HTMLDivElement>) {
     const wrap = root.current;
     const el = inner.current;
-    if (!wrap || !el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    if (window.matchMedia("(pointer: coarse)").matches) return;
+    if (!wrap || !el || !enabled.current) return;
 
-    const rect = wrap.getBoundingClientRect();
+    // Rect'i mousemove başına değil, enter/resize sonrası cache'le
+    let rect = rectCache.current;
+    if (!rect) {
+      rect = wrap.getBoundingClientRect();
+      rectCache.current = rect;
+    }
+
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    // overwrite: her harekette önceki tween'i öldür — takip başına tek aktif
-    // tween (yüzlerce çakışan tween birikmesin)
     gsap.to(el, {
       x: x * strength,
       y: y * strength,
@@ -49,9 +54,15 @@ export default function Magnetic({
     });
   }
 
+  function onEnter() {
+    const wrap = root.current;
+    if (wrap) rectCache.current = wrap.getBoundingClientRect();
+  }
+
   function onLeave() {
+    rectCache.current = null;
     const el = inner.current;
-    if (!el) return;
+    if (!el || !enabled.current) return;
     gsap.to(el, {
       x: 0,
       y: 0,
@@ -65,12 +76,11 @@ export default function Magnetic({
     <div
       ref={root}
       className={className}
+      onMouseEnter={onEnter}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
     >
-      <div ref={inner}>
-        {children}
-      </div>
+      <div ref={inner}>{children}</div>
     </div>
   );
 }

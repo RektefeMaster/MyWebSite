@@ -156,7 +156,7 @@ function DeviceFrame({
           fill
           sizes={sizes}
           priority={priority}
-          quality={95}
+          quality={85}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
           draggable={false}

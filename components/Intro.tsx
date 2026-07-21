@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
+import { usePathname } from "@/i18n/navigation";
 import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
 
 /**
@@ -10,9 +11,11 @@ import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
  *   ilk boyamadan itibaren CSS ile gizli (FOUC yok).
  * - Oturum başına bir kez (sessionStorage). `?intro` ile yeniden tetiklenir.
  * - reduced-motion'da hiç gösterilmez. JS çalışmazsa CSS failsafe temizler.
+ * - HeroScene yalnızca ana sayfada + intro play iken ısıtılır.
  */
 export default function Intro() {
   const t = useTranslations("hero");
+  const pathname = usePathname();
   const [visible, setVisible] = useState(true);
 
   const rootRef = useRef<HTMLDivElement>(null);
@@ -34,6 +37,12 @@ export default function Intro() {
         setVisible(false);
         window.dispatchEvent(new Event("metek:intro-done"));
         return;
+      }
+
+      // Ana sayfa değilse three/R3F chunk'ını çekme
+      const warmHero = pathname === "/";
+      if (warmHero) {
+        void import("./HeroScene");
       }
 
       try {
@@ -84,9 +93,29 @@ export default function Intro() {
         window.__lenis?.start();
         ScrollTrigger.refresh();
         setVisible(false);
-        // Hero 3D'nin intro sırasında rekabet etmeden mount olması için
         window.dispatchEvent(new Event("metek:intro-done"));
       };
+
+      /** Sayaç bitince 3D hazır olana kadar bekle — perde boş gradient'e açılmasın */
+      const waitForHeroReady = () =>
+        new Promise<void>((resolve) => {
+          if (!warmHero || window.__metekHeroReady) {
+            resolve();
+            return;
+          }
+          let settled = false;
+          const done = () => {
+            if (settled) return;
+            settled = true;
+            window.clearTimeout(timeout);
+            window.removeEventListener("metek:hero-ready", onReady);
+            resolve();
+          };
+          const onReady = () => done();
+          // En fazla ~1.4s ekstra; ağ yavaşsa yine de perde kalksın
+          const timeout = window.setTimeout(done, 1400);
+          window.addEventListener("metek:hero-ready", onReady);
+        });
 
       gsap.set([labelLRef.current, labelRRef.current], { opacity: 0, y: 10 });
       gsap.set(markRef.current, { opacity: 0, y: 18 });
@@ -131,13 +160,25 @@ export default function Intro() {
           },
           0.25
         )
-        // kısa duruş
-        .to({}, { duration: 0.22 })
+        // Sayaç ortasında WebGL'i ısıt — yalnızca ana sayfa
+        .add(() => {
+          if (warmHero) {
+            window.dispatchEvent(new Event("metek:hero-warm"));
+          }
+        }, 1.05)
+        // kısa duruş + hero WebGL senkronu
+        .to({}, { duration: 0.18 })
+        .add(() => {
+          if (!warmHero) return;
+          tl.pause();
+          void waitForHeroReady().then(() => {
+            if (tl.paused()) tl.resume();
+          });
+        })
         // çıkış — perde yukarı kalkar, lime çizgi ekranı süpürür
         .to(
           [markRef.current, labelLRef.current, labelRRef.current],
-          { opacity: 0, duration: 0.4, ease: "power2.in" },
-          ">"
+          { opacity: 0, duration: 0.4, ease: "power2.in" }
         )
         .to(
           markRef.current,
@@ -163,7 +204,7 @@ export default function Intro() {
         unlock();
       };
     },
-    { scope: rootRef }
+    { scope: rootRef, dependencies: [pathname] }
   );
 
   if (!visible) return null;
