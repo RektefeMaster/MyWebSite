@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { preload } from "react-dom";
 import { Link } from "@/i18n/navigation";
 import Magnetic from "./Magnetic";
@@ -23,6 +23,7 @@ const HeroScene = dynamic(loadHeroScene, {
 
 export default function Hero() {
   const t = useTranslations("hero");
+  const locale = useLocale();
   const sectionRef = useRef<HTMLElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
   const cueRef = useRef<HTMLAnchorElement>(null);
@@ -98,30 +99,63 @@ export default function Hero() {
       const cue = cueRef.current;
       if (!copy) return;
 
+      const nodes = copy.querySelectorAll<HTMLElement>("[data-hero-fade]");
       const mm = gsap.matchMedia();
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
-        gsap.from(copy.querySelectorAll("[data-hero-fade]"), {
-          opacity: 0,
-          y: 16,
-          duration: 0.55,
-          stagger: 0.07,
-          delay: 0.55,
-          ease: "power2.out",
+      mm.add("(prefers-reduced-motion: reduce)", () => {
+        gsap.set([nodes, cue].filter(Boolean), {
+          clearProps: "all",
+          opacity: 1,
+          y: 0,
         });
-        if (cue) {
-          gsap.from(cue, {
-            opacity: 0,
-            y: 12,
+      });
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        // Dil değişiminde yeniden animasyon yapma — metin yerinde kalsın
+        const alreadyShown = [...nodes].some(
+          (n) => Number.parseFloat(getComputedStyle(n).opacity) > 0.9
+        );
+        if (alreadyShown) {
+          gsap.set(nodes, { clearProps: "opacity,transform" });
+          if (cue) gsap.set(cue, { clearProps: "opacity,transform" });
+          return;
+        }
+        gsap.fromTo(
+          nodes,
+          { opacity: 0, y: 16 },
+          {
+            opacity: 1,
+            y: 0,
             duration: 0.55,
-            delay: 0.95,
+            stagger: 0.07,
+            delay: 0.55,
             ease: "power2.out",
-          });
+            overwrite: true,
+            onComplete: () => {
+              gsap.set(nodes, { clearProps: "opacity,transform" });
+            },
+          }
+        );
+        if (cue) {
+          gsap.fromTo(
+            cue,
+            { opacity: 0, y: 12 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.55,
+              delay: 0.95,
+              ease: "power2.out",
+              overwrite: true,
+              onComplete: () => {
+                gsap.set(cue, { clearProps: "opacity,transform" });
+              },
+            }
+          );
         }
       });
 
       return () => mm.revert();
     },
-    { scope: sectionRef }
+    { scope: sectionRef, dependencies: [locale] }
   );
 
   // Scroll cue bob — yalnızca hero görünürken ve fine pointer'da

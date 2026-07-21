@@ -39,16 +39,26 @@ export function attachScrollReveal(
       animation.reverse();
       onLeaveBack?.();
     },
-    // İlk ölçüm / resize / tema sonrası — NaN/geçici start ile sıfırlama
+    // İlk ölçüm / resize / tema sonrası — NaN/geçici start ile sıfırlama.
+    // Viewport’taki tetikleyiciyi progress(0)’a çekme: cv-auto / erken refresh
+    // yanlış start üretince içerik “kaybolmuş” gibi kalıyordu.
     onRefresh: (self) => {
       if (!Number.isFinite(self.start)) return;
       if (self.scroll() >= self.start) {
         animation.progress(1);
         onEnter?.();
-      } else {
-        animation.progress(0);
-        onLeaveBack?.();
+        return;
       }
+      const rect = trigger.getBoundingClientRect();
+      const vh =
+        typeof window !== "undefined" ? window.innerHeight : 0;
+      if (vh > 0 && rect.top < vh && rect.bottom > 0) {
+        animation.progress(1);
+        onEnter?.();
+        return;
+      }
+      animation.progress(0);
+      onLeaveBack?.();
     },
   });
 }

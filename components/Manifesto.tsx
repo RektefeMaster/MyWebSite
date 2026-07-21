@@ -1,8 +1,9 @@
 "use client";
 
 import { useRef } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { gsap, useGSAP } from "@/lib/gsap";
+import { forDisplay } from "@/lib/typography";
 
 /**
  * İmza bölüm: sabitlenmiş manifesto — markanın tez cümlesi.
@@ -10,7 +11,8 @@ import { gsap, useGSAP } from "@/lib/gsap";
  */
 export default function Manifesto() {
   const t = useTranslations("manifesto");
-  const lines = t.raw("lines") as string[];
+  const locale = useLocale();
+  const lines = (t.raw("lines") as string[]).map(forDisplay);
   const sectionRef = useRef<HTMLElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
 
@@ -29,7 +31,12 @@ export default function Manifesto() {
       const stamp = pin.querySelector<HTMLElement>("[data-manifesto-stamp]");
 
       gsap.set(lineEls, { opacity: reduced ? 1 : 0.12, y: reduced ? 0 : 28 });
-      if (stamp) gsap.set(stamp, { scale: reduced ? 1 : 0.85, opacity: reduced ? 0.9 : 0 });
+      if (stamp) {
+        gsap.set(stamp, {
+          scale: reduced ? 1 : 0.85,
+          opacity: reduced ? 0.9 : 0,
+        });
+      }
 
       if (reduced) return;
 
@@ -60,7 +67,7 @@ export default function Manifesto() {
         );
       }
     },
-    { scope: sectionRef, dependencies: [lines.length] }
+    { scope: sectionRef, dependencies: [locale, lines.join("\n")] }
   );
 
   return (
@@ -75,9 +82,9 @@ export default function Manifesto() {
       >
         <div className="mx-auto w-full max-w-7xl">
           <div className="max-w-5xl space-y-2 md:space-y-3">
-            {lines.map((line) => (
+            {lines.map((line, i) => (
               <p
-                key={line}
+                key={`${locale}-${i}`}
                 data-manifesto-line
                 className="text-[clamp(1.75rem,5.2vw,4.75rem)] font-bold leading-[1.05] tracking-tight"
               >

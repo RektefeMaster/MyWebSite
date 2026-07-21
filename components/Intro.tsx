@@ -6,13 +6,44 @@ import { usePathname } from "@/i18n/navigation";
 import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
 
 /**
- * Sinematik açılış perdesi.
- * - `data-intro="play"` (layout inline script) olduğunda oynar; aksi halde
- *   ilk boyamadan itibaren CSS ile gizli (FOUC yok).
- * - Oturum başına bir kez (sessionStorage). `?intro` ile yeniden tetiklenir.
- * - reduced-motion'da hiç gösterilmez. JS çalışmazsa CSS failsafe temizler.
- * - HeroScene yalnızca ana sayfada + intro play iken ısıtılır.
+ * Sinematik açılış perdesi — süre bilinçli uzun tutulur ki perde kalkmadan
+ * hero + below-fold chunk’lar + fontlar ısınsın.
+ * - `data-intro="play"` (layout inline script) → oynar; aksi halde CSS skip.
+ * - Oturum başına bir kez; `?intro` ile yeniden.
+ * - reduced-motion’da yok; JS yoksa CSS failsafe (~7.2s) temizler.
  */
+
+function warmHomeChunks() {
+  return Promise.allSettled([
+    import("./HeroScene"),
+    import("./Projects"),
+    import("./Stats"),
+    import("./Services"),
+    import("./TechExpertise"),
+    import("./WorkingPrinciples"),
+    import("./Availability"),
+    import("./Contact"),
+    import("./Showcase"),
+    import("./Clients"),
+  ]);
+}
+
+function waitForEvent(name: string, timeoutMs: number) {
+  return new Promise<void>((resolve) => {
+    let settled = false;
+    const done = () => {
+      if (settled) return;
+      settled = true;
+      window.clearTimeout(timeout);
+      window.removeEventListener(name, onReady);
+      resolve();
+    };
+    const onReady = () => done();
+    const timeout = window.setTimeout(done, timeoutMs);
+    window.addEventListener(name, onReady);
+  });
+}
+
 export default function Intro() {
   const t = useTranslations("hero");
   const pathname = usePathname();
@@ -32,18 +63,20 @@ export default function Intro() {
       const root = rootRef.current;
       if (!root) return;
 
-      // Perde bu yüklemede oynamıyorsa sessizce kaldır.
       if (document.documentElement.dataset.intro !== "play") {
         setVisible(false);
         window.dispatchEvent(new Event("metek:intro-done"));
         return;
       }
 
-      // Ana sayfa değilse three/R3F chunk'ını çekme
-      const warmHero = pathname === "/";
-      if (warmHero) {
-        void import("./HeroScene");
-      }
+      const isHome = pathname === "/";
+      // Chunk ısıtmayı timeline başında başlat — sayaç bitene kadar paralel
+      const bootPromise = isHome
+        ? warmHomeChunks()
+        : Promise.allSettled([
+            import("./Showcase"),
+            document.fonts?.ready ?? Promise.resolve(),
+          ]);
 
       try {
         sessionStorage.setItem("metek-intro", "1");
@@ -55,8 +88,6 @@ export default function Intro() {
       html.classList.add("intro-lock");
       window.__lenis?.stop();
 
-      // Scroll'u overflow:hidden yerine event ile kilitle — scrollbar kalır,
-      // layout genişliği değişmez, perde kalkınca zıplama olmaz.
       const preventScroll = (e: Event) => e.preventDefault();
       const SCROLL_KEYS = new Set([
         "ArrowUp",
@@ -71,7 +102,8 @@ export default function Intro() {
       const preventKeys = (e: KeyboardEvent) => {
         const el = e.target as HTMLElement | null;
         const tag = el?.tagName;
-        if (tag === "INPUT" || tag === "TEXTAREA" || el?.isContentEditable) return;
+        if (tag === "INPUT" || tag === "TEXTAREA" || el?.isContentEditable)
+          return;
         if (SCROLL_KEYS.has(e.key)) e.preventDefault();
       };
       window.addEventListener("wheel", preventScroll, { passive: false });
@@ -96,30 +128,31 @@ export default function Intro() {
         window.dispatchEvent(new Event("metek:intro-done"));
       };
 
-      /** Sayaç bitince 3D hazır olana kadar bekle — perde boş gradient'e açılmasın */
-      const waitForHeroReady = () =>
+      /** Sayaç sonrası: font + chunk + (home) WebGL hazır olana kadar bekle */
+      const waitUntilBooted = () =>
         new Promise<void>((resolve) => {
-          if (!warmHero || window.__metekHeroReady) {
-            resolve();
-            return;
-          }
-          let settled = false;
-          const done = () => {
-            if (settled) return;
-            settled = true;
-            window.clearTimeout(timeout);
-            window.removeEventListener("metek:hero-ready", onReady);
-            resolve();
-          };
-          const onReady = () => done();
-          // En fazla ~1.4s ekstra; ağ yavaşsa yine de perde kalksın
-          const timeout = window.setTimeout(done, 1400);
-          window.addEventListener("metek:hero-ready", onReady);
+          const fonts = document.fonts?.ready ?? Promise.resolve();
+          const heroGate =
+            isHome && !window.__metekHeroReady
+              ? waitForEvent("metek:hero-ready", 2200)
+              : Promise.resolve();
+
+          void Promise.all([bootPromise, fonts, heroGate]).then(() => {
+            // Bir frame boya — gradient flash’ı kes
+            requestAnimationFrame(() => resolve());
+          });
+
+          // Sert tavan — ağ çok yavaşsa yine de aç
+          window.setTimeout(() => resolve(), 2800);
         });
 
-      gsap.set([labelLRef.current, labelRRef.current], { opacity: 0, y: 10 });
-      gsap.set(markRef.current, { opacity: 0, y: 18 });
-      gsap.set(dotRef.current, { opacity: 0, scale: 0, transformOrigin: "50% 60%" });
+      gsap.set([labelLRef.current, labelRRef.current], { opacity: 0, y: 12 });
+      gsap.set(markRef.current, { opacity: 0, y: 22 });
+      gsap.set(dotRef.current, {
+        opacity: 0,
+        scale: 0,
+        transformOrigin: "50% 60%",
+      });
       gsap.set(hairRef.current, { scaleX: 0, transformOrigin: "left center" });
 
       const tl = gsap.timeline({
@@ -129,25 +162,25 @@ export default function Intro() {
 
       tl.to(
         [labelLRef.current, labelRRef.current],
-        { opacity: 1, y: 0, duration: 0.55, stagger: 0.08 },
-        0.15
+        { opacity: 1, y: 0, duration: 0.65, stagger: 0.1 },
+        0.2
       )
-        .to(markRef.current, { opacity: 1, y: 0, duration: 0.75 }, 0.28)
+        .to(markRef.current, { opacity: 1, y: 0, duration: 0.9 }, 0.35)
         .to(
           dotRef.current,
-          { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2.4)" },
-          0.82
+          { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(2.4)" },
+          1.05
         )
         .to(
           hairRef.current,
-          { scaleX: 1, duration: 1.45, ease: "power1.inOut" },
-          0.25
+          { scaleX: 1, duration: 2.55, ease: "power1.inOut" },
+          0.35
         )
         .to(
           proxy,
           {
             v: 100,
-            duration: 1.45,
+            duration: 2.55,
             ease: "power1.inOut",
             onUpdate: () => {
               if (counter) {
@@ -158,45 +191,43 @@ export default function Intro() {
               }
             },
           },
-          0.25
+          0.35
         )
-        // Sayaç ortasında WebGL'i ısıt — yalnızca ana sayfa
+        // Sayaç ortasında WebGL + mid-fold ısınması
         .add(() => {
-          if (warmHero) {
+          if (isHome) {
             window.dispatchEvent(new Event("metek:hero-warm"));
           }
-        }, 1.05)
-        // kısa duruş + hero WebGL senkronu
-        .to({}, { duration: 0.18 })
+        }, 1.35)
+        // 100’de kısa nefes + boot senkronu
+        .to({}, { duration: 0.35 })
         .add(() => {
-          if (!warmHero) return;
           tl.pause();
-          void waitForHeroReady().then(() => {
+          void waitUntilBooted().then(() => {
             if (tl.paused()) tl.resume();
           });
         })
-        // çıkış — perde yukarı kalkar, lime çizgi ekranı süpürür
+        // Çıkış — marka büyür, perde yukarı
         .to(
           [markRef.current, labelLRef.current, labelRRef.current],
-          { opacity: 0, duration: 0.4, ease: "power2.in" }
+          { opacity: 0, duration: 0.5, ease: "power2.in" }
         )
         .to(
           markRef.current,
-          { scale: 1.08, duration: 0.75, ease: "power3.inOut" },
+          { scale: 1.1, duration: 0.95, ease: "power3.inOut" },
           "<"
         )
         .to(
           root,
-          { yPercent: -100, duration: 0.9, ease: "power4.inOut" },
-          "<0.08"
+          { yPercent: -100, duration: 1.05, ease: "power4.inOut" },
+          "<0.1"
         );
 
-      // "M" kendi ekseninde tam bir tur döner (nokta sabit çıpa kalır).
-      // Mutlak konum — çıkış zamanlamasını bozmadan araya girer.
+      // "M" dönüşü — sayaçla örtüşen daha yavaş tur
       tl.to(
         mRef.current,
-        { rotationY: 360, duration: 1.3, ease: "power2.inOut" },
-        0.55
+        { rotationY: 360, duration: 1.85, ease: "power2.inOut" },
+        0.7
       );
 
       return () => {

@@ -12,7 +12,7 @@ export default function LanguageSwitcher() {
 
   return (
     <div
-      className="flex items-center gap-0.5 rounded-full bg-foreground/[0.06] p-1"
+      className="flex shrink-0 items-center gap-0.5 rounded-full bg-foreground/[0.06] p-1"
       role="group"
       aria-label={t("language")}
     >
@@ -20,7 +20,22 @@ export default function LanguageSwitcher() {
         <button
           key={l}
           type="button"
-          onClick={() => router.replace(pathname, { locale: l })}
+          onClick={() => {
+            if (l === locale) return;
+            window.dispatchEvent(new Event("metek:route-pending"));
+            const hash = window.location.hash;
+            const search = window.location.search;
+            router.replace(pathname, { locale: l });
+            // next-intl hash kabul etmiyor — locale sonrası koru
+            if (hash || search) {
+              requestAnimationFrame(() => {
+                const next = `${window.location.pathname}${search}${hash}`;
+                if (`${window.location.pathname}${window.location.search}${window.location.hash}` !== next) {
+                  window.history.replaceState(null, "", next);
+                }
+              });
+            }
+          }}
           aria-pressed={l === locale}
           className={`inline-flex min-h-8 w-9 items-center justify-center rounded-full text-[11px] font-bold uppercase transition-colors ${
             l === locale

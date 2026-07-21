@@ -1,7 +1,9 @@
 "use client";
 
 import { useRef, createElement, Fragment, type ElementType } from "react";
+import { useLocale } from "next-intl";
 import { gsap, useGSAP, attachScrollReveal } from "@/lib/gsap";
+import { forDisplay } from "@/lib/typography";
 
 type WordRevealProps = {
   /** Düz metin — kelimelere bölünüp maskeli yükseltilir */
@@ -15,7 +17,7 @@ type WordRevealProps = {
 
 /**
  * Ajans imzası başlık reveal'ı — her kelime maskeden yukarı doğar.
- * Türkçe alt-uzantılar (ç, ş, ğ, y) için padding ile kırpılma önlenir.
+ * TR alt-uzantı + DE umlaut için padding; dil değişince viewport’taysa hemen görünür.
  */
 export default function WordReveal({
   text,
@@ -25,7 +27,9 @@ export default function WordReveal({
   delay = 0,
 }: WordRevealProps) {
   const ref = useRef<HTMLElement>(null);
-  const words = text.split(" ");
+  const locale = useLocale();
+  const safe = forDisplay(text);
+  const words = safe.split(" ").filter(Boolean);
 
   useGSAP(
     () => {
@@ -71,11 +75,23 @@ export default function WordReveal({
           },
           onLeaveBack: unsettle,
         });
+
+        // Dil değişimi / remount: zaten görünür alandaysa opacity:0’da kalma
+        const syncInView = () => {
+          const rect = el.getBoundingClientRect();
+          const vh = window.innerHeight;
+          if (rect.top < vh * 0.92 && rect.bottom > 0) {
+            tween.progress(1);
+            settle();
+          }
+        };
+        syncInView();
+        requestAnimationFrame(syncInView);
       });
 
       return () => mm.revert();
     },
-    { scope: ref, dependencies: [text] }
+    { scope: ref, dependencies: [safe, locale, stagger, delay] }
   );
 
   return createElement(
@@ -84,7 +100,7 @@ export default function WordReveal({
     // eslint-disable-next-line react-hooks/refs
     { ref, className },
     words.map((word, i) => (
-      <Fragment key={`${word}-${i}`}>
+      <Fragment key={`${locale}-${i}-${word}`}>
         <span className="word-reveal-word">
           <span className="word-reveal-inner">{word}</span>
         </span>

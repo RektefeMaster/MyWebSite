@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Reveal from "./Reveal";
 import Magnetic from "./Magnetic";
 import dynamic from "next/dynamic";
@@ -37,6 +37,7 @@ const NAME_ICON = (
 
 export default function Contact() {
   const t = useTranslations("contact");
+  const locale = useLocale();
   const interests = t.raw("interests") as string[];
   const [selected, setSelected] = useState<string[]>([]);
   const [name, setName] = useState("");
@@ -163,11 +164,11 @@ export default function Contact() {
                 {t("interestedIn")}
               </legend>
               <div className="flex flex-wrap gap-2">
-                {interests.map((label) => {
+                {interests.map((label, i) => {
                   const checked = selected.includes(label);
                   return (
                     <button
-                      key={label}
+                      key={`${locale}-${i}`}
                       type="button"
                       onClick={() => toggleInterest(label)}
                       className={`inline-flex min-h-9 items-center rounded-full px-3.5 py-2 text-xs font-semibold transition-colors ${

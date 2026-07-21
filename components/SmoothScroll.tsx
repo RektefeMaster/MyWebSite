@@ -195,10 +195,21 @@ export default function SmoothScroll({
     };
   }, []);
 
-  // Rota değişince: hash yoksa en üste; hash varsa hedefe (örn. /work → /#contact)
+  // Rota değişince: hash yoksa en üste; hash varsa hedefe (örn. /work → /#contact).
+  // ScrollTrigger.refresh’i layout oturana kadar ertele — erken ölçüm reveal’ları
+  // opacity:0’da kilitleyebiliyordu (geri navigasyon “kaybolma”).
   useEffect(() => {
     const hash = window.location.hash;
     const lenis = lenisRef.current;
+    const timers: number[] = [];
+
+    const refreshSoon = () => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          ScrollTrigger.refresh();
+        });
+      });
+    };
 
     const scrollTop = () => {
       if (lenis) {
@@ -206,13 +217,16 @@ export default function SmoothScroll({
       } else {
         window.scrollTo({ top: 0, left: 0, behavior: "auto" });
       }
-      ScrollTrigger.refresh();
     };
 
     if (!hash || hash === "#") {
       scrollTop();
-      const timers = [80, 280].map((ms) =>
-        window.setTimeout(scrollTop, ms)
+      timers.push(window.setTimeout(scrollTop, 80));
+      timers.push(
+        window.setTimeout(() => {
+          scrollTop();
+          refreshSoon();
+        }, 320)
       );
       return () => timers.forEach((id) => window.clearTimeout(id));
     }
@@ -244,9 +258,14 @@ export default function SmoothScroll({
     };
 
     run();
-    const timers = [80, 320, 800].map((ms) =>
-      window.setTimeout(run, ms)
+    timers.push(window.setTimeout(run, 80));
+    timers.push(
+      window.setTimeout(() => {
+        run();
+        refreshSoon();
+      }, 360)
     );
+    timers.push(window.setTimeout(run, 800));
     return () => timers.forEach((id) => window.clearTimeout(id));
   }, [pathname]);
 
