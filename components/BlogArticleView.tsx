@@ -8,6 +8,7 @@ import { formatBlogDate } from "@/lib/blog-format";
 import Reveal from "./Reveal";
 import Magnetic from "./Magnetic";
 import WhatsAppButton from "./WhatsAppButton";
+import { forDisplay } from "@/lib/typography";
 
 type BlogArticleViewProps = {
   locale: string;
@@ -56,17 +57,17 @@ export default async function BlogArticleView({
           <Reveal delay={40}>
             <div className="mb-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground/35">
               <span>{t("author")}</span>
-              <span className="text-foreground/20">·</span>
+              <span className="text-foreground/20">|</span>
               <span>{t(`categories.${meta.category}`)}</span>
-              <span className="text-foreground/20">·</span>
+              <span className="text-foreground/20">|</span>
               <time dateTime={meta.date}>
                 {formatBlogDate(meta.date, locale)}
               </time>
-              <span className="text-foreground/20">·</span>
+              <span className="text-foreground/20">|</span>
               <span>{t("readMinutes", { count: meta.readMinutes })}</span>
             </div>
             <h1 className="font-display text-3xl leading-[1.1] tracking-tight md:text-5xl lg:text-[3.25rem]">
-              {article.title}
+              {forDisplay(article.title)}
             </h1>
             <p className="font-subtitle mt-6 text-base leading-relaxed text-foreground/55 md:text-lg">
               {article.lead}

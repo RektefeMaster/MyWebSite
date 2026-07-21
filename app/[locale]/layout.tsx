@@ -10,6 +10,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFab from "@/components/WhatsAppFab";
 import Intro from "@/components/Intro";
+import RouteTransition from "@/components/RouteTransition";
 import { SITE } from "@/lib/site";
 import { ThemeProvider, themeInitScript } from "@/lib/theme";
 import "../globals.css";
@@ -188,6 +189,7 @@ export default async function LocaleLayout({
               <Footer />
               <WhatsAppFab />
               <Intro />
+              <RouteTransition />
             </SmoothScroll>
           </ThemeProvider>
         </NextIntlClientProvider>

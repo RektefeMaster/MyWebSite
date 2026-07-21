@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { gsap, useGSAP } from "@/lib/gsap";
 
 type Principle = {
@@ -12,6 +12,7 @@ type Principle = {
 /** Büyük satırlar — hover’da açılan prensipler (kart değil) */
 export default function Principles() {
   const t = useTranslations("principles");
+  const locale = useLocale();
   const items = t.raw("items") as Principle[];
   const [open, setOpen] = useState(0);
   const listRef = useRef<HTMLDivElement>(null);
@@ -20,22 +21,33 @@ export default function Principles() {
     () => {
       const list = listRef.current;
       if (!list) return;
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const rows = list.querySelectorAll<HTMLElement>("[data-principle]");
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        gsap.set(rows, { clearProps: "all", opacity: 1, y: 0 });
+        return;
+      }
 
-      const rows = list.querySelectorAll("[data-principle]");
-      gsap.from(rows, {
-        opacity: 0,
-        y: 36,
-        stagger: 0.08,
-        duration: 0.7,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: list,
-          start: "top 85%",
-        },
-      });
+      gsap.fromTo(
+        rows,
+        { opacity: 0, y: 36 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.08,
+          duration: 0.7,
+          ease: "power3.out",
+          overwrite: true,
+          scrollTrigger: {
+            trigger: list,
+            start: "top 85%",
+          },
+          onComplete: () => {
+            gsap.set(rows, { clearProps: "opacity,transform" });
+          },
+        }
+      );
     },
-    { scope: listRef, dependencies: [items.length] }
+    { scope: listRef, dependencies: [locale, items.length] }
   );
 
   return (

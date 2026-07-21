@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { gsap, useGSAP, ScrollTrigger, attachScrollReveal } from "@/lib/gsap";
 
 type Step = {
@@ -11,6 +11,7 @@ type Step = {
 
 export default function Process() {
   const t = useTranslations("process");
+  const locale = useLocale();
   const steps = t.raw("steps") as Step[];
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -116,7 +117,7 @@ export default function Process() {
         }
       });
     },
-    { scope: sectionRef, dependencies: [steps.length] }
+    { scope: sectionRef, dependencies: [locale, steps.length] }
   );
 
   return (

@@ -8,6 +8,7 @@ import Magnetic from "./Magnetic";
 import WhatsAppButton from "./WhatsAppButton";
 import DeviceMockup from "./DeviceMockup";
 import PageCta from "./PageCta";
+import { forDisplay } from "@/lib/typography";
 
 type ProjectDetailViewProps = {
   project: Project;
@@ -60,7 +61,7 @@ export default async function ProjectDetailView({
               {detail.tag}
             </p>
             <h1 className="font-display max-w-4xl text-3xl leading-[1.08] tracking-tight md:text-5xl lg:text-6xl">
-              {name}
+              {forDisplay(name)}
             </h1>
             <p className="font-subtitle mt-5 max-w-2xl text-base leading-relaxed text-foreground/55 md:text-lg">
               {detail.summary}

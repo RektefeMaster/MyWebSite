@@ -115,7 +115,7 @@ export default function Navbar() {
               M<span className="text-lime">.</span>
             </Link>
 
-            <div className="hidden min-w-0 flex-1 items-center justify-center gap-1 lg:flex">
+            <div className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 xl:gap-1 lg:flex">
               {links.map((link) => {
                 const isActive = Boolean(
                   link.match &&
@@ -124,11 +124,15 @@ export default function Navbar() {
                       : pathname === link.match ||
                         pathname.startsWith(`${link.match}/`))
                 );
+                const key =
+                  typeof link.href === "string"
+                    ? link.href
+                    : `${link.href.pathname}#${link.href.hash}`;
                 return (
                   <Link
-                    key={link.label}
+                    key={key}
                     href={link.href}
-                    className={`relative rounded-full px-3 py-1.5 text-[13px] font-semibold tracking-tight transition-colors ${
+                    className={`relative whitespace-nowrap rounded-full px-2.5 py-1.5 text-[12px] font-semibold tracking-tight transition-colors xl:px-3 xl:text-[13px] ${
                       isActive
                         ? "bg-ink text-ink-fg"
                         : "text-ink/65 hover:bg-ink/5 hover:text-ink"
@@ -152,12 +156,8 @@ export default function Navbar() {
                   aria-label={t("cta")}
                   className="btn-sheen btn-stable btn-stable--nav inline-flex min-h-10 rounded-full bg-lime px-3.5 py-2 text-xs font-bold text-on-lime md:min-h-0 md:px-5 md:py-2.5 md:text-sm"
                 >
-                  <span className="sm:hidden" aria-hidden="true">
-                    {t("ctaShort")}
-                  </span>
-                  <span className="hidden sm:inline" aria-hidden="true">
-                    {t("cta")}
-                  </span>
+                  <span className="sm:hidden">{t("ctaShort")}</span>
+                  <span className="hidden sm:inline">{t("cta")}</span>
                 </Link>
               </Magnetic>
             </div>
@@ -172,11 +172,15 @@ export default function Navbar() {
                     : pathname === link.match ||
                       pathname.startsWith(`${link.match}/`))
               );
+              const key =
+                typeof link.href === "string"
+                  ? `m-${link.href}`
+                  : `m-${link.href.pathname}#${link.href.hash}`;
               return (
                 <Link
-                  key={`m-${link.label}`}
+                  key={key}
                   href={link.href}
-                  className={`inline-flex min-h-9 shrink-0 items-center rounded-full px-3.5 py-1.5 text-[11px] font-semibold transition-colors touch-manipulation ${
+                  className={`inline-flex min-h-9 shrink-0 items-center whitespace-nowrap rounded-full px-3.5 py-1.5 text-[11px] font-semibold transition-colors touch-manipulation ${
                     isActive
                       ? "bg-ink text-ink-fg"
                       : "bg-foreground/[0.04] text-ink/60 active:bg-foreground/[0.08]"

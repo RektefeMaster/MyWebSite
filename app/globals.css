@@ -538,7 +538,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 .btn-stable--nav {
-  min-width: 9.75rem;
+  min-width: 8.5rem;
 }
 
 .btn-stable--nav-short {
@@ -748,13 +748,19 @@ html::-webkit-scrollbar-thumb {
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
-  padding-block: 0.12em;
-  margin-block: -0.12em;
+  /* TR alt-uzantı + DE umlaut (ÄÖÜ) üst/alt kırpılmasın */
+  padding-block: 0.22em;
+  padding-inline: 0.03em;
+  margin-block: -0.22em;
+  margin-inline: -0.03em;
 }
 
 .word-reveal-inner {
   display: inline-block;
-  will-change: transform;
+}
+
+.word-reveal-inner.is-settled {
+  will-change: auto;
 }
 
 /* ─────────────────────────────────────────────
@@ -772,8 +778,8 @@ html::-webkit-scrollbar-thumb {
   color: #f4f2ec;
   overflow: hidden;
   will-change: transform;
-  /* Failsafe: JS çalışmazsa perde kilitli kalmasın */
-  animation: intro-failsafe 0.6s ease 4.6s forwards;
+  /* Failsafe: JS çalışmazsa / timeline kilitlenirse perde kalsın kalmasın (~7.2s) */
+  animation: intro-failsafe 0.6s ease 7.2s forwards;
 }
 
 /* İlk boyamadan itibaren gizle — dönen ziyaretçi / reduced-motion */
@@ -822,5 +828,135 @@ html.intro-lock {
 
   .intro-root {
     display: none;
+  }
+
+  .metek-loader__m,
+  .metek-loader__dot,
+  .metek-loader__hair {
+    animation: none;
+  }
+
+  .metek-loader__m,
+  .metek-loader__dot {
+    opacity: 1;
+  }
+
+  .metek-loader__hair {
+    transform: scaleX(1);
+  }
+
+  .route-loader {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   Rota / Suspense yükleme — Intro’nun küçük kardeşi
+   ───────────────────────────────────────────── */
+.route-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9600;
+  display: grid;
+  place-items: center;
+  background: #0d0c0b;
+  color: #f4f2ec;
+  pointer-events: none;
+  animation: route-loader-in 0.28s ease both;
+}
+
+.route-loader--inline {
+  position: relative;
+  inset: auto;
+  z-index: auto;
+  min-height: min(70vh, 640px);
+  width: 100%;
+  animation: none;
+  pointer-events: auto;
+}
+
+@keyframes route-loader-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.metek-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  user-select: none;
+}
+
+.metek-loader__mark {
+  display: flex;
+  align-items: baseline;
+  font-family: var(--font-goks), var(--font-grotesk), system-ui, sans-serif;
+  font-size: clamp(3.5rem, 12vw, 6.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: #f4f2ec;
+}
+
+.metek-loader__m {
+  display: inline-block;
+  animation: metek-loader-m 1.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.metek-loader__dot {
+  display: inline-block;
+  color: #d0ec5a;
+  animation: metek-loader-dot 1.4s ease-in-out infinite;
+}
+
+.metek-loader__hair {
+  width: min(7.5rem, 28vw);
+  height: 2px;
+  transform-origin: left center;
+  background: #d0ec5a;
+  animation: metek-loader-hair 1.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes metek-loader-m {
+  0%,
+  100% {
+    opacity: 0.92;
+    transform: translateY(0);
+  }
+  45% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes metek-loader-dot {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes metek-loader-hair {
+  0% {
+    transform: scaleX(0.12);
+    opacity: 0.55;
+  }
+  55% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(0.12);
+    opacity: 0.55;
   }
 }
