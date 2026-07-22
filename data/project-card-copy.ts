@@ -31,6 +31,10 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
       "tag": "Moda e-ticaret",
       "summary": "Séraphine Atelier için sis, film ve tipografiyle kurulan editoryal moda evi. Kadın / erkek lookbook, butik zemin hikâyesi ve özel fitting randevusuna giden net bir dönüşüm yolu — sepet değil, private hour."
     },
+    "havva-baklava": {
+      "tag": "Butik web",
+      "summary": "Köln-Ehrenfeld’deki HAVVA Baklava için karanlık, sinematik bir vitrin. Gaziantep’ten Köln’e uzanan ustalık hikâyesi, günlük fiyat listesi ve WhatsApp üzerinden net sipariş yolu tek akışta."
+    },
     "whatsapp-bot": {
       "title": "WhatsApp Sohbet Asistanı",
       "tag": "Otomasyon",
@@ -75,6 +79,10 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
     "seraphine-atelier": {
       "tag": "Fashion e-commerce",
       "summary": "An editorial fashion house for Séraphine Atelier — mist, film, and typography. Women/men lookbook, maison floor story, and a clear path to a private fitting — not a cart, a private hour."
+    },
+    "havva-baklava": {
+      "tag": "Boutique web",
+      "summary": "A dark, cinematic showcase for HAVVA Baklava in Köln-Ehrenfeld — craft story from Gaziantep to Cologne, daily price list, and a clear WhatsApp order path in one flow."
     },
     "whatsapp-bot": {
       "title": "WhatsApp Conversation Assistant",
@@ -121,6 +129,10 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
       "tag": "Moda e-commerce",
       "summary": "Casa de moda editorial para Séraphine Atelier — niebla, film y tipografía. Lookbook mujer/hombre, suelo maison y ruta clara a un fitting privado — no un carrito, una private hour."
     },
+    "havva-baklava": {
+      "tag": "Web boutique",
+      "summary": "Escaparate cinematográfico oscuro para HAVVA Baklava en Köln-Ehrenfeld — historia artesanal de Gaziantep a Colonia, carta de precios y ruta clara de pedido por WhatsApp en un solo flujo."
+    },
     "whatsapp-bot": {
       "title": "Asistente de Conversación WhatsApp",
       "tag": "Automatización",
@@ -165,6 +177,10 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
     "seraphine-atelier": {
       "tag": "Mode & Atelier",
       "summary": "Editoriales Modehaus für Séraphine Atelier — Nebel, Film und Typografie. Damen- und Herren-Lookbook, Ateliergeschichte und klarer Weg zum privaten Fitting — kein Warenkorb, sondern eine private Stunde."
+    },
+    "havva-baklava": {
+      "tag": "Boutique-Web",
+      "summary": "Dunkle, filmische Vitrine für HAVVA Baklava in Köln-Ehrenfeld — Handwerk von Gaziantep nach Köln, Tagespreisliste und klarer Bestellweg über WhatsApp in einem Ablauf."
     },
     "whatsapp-bot": {
       "title": "WhatsApp-Gesprächsassistent",

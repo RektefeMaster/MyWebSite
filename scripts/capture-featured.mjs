@@ -31,6 +31,11 @@ const sites = [
     urls: ["https://casa-aurelia-jet.vercel.app/"],
     waitFor: /casa|aurelia/i,
   },
+  {
+    id: "havva-baklava",
+    urls: ["https://baklavac-site.vercel.app/"],
+    waitFor: /havva|baklava|köln|koln/i,
+  },
 ];
 
 function slugify(text) {

@@ -366,6 +366,69 @@ const seraphine = pack([
   },
 ]);
 
+const havva = pack([
+  {
+    src: "/projects/havva-baklava/featured/01-hero.jpg",
+    span: HERO,
+    alt: {
+      tr: "HAVVA — baklava tepsi hero",
+      en: "HAVVA — baklava tray hero",
+      es: "HAVVA — hero bandeja de baklava",
+      de: "HAVVA — Baklava-Tablett Hero",
+    },
+  },
+  {
+    src: "/projects/havva-baklava/featured/02-gaziantep.jpg",
+    span: HALF,
+    alt: {
+      tr: "HAVVA — Gaziantep’ten Köln’e",
+      en: "HAVVA — from Gaziantep to Cologne",
+      es: "HAVVA — de Gaziantep a Colonia",
+      de: "HAVVA — von Gaziantep nach Köln",
+    },
+  },
+  {
+    src: "/projects/havva-baklava/featured/03-pistazie.jpg",
+    span: HALF,
+    alt: {
+      tr: "HAVVA — her katmanda fıstık",
+      en: "HAVVA — pistachio in every layer",
+      es: "HAVVA — pistacho en cada capa",
+      de: "HAVVA — Pistazie in jeder Schicht",
+    },
+  },
+  {
+    src: "/projects/havva-baklava/featured/04-werkstatt.jpg",
+    span: MID,
+    alt: {
+      tr: "HAVVA — Ehrenfeld atölye hikâyesi",
+      en: "HAVVA — Ehrenfeld workshop story",
+      es: "HAVVA — historia del taller en Ehrenfeld",
+      de: "HAVVA — Werkstattgeschichte Ehrenfeld",
+    },
+  },
+  {
+    src: "/projects/havva-baklava/featured/05-preise.jpg",
+    span: MID,
+    alt: {
+      tr: "HAVVA — günlük fiyat listesi",
+      en: "HAVVA — daily price list",
+      es: "HAVVA — carta de precios diaria",
+      de: "HAVVA — Tagespreisliste",
+    },
+  },
+  {
+    src: "/projects/havva-baklava/featured/06-whatsapp.jpg",
+    span: WIDE,
+    alt: {
+      tr: "HAVVA — WhatsApp sipariş CTA",
+      en: "HAVVA — WhatsApp order CTA",
+      es: "HAVVA — CTA pedido por WhatsApp",
+      de: "HAVVA — WhatsApp-Bestell-CTA",
+    },
+  },
+]);
+
 function devicePack(
   id: string,
   name: Record<Locale, string>
@@ -429,6 +492,7 @@ export const projectGalleries: Record<string, GalleryPack> = {
   "altitude-residence": altitude,
   "casa-aurelia": casa,
   "seraphine-atelier": seraphine,
+  "havva-baklava": havva,
   "whatsapp-bot": whatsapp,
   "instagram-bot": instagram,
   crm,

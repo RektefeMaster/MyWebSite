@@ -197,6 +197,35 @@ export const projectDetails: ProjectDetailsByLocale = {
         "Sinematik hero, lookbook ritmi ve randevu odaklı dönüşümü markanıza uyarlayalım. Kısa bir özetten sonra net kapsam ve yol haritası çıkarırım.",
       ctaButton: "Projenizi konuşalım",
     },
+    "havva-baklava": {
+      tag: "Butik web",
+      summary:
+        "Köln-Ehrenfeld’deki HAVVA Baklava için karanlık, sinematik bir vitrin. Gaziantep’ten Köln’e uzanan ustalık hikâyesi, günlük fiyat listesi ve WhatsApp üzerinden net sipariş yolu tek akışta.",
+      whatTitle: "Ne yaptık?",
+      what: [
+        "Karanlık zemin, serif tipografi ve tepsi fotoğrafıyla ilk ekranda baklava-atölyesi algısını kurduk.",
+        "Gaziantep → Köln hikâyesini kaydırmalı hero panellerinde (Pistazie / Schicht für Schicht) anlattık.",
+        "Werkstatt bölümünde el işçiliği, Antepfıstığı ve katkı maddesiz şerbet vaadini net maddelerle sunduk.",
+        "Tageskarte / Preise ile fıstıklı, cevizli, şöbiyet, künefe ve tepsi fiyatlarını editoryal listede verdik.",
+        "“Jetzt über WhatsApp bestellen” ile sipariş CTA’sını sayfanın dönüşüm noktası yaptık.",
+        "Adres, saatler ve doğrudan WhatsApp numarası — Köln-Ehrenfeld atölyesine net yol.",
+      ],
+      howTitle: "Nasıl çalışıyor?",
+      how: [
+        "Ziyaretçi hero’da atölyeyi ve ürünü hisseder; scroll ile marka hikâyesine iner.",
+        "Werkstatt ve fiyat listesinde çeşit / kg fiyatı görür.",
+        "WhatsApp butonu sipariş sohbetini açar — çeşit, miktar, saat.",
+        "Atölye genelde 15 dakikada yanıtlar; hazır olunca abhol / teslim netleşir.",
+      ],
+      stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
+      result:
+        "Canlı site: zanaatkâr baklava algısı, okunaklı fiyat listesi ve WhatsApp sipariş yolu. Masaüstünden mobile kadar aynı karanlık lüks ton.",
+      ctaLabel: "Sıradaki proje",
+      ctaTitle: "Pastane / atölye markanız için böyle bir sipariş vitrini mi istiyorsunuz?",
+      ctaBlurb:
+        "Ürün hikâyenizi, fiyat listenizi ve WhatsApp sipariş yolunu tek sinematik akışta kuralım. Kısa bir özetten sonra kapsam çıkarırım.",
+      ctaButton: "Bu çözümü konuşalım",
+    },
     "whatsapp-bot": {
       title: "WhatsApp Sohbet Asistanı",
       tag: "Otomasyon",
@@ -484,6 +513,35 @@ export const projectDetails: ProjectDetailsByLocale = {
       ctaBlurb:
         "Hero, lookbook rhythm, appointments that convert. Send a brief and I’ll sketch the scope.",
       ctaButton: "Start a project",
+    },
+    "havva-baklava": {
+      tag: "Boutique web",
+      summary:
+        "A dark, cinematic showcase for HAVVA Baklava in Köln-Ehrenfeld — craft story from Gaziantep to Cologne, daily price list, and a clear WhatsApp order path in one flow.",
+      whatTitle: "What we built",
+      what: [
+        "Dark ground, serif type, and tray photography that set the baklava-workshop feel on first paint.",
+        "Gaziantep → Cologne told across scrollable hero panels (pistachio / layer by layer).",
+        "Werkstatt block with clear claims: handwork, Antepfıstığı, syrup without additives.",
+        "Tageskarte / Preise listing fıstıklı, cevizli, şöbiyet, künefe, and tray prices editorially.",
+        "“Order via WhatsApp now” as the page’s conversion hinge.",
+        "Address, hours, and direct WhatsApp number — a clear path to the Ehrenfeld workshop.",
+      ],
+      howTitle: "How it works",
+      how: [
+        "Visitors feel the workshop and product in the hero, then scroll into the brand story.",
+        "Werkstatt and price list show varieties and per-kg pricing.",
+        "WhatsApp CTA opens the order chat — variety, quantity, pickup time.",
+        "Workshop typically replies within ~15 minutes; pickup / delivery is confirmed when ready.",
+      ],
+      stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
+      result:
+        "Live site: artisan baklava feel, readable price list, WhatsApp order path. Dark luxury tone holds from desktop to mobile.",
+      ctaLabel: "Up next",
+      ctaTitle: "Need an order showcase like this for a bakery or workshop?",
+      ctaBlurb:
+        "Product story, price list, WhatsApp ordering in one cinematic flow. Send a brief — I’ll outline the scope.",
+      ctaButton: "Ask about this",
     },
     "whatsapp-bot": {
       title: "WhatsApp Conversation Assistant",
@@ -779,6 +837,35 @@ projectDetails.es = {
       "Adaptamos hero cinematográfico, ritmo de lookbook y conversión por cita a su marca. Envíe un brief corto — devolveré alcance y hoja de ruta claros.",
     ctaButton: "Hablemos de su proyecto",
   },
+  "havva-baklava": {
+    tag: "Web boutique",
+    summary:
+      "Escaparate cinematográfico oscuro para HAVVA Baklava en Köln-Ehrenfeld — historia artesanal de Gaziantep a Colonia, carta de precios y ruta clara de pedido por WhatsApp en un solo flujo.",
+    whatTitle: "Qué hicimos",
+    what: [
+      "Fondo oscuro, tipografía serif y foto de bandeja que fijan el taller de baklava al primer pantallazo.",
+      "Gaziantep → Colonia contada en paneles hero con scroll (pistacho / capa a capa).",
+      "Bloque Werkstatt con promesas claras: a mano, Antepfıstığı, jarabe sin aditivos.",
+      "Tageskarte / Preise con fıstıklı, cevizli, şöbiyet, künefe y precios de bandeja en lista editorial.",
+      "“Pedir ahora por WhatsApp” como eje de conversión de la página.",
+      "Dirección, horario y número de WhatsApp — camino claro al taller en Ehrenfeld.",
+    ],
+    howTitle: "Cómo funciona",
+    how: [
+      "El visitante siente el taller y el producto en el hero; con el scroll entra en la historia de marca.",
+      "Werkstatt y la carta muestran variedades y precio por kg.",
+      "El CTA de WhatsApp abre el chat de pedido — variedad, cantidad, hora de recogida.",
+      "El taller suele responder en ~15 minutos; se confirma recogida / entrega cuando está listo.",
+    ],
+    stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
+    result:
+      "Sitio en vivo: sensación artesanal, carta legible y ruta de pedido por WhatsApp. El tono de lujo oscuro se sostiene de escritorio a móvil.",
+    ctaLabel: "Siguiente proyecto",
+    ctaTitle: "¿Quiere un escaparate de pedidos así para su pastelería o taller?",
+    ctaBlurb:
+      "Historia del producto, carta de precios y pedido por WhatsApp en un solo flujo cinematográfico. Envíe un brief corto — le paso el alcance.",
+    ctaButton: "Hablemos de su proyecto",
+  },
   "whatsapp-bot": {
     title: "Asistente de Conversación WhatsApp",
     tag: "Automatización",
@@ -1067,6 +1154,35 @@ projectDetails.de = {
     ctaTitle: "Möchten Sie ein Modehaus wie dieses?",
     ctaBlurb:
       "Wir passen filmischen Einstieg, Lookbook-Rhythmus und terminbasierte Conversion an Ihre Marke an. Kurzes Briefing — klarer Umfang und Fahrplan zurück.",
+    ctaButton: "Projekt besprechen",
+  },
+  "havva-baklava": {
+    tag: "Boutique-Web",
+    summary:
+      "Dunkle, filmische Vitrine für HAVVA Baklava in Köln-Ehrenfeld — Handwerk von Gaziantep nach Köln, Tagespreisliste und klarer Bestellweg über WhatsApp in einem Ablauf.",
+    whatTitle: "Was wir gemacht haben",
+    what: [
+      "Dunkler Grund, Serifen-Typografie und Tablett-Fotografie, die im ersten Bildschirm die Baklava-Werkstatt spürbar machen.",
+      "Gaziantep → Köln in scrollbaren Hero-Panels erzählt (Pistazie / Schicht für Schicht).",
+      "Werkstatt-Block mit klaren Versprechen: Handarbeit, Antepfıstığı, Şerbet ohne Zusätze.",
+      "Tageskarte / Preise mit Fıstıklı, Cevizli, Şöbiyet, Künefe und Tepsi-Preisen in editorialer Liste.",
+      "„Jetzt über WhatsApp bestellen“ als Conversion-Anker der Seite.",
+      "Adresse, Öffnungszeiten und direkte WhatsApp-Nummer — klarer Weg zur Werkstatt in Ehrenfeld.",
+    ],
+    howTitle: "So funktioniert es",
+    how: [
+      "Besucher spüren Werkstatt und Produkt im Hero und scrollen in die Markengeschichte.",
+      "Werkstatt und Preisliste zeigen Sorten und Kilopreise.",
+      "WhatsApp-CTA öffnet den Bestellchat — Sorte, Menge, Abholzeit.",
+      "Die Werkstatt antwortet meist innerhalb von ~15 Minuten; Abholung / Lieferung wird bestätigt, sobald es bereit ist.",
+    ],
+    stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
+    result:
+      "Live-Website: handwerkliche Baklava-Wirkung, lesbare Preisliste, WhatsApp-Bestellweg. Dunkler Premium-Ton von Desktop bis Mobile konsistent.",
+    ctaLabel: "Nächstes Projekt",
+    ctaTitle: "Möchten Sie eine solche Bestellvitrine für Ihre Konditorei oder Werkstatt?",
+    ctaBlurb:
+      "Produktgeschichte, Preisliste und WhatsApp-Bestellung in einem filmischen Ablauf. Kurzes Briefing — ich liefere den Umfang.",
     ctaButton: "Projekt besprechen",
   },
   "whatsapp-bot": {

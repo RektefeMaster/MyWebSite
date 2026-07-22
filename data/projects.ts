@@ -57,6 +57,14 @@ export const projects: Project[] = [
     mobileImage: "/projects/seraphine-atelier/mobile.jpg",
   },
   {
+    id: "havva-baklava",
+    name: "HAVVA Baklava",
+    colors: ["#0a0a0a", "#c4a56a"],
+    url: "https://baklavac-site.vercel.app/",
+    desktopImage: "/projects/havva-baklava/desktop.jpg",
+    mobileImage: "/projects/havva-baklava/mobile.jpg",
+  },
+  {
     id: "whatsapp-bot",
     name: "WhatsApp Chatbot",
     colors: ["#0b141a", "#25D366"],

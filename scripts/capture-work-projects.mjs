@@ -22,6 +22,11 @@ const sites = [
     url: "https://seraphine-atelier.vercel.app/",
     waitFor: "text=SÉRAPHINE",
   },
+  {
+    id: "havva-baklava",
+    url: "https://baklavac-site.vercel.app/",
+    waitFor: "text=HAVVA",
+  },
 ];
 
 async function hideChrome(page) {
