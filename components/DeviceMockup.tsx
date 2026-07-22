@@ -120,7 +120,7 @@ function ScreenContent({
         alt={alt}
         fill
         sizes={sizes}
-        quality={priority ? 92 : 85}
+        quality={priority ? 96 : 90}
         priority={priority}
         loading={priority ? "eager" : "lazy"}
         decoding="async"
@@ -298,8 +298,8 @@ export default function DeviceMockup({
           priority={priority || !isHero}
           sizes={
             isHero
-              ? "(max-width: 768px) 30vw, 210px"
-              : "(max-width: 640px) 34vw, 160px"
+              ? "(max-width: 768px) 42vw, 280px"
+              : "(max-width: 640px) 40vw, 220px"
           }
         />
       </DeviceFrame>

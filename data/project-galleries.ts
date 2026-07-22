@@ -116,7 +116,7 @@ const aydnnacar = pack([
 
 const wuffbutik = pack([
   {
-    src: "/projects/wuffbutik/featured/01-hero-v2.jpg",
+    src: "/projects/wuffbutik/featured/01-hero-v3.jpg",
     span: HERO,
     alt: {
       tr: "Wuuf Butik — ana sayfa",

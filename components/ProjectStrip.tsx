@@ -61,8 +61,8 @@ function StripCard({
                 src={project.mobileImage}
                 alt=""
                 fill
-                sizes="80px"
-                quality={88}
+                sizes="140px"
+                quality={92}
                 loading="eager"
                 decoding="async"
                 draggable={false}

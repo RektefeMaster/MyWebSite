@@ -109,8 +109,17 @@ async function capture(page, site, outPath, width, height) {
 
   await hideChrome(page);
 
-  // Wuuf: preloader + hero video — poster/video frame oturmadan screenshot alma
+  // Wuuf: scrollbar gutter + preloader + hero video otursun
   if (site.id === "wuffbutik") {
+    await page
+      .addStyleTag({
+        content: `
+        html, body { overflow: hidden !important; background: #111 !important; }
+        ::-webkit-scrollbar { display: none !important; width: 0 !important; }
+        .preloader { display: none !important; opacity: 0 !important; pointer-events: none !important; }
+      `,
+      })
+      .catch(() => {});
     await page
       .waitForFunction(() => {
         const p = document.querySelector(".preloader");
@@ -121,6 +130,11 @@ async function capture(page, site, outPath, width, height) {
       .catch(() => {});
     await page.evaluate(() => document.querySelector(".preloader")?.remove());
     await page.evaluate(async () => {
+      const slides = [...document.querySelectorAll(".hero__slide")];
+      slides.forEach((s, i) => {
+        s.classList.toggle("is-active", i === 0);
+        s.style.setProperty("opacity", i === 0 ? "1" : "0", "important");
+      });
       const video =
         document.querySelector(".hero__slide.is-active video") ||
         document.querySelector(".hero video");
@@ -138,11 +152,14 @@ async function capture(page, site, outPath, width, height) {
           setTimeout(r, 5000);
         });
         try {
-          video.currentTime = 0.35;
+          video.currentTime = Math.min(1.15, Math.max(0.45, (video.duration || 3) * 0.22));
         } catch {
           /* seek may fail before metadata */
         }
-        await new Promise((r) => setTimeout(r, 400));
+        await new Promise((r) => {
+          video.addEventListener("seeked", () => r(), { once: true });
+          setTimeout(r, 800);
+        });
         video.pause();
       }
       document.querySelectorAll(".hero-soft, .hero__content").forEach((el) => {
