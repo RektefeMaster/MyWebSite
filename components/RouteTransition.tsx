@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLocale } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
 import MetekLoader from "@/components/MetekLoader";
 import { ScrollTrigger } from "@/lib/gsap";
@@ -57,6 +58,10 @@ function isInternalPageNav(anchor: HTMLAnchorElement): boolean {
  */
 export default function RouteTransition() {
   const pathname = usePathname();
+  // next-intl usePathname() locale'siz döner (/ ↔ /tr için hep "/"). Dil değişince
+  // pathname sabit kaldığından perde settle edilemez ve MAX_VISIBLE_MS'e kadar asılı
+  // kalırdı — locale'i de izleyerek dil geçişinde de perdeyi düzgün kapatıyoruz.
+  const locale = useLocale();
   const [active, setActive] = useState(false);
   const pending = useRef(false);
   const shownAt = useRef(0);
@@ -153,7 +158,7 @@ export default function RouteTransition() {
       return;
     }
     settle();
-  }, [pathname]);
+  }, [pathname, locale]);
 
   if (!active) return null;
 

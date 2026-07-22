@@ -101,7 +101,8 @@ function HeroText({ lines, dark }: { lines: string[]; dark: boolean }) {
           color={dark ? "#ebe8e1" : "#0a0a0a"}
           letterSpacing={-0.05}
           textAlign="center"
-          overflowWrap="break-word"
+          whiteSpace="nowrap"
+          overflowWrap="normal"
         >
           {line}
         </Text>
@@ -229,6 +230,19 @@ function GlassM({
       />
     </mesh>
   );
+}
+
+/**
+ * Metin (dil) veya tema değişince en az bir frame çizdir. Hero remount YOK;
+ * reduced-motion'da frameloop "demand" olduğundan içerik güncellemesi aksi halde
+ * bir sonraki etkileşime kadar bekleyip bayat kalabilir.
+ */
+function InvalidateOn({ dep }: { dep: string }) {
+  const invalidate = useThree((s) => s.invalidate);
+  useEffect(() => {
+    invalidate();
+  }, [dep, invalidate]);
+  return null;
 }
 
 function ThemeExposure({ dark }: { dark: boolean }) {
@@ -455,6 +469,7 @@ export default function HeroScene({
           onFallback={() => setDpr(1)}
         />
         <ThemeExposure dark={dark} />
+        <InvalidateOn dep={`${dark ? "d" : "l"}|${lines.join("\u0001")}`} />
         <GradientBackground lite={lite} dark={dark} />
         <HeroText lines={lines} dark={dark} />
         <GlassM reduced={reduced} lite={lite} dark={dark} />

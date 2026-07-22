@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "METEK Digital - Diseño web, software e IA",
+    "title": "METEK Digital — Diseño web, software e IA",
     "description": "METEK Digital desarrolla sitios web a medida, paneles, automatizaciones y productos digitales con IA."
   },
   "nav": {
@@ -19,19 +19,19 @@
   },
   "pages": {
     "manifesto": {
-      "metaTitle": "Manifiesto - METEK",
+      "metaTitle": "Manifiesto — METEK",
       "metaDescription": "Diseño original, software sólido y resultados medibles. El enfoque de METEK Digital.",
       "heroLabel": "Manifiesto",
       "heroTitle": "Experiencias digitales originales.",
       "heroBlurb": "Diseño, software y tecnología en un solo sistema.",
       "ctaLabel": "Empecemos",
-      "ctaTitle": "Hablemos de tu proyecto - un mensaje basta.",
+      "ctaTitle": "Hablemos de tu proyecto — un mensaje basta.",
       "ctaBlurb": "Comparte el objetivo y lo que necesitas. En 24 horas tendrás una hoja de ruta clara.",
       "ctaButton": "Agendar"
     },
     "approach": {
-      "metaTitle": "Enfoque - METEK",
-      "metaDescription": "Claridad, sistema, tempo y resultado - cómo pienso el trabajo de marca.",
+      "metaTitle": "Enfoque — METEK",
+      "metaDescription": "Claridad, sistema, tempo y resultado — cómo pienso el trabajo de marca.",
       "heroLabel": "Enfoque",
       "heroTitle": "Método.",
       "heroBlurb": "Del descubrimiento al lanzamiento. Cada paso atado a un resultado medible.",
@@ -41,29 +41,29 @@
       "ctaButton": "Ver proceso"
     },
     "work": {
-      "metaTitle": "Trabajo - METEK",
+      "metaTitle": "Trabajo — METEK",
       "metaDescription": "Proyectos web y de software seleccionados. Diseño a medida, ingeniería sólida.",
       "heroLabel": "Trabajo",
       "heroTitle": "Proyectos seleccionados.",
       "heroBlurb": "Una selección de productos digitales que diseñamos y desarrollamos.",
       "ctaLabel": "Empecemos",
       "ctaTitle": "Que el próximo proyecto sea el tuyo.",
-      "ctaBlurb": "Comparte sector y objetivo - te propongo solución y ruta.",
+      "ctaBlurb": "Comparte sector y objetivo — te propongo solución y ruta.",
       "ctaButton": "Enviar brief"
     },
     "services": {
-      "metaTitle": "Servicios - METEK",
+      "metaTitle": "Servicios — METEK",
       "metaDescription": "Sitios web, software a medida, automatización e IA.",
       "heroLabel": "Servicios",
       "heroTitle": "Servicios.",
       "heroBlurb": "Web, software y automatización. Definimos el alcance juntos.",
       "ctaLabel": "Empecemos",
-      "ctaTitle": "Hablemos de tu proyecto - un mensaje basta.",
-      "ctaBlurb": "Cuéntame qué necesitas. En 24 horas tendrás una hoja de ruta clara - sin estimaciones vagas.",
+      "ctaTitle": "Hablemos de tu proyecto — un mensaje basta.",
+      "ctaBlurb": "Cuéntame qué necesitas. En 24 horas tendrás una hoja de ruta clara — sin estimaciones vagas.",
       "ctaButton": "Agendar"
     },
     "blog": {
-      "metaTitle": "Blog - METEK",
+      "metaTitle": "Blog — METEK",
       "metaDescription": "Notas sobre web, software y productos digitales.",
       "heroLabel": "Blog",
       "heroTitle": "Notas y perspectivas.",
@@ -150,7 +150,7 @@
   },
   "featured": {
     "label": "Proyecto destacado",
-    "client": "Wholesale Cabinet Creations - 2026",
+    "client": "Wholesale Cabinet Creations — 2026",
     "title": "Una experiencia digital de nueva generación para una marca de mobiliario tradicional",
     "blurb": "Para Wholesale Cabinet Creations diseñamos una experiencia web de alto rendimiento que refleja la calidad de fabricación en digital. El proyecto se desarrolló de extremo a extremo con animación a medida, rendimiento móvil, SEO y sistema de contenidos.",
     "outcomes": [
@@ -173,7 +173,7 @@
       },
       {
         "title": "Sistema",
-        "body": "No visuales sueltos - reglas de identidad y componentes que escalan."
+        "body": "No visuales sueltos — reglas de identidad y componentes que escalan."
       },
       {
         "title": "Tempo",
@@ -195,13 +195,13 @@
   "hero": {
     "line1": "De la idea",
     "line2": "al producto",
-    "line3": "que funciona.",
-    "blurb": "Productos digitales para tu marca - web, software e IA. Alcance claro, resultados medibles.",
+    "line3": "en marcha.",
+    "blurb": "Productos digitales para tu marca — web, software e IA. Alcance claro, resultados medibles.",
     "ctaWork": "Trabajos",
     "ctaContact": "Empezar proyecto",
     "scroll": "Explorar",
     "metaStudio": "Estudio de producto digital",
-    "metaLocation": "Malatya | Todo el mundo"
+    "metaLocation": "Malatya · Todo el mundo"
   },
   "projects": {
     "label": "Trabajos seleccionados",
@@ -294,7 +294,7 @@
       },
       {
         "title": "Asistente de chat de WhatsApp",
-        "description": "Habla con el cliente de WhatsApp como tú - sin mirar el teléfono. Conoce precios y servicios. Sabe las horas libres y dirige las citas allí. Sabe las ocupadas y agenda en consecuencia. Si cancelan, sabe que esa hora quedó libre. Avisa 1 hora antes - menos cancelaciones de última hora.",
+        "description": "Habla con el cliente de WhatsApp como tú — sin mirar el teléfono. Conoce precios y servicios. Sabe las horas libres y dirige las citas allí. Sabe las ocupadas y agenda en consecuencia. Si cancelan, sabe que esa hora quedó libre. Avisa 1 hora antes — menos cancelaciones de última hora.",
         "includes": [
           "Chat como tú (con tus precios y servicios)",
           "Sabe horas libres y dirige las citas allí",
@@ -320,7 +320,7 @@
       },
       {
         "title": "Panel CRM de ventas",
-        "description": "Trabaja con los asistentes de WhatsApp e Instagram. Citas, cancelaciones y clientes en un panel. Qué horas libres, quién viene cuándo - lo miras ahí.",
+        "description": "Trabaja con los asistentes de WhatsApp e Instagram. Citas, cancelaciones y clientes en un panel. Qué horas libres, quién viene cuándo — lo miras ahí.",
         "includes": [
           "Panel de ventas",
           "Enlace al asistente de WhatsApp",
@@ -333,7 +333,7 @@
       },
       {
         "title": "Sistema de diseño CSS",
-        "description": "Tokens de marca para color, tipografía, componentes y spacing - UI kit y docs coherentes.",
+        "description": "Tokens de marca para color, tipografía, componentes y spacing — UI kit y docs coherentes.",
         "includes": [
           "Set de design tokens",
           "Escala tipográfica",
@@ -412,7 +412,7 @@
   },
   "stats": {
     "label": "Por qué importa",
-    "title": "Una presencia de marca fuerte genera confianza - y la confianza impulsa resultados.",
+    "title": "Una presencia de marca fuerte genera confianza — y la confianza impulsa resultados.",
     "items": [
       {
         "value": "81%",
@@ -484,12 +484,12 @@
     "blog": "Blog",
     "projects": "Proyectos",
     "contact": "Contacto",
-    "address": "admin@metehtec.com | metehtec@gmail.com",
+    "address": "admin@metehtec.com · metehtec@gmail.com",
     "follow": "Seguir",
     "rights": "Todos los derechos reservados.",
     "brand": "METEK Digital",
     "founder": "Fundador: Nurullah Aydın",
-    "location": "Malatya, Türkiye | Remoto a nivel mundial",
+    "location": "Malatya, Türkiye · Remoto a nivel mundial",
     "instagram": "Instagram"
   },
   "tech": {
@@ -550,7 +550,7 @@
   },
   "whatsapp": {
     "label": "WhatsApp",
-    "prefill": "Hola METEK Digital - me gustaría agendar una llamada sobre un proyecto.",
+    "prefill": "Hola METEK Digital — me gustaría agendar una llamada sobre un proyecto.",
     "cta": "WhatsApp",
     "fab": "Chat"
   },

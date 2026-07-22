@@ -144,46 +144,46 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
   "de": {
     "wcc": {
       "tag": "Corporate Web",
-      "summary": "Hochperformante, SEO-fähige, optisch erstklassige Corporate-Site für einen US-Möbelhersteller. Eine Oberfläche, die Fertigungsqualität spiegelt, vereint Marke, Angebot und Kontakt in einem Flow."
+      "summary": "Hochperformante, SEO-fähige Unternehmenswebsite für einen US-Möbelhersteller. Eine Oberfläche, die Fertigungsqualität spiegelt und Marke, Angebot sowie Kontakt in einem Ablauf vereint."
     },
     "aydnnacar": {
       "tag": "Marke & Katalog",
-      "summary": "Minimaler editorialer Digital-Showroom für Nacar Mobilya — Kollektionen und Produkte mit Premium-Gefühl, jedes Modell klar mit Maß, Name und Kontakt verknüpft."
+      "summary": "Minimaler editorialer Digital-Showroom für Nacar Mobilya — Kollektionen und Produkte mit Premium-Wirkung, jedes Modell klar mit Maß, Name und Kontakt verknüpft."
     },
     "wuffbutik": {
-      "tag": "Boutique Web",
-      "summary": "Ruhige, elegante Boutique-Site für Wuuf — Store-Präsenz und WhatsApp-geführter Remote-Verkauf in einem Flow."
+      "tag": "Boutique-Web",
+      "summary": "Ruhige, elegante Boutique-Website für Wuuf — Ladenpräsenz und WhatsApp-geführter Fernverkauf in einem Ablauf."
     },
     "altitude-residence": {
-      "tag": "Luxury Real Estate",
-      "summary": "Dunkle, editoriale Luxury-Residence-Erfahrung für Altitude — Skyline, Tempo und Viewing-Conversion im Zusammenspiel."
+      "tag": "Luxusimmobilien",
+      "summary": "Dunkle, editoriale Markenerfahrung für Altitude Residences — Skyline, Rhythmus und klare Einladung zur Besichtigung im Zusammenspiel."
     },
     "casa-aurelia": {
-      "tag": "Boutique Hotel",
-      "summary": "Atmosphärisches Booking-Showcase für das Fünf-Sterne-Boutique-Hotel Casa Aurelia in Rom — mit Englisch-/Italienisch-Support und klarem Buchungsweg."
+      "tag": "Boutique-Hotel",
+      "summary": "Atmosphärische Buchungspräsentation für das Fünf-Sterne-Boutique-Hotel Casa Aurelia in Rom — mit Englisch-/Italienisch-Unterstützung und klarem Weg zur Reservierung."
     },
     "seraphine-atelier": {
-      "tag": "Fashion E-Commerce",
-      "summary": "Editoriales Modehaus für Séraphine Atelier — Nebel, Film und Typografie. Damen-/Herren-Lookbook, Maison-Floor-Story und klarer Weg zum privaten Fitting — kein Warenkorb, eine Private Hour."
+      "tag": "Mode & Atelier",
+      "summary": "Editoriales Modehaus für Séraphine Atelier — Nebel, Film und Typografie. Damen- und Herren-Lookbook, Ateliergeschichte und klarer Weg zum privaten Fitting — kein Warenkorb, sondern eine private Stunde."
     },
     "whatsapp-bot": {
-      "title": "WhatsApp Gesprächsassistent",
-      "tag": "Automation",
-      "summary": "Spricht WhatsApp-Kunden für Sie, ohne dass Sie am Handy hängen. Kennt Preise und Leistungen. Kennt freie Stunden ohne Termin und schickt Leute dorthin. Kennt belegte Stunden und bucht danach. Kennt, wenn eine Absage eine Stunde wieder freimacht. Erinnert 1 Stunde vorher den Termininhaber — weniger Last-Minute-Absagen. Fragt und antwortet, spricht wie Sie."
+      "title": "WhatsApp-Gesprächsassistent",
+      "tag": "Automatisierung",
+      "summary": "Spricht mit WhatsApp-Kunden für Sie, ohne dass Sie am Handy hängen. Kennt Preise und Leistungen, freie und belegte Termine und bucht entsprechend. Nach einer Absage ist die Stunde wieder frei. Erinnerung eine Stunde vorher — weniger kurzfristige Absagen. Fragt, antwortet und spricht wie Sie."
     },
     "instagram-bot": {
       "title": "Instagram-DM-Assistent",
-      "tag": "Automation",
-      "summary": "Dasselbe in Instagram-DMs. Spricht wie Sie ohne Handy-Check. Kennt Preise und Leistungen. Kennt freie Stunden und schickt Termine dorthin. Kennt belegte und bucht danach. Kennt, wenn Absage eine Stunde freimacht. Erinnerung 1 Stunde vorher. Fragt und antwortet."
+      "tag": "Automatisierung",
+      "summary": "Dasselbe in Instagram-Direktnachrichten. Spricht wie Sie, ohne ständiges Handy-Checken. Kennt Preise und Leistungen, freie und belegte Termine sowie wieder freigewordene Stunden. Erinnerung eine Stunde vorher."
     },
     "crm": {
-      "title": "CRM Verkaufspanel",
+      "title": "CRM-Verkaufspanel",
       "tag": "Software",
-      "summary": "Panel, das mit WhatsApp- und Instagram-Assistenten arbeitet. Kunden, mit denen die Bots sprachen, Termine, Absagen und Notizen an einem Ort. Wer wann kommt, welche Stunden frei oder belegt, WhatsApp oder Instagram — alles dort."
+      "summary": "Panel für die WhatsApp- und Instagram-Assistenten. Kunden, Termine, Absagen und Notizen an einem Ort. Wer wann kommt, welche Stunden frei oder belegt sind, WhatsApp oder Instagram — alles auf einen Blick."
     },
     "css-system": {
-      "tag": "Design System",
-      "summary": "CSS-Design-System mit Brand-Tokens für Farbe, Type, Komponenten und Spacing — eine Quelle, die Web und Admin-UI dieselbe visuelle Sprache sprechen lässt."
+      "tag": "Designsystem",
+      "summary": "CSS-Designsystem mit Marken-Tokens für Farbe, Typografie, Komponenten und Abstände — eine Quelle, die Web und Admin dieselbe visuelle Sprache sprechen lässt."
     }
   }
 };

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "METEK Digital - Web Tasarım, Yazılım ve Yapay Zekâ",
+    "title": "METEK Digital — Web Tasarım, Yazılım ve Yapay Zekâ",
     "description": "METEK Digital; markalar için özgün web siteleri, yönetim panelleri, otomasyonlar ve yapay zekâ destekli dijital ürünler geliştirir."
   },
   "nav": {
@@ -19,18 +19,18 @@
   },
   "pages": {
     "manifesto": {
-      "metaTitle": "Manifesto - METEK",
+      "metaTitle": "Manifesto — METEK",
       "metaDescription": "Özgün tasarım, sağlam yazılım ve ölçülebilir sonuç. METEK Digital yaklaşımı.",
       "heroLabel": "Manifesto",
       "heroTitle": "Özgün dijital deneyimler.",
       "heroBlurb": "Tasarım, yazılım ve teknolojiyi tek sistemde birleştiriyoruz.",
       "ctaLabel": "Birlikte başlayalım",
-      "ctaTitle": "Projenizi konuşalım - bir mesaj yeter.",
+      "ctaTitle": "Projenizi konuşalım — bir mesaj yeter.",
       "ctaBlurb": "Hedefinizi ve ihtiyacınızı yazın; 24 saat içinde net bir yol haritası çıkarayım.",
       "ctaButton": "Görüşme al"
     },
     "approach": {
-      "metaTitle": "Yaklaşım - METEK",
+      "metaTitle": "Yaklaşım — METEK",
       "metaDescription": "Keşiften yayına: strateji, tasarım, geliştirme ve test.",
       "heroLabel": "Yaklaşım",
       "heroTitle": "Yöntem.",
@@ -41,29 +41,29 @@
       "ctaButton": "Süreci gör"
     },
     "work": {
-      "metaTitle": "İşler - METEK",
+      "metaTitle": "İşler — METEK",
       "metaDescription": "Seçili web ve yazılım projeleri. Özgün tasarım, sağlam geliştirme.",
       "heroLabel": "İşler",
       "heroTitle": "Seçili projeler.",
       "heroBlurb": "Markalar için tasarladığımız ve geliştirdiğimiz dijital ürünlerden bir seçki.",
       "ctaLabel": "Birlikte başlayalım",
       "ctaTitle": "Sıradaki proje sizinki olsun.",
-      "ctaBlurb": "Sektörünüzü ve hedefinizi yazın - uygun çözümü ve yol haritasını çıkarayım.",
+      "ctaBlurb": "Sektörünüzü ve hedefinizi yazın — uygun çözümü ve yol haritasını çıkarayım.",
       "ctaButton": "Brief gönder"
     },
     "services": {
-      "metaTitle": "Hizmetler - METEK",
+      "metaTitle": "Hizmetler — METEK",
       "metaDescription": "Web sitesi, özel yazılım, otomasyon ve yapay zekâ çözümleri.",
       "heroLabel": "Hizmetler",
       "heroTitle": "Hizmetler.",
       "heroBlurb": "Web, yazılım ve otomasyon. Kapsamı birlikte netleştiriyoruz.",
       "ctaLabel": "Birlikte başlayalım",
-      "ctaTitle": "Projenizi konuşalım - bir mesaj yeter.",
+      "ctaTitle": "Projenizi konuşalım — bir mesaj yeter.",
       "ctaBlurb": "İhtiyacınızı yazın; 24 saat içinde net bir yol haritası çıkarayım. Tahmin yok, net kapsam var.",
       "ctaButton": "Görüşme al"
     },
     "blog": {
-      "metaTitle": "Blog - METEK",
+      "metaTitle": "Blog — METEK",
       "metaDescription": "Web, yazılım ve dijital ürün üzerine notlar.",
       "heroLabel": "Blog",
       "heroTitle": "Notlar ve bakışlar.",
@@ -150,7 +150,7 @@
   },
   "featured": {
     "label": "Öne çıkan proje",
-    "client": "Wholesale Cabinet Creations - 2026",
+    "client": "Wholesale Cabinet Creations — 2026",
     "title": "Geleneksel Bir Mobilya Markası İçin Yeni Nesil Dijital Deneyim",
     "blurb": "Wholesale Cabinet Creations için markanın üretim kalitesini dijitalde güçlü biçimde yansıtan, yüksek performanslı ve görsel olarak farklılaşan bir web deneyimi tasarlandı. Proje; özel animasyonlar, mobil uyumluluk, SEO altyapısı ve içerik yönetim sistemiyle uçtan uca geliştirildi.",
     "outcomes": [
@@ -173,7 +173,7 @@
       },
       {
         "title": "Sistem",
-        "body": "Tek seferlik görseller değil - ölçeklenen kimlik kuralları ve bileşenler."
+        "body": "Tek seferlik görseller değil — ölçeklenen kimlik kuralları ve bileşenler."
       },
       {
         "title": "Tempo",
@@ -201,7 +201,7 @@
     "ctaContact": "Proje başlat",
     "scroll": "Keşfet",
     "metaStudio": "Dijital ürün stüdyosu",
-    "metaLocation": "Malatya | Dünya geneli"
+    "metaLocation": "Malatya · Dünya geneli"
   },
   "projects": {
     "label": "Seçili işler",
@@ -294,7 +294,7 @@
       },
       {
         "title": "WhatsApp Sohbet Asistanı",
-        "description": "Telefona bakmadan WhatsApp'tan gelen müşteriyle sizin gibi konuşur. Fiyat ve hizmetlerinizi bilir. Boş saatleri bilir, gelen randevuları oraya yönlendirir. Dolu saatleri bilir, ona göre alır. İptal olunca boş kalan saati de bilir. Saatten 1 saat önce randevu sahibine bildirim gider - son dakika iptallerinin önüne geçer.",
+        "description": "Telefona bakmadan WhatsApp'tan gelen müşteriyle sizin gibi konuşur. Fiyat ve hizmetlerinizi bilir. Boş saatleri bilir, gelen randevuları oraya yönlendirir. Dolu saatleri bilir, ona göre alır. İptal olunca boş kalan saati de bilir. Saatten 1 saat önce randevu sahibine bildirim gider — son dakika iptallerinin önüne geçer.",
         "includes": [
           "Sizin gibi sohbet (fiyat ve hizmet bilgisiyle)",
           "Boş saatleri bilme, randevuyu oraya yönlendirme",
@@ -484,18 +484,18 @@
     "blog": "Blog",
     "projects": "Projeler",
     "contact": "İletişim",
-    "address": "admin@metehtec.com | metehtec@gmail.com",
+    "address": "admin@metehtec.com · metehtec@gmail.com",
     "follow": "Takip et",
     "rights": "Tüm hakları saklıdır.",
     "brand": "METEK Digital",
     "founder": "Kurucu: Nurullah Aydın",
-    "location": "Malatya, Türkiye | Dünya çapında uzaktan hizmet",
+    "location": "Malatya, Türkiye · Dünya çapında uzaktan hizmet",
     "instagram": "Instagram"
   },
   "tech": {
     "label": "Teknoloji",
     "title": "Bunlarla iş çıkarırım.",
-    "blurb": "Her araç için deneme sürümü değil - üretimde kullandığım, bakımını yaptığım stack. Projede doğru olanı seçerim; moda olanı değil.",
+    "blurb": "Her araç için deneme sürümü değil — üretimde kullandığım, bakımını yaptığım stack. Projede doğru olanı seçerim; moda olanı değil.",
     "groups": [
       {
         "title": "Web ve ürün arayüzü",
@@ -550,7 +550,7 @@
   },
   "whatsapp": {
     "label": "WhatsApp",
-    "prefill": "Merhaba METEK Digital - bir proje için keşif görüşmesi yapmak istiyorum.",
+    "prefill": "Merhaba METEK Digital — bir proje için keşif görüşmesi yapmak istiyorum.",
     "cta": "WhatsApp",
     "fab": "Yaz"
   },

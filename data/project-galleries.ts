@@ -185,7 +185,7 @@ const altitude = pack([
       tr: "Altitude — sinematik hero",
       en: "Altitude — cinematic hero",
       es: "Altitude — hero cinematográfico",
-      de: "Altitude — cinematic Hero",
+      de: "Altitude — filmischer Einstieg",
     },
   },
   {
@@ -248,7 +248,7 @@ const casa = pack([
       tr: "Casa Aurelia — sinematik hero",
       en: "Casa Aurelia — cinematic hero",
       es: "Casa Aurelia — hero cinematográfico",
-      de: "Casa Aurelia — cinematic Hero",
+      de: "Casa Aurelia — filmischer Einstieg",
     },
   },
   {
@@ -311,7 +311,7 @@ const seraphine = pack([
       tr: "Séraphine Atelier — sisli sinematik hero",
       en: "Séraphine Atelier — misty cinematic hero",
       es: "Séraphine Atelier — hero cinematográfico con niebla",
-      de: "Séraphine Atelier — nebliger cinematic Hero",
+      de: "Séraphine Atelier — nebliger filmischer Einstieg",
     },
   },
   {
@@ -341,7 +341,7 @@ const seraphine = pack([
       tr: "Séraphine — maison butik zemin",
       en: "Séraphine — maison boutique floor",
       es: "Séraphine — suelo boutique maison",
-      de: "Séraphine — Maison Boutique-Floor",
+      de: "Séraphine — Atelierboden",
     },
   },
   {
@@ -351,7 +351,7 @@ const seraphine = pack([
       tr: "Séraphine — erkek runway grid",
       en: "Séraphine — men’s runway grid",
       es: "Séraphine — runway grid hombre",
-      de: "Séraphine — Herren-Runway-Grid",
+      de: "Séraphine — Herren-Runway",
     },
   },
   {
@@ -361,7 +361,7 @@ const seraphine = pack([
       tr: "Séraphine — private hour randevu CTA",
       en: "Séraphine — private hour appointment CTA",
       es: "Séraphine — CTA private hour",
-      de: "Séraphine — Private-Hour-Termin-CTA",
+      de: "Séraphine — private Stunde anfragen",
     },
   },
 ]);
@@ -419,7 +419,7 @@ const cssSystem = devicePack("css-system", {
   tr: "CSS Tasarım Sistemi",
   en: "CSS Design System",
   es: "Sistema de diseño CSS",
-  de: "CSS Design System",
+  de: "CSS-Designsystem",
 });
 
 export const projectGalleries: Record<string, GalleryPack> = {

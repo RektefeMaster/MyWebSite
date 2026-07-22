@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import type Lenis from "lenis";
+import { useLocale } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 
@@ -44,6 +45,8 @@ export default function SmoothScroll({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const locale = useLocale();
+  const localeBoot = useRef(true);
   const lenisRef = useRef<Lenis | null>(null);
   const reducedRef = useRef(false);
 
@@ -268,6 +271,37 @@ export default function SmoothScroll({
     timers.push(window.setTimeout(run, 800));
     return () => timers.forEach((id) => window.clearTimeout(id));
   }, [pathname]);
+
+  // Dil değişimi: next-intl usePathname() locale'siz olduğu için üstteki effect
+  // tetiklenmez. Scroll pozisyonunu KORU (kullanıcı aynı sayfada), yalnızca metin
+  // uzunlukları/layout değiştiğinden ScrollTrigger'ı yeniden ölç — böylece reveal'lar
+  // yeni konuma göre çözülür, opacity:0'da kilitlenip "kaybolmaz".
+  useEffect(() => {
+    if (localeBoot.current) {
+      localeBoot.current = false;
+      return;
+    }
+    // Hızlı ardışık dil değişiminde ScrollTrigger.refresh (pahalı) birikmesin:
+    // önceki bekleyen refresh'leri iptal et, yalnızca son geçişinki çalışsın.
+    let cancelled = false;
+    let raf1 = 0;
+    let raf2 = 0;
+    const timers: number[] = [];
+    const refresh = () => {
+      if (!cancelled) ScrollTrigger.refresh();
+    };
+    raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(refresh);
+    });
+    timers.push(window.setTimeout(refresh, 320));
+    void document.fonts?.ready.then(refresh);
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(raf1);
+      cancelAnimationFrame(raf2);
+      timers.forEach((id) => window.clearTimeout(id));
+    };
+  }, [locale]);
 
   return children;
 }
