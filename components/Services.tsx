@@ -262,7 +262,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
                 <span className="link-underline">{t("seeAll")}</span>
                 <span
                   aria-hidden
-                  className="transition-transform duration-300 group-hover:translate-x-1"
+                  className="transition-transform duration-300 [@media(hover:hover)_and_(pointer:fine)]:group-hover:translate-x-1"
                 >
                   →
                 </span>

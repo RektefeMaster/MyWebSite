@@ -269,7 +269,7 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
                 {t("ctaWork")}
                 <span
                   aria-hidden
-                  className="transition-transform duration-300 group-hover:translate-x-1"
+                  className="transition-transform duration-300 [@media(hover:hover)_and_(pointer:fine)]:group-hover:translate-x-1"
                 >
                   →
                 </span>

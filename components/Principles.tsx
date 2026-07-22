@@ -68,7 +68,9 @@ export default function Principles() {
                 onFocus={() => setOpen(i)}
                 onClick={() => setOpen(i)}
                 className={`group grid w-full grid-cols-[auto_1fr] gap-5 border-b border-foreground/10 py-7 text-left transition-colors md:grid-cols-[5rem_1fr_1.1fr] md:gap-10 md:py-9 ${
-                  isOpen ? "bg-band text-band-fg" : "hover:bg-stone/50"
+                  isOpen
+                    ? "bg-band text-band-fg"
+                    : "[@media(hover:hover)_and_(pointer:fine)]:hover:bg-stone/50"
                 }`}
               >
                 <span
@@ -89,7 +91,7 @@ export default function Principles() {
                   className={`col-span-2 max-w-md text-sm leading-relaxed md:col-span-1 md:justify-self-end md:text-[15px] ${
                     isOpen
                       ? "text-band-fg/65"
-                      : "text-foreground/45 group-hover:text-foreground/60"
+                      : "text-foreground/45 [@media(hover:hover)_and_(pointer:fine)]:group-hover:text-foreground/60"
                   }`}
                 >
                   {item.body}

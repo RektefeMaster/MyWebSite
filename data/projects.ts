@@ -108,7 +108,7 @@ export const projects: Project[] = [
     colors: ["#f3efe6", "#c45c3a"],
     url: "https://vela-skin-atelier.vercel.app/",
     desktopImage: "/projects/vela-skin-atelier/desktop.jpg",
-    mobileImage: "/projects/vela-skin-atelier/mobile.jpg",
+    mobileImage: "/projects/vela-skin-atelier/mobile-v2.jpg",
     desktopScrollImage: "/projects/vela-skin-atelier/desktop-scroll-v2.jpg",
     mobileScrollImage: "/projects/vela-skin-atelier/mobile-scroll-v2.jpg",
   },
