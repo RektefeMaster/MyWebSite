@@ -213,7 +213,8 @@
     "title": "Projekte",
     "blurb": "Websites, Panels und digitale Produkte — individuell gestaltet und solide umgesetzt.",
     "loadMore": "Alle anzeigen",
-    "seeCase": "Alle Projekte"
+    "seeCase": "Alle Projekte",
+    "viewAll": "Alle Projekte ansehen"
   },
   "projectUi": {
     "view": "Ansehen",

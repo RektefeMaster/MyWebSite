@@ -213,7 +213,8 @@
     "title": "Proyectos",
     "blurb": "Una selección de web, paneles y productos digitales. Cada proyecto se construye con diseño a medida e ingeniería sólida.",
     "loadMore": "Ver todos",
-    "seeCase": "Trabajos"
+    "seeCase": "Trabajos",
+    "viewAll": "Ver todos los proyectos"
   },
   "projectUi": {
     "view": "Ver",

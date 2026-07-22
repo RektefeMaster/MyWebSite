@@ -11,7 +11,7 @@ function FoldSpacer({ h = "min(48vh, 520px)" }: { h?: string }) {
  * Below-fold — Client shell'den dynamic() (Next 16 gerçek code-split).
  * BlogTeaser Server Component olduğu için page.tsx'te ara katmanda kalır.
  */
-const Projects = dynamic(() => import("@/components/Projects"), {
+const ProjectStrip = dynamic(() => import("@/components/ProjectStrip"), {
   loading: () => <FoldSpacer />,
 });
 const Stats = dynamic(() => import("@/components/Stats"), {
@@ -27,7 +27,7 @@ const TechExpertise = dynamic(() => import("@/components/TechExpertise"), {
 export default function HomeMidFold() {
   return (
     <>
-      <Projects variant="teaser" />
+      <ProjectStrip />
       <Stats />
       <Services variant="teaser" />
       <TechExpertise />

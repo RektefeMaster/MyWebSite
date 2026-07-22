@@ -502,6 +502,81 @@ html::-webkit-scrollbar-corner {
   }
 }
 
+/* Ana sayfa projeler: tek sıra sonsuz akan şerit */
+@keyframes pstrip-flow {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.pstrip-viewport {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 5%,
+    #000 95%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 5%,
+    #000 95%,
+    transparent
+  );
+}
+
+.pstrip-track {
+  display: flex;
+  width: max-content;
+  animation: pstrip-flow 64s linear infinite;
+}
+
+.pstrip-viewport:hover .pstrip-track,
+.pstrip-viewport:active .pstrip-track,
+.pstrip-viewport:focus-within .pstrip-track {
+  animation-play-state: paused;
+}
+
+.pstrip-card {
+  flex: 0 0 auto;
+  width: clamp(288px, 82vw, 432px);
+  height: 186px;
+  margin-right: 1rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pstrip-track {
+    will-change: transform;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pstrip-viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .pstrip-track {
+    animation: none;
+  }
+
+  .pstrip-card {
+    scroll-snap-align: start;
+  }
+
+  .pstrip-card--clone {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   :root {
     --nav-offset: 9.75rem;
@@ -509,6 +584,16 @@ html::-webkit-scrollbar-corner {
 
   .marquee-track {
     animation-duration: 36s;
+  }
+
+  .pstrip-track {
+    animation-duration: 48s;
+  }
+
+  .pstrip-card {
+    width: clamp(280px, 84vw, 360px);
+    height: clamp(196px, 54vw, 212px);
+    margin-right: 0.75rem;
   }
 
   .nav-glass {

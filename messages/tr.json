@@ -213,7 +213,8 @@
     "title": "Projeler",
     "blurb": "Web, panel ve dijital ürün çalışmalarından bir kesit. Her proje özgün tasarım ve sağlam yazılımla kurulur.",
     "loadMore": "Hepsini gör",
-    "seeCase": "Tüm işler"
+    "seeCase": "Tüm işler",
+    "viewAll": "Tüm projeleri gör"
   },
   "projectUi": {
     "view": "İncele",

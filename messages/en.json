@@ -213,7 +213,8 @@
     "title": "Projects",
     "blurb": "Web, panels, and digital products — each one custom-designed and engineered to hold up.",
     "loadMore": "Show all",
-    "seeCase": "All work"
+    "seeCase": "All work",
+    "viewAll": "See all projects"
   },
   "projectUi": {
     "view": "View",
