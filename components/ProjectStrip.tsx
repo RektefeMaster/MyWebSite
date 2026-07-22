@@ -46,15 +46,31 @@ function StripCard({
               src={project.desktopImage}
               alt={name}
               fill
-              sizes="260px"
-              quality={72}
+              sizes="280px"
+              quality={86}
               loading="eager"
               decoding="async"
               draggable={false}
               className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
             />
           ) : null}
-          <span className="pointer-events-none absolute inset-x-0 top-0 flex items-center gap-1 px-2.5 py-2">
+          {project.mobileImage ? (
+            <span className="pointer-events-none absolute bottom-2 right-2 z-[1] h-[42%] w-[28%] overflow-hidden rounded-[0.55rem] border border-white/35 shadow-[0_8px_18px_rgba(0,0,0,0.35)] ring-1 ring-black/20">
+              <Image
+                src={project.mobileImage}
+                alt=""
+                fill
+                sizes="80px"
+                quality={88}
+                loading="eager"
+                decoding="async"
+                draggable={false}
+                className="object-cover object-top"
+                aria-hidden
+              />
+            </span>
+          ) : null}
+          <span className="pointer-events-none absolute inset-x-0 top-0 z-[1] flex items-center gap-1 px-2.5 py-2">
             <i className="size-1.5 rounded-full bg-white/50" />
             <i className="size-1.5 rounded-full bg-white/35" />
             <i className="size-1.5 rounded-full bg-white/25" />

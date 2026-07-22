@@ -295,11 +295,11 @@ export default function DeviceMockup({
           alt={`${project.name} mobil`}
           colors={project.colors}
           label={project.name.split(" ")[0] ?? project.name}
-          priority={priority}
+          priority={priority || !isHero}
           sizes={
             isHero
               ? "(max-width: 768px) 30vw, 210px"
-              : "(max-width: 640px) 26vw, 116px"
+              : "(max-width: 640px) 34vw, 160px"
           }
         />
       </DeviceFrame>
