@@ -41,6 +41,8 @@ export default function Navbar() {
     },
   ];
 
+  const navEntered = useRef(false);
+
   useGSAP(() => {
     const shell = shellRef.current;
     const header = headerRef.current;
@@ -53,17 +55,23 @@ export default function Navbar() {
       : null;
 
     mm.add("(prefers-reduced-motion: no-preference)", () => {
-      gsap.from(shell, {
-        y: -16,
-        opacity: 0,
-        duration: 0.75,
-        ease: "power2.out",
-        delay: 0.08,
-        onComplete: () => {
-          // Inline opacity/transform tema geçişinde takılı kalmasın
-          gsap.set(shell, { clearProps: "opacity,transform" });
-        },
-      });
+      // Yalnızca ilk mount'ta giriş animasyonu — her rota değişiminde
+      // opacity:0'dan yeniden oynamasın (M. ile ana sayfaya dönüşte “boş header”).
+      if (!navEntered.current) {
+        navEntered.current = true;
+        gsap.from(shell, {
+          y: -16,
+          opacity: 0,
+          duration: 0.75,
+          ease: "power2.out",
+          delay: 0.08,
+          onComplete: () => {
+            gsap.set(shell, { clearProps: "opacity,transform" });
+          },
+        });
+      } else {
+        gsap.set(shell, { clearProps: "opacity,transform" });
+      }
 
       let scrolled = header.classList.contains("is-scrolled");
       ScrollTrigger.create({

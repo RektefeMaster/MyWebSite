@@ -21,22 +21,21 @@ const HeroScene = dynamic(loadHeroScene, {
   ),
 });
 
-export default function Hero() {
+export default function Hero({ parked = false }: { parked?: boolean }) {
   const t = useTranslations("hero");
   const locale = useLocale();
   const sectionRef = useRef<HTMLElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
   const cueRef = useRef<HTMLAnchorElement>(null);
   const [active, setActive] = useState(true);
+  /** Parked iken sahne kapalı; görünürken IntersectionObserver yönetir */
+  const sceneActive = !parked && active;
   /**
    * Intro oynarken WebGL'i ertele (GPU yarışı yok).
-   * Soft-nav remount'ta useState initializer ile senkron true;
-   * SSR hydrate'de useLayoutEffect ile boyamadan önce true.
+   * İlk state her zaman false — SSR/client hydrate eşleşsin (React #418).
+   * Keep-alive sonrası park/çözülmede WebGL zaten mount; useLayoutEffect no-op.
    */
-  const [sceneMounted, setSceneMounted] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return document.documentElement.dataset.intro !== "play";
-  });
+  const [sceneMounted, setSceneMounted] = useState(false);
   const mountedAt = useRef(
     typeof performance !== "undefined" ? performance.now() : 0
   );
@@ -56,6 +55,14 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
+    if (parked) {
+      setActive(false);
+      return;
+    }
+    // Park'tan dönüş: hemen aktif — IO gecikmesi boş frame üretmesin
+    setActive(true);
+    mountedAt.current = performance.now();
+
     const el = sectionRef.current;
     if (!el) return;
     // Soft-nav'da scroll henüz tepeye gelmeden IO "görünmüyor" deyip frameloop'u
@@ -74,7 +81,7 @@ export default function Hero() {
     );
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [parked]);
 
   useEffect(() => {
     if (sceneMounted) return;
@@ -174,7 +181,7 @@ export default function Hero() {
     const cue = cueRef.current;
     if (!cue) return;
 
-    if (!active) {
+    if (!sceneActive) {
       gsap.killTweensOf(cue);
       gsap.set(cue, { y: 0 });
       return;
@@ -196,7 +203,7 @@ export default function Hero() {
       }
     );
     return () => mm.revert();
-  }, [active]);
+  }, [sceneActive]);
 
   return (
     <section
@@ -207,7 +214,7 @@ export default function Hero() {
       {sceneMounted ? (
         <HeroScene
           lines={[t("line1"), t("line2"), t("line3")]}
-          active={active}
+          active={sceneActive}
         />
       ) : (
         <div className="absolute inset-0 bg-gradient-to-b from-[#f5f5f5] via-[#dedede] to-[#c6c6c6] dark:from-[#1c1b18] dark:via-[#141311] dark:to-[#0c0b0a]" />
@@ -216,7 +223,7 @@ export default function Hero() {
       {/* Sinematik atmosfer — canvas üstünde, metnin altında */}
       <div
         aria-hidden
-        data-atmosphere-idle={!active}
+        data-atmosphere-idle={!sceneActive}
         className="pointer-events-none absolute inset-0 z-[1] overflow-hidden"
       >
         <div className="hero-glow" />

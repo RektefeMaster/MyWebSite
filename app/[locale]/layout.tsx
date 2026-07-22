@@ -7,6 +7,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/Navbar";
+import HomeHeroKeepAlive from "@/components/HomeHeroKeepAlive";
 import Footer from "@/components/Footer";
 import WhatsAppFab from "@/components/WhatsAppFab";
 import Intro from "@/components/Intro";
@@ -185,6 +186,8 @@ export default async function LocaleLayout({
           <ThemeProvider>
             <SmoothScroll>
               <Navbar />
+              {/* Hero WebGL keep-alive — ana sayfa dışına çıkınca unmount olmasın */}
+              <HomeHeroKeepAlive />
               <main>{children}</main>
               <Footer />
               <WhatsAppFab />
