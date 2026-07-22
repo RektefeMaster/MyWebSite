@@ -330,6 +330,12 @@ export default function SpecularButton({
     ro.observe(btn);
     resize();
 
+    // İlk kare: intensity=0 ile şeffaf temizle. Uncleared buffer lime
+    // zemini örterek beyaz/bozuk kutu gibi görünüyordu.
+    program.uniforms.uIntensity.value = 0;
+    renderer.render({ scene: mesh });
+    gl.canvas.style.opacity = "0";
+
     let pointerAngle: number | null = null;
     let proximityT = 0;
     const onPointerMove = (e: PointerEvent) => {
@@ -397,14 +403,16 @@ export default function SpecularButton({
       const brightTarget = p.autoAnimate ? 1 : proximityT;
       bright += (brightTarget - bright) * (1 - Math.exp(-dt * 8));
       if (bright < 0.01 && !p.autoAnimate) {
-        if (bright > 0) {
+        if (gl.canvas.style.opacity !== "0") {
           program.uniforms.uIntensity.value = 0;
           renderer.render({ scene: mesh });
-          bright = 0;
+          gl.canvas.style.opacity = "0";
         }
+        bright = 0;
         return;
       }
 
+      gl.canvas.style.opacity = "1";
       lineC.set(p.lineColor);
       baseC.set(p.baseColor);
       program.uniforms.uAngle.value = angle;
