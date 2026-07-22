@@ -342,12 +342,18 @@ export default function HeroScene({
     () => document.documentElement.dataset.intro === "play"
   );
   const [baked, setBaked] = useState(false);
+  /**
+   * Mount sonrası kısa süre frameloop always — soft-nav'da scroll settle /
+   * IntersectionObserver gecikmesi Text+cam'i "never"da boş bırakmasın.
+   */
+  const [bootLive, setBootLive] = useState(true);
 
   const remountCanvas = () => {
     if (!mountedRef.current) return;
     readyRef.current = false;
     setReady(false);
     setBaked(false);
+    setBootLive(true);
     setContextKey((k) => k + 1);
   };
 
@@ -413,12 +419,12 @@ export default function HeroScene({
   }, []);
 
   /**
-   * Hero tekrar görünür olunca: context lost → remount.
-   * ready false ama gl var (takılı kayıp) → kısa bekleyip hâlâ hazır değilse remount.
-   * Aksi halde birkaç frame invalidate — Text + transmission FBO boş kalmasın.
+   * Context lost → remount. Görünür olunca invalidate pump.
+   * NOT: ready=false iken 500ms remount YOK — soft-nav'da çift init (2–3sn boşluk)
+   * yaratıyordu; onCreated zaten ready'yi set eder.
    */
   useEffect(() => {
-    if (!active || !tabVisible) return;
+    if (!tabVisible) return;
 
     const gl = glRef.current;
     const lost = Boolean(gl?.getContext()?.isContextLost?.());
@@ -428,29 +434,30 @@ export default function HeroScene({
       return () => window.clearTimeout(recoverTimer.current);
     }
 
-    if (!ready) {
-      // İlk mount: onCreated'i bekle. Takılı kaldıysa (nav dönüşü) kurtar.
-      if (!gl) return;
-      window.clearTimeout(recoverTimer.current);
-      recoverTimer.current = window.setTimeout(() => {
-        if (mountedRef.current && !readyRef.current) remountCanvas();
-      }, 500);
-      return () => window.clearTimeout(recoverTimer.current);
-    }
+    if (!ready || (!active && !bootLive)) return;
 
     let frames = 0;
     let raf = 0;
     const pump = () => {
       frames += 1;
       invalidateRef.current?.();
-      if (frames < 10) raf = requestAnimationFrame(pump);
+      if (frames < 14) raf = requestAnimationFrame(pump);
     };
     raf = requestAnimationFrame(pump);
     return () => {
       cancelAnimationFrame(raf);
       window.clearTimeout(recoverTimer.current);
     };
-  }, [active, tabVisible, ready, contextKey]);
+  }, [active, tabVisible, ready, contextKey, bootLive]);
+
+  // Boot liveliness süresi — bake + font sonrası IO'ya bırak
+  useEffect(() => {
+    if (!bootLive || !baked) return;
+    const t = window.setTimeout(() => {
+      if (mountedRef.current) setBootLive(false);
+    }, 400);
+    return () => window.clearTimeout(t);
+  }, [bootLive, baked]);
 
   // bfcache (geri/ileri) — WebGL sıkça ölü gelir; remount şart
   useEffect(() => {
@@ -463,11 +470,14 @@ export default function HeroScene({
 
   const visible = active && tabVisible && !reduced;
   // Intro altında: birkaç frame ısıt, sonra demand (GPU boş). Perde kalkınca always.
+  // bootLive: soft-nav settle sırasında IO false verse bile çiz — boş header olmasın.
   const running = visible && !introCovering;
-  const warming = visible && introCovering && !baked;
+  const warming =
+    (visible && introCovering && !baked) ||
+    (bootLive && tabVisible && !reduced && !introCovering);
   const frameloop = reduced
     ? "demand"
-    : running || warming
+    : running || warming || bootLive
       ? "always"
       : "never";
   const clear = dark ? DARK_BG.mid : LIGHT_BG.mid;
@@ -475,10 +485,7 @@ export default function HeroScene({
   const dprFloor = lite ? LITE_DPR_FLOOR : 1;
 
   return (
-    <div
-      className="absolute inset-0 transition-opacity duration-500"
-      style={{ opacity: ready ? 1 : 0 }}
-    >
+    <div className="absolute inset-0">
       {/*
         Tema değişiminde Canvas remount YOK — WebGL context kaybını önler.
         Yalnızca gerçek context loss / recovery’de contextKey artar.

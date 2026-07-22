@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { preload } from "react-dom";
 import { Link } from "@/i18n/navigation";
@@ -29,10 +29,17 @@ export default function Hero() {
   const cueRef = useRef<HTMLAnchorElement>(null);
   const [active, setActive] = useState(true);
   /**
-   * Intro'nun ilk saniyesinde WebGL mount etme — GSAP perde ile GPU yarışmasın.
-   * Intro ortasında `metek:hero-warm` ile ısınır; perde açılmadan hazır olur.
+   * Intro oynarken WebGL'i ertele (GPU yarışı yok).
+   * Soft-nav remount'ta useState initializer ile senkron true;
+   * SSR hydrate'de useLayoutEffect ile boyamadan önce true.
    */
-  const [sceneMounted, setSceneMounted] = useState(false);
+  const [sceneMounted, setSceneMounted] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return document.documentElement.dataset.intro !== "play";
+  });
+  const mountedAt = useRef(
+    typeof performance !== "undefined" ? performance.now() : 0
+  );
 
   // 3D başlık — tam Türkçe glif desteği
   preload("/fonts/SpaceGrotesk-Bold.ttf", {
@@ -41,40 +48,48 @@ export default function Hero() {
     crossOrigin: "anonymous",
   });
 
+  useLayoutEffect(() => {
+    mountedAt.current = performance.now();
+    if (document.documentElement.dataset.intro !== "play") {
+      setSceneMounted(true);
+    }
+  }, []);
+
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
+    // Soft-nav'da scroll henüz tepeye gelmeden IO "görünmüyor" deyip frameloop'u
+    // kesmesin — ilk ~900ms grace ile active=true koru.
     const io = new IntersectionObserver(
-      ([entry]) => setActive(Boolean(entry?.isIntersecting)),
-      { rootMargin: "15% 0px", threshold: 0.01 }
+      ([entry]) => {
+        if (!entry) return;
+        const age = performance.now() - mountedAt.current;
+        if (!entry.isIntersecting && age < 900) {
+          setActive(true);
+          return;
+        }
+        setActive(entry.isIntersecting);
+      },
+      { rootMargin: "25% 0px", threshold: 0.01 }
     );
     io.observe(el);
     return () => io.disconnect();
   }, []);
 
   useEffect(() => {
+    if (sceneMounted) return;
+    if (document.documentElement.dataset.intro !== "play") {
+      setSceneMounted(true);
+      return;
+    }
+
     let cancelled = false;
     let failsafe = 0;
-
     const mount = () => {
       if (!cancelled) setSceneMounted(true);
     };
-
-    // Intro yok / atlandı (rota dönüşü dahil): hemen mount — idle beklersek
-    // kısa bir süre boş gradient kalıyor; soft-nav'da "3D kayboldu" hissi veriyor.
-    if (document.documentElement.dataset.intro !== "play") {
-      // Çift rAF: layout otursun, sonra WebGL (route-loader / scroll settle ile yarışmasın)
-      requestAnimationFrame(() => {
-        requestAnimationFrame(mount);
-      });
-      return () => {
-        cancelled = true;
-      };
-    }
-
     const onWarm = () => mount();
     window.addEventListener("metek:hero-warm", onWarm);
-    // Sayaç + bekleme kaçırılırsa yine de aç
     failsafe = window.setTimeout(mount, 3200);
 
     return () => {
@@ -82,7 +97,7 @@ export default function Hero() {
       window.removeEventListener("metek:hero-warm", onWarm);
       window.clearTimeout(failsafe);
     };
-  }, []);
+  }, [sceneMounted]);
 
   useGSAP(
     () => {
@@ -100,13 +115,18 @@ export default function Hero() {
         });
       });
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        // Dil değişiminde yeniden animasyon yapma — metin yerinde kalsın
+        // Soft-nav / dönen ziyaretçi: giriş animasyonu YOK — anında görünür
+        // (aksi halde 0.55–0.95s boş CTA/blurb + “header boş” hissi).
+        const softReturn =
+          document.documentElement.dataset.intro === "skip";
         const alreadyShown = [...nodes].some(
           (n) => Number.parseFloat(getComputedStyle(n).opacity) > 0.9
         );
-        if (alreadyShown) {
-          gsap.set(nodes, { clearProps: "opacity,transform" });
-          if (cue) gsap.set(cue, { clearProps: "opacity,transform" });
+        if (softReturn || alreadyShown) {
+          gsap.set(nodes, { clearProps: "opacity,transform", opacity: 1, y: 0 });
+          if (cue) {
+            gsap.set(cue, { clearProps: "opacity,transform", opacity: 1, y: 0 });
+          }
           return;
         }
         gsap.fromTo(
