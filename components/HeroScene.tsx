@@ -212,7 +212,8 @@ function GlassM({
       frustumCulled={false}
     >
       <MeshTransmissionMaterial
-        // Lite: 512/7 — mobilde belirgin kalite artışı; 640 üstü bake riski (AGENTS.md)
+        // Lite: 512/7 — 60fps için her-kare maliyeti düşük; keskinlik DPR'dan gelir.
+        // 640 üstü resolution bake riski (AGENTS.md).
         samples={lite ? 7 : 10}
         resolution={lite ? 512 : 640}
         transmission={1}
@@ -259,17 +260,12 @@ function ThemeExposure({ dark }: { dark: boolean }) {
 }
 
 /** Env bake — tema değişince yeniden örnekle (Canvas remount YOK) */
-function ThemeEnvironment({
-  lite,
-  dark,
-}: {
-  lite: boolean;
-  dark: boolean;
-}) {
+function ThemeEnvironment({ dark }: { dark: boolean }) {
   return (
     <Environment
       key={dark ? "env-d" : "env-l"}
-      resolution={lite ? 192 : 256}
+      // frames={1} → tek sefer bake; mobilde de 256 → daha temiz yansıma (sürekli maliyet yok)
+      resolution={256}
       frames={1}
     >
       <Lightformer
@@ -286,15 +282,14 @@ function ThemeEnvironment({
         scale={[4, 8, 1]}
         color={dark ? "#d8d2c4" : "#ffffff"}
       />
-      {!lite && (
-        <Lightformer
-          intensity={dark ? 0.9 : 1.2}
-          position={[3.2, -0.4, 1.6]}
-          rotation-y={-Math.PI / 3}
-          scale={[4, 7, 1]}
-          color={dark ? "#8a8678" : "#d8e2ec"}
-        />
-      )}
+      {/* frames={1} baked → mobilde de dahil; sürekli maliyet yok, yansıma zenginleşir */}
+      <Lightformer
+        intensity={dark ? 0.9 : 1.2}
+        position={[3.2, -0.4, 1.6]}
+        rotation-y={-Math.PI / 3}
+        scale={[4, 7, 1]}
+        color={dark ? "#8a8678" : "#d8e2ec"}
+      />
       <Lightformer
         intensity={dark ? 1.1 : 1.4}
         position={[0, 0.6, -3.2]}
@@ -305,11 +300,18 @@ function ThemeEnvironment({
   );
 }
 
-/** Mobil/lite DPR tavanı — 1.25 çok yumuşak; 1.5 hâlâ 60fps dostu */
-const LITE_DPR_CAP = 1.5;
+/**
+ * Mobil/lite render stratejisi — hedef: kesintisiz 60fps + yüksek keskinlik.
+ * Eski hata: mobilde DPR zemini 1.2'ye çöküyordu (bulanık "doku kaybı") çünkü
+ * PerformanceMonitor 60'a ulaşamamayı DPR'ı dibe çekerek çözmeye çalışıyordu.
+ * Çözüm: 60fps hedefini koru ama DPR aralığını sıkılaştır (1.5–2.0). Güçlü telefon
+ * 2.0'da keskin & 60fps; zorlanan telefon en fazla 1.5'e iner (asla eski bulanıklık
+ * seviyesine değil) → her koşulda akıcı 60'a yakın + net görüntü.
+ */
+const LITE_DPR_CAP = 2;
 const DESKTOP_DPR_CAP = 1.5;
-/** PerformanceMonitor mobil zemin — 1.0'a düşürmek yazıyı/camı çamurlaştırıyordu */
-const LITE_DPR_FLOOR = 1.2;
+/** Mobil DPR tabanı — 1.5: eski 1.2'den belirgin keskin, yine de 60fps dostu */
+const LITE_DPR_FLOOR = 1.5;
 
 export default function HeroScene({
   lines,
@@ -478,6 +480,7 @@ export default function HeroScene({
   const warming =
     (visible && introCovering && !baked) ||
     (bootLive && tabVisible && !reduced && !introCovering);
+  // Mobil + desktop: görünürken 60fps hedefi ("always"); görüş dışı "never".
   const frameloop = reduced
     ? "demand"
     : running || warming || bootLive
@@ -553,6 +556,9 @@ export default function HeroScene({
       >
         <PerformanceMonitor
           flipflops={4}
+          // Hedef 60fps: >55 iken keskinliğe (DPR cap'e) tırman, <50'de düşür.
+          // Mobilde taban 1.5 olduğundan zorlanan cihaz bile eski bulanıklığa inmez.
+          bounds={() => [50, 60]}
           onDecline={() =>
             setDpr((d) => Math.max(dprFloor, +(d - 0.15).toFixed(2)))
           }
@@ -568,7 +574,7 @@ export default function HeroScene({
         <GradientBackground lite={lite} dark={dark} />
         <HeroText lines={lines} dark={dark} />
         <GlassM reduced={reduced} lite={lite} dark={dark} />
-        <ThemeEnvironment lite={lite} dark={dark} />
+        <ThemeEnvironment dark={dark} />
       </Canvas>
     </div>
   );

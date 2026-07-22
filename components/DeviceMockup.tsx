@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import type { CSSProperties, ReactNode } from "react";
 import type { Project } from "@/data/projects";
 
@@ -220,6 +221,18 @@ export default function DeviceMockup({
   priority = false,
 }: DeviceMockupProps) {
   const isHero = variant === "hero";
+  // Dokunmatik cihazda hover ile kaydırma yok → uzun native <img> yerine
+  // optimize edilmiş statik next/image göster (daha keskin + çok daha hafif).
+  // Masaüstünde (fine pointer) hover-scroll aynen korunur.
+  const [coarse, setCoarse] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(pointer: coarse)");
+    const sync = () => setCoarse(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+  const useScroll = !coarse && Boolean(project.desktopScrollImage);
   const canScroll = Boolean(project.desktopScrollImage);
 
   return (
@@ -250,7 +263,7 @@ export default function DeviceMockup({
           colors={project.colors}
           label={project.name}
           priority={priority}
-          scroll
+          scroll={useScroll}
           sizes={
             isHero
               ? "(max-width: 768px) 82vw, 740px"
