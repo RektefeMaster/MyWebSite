@@ -54,30 +54,21 @@ export default function Hero() {
 
   useEffect(() => {
     let cancelled = false;
-    let idleId = 0;
     let failsafe = 0;
 
     const mount = () => {
       if (!cancelled) setSceneMounted(true);
     };
 
-    const scheduleIdle = () => {
-      if (typeof window.requestIdleCallback === "function") {
-        idleId = window.requestIdleCallback(mount, { timeout: 120 });
-      } else {
-        idleId = window.setTimeout(mount, 0);
-      }
-    };
-
+    // Intro yok / atlandı (rota dönüşü dahil): hemen mount — idle beklersek
+    // kısa bir süre boş gradient kalıyor; soft-nav'da "3D kayboldu" hissi veriyor.
     if (document.documentElement.dataset.intro !== "play") {
-      scheduleIdle();
+      // Çift rAF: layout otursun, sonra WebGL (route-loader / scroll settle ile yarışmasın)
+      requestAnimationFrame(() => {
+        requestAnimationFrame(mount);
+      });
       return () => {
         cancelled = true;
-        if (typeof window.cancelIdleCallback === "function") {
-          window.cancelIdleCallback(idleId);
-        } else {
-          window.clearTimeout(idleId);
-        }
       };
     }
 

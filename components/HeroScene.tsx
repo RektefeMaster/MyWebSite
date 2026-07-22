@@ -25,7 +25,7 @@ function GradientBackground({
   const { scene, gl, invalidate } = useThree();
   const palette = dark ? DARK_BG : LIGHT_BG;
   const texture = useMemo(() => {
-    const size = lite ? 512 : 1024;
+    const size = lite ? 768 : 1024;
     const c = document.createElement("canvas");
     c.width = size;
     c.height = size;
@@ -144,12 +144,12 @@ function GlassM({
     shape.closePath();
 
     const geo = new THREE.ExtrudeGeometry(shape, {
-      depth: lite ? 0.28 : 0.32,
+      depth: lite ? 0.3 : 0.32,
       bevelEnabled: true,
-      bevelThickness: lite ? 0.03 : 0.04,
-      bevelSize: lite ? 0.024 : 0.03,
-      bevelSegments: lite ? 1 : 2,
-      curveSegments: lite ? 8 : 12,
+      bevelThickness: lite ? 0.035 : 0.04,
+      bevelSize: lite ? 0.028 : 0.03,
+      bevelSegments: 2,
+      curveSegments: lite ? 10 : 12,
       steps: 1,
     });
     geo.center();
@@ -210,15 +210,16 @@ function GlassM({
       frustumCulled={false}
     >
       <MeshTransmissionMaterial
-        samples={lite ? 5 : 10}
-        resolution={lite ? 384 : 640}
+        // Lite: 512/7 — mobilde belirgin kalite artışı; 640 üstü bake riski (AGENTS.md)
+        samples={lite ? 7 : 10}
+        resolution={lite ? 512 : 640}
         transmission={1}
-        thickness={lite ? 0.5 : 0.65}
+        thickness={lite ? 0.55 : 0.65}
         roughness={dark ? 0.14 : 0.1}
         metalness={dark ? 0.14 : 0.08}
         ior={1.4}
-        chromaticAberration={lite ? 0.02 : 0.04}
-        anisotropicBlur={lite ? 0.06 : 0.1}
+        chromaticAberration={lite ? 0.03 : 0.04}
+        anisotropicBlur={lite ? 0.08 : 0.1}
         distortion={0}
         temporalDistortion={0}
         clearcoat={0.75}
@@ -265,7 +266,7 @@ function ThemeEnvironment({
   return (
     <Environment
       key={dark ? "env-d" : "env-l"}
-      resolution={lite ? 128 : 256}
+      resolution={lite ? 192 : 256}
       frames={1}
     >
       <Lightformer
@@ -301,6 +302,12 @@ function ThemeEnvironment({
   );
 }
 
+/** Mobil/lite DPR tavanı — 1.25 çok yumuşak; 1.5 hâlâ 60fps dostu */
+const LITE_DPR_CAP = 1.5;
+const DESKTOP_DPR_CAP = 1.5;
+/** PerformanceMonitor mobil zemin — 1.0'a düşürmek yazıyı/camı çamurlaştırıyordu */
+const LITE_DPR_FLOOR = 1.2;
+
 export default function HeroScene({
   lines,
   active,
@@ -314,13 +321,17 @@ export default function HeroScene({
     () => document.documentElement.classList.contains("dark")
   );
   const mountedRef = useRef(true);
+  const glRef = useRef<THREE.WebGLRenderer | null>(null);
+  const invalidateRef = useRef<(() => void) | null>(null);
+  const readyRef = useRef(false);
+  const recoverTimer = useRef(0);
   const [lite, setLite] = useState(
     () =>
       window.matchMedia("(pointer: coarse)").matches ||
       window.matchMedia("(max-width: 768px)").matches
   );
   const [dpr, setDpr] = useState(() =>
-    Math.min(lite ? 1.25 : 1.5, window.devicePixelRatio)
+    Math.min(lite ? LITE_DPR_CAP : DESKTOP_DPR_CAP, window.devicePixelRatio)
   );
   const [reduced, setReduced] = useState(
     () => window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -332,11 +343,21 @@ export default function HeroScene({
   );
   const [baked, setBaked] = useState(false);
 
+  const remountCanvas = () => {
+    if (!mountedRef.current) return;
+    readyRef.current = false;
+    setReady(false);
+    setBaked(false);
+    setContextKey((k) => k + 1);
+  };
+
   useEffect(() => {
     mountedRef.current = true;
     window.__metekHeroReady = false;
     return () => {
       mountedRef.current = false;
+      window.clearTimeout(recoverTimer.current);
+      glRef.current = null;
     };
   }, []);
 
@@ -356,7 +377,9 @@ export default function HeroScene({
       const next = coarseMq.matches || narrowMq.matches;
       setLite((prev) => {
         if (prev === next) return prev;
-        setDpr(Math.min(next ? 1.25 : 1.5, window.devicePixelRatio));
+        setDpr(
+          Math.min(next ? LITE_DPR_CAP : DESKTOP_DPR_CAP, window.devicePixelRatio)
+        );
         return next;
       });
     };
@@ -389,6 +412,55 @@ export default function HeroScene({
     return () => obs.disconnect();
   }, []);
 
+  /**
+   * Hero tekrar görünür olunca: context lost → remount.
+   * ready false ama gl var (takılı kayıp) → kısa bekleyip hâlâ hazır değilse remount.
+   * Aksi halde birkaç frame invalidate — Text + transmission FBO boş kalmasın.
+   */
+  useEffect(() => {
+    if (!active || !tabVisible) return;
+
+    const gl = glRef.current;
+    const lost = Boolean(gl?.getContext()?.isContextLost?.());
+    if (lost) {
+      window.clearTimeout(recoverTimer.current);
+      recoverTimer.current = window.setTimeout(remountCanvas, 60);
+      return () => window.clearTimeout(recoverTimer.current);
+    }
+
+    if (!ready) {
+      // İlk mount: onCreated'i bekle. Takılı kaldıysa (nav dönüşü) kurtar.
+      if (!gl) return;
+      window.clearTimeout(recoverTimer.current);
+      recoverTimer.current = window.setTimeout(() => {
+        if (mountedRef.current && !readyRef.current) remountCanvas();
+      }, 500);
+      return () => window.clearTimeout(recoverTimer.current);
+    }
+
+    let frames = 0;
+    let raf = 0;
+    const pump = () => {
+      frames += 1;
+      invalidateRef.current?.();
+      if (frames < 10) raf = requestAnimationFrame(pump);
+    };
+    raf = requestAnimationFrame(pump);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.clearTimeout(recoverTimer.current);
+    };
+  }, [active, tabVisible, ready, contextKey]);
+
+  // bfcache (geri/ileri) — WebGL sıkça ölü gelir; remount şart
+  useEffect(() => {
+    const onPageShow = (e: PageTransitionEvent) => {
+      if (e.persisted) remountCanvas();
+    };
+    window.addEventListener("pageshow", onPageShow);
+    return () => window.removeEventListener("pageshow", onPageShow);
+  }, []);
+
   const visible = active && tabVisible && !reduced;
   // Intro altında: birkaç frame ısıt, sonra demand (GPU boş). Perde kalkınca always.
   const running = visible && !introCovering;
@@ -399,6 +471,8 @@ export default function HeroScene({
       ? "always"
       : "never";
   const clear = dark ? DARK_BG.mid : LIGHT_BG.mid;
+  const dprCap = lite ? LITE_DPR_CAP : DESKTOP_DPR_CAP;
+  const dprFloor = lite ? LITE_DPR_FLOOR : 1;
 
   return (
     <div
@@ -407,7 +481,7 @@ export default function HeroScene({
     >
       {/*
         Tema değişiminde Canvas remount YOK — WebGL context kaybını önler.
-        Yalnızca gerçek context loss’ta contextKey artar.
+        Yalnızca gerçek context loss / recovery’de contextKey artar.
       */}
       <Canvas
         key={contextKey}
@@ -417,30 +491,39 @@ export default function HeroScene({
         // Lite'ta pointer etkileşimi yok — R3F event sistemini uyut
         style={lite ? { pointerEvents: "none" } : undefined}
         gl={{
-          antialias: !lite,
+          antialias: true,
           alpha: false,
           stencil: false,
           depth: true,
-          powerPreference: lite ? "low-power" : "high-performance",
+          // Mobilde de GPU tercihi — low-power yumuşak/grenli çıktıya yol açıyordu
+          powerPreference: "high-performance",
           toneMapping: THREE.ACESFilmicToneMapping,
           toneMappingExposure: 1.08,
         }}
         onCreated={({ gl, invalidate }) => {
+          glRef.current = gl;
+          invalidateRef.current = invalidate;
           const canvas = gl.domElement;
           const onLost = (e: Event) => {
             e.preventDefault();
-            // Gerçek GPU kaybında gizle; tema toggle remount etmediği için
-            // dispose kaynaklı false-positive azaldı.
-            if (mountedRef.current) setReady(false);
+            if (!mountedRef.current) return;
+            readyRef.current = false;
+            setReady(false);
+            // contextrestored birçok tarayıcıda gelmiyor — kısa gecikmeyle remount
+            window.clearTimeout(recoverTimer.current);
+            recoverTimer.current = window.setTimeout(remountCanvas, 80);
           };
           const onRestored = () => {
             if (!mountedRef.current) return;
-            setContextKey((k) => k + 1);
+            window.clearTimeout(recoverTimer.current);
+            remountCanvas();
           };
           canvas.addEventListener("webglcontextlost", onLost, false);
           canvas.addEventListener("webglcontextrestored", onRestored, false);
+
           gl.setClearColor(clear, 1);
           setBaked(false);
+          readyRef.current = true;
           setReady(true);
           window.__metekHeroReady = true;
           window.dispatchEvent(new Event("metek:hero-ready"));
@@ -449,7 +532,7 @@ export default function HeroScene({
           const bake = () => {
             frames += 1;
             invalidate();
-            if (frames < 10) {
+            if (frames < 12) {
               requestAnimationFrame(bake);
             } else if (mountedRef.current) {
               setBaked(true);
@@ -459,14 +542,16 @@ export default function HeroScene({
         }}
       >
         <PerformanceMonitor
-          flipflops={3}
-          onDecline={() => setDpr((d) => Math.max(1, +(d - 0.25).toFixed(2)))}
+          flipflops={4}
+          onDecline={() =>
+            setDpr((d) => Math.max(dprFloor, +(d - 0.15).toFixed(2)))
+          }
           onIncline={() =>
             setDpr((d) =>
-              Math.min(lite ? 1.25 : 1.5, +(d + 0.25).toFixed(2), window.devicePixelRatio)
+              Math.min(dprCap, +(d + 0.15).toFixed(2), window.devicePixelRatio)
             )
           }
-          onFallback={() => setDpr(1)}
+          onFallback={() => setDpr(dprFloor)}
         />
         <ThemeExposure dark={dark} />
         <InvalidateOn dep={`${dark ? "d" : "l"}|${lines.join("\u0001")}`} />
