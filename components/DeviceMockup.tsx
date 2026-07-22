@@ -108,6 +108,19 @@ function ScreenContent({
           loading={priority ? "eager" : "lazy"}
           decoding="async"
           draggable={false}
+          onLoad={(e) => {
+            const img = e.currentTarget;
+            const parent = img.parentElement;
+            if (!parent || !img.naturalWidth) return;
+            const cw = parent.clientWidth;
+            const ch = parent.clientHeight;
+            if (cw < 8 || ch < 8) return;
+            const displayedH = (img.naturalHeight / img.naturalWidth) * cw;
+            const screens = Math.max(0, displayedH - ch) / ch;
+            // ~1.4s / ekran; kısa şerit acele etmesin, uzun şerit uçmasın
+            const dur = Math.min(7.8, Math.max(3.5, 2.8 + screens * 1.4));
+            img.style.setProperty("--scroll-duration", `${dur.toFixed(2)}s`);
+          }}
         />
       </div>
     );

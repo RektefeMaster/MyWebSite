@@ -37,8 +37,11 @@ const TARGETS = [
 
 const DESKTOP = { width: 1440, height: 900 };
 const MOBILE = { width: 390, height: 844 };
-/** Scroll süresi makul kalsın diye max ~4 ekran */
+/** Hover scroll: max ~4 ekran — daha uzunu mockupta uçar */
 const MAX_SCREENS = 4.2;
+/** CDP scale/DPR sapmasına karşı mutlak tavan (px) */
+const ABS_MAX_DESKTOP_H = 4200;
+const ABS_MAX_MOBILE_H = 3800;
 
 async function captureFixed(page, url, viewport, outPath) {
   await page.setViewportSize(viewport);
@@ -99,7 +102,9 @@ async function captureFixed(page, url, viewport, outPath) {
     ),
   }));
 
-  const maxH = Math.round(viewport.height * MAX_SCREENS);
+  const absMax =
+    viewport.width <= 500 ? ABS_MAX_MOBILE_H : ABS_MAX_DESKTOP_H;
+  const maxH = Math.min(Math.round(viewport.height * MAX_SCREENS), absMax);
   const clipH = Math.min(metrics.height, maxH);
   const clipW = Math.min(metrics.width, viewport.width);
 
