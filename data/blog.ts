@@ -31,7 +31,7 @@ export const blogPosts: BlogPostMeta[] = [
     readMinutes: 11,
     category: "identity",
     accent: "#c8e84a",
-    image: "/blog/identity-at-first-glance.png",
+    image: "/blog/identity-at-first-glance.webp",
   },
   {
     slug: "system-not-logo",
@@ -39,7 +39,7 @@ export const blogPosts: BlogPostMeta[] = [
     readMinutes: 12,
     category: "identity",
     accent: "#161616",
-    image: "/blog/system-not-logo.png",
+    image: "/blog/system-not-logo.webp",
   },
   {
     slug: "editorial-web-as-sales",
@@ -47,7 +47,7 @@ export const blogPosts: BlogPostMeta[] = [
     readMinutes: 12,
     category: "digital",
     accent: "#dcd8d0",
-    image: "/blog/editorial-web-as-sales.png",
+    image: "/blog/editorial-web-as-sales.webp",
   },
   {
     slug: "quiet-luxury-online",
@@ -55,7 +55,7 @@ export const blogPosts: BlogPostMeta[] = [
     readMinutes: 10,
     category: "strategy",
     accent: "#e8f58a",
-    image: "/blog/quiet-luxury-online.png",
+    image: "/blog/quiet-luxury-online.webp",
   },
   {
     slug: "brief-that-works",
@@ -63,7 +63,7 @@ export const blogPosts: BlogPostMeta[] = [
     readMinutes: 11,
     category: "process",
     accent: "#c8e84a",
-    image: "/blog/brief-that-works.png",
+    image: "/blog/brief-that-works.webp",
   },
 ];
 
