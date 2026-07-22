@@ -49,6 +49,7 @@ export default async function BlogTeaser({ locale }: BlogTeaserProps) {
           <Reveal delay={80}>
             <Magnetic strength={0.3}>
               <Link
+        scroll={false}
                 href="/blog"
                 className="link-underline inline-flex min-h-11 items-center gap-2 text-sm font-bold text-ink"
               >
@@ -63,8 +64,9 @@ export default async function BlogTeaser({ locale }: BlogTeaserProps) {
           {articles.map(({ post, article }, i) => (
               <Reveal key={post.slug} delay={i * 60}>
                 <Link
+        scroll={false}
                   href={`/blog/${post.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-foreground/10 bg-surface transition-colors hover:border-ink md:min-h-[320px]"
+                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-foreground/10 bg-surface transition-colors md:min-h-[320px] [@media(hover:hover)_and_(pointer:fine)]:hover:border-ink"
                 >
                   <div className="relative h-40 overflow-hidden">
                     <Image
@@ -72,7 +74,7 @@ export default async function BlogTeaser({ locale }: BlogTeaserProps) {
                       alt={article.imageAlt}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                      className="object-cover transition-transform duration-700 [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.04]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent" />
                   </div>
@@ -93,7 +95,7 @@ export default async function BlogTeaser({ locale }: BlogTeaserProps) {
                       {t("view")}
                       <span
                         aria-hidden
-                        className="transition-transform group-hover:translate-x-1"
+                        className="transition-transform [@media(hover:hover)_and_(pointer:fine)]:group-hover:translate-x-1"
                       >
                         →
                       </span>

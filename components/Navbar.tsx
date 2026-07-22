@@ -103,7 +103,8 @@ export default function Navbar() {
     });
 
     return () => mm.revert();
-  }, [pathname]);
+    // pathname’e bağlama — her soft-nav’de ST recreate + giriş animasyonu yarışı
+  }, []);
 
   return (
     <div
@@ -117,6 +118,7 @@ export default function Navbar() {
           <nav className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 md:gap-4 md:px-10 md:py-4">
             <Link
               href="/"
+              scroll={false}
               className="brand-mark inline-flex min-h-11 min-w-11 shrink-0 items-center text-2xl leading-none tracking-tight text-foreground md:min-h-0 md:min-w-0 md:text-3xl"
               aria-label={SITE.brand}
             >
@@ -140,6 +142,7 @@ export default function Navbar() {
                   <Link
                     key={key}
                     href={link.href}
+                    scroll={false}
                     className={`relative whitespace-nowrap rounded-full px-2.5 py-1.5 text-[12px] font-semibold tracking-tight transition-colors xl:px-3 xl:text-[13px] ${
                       isActive
                         ? "bg-ink text-ink-fg"
@@ -161,6 +164,7 @@ export default function Navbar() {
               <Magnetic strength={0.18}>
                 <Link
                   href={{ pathname: "/", hash: "contact" }}
+                  scroll={false}
                   aria-label={t("cta")}
                   className="btn-sheen btn-stable btn-stable--nav inline-flex min-h-10 rounded-full bg-lime px-3.5 py-2 text-xs font-bold text-on-lime md:min-h-0 md:px-5 md:py-2.5 md:text-sm"
                 >
@@ -188,7 +192,8 @@ export default function Navbar() {
                 <Link
                   key={key}
                   href={link.href}
-                  className={`inline-flex min-h-9 shrink-0 items-center whitespace-nowrap rounded-full px-3.5 py-1.5 text-[11px] font-semibold transition-colors touch-manipulation ${
+                  scroll={false}
+                  className={`inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full px-3.5 py-2 text-[13px] font-semibold transition-colors touch-manipulation ${
                     isActive
                       ? "bg-ink text-ink-fg"
                       : "bg-foreground/[0.04] text-ink/60 active:bg-foreground/[0.08]"

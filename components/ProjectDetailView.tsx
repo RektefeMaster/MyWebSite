@@ -45,11 +45,11 @@ export default async function ProjectDetailView({
               aria-label={a11y("breadcrumb")}
               className="mb-8 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground/40"
             >
-              <Link href="/" className="transition-colors hover:text-ink">
+              <Link scroll={false} href="/" className="transition-colors hover:text-ink">
                 {nav("home")}
               </Link>
               <span className="text-foreground/25">/</span>
-              <Link href="/work" className="transition-colors hover:text-ink">
+              <Link scroll={false} href="/work" className="transition-colors hover:text-ink">
                 {nav("work")}
               </Link>
               <span className="text-foreground/25">/</span>
@@ -97,6 +97,7 @@ export default async function ProjectDetailView({
                 <WhatsAppButton className="w-full justify-center sm:w-auto" />
               )}
               <Link
+        scroll={false}
                 href="/work"
                 className="inline-flex min-h-10 items-center text-sm font-bold text-ink/60 transition-colors hover:text-ink"
               >

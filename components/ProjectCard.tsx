@@ -15,6 +15,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="group flex h-full flex-col transition-transform duration-300 active:scale-[0.99] touch-manipulation md:hover:-translate-y-1.5 md:active:scale-100">
       <Link
+        scroll={false}
         href={`/work/${project.id}`}
         className="relative block aspect-[800/620] w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
         aria-label={`${name} — ${t("view")}`}
@@ -30,6 +31,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         ) : null}
         <h3 className="text-base font-bold uppercase tracking-[0.08em] md:text-lg">
           <Link
+        scroll={false}
             href={`/work/${project.id}`}
             className="rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
           >
@@ -44,6 +46,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
         <div className="mt-4 grid w-full max-w-[18rem] grid-cols-2 gap-2">
           <Link
+        scroll={false}
             href={`/work/${project.id}`}
             className="btn-stable btn-stable--pair inline-flex min-h-11 gap-1.5 rounded-full border border-foreground/10 bg-paper px-3 py-2.5 text-xs font-bold text-ink transition-colors touch-manipulation hover:border-ink/25 hover:bg-surface md:min-h-10"
           >

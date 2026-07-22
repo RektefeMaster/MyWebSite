@@ -31,8 +31,9 @@ export default function BlogCard({
   return (
     <Reveal delay={delay} className={featured ? "md:col-span-2" : ""}>
       <Link
+        scroll={false}
         href={`/blog/${post.slug}`}
-        className={`group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-foreground/10 bg-surface transition-colors hover:border-ink ${
+        className={`group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-foreground/10 bg-surface transition-colors [@media(hover:hover)_and_(pointer:fine)]:hover:border-ink ${
           featured ? "md:min-h-[340px] md:flex-row" : "min-h-[300px]"
         }`}
       >
@@ -50,7 +51,7 @@ export default function BlogCard({
                 ? "(max-width: 768px) 100vw, 44vw"
                 : "(max-width: 768px) 100vw, 50vw"
             }
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+            className="object-cover transition-transform duration-700 ease-out [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.03]"
             priority={featured}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
@@ -83,7 +84,7 @@ export default function BlogCard({
             {viewLabel}
             <span
               aria-hidden
-              className="transition-transform group-hover:translate-x-1"
+              className="transition-transform [@media(hover:hover)_and_(pointer:fine)]:group-hover:translate-x-1"
             >
               →
             </span>

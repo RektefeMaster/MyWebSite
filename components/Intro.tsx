@@ -16,7 +16,7 @@ import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
 function warmHomeChunks() {
   return Promise.allSettled([
     import("./HeroScene"),
-    import("./Projects"),
+    import("./ProjectStrip"),
     import("./Stats"),
     import("./Services"),
     import("./TechExpertise"),
@@ -122,6 +122,7 @@ export default function Intro() {
 
       const finish = () => {
         unlock();
+        document.documentElement.dataset.intro = "skip";
         window.__lenis?.start();
         ScrollTrigger.refresh();
         setVisible(false);
@@ -142,9 +143,21 @@ export default function Intro() {
             requestAnimationFrame(() => resolve());
           });
 
-          // Sert tavan — ağ çok yavaşsa yine de aç
-          window.setTimeout(() => resolve(), 2800);
+          // Sert tavan — mobilde daha kısa; ağ çok yavaşsa yine de aç
+          const bootCap =
+            window.matchMedia("(pointer: coarse)").matches ||
+            window.matchMedia("(max-width: 768px)").matches
+              ? 1200
+              : 2800;
+          window.setTimeout(() => resolve(), bootCap);
         });
+
+      const mobileLite =
+        window.matchMedia("(pointer: coarse)").matches ||
+        window.matchMedia("(max-width: 768px)").matches;
+      const countDur = mobileLite ? 1.35 : 2.55;
+      const warmAt = mobileLite ? 0.7 : 1.35;
+      const exitDur = mobileLite ? 0.75 : 1.05;
 
       gsap.set([labelLRef.current, labelRRef.current], { opacity: 0, y: 12 });
       gsap.set(markRef.current, { opacity: 0, y: 22 });
@@ -162,25 +175,34 @@ export default function Intro() {
 
       tl.to(
         [labelLRef.current, labelRRef.current],
-        { opacity: 1, y: 0, duration: 0.65, stagger: 0.1 },
-        0.2
+        { opacity: 1, y: 0, duration: mobileLite ? 0.4 : 0.65, stagger: 0.08 },
+        0.12
       )
-        .to(markRef.current, { opacity: 1, y: 0, duration: 0.9 }, 0.35)
+        .to(
+          markRef.current,
+          { opacity: 1, y: 0, duration: mobileLite ? 0.55 : 0.9 },
+          0.2
+        )
         .to(
           dotRef.current,
-          { opacity: 1, scale: 1, duration: 0.55, ease: "back.out(2.4)" },
-          1.05
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.45,
+            ease: "back.out(2.4)",
+          },
+          mobileLite ? 0.55 : 1.05
         )
         .to(
           hairRef.current,
-          { scaleX: 1, duration: 2.55, ease: "power1.inOut" },
-          0.35
+          { scaleX: 1, duration: countDur, ease: "power1.inOut" },
+          0.2
         )
         .to(
           proxy,
           {
             v: 100,
-            duration: 2.55,
+            duration: countDur,
             ease: "power1.inOut",
             onUpdate: () => {
               if (counter) {
@@ -191,16 +213,16 @@ export default function Intro() {
               }
             },
           },
-          0.35
+          0.2
         )
         // Sayaç ortasında WebGL + mid-fold ısınması
         .add(() => {
           if (isHome) {
             window.dispatchEvent(new Event("metek:hero-warm"));
           }
-        }, 1.35)
+        }, warmAt)
         // 100’de kısa nefes + boot senkronu
-        .to({}, { duration: 0.35 })
+        .to({}, { duration: mobileLite ? 0.15 : 0.35 })
         .add(() => {
           tl.pause();
           void waitUntilBooted().then(() => {
@@ -210,32 +232,43 @@ export default function Intro() {
         // Çıkış — marka büyür, perde yukarı
         .to(
           [markRef.current, labelLRef.current, labelRRef.current],
-          { opacity: 0, duration: 0.5, ease: "power2.in" }
+          { opacity: 0, duration: mobileLite ? 0.35 : 0.5, ease: "power2.in" }
         )
         .to(
           markRef.current,
-          { scale: 1.1, duration: 0.95, ease: "power3.inOut" },
+          {
+            scale: 1.1,
+            duration: mobileLite ? 0.65 : 0.95,
+            ease: "power3.inOut",
+          },
           "<"
         )
         .to(
           root,
-          { yPercent: -100, duration: 1.05, ease: "power4.inOut" },
+          { yPercent: -100, duration: exitDur, ease: "power4.inOut" },
           "<0.1"
         );
 
       // "M" dönüşü — sayaçla örtüşen daha yavaş tur
       tl.to(
         mRef.current,
-        { rotationY: 360, duration: 1.85, ease: "power2.inOut" },
-        0.7
+        {
+          rotationY: 360,
+          duration: mobileLite ? 1.1 : 1.85,
+          ease: "power2.inOut",
+        },
+        mobileLite ? 0.35 : 0.7
       );
 
       return () => {
         tl.kill();
         unlock();
+        document.documentElement.dataset.intro = "skip";
+        window.__lenis?.start();
       };
     },
-    { scope: rootRef, dependencies: [pathname] }
+    // pathname’e bağlama — soft-nav intro’yu yeniden başlatmasın / Lenis’i kilitli bırakmasın
+    { scope: rootRef, dependencies: [] }
   );
 
   if (!visible) return null;
@@ -263,7 +296,7 @@ export default function Intro() {
         </span>
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 z-10 flex items-end justify-between px-5 pb-6 md:px-10 md:pb-8">
+      <div className="absolute inset-x-0 bottom-0 z-10 flex items-end justify-between px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] md:px-10 md:pb-8">
         <div ref={labelLRef} style={{ opacity: 0 }}>
           <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#f4f2ec] md:text-xs">
             METEK Digital

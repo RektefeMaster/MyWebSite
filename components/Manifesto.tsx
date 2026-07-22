@@ -48,6 +48,8 @@ export default function Manifesto() {
           pin: true,
           scrub: 0.65,
           anticipatePin: 1,
+          // Soft-nav’de pin-spacer artığı kalmasın
+          invalidateOnRefresh: true,
         },
       });
 

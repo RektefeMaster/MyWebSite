@@ -35,7 +35,8 @@ function StripCard({
         href={`/work/${project.id}`}
         tabIndex={clone ? -1 : undefined}
         aria-hidden={clone || undefined}
-        className="group flex h-full overflow-hidden rounded-2xl border border-foreground/10 bg-surface transition-colors duration-300 hover:border-band focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+        scroll={false}
+        className="group flex h-full overflow-hidden rounded-2xl border border-foreground/10 bg-surface transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink [@media(hover:hover)_and_(pointer:fine)]:hover:border-band"
       >
         <div
           className="relative w-[40%] shrink-0 overflow-hidden md:w-[46%]"
@@ -51,7 +52,7 @@ function StripCard({
               loading="eager"
               decoding="async"
               draggable={false}
-              className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+              className="object-cover object-top transition-transform duration-500 [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.04]"
             />
           ) : null}
           {project.mobileImage ? (
@@ -93,7 +94,7 @@ function StripCard({
               </p>
             ) : null}
           </div>
-          <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-ink transition-colors group-hover:text-band">
+          <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-ink transition-colors [@media(hover:hover)_and_(pointer:fine)]:group-hover:text-band">
             {project.url ? live : view}
             <span aria-hidden>{project.url ? "↗" : "→"}</span>
           </span>
@@ -129,7 +130,7 @@ export default function ProjectStrip() {
   return (
     <section
       id="projects"
-      className="cv-auto scroll-mt-[var(--nav-offset)] bg-background py-16 md:py-24"
+      className="scroll-mt-[var(--nav-offset)] bg-background py-16 md:py-24"
     >
       <div className="mx-auto mb-12 max-w-7xl px-5 md:mb-16 md:px-10">
         <div className="grid items-end gap-6 md:grid-cols-[1fr_1.2fr] md:gap-12">

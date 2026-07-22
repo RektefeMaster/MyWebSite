@@ -292,6 +292,14 @@ html::-webkit-scrollbar-corner {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   border-radius: 999px;
+  touch-action: manipulation;
+}
+
+/* Görsel 32px kalsın; dokunma alanı ~44px */
+.theme-toggle::before {
+  content: "";
+  position: absolute;
+  inset: -0.55rem -0.35rem;
 }
 
 .theme-toggle:focus-visible {
@@ -586,14 +594,30 @@ html::-webkit-scrollbar-corner {
     animation-duration: 36s;
   }
 
+  /* Mobilde otomatik marquee yerine kaydırılabilir şerit — dokunma + pil */
+  .pstrip-viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
   .pstrip-track {
-    animation-duration: 48s;
+    animation: none;
+    will-change: auto;
   }
 
   .pstrip-card {
     width: clamp(280px, 84vw, 360px);
     height: clamp(196px, 54vw, 212px);
     margin-right: 0.75rem;
+    scroll-snap-align: start;
+  }
+
+  .pstrip-card--clone {
+    display: none;
   }
 
   .nav-glass {
@@ -962,11 +986,17 @@ html.intro-lock {
   animation: route-loader-in 0.28s ease both;
 }
 
+/* Görünürken tıklamayı kes — hızlı nav yarışını boğar */
+.route-loader--blocking {
+  pointer-events: auto;
+  cursor: wait;
+}
+
 .route-loader--inline {
   position: relative;
   inset: auto;
   z-index: auto;
-  min-height: min(70vh, 640px);
+  min-height: min(70svh, 640px);
   width: 100%;
   animation: none;
   pointer-events: auto;

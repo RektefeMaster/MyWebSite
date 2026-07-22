@@ -15,6 +15,7 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 md:grid-cols-[1.35fr_1fr_1fr_1fr]">
         <div>
           <Link
+            scroll={false}
             href="/"
             className="group relative inline-block size-[9.5rem] text-foreground md:size-[11rem]"
             aria-label={SITE.brand}
@@ -48,6 +49,7 @@ export default function Footer() {
           <ul className="space-y-1 text-sm text-foreground/60">
             <li>
               <Link
+                scroll={false}
                 href="/manifesto"
                 className="inline-flex min-h-10 items-center hover:text-foreground"
               >
@@ -56,6 +58,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
+                scroll={false}
                 href="/work"
                 className="inline-flex min-h-10 items-center hover:text-foreground"
               >
@@ -64,6 +67,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
+                scroll={false}
                 href="/approach"
                 className="inline-flex min-h-10 items-center hover:text-foreground"
               >
@@ -72,6 +76,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
+                scroll={false}
                 href="/services"
                 className="inline-flex min-h-10 items-center hover:text-foreground"
               >
@@ -80,6 +85,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
+                scroll={false}
                 href="/blog"
                 className="inline-flex min-h-10 items-center hover:text-foreground"
               >
@@ -88,6 +94,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
+                scroll={false}
                 href={{ pathname: "/", hash: "contact" }}
                 className="inline-flex min-h-10 items-center hover:text-foreground"
               >

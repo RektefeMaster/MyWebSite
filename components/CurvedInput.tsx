@@ -182,6 +182,7 @@ export type CurvedInputProps = {
   name?: string;
   required?: boolean;
   autoComplete?: string;
+  autoCapitalize?: "off" | "none" | "on" | "sentences" | "words" | "characters";
   ariaLabel?: string;
   theme?: ThemeName;
   width?: number | string;
@@ -217,6 +218,7 @@ export default function CurvedInput({
   name,
   required = false,
   autoComplete = "off",
+  autoCapitalize = "none",
   ariaLabel,
   theme = "dark",
   width = 450,
@@ -684,7 +686,7 @@ export default function CurvedInput({
         onBlur={() => setFocused(false)}
         aria-label={ariaLabel || placeholder || "Curved input"}
         autoComplete={autoComplete}
-        autoCapitalize="none"
+        autoCapitalize={autoCapitalize}
         autoCorrect="off"
         spellCheck={false}
       />

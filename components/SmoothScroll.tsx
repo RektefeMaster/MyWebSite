@@ -5,11 +5,15 @@ import type Lenis from "lenis";
 import { useLocale } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
-
-function navOffsetPx() {
-  const shell = document.querySelector<HTMLElement>("[data-nav-shell]");
-  return shell?.getBoundingClientRect().height ?? 120;
-}
+import {
+  bumpNavGeneration,
+  isCurrentNavGeneration,
+  pauseLenis,
+  resumeLenis,
+  scheduleScrollTriggerRefresh,
+  scrollToElement,
+  scrollWindowTop,
+} from "@/lib/nav-scroll";
 
 function hashFromHref(href: string | null): string | null {
   if (!href || href === "#") return null;
@@ -39,6 +43,32 @@ function isSameDocumentHashLink(href: string, hash: string): boolean {
   }
 }
 
+function pathWithoutLocale(pathname: string): string {
+  // next-intl usePathname zaten locale’siz döner; yine de güvenli normalize
+  return pathname || "/";
+}
+
+function hrefPathname(href: string): string | null {
+  try {
+    const url = new URL(href, window.location.href);
+    if (url.origin !== window.location.origin) return null;
+    // /tr/work → locale proxy sonrası gerçek path; Link href’leri genelde locale’siz
+    return url.pathname;
+  } catch {
+    return null;
+  }
+}
+
+function stripLocalePrefix(pathname: string): string {
+  const parts = pathname.split("/").filter(Boolean);
+  if (parts.length === 0) return "/";
+  if (["en", "tr", "es", "de"].includes(parts[0]!)) {
+    const rest = parts.slice(1).join("/");
+    return rest ? `/${rest}` : "/";
+  }
+  return pathname.startsWith("/") ? pathname : `/${pathname}`;
+}
+
 export default function SmoothScroll({
   children,
 }: {
@@ -49,6 +79,8 @@ export default function SmoothScroll({
   const localeBoot = useRef(true);
   const lenisRef = useRef<Lenis | null>(null);
   const reducedRef = useRef(false);
+  const pathBoot = useRef(true);
+  const lastKey = useRef("");
 
   useEffect(() => {
     if ("scrollRestoration" in history) {
@@ -68,69 +100,105 @@ export default function SmoothScroll({
     let t1 = 0;
     let t2 = 0;
     let cancelled = false;
-    const onLoad = () => ScrollTrigger.refresh();
+    const onLoad = () => scheduleScrollTriggerRefresh(0);
 
     const scrollToHash = (hash: string, smooth: boolean) => {
       const el = document.querySelector(hash);
       if (!el) return false;
-      const offset = navOffsetPx() + 8;
-      const lenis = lenisRef.current;
-
-      if (lenis) {
-        const target =
-          lenis.scroll +
-          (el as HTMLElement).getBoundingClientRect().top -
-          offset;
-        lenis.scrollTo(target, {
-          duration: smooth ? 1.05 : 0,
-          immediate: !smooth,
-        });
-        return true;
-      }
-
-      const top =
-        el.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({
-        top: Math.max(0, top),
-        behavior: smooth && !reducedRef.current ? "smooth" : "auto",
+      scrollToElement(el, {
+        immediate: !smooth,
+        duration: smooth ? 1.05 : 0,
       });
       return true;
     };
 
     const onClick = (e: MouseEvent) => {
-      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey)
+      if (
+        e.defaultPrevented ||
+        e.button !== 0 ||
+        e.metaKey ||
+        e.ctrlKey ||
+        e.shiftKey ||
+        e.altKey
+      ) {
         return;
+      }
 
       const target = (e.target as HTMLElement | null)?.closest(
         "a[href]"
       ) as HTMLAnchorElement | null;
-      if (!target || target.target === "_blank" || target.hasAttribute("download"))
+      if (
+        !target ||
+        target.target === "_blank" ||
+        target.hasAttribute("download")
+      ) {
         return;
+      }
 
       const href = target.getAttribute("href");
+      if (!href) return;
+
       const hash = hashFromHref(href);
-      if (!hash || !href) return;
 
       // Aynı sayfa hash: Lenis/native offset ile biz kaydır
-      if (isSameDocumentHashLink(href, hash)) {
+      if (hash && isSameDocumentHashLink(href, hash)) {
         const el = document.querySelector(hash);
         if (!el) return;
         e.preventDefault();
-        if (`${window.location.pathname}${window.location.hash}` !== `${window.location.pathname}${hash}`) {
+        bumpNavGeneration();
+        if (
+          `${window.location.pathname}${window.location.hash}` !==
+          `${window.location.pathname}${hash}`
+        ) {
           window.history.pushState(null, "", hash);
         }
         scrollToHash(hash, !reducedRef.current);
+        scheduleScrollTriggerRefresh(180);
+        return;
       }
-      // Cross-page hash: Next navigasyonu yapsın; pathname effect offset uygular
+
+      const nextPath = hrefPathname(href);
+      if (!nextPath) return;
+
+      const current = stripLocalePrefix(window.location.pathname);
+      const next = stripLocalePrefix(nextPath);
+      if (current !== next) {
+        // Cross-page (hash’li /#contact dahil): Lenis’i kilitle
+        // Hash yoksa tepeyi temizle; hash varsa pathname effect hedefe götürür
+        const gen = bumpNavGeneration();
+        pauseLenis();
+        if (!hash) scrollWindowTop(true);
+        window.setTimeout(() => {
+          if (isCurrentNavGeneration(gen)) resumeLenis();
+        }, 420);
+        return;
+      }
+
+      // Aynı path + hash buraya gelmez (üstte handle edildi)
+      if (hash) return;
+
+      // Aynı path, hash yok → tepeye; Next remount etmeyebilir
+      if (window.location.hash) {
+        e.preventDefault();
+        bumpNavGeneration();
+        window.history.pushState(null, "", current);
+        pauseLenis();
+        scrollWindowTop(true);
+        resumeLenis();
+        scheduleScrollTriggerRefresh(120);
+        return;
+      }
+
+      // Aynı path, zaten tepede değilse yumuşak tepe
+      if (window.scrollY > 8 || (window.__lenis?.scroll ?? 0) > 8) {
+        e.preventDefault();
+        bumpNavGeneration();
+        scrollWindowTop(false);
+        scheduleScrollTriggerRefresh(180);
+      }
     };
 
     document.addEventListener("click", onClick, true);
-
-    const onHashChange = () => {
-      if (!window.location.hash) return;
-      scrollToHash(window.location.hash, !reducedRef.current);
-    };
-    window.addEventListener("hashchange", onHashChange);
 
     if (useLenis) {
       void (async () => {
@@ -162,10 +230,11 @@ export default function SmoothScroll({
           };
           gsap.ticker.add(tick);
 
-          const refresh = () => ScrollTrigger.refresh();
-          t1 = window.setTimeout(refresh, 120);
-          t2 = window.setTimeout(refresh, 700);
-          void document.fonts?.ready.then(refresh);
+          t1 = window.setTimeout(() => scheduleScrollTriggerRefresh(0), 120);
+          t2 = window.setTimeout(() => scheduleScrollTriggerRefresh(0), 700);
+          void document.fonts?.ready.then(() =>
+            scheduleScrollTriggerRefresh(0)
+          );
           window.addEventListener("load", onLoad);
 
           if (window.location.hash) {
@@ -182,7 +251,6 @@ export default function SmoothScroll({
     return () => {
       cancelled = true;
       document.removeEventListener("click", onClick, true);
-      window.removeEventListener("hashchange", onHashChange);
       window.clearTimeout(t1);
       window.clearTimeout(t2);
       window.removeEventListener("load", onLoad);
@@ -198,109 +266,166 @@ export default function SmoothScroll({
     };
   }, []);
 
-  // Rota değişince: hash yoksa en üste; hash varsa hedefe (örn. /work → /#contact).
-  // ScrollTrigger.refresh’i layout oturana kadar ertele — erken ölçüm reveal’ları
-  // opacity:0’da kilitleyebiliyordu (geri navigasyon “kaybolma”).
+  // Rota + hash settle — yalnızca son generation çalışır
   useEffect(() => {
-    const hash = window.location.hash;
-    const lenis = lenisRef.current;
+    const key = `${pathWithoutLocale(pathname)}${typeof window !== "undefined" ? window.location.hash : ""}`;
+
+    if (pathBoot.current) {
+      pathBoot.current = false;
+      lastKey.current = key;
+      return;
+    }
+
+    // Aynı key’e tekrar (StrictMode vs.) → no-op
+    if (lastKey.current === key) return;
+    lastKey.current = key;
+
+    const gen = bumpNavGeneration();
+    const hash =
+      typeof window !== "undefined" ? window.location.hash : "";
     const timers: number[] = [];
 
-    const refreshSoon = () => {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          ScrollTrigger.refresh();
-        });
-      });
-    };
+    pauseLenis();
 
-    const scrollTop = () => {
-      if (lenis) {
-        lenis.scrollTo(0, { immediate: true });
-      } else {
-        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-      }
+    const finish = () => {
+      if (!isCurrentNavGeneration(gen)) return;
+      resumeLenis();
+      scheduleScrollTriggerRefresh(160);
     };
 
     if (!hash || hash === "#") {
-      scrollTop();
-      timers.push(window.setTimeout(scrollTop, 80));
+      scrollWindowTop(true);
       timers.push(
         window.setTimeout(() => {
-          scrollTop();
-          refreshSoon();
-        }, 320)
+          if (!isCurrentNavGeneration(gen)) return;
+          scrollWindowTop(true);
+        }, 40)
       );
-      return () => timers.forEach((id) => window.clearTimeout(id));
+      timers.push(
+        window.setTimeout(() => {
+          if (!isCurrentNavGeneration(gen)) return;
+          scrollWindowTop(true);
+          finish();
+        }, 280)
+      );
+      return () => {
+        timers.forEach((id) => window.clearTimeout(id));
+      };
     }
 
+    // Hash hedefi (ör. #contact) — lazy fold için poll
+    let tries = 0;
+    const maxTries = 24; // ~1.4s @ 60ms
     const run = () => {
+      if (!isCurrentNavGeneration(gen)) return true;
       const el = document.querySelector(hash);
-      if (!el) return;
-      const offset = navOffsetPx() + 8;
-      const current = lenisRef.current;
+      if (!el) return false;
+      // cv-auto ölçüm sapmasını azalt
+      (el as HTMLElement).style.contentVisibility = "visible";
+      scrollToElement(el, { immediate: true });
+      return true;
+    };
 
-      if (current) {
-        const target =
-          current.scroll +
-          (el as HTMLElement).getBoundingClientRect().top -
-          offset;
-        current.scrollTo(target, {
-          duration: 0,
-          immediate: true,
-        });
+    if (!run()) {
+      const poll = window.setInterval(() => {
+        tries += 1;
+        if (run() || tries >= maxTries || !isCurrentNavGeneration(gen)) {
+          window.clearInterval(poll);
+          if (isCurrentNavGeneration(gen)) {
+            timers.push(window.setTimeout(finish, 80));
+          }
+        }
+      }, 60);
+      timers.push(poll as unknown as number);
+    } else {
+      timers.push(
+        window.setTimeout(() => {
+          if (!isCurrentNavGeneration(gen)) return;
+          run();
+          finish();
+        }, 200)
+      );
+    }
+
+    // Güvenlik: poll asılı kalmasın
+    timers.push(
+      window.setTimeout(() => {
+        if (!isCurrentNavGeneration(gen)) return;
+        run();
+        finish();
+      }, 1600)
+    );
+
+    return () => {
+      timers.forEach((id) => {
+        window.clearTimeout(id);
+        window.clearInterval(id);
+      });
+    };
+  }, [pathname]);
+
+  // Hash-only değişim (pathname aynı) — örn. / → /#contact client nav
+  useEffect(() => {
+    let pollId = 0;
+
+    const onHash = () => {
+      const key = `${pathWithoutLocale(pathname)}${window.location.hash}`;
+      if (lastKey.current === key) return;
+      lastKey.current = key;
+
+      const gen = bumpNavGeneration();
+      const hash = window.location.hash;
+      window.clearInterval(pollId);
+
+      if (!hash || hash === "#") {
+        pauseLenis();
+        scrollWindowTop(true);
+        resumeLenis();
+        scheduleScrollTriggerRefresh(120);
         return;
       }
 
-      const top =
-        el.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({
-        top: Math.max(0, top),
-        behavior: "auto",
-      });
+      pauseLenis();
+      let tries = 0;
+      pollId = window.setInterval(() => {
+        if (!isCurrentNavGeneration(gen)) {
+          window.clearInterval(pollId);
+          return;
+        }
+        const el = document.querySelector(hash);
+        tries += 1;
+        if (el) {
+          (el as HTMLElement).style.contentVisibility = "visible";
+          scrollToElement(el, { immediate: true });
+          window.clearInterval(pollId);
+          resumeLenis();
+          scheduleScrollTriggerRefresh(160);
+          return;
+        }
+        if (tries >= 24) {
+          window.clearInterval(pollId);
+          resumeLenis();
+        }
+      }, 60);
     };
 
-    run();
-    timers.push(window.setTimeout(run, 80));
-    timers.push(
-      window.setTimeout(() => {
-        run();
-        refreshSoon();
-      }, 360)
-    );
-    timers.push(window.setTimeout(run, 800));
-    return () => timers.forEach((id) => window.clearTimeout(id));
+    window.addEventListener("hashchange", onHash);
+    return () => {
+      window.removeEventListener("hashchange", onHash);
+      window.clearInterval(pollId);
+    };
   }, [pathname]);
 
-  // Dil değişimi: next-intl usePathname() locale'siz olduğu için üstteki effect
-  // tetiklenmez. Scroll pozisyonunu KORU (kullanıcı aynı sayfada), yalnızca metin
-  // uzunlukları/layout değiştiğinden ScrollTrigger'ı yeniden ölç — böylece reveal'lar
-  // yeni konuma göre çözülür, opacity:0'da kilitlenip "kaybolmaz".
+  // Dil değişimi: scroll koru, refresh debounce
   useEffect(() => {
     if (localeBoot.current) {
       localeBoot.current = false;
       return;
     }
-    // Hızlı ardışık dil değişiminde ScrollTrigger.refresh (pahalı) birikmesin:
-    // önceki bekleyen refresh'leri iptal et, yalnızca son geçişinki çalışsın.
-    let cancelled = false;
-    let raf1 = 0;
-    let raf2 = 0;
-    const timers: number[] = [];
-    const refresh = () => {
-      if (!cancelled) ScrollTrigger.refresh();
-    };
-    raf1 = requestAnimationFrame(() => {
-      raf2 = requestAnimationFrame(refresh);
-    });
-    timers.push(window.setTimeout(refresh, 320));
-    void document.fonts?.ready.then(refresh);
-    return () => {
-      cancelled = true;
-      cancelAnimationFrame(raf1);
-      cancelAnimationFrame(raf2);
-      timers.forEach((id) => window.clearTimeout(id));
-    };
+    scheduleScrollTriggerRefresh(80);
+    const t = window.setTimeout(() => scheduleScrollTriggerRefresh(280), 280);
+    void document.fonts?.ready.then(() => scheduleScrollTriggerRefresh(0));
+    return () => window.clearTimeout(t);
   }, [locale]);
 
   return children;

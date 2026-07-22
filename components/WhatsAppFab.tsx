@@ -1,12 +1,28 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { whatsappHref } from "@/lib/site";
 
-/** Mobilde sabit WhatsApp erişimi */
+/** Mobilde sabit WhatsApp erişimi — #contact görünürken gizlenir (çift CTA yok) */
 export default function WhatsAppFab() {
   const t = useTranslations("whatsapp");
   const href = whatsappHref(t("prefill"));
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    const contact = document.getElementById("contact");
+    if (!contact) return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        setHidden(Boolean(entry?.isIntersecting));
+      },
+      { root: null, threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+    io.observe(contact);
+    return () => io.disconnect();
+  }, []);
 
   return (
     <a
@@ -14,7 +30,13 @@ export default function WhatsAppFab() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t("label")}
-      className="wa-fab btn-stable fixed z-[90] inline-flex min-w-[6.75rem] gap-2 rounded-full bg-[#25D366] px-4 py-3.5 text-sm font-bold text-white shadow-[0_12px_32px_-8px_rgba(37,211,102,0.65)] lg:hidden"
+      aria-hidden={hidden || undefined}
+      tabIndex={hidden ? -1 : undefined}
+      className={`wa-fab btn-stable fixed z-[90] inline-flex items-center gap-2 rounded-full bg-[#25D366] px-3.5 py-3 text-[13px] font-bold text-white shadow-[0_12px_32px_-8px_rgba(37,211,102,0.65)] transition-all duration-300 lg:hidden ${
+        hidden
+          ? "pointer-events-none translate-y-3 opacity-0"
+          : "min-w-[6.5rem] opacity-100"
+      }`}
     >
       <WhatsAppIcon className="size-5 shrink-0" />
       <span>{t("cta")}</span>

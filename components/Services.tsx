@@ -1,13 +1,14 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Reveal from "./Reveal";
 import WordReveal from "./WordReveal";
 import Magnetic from "./Magnetic";
 import SpecularButton from "./SpecularButton";
-import { gsap, useGSAP, ScrollTrigger, attachScrollReveal } from "@/lib/gsap";
+import { gsap, useGSAP, attachScrollReveal } from "@/lib/gsap";
+import { scheduleScrollTriggerRefresh } from "@/lib/nav-scroll";
 
 type ServiceItem = {
   title: string;
@@ -64,6 +65,13 @@ export default function Services({ variant = "full" }: ServicesProps) {
     { scope: listRef, dependencies: [items.length] }
   );
 
+  useEffect(() => {
+    return () => {
+      tweenRef.current?.kill();
+      tweenRef.current = null;
+    };
+  }, []);
+
   const toggle = (i: number) => {
     const next = openRef.current === i ? -1 : i;
     const prev = openRef.current;
@@ -77,13 +85,13 @@ export default function Services({ variant = "full" }: ServicesProps) {
         if (!panel) return;
         gsap.set(panel, { height: idx === next ? "auto" : 0 });
       });
-      ScrollTrigger.refresh();
+      scheduleScrollTriggerRefresh(80);
       return;
     }
 
     tweenRef.current?.kill();
     const tl = gsap.timeline({
-      onComplete: () => ScrollTrigger.refresh(),
+      onComplete: () => scheduleScrollTriggerRefresh(80),
     });
     tweenRef.current = tl;
 
@@ -159,7 +167,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
                 className={`overflow-hidden rounded-2xl border ${
                   isOpen
                     ? "border-band"
-                    : "border-foreground/10 hover:border-foreground/25"
+                    : "border-foreground/10 [@media(hover:hover)_and_(pointer:fine)]:hover:border-foreground/25"
                 }`}
               >
                 <button
@@ -248,6 +256,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
             <Magnetic strength={0.3}>
               <Link
                 href="/services"
+                scroll={false}
                 className="group inline-flex min-h-11 items-center gap-2 text-sm font-bold text-ink"
               >
                 <span className="link-underline">{t("seeAll")}</span>

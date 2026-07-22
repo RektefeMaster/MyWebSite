@@ -34,8 +34,8 @@ export default function WorkingPrinciples() {
         <div className="grid gap-3 md:grid-cols-2">
           {items.map((item, i) => (
             <Reveal key={item} delay={i * 60}>
-              <article className="group flex items-start gap-5 rounded-3xl border border-foreground/8 bg-surface px-6 py-7 transition-colors duration-300 hover:border-lime/45 md:px-8 md:py-8">
-                <span className="font-mono text-xs font-bold text-foreground/30 transition-colors group-hover:text-lime">
+              <article className="group flex items-start gap-5 rounded-3xl border border-foreground/8 bg-surface px-6 py-7 transition-colors duration-300 md:px-8 md:py-8 [@media(hover:hover)_and_(pointer:fine)]:hover:border-lime/45">
+                <span className="font-mono text-xs font-bold text-foreground/30 transition-colors [@media(hover:hover)_and_(pointer:fine)]:group-hover:text-lime">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="text-lg font-bold tracking-tight text-ink md:text-xl">

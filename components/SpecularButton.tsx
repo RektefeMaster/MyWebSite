@@ -470,6 +470,7 @@ export default function SpecularButton({
       <Link
         ref={btnRef as Ref<HTMLAnchorElement>}
         href={href}
+        scroll={false}
         aria-label={ariaLabel}
         className={classNames}
         style={style}

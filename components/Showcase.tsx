@@ -86,14 +86,15 @@ export default function Showcase() {
           {cards.map((card, i) => (
             <Reveal key={card.href} delay={i * 60}>
               <Link
+        scroll={false}
                 href={card.href}
-                className="group flex h-full flex-col justify-between rounded-3xl border border-foreground/10 bg-surface p-7 transition-colors hover:border-band hover:bg-band hover:text-band-fg md:min-h-[240px] md:p-9"
+                className="group flex h-full flex-col justify-between rounded-3xl border border-foreground/10 bg-surface p-7 transition-colors md:min-h-[240px] md:p-9 [@media(hover:hover)_and_(pointer:fine)]:hover:border-band [@media(hover:hover)_and_(pointer:fine)]:hover:bg-band [@media(hover:hover)_and_(pointer:fine)]:hover:text-band-fg"
               >
                 <div className="flex items-start justify-between gap-4">
-                  <span className="font-mono text-xs font-bold text-foreground/30 transition-colors group-hover:text-lime">
+                  <span className="font-mono text-xs font-bold text-foreground/30 transition-colors [@media(hover:hover)_and_(pointer:fine)]:group-hover:text-lime">
                     {card.index}
                   </span>
-                  <span className="text-xs font-bold uppercase tracking-[0.16em] text-foreground/35 transition-colors group-hover:text-band-fg/45">
+                  <span className="text-xs font-bold uppercase tracking-[0.16em] text-foreground/35 transition-colors [@media(hover:hover)_and_(pointer:fine)]:group-hover:text-band-fg/45">
                     {card.label}
                   </span>
                 </div>
@@ -101,10 +102,10 @@ export default function Showcase() {
                   <h3 className="text-2xl font-bold tracking-tight md:text-3xl">
                     {card.title}
                   </h3>
-                  <p className="mt-3 max-w-sm text-sm leading-relaxed text-foreground/50 transition-colors group-hover:text-band-fg/55">
+                  <p className="mt-3 max-w-sm text-sm leading-relaxed text-foreground/50 transition-colors [@media(hover:hover)_and_(pointer:fine)]:group-hover:text-band-fg/55">
                     {card.body}
                   </p>
-                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-ink transition-colors group-hover:text-lime">
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-ink transition-colors [@media(hover:hover)_and_(pointer:fine)]:group-hover:text-lime">
                     {view}
                     <span aria-hidden>→</span>
                   </span>

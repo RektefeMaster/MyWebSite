@@ -54,21 +54,27 @@ export default function Contact() {
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
-    const nameValue = name.trim() || String(data.get("name") ?? "");
-    const emailValue = email.trim() || String(data.get("email") ?? "");
-    const message = String(data.get("message") ?? "");
+    const nameValue = name.trim() || String(data.get("name") ?? "").trim();
+    const emailValue = email.trim() || String(data.get("email") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim();
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue);
+    if (!nameValue || !emailOk || message.length < 8) {
+      setStatus("idle");
+      return;
+    }
     const subject = encodeURIComponent(
-      `${t("mailSubject")}${nameValue ? ` — ${nameValue}` : ""}`
+      `${t("mailSubject")}${nameValue ? ` · ${nameValue}` : ""}`
     );
     const body = encodeURIComponent(
       [
         `${t("mailName")}: ${nameValue}`,
         `${t("mailEmail")}: ${emailValue}`,
-        `${t("mailInterest")}: ${selected.join(", ") || "—"}`,
+        `${t("mailInterest")}: ${selected.join(", ") || "·"}`,
         "",
         message,
       ].join("\n")
     );
+    // mailto açıldı — başarı mail istemcisine bağlı; yine de onay göster
     window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
     setStatus("sent");
   }
@@ -76,7 +82,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="cv-auto scroll-mt-[var(--nav-offset)] bg-band px-5 py-20 text-band-fg md:px-10 md:py-28"
+      className="scroll-mt-[var(--nav-offset)] bg-band px-5 pb-[calc(6.5rem+var(--safe-bottom))] pt-20 text-band-fg md:px-10 md:pb-28 md:pt-28"
     >
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <Reveal>
@@ -119,15 +125,17 @@ export default function Contact() {
                 <CurvedInput
                   name="name"
                   type="text"
+                  required
                   value={name}
                   onChange={setName}
                   placeholder={t("name")}
                   ariaLabel={t("name")}
                   autoComplete="name"
+                  autoCapitalize="words"
                   width="100%"
                   bend={22}
                   height={56}
-                  fontSize={15}
+                  fontSize={16}
                   cornerRadius={16}
                   shadowSize="sm"
                   showButton={false}
@@ -151,7 +159,7 @@ export default function Contact() {
                   width="100%"
                   bend={22}
                   height={56}
-                  fontSize={15}
+                  fontSize={16}
                   cornerRadius={16}
                   shadowSize="sm"
                   showButton={false}
@@ -172,10 +180,10 @@ export default function Contact() {
                       key={`${locale}-${i}`}
                       type="button"
                       onClick={() => toggleInterest(label)}
-                      className={`inline-flex min-h-9 items-center rounded-full px-3.5 py-2 text-xs font-semibold transition-colors ${
+                      className={`inline-flex min-h-11 items-center rounded-full px-3.5 py-2.5 text-[13px] font-semibold transition-colors ${
                         checked
                           ? "bg-lime text-on-lime"
-                          : "border border-band-fg/15 text-band-fg/70 hover:border-band-fg/40"
+                          : "border border-band-fg/15 text-band-fg/70 [@media(hover:hover)_and_(pointer:fine)]:hover:border-band-fg/40"
                       }`}
                     >
                       {label}
@@ -192,8 +200,10 @@ export default function Contact() {
               <textarea
                 name="message"
                 rows={4}
+                required
+                minLength={8}
                 placeholder={t("message")}
-                className="w-full resize-y rounded-xl border border-band-fg/10 bg-band-fg/5 px-4 py-3 text-sm outline-none transition focus:border-lime/60"
+                className="w-full resize-y rounded-xl border border-band-fg/10 bg-band-fg/5 px-4 py-3 text-base outline-none transition focus:border-lime/60"
               />
             </label>
 

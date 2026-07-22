@@ -8,7 +8,7 @@ import {
   useSyncExternalStore,
   type ReactNode,
 } from "react";
-import { ScrollTrigger } from "@/lib/gsap";
+import { scheduleScrollTriggerRefresh } from "@/lib/nav-scroll";
 
 export type Theme = "light" | "dark";
 
@@ -81,7 +81,7 @@ function applyTheme(theme: Theme, opts?: { immediateColorScheme?: boolean }) {
   if (refreshTimer) clearTimeout(refreshTimer);
   refreshTimer = setTimeout(() => {
     refreshTimer = null;
-    ScrollTrigger.refresh();
+    scheduleScrollTriggerRefresh(0);
   }, 120);
 }
 

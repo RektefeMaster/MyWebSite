@@ -451,14 +451,14 @@
     "titleLine2": "Başlayalım.",
     "blurb": "Yeni site, panel, otomasyon veya AI aracı. Kısa bir not yeter. Net bir sonraki adımla dönerim.",
     "name": "İsim",
-    "email": "E posta",
+    "email": "E-posta",
     "interestedIn": "İlgilendiğiniz alan",
     "message": "Hedefiniz ve zamanınız hakkında birkaç satır",
-    "send": "Projemi başlat",
+    "send": "Gönder",
     "sentHint": "Eposta uygulamanız açılıyor. Genelde bir gün içinde dönerim.",
     "mailSubject": "Proje talebi",
     "mailName": "İsim",
-    "mailEmail": "E posta",
+    "mailEmail": "E-posta",
     "mailInterest": "İlgi alanı",
     "interests": [
       "Başlangıç web sitesi",
@@ -473,7 +473,7 @@
       "Diğer"
     ],
     "response": "Genelde bir gün içinde dönerim. Acilse WhatsApp daha hızlıdır.",
-    "emailCta": "Eposta aç"
+    "emailCta": "E-postayı aç"
   },
   "footer": {
     "tagline": "Özgün tasarım. Sağlam yazılım. Ölçülebilir sonuç.",

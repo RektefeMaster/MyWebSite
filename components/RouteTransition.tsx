@@ -4,12 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import { useLocale } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
 import MetekLoader from "@/components/MetekLoader";
-import { ScrollTrigger } from "@/lib/gsap";
+import { scheduleScrollTriggerRefresh } from "@/lib/nav-scroll";
 
 /** Hızlı geçişlerde perde yok — sadece bu süre aşılırsa göster */
 const SHOW_AFTER_MS = 520;
-const MIN_VISIBLE_MS = 300;
-const MAX_VISIBLE_MS = 2200;
+const MIN_VISIBLE_MS = 280;
+const MAX_VISIBLE_MS = 1600;
 
 function introPlaying() {
   return document.documentElement.dataset.intro === "play";
@@ -40,6 +40,7 @@ function isInternalPageNav(anchor: HTMLAnchorElement): boolean {
   try {
     const url = new URL(href, window.location.href);
     if (url.origin !== window.location.origin) return false;
+    // Aynı path (hash farkı dahil) → perde yok; SmoothScroll halleder
     if (
       url.pathname === window.location.pathname &&
       url.search === window.location.search
@@ -53,14 +54,11 @@ function isInternalPageNav(anchor: HTMLAnchorElement): boolean {
 }
 
 /**
- * Yalnızca yavaş / takılan soft-nav ve geri dönüşlerde markalı perde.
- * ~520ms içinde sayfa oturursa hiç görünmez.
+ * Yalnızca yavaş soft-nav / geri tuşunda markalı perde.
+ * Hızlı tıklamada eski settle yeni nav’ı bozmaz (yerel armId).
  */
 export default function RouteTransition() {
   const pathname = usePathname();
-  // next-intl usePathname() locale'siz döner (/ ↔ /tr için hep "/"). Dil değişince
-  // pathname sabit kaldığından perde settle edilemez ve MAX_VISIBLE_MS'e kadar asılı
-  // kalırdı — locale'i de izleyerek dil geçişinde de perdeyi düzgün kapatıyoruz.
   const locale = useLocale();
   const [active, setActive] = useState(false);
   const pending = useRef(false);
@@ -69,13 +67,16 @@ export default function RouteTransition() {
   const hideTimer = useRef(0);
   const maxTimer = useRef(0);
   const pathBoot = useRef(true);
+  const armId = useRef(0);
 
-  const reveal = () => {
+  const reveal = (id: number) => {
+    if (id !== armId.current) return;
     if (!pending.current || introPlaying()) return;
     window.clearTimeout(maxTimer.current);
     shownAt.current = performance.now();
     setActive(true);
     maxTimer.current = window.setTimeout(() => {
+      if (id !== armId.current) return;
       pending.current = false;
       shownAt.current = 0;
       setActive(false);
@@ -84,21 +85,33 @@ export default function RouteTransition() {
 
   const arm = () => {
     if (introPlaying()) return;
+    const id = ++armId.current;
     pending.current = true;
     window.clearTimeout(showTimer.current);
     window.clearTimeout(hideTimer.current);
-    // Zaten görünürse yeniden arm etme — sadece pending tut
-    if (shownAt.current) return;
-    showTimer.current = window.setTimeout(reveal, SHOW_AFTER_MS);
+    window.clearTimeout(maxTimer.current);
+
+    if (shownAt.current) {
+      maxTimer.current = window.setTimeout(() => {
+        if (id !== armId.current) return;
+        pending.current = false;
+        shownAt.current = 0;
+        setActive(false);
+      }, MAX_VISIBLE_MS);
+      return;
+    }
+
+    showTimer.current = window.setTimeout(() => reveal(id), SHOW_AFTER_MS);
   };
 
   const settle = () => {
+    const id = armId.current;
     pending.current = false;
     window.clearTimeout(showTimer.current);
     window.clearTimeout(maxTimer.current);
 
     if (!shownAt.current) {
-      // Hiç gösterilmedi → sessizce bit
+      scheduleScrollTriggerRefresh(180);
       return;
     }
 
@@ -106,13 +119,10 @@ export default function RouteTransition() {
     const wait = Math.max(0, MIN_VISIBLE_MS - elapsed);
     window.clearTimeout(hideTimer.current);
     hideTimer.current = window.setTimeout(() => {
+      if (id !== armId.current || pending.current) return;
       shownAt.current = 0;
       setActive(false);
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          ScrollTrigger.refresh();
-        });
-      });
+      scheduleScrollTriggerRefresh(120);
     }, wait);
   };
 
@@ -164,7 +174,7 @@ export default function RouteTransition() {
 
   return (
     <div
-      className="route-loader"
+      className="route-loader route-loader--blocking"
       role="presentation"
       aria-busy="true"
       aria-hidden={false}

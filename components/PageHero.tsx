@@ -44,15 +44,15 @@ export default function PageHero({
 
       gsap.fromTo(
         nodes,
-        { opacity: 0, y: 22 },
+        { opacity: 0, y: 16 },
         {
           opacity: 1,
           y: 0,
-          stagger: 0.08,
-          duration: 0.7,
+          stagger: 0.05,
+          duration: 0.45,
           ease: "power2.out",
-          delay: 0.12,
-          overwrite: true,
+          delay: 0.04,
+          overwrite: "auto",
           onComplete: () => {
             gsap.set(nodes, { clearProps: "opacity,transform" });
           },
@@ -87,6 +87,7 @@ export default function PageHero({
                 {i > 0 && <span className="text-foreground/25">/</span>}
                 {c.href ? (
                   <Link
+        scroll={false}
                     href={c.href}
                     className="transition-colors hover:text-ink"
                   >

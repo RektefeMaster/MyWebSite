@@ -10,6 +10,7 @@ import WordReveal from "./WordReveal";
 import Magnetic from "./Magnetic";
 import SpecularButton from "./SpecularButton";
 import { gsap, useGSAP, attachScrollReveal } from "@/lib/gsap";
+import { scheduleScrollTriggerRefresh } from "@/lib/nav-scroll";
 
 /** Ana sayfa: canlı web siteleri (bot/CRM/CSS ürünlerinin üstünde) */
 const TEASER_COUNT = projects.findIndex((p) => !p.url);
@@ -82,13 +83,14 @@ export default function Projects({ variant = "full" }: ProjectsProps) {
           { opacity: 0, y: 40, scale: 0.94 },
           { opacity: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.06 }
         ),
+      onComplete: () => scheduleScrollTriggerRefresh(80),
     });
   }
 
   return (
     <section
       id="projects"
-      className="cv-auto scroll-mt-[var(--nav-offset)] bg-background px-5 py-16 md:px-10 md:py-24"
+      className="scroll-mt-[var(--nav-offset)] bg-background px-5 py-16 md:px-10 md:py-24"
     >
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 grid items-end gap-6 md:grid-cols-[1fr_1.2fr] md:gap-12">
