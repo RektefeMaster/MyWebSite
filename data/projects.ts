@@ -5,6 +5,10 @@ export type Project = {
   url?: string;
   desktopImage?: string;
   mobileImage?: string;
+  /** Hover’da kaydırılan uzun masaüstü ekran görüntüsü */
+  desktopScrollImage?: string;
+  /** Hover’da kaydırılan uzun mobil ekran görüntüsü */
+  mobileScrollImage?: string;
 };
 
 export const projects: Project[] = [
@@ -15,6 +19,8 @@ export const projects: Project[] = [
     url: "https://websites-production-4b1d.up.railway.app/",
     desktopImage: "/projects/wcc/desktop.jpg",
     mobileImage: "/projects/wcc/mobile.jpg",
+    desktopScrollImage: "/projects/wcc/desktop-scroll.jpg",
+    mobileScrollImage: "/projects/wcc/mobile-scroll.jpg",
   },
   {
     id: "aydnnacar",
@@ -23,6 +29,8 @@ export const projects: Project[] = [
     url: "https://ayd-nnacar.vercel.app/",
     desktopImage: "/projects/aydnnacar/desktop.jpg",
     mobileImage: "/projects/aydnnacar/mobile.jpg",
+    desktopScrollImage: "/projects/aydnnacar/desktop-scroll.jpg",
+    mobileScrollImage: "/projects/aydnnacar/mobile-scroll.jpg",
   },
   {
     id: "wuffbutik",
@@ -31,6 +39,8 @@ export const projects: Project[] = [
     url: "https://wuffbutik.vercel.app/",
     desktopImage: "/projects/wuffbutik/desktop.jpg",
     mobileImage: "/projects/wuffbutik/mobile.jpg",
+    desktopScrollImage: "/projects/wuffbutik/desktop-scroll.jpg",
+    mobileScrollImage: "/projects/wuffbutik/mobile-scroll.jpg",
   },
   {
     id: "altitude-residence",
@@ -39,6 +49,8 @@ export const projects: Project[] = [
     url: "https://altitude-residence.vercel.app/",
     desktopImage: "/projects/altitude-residence/desktop.jpg",
     mobileImage: "/projects/altitude-residence/mobile.jpg",
+    desktopScrollImage: "/projects/altitude-residence/desktop-scroll.jpg",
+    mobileScrollImage: "/projects/altitude-residence/mobile-scroll.jpg",
   },
   {
     id: "casa-aurelia",
@@ -47,6 +59,8 @@ export const projects: Project[] = [
     url: "https://casa-aurelia-jet.vercel.app/",
     desktopImage: "/projects/casa-aurelia/desktop.jpg",
     mobileImage: "/projects/casa-aurelia/mobile.jpg",
+    desktopScrollImage: "/projects/casa-aurelia/desktop-scroll.jpg",
+    mobileScrollImage: "/projects/casa-aurelia/mobile-scroll.jpg",
   },
   {
     id: "seraphine-atelier",
@@ -55,6 +69,8 @@ export const projects: Project[] = [
     url: "https://seraphine-atelier.vercel.app/",
     desktopImage: "/projects/seraphine-atelier/desktop.jpg",
     mobileImage: "/projects/seraphine-atelier/mobile.jpg",
+    desktopScrollImage: "/projects/seraphine-atelier/desktop-scroll.jpg",
+    mobileScrollImage: "/projects/seraphine-atelier/mobile-scroll.jpg",
   },
   {
     id: "havva-baklava",
@@ -63,6 +79,8 @@ export const projects: Project[] = [
     url: "https://baklavac-site.vercel.app/",
     desktopImage: "/projects/havva-baklava/desktop-air.jpg",
     mobileImage: "/projects/havva-baklava/mobile-clear.jpg",
+    desktopScrollImage: "/projects/havva-baklava/desktop-scroll.jpg",
+    mobileScrollImage: "/projects/havva-baklava/mobile-scroll.jpg",
   },
   {
     id: "whatsapp-bot",

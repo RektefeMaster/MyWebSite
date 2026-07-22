@@ -24,9 +24,14 @@
       "heroLabel": "Manifest",
       "heroTitle": "Eigenständige digitale Erlebnisse.",
       "heroBlurb": "Design, Software und Technologie in einem System.",
-      "ctaLabel": "Nächster Schritt",
+      "ctaLabel": "Hier starten",
       "ctaTitle": "Haben Sie ein Projekt im Kopf?",
-      "ctaBlurb": "Skizzieren Sie Ziel und Zeitraum — innerhalb eines Tages erhalten Sie einen klaren Plan.",
+      "ctaTitles": [
+        "Haben Sie ein Projekt im Kopf?",
+        "Design, das geliefert wird?",
+        "Bereit für Arbeit, die hält?"
+      ],
+      "ctaBlurb": "Ziel und Zeitraum skizzieren. Innerhalb eines Tages: klarer Plan — Umfang, Weg und nächster Schritt.",
       "ctaButton": "Termin vereinbaren"
     },
     "approach": {
@@ -400,14 +405,15 @@
     "items": []
   },
   "clients": {
-    "label": "Leistungen",
-    "names": [
-      "Webdesign",
+    "label": "Was ich baue",
+    "lead": "Ich entwerfe & liefere",
+    "rotating": [
+      "Websites",
       "Software",
-      "KI",
-      "Automatisierung",
+      "KI-Produkte",
+      "Automationen",
       "Admin-Panels",
-      "Performance"
+      "Markensysteme"
     ]
   },
   "stats": {

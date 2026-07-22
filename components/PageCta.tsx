@@ -1,19 +1,32 @@
 "use client";
 
-import { Link } from "@/i18n/navigation";
 import Reveal from "./Reveal";
 import Magnetic from "./Magnetic";
 import WhatsAppButton from "./WhatsAppButton";
+import TextType from "./TextType";
+import SpecularButton from "./SpecularButton";
 
 type PageCtaProps = {
   label: string;
   title: string;
+  /** Varsa başlık TextType ile döner; yoksa statik `title` */
+  titles?: string[];
   blurb: string;
   cta: string;
 };
 
+const TYPE_SPEED = { min: 40, max: 75 } as const;
+
 /** Detay sayfası sonu — net birincil aksiyon */
-export default function PageCta({ label, title, blurb, cta }: PageCtaProps) {
+export default function PageCta({
+  label,
+  title,
+  titles,
+  blurb,
+  cta,
+}: PageCtaProps) {
+  const typed = Boolean(titles && titles.length > 0);
+
   return (
     <section className="px-5 py-14 md:px-10 md:py-20">
       <Reveal>
@@ -31,8 +44,27 @@ export default function PageCta({ label, title, blurb, cta }: PageCtaProps) {
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-band-fg/40">
               {label}
             </p>
-            <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-              {title}
+            <h2 className="min-h-[2.6em] text-3xl font-bold tracking-tight md:min-h-[2.4em] md:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+              {typed ? (
+                <>
+                  <span className="sr-only">{title}</span>
+                  <TextType
+                    text={titles!}
+                    typingSpeed={55}
+                    deletingSpeed={28}
+                    pauseDuration={2200}
+                    initialDelay={200}
+                    startOnVisible
+                    variableSpeed={TYPE_SPEED}
+                    cursorCharacter="|"
+                    cursorClassName="text-lime"
+                    className="text-band-fg"
+                    aria-hidden
+                  />
+                </>
+              ) : (
+                title
+              )}
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-band-fg/55 md:text-[15px]">
               {blurb}
@@ -41,13 +73,16 @@ export default function PageCta({ label, title, blurb, cta }: PageCtaProps) {
 
           <div className="relative flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
             <Magnetic strength={0.3} className="w-full sm:w-auto">
-              <Link
+              <SpecularButton
                 href={{ pathname: "/", hash: "contact" }}
-                className="btn-sheen btn-stable btn-stable--cta inline-flex w-full min-h-12 gap-2 rounded-full bg-lime px-8 py-4 text-sm font-bold text-on-lime transition-transform duration-200 hover:scale-[1.02] sm:w-auto"
+                tone="lime"
+                size="lg"
+                fillMobile
+                className="btn-stable btn-stable--cta"
               >
                 {cta}
                 <span aria-hidden>→</span>
-              </Link>
+              </SpecularButton>
             </Magnetic>
             <WhatsAppButton
               variant="outlineOnDark"

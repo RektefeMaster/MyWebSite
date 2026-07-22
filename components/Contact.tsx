@@ -7,6 +7,7 @@ import Magnetic from "./Magnetic";
 import dynamic from "next/dynamic";
 import WhatsAppButton from "./WhatsAppButton";
 import { SITE } from "@/lib/site";
+import SpecularButton from "./SpecularButton";
 
 const CurvedInput = dynamic(() => import("./CurvedInput"));
 
@@ -197,12 +198,14 @@ export default function Contact() {
             </label>
 
             <Magnetic strength={0.25} className="mt-6 block">
-              <button
+              <SpecularButton
                 type="submit"
-                className="btn-sheen w-full min-h-12 rounded-full bg-lime py-3.5 text-sm font-bold text-on-lime transition-transform active:scale-[0.99]"
+                tone="lime"
+                size="lg"
+                className="w-full"
               >
                 {t("send")}
-              </button>
+              </SpecularButton>
             </Magnetic>
 
             {status === "sent" && (

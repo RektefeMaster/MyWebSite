@@ -24,9 +24,14 @@
       "heroLabel": "Manifesto",
       "heroTitle": "Özgün dijital deneyimler.",
       "heroBlurb": "Tasarım, yazılım ve teknolojiyi tek sistemde birleştiriyoruz.",
-      "ctaLabel": "Birlikte başlayalım",
-      "ctaTitle": "Projenizi konuşalım — bir mesaj yeter.",
-      "ctaBlurb": "Hedefinizi ve ihtiyacınızı yazın; 24 saat içinde net bir yol haritası çıkarayım.",
+      "ctaLabel": "Buradan başlayın",
+      "ctaTitle": "Projeniz aklınızda mı?",
+      "ctaTitles": [
+        "Projeniz aklınızda mı?",
+        "Teslim eden tasarım mı lazım?",
+        "Kalıcı işe hazır mısınız?"
+      ],
+      "ctaBlurb": "Hedefi ve zamanı yazın. Bir gün içinde net plan gelir — kapsam, yol ve sonraki adım.",
       "ctaButton": "Görüşme al"
     },
     "approach": {
@@ -400,14 +405,15 @@
     "items": []
   },
   "clients": {
-    "label": "Hizmetler",
-    "names": [
-      "Web tasarım",
-      "Yazılım",
-      "Yapay zekâ",
-      "Otomasyon",
-      "Yönetim paneli",
-      "Performans"
+    "label": "Ne yapıyorum",
+    "lead": "Tasarlayıp teslim ettiğim",
+    "rotating": [
+      "web siteleri",
+      "yazılımlar",
+      "yapay zekâ",
+      "otomasyonlar",
+      "yönetim panelleri",
+      "marka sistemleri"
     ]
   },
   "stats": {

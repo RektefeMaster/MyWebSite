@@ -1,11 +1,11 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { preload } from "react-dom";
-import { Link } from "@/i18n/navigation";
 import Magnetic from "./Magnetic";
+import SpecularButton from "./SpecularButton";
 import { gsap, useGSAP } from "@/lib/gsap";
 
 /** Chunk'ı erken çek — intro ısınmasında mount anında hazır olsun */
@@ -21,24 +21,38 @@ const HeroScene = dynamic(loadHeroScene, {
   ),
 });
 
+function getIntroSkip() {
+  return document.documentElement.dataset.intro !== "play";
+}
+
+function subscribeIntroSkip(onStoreChange: () => void) {
+  const root = document.documentElement;
+  const obs = new MutationObserver(onStoreChange);
+  obs.observe(root, { attributes: true, attributeFilter: ["data-intro"] });
+  return () => obs.disconnect();
+}
+
 export default function Hero({ parked = false }: { parked?: boolean }) {
   const t = useTranslations("hero");
   const locale = useLocale();
   const sectionRef = useRef<HTMLElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
   const cueRef = useRef<HTMLAnchorElement>(null);
-  const [active, setActive] = useState(true);
   /** Parked iken sahne kapalı; görünürken IntersectionObserver yönetir */
-  const sceneActive = !parked && active;
+  const [inView, setInView] = useState(true);
+  const sceneActive = !parked && inView;
+  const mountedAt = useRef(0);
   /**
    * Intro oynarken WebGL'i ertele (GPU yarışı yok).
-   * İlk state her zaman false — SSR/client hydrate eşleşsin (React #418).
-   * Keep-alive sonrası park/çözülmede WebGL zaten mount; useLayoutEffect no-op.
+   * data-intro / warm event / failsafe ile mount.
    */
-  const [sceneMounted, setSceneMounted] = useState(false);
-  const mountedAt = useRef(
-    typeof performance !== "undefined" ? performance.now() : 0
+  const introSkip = useSyncExternalStore(
+    subscribeIntroSkip,
+    getIntroSkip,
+    () => false
   );
+  const [warmMount, setWarmMount] = useState(false);
+  const sceneMounted = introSkip || warmMount;
 
   // 3D başlık — tam Türkçe glif desteği
   preload("/fonts/SpaceGrotesk-Bold.ttf", {
@@ -47,24 +61,31 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
     crossOrigin: "anonymous",
   });
 
-  useLayoutEffect(() => {
-    mountedAt.current = performance.now();
-    if (document.documentElement.dataset.intro !== "play") {
-      setSceneMounted(true);
-    }
-  }, []);
+  useEffect(() => {
+    if (introSkip || warmMount) return;
+    const mount = () => setWarmMount(true);
+    window.addEventListener("metek:hero-warm", mount);
+    const failsafe = window.setTimeout(mount, 3200);
+    return () => {
+      window.removeEventListener("metek:hero-warm", mount);
+      window.clearTimeout(failsafe);
+    };
+  }, [introSkip, warmMount]);
 
   useEffect(() => {
-    if (parked) {
-      setActive(false);
-      return;
-    }
-    // Park'tan dönüş: hemen aktif — IO gecikmesi boş frame üretmesin
-    setActive(true);
-    mountedAt.current = performance.now();
+    if (parked) return;
+
+    // Park'tan dönüş: bir sonraki frame'de aktif — IO gecikmesi boş frame üretmesin
+    const resume = requestAnimationFrame(() => {
+      mountedAt.current = performance.now();
+      setInView(true);
+    });
 
     const el = sectionRef.current;
-    if (!el) return;
+    if (!el) {
+      return () => cancelAnimationFrame(resume);
+    }
+
     // Soft-nav'da scroll henüz tepeye gelmeden IO "görünmüyor" deyip frameloop'u
     // kesmesin — ilk ~900ms grace ile active=true koru.
     const io = new IntersectionObserver(
@@ -72,39 +93,19 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
         if (!entry) return;
         const age = performance.now() - mountedAt.current;
         if (!entry.isIntersecting && age < 900) {
-          setActive(true);
+          setInView(true);
           return;
         }
-        setActive(entry.isIntersecting);
+        setInView(entry.isIntersecting);
       },
       { rootMargin: "25% 0px", threshold: 0.01 }
     );
     io.observe(el);
-    return () => io.disconnect();
-  }, [parked]);
-
-  useEffect(() => {
-    if (sceneMounted) return;
-    if (document.documentElement.dataset.intro !== "play") {
-      setSceneMounted(true);
-      return;
-    }
-
-    let cancelled = false;
-    let failsafe = 0;
-    const mount = () => {
-      if (!cancelled) setSceneMounted(true);
-    };
-    const onWarm = () => mount();
-    window.addEventListener("metek:hero-warm", onWarm);
-    failsafe = window.setTimeout(mount, 3200);
-
     return () => {
-      cancelled = true;
-      window.removeEventListener("metek:hero-warm", onWarm);
-      window.clearTimeout(failsafe);
+      cancelAnimationFrame(resume);
+      io.disconnect();
     };
-  }, [sceneMounted]);
+  }, [parked]);
 
   useGSAP(
     () => {
@@ -258,9 +259,12 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
             className="pointer-events-auto mt-4 flex w-full flex-col items-stretch gap-2 sm:w-auto sm:flex-row sm:items-center sm:justify-end sm:gap-2.5"
           >
             <Magnetic strength={0.28} className="w-full sm:w-auto">
-              <Link
+              <SpecularButton
                 href="/work"
-                className="btn-sheen btn-stable btn-stable--hero group inline-flex w-full min-h-11 gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-ink-fg touch-manipulation sm:w-auto sm:min-h-10"
+                tone="ink"
+                size="md"
+                fillMobile
+                className="btn-stable btn-stable--hero group"
               >
                 {t("ctaWork")}
                 <span
@@ -269,15 +273,18 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
                 >
                   →
                 </span>
-              </Link>
+              </SpecularButton>
             </Magnetic>
             <Magnetic strength={0.26} className="w-full sm:w-auto">
-              <Link
+              <SpecularButton
                 href={{ pathname: "/", hash: "contact" }}
-                className="btn-stable btn-stable--hero inline-flex w-full min-h-11 rounded-full border border-ink/15 bg-surface/75 px-5 py-2.5 text-sm font-bold text-ink backdrop-blur-sm touch-manipulation sm:w-auto sm:min-h-10"
+                tone="lime"
+                size="md"
+                fillMobile
+                className="btn-stable btn-stable--hero"
               >
                 {t("ctaContact")}
-              </Link>
+              </SpecularButton>
             </Magnetic>
           </div>
         </div>

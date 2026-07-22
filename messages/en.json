@@ -24,9 +24,14 @@
       "heroLabel": "Manifesto",
       "heroTitle": "Original digital experiences.",
       "heroBlurb": "Design, software, and technology in one system.",
-      "ctaLabel": "Next step",
+      "ctaLabel": "Start here",
       "ctaTitle": "Got a project in mind?",
-      "ctaBlurb": "Tell me what you're building and when you need it. I'll reply within a day with a clear plan.",
+      "ctaTitles": [
+        "Got a project in mind?",
+        "Need design that ships?",
+        "Ready for work that lasts?"
+      ],
+      "ctaBlurb": "Share the goal and timing. Within a day you get a clear plan — scope, path, and next step.",
       "ctaButton": "Book a call"
     },
     "approach": {
@@ -400,14 +405,15 @@
     "items": []
   },
   "clients": {
-    "label": "Services",
-    "names": [
-      "Web design",
-      "Software",
-      "AI",
-      "Automation",
-      "Admin panels",
-      "Performance"
+    "label": "What I do",
+    "lead": "I design & ship",
+    "rotating": [
+      "websites",
+      "software",
+      "AI products",
+      "automations",
+      "admin panels",
+      "brand systems"
     ]
   },
   "stats": {

@@ -63,6 +63,8 @@ function GradientBackground({
   }, [lite, dark, palette.bot, palette.mid, palette.top]);
 
   useEffect(() => {
+    // Three.js / R3F: scene mutasyonu kasıtlı (immutable hook değeri değil)
+    // eslint-disable-next-line react-hooks/immutability -- R3F scene.background
     scene.background = texture;
     gl.setClearColor(palette.mid, 1);
     invalidate();
@@ -249,6 +251,7 @@ function InvalidateOn({ dep }: { dep: string }) {
 function ThemeExposure({ dark }: { dark: boolean }) {
   const { gl, invalidate } = useThree();
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/immutability -- R3F WebGLRenderer
     gl.toneMappingExposure = dark ? 1.02 : 1.08;
     invalidate();
   }, [dark, gl, invalidate]);

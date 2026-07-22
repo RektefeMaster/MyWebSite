@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import Reveal from "./Reveal";
 import Magnetic from "./Magnetic";
+import SpecularButton from "./SpecularButton";
 
 const FEATURED_SHOTS = [
   {
@@ -67,15 +68,17 @@ export default function FeaturedCase() {
 
           <Reveal delay={160}>
             <Magnetic strength={0.3} className="mt-10 inline-block">
-              <a
-                href="#projects"
-                className="btn-stable btn-stable--chip inline-flex gap-2 rounded-full bg-ink px-6 py-3 text-sm font-bold text-ink-fg"
+              <SpecularButton
+                href={{ pathname: "/", hash: "projects" }}
+                tone="ink"
+                size="md"
+                className="btn-stable btn-stable--chip"
               >
                 {t("cta")}
                 <span aria-hidden className="text-lime">
                   →
                 </span>
-              </a>
+              </SpecularButton>
             </Magnetic>
           </Reveal>
         </div>

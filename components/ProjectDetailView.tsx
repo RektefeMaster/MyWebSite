@@ -6,6 +6,7 @@ import type { ProjectDetail } from "@/data/project-details";
 import Reveal from "./Reveal";
 import Magnetic from "./Magnetic";
 import WhatsAppButton from "./WhatsAppButton";
+import SpecularButton from "./SpecularButton";
 import DeviceMockup from "./DeviceMockup";
 import PageCta from "./PageCta";
 import { forDisplay } from "@/lib/typography";
@@ -69,26 +70,28 @@ export default async function ProjectDetailView({
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
               {project.url ? (
                 <Magnetic strength={0.25} className="w-full sm:w-auto">
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex w-full min-h-12 items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-bold text-ink-fg sm:w-auto"
+                  <SpecularButton
+                    externalHref={project.url}
+                    tone="ink"
+                    size="md"
+                    fillMobile
                   >
                     {t("live")}
                     <span aria-hidden>↗</span>
-                  </a>
+                  </SpecularButton>
                 </Magnetic>
               ) : null}
               {hasCta ? (
                 <Magnetic strength={0.25} className="w-full sm:w-auto">
-                  <Link
+                  <SpecularButton
                     href={{ pathname: "/", hash: "contact" }}
-                    className="inline-flex w-full min-h-12 items-center justify-center gap-2 rounded-full bg-lime px-6 py-3 text-sm font-bold text-on-lime sm:w-auto"
+                    tone="lime"
+                    size="md"
+                    fillMobile
                   >
                     {detail.ctaButton}
                     <span aria-hidden>→</span>
-                  </Link>
+                  </SpecularButton>
                 </Magnetic>
               ) : (
                 <WhatsAppButton className="w-full justify-center sm:w-auto" />

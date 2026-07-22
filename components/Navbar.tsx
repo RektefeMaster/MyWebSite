@@ -8,6 +8,7 @@ import Magnetic from "./Magnetic";
 import Marquee from "./Marquee";
 import ThemeToggle from "./ThemeToggle";
 import WhatsAppButton from "./WhatsAppButton";
+import SpecularButton from "./SpecularButton";
 import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
 import { SITE } from "@/lib/site";
 
@@ -159,14 +160,16 @@ export default function Navbar() {
                 <WhatsAppButton variant="nav" />
               </Magnetic>
               <Magnetic strength={0.3}>
-                <Link
+                <SpecularButton
                   href={{ pathname: "/", hash: "contact" }}
+                  tone="lime"
+                  size="sm"
                   aria-label={t("cta")}
-                  className="btn-sheen btn-stable btn-stable--nav inline-flex min-h-10 rounded-full bg-lime px-3.5 py-2 text-xs font-bold text-on-lime md:min-h-0 md:px-5 md:py-2.5 md:text-sm"
+                  className="btn-stable btn-stable--nav"
                 >
                   <span className="sm:hidden">{t("ctaShort")}</span>
                   <span className="hidden sm:inline">{t("cta")}</span>
-                </Link>
+                </SpecularButton>
               </Magnetic>
             </div>
           </nav>

@@ -1,9 +1,9 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
 import Reveal from "./Reveal";
 import Magnetic from "./Magnetic";
+import SpecularButton from "./SpecularButton";
 
 /** Kapasite / açık slot — müşteriye aciliyet ve netlik */
 export default function Availability() {
@@ -37,12 +37,14 @@ export default function Availability() {
           <div className="relative z-10 flex flex-col items-start gap-4 md:items-end">
             <p className="font-mono text-sm text-band-fg/40">{t("slots")}</p>
             <Magnetic strength={0.35}>
-              <Link
+              <SpecularButton
                 href={{ pathname: "/", hash: "contact" }}
-                className="btn-sheen btn-stable btn-stable--chip inline-flex rounded-full bg-lime px-7 py-3.5 text-sm font-bold text-on-lime"
+                tone="lime"
+                size="md"
+                className="btn-stable btn-stable--chip"
               >
                 {t("cta")}
-              </Link>
+              </SpecularButton>
             </Magnetic>
           </div>
 

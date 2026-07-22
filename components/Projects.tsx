@@ -5,10 +5,10 @@ import { flushSync } from "react-dom";
 import { useTranslations } from "next-intl";
 import { projects } from "@/data/projects";
 import ProjectCard from "./ProjectCard";
-import { Link } from "@/i18n/navigation";
 import Reveal from "./Reveal";
 import WordReveal from "./WordReveal";
 import Magnetic from "./Magnetic";
+import SpecularButton from "./SpecularButton";
 import { gsap, useGSAP, attachScrollReveal } from "@/lib/gsap";
 
 /** Ana sayfa: canlı web siteleri (bot/CRM/CSS ürünlerinin üstünde) */
@@ -132,25 +132,29 @@ export default function Projects({ variant = "full" }: ProjectsProps) {
         {isTeaser ? (
           <div className="mt-12 flex justify-center">
             <Magnetic strength={0.35}>
-              <Link
+              <SpecularButton
                 href="/work"
-                className="btn-sheen btn-stable btn-stable--chip inline-flex rounded-full bg-ink px-8 py-3.5 text-sm font-bold text-ink-fg"
+                tone="ink"
+                size="md"
+                className="btn-stable btn-stable--chip"
               >
                 {t("seeCase")}
-              </Link>
+              </SpecularButton>
             </Magnetic>
           </div>
         ) : (
           visible < projects.length && (
             <div className="mt-12 flex justify-center">
               <Magnetic strength={0.35}>
-                <button
+                <SpecularButton
                   type="button"
+                  tone="lime"
+                  size="md"
                   onClick={loadMore}
-                  className="btn-stable btn-stable--chip inline-flex rounded-full bg-lime px-8 py-3.5 text-sm font-bold"
+                  className="btn-stable btn-stable--chip"
                 >
                   {t("loadMore")}
-                </button>
+                </SpecularButton>
               </Magnetic>
             </div>
           )

@@ -8,6 +8,7 @@ import { formatBlogDate } from "@/lib/blog-format";
 import Reveal from "./Reveal";
 import Magnetic from "./Magnetic";
 import WhatsAppButton from "./WhatsAppButton";
+import SpecularButton from "./SpecularButton";
 import { forDisplay } from "@/lib/typography";
 
 type BlogArticleViewProps = {
@@ -118,12 +119,15 @@ export default async function BlogArticleView({
             </p>
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
               <Magnetic strength={0.3} className="w-full sm:w-auto">
-                <Link
+                <SpecularButton
                   href={{ pathname: "/", hash: "contact" }}
-                  className="btn-stable btn-stable--cta inline-flex w-full min-h-12 rounded-full bg-ink px-6 py-3 text-sm font-bold text-ink-fg sm:w-auto"
+                  tone="ink"
+                  size="md"
+                  fillMobile
+                  className="btn-stable btn-stable--cta"
                 >
                   {t("articleCta")}
-                </Link>
+                </SpecularButton>
               </Magnetic>
               <WhatsAppButton
                 variant="outline"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { usePathname } from "@/i18n/navigation";
 import Hero from "@/components/Hero";
 
@@ -14,9 +14,10 @@ export default function HomeHeroKeepAlive() {
   const onHome = pathname === "/";
   const [kept, setKept] = useState(onHome);
 
-  useEffect(() => {
-    if (onHome) setKept(true);
-  }, [onHome]);
+  // Props’tan türetilen sticky state — effect içinde setState yok
+  if (onHome && !kept) {
+    setKept(true);
+  }
 
   if (!kept) return null;
 

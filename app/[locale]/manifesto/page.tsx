@@ -39,6 +39,7 @@ export default async function ManifestoPage({
       <PageCta
         label={t("ctaLabel")}
         title={t("ctaTitle")}
+        titles={t.raw("ctaTitles") as string[]}
         blurb={t("ctaBlurb")}
         cta={t("ctaButton")}
       />

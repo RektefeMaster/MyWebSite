@@ -1,29 +1,31 @@
+"use client";
+
 import Image from "next/image";
 import type { CSSProperties, ReactNode } from "react";
 import type { Project } from "@/data/projects";
 
 /**
- * Official Apple Product Bezel frames (via Monkr / Apple Design Resources).
- * Screen fractions measured from the PNG alpha cutout.
+ * Official Apple Product Bezel frames (transparent screen cutouts).
+ * Fractions measured from the PNG alpha hole.
  */
 const IPHONE = {
   frameSrc: "/devices/iphone-16-pro/natural-titanium.png",
   maskSrc: "/devices/iphone-16-pro/display.svg",
-  frameW: 1508,
-  frameH: 3279,
+  frameW: 900,
+  frameH: 1956,
   screen: {
-    left: 0.1008,
-    top: 0.10034,
-    width: 0.79907,
-    height: 0.79933,
+    left: 0.10111,
+    top: 0.10072,
+    width: 0.79889,
+    height: 0.79908,
     radius: "12.2%",
   },
 } as const;
 
 const MACBOOK = {
   frameSrc: "/devices/macbook-pro-16/silver.png",
-  frameW: 4893,
-  frameH: 3164,
+  frameW: 2400,
+  frameH: 1551,
   screen: {
     left: 0.16697,
     top: 0.16751,
@@ -33,39 +35,13 @@ const MACBOOK = {
   },
 } as const;
 
-function ScreenContent({
-  src,
-  alt,
+function PlaceholderScreen({
   colors,
   label,
-  sizes,
-  priority = false,
-  objectPosition = "object-top",
 }: {
-  src?: string;
-  alt: string;
   colors: [string, string];
   label: string;
-  sizes: string;
-  priority?: boolean;
-  objectPosition?: "object-top" | "object-center" | "object-bottom";
 }) {
-  if (src) {
-    return (
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        sizes={sizes}
-        quality={priority ? 92 : 85}
-        priority={priority}
-        loading={priority ? "eager" : "lazy"}
-        decoding="async"
-        className={`object-cover ${objectPosition}`}
-      />
-    );
-  }
-
   const [c1, c2] = colors;
   return (
     <div
@@ -87,6 +63,68 @@ function ScreenContent({
         <div className="aspect-square rounded-md bg-white/15" />
         <div className="aspect-square rounded-md bg-white/10" />
       </div>
+    </div>
+  );
+}
+
+/**
+ * Hover’da tam sayfa gibi kaydırır. Uzun screenshot gerekir;
+ * yoksa statik cover gösterilir.
+ */
+function ScreenContent({
+  src,
+  scrollSrc,
+  alt,
+  colors,
+  label,
+  sizes,
+  priority = false,
+  scroll = false,
+}: {
+  src?: string;
+  scrollSrc?: string;
+  alt: string;
+  colors: [string, string];
+  label: string;
+  sizes: string;
+  priority?: boolean;
+  scroll?: boolean;
+}) {
+  const scrollable = Boolean(scroll && scrollSrc);
+
+  if (!src && !scrollSrc) {
+    return <PlaceholderScreen colors={colors} label={label} />;
+  }
+
+  if (scrollable && scrollSrc) {
+    return (
+      <div className="device-screen-scroll absolute inset-0 bg-black">
+        {/* eslint-disable-next-line @next/next/no-img-element -- tall scroll strip; next/image fill kırpar */}
+        <img
+          src={scrollSrc}
+          alt={alt}
+          className="device-screen-scroll__img"
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          draggable={false}
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="absolute inset-0 bg-black">
+      <Image
+        src={src ?? scrollSrc!}
+        alt={alt}
+        fill
+        sizes={sizes}
+        quality={priority ? 92 : 85}
+        priority={priority}
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
+        className="object-cover object-top"
+      />
     </div>
   );
 }
@@ -158,7 +196,7 @@ function DeviceFrame({
           fill
           sizes={sizes}
           priority={priority}
-          quality={85}
+          quality={90}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
           draggable={false}
@@ -182,55 +220,61 @@ export default function DeviceMockup({
   priority = false,
 }: DeviceMockupProps) {
   const isHero = variant === "hero";
+  const canScroll = Boolean(project.desktopScrollImage);
 
   return (
     <div
-      className="relative h-full w-full"
+      className={`group/mock relative h-full w-full ${canScroll ? "device-mockup--scrollable" : ""}`}
       role="img"
       aria-label={project.name}
     >
-      {/* MacBook Pro 16" — official Apple product bezel */}
+      {/* MacBook — baskın düzlem */}
       <DeviceFrame
         {...MACBOOK}
         priority={priority}
         sizes={
           isHero
-            ? "(max-width: 768px) 90vw, 900px"
-            : "(max-width: 640px) 80vw, (max-width: 1024px) 42vw, 340px"
+            ? "(max-width: 768px) 92vw, 920px"
+            : "(max-width: 640px) 84vw, (max-width: 1024px) 44vw, 360px"
         }
         className={
           isHero
-            ? "absolute left-[4%] top-[4%] w-[76%] drop-shadow-[0_28px_50px_rgba(0,0,0,0.3)] md:left-[6%] md:top-[6%] md:w-[72%]"
-            : "absolute left-[2%] top-[2%] w-[80%] drop-shadow-[0_18px_34px_rgba(0,0,0,0.24)]"
+            ? "absolute left-[3%] top-[5%] w-[78%] drop-shadow-[0_28px_56px_rgba(0,0,0,0.28)] md:left-[5%] md:top-[7%] md:w-[74%]"
+            : "absolute left-[1%] top-[4%] w-[84%] drop-shadow-[0_20px_40px_rgba(0,0,0,0.22)]"
         }
       >
         <ScreenContent
           src={project.desktopImage}
+          scrollSrc={project.desktopScrollImage}
           alt={`${project.name} masaüstü`}
           colors={project.colors}
           label={project.name}
           priority={priority}
+          scroll
           sizes={
             isHero
-              ? "(max-width: 768px) 80vw, 720px"
-              : "(max-width: 640px) 70vw, (max-width: 1024px) 34vw, 280px"
+              ? "(max-width: 768px) 82vw, 740px"
+              : "(max-width: 640px) 72vw, (max-width: 1024px) 36vw, 300px"
           }
         />
       </DeviceFrame>
 
-      {/* iPhone 16 Pro — official Apple product bezel */}
+      {/*
+        iPhone — küçük kartta scroll koyu boşluklara düşüyor;
+        mobilde tek viewport (hero) daha net durur. Hafif eğim + net gölge.
+      */}
       <DeviceFrame
         {...IPHONE}
         priority={priority}
         sizes={
           isHero
-            ? "(max-width: 768px) 34vw, 260px"
-            : "(max-width: 640px) 34vw, 150px"
+            ? "(max-width: 768px) 34vw, 250px"
+            : "(max-width: 640px) 30vw, 124px"
         }
         className={
           isHero
-            ? "absolute right-[4%] bottom-[2%] z-20 w-[26%] max-w-[230px] drop-shadow-[0_22px_40px_rgba(0,0,0,0.4)] md:right-[6%] md:bottom-[3%] md:w-[24%] md:max-w-[250px]"
-            : "absolute right-[1%] bottom-[2%] z-20 w-[30%] max-w-[132px] drop-shadow-[0_16px_28px_rgba(0,0,0,0.32)]"
+            ? "absolute bottom-[2%] right-[2%] z-20 w-[25%] max-w-[220px] origin-bottom -rotate-[4deg] drop-shadow-[0_22px_40px_rgba(0,0,0,0.38)] md:right-[4%] md:bottom-[3%] md:w-[23%] md:max-w-[240px]"
+            : "absolute bottom-[1%] right-[1%] z-20 w-[26%] max-w-[124px] origin-bottom -rotate-[4deg] drop-shadow-[0_16px_28px_rgba(0,0,0,0.34)] sm:max-w-[134px]"
         }
       >
         <ScreenContent
@@ -239,11 +283,10 @@ export default function DeviceMockup({
           colors={project.colors}
           label={project.name.split(" ")[0] ?? project.name}
           priority={priority}
-          objectPosition="object-center"
           sizes={
             isHero
-              ? "(max-width: 768px) 30vw, 220px"
-              : "(max-width: 640px) 30vw, 130px"
+              ? "(max-width: 768px) 30vw, 210px"
+              : "(max-width: 640px) 26vw, 116px"
           }
         />
       </DeviceFrame>

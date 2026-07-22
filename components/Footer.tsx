@@ -1,25 +1,42 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import WhatsAppButton from "./WhatsAppButton";
+import CircularText from "./CircularText";
 import { SITE } from "@/lib/site";
 
 const EMAILS = [SITE.email, SITE.emailAlt] as const;
+const BRAND_RING = "METEK DIGITAL · ";
 
 export default function Footer() {
   const t = useTranslations("footer");
 
   return (
     <footer className="border-t border-foreground/10 bg-paper px-5 pb-[calc(5.5rem+var(--safe-bottom))] pt-14 md:px-10 md:pb-16 md:pt-16">
-      <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 md:grid-cols-[1.35fr_1fr_1fr_1fr]">
         <div>
           <Link
             href="/"
-            className="brand-mark inline-flex min-h-11 items-center text-4xl leading-none tracking-tight md:text-5xl"
+            className="group relative inline-block size-[9.5rem] text-foreground md:size-[11rem]"
             aria-label={SITE.brand}
           >
-            M<span className="text-lime">.</span>
+            <CircularText
+              text={BRAND_RING}
+              spinDuration={28}
+              onHover="slowDown"
+              className="absolute inset-0 opacity-70 transition-opacity group-hover:opacity-100"
+            />
+            {/* M harfinin kütle merkezi dairenin ortasında; nokta sağa taşar */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center"
+            >
+              <span className="brand-mark relative text-4xl leading-none tracking-tight md:text-5xl">
+                M
+                <span className="absolute left-[0.92em] top-[0.72em] size-[0.22em] rounded-full bg-lime md:top-[0.7em]" />
+              </span>
+            </span>
           </Link>
-          <p className="mt-3 text-sm font-bold text-ink">{t("brand")}</p>
+          <p className="mt-5 text-sm font-bold text-ink">{t("brand")}</p>
           <p className="mt-1 text-xs text-foreground/45">{t("founder")}</p>
           <p className="mt-4 max-w-xs text-sm text-foreground/45">{t("tagline")}</p>
         </div>

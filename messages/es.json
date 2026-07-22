@@ -24,9 +24,14 @@
       "heroLabel": "Manifiesto",
       "heroTitle": "Experiencias digitales originales.",
       "heroBlurb": "Diseño, software y tecnología en un solo sistema.",
-      "ctaLabel": "Empecemos",
-      "ctaTitle": "Hablemos de tu proyecto — un mensaje basta.",
-      "ctaBlurb": "Comparte el objetivo y lo que necesitas. En 24 horas tendrás una hoja de ruta clara.",
+      "ctaLabel": "Empieza aquí",
+      "ctaTitle": "¿Tienes un proyecto en mente?",
+      "ctaTitles": [
+        "¿Tienes un proyecto en mente?",
+        "¿Necesitas diseño que se entregue?",
+        "¿Listo para trabajo que dure?"
+      ],
+      "ctaBlurb": "Comparte el objetivo y el plazo. En un día tendrás un plan claro: alcance, ruta y siguiente paso.",
       "ctaButton": "Agendar"
     },
     "approach": {
@@ -400,14 +405,15 @@
     "items": []
   },
   "clients": {
-    "label": "Servicios",
-    "names": [
-      "Diseño web",
-      "Software",
-      "IA",
-      "Automatización",
-      "Paneles",
-      "Rendimiento"
+    "label": "Lo que hago",
+    "lead": "Diseño y entrego",
+    "rotating": [
+      "sitios web",
+      "software",
+      "productos IA",
+      "automatizaciones",
+      "paneles admin",
+      "sistemas de marca"
     ]
   },
   "stats": {

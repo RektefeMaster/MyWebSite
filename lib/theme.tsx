@@ -5,7 +5,7 @@ import {
   useCallback,
   useContext,
   useLayoutEffect,
-  useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 import { ScrollTrigger } from "@/lib/gsap";
@@ -13,6 +13,7 @@ import { ScrollTrigger } from "@/lib/gsap";
 export type Theme = "light" | "dark";
 
 const STORAGE_KEY = "metek-theme";
+const THEME_EVENT = "metek-theme";
 
 type ThemeContextValue = {
   theme: Theme;
@@ -33,12 +34,30 @@ function readStoredTheme(): Theme | null {
 }
 
 let refreshTimer: ReturnType<typeof setTimeout> | null = null;
+let colorSchemeTimer: ReturnType<typeof setTimeout> | null = null;
 
-function applyTheme(theme: Theme) {
+/** body/html background transition ile aynı — color-scheme erken
+ *  değişirse native scrollbar chrome anında tersine döner (siyah/beyaz titreme) */
+const THEME_TRANSITION_MS = 450;
+
+function applyTheme(theme: Theme, opts?: { immediateColorScheme?: boolean }) {
   const root = document.documentElement;
   root.classList.toggle("dark", theme === "dark");
-  root.style.colorScheme = theme;
   root.dataset.theme = theme;
+
+  if (colorSchemeTimer) clearTimeout(colorSchemeTimer);
+  const immediateScheme =
+    opts?.immediateColorScheme === true ||
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (immediateScheme) {
+    root.style.colorScheme = theme;
+  } else {
+    // CSS zemin geçişi bitsin, sonra UA chrome’u güncelle
+    colorSchemeTimer = setTimeout(() => {
+      colorSchemeTimer = null;
+      root.style.colorScheme = theme;
+    }, THEME_TRANSITION_MS);
+  }
 
   const meta = document.querySelector('meta[name="theme-color"]');
   if (meta) {
@@ -73,34 +92,55 @@ function themeFromDom(): Theme {
   return document.documentElement.classList.contains("dark") ? "dark" : "light";
 }
 
+function getThemeSnapshot(): Theme {
+  return (
+    readStoredTheme() ??
+    (window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light")
+  );
+}
+
+function subscribeTheme(onStoreChange: () => void) {
+  const onStorage = (e: StorageEvent) => {
+    if (e.key === STORAGE_KEY || e.key === null) onStoreChange();
+  };
+  const onCustom = () => onStoreChange();
+  const mq = window.matchMedia("(prefers-color-scheme: dark)");
+  const onSystem = () => {
+    if (readStoredTheme()) return;
+    onStoreChange();
+  };
+
+  window.addEventListener("storage", onStorage);
+  window.addEventListener(THEME_EVENT, onCustom);
+  mq.addEventListener("change", onSystem);
+  return () => {
+    window.removeEventListener("storage", onStorage);
+    window.removeEventListener(THEME_EVENT, onCustom);
+    mq.removeEventListener("change", onSystem);
+  };
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  // SSR ile aynı başlangıç; gerçek değer FOUC script + mount sonrası sync
-  const [theme, setThemeState] = useState<Theme>("light");
+  const theme = useSyncExternalStore(
+    subscribeTheme,
+    getThemeSnapshot,
+    () => "light" as Theme
+  );
 
   useLayoutEffect(() => {
-    const initial = readStoredTheme() ?? themeFromDom();
-    setThemeState(initial);
-    applyTheme(initial);
-
-    const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    const onSystem = (e: MediaQueryListEvent) => {
-      if (readStoredTheme()) return;
-      const next: Theme = e.matches ? "dark" : "light";
-      setThemeState(next);
-      applyTheme(next);
-    };
-    mq.addEventListener("change", onSystem);
-    return () => mq.removeEventListener("change", onSystem);
-  }, []);
+    applyTheme(theme, { immediateColorScheme: true });
+  }, [theme]);
 
   const setTheme = useCallback((next: Theme) => {
-    setThemeState(next);
-    applyTheme(next);
     try {
       localStorage.setItem(STORAGE_KEY, next);
     } catch {
       /* private mode */
     }
+    applyTheme(next);
+    window.dispatchEvent(new Event(THEME_EVENT));
   }, []);
 
   const toggleTheme = useCallback(() => {

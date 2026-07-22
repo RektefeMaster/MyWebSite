@@ -6,6 +6,7 @@ import { Link } from "@/i18n/navigation";
 import Reveal from "./Reveal";
 import WordReveal from "./WordReveal";
 import Magnetic from "./Magnetic";
+import SpecularButton from "./SpecularButton";
 import { gsap, useGSAP, ScrollTrigger, attachScrollReveal } from "@/lib/gsap";
 
 type ServiceItem = {
@@ -29,7 +30,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
   const openRef = useRef(0);
   const tweenRef = useRef<gsap.core.Timeline | null>(null);
 
-  const { contextSafe } = useGSAP(
+  useGSAP(
     () => {
       const list = listRef.current;
       if (!list) return;
@@ -63,7 +64,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
     { scope: listRef, dependencies: [items.length] }
   );
 
-  const toggle = contextSafe((i: number) => {
+  const toggle = (i: number) => {
     const next = openRef.current === i ? -1 : i;
     const prev = openRef.current;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -122,7 +123,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
         }
       }
     }
-  });
+  };
 
   return (
     <section
@@ -206,13 +207,15 @@ export default function Services({ variant = "full" }: ServicesProps) {
                         {item.description}
                       </p>
                       <Magnetic strength={0.32} className="mt-5 inline-block">
-                        <Link
+                        <SpecularButton
                           href={{ pathname: "/", hash: "contact" }}
-                          className="btn-stable btn-stable--chip inline-flex min-h-11 gap-2 rounded-full bg-lime px-5 py-2.5 text-sm font-bold text-on-lime transition-transform hover:scale-[1.02]"
+                          tone="lime"
+                          size="sm"
+                          className="btn-stable btn-stable--chip"
                         >
                           {t("cta")}
                           <span aria-hidden>→</span>
-                        </Link>
+                        </SpecularButton>
                       </Magnetic>
                     </div>
                     <div>
