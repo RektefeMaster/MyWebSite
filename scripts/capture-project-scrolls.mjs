@@ -32,6 +32,7 @@ const TARGETS = [
   { id: "havva-baklava", url: "https://baklavac-site.vercel.app/" },
   { id: "mizan", url: "https://mizan-ten-brown.vercel.app/" },
   { id: "sahra-butik", url: "https://sahrabutik.vercel.app/" },
+  { id: "vela-skin-atelier", url: "https://vela-skin-atelier.vercel.app/" },
 ];
 
 const DESKTOP = { width: 1440, height: 900 };

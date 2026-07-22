@@ -37,6 +37,11 @@ const sites = [
     url: "https://sahrabutik.vercel.app/",
     waitFor: "text=SAHRA",
   },
+  {
+    id: "vela-skin-atelier",
+    url: "https://vela-skin-atelier.vercel.app/",
+    waitFor: "text=VELA",
+  },
 ];
 
 async function hideChrome(page) {

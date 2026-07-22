@@ -492,6 +492,69 @@ const mizan = pack([
   },
 ]);
 
+const vela = pack([
+  {
+    src: "/projects/vela-skin-atelier/featured/01-hero.jpg",
+    span: HERO,
+    alt: {
+      tr: "VELA — SoHo skin atelier hero",
+      en: "VELA — SoHo skin atelier hero",
+      es: "VELA — hero skin atelier SoHo",
+      de: "VELA — SoHo Skin Atelier Hero",
+    },
+  },
+  {
+    src: "/projects/vela-skin-atelier/featured/02-philosophy.jpg",
+    span: HALF,
+    alt: {
+      tr: "VELA — observation first felsefe",
+      en: "VELA — observation first philosophy",
+      es: "VELA — filosofía observation first",
+      de: "VELA — Observation first Philosophie",
+    },
+  },
+  {
+    src: "/projects/vela-skin-atelier/featured/03-index.jpg",
+    span: HALF,
+    alt: {
+      tr: "VELA — Skin Index protokolleri",
+      en: "VELA — Skin Index treatments",
+      es: "VELA — tratamientos Skin Index",
+      de: "VELA — Skin Index Behandlungen",
+    },
+  },
+  {
+    src: "/projects/vela-skin-atelier/featured/04-reset.jpg",
+    span: MID,
+    alt: {
+      tr: "VELA — Reset ritüeli",
+      en: "VELA — Reset ritual",
+      es: "VELA — ritual Reset",
+      de: "VELA — Reset Ritual",
+    },
+  },
+  {
+    src: "/projects/vela-skin-atelier/featured/05-studio.jpg",
+    span: MID,
+    alt: {
+      tr: "VELA — tek danışanlı stüdyo",
+      en: "VELA — one client studio",
+      es: "VELA — estudio de un solo cliente",
+      de: "VELA — Ein Gast Studio",
+    },
+  },
+  {
+    src: "/projects/vela-skin-atelier/featured/06-book.jpg",
+    span: WIDE,
+    alt: {
+      tr: "VELA — consultation / randevu",
+      en: "VELA — consultation / booking",
+      es: "VELA — consultation / reserva",
+      de: "VELA — Consultation / Buchung",
+    },
+  },
+]);
+
 const sahra = pack([
   {
     src: "/projects/sahra-butik/featured/01-hero.jpg",
@@ -621,6 +684,7 @@ export const projectGalleries: Record<string, GalleryPack> = {
   "havva-baklava": havva,
   mizan,
   "sahra-butik": sahra,
+  "vela-skin-atelier": vela,
   "whatsapp-bot": whatsapp,
   "instagram-bot": instagram,
   crm,

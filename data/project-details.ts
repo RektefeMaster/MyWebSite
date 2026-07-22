@@ -226,6 +226,93 @@ export const projectDetails: ProjectDetailsByLocale = {
         "Ürün hikâyenizi, fiyat listenizi ve WhatsApp sipariş yolunu tek sinematik akışta kuralım. Kısa bir özetten sonra kapsam çıkarırım.",
       ctaButton: "Projemi başlat",
     },
+    mizan: {
+      tag: "Estetik klinik",
+      summary:
+        "Nişantaşı’nda gülüş mimarisi stüdyosu MİZAN için milimetrik, editoryal bir dijital vitrin kurduk. Yüzün dengesini tasarlarız vaadi; kapalı ifade, ışık ve açılış ritmiyle ilk ekranda kurulur. Protokoller, atölye ve ilk ölçü randevusuna net akan bir deneyim.",
+      whatTitle: "Ne yaptık?",
+      what: [
+        "Scroll ile ilerleyen gülüş filmi: kapalı ifade, ışık, açılış. yüzün cümlesini kare kare kurduk.",
+        "Denge, oran ve sessizlik manifesto’sunu editoryal tipografiyle felsefe katmanına taşıdık.",
+        "Protokol listesini klinik menü gibi değil, seçilmiş ritüeller olarak sunduk.",
+        "Nişantaşı atölyesini sessiz lüks tonunda mekân kareleriyle anlattık.",
+        "İlk ölçü / randevu CTA’sını dönüşüm noktası yaptık. soğuk form değil, konuşmaya davet.",
+        "Masaüstü ve mobilde bozulmayan, milimetrik hiyerarşi ve sakin animasyon dili.",
+      ],
+      howTitle: "Nasıl çalışıyor?",
+      how: [
+        "Ziyaretçi hero’da MİZAN vaadini hisseder; kaydırınca gülüşün mimarisini izler.",
+        "Felsefe ve protokoller markanın dilini kurar. iddia değil, ölçülebilir sakinlik.",
+        "Atölye bölümü güven ve mekân derinliği verir.",
+        "Randevu bandı ilk ölçü konuşmasına yönlendirir; satış yolu buradan akar.",
+      ],
+      stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
+      result:
+        "Canlı site: gülüş mimarisi algısı, editoryal derinlik ve net randevu yolu. Sessiz lüks ton masaüstünden mobile kadar tutarlı kalır.",
+      ctaLabel: "Sıradaki proje",
+      ctaTitle: "Estetik veya klinik markanız için böyle bir vitrin mi istiyorsunuz?",
+      ctaBlurb:
+        "Milimetrik tipografi, protokol hiyerarşisi ve randevuya net akan bir deneyim kuralım. Kısa bir özetten sonra kapsam çıkarırım.",
+      ctaButton: "Projemi başlat",
+    },
+    "sahra-butik": {
+      tag: "Butik web",
+      summary:
+        "Malatya’da Sahra Butik için lookbook odaklı bir kadın giyim vitrini kurduk. Günlükten tesettüre, spor çizgiden özel güne. parçayı lookbook’tan seç, mağazada dene; stok ve bedeni online sor.",
+      whatTitle: "Ne yaptık?",
+      what: [
+        "Malatya kadın giyim kimliğine uygun sakin tipografi ve editoryal hero.",
+        "Güncel modelleri kumaş, kalıp ve ruh haliyle gösteren lookbook grid’i.",
+        "Günlük, spor ve tesettür mood’larını ayrı bölümlerde netleştirdik.",
+        "Mağaza atmosferi ve stil kareleriyle fiziksel butiği dijitale taşıdık.",
+        "Stok / beden sorusu için iletişim bandını dönüşüm noktası yaptık.",
+        "Scroll bahçe / pin ritmiyle sayfaya nefes ve keşif hissi verdik.",
+      ],
+      howTitle: "Nasıl çalışıyor?",
+      how: [
+        "İlk ekran markayı ve Malatya konumunu tek kompozisyonda kurar.",
+        "Ziyaretçi lookbook’tan model seçer; mood’lara göre gezer.",
+        "Mağazada denemek veya stok sormak için iletişim adımına düşer.",
+        "İçerik lookbook üzerinden güncellenir; vitrin canlı kalır.",
+      ],
+      stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
+      result:
+        "Canlı site: lookbook ritmi, mağaza güveni ve online stok sorusu tek akışta. Yerel butik algısı mobilde de bozulmaz.",
+      ctaLabel: "Sıradaki proje",
+      ctaTitle: "Butik markanız için lookbook ve stok yolu mu istiyorsunuz?",
+      ctaBlurb:
+        "Lookbook, mağaza denemesi ve online stok sorusunu tek vitrinde kuralım. Kısa bir özetten sonra kapsam çıkarırım.",
+      ctaButton: "Projemi başlat",
+    },
+    "vela-skin-atelier": {
+      tag: "Skin atelier",
+      summary:
+        "SoHo New York’ta VELA Skin Atelier için sakin, klinik soğukluğu olmayan bir randevu vitrini kurduk. Your skin is not a fixed thing. Observation first yaklaşımı, tedavi indeksi ve tek danışanlı stüdyo ritmi tek kompozisyonda.",
+      whatTitle: "Ne yaptık?",
+      what: [
+        "Krem zemin, serif başlık ve terracotta vurguyla ilk ekranda atelier vaadini kurduk.",
+        "Philosophy katmanında “yüz düzeltmiyoruz, cildi destekliyoruz” dilini editoryal olarak yerleştirdik.",
+        "Reset, Sculpt, Renew, Restore, Frame protokollerini Skin Index’te net bir menü gibi sunduk.",
+        "Featured ritual olarak VELA Reset’i süre, yatırım ve endikasyonla öne çıkardık.",
+        "Treatment journal ve stüdyo bölümleriyle süreç ve mekân güvenini anlattık.",
+        "Book a consultation CTA’sını sayfanın dönüşüm omurgası yaptık.",
+      ],
+      howTitle: "Nasıl çalışıyor?",
+      how: [
+        "Ziyaretçi hero’da markayı ve SoHo konumunu hisseder.",
+        "Philosophy ve Skin Index’te yaklaşımı ve ritüelleri okur.",
+        "Reset ve stüdyo bölümleri güven ile randevu niyetini güçlendirir.",
+        "Consultation butonu rezervasyon / konuşma adımına yönlendirir.",
+      ],
+      stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
+      result:
+        "Canlı site: sakin atelier algısı, okunaklı tedavi indeksi ve net randevu yolu. Quiet luxury ton masaüstünden mobile kadar tutarlı.",
+      ctaLabel: "Sıradaki proje",
+      ctaTitle: "Skin veya wellness markanız için böyle bir randevu vitrini mi istiyorsunuz?",
+      ctaBlurb:
+        "Observation first dil, tedavi indeksi ve randevuya net akan bir atelier deneyimi kuralım. Kısa bir özetten sonra kapsam çıkarırım.",
+      ctaButton: "Projemi başlat",
+    },
     "whatsapp-bot": {
       title: "WhatsApp Sohbet Asistanı",
       tag: "Otomasyon",
@@ -541,6 +628,93 @@ export const projectDetails: ProjectDetailsByLocale = {
       ctaTitle: "Need an order showcase like this for a bakery or workshop?",
       ctaBlurb:
         "Product story, price list, WhatsApp ordering in one cinematic flow. Send a brief, I’ll outline the scope.",
+      ctaButton: "Start my project",
+    },
+    mizan: {
+      tag: "Aesthetic clinic",
+      summary:
+        "An editorial digital presence for MİZAN, a smile architecture studio in Nişantaşı. The promise We design the balance of the face lands in the first frame through closed expression, light, and opening. Protocols, atelier, and first measurement booking in one clear path.",
+      whatTitle: "What we built",
+      what: [
+        "A scroll smile film: closed expression, light, opening. the face’s sentence built frame by frame.",
+        "Balance, proportion, and silence carried into a philosophy layer with editorial type.",
+        "Protocols presented as chosen rituals, not a cold clinic menu.",
+        "The Nişantaşı atelier told through quiet luxury space photography.",
+        "First measurement / booking CTA as the conversion hinge. an invitation to talk, not a cold form.",
+        "Millimetric hierarchy and calm motion that holds on desktop and mobile.",
+      ],
+      howTitle: "How it works",
+      how: [
+        "Visitors feel the MİZAN promise in the hero, then watch smile architecture on scroll.",
+        "Philosophy and protocols set the brand language. measurable calm, not loud claims.",
+        "The atelier block builds trust and spatial depth.",
+        "The booking band routes to the first measurement conversation.",
+      ],
+      stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
+      result:
+        "Live site: smile architecture feel, editorial depth, clear booking path. Quiet luxury tone holds from desktop to mobile.",
+      ctaLabel: "Up next",
+      ctaTitle: "Need a presence like this for an aesthetic or clinic brand?",
+      ctaBlurb:
+        "Millimetric type, protocol hierarchy, and a path that ends in a booking conversation. Send a brief, I’ll outline the scope.",
+      ctaButton: "Start my project",
+    },
+    "sahra-butik": {
+      tag: "Boutique web",
+      summary:
+        "A lookbook led women’s wear showcase for Sahra Butik in Malatya. From daily to tesettür, sport line to special day. pick in the lookbook, try in store, ask stock and size online.",
+      whatTitle: "What we built",
+      what: [
+        "Calm typography and an editorial hero fit for Malatya women’s wear.",
+        "A lookbook grid that shows current models with fabric, cut, and mood.",
+        "Daily, sport, and tesettür moods clarified in dedicated sections.",
+        "Boutique atmosphere and style frames that bring the physical store online.",
+        "Contact band for stock / size questions as the conversion hinge.",
+        "Scroll garden / pin rhythm for breath and discovery through the page.",
+      ],
+      howTitle: "How it works",
+      how: [
+        "First screen sets brand and Malatya location in one composition.",
+        "Visitors pick models in the lookbook and browse by mood.",
+        "Try in store or ask stock routes through contact.",
+        "Content updates through the lookbook keep the showcase alive.",
+      ],
+      stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
+      result:
+        "Live site: lookbook rhythm, store trust, and online stock questions in one flow. Local boutique feel holds on mobile.",
+      ctaLabel: "Up next",
+      ctaTitle: "Need a lookbook and stock path for your boutique?",
+      ctaBlurb:
+        "Lookbook, in store try on, and online stock questions in one showcase. Send a brief, I’ll outline the scope.",
+      ctaButton: "Start my project",
+    },
+    "vela-skin-atelier": {
+      tag: "Skin atelier",
+      summary:
+        "A calm booking showcase for VELA Skin Atelier in SoHo, New York. Your skin is not a fixed thing. Observation first care, a considered treatment index, and a one client studio rhythm in one composition.",
+      whatTitle: "What we built",
+      what: [
+        "Cream ground, serif headline, and terracotta accent that set the atelier promise on first paint.",
+        "Philosophy layer: we do not correct faces, we support skin. told editorially.",
+        "Reset, Sculpt, Renew, Restore, Frame presented clearly in the Skin Index.",
+        "VELA Reset featured with duration, investment, and best for cues.",
+        "Treatment journal and studio sections that build process and place trust.",
+        "Book a consultation as the conversion spine of the page.",
+      ],
+      howTitle: "How it works",
+      how: [
+        "Visitors feel the brand and SoHo location in the hero.",
+        "Philosophy and Skin Index explain approach and rituals.",
+        "Reset and studio sections strengthen trust and booking intent.",
+        "Consultation CTA routes to the reservation conversation.",
+      ],
+      stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
+      result:
+        "Live site: calm atelier feel, readable treatment index, clear booking path. Quiet luxury tone holds from desktop to mobile.",
+      ctaLabel: "Up next",
+      ctaTitle: "Need a booking showcase like this for a skin or wellness brand?",
+      ctaBlurb:
+        "Observation first language, treatment index, and a path that ends in consultation. Send a brief, I’ll outline the scope.",
       ctaButton: "Start my project",
     },
     "whatsapp-bot": {
@@ -866,6 +1040,93 @@ projectDetails.es = {
       "Historia del producto, carta de precios y pedido por WhatsApp en un solo flujo cinematográfico. Envíe Un brief corto, le paso el alcance.",
     ctaButton: "Empezar mi proyecto",
   },
+  mizan: {
+    tag: "Clínica estética",
+    summary:
+      "Presencia digital editorial para MİZAN, estudio de arquitectura de la sonrisa en Nişantaşı. La promesa Diseñamos el equilibrio del rostro se fija en el primer fotograma con expresión cerrada, luz y apertura. Protocolos, atelier y primera medida en una ruta clara.",
+    whatTitle: "Qué hicimos",
+    what: [
+      "Film de sonrisa con scroll: expresión cerrada, luz, apertura. la frase del rostro fotograma a fotograma.",
+      "Equilibrio, proporción y silencio llevados a una capa de filosofía con tipografía editorial.",
+      "Protocolos presentados como rituales elegidos, no como menú clínico frío.",
+      "El atelier de Nişantaşı contado con fotografía de espacio en tono de lujo silencioso.",
+      "CTA de primera medida / cita como eje de conversión. invitación a hablar, no un formulario frío.",
+      "Jerarquía milimétrica y movimiento calmado que se sostiene en escritorio y móvil.",
+    ],
+    howTitle: "Cómo funciona",
+    how: [
+      "El visitante siente la promesa MİZAN en el hero y ve la arquitectura de la sonrisa al hacer scroll.",
+      "Filosofía y protocolos fijan el lenguaje de marca. calma medible, no gritos.",
+      "El bloque del atelier construye confianza y profundidad espacial.",
+      "La banda de cita conduce a la conversación de primera medida.",
+    ],
+    stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
+    result:
+      "Sitio en vivo: sensación de arquitectura de la sonrisa, profundidad editorial y ruta clara a cita. El tono de lujo silencioso se sostiene de escritorio a móvil.",
+    ctaLabel: "Siguiente proyecto",
+    ctaTitle: "¿Quiere una presencia así para su marca estética o clínica?",
+    ctaBlurb:
+      "Tipografía milimétrica, jerarquía de protocolos y una ruta que termina en conversación de cita. Envíe un brief corto, le paso el alcance.",
+    ctaButton: "Empezar mi proyecto",
+  },
+  "sahra-butik": {
+    tag: "Web boutique",
+    summary:
+      "Escaparate de moda mujer centrado en lookbook para Sahra Butik en Malatya. De lo cotidiano al tesettür, de la línea sport al día especial. elige en el lookbook, prueba en tienda, pregunta stock y talla online.",
+    whatTitle: "Qué hicimos",
+    what: [
+      "Tipografía calmada y hero editorial acorde a la moda mujer de Malatya.",
+      "Grid de lookbook que muestra modelos actuales con tela, corte y mood.",
+      "Moods günlük, spor y tesettür aclarados en secciones propias.",
+      "Atmósfera de boutique y fotogramas de estilo que llevan la tienda física al digital.",
+      "Banda de contacto para stock / talla como eje de conversión.",
+      "Ritmo de jardín scroll / pin para respiración y descubrimiento en la página.",
+    ],
+    howTitle: "Cómo funciona",
+    how: [
+      "La primera pantalla fija marca y ubicación Malatya en una sola composición.",
+      "El visitante elige modelos en el lookbook y navega por mood.",
+      "Probar en tienda o preguntar stock pasa por contacto.",
+      "El contenido se actualiza vía lookbook y el escaparate se mantiene vivo.",
+    ],
+    stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
+    result:
+      "Sitio en vivo: ritmo de lookbook, confianza de tienda y consulta de stock online en un solo flujo. La sensación boutique local se sostiene en móvil.",
+    ctaLabel: "Siguiente proyecto",
+    ctaTitle: "¿Quiere lookbook y ruta de stock para su boutique?",
+    ctaBlurb:
+      "Lookbook, prueba en tienda y consulta de stock online en un solo escaparate. Envíe un brief corto, le paso el alcance.",
+    ctaButton: "Empezar mi proyecto",
+  },
+  "vela-skin-atelier": {
+    tag: "Skin atelier",
+    summary:
+      "Escaparate de reserva sereno para VELA Skin Atelier en SoHo, Nueva York. Your skin is not a fixed thing. Cuidado observation first, índice de tratamientos y ritmo de estudio de un solo cliente en una sola composición.",
+    whatTitle: "Qué hicimos",
+    what: [
+      "Fondo crema, titular serif y acento terracotta que fijan la promesa del atelier al primer pantallazo.",
+      "Capa de filosofía: no corregimos rostros, apoyamos la piel. contada de forma editorial.",
+      "Reset, Sculpt, Renew, Restore, Frame presentados con claridad en el Skin Index.",
+      "VELA Reset destacado con duración, inversión e indicación.",
+      "Journal de tratamiento y secciones de estudio que construyen confianza de proceso y lugar.",
+      "Book a consultation como columna vertebral de conversión de la página.",
+    ],
+    howTitle: "Cómo funciona",
+    how: [
+      "El visitante siente la marca y la ubicación SoHo en el hero.",
+      "Filosofía y Skin Index explican enfoque y rituales.",
+      "Reset y estudio refuerzan confianza e intención de cita.",
+      "El CTA de consultation conduce a la conversación de reserva.",
+    ],
+    stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
+    result:
+      "Sitio en vivo: sensación de atelier sereno, índice de tratamientos legible y ruta clara a cita. El tono quiet luxury se sostiene de escritorio a móvil.",
+    ctaLabel: "Siguiente proyecto",
+    ctaTitle: "¿Quiere un escaparate de reserva así para su marca de skin o wellness?",
+    ctaBlurb:
+      "Lenguaje observation first, índice de tratamientos y una ruta que termina en consultation. Envíe un brief corto, le paso el alcance.",
+    ctaButton: "Empezar mi proyecto",
+  },
   "whatsapp-bot": {
     title: "Asistente de Conversación WhatsApp",
     tag: "Automatización",
@@ -1183,6 +1444,93 @@ projectDetails.de = {
     ctaTitle: "Möchten Sie eine solche Bestellvitrine für Ihre Konditorei oder Werkstatt?",
     ctaBlurb:
       "Produktgeschichte, Preisliste und WhatsApp Bestellung in einem filmischen Ablauf. Kurzes Briefing, ich liefere den Umfang.",
+    ctaButton: "Mein Projekt starten",
+  },
+  mizan: {
+    tag: "Ästhetik Klinik",
+    summary:
+      "Editoriale digitale Präsenz für MİZAN, Lächeln Architektur Studio in Nişantaşı. Das Versprechen Wir gestalten die Balance des Gesichts sitzt im ersten Frame über geschlossenen Ausdruck, Licht und Öffnung. Protokolle, Atelier und erste Messung auf einem klaren Weg.",
+    whatTitle: "Was wir gemacht haben",
+    what: [
+      "Scrollbarer Smile Film: geschlossener Ausdruck, Licht, Öffnung. der Satz des Gesichts Bild für Bild.",
+      "Balance, Proportion und Stille als Philosophieschicht mit editorialer Typografie.",
+      "Protokolle als gewählte Rituale, nicht als kaltes Klinikmenü.",
+      "Das Nişantaşı Atelier erzählt mit ruhiger Premium Raumfotografie.",
+      "CTA zur ersten Messung / Termin als Conversion Anker. Einladung zum Gespräch, kein kaltes Formular.",
+      "Millimetrische Hierarchie und ruhige Motion, die auf Desktop und Mobile trägt.",
+    ],
+    howTitle: "So funktioniert es",
+    how: [
+      "Besucher spüren das MİZAN Versprechen im Hero und sehen Lächeln Architektur beim Scrollen.",
+      "Philosophie und Protokolle setzen die Markensprache. messbare Ruhe, keine lauten Claims.",
+      "Der Atelier Block baut Vertrauen und räumliche Tiefe.",
+      "Die Terminbande führt ins Gespräch zur ersten Messung.",
+    ],
+    stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
+    result:
+      "Live Website: Lächeln Architektur Wirkung, editoriale Tiefe, klarer Terminweg. Quiet Luxury Ton von Desktop bis Mobile konsistent.",
+    ctaLabel: "Nächstes Projekt",
+    ctaTitle: "Möchten Sie eine solche Präsenz für Ihre Ästhetik oder Klinikmarke?",
+    ctaBlurb:
+      "Millimetrische Typografie, Protokoll Hierarchie und ein Weg, der im Termin Gespräch endet. Kurzes Briefing, ich liefere den Umfang.",
+    ctaButton: "Mein Projekt starten",
+  },
+  "sahra-butik": {
+    tag: "Boutique-Web",
+    summary:
+      "Lookbook geführte Damenmode Vitrine für Sahra Butik in Malatya. Vom Alltag zum Tesettür, von der Sportlinie zum besonderen Tag. im Lookbook wählen, im Laden anprobieren, Bestand und Größe online fragen.",
+    whatTitle: "Was wir gemacht haben",
+    what: [
+      "Ruhige Typografie und editorialer Hero passend zur Malatya Damenmode.",
+      "Lookbook Grid mit aktuellen Modellen, Stoff, Schnitt und Mood.",
+      "Günlük, Spor und Tesettür Moods in eigenen Abschnitten klar gemacht.",
+      "Boutique Atmosphäre und Stilframes, die den physischen Laden digital tragen.",
+      "Kontaktbande für Bestand / Größe als Conversion Anker.",
+      "Scroll Garten / Pin Rhythmus für Atem und Entdeckung auf der Seite.",
+    ],
+    howTitle: "So funktioniert es",
+    how: [
+      "Der erste Screen setzt Marke und Malatya Standort in einer Komposition.",
+      "Besucher wählen Modelle im Lookbook und browsen nach Mood.",
+      "Anprobe im Laden oder Bestandsfrage läuft über Kontakt.",
+      "Inhalte aktualisieren sich über das Lookbook, die Vitrine bleibt lebendig.",
+    ],
+    stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
+    result:
+      "Live Website: Lookbook Rhythmus, Ladenvertrauen und Online Bestandsfrage in einem Ablauf. Lokales Boutique Gefühl hält auch mobil.",
+    ctaLabel: "Nächstes Projekt",
+    ctaTitle: "Möchten Sie Lookbook und Bestandsweg für Ihre Boutique?",
+    ctaBlurb:
+      "Lookbook, Anprobe im Laden und Online Bestandsfrage in einer Vitrine. Kurzes Briefing, ich liefere den Umfang.",
+    ctaButton: "Mein Projekt starten",
+  },
+  "vela-skin-atelier": {
+    tag: "Skin Atelier",
+    summary:
+      "Ruhige Buchungsvitrine für VELA Skin Atelier in SoHo, New York. Your skin is not a fixed thing. Observation first Pflege, durchdachter Treatment Index und Ein Gast Studio Rhythmus in einer Komposition.",
+    whatTitle: "Was wir gemacht haben",
+    what: [
+      "Cream Grund, Serifen Headline und Terracotta Akzent, die das Atelier Versprechen im ersten Frame setzen.",
+      "Philosophieschicht: wir korrigieren keine Gesichter, wir stützen Haut. editorial erzählt.",
+      "Reset, Sculpt, Renew, Restore, Frame klar im Skin Index.",
+      "VELA Reset hervorgehoben mit Dauer, Investment und Best for Hinweisen.",
+      "Treatment Journal und Studio Abschnitte, die Prozess und Ortsvertrauen aufbauen.",
+      "Book a consultation als Conversion Rückgrat der Seite.",
+    ],
+    howTitle: "So funktioniert es",
+    how: [
+      "Besucher spüren Marke und SoHo Standort im Hero.",
+      "Philosophie und Skin Index erklären Ansatz und Rituale.",
+      "Reset und Studio stärken Vertrauen und Buchungsabsicht.",
+      "Consultation CTA führt ins Reservierungsgespräch.",
+    ],
+    stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
+    result:
+      "Live Website: ruhiges Atelier Gefühl, lesbarer Treatment Index, klarer Buchungsweg. Quiet Luxury Ton von Desktop bis Mobile konsistent.",
+    ctaLabel: "Nächstes Projekt",
+    ctaTitle: "Möchten Sie eine solche Buchungsvitrine für Ihre Skin oder Wellness Marke?",
+    ctaBlurb:
+      "Observation first Sprache, Treatment Index und ein Weg, der in der Consultation endet. Kurzes Briefing, ich liefere den Umfang.",
     ctaButton: "Mein Projekt starten",
   },
   "whatsapp-bot": {

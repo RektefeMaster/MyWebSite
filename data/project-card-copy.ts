@@ -35,6 +35,18 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
       "tag": "Butik web",
       "summary": "Köln Ehrenfeld’deki HAVVA Baklava için karanlık, sinematik bir vitrin. Gaziantep’ten Köln’e uzanan ustalık hikâyesi, günlük fiyat listesi ve WhatsApp üzerinden net sipariş yolu tek akışta."
     },
+    "mizan": {
+      "tag": "Estetik klinik",
+      "summary": "Nişantaşı’nda gülüş mimarisi stüdyosu MİZAN için milimetrik, editoryal bir dijital vitrin. Denge, oran ve sessizlik vaadi; protokoller ve ilk ölçü randevusuna net akan bir deneyim."
+    },
+    "sahra-butik": {
+      "tag": "Butik web",
+      "summary": "Malatya’da Sahra Butik için lookbook odaklı kadın giyim vitrini. Günlük, spor ve tesettür çizgileri; mağazada deneme ile online stok sorusunu tek akışta birleştirdik."
+    },
+    "vela-skin-atelier": {
+      "tag": "Skin atelier",
+      "summary": "SoHo New York’ta VELA Skin Atelier için sakin, klinik soğukluğu olmayan bir randevu vitrini. Observation first yaklaşımı, tedavi indeksi ve tek danışanlı stüdyo ritmi."
+    },
     "whatsapp-bot": {
       "title": "WhatsApp Sohbet Asistanı",
       "tag": "Otomasyon",
@@ -83,6 +95,18 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
     "havva-baklava": {
       "tag": "Boutique web",
       "summary": "A dark, cinematic showcase for HAVVA Baklava in Köln Ehrenfeld. craft story from Gaziantep to Cologne, daily price list, and a clear WhatsApp order path in one flow."
+    },
+    "mizan": {
+      "tag": "Aesthetic clinic",
+      "summary": "An editorial digital presence for MİZAN, a smile architecture studio in Nişantaşı. Balance, proportion, and quiet confidence, with a clear path from protocols to the first measurement booking."
+    },
+    "sahra-butik": {
+      "tag": "Boutique web",
+      "summary": "A lookbook led women’s wear showcase for Sahra Butik in Malatya. Daily, sport, and tesettür lines, with try in store and ask stock online in one clear flow."
+    },
+    "vela-skin-atelier": {
+      "tag": "Skin atelier",
+      "summary": "A calm booking showcase for VELA Skin Atelier in SoHo, New York. Observation first care, a considered treatment index, and a one client studio rhythm without clinical coldness."
     },
     "whatsapp-bot": {
       "title": "WhatsApp Conversation Assistant",
@@ -133,6 +157,18 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
       "tag": "Web boutique",
       "summary": "Escaparate cinematográfico oscuro para HAVVA Baklava en Köln Ehrenfeld. historia artesanal de Gaziantep a Colonia, carta de precios y ruta clara de pedido por WhatsApp en un solo flujo."
     },
+    "mizan": {
+      "tag": "Clínica estética",
+      "summary": "Presencia digital editorial para MİZAN, estudio de arquitectura de la sonrisa en Nişantaşı. Equilibrio, proporción y silencio, con ruta clara de protocolos a la primera medida."
+    },
+    "sahra-butik": {
+      "tag": "Web boutique",
+      "summary": "Escaparate de moda mujer centrado en lookbook para Sahra Butik en Malatya. Líneas günlük, spor y tesettür, con prueba en tienda y consulta de stock online en un solo flujo."
+    },
+    "vela-skin-atelier": {
+      "tag": "Skin atelier",
+      "summary": "Escaparate de reserva sereno para VELA Skin Atelier en SoHo, Nueva York. Enfoque observation first, índice de tratamientos y ritmo de estudio de un solo cliente, sin frialdad clínica."
+    },
     "whatsapp-bot": {
       "title": "Asistente de Conversación WhatsApp",
       "tag": "Automatización",
@@ -181,6 +217,18 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
     "havva-baklava": {
       "tag": "Boutique-Web",
       "summary": "Dunkle, filmische Vitrine für HAVVA Baklava in Köln Ehrenfeld. Handwerk von Gaziantep nach Köln, Tagespreisliste und klarer Bestellweg über WhatsApp in einem Ablauf."
+    },
+    "mizan": {
+      "tag": "Ästhetik Klinik",
+      "summary": "Editoriale digitale Präsenz für MİZAN, Lächeln Architektur Studio in Nişantaşı. Balance, Proportion und Stille, mit klarem Weg von Protokollen zur ersten Messung."
+    },
+    "sahra-butik": {
+      "tag": "Boutique-Web",
+      "summary": "Lookbook geführte Damenmode Vitrine für Sahra Butik in Malatya. Günlük, Spor und Tesettür Linien, mit Anprobe im Laden und Online Bestandsfrage in einem Ablauf."
+    },
+    "vela-skin-atelier": {
+      "tag": "Skin Atelier",
+      "summary": "Ruhige Buchungsvitrine für VELA Skin Atelier in SoHo, New York. Observation first Pflege, durchdachter Treatment Index und Ein Gast Studio Rhythmus ohne klinische Kälte."
     },
     "whatsapp-bot": {
       "title": "WhatsApp Gesprächsassistent",

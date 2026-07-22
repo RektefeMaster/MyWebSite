@@ -54,6 +54,11 @@ const sites = [
     url: "https://sahrabutik.vercel.app/",
     waitFor: "text=SAHRA",
   },
+  {
+    id: "vela-skin-atelier",
+    url: "https://vela-skin-atelier.vercel.app/",
+    waitFor: "text=VELA",
+  },
 ];
 
 async function hideChrome(page) {
@@ -103,6 +108,52 @@ async function capture(page, site, outPath, width, height) {
   await page.waitForTimeout(700);
 
   await hideChrome(page);
+
+  // Wuuf: preloader + hero video — poster/video frame oturmadan screenshot alma
+  if (site.id === "wuffbutik") {
+    await page
+      .waitForFunction(() => {
+        const p = document.querySelector(".preloader");
+        if (!p) return true;
+        const st = getComputedStyle(p);
+        return st.display === "none" || st.opacity === "0" || st.visibility === "hidden";
+      }, null, { timeout: 10000 })
+      .catch(() => {});
+    await page.evaluate(() => document.querySelector(".preloader")?.remove());
+    await page.evaluate(async () => {
+      const video =
+        document.querySelector(".hero__slide.is-active video") ||
+        document.querySelector(".hero video");
+      if (video) {
+        video.muted = true;
+        video.playsInline = true;
+        try {
+          await video.play();
+        } catch {
+          /* autoplay blocked — poster still helps */
+        }
+        await new Promise((r) => {
+          if (video.readyState >= 2) return r();
+          video.addEventListener("loadeddata", () => r(), { once: true });
+          setTimeout(r, 5000);
+        });
+        try {
+          video.currentTime = 0.35;
+        } catch {
+          /* seek may fail before metadata */
+        }
+        await new Promise((r) => setTimeout(r, 400));
+        video.pause();
+      }
+      document.querySelectorAll(".hero-soft, .hero__content").forEach((el) => {
+        el.style.setProperty("opacity", "1", "important");
+        el.style.setProperty("transform", "none", "important");
+        el.style.setProperty("visibility", "visible", "important");
+      });
+      window.scrollTo(0, 0);
+    });
+    await page.waitForTimeout(500);
+  }
 
   // Görsellerin yüklenmesini bekle (max 4s)
   await Promise.race([

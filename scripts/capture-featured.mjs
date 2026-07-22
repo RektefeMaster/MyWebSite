@@ -52,6 +52,11 @@ const sites = [
     urls: ["https://sahrabutik.vercel.app/"],
     waitFor: /sahra|malatya|lookbook/i,
   },
+  {
+    id: "vela-skin-atelier",
+    urls: ["https://vela-skin-atelier.vercel.app/"],
+    waitFor: /vela|skin|soho|atelier/i,
+  },
 ];
 
 function slugify(text) {

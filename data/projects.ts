@@ -103,6 +103,16 @@ export const projects: Project[] = [
     mobileScrollImage: "/projects/sahra-butik/mobile-scroll.jpg",
   },
   {
+    id: "vela-skin-atelier",
+    name: "VELA Skin Atelier",
+    colors: ["#f3efe6", "#c45c3a"],
+    url: "https://vela-skin-atelier.vercel.app/",
+    desktopImage: "/projects/vela-skin-atelier/desktop.jpg",
+    mobileImage: "/projects/vela-skin-atelier/mobile.jpg",
+    desktopScrollImage: "/projects/vela-skin-atelier/desktop-scroll.jpg",
+    mobileScrollImage: "/projects/vela-skin-atelier/mobile-scroll.jpg",
+  },
+  {
     id: "whatsapp-bot",
     name: "WhatsApp Chatbot",
     colors: ["#0b141a", "#25D366"],
