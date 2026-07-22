@@ -371,10 +371,10 @@ const havva = pack([
     src: "/projects/havva-baklava/featured/01-hero.jpg",
     span: HERO,
     alt: {
-      tr: "HAVVA — baklava tepsi hero",
-      en: "HAVVA — baklava tray hero",
-      es: "HAVVA — hero bandeja de baklava",
-      de: "HAVVA — Baklava-Tablett Hero",
+      tr: "HAVVA — katman katman, elde baklava",
+      en: "HAVVA — layer by layer, by hand",
+      es: "HAVVA — capa a capa, a mano",
+      de: "HAVVA — Schicht für Schicht, von Hand",
     },
   },
   {
@@ -398,23 +398,23 @@ const havva = pack([
     },
   },
   {
-    src: "/projects/havva-baklava/featured/04-werkstatt.jpg",
+    src: "/projects/havva-baklava/featured/04-tepsi.jpg",
+    span: MID,
+    alt: {
+      tr: "HAVVA — baklava tepsi hero",
+      en: "HAVVA — baklava tray hero",
+      es: "HAVVA — hero bandeja de baklava",
+      de: "HAVVA — Baklava-Tablett Hero",
+    },
+  },
+  {
+    src: "/projects/havva-baklava/featured/05-werkstatt.jpg",
     span: MID,
     alt: {
       tr: "HAVVA — Ehrenfeld atölye hikâyesi",
       en: "HAVVA — Ehrenfeld workshop story",
       es: "HAVVA — historia del taller en Ehrenfeld",
       de: "HAVVA — Werkstattgeschichte Ehrenfeld",
-    },
-  },
-  {
-    src: "/projects/havva-baklava/featured/05-preise.jpg",
-    span: MID,
-    alt: {
-      tr: "HAVVA — günlük fiyat listesi",
-      en: "HAVVA — daily price list",
-      es: "HAVVA — carta de precios diaria",
-      de: "HAVVA — Tagespreisliste",
     },
   },
   {
