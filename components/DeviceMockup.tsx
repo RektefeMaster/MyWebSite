@@ -40,6 +40,7 @@ function ScreenContent({
   label,
   sizes,
   priority = false,
+  objectPosition = "object-top",
 }: {
   src?: string;
   alt: string;
@@ -47,6 +48,7 @@ function ScreenContent({
   label: string;
   sizes: string;
   priority?: boolean;
+  objectPosition?: "object-top" | "object-center" | "object-bottom";
 }) {
   if (src) {
     return (
@@ -59,7 +61,7 @@ function ScreenContent({
         priority={priority}
         loading={priority ? "eager" : "lazy"}
         decoding="async"
-        className="object-cover object-top"
+        className={`object-cover ${objectPosition}`}
       />
     );
   }
@@ -237,6 +239,7 @@ export default function DeviceMockup({
           colors={project.colors}
           label={project.name.split(" ")[0] ?? project.name}
           priority={priority}
+          objectPosition="object-center"
           sizes={
             isHero
               ? "(max-width: 768px) 30vw, 220px"
