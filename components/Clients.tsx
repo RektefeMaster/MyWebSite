@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import Reveal from "./Reveal";
 import RotatingText from "./RotatingText";
 
-/** Hero altı — yapılan işleri dönen chip ile gösteren şerit */
+/** Hero altı — dönen chip; spring bounce yerine kontrollü tween. */
 export default function Clients() {
   const t = useTranslations("clients");
   const rotating = t.raw("rotating") as string[];
@@ -16,7 +16,11 @@ export default function Clients() {
     >
       <div className="mx-auto max-w-7xl">
         <Reveal>
-          <p className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40 md:mb-6">
+          <p className="mb-5 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40 md:mb-6">
+            <span
+              aria-hidden
+              className="inline-block h-px w-6 bg-lime/80"
+            />
             {t("label")}
           </p>
         </Reveal>
@@ -25,13 +29,13 @@ export default function Clients() {
             <span>{t("lead")}</span>
             <RotatingText
               texts={rotating}
-              rotationInterval={2600}
+              rotationInterval={2800}
               staggerFrom="last"
-              staggerDuration={0.025}
+              staggerDuration={0.02}
               initial={{ y: "100%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              exit={{ y: "-120%", opacity: 0 }}
-              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              exit={{ y: "-100%", opacity: 0 }}
+              transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
               splitLevelClassName="overflow-hidden pb-0.5"
               mainClassName="inline-flex justify-center overflow-hidden rounded-lg bg-lime px-2.5 py-1 text-on-lime sm:px-3 sm:py-1.5 md:rounded-xl md:px-4 md:py-2"
             />

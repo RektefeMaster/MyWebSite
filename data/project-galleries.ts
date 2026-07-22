@@ -429,6 +429,132 @@ const havva = pack([
   },
 ]);
 
+const mizan = pack([
+  {
+    src: "/projects/mizan/featured/01-hero.jpg",
+    span: HERO,
+    alt: {
+      tr: "MİZAN — gülüş mimarisi hero",
+      en: "MİZAN — smile architecture hero",
+      es: "MİZAN — hero arquitectura de la sonrisa",
+      de: "MİZAN — Lächeln-Architektur Hero",
+    },
+  },
+  {
+    src: "/projects/mizan/featured/02-film.jpg",
+    span: HALF,
+    alt: {
+      tr: "MİZAN — scroll gülüş filmi",
+      en: "MİZAN — scroll smile film",
+      es: "MİZAN — film de sonrisa con scroll",
+      de: "MİZAN — scrollbarer Smile-Film",
+    },
+  },
+  {
+    src: "/projects/mizan/featured/03-felsefe.jpg",
+    span: HALF,
+    alt: {
+      tr: "MİZAN — denge, oran, sessizlik",
+      en: "MİZAN — balance, proportion, silence",
+      es: "MİZAN — equilibrio, proporción, silencio",
+      de: "MİZAN — Balance, Proportion, Stille",
+    },
+  },
+  {
+    src: "/projects/mizan/featured/04-hizmetler.jpg",
+    span: MID,
+    alt: {
+      tr: "MİZAN — protokoller listesi",
+      en: "MİZAN — protocols list",
+      es: "MİZAN — lista de protocolos",
+      de: "MİZAN — Protokolliste",
+    },
+  },
+  {
+    src: "/projects/mizan/featured/05-atoelye.jpg",
+    span: MID,
+    alt: {
+      tr: "MİZAN — Nişantaşı atölye",
+      en: "MİZAN — Nişantaşı atelier",
+      es: "MİZAN — atelier en Nişantaşı",
+      de: "MİZAN — Atelier in Nişantaşı",
+    },
+  },
+  {
+    src: "/projects/mizan/featured/06-randevu.jpg",
+    span: WIDE,
+    alt: {
+      tr: "MİZAN — randevu / ilk ölçü",
+      en: "MİZAN — booking / first measurement",
+      es: "MİZAN — cita / primera medida",
+      de: "MİZAN — Termin / erste Messung",
+    },
+  },
+]);
+
+const sahra = pack([
+  {
+    src: "/projects/sahra-butik/featured/01-hero.jpg",
+    span: HERO,
+    alt: {
+      tr: "Sahra — Malatya kadın giyim hero",
+      en: "Sahra — Malatya women’s wear hero",
+      es: "Sahra — hero moda mujer Malatya",
+      de: "Sahra — Malatya Damenmode Hero",
+    },
+  },
+  {
+    src: "/projects/sahra-butik/featured/02-lookbook.jpg",
+    span: HALF,
+    alt: {
+      tr: "Sahra — güncel modeller lookbook",
+      en: "Sahra — current models lookbook",
+      es: "Sahra — lookbook modelos actuales",
+      de: "Sahra — Lookbook aktuelle Modelle",
+    },
+  },
+  {
+    src: "/projects/sahra-butik/featured/03-moods.jpg",
+    span: HALF,
+    alt: {
+      tr: "Sahra — günlük / spor / tesettür",
+      en: "Sahra — günlük / spor / tesettür",
+      es: "Sahra — günlük / spor / tesettür",
+      de: "Sahra — günlük / spor / tesettür",
+    },
+  },
+  {
+    src: "/projects/sahra-butik/featured/04-boutique.jpg",
+    span: MID,
+    alt: {
+      tr: "Sahra — mağaza ve stil",
+      en: "Sahra — boutique and style",
+      es: "Sahra — boutique y estilo",
+      de: "Sahra — Boutique und Stil",
+    },
+  },
+  {
+    src: "/projects/sahra-butik/featured/05-whisper.jpg",
+    span: MID,
+    alt: {
+      tr: "Sahra — iletişim / stok sor",
+      en: "Sahra — contact / ask stock",
+      es: "Sahra — contacto / preguntar stock",
+      de: "Sahra — Kontakt / Bestand fragen",
+    },
+  },
+  {
+    src: "/projects/sahra-butik/featured/06-garden.jpg",
+    span: WIDE,
+    alt: {
+      tr: "Sahra — scroll bahçe / pin bölümü",
+      en: "Sahra — scroll garden / pin section",
+      es: "Sahra — jardín scroll / sección pin",
+      de: "Sahra — Scroll-Garten / Pin-Abschnitt",
+    },
+  },
+]);
+
 function devicePack(
   id: string,
   name: Record<Locale, string>
@@ -493,6 +619,8 @@ export const projectGalleries: Record<string, GalleryPack> = {
   "casa-aurelia": casa,
   "seraphine-atelier": seraphine,
   "havva-baklava": havva,
+  mizan,
+  "sahra-butik": sahra,
   "whatsapp-bot": whatsapp,
   "instagram-bot": instagram,
   crm,

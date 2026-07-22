@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "METEK Digital — Webdesign, Software & KI",
-    "description": "METEK Digital entwickelt individuelle Websites, Admin-Panels, Automatisierungen und KI-gestützte digitale Produkte für Marken."
+    "title": "METEK Digital · Webdesign, Software & KI",
+    "description": "METEK Digital entwickelt individuelle Websites, Admin Panels, Automatisierungen und KI gestützte digitale Produkte für Marken."
   },
   "nav": {
     "about": "Über mich",
@@ -13,83 +13,78 @@
     "blog": "Blog",
     "projects": "Projekte",
     "contact": "Kontakt",
-    "bookMeeting": "Termin",
-    "cta": "Anfragen",
+    "bookMeeting": "Mein Projekt starten",
+    "cta": "Mein Projekt starten",
     "ctaShort": "Start"
   },
   "pages": {
     "manifesto": {
-      "metaTitle": "Manifest — METEK",
+      "metaTitle": "Manifest · METEK",
       "metaDescription": "Eigenständiges Design, solide Software und messbare Ergebnisse. Der Ansatz von METEK Digital.",
       "heroLabel": "Manifest",
       "heroTitle": "Eigenständige digitale Erlebnisse.",
       "heroBlurb": "Design, Software und Technologie in einem System.",
-      "ctaLabel": "Hier starten",
-      "ctaTitle": "Haben Sie ein Projekt im Kopf?",
-      "ctaTitles": [
-        "Haben Sie ein Projekt im Kopf?",
-        "Design, das geliefert wird?",
-        "Bereit für Arbeit, die hält?"
-      ],
-      "ctaBlurb": "Ziel und Zeitraum skizzieren. Innerhalb eines Tages: klarer Plan — Umfang, Weg und nächster Schritt.",
-      "ctaButton": "Termin vereinbaren"
+      "ctaLabel": "Zusammen arbeiten",
+      "ctaTitle": "Bereit, ein Projekt zu starten?",
+      "ctaBlurb": "Ziel und Zeitraum skizzieren. Innerhalb eines Tages kommen klarer Umfang und nächster Schritt.",
+      "ctaButton": "Mein Projekt starten"
     },
     "approach": {
-      "metaTitle": "Ansatz — METEK",
+      "metaTitle": "Ansatz · METEK",
       "metaDescription": "Von der Analyse bis zum Launch: klare Schritte, messbare Ergebnisse.",
       "heroLabel": "Ansatz",
       "heroTitle": "Methode.",
       "heroBlurb": "Von der Analyse bis zum Launch. Jeder Schritt ist an ein messbares Ergebnis gebunden.",
-      "ctaLabel": "Nächster Schritt",
-      "ctaTitle": "Passt die Methode zu Ihrem Briefing?",
-      "ctaBlurb": "Klarer Umfang, regelmäßige Updates und Ergebnisse, die sich prüfen lassen.",
-      "ctaButton": "Prozess ansehen"
+      "ctaLabel": "Zusammen arbeiten",
+      "ctaTitle": "Diese Methode für Ihr Projekt?",
+      "ctaBlurb": "Von der Analyse bis zum Launch mit klarem Umfang, regelmäßigen Updates und prüfbarem Fortschritt.",
+      "ctaButton": "Mein Projekt starten"
     },
     "work": {
-      "metaTitle": "Projekte — METEK",
-      "metaDescription": "Ausgewählte Web- und Softwareprojekte. Individuelles Design, solide Umsetzung.",
+      "metaTitle": "Projekte · METEK",
+      "metaDescription": "Ausgewählte Web und Softwareprojekte. Individuelles Design, solide Umsetzung.",
       "heroLabel": "Projekte",
       "heroTitle": "Ausgewählte Projekte.",
       "heroBlurb": "Digitale Produkte, die wir für Marken gestalten und umsetzen.",
-      "ctaLabel": "Nächster Schritt",
-      "ctaTitle": "Ähnliches für Ihre Marke?",
-      "ctaBlurb": "Branche, Ziel und Zeitraum — ich melde mich mit einer Einschätzung und den nächsten Schritten.",
-      "ctaButton": "Briefing senden"
+      "ctaLabel": "Zusammen arbeiten",
+      "ctaTitle": "Arbeit in diesem Rahmen?",
+      "ctaBlurb": "Branche, Ziel und Zeitraum. Ich melde mich mit Passung und konkretem nächsten Schritt.",
+      "ctaButton": "Mein Briefing senden"
     },
     "services": {
-      "metaTitle": "Leistungen — METEK",
-      "metaDescription": "Websites, Individualsoftware, Automatisierung und KI-Lösungen.",
+      "metaTitle": "Leistungen · METEK",
+      "metaDescription": "Websites, Individualsoftware, Automatisierung und KI Lösungen.",
       "heroLabel": "Leistungen",
       "heroTitle": "Leistungen.",
       "heroBlurb": "Web, Software und Automatisierung. Den Umfang klären wir gemeinsam.",
-      "ctaLabel": "Nächster Schritt",
+      "ctaLabel": "Zusammen arbeiten",
       "ctaTitle": "Unsicher, welche Leistung passt?",
-      "ctaBlurb": "Beschreiben Sie kurz Ihren Bedarf — realer Umfang, keine aufgeblasenen Angebote.",
-      "ctaButton": "Termin vereinbaren"
+      "ctaBlurb": "Beschreiben Sie den Bedarf. Ich mache daraus echten Umfang ohne aufgeblasene Angebote.",
+      "ctaButton": "Mein Projekt starten"
     },
     "blog": {
-      "metaTitle": "Blog — METEK",
+      "metaTitle": "Blog · METEK",
       "metaDescription": "Notizen zu Web, Software und digitalen Produkten.",
       "heroLabel": "Blog",
       "heroTitle": "Notizen und Perspektiven.",
       "heroBlurb": "Texte zu Markenidentität, editorialem Web und Projektprozess.",
-      "ctaLabel": "Nächster Schritt",
-      "ctaTitle": "Diesen Ansatz für Ihre Marke?",
-      "ctaBlurb": "Gern besprechen wir, wie er bei Ihnen greifen würde.",
-      "ctaButton": "Kontakt aufnehmen"
+      "ctaLabel": "Zusammen arbeiten",
+      "ctaTitle": "Das für Ihre Marke?",
+      "ctaBlurb": "Wenn eine Notiz zu Ihrem Bedarf passt, klären wir die Umsetzung für Ihr Projekt.",
+      "ctaButton": "Mein Projekt starten"
     }
   },
   "blog": {
-    "view": "Lesen",
+    "view": "Notiz lesen",
     "teaserLabel": "Blog",
     "teaserTitle": "Ausgewählte Notizen.",
     "teaserBlurb": "Kurze Perspektiven zu Identität, digitaler Erfahrung und Prozess.",
-    "teaserAll": "Alle Artikel lesen",
+    "teaserAll": "Alle Notizen",
     "readMinutes": "{count} Min. Lesezeit",
     "relatedLabel": "Weiterlesen",
     "relatedTitle": "Verwandte Artikel.",
-    "articleCta": "Projekt starten",
-    "articleCtaBlurb": "Möchten Sie diesen Ansatz auf Ihre Marke übertragen?",
+    "articleCta": "Mein Projekt starten",
+    "articleCtaBlurb": "Wenn das zu einem Bedarf passt, starten Sie eine Projektunterhaltung für Ihre Marke.",
     "crumbHome": "Start",
     "crumbBlog": "Blog",
     "categories": {
@@ -104,7 +99,7 @@
     "label": "Überblick",
     "title": "Arbeitsfelder.",
     "blurb": "Manifest, Projekte, Methode, Leistungen und Blog.",
-    "view": "Ansehen",
+    "view": "Seite öffnen",
     "cards": {
       "manifesto": {
         "label": "Manifest",
@@ -114,7 +109,7 @@
       "work": {
         "label": "Projekte",
         "title": "Ausgewählte Arbeiten",
-        "body": "Ausgewählte Web- und Softwareprojekte."
+        "body": "Ausgewählte Web und Softwareprojekte."
       },
       "approach": {
         "label": "Ansatz",
@@ -139,7 +134,7 @@
       "Software",
       "KI",
       "Automatisierung",
-      "Admin-Panels",
+      "Admin Panels",
       "Performance"
     ]
   },
@@ -155,18 +150,18 @@
   },
   "featured": {
     "label": "Ausgewähltes Projekt",
-    "client": "Wholesale Cabinet Creations — 2026",
-    "title": "Digitale Markenerfahrung für einen traditionellen Möbelhersteller",
-    "blurb": "Hochperformante Website, die Fertigungsqualität online sichtbar macht — Animation, Mobile, SEO und CMS aus einem Guss.",
+    "client": "Wholesale Cabinet Creations · 2026",
+    "title": "Unternehmenswebsite für einen US Möbelhersteller",
+    "blurb": "Für Wholesale Cabinet Creations: eine Website, die Fertigungsqualität digital trägt. Mobil schnell, SEO bereit, mit CMS für das Team.",
     "outcomes": [
       "Stärkere, hochwertigere Markenpräsenz im Web.",
       "Bessere mobile Performance und Nutzerführung.",
       "Inhalte, Medien und SEO in einem Panel."
     ],
-    "cta": "Weitere Projekte",
+    "cta": "Arbeiten ansehen",
     "sceneLabel": "Ergebnis",
     "sceneTitle": "Fertigungsqualität, online sichtbar.",
-    "sceneBody": "Performance, SEO und Content-Management in einem System."
+    "sceneBody": "Performance, SEO und Content Management in einem System."
   },
   "principles": {
     "label": "Ansatz",
@@ -178,11 +173,11 @@
       },
       {
         "title": "System",
-        "body": "Keine Einzelgrafiken — skalierbare Regeln und Komponenten."
+        "body": "Keine Einzelgrafiken skalierbare Regeln und Komponenten."
       },
       {
         "title": "Tempo",
-        "body": "Schnelle Entscheidungen, präzise Umsetzung. Launch-Termine werden realistisch."
+        "body": "Schnelle Entscheidungen, präzise Umsetzung. Launch Termine werden realistisch."
       },
       {
         "title": "Ergebnis",
@@ -192,63 +187,63 @@
   },
   "availability": {
     "badge": "Verfügbar",
-    "title": "Offen für neue Projekte",
-    "blurb": "Kleine Projektliste — jedes Briefing bekommt genug Aufmerksamkeit.",
+    "title": "Offen für wenige neue Projekte",
+    "blurb": "Die Liste bleibt klein, damit jedes Briefing echte Aufmerksamkeit bekommt.",
     "slots": "2 Plätze für August 2026",
-    "cta": "Termin vereinbaren"
+    "cta": "Mein Projekt starten"
   },
   "hero": {
     "line1": "Von der Idee",
     "line2": "zum Produkt,",
     "line3": "das wirkt.",
-    "blurb": "Web, Software und KI für Ihre Marke — klarer Umfang, messbare Ergebnisse.",
-    "ctaWork": "Projekte",
-    "ctaContact": "Anfragen",
-    "scroll": "Entdecken",
-    "metaStudio": "Digitales Produktstudio",
+    "blurb": "Websites, Panels und Tools für Marken, deren Arbeit halten soll. Nicht nur fertig aussehen.",
+    "ctaWork": "Arbeiten ansehen",
+    "ctaContact": "Mein Projekt starten",
+    "scroll": "Projekte ansehen",
+    "metaStudio": "Design & Softwarestudio",
     "metaLocation": "Malatya · Weltweit"
   },
   "projects": {
     "label": "Ausgewählte Arbeiten",
     "title": "Projekte",
-    "blurb": "Websites, Panels und digitale Produkte — individuell gestaltet und solide umgesetzt.",
-    "loadMore": "Alle anzeigen",
-    "seeCase": "Alle Projekte",
-    "viewAll": "Alle Projekte ansehen"
+    "blurb": "Websites, Panels und digitale Produkte. Individuell gestaltet und solide umgesetzt.",
+    "loadMore": "Mehr Arbeiten",
+    "seeCase": "Arbeiten ansehen",
+    "viewAll": "Arbeiten ansehen"
   },
   "projectUi": {
-    "view": "Ansehen",
-    "live": "Live",
+    "view": "Case öffnen",
+    "live": "Website öffnen",
     "stack": "Technik",
-    "back": "Zurück zu den Projekten",
+    "back": "Zurück zu Arbeiten",
     "gallery": "Seitenausschnitte",
-    "galleryHint": "Ausgewählte Ausschnitte der Live-Website"
+    "galleryHint": "Ausgewählte Ausschnitte der Live Website"
   },
   "services": {
     "label": "Leistungen",
     "title": "Woran wir arbeiten",
     "included": "Enthalten",
-    "cta": "Anfragen",
+    "cta": "Mein Projekt starten",
     "seeAll": "Alle Leistungen",
     "items": [
       {
-        "title": "Einstiegs-Website",
+        "title": "Einstiegs Website",
         "description": "Schnelle, moderne Website für kleine Unternehmen und Personal Brands.",
         "includes": [
-          "1–5 Seiten",
-          "Individuelles Interface-Design",
+          "1 bis 5 Seiten",
+          "Individuelles Interface Design",
           "Mobiloptimiert",
-          "Basis-SEO",
+          "Basis SEO",
           "Kontakt & WhatsApp",
-          "Performance-Optimierung",
+          "Performance Optimierung",
           "15 Tage Support"
         ]
       },
       {
-        "title": "Unternehmens-Website",
+        "title": "Unternehmens Website",
         "description": "Umfassende Weblösung für stärkere Markenwirkung und bessere Conversion.",
         "includes": [
-          "5–12 Seiten",
+          "5 bis 12 Seiten",
           "Individuelles UI/UX",
           "Animation und Mikrointeraktionen",
           "Blog oder CMS",
@@ -259,14 +254,14 @@
         ]
       },
       {
-        "title": "Premium Web-Erlebnis",
+        "title": "Premium Web Erlebnis",
         "description": "Individuelles Design und Engineering für klare Differenzierung.",
         "includes": [
           "Eigene Designsprache",
           "3D oder fortgeschrittene Animation",
-          "Individuelles Admin-Panel",
+          "Individuelles Admin Panel",
           "CRM, API & Automatisierung",
-          "KI-Funktionen",
+          "KI Funktionen",
           "Erweitertes SEO & Performance",
           "Qualitätssicherung und Launch",
           "60 Tage Support"
@@ -277,60 +272,60 @@
         "description": "Ein unverwechselbares Logo und ein konsistentes visuelles Identitätssystem, das Ihre Marke auf den ersten Blick erkennbar macht.",
         "includes": [
           "Bedarfsaufnahme und Markenanalyse",
-          "Individuelles Logo-Design (mehrere Richtungen)",
+          "Individuelles Logo Design (mehrere Richtungen)",
           "Farbpalette und Typografie",
-          "Logo-Varianten (horizontal, vertikal, Icon)",
-          "Nutzungsrichtlinien (Mini-Markenbuch)",
-          "Social-Media- und Favicon-Sets",
-          "Vektor-Quelldateien (SVG, PDF, PNG)"
+          "Logo Varianten (horizontal, vertikal, Icon)",
+          "Nutzungsrichtlinien (Mini Markenbuch)",
+          "Social Media und Favicon Sets",
+          "Vektor Quelldateien (SVG, PDF, PNG)"
         ]
       },
       {
         "title": "Individualsoftware & Automatisierung",
-        "description": "Panels, Apps und KI-Systeme, die Prozesse digitalisieren.",
+        "description": "Panels, Apps und KI Systeme, die Prozesse digitalisieren.",
         "includes": [
           "Bedarfsanalyse",
           "Technische Architektur",
-          "Web- oder Mobile-App",
-          "Admin-Panel",
+          "Web oder Mobile App",
+          "Admin Panel",
           "API & Integrationen",
           "Automatisierungsszenarien",
           "Sicherheit und Tests"
         ]
       },
       {
-        "title": "WhatsApp-Gesprächsassistent",
-        "description": "Spricht mit WhatsApp-Kunden in Ihrem Ton — ohne dass Sie am Handy hängen. Kennt Preise und Leistungen, freie und belegte Termine und bucht entsprechend. Nach einer Absage ist die Stunde wieder frei. Erinnerung eine Stunde vorher — weniger kurzfristige Absagen.",
+        "title": "WhatsApp Gesprächsassistent",
+        "description": "Spricht mit WhatsApp Kunden in Ihrem Ton ohne dass Sie am Handy hängen. Kennt Preise und Leistungen, freie und belegte Termine und bucht entsprechend. Nach einer Absage ist die Stunde wieder frei. Erinnerung eine Stunde vorher weniger kurzfristige Absagen.",
         "includes": [
           "Chat in Ihrem Stil (mit Preisen und Leistungen)",
           "Kennt freie Stunden und lenkt Termine dorthin",
           "Kennt belegte Stunden, keine Doppelbuchung",
           "Nach Absage ist die Stunde wieder frei",
           "Erinnerung eine Stunde vorher",
-          "Anbindung an das CRM-Panel",
+          "Anbindung an das CRM Panel",
           "Einrichtung und Schulung"
         ]
       },
       {
-        "title": "Instagram-DM-Assistent",
-        "description": "Dasselbe in Instagram-Direktnachrichten. Ohne ständiges Handy-Checken: kennt Preise und Leistungen, freie und belegte Termine sowie wieder freigewordene Stunden. Erinnerung eine Stunde vorher.",
+        "title": "Instagram DM Assistent",
+        "description": "Dasselbe in Instagram Direktnachrichten. Ohne ständiges Handy Checken: kennt Preise und Leistungen, freie und belegte Termine sowie wieder freigewordene Stunden. Erinnerung eine Stunde vorher.",
         "includes": [
-          "DM-Chat in Ihrem Namen",
+          "DM Chat in Ihrem Namen",
           "Antworten zu Preis, Leistung und FAQs",
           "Termine auf freie Stunden, nicht auf belegte",
           "Nach Absage ist die Stunde wieder frei",
           "Erinnerung eine Stunde vorher",
-          "Anbindung an das CRM-Panel",
+          "Anbindung an das CRM Panel",
           "Einrichtung und Schulung"
         ]
       },
       {
-        "title": "CRM-Verkaufspanel",
-        "description": "Arbeitet mit den WhatsApp- und Instagram-Assistenten zusammen. Termine, Absagen und Kunden in einem Panel. Welche Stunden frei sind und wer wann kommt — alles auf einen Blick.",
+        "title": "CRM Verkaufspanel",
+        "description": "Arbeitet mit den WhatsApp und Instagram Assistenten zusammen. Termine, Absagen und Kunden in einem Panel. Welche Stunden frei sind und wer wann kommt alles auf einen Blick.",
         "includes": [
           "Verkaufspanel",
-          "Anbindung WhatsApp-Assistent",
-          "Anbindung Instagram-DM-Assistent",
+          "Anbindung WhatsApp Assistent",
+          "Anbindung Instagram DM Assistent",
           "Automatischer Eintrag bei Buchung",
           "Nach Absage ist die Stunde wieder frei",
           "Tagesübersicht und Erinnerungen",
@@ -338,16 +333,16 @@
         ]
       },
       {
-        "title": "CSS-Designsystem",
-        "description": "Marken-Tokens für Farbe, Typografie, Komponenten und Abstände — konsistentes UI-Kit inkl. Dokumentation.",
+        "title": "CSS Designsystem",
+        "description": "Marken Tokens für Farbe, Typografie, Komponenten und Abstände konsistentes UI Kit inkl. Dokumentation.",
         "includes": [
-          "Design-Token-Set",
-          "Typografie-Skala",
+          "Design Token Set",
+          "Typografie Skala",
           "Buttons und Basiskomponenten",
-          "Abstands- und Radius-System",
+          "Abstands und Radius System",
           "Dokumentationsfläche",
           "Abstimmung Web und Admin",
-          "Übergabe-Leitfaden"
+          "Übergabe Leitfaden"
         ]
       }
     ]
@@ -411,15 +406,15 @@
     "rotating": [
       "Websites",
       "Software",
-      "KI-Produkte",
+      "KI Produkte",
       "Automationen",
-      "Admin-Panels",
+      "Admin Panels",
       "Markensysteme"
     ]
   },
   "stats": {
-    "label": "Warum das zählt",
-    "title": "Starke Markenpräsenz schafft Vertrauen — und Vertrauen treibt Ergebnisse.",
+    "label": "Signale",
+    "title": "Vertrauen kommt vor dem Klick.",
     "items": [
       {
         "value": "81%",
@@ -443,7 +438,7 @@
     "label": "Studio",
     "titleLead": "METEK",
     "titleRest": "Digital",
-    "p1": "METEK Digital entwickelt Webdesign, Software und KI-gestützte digitale Produkte.",
+    "p1": "METEK Digital entwickelt Webdesign, Software und KI gestützte digitale Produkte.",
     "p2": "Gründer Nurullah Aydın vereint Design, Software und Technologie in einem System.",
     "highlight": "Eigenständiges Design. Solide Software.",
     "p3": "Jedes Projekt wird unterscheidbar und ergebnisorientiert gebaut.",
@@ -453,32 +448,32 @@
   "contact": {
     "label": "Kontakt",
     "titleLine1": "Haben Sie ein Projekt?",
-    "titleLine2": "Erzählen Sie davon.",
-    "blurb": "Neue Website, Panel, Automatisierung oder KI-Produkt — schreiben Sie kurz, ich schlage den nächsten Schritt vor.",
+    "titleLine2": "Lassen Sie uns starten.",
+    "blurb": "Neue Website, Panel, Automatisierung oder KI Tool. Eine kurze Notiz reicht. Ich antworte mit einem klaren nächsten Schritt.",
     "name": "Name",
-    "email": "E-Mail",
+    "email": "E Mail",
     "interestedIn": "Ich interessiere mich für",
-    "message": "Ziel und Zeitplan in wenigen Zeilen",
-    "send": "Senden",
-    "sentHint": "E-Mail-App wird geöffnet … Antwort in der Regel innerhalb von 24 Stunden.",
+    "message": "Ein paar Zeilen zu Ziel und Zeitraum",
+    "send": "Mein Projekt starten",
+    "sentHint": "Ihre Email App öffnet sich. Ich antworte meist innerhalb eines Tages.",
     "mailSubject": "Projektanfrage",
     "mailName": "Name",
-    "mailEmail": "E-Mail",
+    "mailEmail": "E Mail",
     "mailInterest": "Interesse",
     "interests": [
-      "Einstiegs-Website",
-      "Unternehmens-Website",
-      "Premium Web-Erlebnis",
+      "Einstiegs Website",
+      "Unternehmens Website",
+      "Premium Web Erlebnis",
       "Logo & Markenidentität",
-      "E-Commerce",
-      "Admin-Panel",
-      "Web- oder Mobile-App",
+      "E Commerce",
+      "Admin Panel",
+      "Web oder Mobile App",
       "KI und Automatisierung",
-      "Website-Relaunch",
+      "Website Relaunch",
       "Sonstiges"
     ],
-    "response": "Antwort in der Regel innerhalb von 24 Stunden. Dringend? WhatsApp ist schneller.",
-    "emailCta": "E-Mail"
+    "response": "Ich antworte meist innerhalb eines Tages. Bei Eile ist WhatsApp schneller.",
+    "emailCta": "Email öffnen"
   },
   "footer": {
     "tagline": "Eigenständiges Design. Solide Software. Messbare Ergebnisse.",
@@ -486,7 +481,7 @@
     "manifesto": "Manifest",
     "work": "Projekte",
     "approach": "Ansatz",
-    "bookMeeting": "Termin",
+    "bookMeeting": "Mein Projekt starten",
     "services": "Leistungen",
     "blog": "Blog",
     "projects": "Projekte",
@@ -496,17 +491,17 @@
     "rights": "Alle Rechte vorbehalten.",
     "brand": "METEK Digital",
     "founder": "Gründer: Nurullah Aydın",
-    "location": "Malatya, Türkei · Remote weltweit",
+    "location": "Malatya, Türkiye · Remote weltweit",
     "instagram": "Instagram"
   },
   "tech": {
     "label": "Technologie",
     "title": "Damit arbeite ich.",
-    "blurb": "Kein Versuchswerkzeug-Set — Tools, die ich in Produktion einsetze und pflege. Was zum Auftrag passt, nicht was gerade Trend ist.",
+    "blurb": "Kein Versuchswerkzeug. Tools, die ich in Produktion einsetze und pflege. Was zum Auftrag passt, nicht was gerade Trend ist.",
     "groups": [
       {
-        "title": "Web & Produkt-UI",
-        "blurb": "Schnelle, SEO-fähige Websites und Panels, die mobil standhalten. Motion und Scroll unter Kontrolle.",
+        "title": "Web & Produkt UI",
+        "blurb": "Schnelle, SEO fähige Websites und Panels, die mobil standhalten. Motion und Scroll unter Kontrolle.",
         "items": [
           "Next.js",
           "React",
@@ -519,7 +514,7 @@
       },
       {
         "title": "Mobile Apps",
-        "blurb": "Eine Codebasis für iOS und Android. Store-reife Oberfläche, stabile Releases.",
+        "blurb": "Eine Codebasis für iOS und Android. Store reife Oberfläche, stabile Releases.",
         "items": [
           "Flutter",
           "Dart"
@@ -527,7 +522,7 @@
       },
       {
         "title": "Automatisierung & Messaging",
-        "blurb": "WhatsApp- und Instagram-Bots, Terminabläufe, Erinnerungen. Handarbeit wird zum System.",
+        "blurb": "WhatsApp und Instagram Bots, Terminabläufe, Erinnerungen. Handarbeit wird zum System.",
         "items": [
           "Python",
           "n8n",
@@ -537,7 +532,7 @@
       },
       {
         "title": "Daten & Infrastruktur",
-        "blurb": "Kunden-, Termin- und Verkaufsdaten bleiben sauber. Panel und Bots lesen dieselbe Quelle.",
+        "blurb": "Kunden, Termin und Verkaufsdaten bleiben sauber. Panel und Bots lesen dieselbe Quelle.",
         "items": [
           "PostgreSQL",
           "Supabase"
@@ -549,16 +544,16 @@
     "label": "Prinzipien",
     "title": "Wie ich arbeite.",
     "items": [
-      "Direkte, transparente Kommunikation",
-      "Regelmäßige Updates",
-      "Performance und Sicherheit zuerst",
-      "Support nach der Übergabe"
+      "Direkte Antworten. Kein Status Theater",
+      "Fortschritt sichtbar, während die Arbeit läuft",
+      "Schnell liefern, wartbar halten",
+      "Support nach Übergabe, wenn etwas bricht"
     ]
   },
   "whatsapp": {
     "label": "WhatsApp",
-    "prefill": "Hallo METEK Digital — ich möchte ein Gespräch zu einem Projekt vereinbaren.",
-    "cta": "WhatsApp",
+    "prefill": "Hallo. Ich möchte mit METEK über ein Projekt sprechen.",
+    "cta": "Per WhatsApp chatten",
     "fab": "Chat"
   },
   "a11y": {

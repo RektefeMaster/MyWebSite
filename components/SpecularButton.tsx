@@ -186,7 +186,7 @@ type FxProps = {
 };
 
 export default function SpecularButton({
-  children = "Get Started",
+  children,
   size = "md",
   radius,
   tint,

@@ -258,7 +258,7 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
             data-hero-fade
             className="pointer-events-auto mt-4 flex w-full flex-col items-stretch gap-2 sm:w-auto sm:flex-row sm:items-center sm:justify-end sm:gap-2.5"
           >
-            <Magnetic strength={0.28} className="w-full sm:w-auto">
+            <Magnetic strength={0.2} className="w-full sm:w-auto">
               <SpecularButton
                 href="/work"
                 tone="ink"
@@ -275,7 +275,7 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
                 </span>
               </SpecularButton>
             </Magnetic>
-            <Magnetic strength={0.26} className="w-full sm:w-auto">
+            <Magnetic strength={0.18} className="w-full sm:w-auto">
               <SpecularButton
                 href={{ pathname: "/", hash: "contact" }}
                 tone="lime"

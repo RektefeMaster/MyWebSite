@@ -155,10 +155,10 @@ export default function Navbar() {
             <div className="flex shrink-0 items-center gap-1.5 md:gap-2.5">
               <ThemeToggle />
               <LanguageSwitcher />
-              <Magnetic strength={0.3} className="hidden sm:inline-block">
+              <Magnetic strength={0.18} className="hidden sm:inline-block">
                 <WhatsAppButton variant="nav" />
               </Magnetic>
-              <Magnetic strength={0.3}>
+              <Magnetic strength={0.18}>
                 <Link
                   href={{ pathname: "/", hash: "contact" }}
                   aria-label={t("cta")}

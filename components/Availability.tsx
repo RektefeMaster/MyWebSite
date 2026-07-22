@@ -18,10 +18,7 @@ export default function Availability() {
         <div className="relative mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 overflow-hidden rounded-[2rem] bg-band px-7 py-10 text-band-fg md:flex-row md:items-center md:px-12 md:py-12">
           <div className="relative z-10 max-w-xl">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-lime/40 bg-lime/10 px-3 py-1">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-lime opacity-60" />
-                <span className="relative inline-flex size-2 rounded-full bg-lime" />
-              </span>
+              <span className="size-2 rounded-full bg-lime" aria-hidden />
               <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-lime">
                 {t("badge")}
               </span>
@@ -36,7 +33,7 @@ export default function Availability() {
 
           <div className="relative z-10 flex flex-col items-start gap-4 md:items-end">
             <p className="font-mono text-sm text-band-fg/40">{t("slots")}</p>
-            <Magnetic strength={0.35}>
+            <Magnetic strength={0.22}>
               <SpecularButton
                 href={{ pathname: "/", hash: "contact" }}
                 tone="lime"

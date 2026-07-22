@@ -23,7 +23,11 @@ export default function TechExpertise() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 max-w-2xl md:mb-16">
           <Reveal>
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-paper/40">
+            <p className="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-paper/40">
+              <span
+                aria-hidden
+                className="inline-block h-px w-6 bg-lime/80"
+              />
               {t("label")}
             </p>
           </Reveal>

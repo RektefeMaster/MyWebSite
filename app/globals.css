@@ -716,7 +716,7 @@ html::-webkit-scrollbar-corner {
   }
 }
 
-/* Buton parlaması — birincil CTA'lar üzerinde ışık geçişi */
+/* Buton parlaması — ince, tek geçiş; abartısız */
 .btn-sheen {
   position: relative;
   overflow: hidden;
@@ -730,9 +730,9 @@ html::-webkit-scrollbar-corner {
   z-index: 1;
   background: linear-gradient(
     115deg,
-    transparent 20%,
-    color-mix(in srgb, #fff 45%, transparent) 48%,
-    transparent 62%
+    transparent 28%,
+    color-mix(in srgb, #fff 28%, transparent) 50%,
+    transparent 72%
   );
   transform: translateX(-130%);
   pointer-events: none;
@@ -741,7 +741,7 @@ html::-webkit-scrollbar-corner {
 @media (hover: hover) and (pointer: fine) {
   .btn-sheen:hover::after {
     transform: translateX(130%);
-    transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   }
 }
 
@@ -804,20 +804,20 @@ html::-webkit-scrollbar-corner {
   top: 42%;
   translate: -50% -50%;
   border-radius: 999px;
-  filter: blur(64px);
-  opacity: 0.32;
+  filter: blur(72px);
+  opacity: 0.22;
   mix-blend-mode: screen;
   background: radial-gradient(
     circle at 50% 50%,
-    color-mix(in srgb, var(--lime) 26%, transparent) 0%,
+    color-mix(in srgb, var(--lime) 22%, transparent) 0%,
     transparent 62%
   );
-  animation: hero-glow-drift 14s ease-in-out infinite alternate;
+  animation: hero-glow-drift 22s ease-in-out infinite alternate;
   will-change: transform;
 }
 
 .dark .hero-glow {
-  opacity: 0.45;
+  opacity: 0.34;
 }
 
 /* Hero görüş dışındayken atmosfer animasyonlarını duraklat — boşa

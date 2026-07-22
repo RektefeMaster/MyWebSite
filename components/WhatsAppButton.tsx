@@ -44,8 +44,8 @@ export default function WhatsAppButton({
   }
 
   const showCtaLabel = variant === "outline" || variant === "outlineOnDark";
-  // Tüm dillerde aynı etiket — locale kayması olmasın
-  const text = t("label");
+  // Visible action copy; aria keeps product name for clarity
+  const text = variant === "footer" ? t("label") : t("cta");
 
   return (
     <a

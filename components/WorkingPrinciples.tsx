@@ -17,7 +17,11 @@ export default function WorkingPrinciples() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-14 max-w-2xl md:mb-16">
           <Reveal>
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
+            <p className="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
+              <span
+                aria-hidden
+                className="inline-block h-px w-6 bg-lime/80"
+              />
               {t("label")}
             </p>
           </Reveal>
@@ -30,8 +34,8 @@ export default function WorkingPrinciples() {
         <div className="grid gap-3 md:grid-cols-2">
           {items.map((item, i) => (
             <Reveal key={item} delay={i * 60}>
-              <article className="flex items-start gap-5 rounded-3xl border border-foreground/8 bg-surface px-6 py-7 md:px-8 md:py-8">
-                <span className="font-mono text-xs font-bold text-foreground/30">
+              <article className="group flex items-start gap-5 rounded-3xl border border-foreground/8 bg-surface px-6 py-7 transition-colors duration-300 hover:border-lime/45 md:px-8 md:py-8">
+                <span className="font-mono text-xs font-bold text-foreground/30 transition-colors group-hover:text-lime">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="text-lg font-bold tracking-tight text-ink md:text-xl">

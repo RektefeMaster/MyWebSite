@@ -32,7 +32,7 @@ export const projectDetails: ProjectDetailsByLocale = {
         "ABD merkezli bir mobilya üreticisi için yüksek performanslı, SEO odaklı ve görsel olarak seçkin bir kurumsal web deneyimi kurduk. Üretim kalitesini yansıtan bir arayüzle marka, teklif ve iletişim tek akışta birleşti.",
       whatTitle: "Ne yaptık?",
       what: [
-        "Markanın üretim kalitesini yansıtan özgün arayüz ve mikro-animasyonlar.",
+        "Markanın üretim kalitesini yansıtan özgün arayüz ve mikro animasyonlar.",
         "Mobil öncelikli, hızlı yüklenen ve dönüşüm odaklı sayfa yapısı.",
         "İçerik, medya ve SEO yönetimini kolaylaştıran panel entegrasyonu.",
         "Hizmet alanları, galeri ve teklif akışını tek sitede birleştirdik.",
@@ -50,13 +50,13 @@ export const projectDetails: ProjectDetailsByLocale = {
       result:
         "Canlı site: seçkin kurumsal algı, hızlı mobil performans ve kolayca yönetilebilir içerik akışı.",
       ctaLabel: "Sıradaki proje",
-      ctaTitle: "Kurumsal / üretim markanız için böyle bir site mi istiyorsunuz?",
+      ctaTitle: "Üretim markanız için böyle bir site mi istiyorsunuz?",
       ctaBlurb:
         "Üretim kalitenizi yansıtan, SEO odaklı ve teklif akışını netleştiren bir kurumsal site kuralım. Kısa bir özetten sonra net kapsam ve yol haritası çıkarırım.",
-      ctaButton: "Projenizi konuşalım",
+      ctaButton: "Projemi başlat",
     },
     aydnnacar: {
-      tag: "Marka & e-katalog",
+      tag: "Marka & e katalog",
       summary:
         "Nacar Mobilya için minimal, editoryal bir dijital vitrin kurduk. Koleksiyonlar ve ürünler showroom hissiyle sunulur; her model isim, ölçü ve iletişim adımına net biçimde bağlanır.",
       whatTitle: "Ne yaptık?",
@@ -81,7 +81,7 @@ export const projectDetails: ProjectDetailsByLocale = {
       ctaTitle: "Mobilya markanız için editoryal bir katalog mu istiyorsunuz?",
       ctaBlurb:
         "Koleksiyonlarınızı showroom hissiyle sunan, sakin ve seçkin bir dijital vitrin kuralım. Kısa bir özetten sonra net kapsam çıkarırım.",
-      ctaButton: "Benzer bir site konuşalım",
+      ctaButton: "Projemi başlat",
     },
     wuffbutik: {
       tag: "Butik web",
@@ -106,18 +106,18 @@ export const projectDetails: ProjectDetailsByLocale = {
       stack: ["Next.js", "React", "TypeScript"],
       result: "Canlı site: butik algısı ve WhatsApp üzerinden hızlı dönüşüm yolu.",
       ctaLabel: "Sıradaki proje",
-      ctaTitle: "Butik markanız için vitrin + WhatsApp dönüşümü mü istiyorsunuz?",
+      ctaTitle: "Butik markanız için vitrin ve WhatsApp dönüşümü mü istiyorsunuz?",
       ctaBlurb:
         "Mağaza atmosferini dijitale taşıyan, WhatsApp'a hızlı düşen bir vitrin sitesi kuralım. Kısa bir özetten sonra net kapsam çıkarırım.",
-      ctaButton: "Benzer bir site konuşalım",
+      ctaButton: "Projemi başlat",
     },
     "altitude-residence": {
       tag: "Lüks gayrimenkul",
       summary:
-        "Altitude Private Residences için karanlık, editoryal bir lüks konut deneyimi kurduk — şehir silüeti, ritim ve randevu odaklı dönüşüm bir arada.",
+        "Altitude Private Residences için karanlık, editoryal bir lüks konut deneyimi kurduk. şehir silüeti, ritim ve randevu odaklı dönüşüm bir arada.",
       whatTitle: "Ne yaptık?",
       what: [
-        "Ultra-lüks markaya özel tipografi, görsel dil ve sinematik hero.",
+        "Ultra lüks markaya özel tipografi, görsel dil ve sinematik hero.",
         "Rezidans hikâyesini yükseklik / ritim metaforuyla anlatan sayfa akışı.",
         "“Görüntüleme randevusu” butonuyla net randevu ve satış yolu.",
         "Masaüstü ve mobilde bozulmayan seçkin sunum.",
@@ -137,12 +137,12 @@ export const projectDetails: ProjectDetailsByLocale = {
       ctaTitle: "Lüks konut projeniz için görüntüleme odaklı bir site mi istiyorsunuz?",
       ctaBlurb:
         "Editoryal bir sunumla rezidans hikâyenizi anlatan, randevuya net akan bir deneyim kuralım. Kısa bir özetten sonra kapsam ve yol haritası çıkarırım.",
-      ctaButton: "Projenizi konuşalım",
+      ctaButton: "Projemi başlat",
     },
     "casa-aurelia": {
       tag: "Butik otel",
       summary:
-        "Roma’da beş yıldızlı butik otel Casa Aurelia için sakin, atmosferik bir rezervasyon vitrini kurduk — İngilizce ve İtalyanca dil desteğiyle net bir booking yolu.",
+        "Roma’da beş yıldızlı butik otel Casa Aurelia için sakin, atmosferik bir rezervasyon vitrini kurduk. İngilizce ve İtalyanca dil desteğiyle net bir booking yolu.",
       whatTitle: "Ne yaptık?",
       what: [
         "Otelin karakterini yansıtan sinematik hero ve tipografi.",
@@ -166,17 +166,17 @@ export const projectDetails: ProjectDetailsByLocale = {
         "Butik otel / konaklama markanız için böyle bir rezervasyon deneyimi mi istiyorsunuz?",
       ctaBlurb:
         "Atmosferik bir sunumla otel hikâyenizi anlatan, çok dilli ve rezervasyona net akan bir site kuralım. Kısa bir özetten sonra kapsam çıkarırım.",
-      ctaButton: "Bu çözümü konuşalım",
+      ctaButton: "Projemi başlat",
     },
     "seraphine-atelier": {
-      tag: "Moda e-ticaret",
+      tag: "Moda e ticaret",
       summary:
-        "Séraphine Atelier için sis, film ve tipografiyle kurulan editoryal moda evi. Kadın / erkek lookbook, butik zemin hikâyesi ve özel fitting randevusuna giden net bir dönüşüm yolu — sepet değil, private hour.",
+        "Séraphine Atelier için sis, film ve tipografiyle kurulan editoryal moda evi. Kadın / erkek lookbook, butik zemin hikâyesi ve özel fitting randevusuna giden net bir dönüşüm yolu. sepet değil, private hour.",
       whatTitle: "Ne yaptık?",
       what: [
         "Sinematik hero film, sis atmosferi ve couture tipografisiyle ilk ekranda marka vaadini kurduk.",
         "SS26 lookbook ritminde kadın koleksiyonunu altı look ile sunduk; parça adı, kesim ve fiyat editoryal hiyerarşide.",
-        "Maison zeminini “her ray bir sahne” metaforuyla anlattık — butik fotoğrafları ve askılık kareleriyle güven inşa ettik.",
+        "Maison zeminini “her ray bir sahne” metaforuyla anlattık. butik fotoğrafları ve askılık kareleriyle güven inşa ettik.",
         "Erkek bölümünü karanlık runway grid’iyle ayırdık; blazer, takım ve overcoat parçalarını fiyatla birlikte sıraladık.",
         "Sayfa sonunda “Request a private hour” ile fitting / özel randevu CTA’sını netleştirdik.",
         "Masaüstü ve mobilde bozulmayan, sessiz lüks tonunda responsive sunum.",
@@ -185,59 +185,59 @@ export const projectDetails: ProjectDetailsByLocale = {
       how: [
         "Ziyaretçi sisli hero filmle markayı hisseder; Show Now / scroll ile boutique’e iner.",
         "Lookbook’ta kadın ve erkek parçalarını gezer; her kart isim, kesim ve fiyat taşır.",
-        "Maison bölümü mağaza atmosferini anlatır — güven ve marka derinliği buradan gelir.",
+        "Maison bölümü mağaza atmosferini anlatır. güven ve marka derinliği buradan gelir.",
         "Appointment bandı özel fitting randevusuna yönlendirir; satış yolu private hour üzerinden akar.",
       ],
       stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
       result:
-        "Canlı site: couture algı, lookbook ritmi ve private-hour dönüşümü. Sessiz lüks tonu masaüstünden mobile kadar tutarlı kalır.",
+        "Canlı site: couture algı, lookbook ritmi ve private hour dönüşümü. Sessiz lüks tonu masaüstünden mobile kadar tutarlı kalır.",
       ctaLabel: "Sıradaki proje",
       ctaTitle: "Benzer bir moda evi mi kurmak istiyorsunuz?",
       ctaBlurb:
         "Sinematik hero, lookbook ritmi ve randevu odaklı dönüşümü markanıza uyarlayalım. Kısa bir özetten sonra net kapsam ve yol haritası çıkarırım.",
-      ctaButton: "Projenizi konuşalım",
+      ctaButton: "Projemi başlat",
     },
     "havva-baklava": {
       tag: "Butik web",
       summary:
-        "Köln-Ehrenfeld’deki HAVVA Baklava için karanlık, sinematik bir vitrin. Gaziantep’ten Köln’e uzanan ustalık hikâyesi, günlük fiyat listesi ve WhatsApp üzerinden net sipariş yolu tek akışta.",
+        "Köln Ehrenfeld’deki HAVVA Baklava için karanlık, sinematik bir vitrin. Gaziantep’ten Köln’e uzanan ustalık hikâyesi, günlük fiyat listesi ve WhatsApp üzerinden net sipariş yolu tek akışta.",
       whatTitle: "Ne yaptık?",
       what: [
-        "Karanlık zemin, serif tipografi ve tepsi fotoğrafıyla ilk ekranda baklava-atölyesi algısını kurduk.",
+        "Karanlık zemin, serif tipografi ve tepsi fotoğrafıyla ilk ekranda baklava atölyesi algısını kurduk.",
         "Gaziantep → Köln hikâyesini kaydırmalı hero panellerinde (Pistazie / Schicht für Schicht) anlattık.",
         "Werkstatt bölümünde el işçiliği, Antepfıstığı ve katkı maddesiz şerbet vaadini net maddelerle sunduk.",
         "Tageskarte / Preise ile fıstıklı, cevizli, şöbiyet, künefe ve tepsi fiyatlarını editoryal listede verdik.",
         "“Jetzt über WhatsApp bestellen” ile sipariş CTA’sını sayfanın dönüşüm noktası yaptık.",
-        "Adres, saatler ve doğrudan WhatsApp numarası — Köln-Ehrenfeld atölyesine net yol.",
+        "Adres, saatler ve doğrudan WhatsApp numarası. Köln Ehrenfeld atölyesine net yol.",
       ],
       howTitle: "Nasıl çalışıyor?",
       how: [
         "Ziyaretçi hero’da atölyeyi ve ürünü hisseder; scroll ile marka hikâyesine iner.",
         "Werkstatt ve fiyat listesinde çeşit / kg fiyatı görür.",
-        "WhatsApp butonu sipariş sohbetini açar — çeşit, miktar, saat.",
+        "WhatsApp butonu sipariş sohbetini açar. çeşit, miktar, saat.",
         "Atölye genelde 15 dakikada yanıtlar; hazır olunca abhol / teslim netleşir.",
       ],
       stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
       result:
         "Canlı site: zanaatkâr baklava algısı, okunaklı fiyat listesi ve WhatsApp sipariş yolu. Masaüstünden mobile kadar aynı karanlık lüks ton.",
       ctaLabel: "Sıradaki proje",
-      ctaTitle: "Pastane / atölye markanız için böyle bir sipariş vitrini mi istiyorsunuz?",
+      ctaTitle: "Pastane veya atölye markanız için böyle bir sipariş vitrini mi istiyorsunuz?",
       ctaBlurb:
         "Ürün hikâyenizi, fiyat listenizi ve WhatsApp sipariş yolunu tek sinematik akışta kuralım. Kısa bir özetten sonra kapsam çıkarırım.",
-      ctaButton: "Bu çözümü konuşalım",
+      ctaButton: "Projemi başlat",
     },
     "whatsapp-bot": {
       title: "WhatsApp Sohbet Asistanı",
       tag: "Otomasyon",
       summary:
-        "Telefona bakmanıza gerek kalmadan WhatsApp’tan gelen müşteriyle sizin yerinize konuşur. Fiyatlarınızı ve hizmetlerinizi bilir. Randevu olmayan boş saatleri bilir, gelenleri oraya yönlendirir. Dolu saatleri de bilir, randevuları ona göre alır. İptal olunca boş kalan saati de bilir. Randevu saatinden 1 saat önce sahibine bildirim gider — son dakika iptallerinin önüne geçer. Soruları cevaplar, sizin gibi konuşur.",
+        "Telefona bakmanıza gerek kalmadan WhatsApp’tan gelen müşteriyle sizin yerinize konuşur. Fiyatlarınızı ve hizmetlerinizi bilir. Randevu olmayan boş saatleri bilir, gelenleri oraya yönlendirir. Dolu saatleri de bilir, randevuları ona göre alır. İptal olunca boş kalan saati de bilir. Randevu saatinden 1 saat önce sahibine bildirim gider. son dakika iptallerinin önüne geçer. Soruları cevaplar, sizin gibi konuşur.",
       whatTitle: "Ne yaptık?",
       what: [
         "Fiyatlarınızı ve hizmetlerinizi bota yazdık; müşteri sorduğunda uydurmaz, sizin söylediğinizle cevaplar.",
         "Boş saatleri bilir: o saatte randevu yoksa müşteriyi oraya yönlendirir.",
         "Dolu saatleri bilir: o saatte zaten biri varsa yeni randevuyu oraya koymaz.",
         "İptal edilince boş kalan saati de bilir; yeni müşteriye o saati açar.",
-        "Randevu saatinden 1 saat önce sahibine bildirim gönderir — unutma ve son dakika iptali azalır.",
+        "Randevu saatinden 1 saat önce sahibine bildirim gönderir. unutma ve son dakika iptali azalır.",
         "Soru sorar, sorulara cevap verir; yetişemediği yerde size haber verir.",
       ],
       howTitle: "Nasıl çalışıyor?",
@@ -254,7 +254,7 @@ export const projectDetails: ProjectDetailsByLocale = {
       ctaTitle: "İşletmeniz için WhatsApp randevu asistanı mı istiyorsunuz?",
       ctaBlurb:
         "Fiyatlarınızı, boş saatlerinizi ve randevu akışınızı öğrenen bir asistan kuralım. Kısa bir özetten sonra kapsamı netleştiririm.",
-      ctaButton: "Bu çözümü konuşalım",
+      ctaButton: "Projemi başlat",
     },
     "instagram-bot": {
       title: "Instagram DM Asistanı",
@@ -264,7 +264,7 @@ export const projectDetails: ProjectDetailsByLocale = {
       whatTitle: "Ne yaptık?",
       what: [
         "DM’ye yazanın karşısına sizin adınıza çıkan sohbet kurduk.",
-        "Fiyat ve hizmet cevapları WhatsApp’takiyle aynı — iki yerde farklı şey söylemez.",
+        "Fiyat ve hizmet cevapları WhatsApp’takiyle aynı. iki yerde farklı şey söylemez.",
         "Boş saatleri bilir, randevuyu oraya alır. Dolu saatlere koymaz.",
         "İptal olunca boş kalan saati açar. Saatten 1 saat önce hatırlatma gönderir.",
         "Botun yetmediği konuşmaları size veya CRM’e iletir.",
@@ -278,28 +278,28 @@ export const projectDetails: ProjectDetailsByLocale = {
       ],
       stack: ["Instagram Graph API", "n8n", "Python", "Supabase"],
       result:
-        "Instagram DM’si dağılmaz: sorular cevaplanır, randevular boş saatlere yazılır, 1 saat kala hatırlatma gider — telefona bakmadan.",
+        "Instagram DM’si dağılmaz: sorular cevaplanır, randevular boş saatlere yazılır, 1 saat kala hatırlatma gider. telefona bakmadan.",
       ctaLabel: "Sıradaki proje",
       ctaTitle: "Instagram DM'leriniz için aynı asistanı mı istiyorsunuz?",
       ctaBlurb:
         "WhatsApp'takiyle aynı takvimi kullanan, DM'lerinizi dağıtmayan bir asistan kuralım. Kısa bir özetten sonra kapsamı netleştiririm.",
-      ctaButton: "Bu çözümü konuşalım",
+      ctaButton: "Projemi başlat",
     },
     crm: {
       title: "CRM Satış Paneli",
       tag: "Yazılım",
       summary:
-        "WhatsApp ve Instagram asistanlarıyla birlikte çalışan panel. Botların konuştuğu müşteriler, aldığı randevular, iptaller ve notlar tek yerde. Kim ne zaman gelecek, hangi saat boş, hangi saat dolu, WhatsApp’tan mı Instagram’dan mı geldi — hepsi orada görünür.",
+        "WhatsApp ve Instagram asistanlarıyla birlikte çalışan panel. Botların konuştuğu müşteriler, aldığı randevular, iptaller ve notlar tek yerde. Kim ne zaman gelecek, hangi saat boş, hangi saat dolu, WhatsApp’tan mı Instagram’dan mı geldi. hepsi orada görünür.",
       whatTitle: "Ne yaptık?",
       what: [
         "Satışın adım adım ilerlediği sade bir panel kurduk.",
         "WhatsApp ve Instagram botlarını bağladık: randevu alınca kart kendiliğinden açılır.",
         "Kartta kanal, saat, boş/dolu durumu, notlar ve konuşma özeti durur.",
-        "Bugün kim gelecek, kim iptal etti, hangi saatler boş — hepsi panelden okunur.",
+        "Bugün kim gelecek, kim iptal etti, hangi saatler boş. hepsi panelden okunur.",
       ],
       howTitle: "Nasıl çalışıyor?",
       how: [
-        "Bot boş bir saate randevu yazınca panelde kart oluşur — telefonda olmasanız bile.",
+        "Bot boş bir saate randevu yazınca panelde kart oluşur. telefonda olmasanız bile.",
         "Kartı ilerletir, not ekler, kime ait olduğunu seçersiniz. WhatsApp veya Instagram özeti aynı müşteride kalır.",
         "İptal olunca o saat yine boşalır; panel de güncellenir.",
         "İki bot ayrı yerde konuşur, CRM’de her şey tek listede toplanır.",
@@ -311,7 +311,7 @@ export const projectDetails: ProjectDetailsByLocale = {
       ctaTitle: "Botlarınızla konuşan bir CRM paneli mi istiyorsunuz?",
       ctaBlurb:
         "WhatsApp ve Instagram asistanlarınızın topladığı randevu ve müşterileri tek panelde toplayalım. Kısa bir özetten sonra kapsamı netleştiririm.",
-      ctaButton: "Bu çözümü konuşalım",
+      ctaButton: "Projemi başlat",
     },
     "css-system": {
       tag: "Tasarım sistemi",
@@ -340,22 +340,22 @@ export const projectDetails: ProjectDetailsByLocale = {
       ctaTitle: "Markanız için tutarlı bir tasarım sistemi mi istiyorsunuz?",
       ctaBlurb:
         "Token tabanlı, ölçeklenebilir bir CSS tasarım sistemi kuralım; web ve panelinizde aynı dili konuşsun. Kısa bir özetten sonra kapsamı netleştiririm.",
-      ctaButton: "Bu çözümü konuşalım",
+      ctaButton: "Projemi başlat",
     },
   },
   en: {
     wcc: {
       tag: "Corporate web",
       summary:
-        "A high-performance, SEO-ready, premium corporate site for a US furniture manufacturer. An interface that reflects manufacturing quality brings brand, quote, and contact into one flow.",
+        "A high performance, SEO ready, premium corporate site for a US furniture manufacturer. An interface that reflects manufacturing quality brings brand, quote, and contact into one flow.",
       whatTitle: "What we built",
       what: [
-        "Custom UI and micro-animations that reflect manufacturing quality.",
-        "Mobile-first, fast-loading, conversion-focused page structure.",
+        "Custom UI and micro animations that reflect manufacturing quality.",
+        "Mobile first, fast loading, conversion focused page structure.",
         "CMS integration that simplifies content, media, and SEO management.",
         "Services, gallery, and quote flow unified in one site.",
-        "Trust signals — certifications, references, production capacity — presented clearly.",
-        "Title, meta, and structured-data optimization for search engines.",
+        "Trust signals. certifications, references, production capacity. presented clearly.",
+        "Title, meta, and structured data optimization for search engines.",
       ],
       howTitle: "How it works",
       how: [
@@ -370,20 +370,20 @@ export const projectDetails: ProjectDetailsByLocale = {
       ctaLabel: "Up next",
       ctaTitle: "Need a site like this for a manufacturing brand?",
       ctaBlurb:
-        "If production quality has to show online — and quotes need a clear path — send a short brief. I’ll reply with scope and next steps.",
-      ctaButton: "Start a project",
+        "If production quality has to show online, and quotes need a clear path, send a short brief. I’ll reply with scope and next steps.",
+      ctaButton: "Start my project",
     },
     aydnnacar: {
       tag: "Brand & catalogue",
       summary:
-        "A minimal editorial digital showroom for Nacar Mobilya — collections and products presented with a premium feel, with every model tied cleanly to size, name, and contact.",
+        "A minimal editorial digital showroom for Nacar Mobilya. collections and products presented with a premium feel, with every model tied cleanly to size, name, and contact.",
       whatTitle: "What we built",
       what: [
         "Custom type and calm colour language.",
         "Collection slider and catalogue structure across living, dining, and bedroom lines.",
         "Clear paths to product detail and contact.",
         "Premium presentation that holds on mobile.",
-        "Collection-based filtering for fast model comparison.",
+        "Collection based filtering for fast model comparison.",
         "Product cards that show size and fabric options clearly.",
       ],
       howTitle: "How it works",
@@ -398,16 +398,16 @@ export const projectDetails: ProjectDetailsByLocale = {
       ctaLabel: "Up next",
       ctaTitle: "Need an editorial catalogue for furniture?",
       ctaBlurb:
-        "Collections, measurements, contact — presented like a showroom. Send a brief and I’ll outline the build.",
-      ctaButton: "Ask about this",
+        "Collections, measurements, contact, presented like a showroom. Send a brief and I’ll outline the build.",
+      ctaButton: "Start my project",
     },
     wuffbutik: {
       tag: "Boutique web",
       summary:
-        "A calm, elegant boutique site for Wuuf — store presence and WhatsApp-led remote sales brought into one flow.",
+        "A calm, elegant boutique site for Wuuf. store presence and WhatsApp led remote sales brought into one flow.",
       whatTitle: "What we built",
       what: [
-        "Brand-fit typography and visuals.",
+        "Brand fit typography and visuals.",
         "Clear IA for collections and contact.",
         "WhatsApp / message CTAs for fast conversion.",
         "Light, fast mobile UI.",
@@ -426,16 +426,16 @@ export const projectDetails: ProjectDetailsByLocale = {
       ctaLabel: "Up next",
       ctaTitle: "Need a boutique site that converts on WhatsApp?",
       ctaBlurb:
-        "Store atmosphere online, chat path that actually gets used. Send a brief — I’ll map the scope.",
-      ctaButton: "Ask about this",
+        "Store atmosphere online, chat path that actually gets used. Send a brief, I’ll map the scope.",
+      ctaButton: "Start my project",
     },
     "altitude-residence": {
       tag: "Luxury real estate",
       summary:
-        "A dark, editorial luxury residence experience for Altitude — city skyline, tempo, and viewing-led conversion working together.",
+        "A dark, editorial luxury residence experience for Altitude. city skyline, tempo, and viewing led conversion working together.",
       whatTitle: "What we built",
       what: [
-        "Ultra-luxury typography, visual language, and cinematic hero.",
+        "Ultra luxury typography, visual language, and cinematic hero.",
         "Page flow that tells the residence story through height and tempo.",
         "Clear path via Arrange a viewing CTA.",
         "Premium presentation on desktop and mobile.",
@@ -452,23 +452,23 @@ export const projectDetails: ProjectDetailsByLocale = {
       stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
       result: "Live site: premium feel, clear viewing path, mobile polish.",
       ctaLabel: "Up next",
-      ctaTitle: "Need a viewing-led site for a residence project?",
+      ctaTitle: "Need a viewing led site for a residence project?",
       ctaBlurb:
-        "Story first, appointment second — without the fluff. Send a brief and I’ll come back with a plan.",
-      ctaButton: "Start a project",
+        "Story first, appointment second, without the fluff. Send a brief and I’ll come back with a plan.",
+      ctaButton: "Start my project",
     },
     "casa-aurelia": {
       tag: "Boutique hotel",
       summary:
-        "An atmospheric booking showcase for five-star boutique hotel Casa Aurelia in Rome — with English/Italian support and a clear path to booking.",
+        "An atmospheric booking showcase for five star boutique hotel Casa Aurelia in Rome. with English/Italian support and a clear path to booking.",
       whatTitle: "What we built",
       what: [
         "Cinematic hero and typography that match the hotel’s character.",
-        "Book-now focused reservation / contact flow.",
+        "Book now focused reservation / contact flow.",
         "English and Italian language switch.",
         "Luxury presentation that holds on mobile.",
         "Room types and amenities presented in an editorial layout.",
-        "Rome location and surroundings told through a map-supported section.",
+        "Rome location and surroundings told through a map supported section.",
       ],
       howTitle: "How it works",
       how: [
@@ -478,60 +478,60 @@ export const projectDetails: ProjectDetailsByLocale = {
         "Language toggle switches Eng ↔ Ita content.",
       ],
       stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
-      result: "Live site: boutique-hotel feel, bilingual, clear booking path.",
+      result: "Live site: boutique hotel feel, bilingual, clear booking path.",
       ctaLabel: "Up next",
       ctaTitle: "Need a booking site for a boutique hotel?",
       ctaBlurb:
-        "Atmosphere, language support, a clean path to book. Send a brief — I’ll outline what that takes.",
-      ctaButton: "Ask about this",
+        "Atmosphere, language support, a clean path to book. Send a brief, I’ll outline what that takes.",
+      ctaButton: "Start my project",
     },
     "seraphine-atelier": {
-      tag: "Fashion e-commerce",
+      tag: "Fashion e commerce",
       summary:
-        "An editorial fashion house for Séraphine Atelier — mist, film, and typography. Women/men lookbook, maison floor story, and a clear path to a private fitting — not a cart, a private hour.",
+        "An editorial fashion house for Séraphine Atelier. mist, film, and typography. Women/men lookbook, maison floor story, and a clear path to a private fitting. not a cart, a private hour.",
       whatTitle: "What we built",
       what: [
         "Cinematic hero film, mist atmosphere, and couture typography that set the brand promise on first paint.",
-        "SS26 lookbook pacing for the women’s collection — six looks with name, cut, and price in editorial hierarchy.",
-        "Maison floor told as “every rail is a scene” — boutique stills that build trust and depth.",
+        "SS26 lookbook pacing for the women’s collection. six looks with name, cut, and price in editorial hierarchy.",
+        "Maison floor told as “every rail is a scene”. boutique stills that build trust and depth.",
         "Men’s section separated with a dark runway grid; blazers, suits, and overcoats listed with price.",
         "Closing “Request a private hour” CTA that makes the fitting / appointment path unmistakable.",
-        "Quiet-luxury presentation that holds on desktop and mobile.",
+        "Quiet luxury presentation that holds on desktop and mobile.",
       ],
       howTitle: "How it works",
       how: [
         "Visitors feel the brand through the misty hero film, then descend into boutique via Show Now / scroll.",
-        "Lookbook lets them browse women’s and men’s pieces — each card carries name, cut, and price.",
+        "Lookbook lets them browse women’s and men’s pieces. each card carries name, cut, and price.",
         "Maison section stages the store atmosphere; trust and brand depth land here.",
-        "Appointment band routes to a private fitting — conversion flows through private hour, not a cart.",
+        "Appointment band routes to a private fitting. conversion flows through private hour, not a cart.",
       ],
       stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
       result:
-        "Live site: couture feel, lookbook rhythm, and private-hour conversion. Quiet-luxury tone stays consistent from desktop to mobile.",
+        "Live site: couture feel, lookbook rhythm, and private hour conversion. Quiet luxury tone stays consistent from desktop to mobile.",
       ctaLabel: "Up next",
       ctaTitle: "Need a fashion house site in this register?",
       ctaBlurb:
         "Hero, lookbook rhythm, appointments that convert. Send a brief and I’ll sketch the scope.",
-      ctaButton: "Start a project",
+      ctaButton: "Start my project",
     },
     "havva-baklava": {
       tag: "Boutique web",
       summary:
-        "A dark, cinematic showcase for HAVVA Baklava in Köln-Ehrenfeld — craft story from Gaziantep to Cologne, daily price list, and a clear WhatsApp order path in one flow.",
+        "A dark, cinematic showcase for HAVVA Baklava in Köln Ehrenfeld. craft story from Gaziantep to Cologne, daily price list, and a clear WhatsApp order path in one flow.",
       whatTitle: "What we built",
       what: [
-        "Dark ground, serif type, and tray photography that set the baklava-workshop feel on first paint.",
+        "Dark ground, serif type, and tray photography that set the baklava workshop feel on first paint.",
         "Gaziantep → Cologne told across scrollable hero panels (pistachio / layer by layer).",
         "Werkstatt block with clear claims: handwork, Antepfıstığı, syrup without additives.",
         "Tageskarte / Preise listing fıstıklı, cevizli, şöbiyet, künefe, and tray prices editorially.",
         "“Order via WhatsApp now” as the page’s conversion hinge.",
-        "Address, hours, and direct WhatsApp number — a clear path to the Ehrenfeld workshop.",
+        "Address, hours, and direct WhatsApp number. a clear path to the Ehrenfeld workshop.",
       ],
       howTitle: "How it works",
       how: [
         "Visitors feel the workshop and product in the hero, then scroll into the brand story.",
-        "Werkstatt and price list show varieties and per-kg pricing.",
-        "WhatsApp CTA opens the order chat — variety, quantity, pickup time.",
+        "Werkstatt and price list show varieties and per kg pricing.",
+        "WhatsApp CTA opens the order chat. variety, quantity, pickup time.",
         "Workshop typically replies within ~15 minutes; pickup / delivery is confirmed when ready.",
       ],
       stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
@@ -540,21 +540,21 @@ export const projectDetails: ProjectDetailsByLocale = {
       ctaLabel: "Up next",
       ctaTitle: "Need an order showcase like this for a bakery or workshop?",
       ctaBlurb:
-        "Product story, price list, WhatsApp ordering in one cinematic flow. Send a brief — I’ll outline the scope.",
-      ctaButton: "Ask about this",
+        "Product story, price list, WhatsApp ordering in one cinematic flow. Send a brief, I’ll outline the scope.",
+      ctaButton: "Start my project",
     },
     "whatsapp-bot": {
       title: "WhatsApp Conversation Assistant",
       tag: "Automation",
       summary:
-        "Talks to WhatsApp customers for you so you don’t have to watch your phone. Knows your prices and services. Knows free hours with no appointment and directs people there. Knows busy hours and books around them. Knows when a cancel frees a slot again. Sends a reminder 1 hour before to the appointment holder — cuts last-minute no-shows. Asks and answers questions, talks like you.",
+        "Talks to WhatsApp customers for you so you don’t have to watch your phone. Knows your prices and services. Knows free hours with no appointment and directs people there. Knows busy hours and books around them. Knows when a cancel frees a slot again. Sends a reminder 1 hour before to the appointment holder. cuts last minute no shows. Asks and answers questions, talks like you.",
       whatTitle: "What we built",
       what: [
-        "Your prices and services are in the bot — it doesn’t make numbers up.",
+        "Your prices and services are in the bot. it doesn’t make numbers up.",
         "It knows free hours: if nothing is booked, it sends people there.",
-        "It knows busy hours: if someone already has that slot, it won’t double-book.",
+        "It knows busy hours: if someone already has that slot, it won’t double book.",
         "When someone cancels, it knows that hour is free again and can offer it.",
-        "1 hour before the appointment it notifies the holder — fewer last-minute cancels.",
+        "1 hour before the appointment it notifies the holder. fewer last minute cancels.",
         "It asks and answers questions; harder cases go to you.",
       ],
       howTitle: "How it works",
@@ -570,8 +570,8 @@ export const projectDetails: ProjectDetailsByLocale = {
       ctaLabel: "Up next",
       ctaTitle: "Need a WhatsApp assistant for bookings?",
       ctaBlurb:
-        "Prices, free hours, reminders — without living on your phone. Send a brief and I’ll scope the setup.",
-      ctaButton: "Ask about this",
+        "Prices, free hours, reminders, without living on your phone. Send a brief and I’ll scope the setup.",
+      ctaButton: "Start my project",
     },
     "instagram-bot": {
       title: "Instagram DM Assistant",
@@ -581,7 +581,7 @@ export const projectDetails: ProjectDetailsByLocale = {
       whatTitle: "What we built",
       what: [
         "Chat that greets DMs in your name.",
-        "Same prices and services as WhatsApp — no mismatch between channels.",
+        "Same prices and services as WhatsApp. no mismatch between channels.",
         "Knows free hours and books there. Won’t put people on busy hours.",
         "Cancel frees the hour. Reminder 1 hour before.",
         "Hard chats go to you or CRM.",
@@ -595,24 +595,24 @@ export const projectDetails: ProjectDetailsByLocale = {
       ],
       stack: ["Instagram Graph API", "n8n", "Python", "Supabase"],
       result:
-        "DM inbox stays tidy: questions answered, bookings on free hours, reminder 1 hour before — without watching your phone.",
+        "DM inbox stays tidy: questions answered, bookings on free hours, reminder 1 hour before. without watching your phone.",
       ctaLabel: "Up next",
       ctaTitle: "Need the same assistant in Instagram DMs?",
       ctaBlurb:
-        "Same calendar as WhatsApp, cleaner inbox. Send a brief — I’ll scope it.",
-      ctaButton: "Ask about this",
+        "Same calendar as WhatsApp, cleaner inbox. Send a brief, I’ll scope it.",
+      ctaButton: "Start my project",
     },
     crm: {
       title: "CRM Sales Panel",
       tag: "Software",
       summary:
-        "Panel that works with the WhatsApp and Instagram assistants. Customers the bots talked to, appointments, cancels, and notes in one place. Who’s coming when, which hours are free or busy, WhatsApp or Instagram — all there.",
+        "Panel that works with the WhatsApp and Instagram assistants. Customers the bots talked to, appointments, cancels, and notes in one place. Who’s coming when, which hours are free or busy, WhatsApp or Instagram. all there.",
       whatTitle: "What we built",
       what: [
         "A plain sales panel that moves step by step.",
         "WhatsApp and Instagram bots linked: booking opens a card on its own.",
         "Card shows channel, time, free/busy, notes, and chat summary.",
-        "Who’s coming today, who cancelled, what’s still free — readable on the panel.",
+        "Who’s coming today, who cancelled, what’s still free. readable on the panel.",
       ],
       howTitle: "How it works",
       how: [
@@ -628,12 +628,12 @@ export const projectDetails: ProjectDetailsByLocale = {
       ctaTitle: "Need a CRM that sits with your bots?",
       ctaBlurb:
         "Bookings and customers from WhatsApp and Instagram, in one place. Send a brief and I’ll outline the panel.",
-      ctaButton: "Ask about this",
+      ctaButton: "Start my project",
     },
     "css-system": {
       tag: "Design system",
       summary:
-        "A CSS design system with brand tokens for colour, type, components, and spacing — a single source that keeps web and admin UI speaking the same visual language.",
+        "A CSS design system with brand tokens for colour, type, components, and spacing. a single source that keeps web and admin UI speaking the same visual language.",
       whatTitle: "What we built",
       what: [
         "Colour, type, radius, and spacing tokens.",
@@ -641,7 +641,7 @@ export const projectDetails: ProjectDetailsByLocale = {
         "Docs and example surface.",
         "Same language across web and admin UI.",
         "A token layer that supports dark / light theming.",
-        "New components stay token-bound, so they ship fast without drifting.",
+        "New components stay token bound, so they ship fast without drifting.",
       ],
       howTitle: "How it works",
       how: [
@@ -656,8 +656,8 @@ export const projectDetails: ProjectDetailsByLocale = {
       ctaLabel: "Up next",
       ctaTitle: "Need a design system your team can actually use?",
       ctaBlurb:
-        "Tokens, components, docs — web and admin speaking the same language. Send a brief and I’ll scope it.",
-      ctaButton: "Ask about this",
+        "Tokens, components, docs, web and admin speaking the same language. Send a brief and I’ll scope it.",
+      ctaButton: "Start my project",
     },
   },
 };
@@ -674,10 +674,10 @@ projectDetails.es = {
     whatTitle: "Qué hicimos",
     what: [
       "UI y microanimaciones a medida que reflejan la calidad de fabricación.",
-      "Estructura mobile-first, rápida y orientada a conversión.",
+      "Estructura mobile first, rápida y orientada a conversión.",
       "Integración de panel que simplifica contenido, medios y SEO.",
       "Servicios, galería y flujo de presupuesto unidos en un solo sitio.",
-      "Señales de confianza — certificaciones, referencias, capacidad de producción — presentadas con claridad.",
+      "Señales de confianza. certificaciones, referencias, capacidad de producción. presentadas con claridad.",
       "Optimización de títulos, meta y datos estructurados para buscadores.",
     ],
     howTitle: "Cómo funciona",
@@ -693,13 +693,13 @@ projectDetails.es = {
     ctaLabel: "Siguiente proyecto",
     ctaTitle: "¿Quiere un sitio así para su marca de fabricación?",
     ctaBlurb:
-      "Construyamos un sitio corporativo que refleje su calidad de producción, se mantenga preparado para SEO y deje clara la ruta de presupuesto. Envíe un brief corto — devolveré alcance y hoja de ruta claros.",
-    ctaButton: "Hablemos de su proyecto",
+      "Construyamos un sitio corporativo que refleje su calidad de producción, se mantenga preparado para SEO y deje clara la ruta de presupuesto. Envíe Un brief corto, devolveré alcance y hoja de ruta claros.",
+    ctaButton: "Empezar mi proyecto",
   },
   aydnnacar: {
     tag: "Marca y catálogo",
     summary:
-      "Escaparate digital editorial y minimalista para Nacar Mobilya — colecciones y productos con sensación de showroom, donde cada modelo se conecta con claridad a medida, nombre y contacto.",
+      "Escaparate digital editorial y minimalista para Nacar Mobilya. colecciones y productos con sensación de showroom, donde cada modelo se conecta con claridad a medida, nombre y contacto.",
     whatTitle: "Qué hicimos",
     what: [
       "Tipografía y color propios de la marca, en tono calmado.",
@@ -722,12 +722,12 @@ projectDetails.es = {
     ctaTitle: "¿Quiere un catálogo editorial para su marca de mobiliario?",
     ctaBlurb:
       "Construyamos un showroom digital calmado y selecto que presente sus colecciones con verdadera sensación de tienda. Envíe un brief corto y devolveré un alcance claro.",
-    ctaButton: "Hablemos de su proyecto",
+    ctaButton: "Empezar mi proyecto",
   },
   wuffbutik: {
     tag: "Web boutique",
     summary:
-      "Sitio boutique elegante y calmado para Wuuf — presencia de tienda y venta remota por WhatsApp en un solo flujo.",
+      "Sitio boutique elegante y calmado para Wuuf. presencia de tienda y venta remota por WhatsApp en un solo flujo.",
     whatTitle: "Qué hicimos",
     what: [
       "Lenguaje visual y tipografía acorde a la boutique.",
@@ -750,12 +750,12 @@ projectDetails.es = {
     ctaTitle: "¿Quiere un escaparate con conversión por WhatsApp para su boutique?",
     ctaBlurb:
       "Llevemos la atmósfera de su tienda a digital con una vitrina que cae directo a WhatsApp. Envíe un brief corto y devolveré un alcance claro.",
-    ctaButton: "Hablemos de su proyecto",
+    ctaButton: "Empezar mi proyecto",
   },
   "altitude-residence": {
     tag: "Inmobiliaria de lujo",
     summary:
-      "Experiencia editorial oscura de residencia de lujo para Altitude — skyline, ritmo y conversión a visita, todo en conjunto.",
+      "Experiencia editorial oscura de residencia de lujo para Altitude. skyline, ritmo y conversión a visita, todo en conjunto.",
     whatTitle: "Qué hicimos",
     what: [
       "Tipografía y hero cinematográfico de ultra lujo.",
@@ -778,12 +778,12 @@ projectDetails.es = {
     ctaTitle: "¿Quiere un sitio orientado a visitas para su proyecto de residencia de lujo?",
     ctaBlurb:
       "Construyamos una experiencia editorial que cuente la historia de su residencia y fluya con claridad hacia una cita de visita. Envíe un brief corto y devolveré alcance y hoja de ruta.",
-    ctaButton: "Hablemos de su proyecto",
+    ctaButton: "Empezar mi proyecto",
   },
   "casa-aurelia": {
     tag: "Hotel boutique",
     summary:
-      "Escaparate atmosférico de reserva para el hotel boutique de cinco estrellas Casa Aurelia en Roma — con soporte en inglés/italiano y ruta clara a reserva.",
+      "Escaparate atmosférico de reserva para el hotel boutique de cinco estrellas Casa Aurelia en Roma. con soporte en inglés/italiano y ruta clara a reserva.",
     whatTitle: "Qué hicimos",
     what: [
       "Hero cinematográfico y tipografía acorde al hotel.",
@@ -806,41 +806,41 @@ projectDetails.es = {
     ctaTitle: "¿Quiere una experiencia de reserva así para su marca de hotel boutique?",
     ctaBlurb:
       "Contemos la historia de su hotel con atmósfera, en varios idiomas, con una ruta clara a la reserva. Envíe un brief corto y devolveré un alcance.",
-    ctaButton: "Hablemos de su proyecto",
+    ctaButton: "Empezar mi proyecto",
   },
   "seraphine-atelier": {
-    tag: "Moda e-commerce",
+    tag: "Moda e commerce",
     summary:
-      "Casa de moda editorial para Séraphine Atelier — niebla, film y tipografía. Lookbook mujer/hombre, suelo maison y ruta clara a un fitting privado — no un carrito, una private hour.",
+      "Casa de moda editorial para Séraphine Atelier. niebla, film y tipografía. Lookbook mujer/hombre, suelo maison y ruta clara a un fitting privado. no un carrito, una private hour.",
     whatTitle: "Qué hicimos",
     what: [
       "Hero cinematográfico, atmósfera de niebla y tipografía couture que fija la promesa de marca al primer pantallazo.",
-      "Ritmo de lookbook SS26 para la colección mujer — seis looks con nombre, corte y precio en jerarquía editorial.",
-      "Suelo maison contado como “cada rail es una escena” — fotos de boutique que construyen confianza.",
+      "Ritmo de lookbook SS26 para la colección mujer. seis looks con nombre, corte y precio en jerarquía editorial.",
+      "Suelo maison contado como “cada rail es una escena”. fotos de boutique que construyen confianza.",
       "Sección hombre separada con runway grid oscuro; blazers, trajes y abrigos con precio.",
       "CTA final “Request a private hour” que deja inequívoca la ruta de fitting / cita.",
-      "Presentación quiet-luxury que se sostiene en escritorio y móvil.",
+      "Presentación quiet luxury que se sostiene en escritorio y móvil.",
     ],
     howTitle: "Cómo funciona",
     how: [
       "El visitante siente la marca con el hero de niebla y baja al boutique con Show Now / scroll.",
-      "El lookbook muestra piezas mujer y hombre — cada tarjeta lleva nombre, corte y precio.",
+      "El lookbook muestra piezas mujer y hombre. cada tarjeta lleva nombre, corte y precio.",
       "La sección maison escenifica la tienda; ahí aterrizan confianza y profundidad de marca.",
-      "La banda de appointment lleva al fitting privado — la conversión fluye por private hour, no por carrito.",
+      "La banda de appointment lleva al fitting privado. la conversión fluye por private hour, no por carrito.",
     ],
     stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
     result:
-      "Sitio en vivo: sensación couture, ritmo lookbook y conversión private-hour. El tono quiet-luxury se mantiene de escritorio a móvil.",
+      "Sitio en vivo: sensación couture, ritmo lookbook y conversión private hour. El tono quiet luxury se mantiene de escritorio a móvil.",
     ctaLabel: "Siguiente proyecto",
     ctaTitle: "¿Quiere una casa de moda así?",
     ctaBlurb:
-      "Adaptamos hero cinematográfico, ritmo de lookbook y conversión por cita a su marca. Envíe un brief corto — devolveré alcance y hoja de ruta claros.",
-    ctaButton: "Hablemos de su proyecto",
+      "Adaptamos hero cinematográfico, ritmo de lookbook y conversión por cita a su marca. Envíe Un brief corto, devolveré alcance y hoja de ruta claros.",
+    ctaButton: "Empezar mi proyecto",
   },
   "havva-baklava": {
     tag: "Web boutique",
     summary:
-      "Escaparate cinematográfico oscuro para HAVVA Baklava en Köln-Ehrenfeld — historia artesanal de Gaziantep a Colonia, carta de precios y ruta clara de pedido por WhatsApp en un solo flujo.",
+      "Escaparate cinematográfico oscuro para HAVVA Baklava en Köln Ehrenfeld. historia artesanal de Gaziantep a Colonia, carta de precios y ruta clara de pedido por WhatsApp en un solo flujo.",
     whatTitle: "Qué hicimos",
     what: [
       "Fondo oscuro, tipografía serif y foto de bandeja que fijan el taller de baklava al primer pantallazo.",
@@ -848,13 +848,13 @@ projectDetails.es = {
       "Bloque Werkstatt con promesas claras: a mano, Antepfıstığı, jarabe sin aditivos.",
       "Tageskarte / Preise con fıstıklı, cevizli, şöbiyet, künefe y precios de bandeja en lista editorial.",
       "“Pedir ahora por WhatsApp” como eje de conversión de la página.",
-      "Dirección, horario y número de WhatsApp — camino claro al taller en Ehrenfeld.",
+      "Dirección, horario y número de WhatsApp. camino claro al taller en Ehrenfeld.",
     ],
     howTitle: "Cómo funciona",
     how: [
       "El visitante siente el taller y el producto en el hero; con el scroll entra en la historia de marca.",
       "Werkstatt y la carta muestran variedades y precio por kg.",
-      "El CTA de WhatsApp abre el chat de pedido — variedad, cantidad, hora de recogida.",
+      "El CTA de WhatsApp abre el chat de pedido. variedad, cantidad, hora de recogida.",
       "El taller suele responder en ~15 minutos; se confirma recogida / entrega cuando está listo.",
     ],
     stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
@@ -863,21 +863,21 @@ projectDetails.es = {
     ctaLabel: "Siguiente proyecto",
     ctaTitle: "¿Quiere un escaparate de pedidos así para su pastelería o taller?",
     ctaBlurb:
-      "Historia del producto, carta de precios y pedido por WhatsApp en un solo flujo cinematográfico. Envíe un brief corto — le paso el alcance.",
-    ctaButton: "Hablemos de su proyecto",
+      "Historia del producto, carta de precios y pedido por WhatsApp en un solo flujo cinematográfico. Envíe Un brief corto, le paso el alcance.",
+    ctaButton: "Empezar mi proyecto",
   },
   "whatsapp-bot": {
     title: "Asistente de Conversación WhatsApp",
     tag: "Automatización",
     summary:
-      "Habla con los clientes de WhatsApp por usted, para que no tenga que estar pegado al teléfono. Conoce sus precios y servicios. Conoce las horas libres sin cita y dirige ahí a la gente. Conoce las horas ocupadas y agenda en consecuencia. Sabe cuándo una cancelación libera una hora. Envía un recordatorio 1 hora antes al titular de la cita — reduce las cancelaciones de última hora. Pregunta y responde, habla como usted.",
+      "Habla con los clientes de WhatsApp por usted, para que no tenga que estar pegado al teléfono. Conoce sus precios y servicios. Conoce las horas libres sin cita y dirige ahí a la gente. Conoce las horas ocupadas y agenda en consecuencia. Sabe cuándo una cancelación libera una hora. Envía un recordatorio 1 hora antes al titular de la cita. reduce las cancelaciones de última hora. Pregunta y responde, habla como usted.",
     whatTitle: "Qué hicimos",
     what: [
-      "Sus precios y servicios están en el bot — no se inventa números.",
+      "Sus precios y servicios están en el bot. no se inventa números.",
       "Conoce las horas libres: si no hay nada agendado, dirige ahí a la gente.",
       "Conoce las horas ocupadas: si alguien ya tiene esa hora, no agenda encima.",
       "Cuando alguien cancela, sabe que esa hora vuelve a estar libre y puede ofrecerla.",
-      "1 hora antes de la cita notifica al titular — menos olvidos y cancelaciones de última hora.",
+      "1 hora antes de la cita notifica al titular. menos olvidos y cancelaciones de última hora.",
       "Pregunta y responde; los casos difíciles pasan a usted.",
     ],
     howTitle: "Cómo funciona",
@@ -894,7 +894,7 @@ projectDetails.es = {
     ctaTitle: "¿Quiere un asistente de citas por WhatsApp para su negocio?",
     ctaBlurb:
       "Construyamos un asistente que conozca sus precios, sus horas libres y su flujo de citas. Envíe un brief corto y le paso el alcance.",
-    ctaButton: "Hablemos de su proyecto",
+    ctaButton: "Empezar mi proyecto",
   },
   "instagram-bot": {
     title: "Asistente de DM de Instagram",
@@ -904,7 +904,7 @@ projectDetails.es = {
     whatTitle: "Qué hicimos",
     what: [
       "Chat que saluda los DM en su nombre.",
-      "Mismos precios y servicios que WhatsApp — sin contradicciones entre canales.",
+      "Mismos precios y servicios que WhatsApp. sin contradicciones entre canales.",
       "Conoce las horas libres y agenda ahí. No pone a nadie en horas ocupadas.",
       "La cancelación libera la hora. Recordatorio 1 hora antes.",
       "Los chats difíciles pasan a usted o al CRM.",
@@ -918,24 +918,24 @@ projectDetails.es = {
     ],
     stack: ["Instagram Graph API", "n8n", "Python", "Supabase"],
     result:
-      "La bandeja de DM se mantiene ordenada: preguntas respondidas, citas en horas libres, recordatorio 1 hora antes — sin mirar el teléfono.",
+      "La bandeja de DM se mantiene ordenada: preguntas respondidas, citas en horas libres, recordatorio 1 hora antes. sin mirar el teléfono.",
     ctaLabel: "Siguiente proyecto",
     ctaTitle: "¿Quiere el mismo asistente para sus DM de Instagram?",
     ctaBlurb:
       "Construyamos un asistente que comparta el mismo calendario que WhatsApp y mantenga sus DM ordenados. Envíe un brief corto y le paso el alcance.",
-    ctaButton: "Hablemos de su proyecto",
+    ctaButton: "Empezar mi proyecto",
   },
   crm: {
     title: "Panel de Ventas CRM",
     tag: "Software",
     summary:
-      "Panel que trabaja junto a los asistentes de WhatsApp e Instagram. Los clientes con los que hablaron los bots, sus citas, cancelaciones y notas en un solo lugar. Quién llega y cuándo, qué horas están libres u ocupadas, si vino por WhatsApp o Instagram — todo visible.",
+      "Panel que trabaja junto a los asistentes de WhatsApp e Instagram. Los clientes con los que hablaron los bots, sus citas, cancelaciones y notas en un solo lugar. Quién llega y cuándo, qué horas están libres u ocupadas, si vino por WhatsApp o Instagram. todo visible.",
     whatTitle: "Qué hicimos",
     what: [
       "Un panel de ventas simple que avanza paso a paso.",
       "Bots de WhatsApp e Instagram conectados: al agendar, la tarjeta se abre sola.",
       "La tarjeta muestra canal, hora, libre/ocupado, notas y resumen de la conversación.",
-      "Quién llega hoy, quién canceló, qué horas quedan libres — todo se lee en el panel.",
+      "Quién llega hoy, quién canceló, qué horas quedan libres. todo se lee en el panel.",
       "Cada cliente mantiene su historial aunque cambie de canal.",
     ],
     howTitle: "Cómo funciona",
@@ -952,12 +952,12 @@ projectDetails.es = {
     ctaTitle: "¿Quiere un panel CRM que hable con sus bots?",
     ctaBlurb:
       "Unifiquemos en un panel las citas y clientes que recogen sus asistentes de WhatsApp e Instagram. Envíe un brief corto y le paso el alcance.",
-    ctaButton: "Hablemos de su proyecto",
+    ctaButton: "Empezar mi proyecto",
   },
   "css-system": {
     tag: "Sistema de diseño",
     summary:
-      "Sistema de diseño CSS con tokens de marca para color, tipo, componentes y spacing — una sola fuente que mantiene el mismo lenguaje visual en web y panel.",
+      "Sistema de diseño CSS con tokens de marca para color, tipo, componentes y spacing. una sola fuente que mantiene el mismo lenguaje visual en web y panel.",
     whatTitle: "Qué hicimos",
     what: [
       "Tokens de color, tipo, radius y spacing.",
@@ -981,7 +981,7 @@ projectDetails.es = {
     ctaTitle: "¿Quiere un sistema de diseño consistente para su marca?",
     ctaBlurb:
       "Construyamos un sistema de diseño CSS basado en tokens y escalable, para que su web y panel hablen el mismo idioma. Envíe un brief corto y le paso el alcance.",
-    ctaButton: "Hablemos de su proyecto",
+    ctaButton: "Empezar mi proyecto",
   },
 };
 
@@ -989,15 +989,15 @@ projectDetails.de = {
   wcc: {
     tag: "Unternehmenswebsite",
     summary:
-      "Hochperformante, SEO-fähige Unternehmenswebsite für einen US-Möbelhersteller. Eine Oberfläche, die Fertigungsqualität spiegelt und Marke, Angebot sowie Kontakt in einem Ablauf vereint.",
+      "Hochperformante, SEO faehige Unternehmenswebsite für einen US Möbelhersteller. Eine Oberfläche, die Fertigungsqualität spiegelt und Marke, Angebot sowie Kontakt in einem Ablauf vereint.",
     whatTitle: "Was wir gemacht haben",
     what: [
       "Individuelle Oberfläche und Mikroanimationen, die Fertigungsqualität widerspiegeln.",
-      "Mobile-first, schnelle Seitenstruktur mit klarer Conversion.",
-      "Panel-Anbindung, die Inhalte, Medien und SEO vereinfacht.",
+      "Mobile first, schnelle Seitenstruktur mit klarer Conversion.",
+      "Panel Anbindung, die Inhalte, Medien und SEO vereinfacht.",
       "Leistungen, Galerie und Angebotsablauf in einer Website vereint.",
-      "Vertrauenssignale — Zertifikate, Referenzen, Produktionskapazität — klar dargestellt.",
-      "Optimierung von Titeln, Meta-Daten und strukturierten Daten für Suchmaschinen.",
+      "Vertrauenssignale. Zertifikate, Referenzen, Produktionskapazität. klar dargestellt.",
+      "Optimierung von Titeln, Meta Daten und strukturierten Daten für Suchmaschinen.",
     ],
     howTitle: "So funktioniert es",
     how: [
@@ -1008,23 +1008,23 @@ projectDetails.de = {
     ],
     stack: ["React", "Vite", "TypeScript"],
     result:
-      "Live-Website: erstklassige Unternehmenswirkung, schnelle mobile Performance und leicht pflegbare Inhalte.",
+      "Live Website: erstklassige Unternehmenswirkung, schnelle mobile Performance und leicht pflegbare Inhalte.",
     ctaLabel: "Nächstes Projekt",
     ctaTitle: "Möchten Sie eine solche Website für Ihre Fertigungsmarke?",
     ctaBlurb:
-      "Bauen wir eine Unternehmenswebsite, die Ihre Produktionsqualität spiegelt, SEO-fähig bleibt und den Angebotsweg klar macht. Kurzes Briefing — klarer Umfang und Fahrplan zurück.",
-    ctaButton: "Projekt besprechen",
+      "Bauen wir eine Unternehmenswebsite, die Ihre Produktionsqualität spiegelt, fuer SEO geeignet bleibt und den Angebotsweg klar macht. Kurzes Briefing, klarer Umfang und Fahrplan zurück.",
+    ctaButton: "Mein Projekt starten",
   },
   aydnnacar: {
     tag: "Marke & Katalog",
     summary:
-      "Minimaler editorialer Digital-Showroom für Nacar Mobilya — Kollektionen und Produkte mit Premium-Wirkung, jedes Modell klar mit Maß, Name und Kontakt verknüpft.",
+      "Minimaler editorialer Digital Showroom für Nacar Mobilya. Kollektionen und Produkte mit Premium Wirkung, jedes Modell klar mit Maß, Name und Kontakt verknüpft.",
     whatTitle: "Was wir gemacht haben",
     what: [
       "Eigene Typografie und ruhige Farbsprache.",
-      "Kollektions-Slider und Katalog für Wohn-, Ess- und Schlafzimmer-Linien.",
+      "Kollektions Slider und Katalog für Wohn, Ess und Schlafzimmer Linien.",
       "Klare Wege zu Produktdetail und Kontakt.",
-      "Premium-Darstellung, die auch mobil trägt.",
+      "Premium Darstellung, die auch mobil trägt.",
       "Kollektionsbasierte Filterung für schnellen Modellvergleich.",
       "Produktkarten, die Maß und Stoff klar zeigen.",
     ],
@@ -1036,22 +1036,22 @@ projectDetails.de = {
       "Inhalte skalieren über die Kollektionsstruktur.",
     ],
     stack: ["Next.js", "React", "TypeScript"],
-    result: "Live-Website: Katalog mit Showroom-Wirkung und klarem Kontaktweg.",
+    result: "Live Website: Katalog mit Showroom Wirkung und klarem Kontaktweg.",
     ctaLabel: "Nächstes Projekt",
     ctaTitle: "Möchten Sie einen editorialen Katalog für Ihre Möbelmarke?",
     ctaBlurb:
-      "Bauen wir einen ruhigen, hochwertigen Digital-Showroom, der Ihre Kollektionen mit echter Showroom-Wirkung zeigt. Kurzes Briefing — klarer Umfang zurück.",
-    ctaButton: "Projekt besprechen",
+      "Bauen wir einen ruhigen, hochwertigen Digital Showroom, der Ihre Kollektionen mit echter Showroom Wirkung zeigt. Kurzes Briefing, klarer Umfang zurück.",
+    ctaButton: "Mein Projekt starten",
   },
   wuffbutik: {
     tag: "Boutique-Web",
     summary:
-      "Ruhige, elegante Boutique-Website für Wuuf — Ladenpräsenz und WhatsApp-geführter Fernverkauf in einem Ablauf.",
+      "Ruhige, elegante Boutique Website für Wuuf. Ladenpräsenz und WhatsApp geführter Fernverkauf in einem Ablauf.",
     whatTitle: "Was wir gemacht haben",
     what: [
       "Markenpassende Typografie und Bildsprache.",
       "Klare Informationsarchitektur für Kollektionen und Kontakt.",
-      "WhatsApp- und Nachrichten-CTAs für schnelle Conversion.",
+      "WhatsApp und Nachrichten CTAs für schnelle Conversion.",
       "Leichte, schnelle mobile Oberfläche.",
       "Vitrineseiten nach Produktlinie gruppiert für klares Stöbern.",
       "Standort und Öffnungszeiten klar im ersten Bildschirm.",
@@ -1060,27 +1060,27 @@ projectDetails.de = {
     how: [
       "Der erste Bildschirm erklärt Marke und Vitrine.",
       "Besucher gehen in die Kollektionslinien.",
-      "Der Nachrichten-CTA öffnet direkt WhatsApp.",
+      "Der Nachrichten CTA öffnet direkt WhatsApp.",
       "Schlanke Inhalte halten Updates einfach.",
     ],
     stack: ["Next.js", "React", "TypeScript"],
-    result: "Live-Website: Boutique-Wirkung mit schnellem WhatsApp-Weg zur Anfrage.",
+    result: "Live Website: Boutique Wirkung mit schnellem WhatsApp Weg zur Anfrage.",
     ctaLabel: "Nächstes Projekt",
-    ctaTitle: "Möchten Sie eine Vitrine mit WhatsApp-Anfragen für Ihre Boutique?",
+    ctaTitle: "Möchten Sie eine Vitrine mit WhatsApp Anfragen für Ihre Boutique?",
     ctaBlurb:
-      "Bringen wir Ihre Ladenatmosphäre digital — mit einer Vitrine, die direkt zu WhatsApp führt. Kurzes Briefing — klarer Umfang zurück.",
-    ctaButton: "Projekt besprechen",
+      "Bringen wir Ihre Ladenatmosphäre digital, mit einer Vitrine, die direkt zu WhatsApp führt. Kurzes Briefing, klarer Umfang zurück.",
+    ctaButton: "Mein Projekt starten",
   },
   "altitude-residence": {
     tag: "Luxusimmobilien",
     summary:
-      "Dunkle, editoriale Markenerfahrung für Altitude Residences — Skyline, Rhythmus und klare Einladung zur Besichtigung im Zusammenspiel.",
+      "Dunkle, editoriale Markenerfahrung für Altitude Residences. Skyline, Rhythmus und klare Einladung zur Besichtigung im Zusammenspiel.",
     whatTitle: "Was wir gemacht haben",
     what: [
       "Hochwertige Typografie, Bildsprache und filmischer Einstieg.",
       "Seitenablauf, der die Residenz über Höhe und Tempo erzählt.",
       "Klarer Weg über die Schaltfläche „Besichtigung vereinbaren“.",
-      "Premium-Darstellung auf Desktop und Mobilgeräten.",
+      "Premium Darstellung auf Desktop und Mobilgeräten.",
       "Grundrisse und Residenztypen im klaren Vergleich.",
       "Skyline und Standortvorteile in einem eigenen editorialen Abschnitt.",
     ],
@@ -1089,24 +1089,24 @@ projectDetails.de = {
       "Der erste Bildschirm setzt Marke und Lebensstilversprechen.",
       "Besucher erkunden Residenzen und Standortgeschichte.",
       "Die Schaltfläche führt zu Besichtigung oder Kontakt.",
-      "Der Inhalt bleibt im Premium-Ton.",
+      "Der Inhalt bleibt im Premium Ton.",
     ],
     stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
-    result: "Live-Website: Premium-Wirkung, klarer Besichtigungspfad, saubere Mobile-Umsetzung.",
+    result: "Live Website: Premium Wirkung, klarer Besichtigungspfad, saubere Mobile Umsetzung.",
     ctaLabel: "Nächstes Projekt",
     ctaTitle: "Möchten Sie eine besichtigungsorientierte Website für Ihr Residenzprojekt?",
     ctaBlurb:
-      "Erzählen wir Ihre Residenzgeschichte editorial und führen klar zur Besichtigung. Kurzes Briefing — Umfang und Fahrplan zurück.",
-    ctaButton: "Projekt besprechen",
+      "Erzählen wir Ihre Residenzgeschichte editorial und führen klar zur Besichtigung. Kurzes Briefing, Umfang und Fahrplan zurück.",
+    ctaButton: "Mein Projekt starten",
   },
   "casa-aurelia": {
-    tag: "Boutique-Hotel",
+    tag: "Boutique Hotel",
     summary:
-      "Atmosphärische Buchungspräsentation für das Fünf-Sterne-Boutique-Hotel Casa Aurelia in Rom — mit Englisch-/Italienisch-Unterstützung und klarem Weg zur Reservierung.",
+      "Atmosphärische Buchungspräsentation für das Fünf Sterne Boutique Hotel Casa Aurelia in Rom. mit Englisch /Italienisch Unterstützung und klarem Weg zur Reservierung.",
     whatTitle: "Was wir gemacht haben",
     what: [
       "Filmischer Einstieg und Typografie passend zum Hotel.",
-      "Reservierungs- und Kontaktablauf mit Fokus auf „Jetzt buchen“.",
+      "Reservierungs und Kontaktablauf mit Fokus auf „Jetzt buchen“.",
       "Sprachumschaltung Englisch und Italienisch.",
       "Hochwertige Darstellung auch mobil.",
       "Zimmertypen und Ausstattung in editorialem Layout.",
@@ -1120,83 +1120,83 @@ projectDetails.de = {
       "Der Sprachwechsel schaltet zwischen Englisch und Italienisch.",
     ],
     stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
-    result: "Live-Website: Boutique-Wirkung, zweisprachig, klarer Buchungsweg.",
+    result: "Live Website: Boutique Wirkung, zweisprachig, klarer Buchungsweg.",
     ctaLabel: "Nächstes Projekt",
-    ctaTitle: "Möchten Sie eine solche Buchungserfahrung für Ihr Boutique-Hotel?",
+    ctaTitle: "Möchten Sie eine solche Buchungserfahrung für Ihr Boutique Hotel?",
     ctaBlurb:
-      "Erzählen wir Ihre Hotelgeschichte atmosphärisch, mehrsprachig und mit klarem Buchungsweg. Kurzes Briefing — klarer Umfang zurück.",
-    ctaButton: "Projekt besprechen",
+      "Erzählen wir Ihre Hotelgeschichte atmosphärisch, mehrsprachig und mit klarem Buchungsweg. Kurzes Briefing, klarer Umfang zurück.",
+    ctaButton: "Mein Projekt starten",
   },
   "seraphine-atelier": {
     tag: "Mode & Atelier",
     summary:
-      "Editoriales Modehaus für Séraphine Atelier — Nebel, Film und Typografie. Damen- und Herren-Lookbook, Ateliergeschichte und klarer Weg zum privaten Fitting — kein Warenkorb, sondern eine private Stunde.",
+      "Editoriales Modehaus für Séraphine Atelier. Nebel, Film und Typografie. Damen und Herren Lookbook, Ateliergeschichte und klarer Weg zum privaten Fitting. kein Warenkorb, sondern eine private Stunde.",
     whatTitle: "Was wir gemacht haben",
     what: [
-      "Filmischer Hero, Nebelatmosphäre und Couture-Typografie, die das Markenversprechen im ersten Bildschirm setzt.",
-      "SS26-Lookbook-Rhythmus für die Damenkollektion — sechs Looks mit Name, Schnitt und Preis in editorialer Hierarchie.",
-      "Atelierboden als Szene — Boutique-Stills, die Vertrauen aufbauen.",
-      "Herrenbereich mit dunklem Runway-Raster; Blazer, Anzüge und Mäntel mit Preis.",
-      "Abschluss-CTA „Private Stunde anfragen“, der den Fitting- und Terminweg klar macht.",
-      "Ruhige Premium-Darstellung, die auf Desktop und Mobilgeräten trägt.",
+      "Filmischer Hero, Nebelatmosphäre und Couture Typografie, die das Markenversprechen im ersten Bildschirm setzt.",
+      "SS26 Lookbook Rhythmus für die Damenkollektion. sechs Looks mit Name, Schnitt und Preis in editorialer Hierarchie.",
+      "Atelierboden als Szene. Boutique Stills, die Vertrauen aufbauen.",
+      "Herrenbereich mit dunklem Runway Raster; Blazer, Anzüge und Mäntel mit Preis.",
+      "Abschluss CTA „Private Stunde anfragen“, der den Fitting und Terminweg klar macht.",
+      "Ruhige Premium Darstellung, die auf Desktop und Mobilgeräten trägt.",
     ],
     howTitle: "So funktioniert es",
     how: [
-      "Besucher spüren die Marke im nebligen Hero-Film und gelangen über Scroll in die Boutique.",
-      "Im Lookbook stöbern sie Damen- und Herrenstücke — jede Karte trägt Name, Schnitt und Preis.",
+      "Besucher spüren die Marke im nebligen Hero Film und gelangen über Scroll in die Boutique.",
+      "Im Lookbook stöbern sie Damen und Herrenstücke. jede Karte trägt Name, Schnitt und Preis.",
       "Der Atelierblock inszeniert die Ladenatmosphäre; Vertrauen und Markentiefe entstehen hier.",
-      "Der Terminband führt zum privaten Fitting — Conversion läuft über die private Stunde, nicht über den Warenkorb.",
+      "Der Terminband führt zum privaten Fitting. Conversion läuft über die private Stunde, nicht über den Warenkorb.",
     ],
     stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
     result:
-      "Live-Website: Couture-Wirkung, Lookbook-Rhythmus und Conversion über private Termine. Der ruhige Premium-Ton bleibt von Desktop bis Mobile konsistent.",
+      "Live Website: Couture Wirkung, Lookbook Rhythmus und Conversion über private Termine. Der ruhige Premium Ton bleibt von Desktop bis Mobile konsistent.",
     ctaLabel: "Nächstes Projekt",
     ctaTitle: "Möchten Sie ein Modehaus wie dieses?",
     ctaBlurb:
-      "Wir passen filmischen Einstieg, Lookbook-Rhythmus und terminbasierte Conversion an Ihre Marke an. Kurzes Briefing — klarer Umfang und Fahrplan zurück.",
-    ctaButton: "Projekt besprechen",
+      "Wir passen filmischen Einstieg, Lookbook Rhythmus und terminbasierte Conversion an Ihre Marke an. Kurzes Briefing, klarer Umfang und Fahrplan zurück.",
+    ctaButton: "Mein Projekt starten",
   },
   "havva-baklava": {
     tag: "Boutique-Web",
     summary:
-      "Dunkle, filmische Vitrine für HAVVA Baklava in Köln-Ehrenfeld — Handwerk von Gaziantep nach Köln, Tagespreisliste und klarer Bestellweg über WhatsApp in einem Ablauf.",
+      "Dunkle, filmische Vitrine für HAVVA Baklava in Köln Ehrenfeld. Handwerk von Gaziantep nach Köln, Tagespreisliste und klarer Bestellweg über WhatsApp in einem Ablauf.",
     whatTitle: "Was wir gemacht haben",
     what: [
-      "Dunkler Grund, Serifen-Typografie und Tablett-Fotografie, die im ersten Bildschirm die Baklava-Werkstatt spürbar machen.",
-      "Gaziantep → Köln in scrollbaren Hero-Panels erzählt (Pistazie / Schicht für Schicht).",
-      "Werkstatt-Block mit klaren Versprechen: Handarbeit, Antepfıstığı, Şerbet ohne Zusätze.",
-      "Tageskarte / Preise mit Fıstıklı, Cevizli, Şöbiyet, Künefe und Tepsi-Preisen in editorialer Liste.",
-      "„Jetzt über WhatsApp bestellen“ als Conversion-Anker der Seite.",
-      "Adresse, Öffnungszeiten und direkte WhatsApp-Nummer — klarer Weg zur Werkstatt in Ehrenfeld.",
+      "Dunkler Grund, Serifen Typografie und Tablett Fotografie, die im ersten Bildschirm die Baklava Werkstatt spürbar machen.",
+      "Gaziantep → Köln in scrollbaren Hero Panels erzählt (Pistazie / Schicht für Schicht).",
+      "Werkstatt Block mit klaren Versprechen: Handarbeit, Antepfıstığı, Şerbet ohne Zusätze.",
+      "Tageskarte / Preise mit Fıstıklı, Cevizli, Şöbiyet, Künefe und Tepsi Preisen in editorialer Liste.",
+      "„Jetzt über WhatsApp bestellen“ als Conversion Anker der Seite.",
+      "Adresse, Öffnungszeiten und direkte WhatsApp Nummer. klarer Weg zur Werkstatt in Ehrenfeld.",
     ],
     howTitle: "So funktioniert es",
     how: [
       "Besucher spüren Werkstatt und Produkt im Hero und scrollen in die Markengeschichte.",
       "Werkstatt und Preisliste zeigen Sorten und Kilopreise.",
-      "WhatsApp-CTA öffnet den Bestellchat — Sorte, Menge, Abholzeit.",
+      "WhatsApp CTA öffnet den Bestellchat. Sorte, Menge, Abholzeit.",
       "Die Werkstatt antwortet meist innerhalb von ~15 Minuten; Abholung / Lieferung wird bestätigt, sobald es bereit ist.",
     ],
     stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
     result:
-      "Live-Website: handwerkliche Baklava-Wirkung, lesbare Preisliste, WhatsApp-Bestellweg. Dunkler Premium-Ton von Desktop bis Mobile konsistent.",
+      "Live Website: handwerkliche Baklava Wirkung, lesbare Preisliste, WhatsApp Bestellweg. Dunkler Premium Ton von Desktop bis Mobile konsistent.",
     ctaLabel: "Nächstes Projekt",
     ctaTitle: "Möchten Sie eine solche Bestellvitrine für Ihre Konditorei oder Werkstatt?",
     ctaBlurb:
-      "Produktgeschichte, Preisliste und WhatsApp-Bestellung in einem filmischen Ablauf. Kurzes Briefing — ich liefere den Umfang.",
-    ctaButton: "Projekt besprechen",
+      "Produktgeschichte, Preisliste und WhatsApp Bestellung in einem filmischen Ablauf. Kurzes Briefing, ich liefere den Umfang.",
+    ctaButton: "Mein Projekt starten",
   },
   "whatsapp-bot": {
-    title: "WhatsApp-Gesprächsassistent",
+    title: "WhatsApp Gesprächsassistent",
     tag: "Automatisierung",
     summary:
-      "Spricht mit WhatsApp-Kunden für Sie, ohne dass Sie am Handy hängen. Kennt Preise und Leistungen, freie und belegte Termine und bucht entsprechend. Nach einer Absage ist die Stunde wieder frei. Erinnerung eine Stunde vorher — weniger kurzfristige Absagen. Fragt, antwortet und spricht wie Sie.",
+      "Spricht mit WhatsApp Kunden für Sie, ohne dass Sie am Handy hängen. Kennt Preise und Leistungen, freie und belegte Termine und bucht entsprechend. Nach einer Absage ist die Stunde wieder frei. Erinnerung eine Stunde vorher. weniger kurzfristige Absagen. Fragt, antwortet und spricht wie Sie.",
     whatTitle: "Was wir gemacht haben",
     what: [
-      "Ihre Preise und Leistungen stehen im Assistenten — er erfindet keine Zahlen.",
+      "Ihre Preise und Leistungen stehen im Assistenten. er erfindet keine Zahlen.",
       "Er kennt freie Stunden und lenkt Buchungen dorthin.",
       "Er kennt belegte Stunden: sitzt schon jemand, kommt kein zweiter Termin dazu.",
       "Nach Absage weiß er, dass die Stunde wieder frei ist, und kann sie anbieten.",
-      "Eine Stunde vor dem Termin Benachrichtigung an den Inhaber — weniger Vergessen und kurzfristige Absagen.",
+      "Eine Stunde vor dem Termin Benachrichtigung an den Inhaber. weniger Vergessen und kurzfristige Absagen.",
       "Fragt und antwortet; Schwieriges geht an Sie.",
     ],
     howTitle: "So funktioniert es",
@@ -1208,22 +1208,22 @@ projectDetails.de = {
     ],
     stack: ["WhatsApp Cloud API", "n8n", "Python", "PostgreSQL"],
     result:
-      "Arbeit läuft weiter ohne Handy-Zwang. Freie Stunden füllen sich, belegte kollidieren nicht, Absagen geben sauber frei, Erinnerung eine Stunde vorher.",
+      "Arbeit läuft weiter ohne Handy Zwang. Freie Stunden füllen sich, belegte kollidieren nicht, Absagen geben sauber frei, Erinnerung eine Stunde vorher.",
     ctaLabel: "Nächstes Projekt",
-    ctaTitle: "Möchten Sie einen WhatsApp-Terminassistenten für Ihr Unternehmen?",
+    ctaTitle: "Möchten Sie einen WhatsApp Terminassistenten für Ihr Unternehmen?",
     ctaBlurb:
-      "Bauen wir einen Assistenten, der Ihre Preise, freien Stunden und Ihren Terminablauf kennt. Kurzes Briefing — ich liefere den Umfang.",
-    ctaButton: "Projekt besprechen",
+      "Bauen wir einen Assistenten, der Ihre Preise, freien Stunden und Ihren Terminablauf kennt. Kurzes Briefing, ich liefere den Umfang.",
+    ctaButton: "Mein Projekt starten",
   },
   "instagram-bot": {
     title: "Instagram-DM-Assistent",
     tag: "Automatisierung",
     summary:
-      "Dasselbe in Instagram-Direktnachrichten. Spricht wie Sie, ohne ständiges Handy-Checken. Kennt Preise und Leistungen, freie und belegte Termine sowie wieder freigewordene Stunden. Erinnerung eine Stunde vorher.",
+      "Dasselbe in Instagram Direktnachrichten. Spricht wie Sie, ohne ständiges Handy Checken. Kennt Preise und Leistungen, freie und belegte Termine sowie wieder freigewordene Stunden. Erinnerung eine Stunde vorher.",
     whatTitle: "Was wir gemacht haben",
     what: [
       "Chat, der Direktnachrichten in Ihrem Namen begrüßt.",
-      "Gleiche Preise und Leistungen wie WhatsApp — kein Widerspruch zwischen Kanälen.",
+      "Gleiche Preise und Leistungen wie WhatsApp. kein Widerspruch zwischen Kanälen.",
       "Kennt freie Stunden und bucht dort. Setzt niemanden auf belegte.",
       "Absage gibt die Stunde frei. Erinnerung eine Stunde vorher.",
       "Schwierige Chats gehen an Sie oder ins CRM.",
@@ -1237,30 +1237,30 @@ projectDetails.de = {
     ],
     stack: ["Instagram Graph API", "n8n", "Python", "Supabase"],
     result:
-      "Der DM-Posteingang bleibt geordnet: Fragen beantwortet, Termine auf freie Stunden, Erinnerung eine Stunde vorher — ohne Handy-Check.",
+      "Der DM Posteingang bleibt geordnet: Fragen beantwortet, Termine auf freie Stunden, Erinnerung eine Stunde vorher. ohne Handy Check.",
     ctaLabel: "Nächstes Projekt",
-    ctaTitle: "Möchten Sie denselben Assistenten für Ihre Instagram-Direktnachrichten?",
+    ctaTitle: "Möchten Sie denselben Assistenten für Ihre Instagram Direktnachrichten?",
     ctaBlurb:
-      "Bauen wir einen Assistenten, der denselben Kalender wie WhatsApp nutzt und Ihre Direktnachrichten ordentlich hält. Kurzes Briefing — ich liefere den Umfang.",
-    ctaButton: "Projekt besprechen",
+      "Bauen wir einen Assistenten, der denselben Kalender wie WhatsApp nutzt und Ihre Direktnachrichten ordentlich hält. Kurzes Briefing, ich liefere den Umfang.",
+    ctaButton: "Mein Projekt starten",
   },
   crm: {
     title: "CRM-Verkaufspanel",
     tag: "Software",
     summary:
-      "Panel für die WhatsApp- und Instagram-Assistenten. Kunden, Termine, Absagen und Notizen an einem Ort. Wer wann kommt, welche Stunden frei oder belegt sind, WhatsApp oder Instagram — alles auf einen Blick.",
+      "Panel für die WhatsApp und Instagram Assistenten. Kunden, Termine, Absagen und Notizen an einem Ort. Wer wann kommt, welche Stunden frei oder belegt sind, WhatsApp oder Instagram. alles auf einen Blick.",
     whatTitle: "Was wir gemacht haben",
     what: [
       "Ein schlichtes Verkaufspanel, das Schritt für Schritt läuft.",
-      "WhatsApp- und Instagram-Assistenten verbunden: Buchung öffnet von allein eine Karte.",
-      "Auf der Karte: Kanal, Zeit, frei/belegt, Notizen und Chat-Zusammenfassung.",
-      "Wer kommt heute, wer stornierte, was noch frei ist — am Panel lesbar.",
+      "WhatsApp und Instagram Assistenten verbunden: Buchung öffnet von allein eine Karte.",
+      "Auf der Karte: Kanal, Zeit, frei/belegt, Notizen und Chat Zusammenfassung.",
+      "Wer kommt heute, wer stornierte, was noch frei ist. am Panel lesbar.",
       "Jeder Kunde behält seine Historie, auch bei Kanalwechsel.",
     ],
     howTitle: "So funktioniert es",
     how: [
       "Assistent bucht eine freie Stunde → Karte erscheint, auch wenn Sie nicht am Handy sind.",
-      "Sie verschieben die Karte, ergänzen Notizen, wählen Verantwortliche. WhatsApp- oder Instagram-Zusammenfassung bleibt am selben Kunden.",
+      "Sie verschieben die Karte, ergänzen Notizen, wählen Verantwortliche. WhatsApp oder Instagram Zusammenfassung bleibt am selben Kunden.",
       "Absage gibt die Stunde frei; das Panel aktualisiert sich mit.",
       "Zwei Assistenten sprechen an getrennten Orten; das CRM hält eine Liste.",
     ],
@@ -1268,22 +1268,22 @@ projectDetails.de = {
     result:
       "Assistenten sprechen, füllen freie Stunden, erinnern eine Stunde vorher; das CRM hält alles an einem Ort. Während Sie weg sind, füllt sich das System weiter.",
     ctaLabel: "Nächstes Projekt",
-    ctaTitle: "Möchten Sie ein CRM-Panel, das mit Ihren Assistenten spricht?",
+    ctaTitle: "Möchten Sie ein CRM Panel, das mit Ihren Assistenten spricht?",
     ctaBlurb:
-      "Führen wir die Termine und Kunden Ihrer WhatsApp- und Instagram-Assistenten in einem Panel zusammen. Kurzes Briefing — ich liefere den Umfang.",
-    ctaButton: "Projekt besprechen",
+      "Führen wir die Termine und Kunden Ihrer WhatsApp und Instagram Assistenten in einem Panel zusammen. Kurzes Briefing, ich liefere den Umfang.",
+    ctaButton: "Mein Projekt starten",
   },
   "css-system": {
     tag: "Designsystem",
     summary:
-      "CSS-Designsystem mit Marken-Tokens für Farbe, Typografie, Komponenten und Abstände — eine Quelle, die Web und Admin dieselbe visuelle Sprache sprechen lässt.",
+      "CSS Designsystem mit Marken Tokens für Farbe, Typografie, Komponenten und Abstände. eine Quelle, die Web und Admin dieselbe visuelle Sprache sprechen lässt.",
     whatTitle: "Was wir gemacht haben",
     what: [
       "Tokens für Farbe, Typografie, Radius und Abstände.",
-      "Primary-, Accent- und Ghost-Buttons sowie Basiskomponenten.",
+      "Primary, Accent und Ghost Buttons sowie Basiskomponenten.",
       "Dokumentation und Beispieloberfläche.",
       "Gleiche Sprache für Web und Admin.",
-      "Eine Token-Ebene, die helles und dunkles Theme unterstützt.",
+      "Eine Token Ebene, die helles und dunkles Theme unterstützt.",
       "Neue Komponenten bleiben an Tokens gebunden und entstehen schnell ohne Stilabweichung.",
     ],
     howTitle: "So funktioniert es",
@@ -1291,16 +1291,16 @@ projectDetails.de = {
       "Tokens leben in einer Quelle (:root / Theme).",
       "Komponenten nutzen diese Tokens.",
       "Neue Seiten bleiben konsistent und entstehen schneller.",
-      "Marken-Updates verbreiten sich von einem Punkt aus.",
+      "Marken Updates verbreiten sich von einem Punkt aus.",
     ],
     stack: ["CSS Custom Properties", "Design Tokens"],
     result:
-      "Ergebnis: Marken-Updates verbreiten sich von einem Punkt aus, neue Seiten entstehen schnell ohne Stilabweichung.",
+      "Ergebnis: Marken Updates verbreiten sich von einem Punkt aus, neue Seiten entstehen schnell ohne Stilabweichung.",
     ctaLabel: "Nächstes Projekt",
     ctaTitle: "Möchten Sie ein konsistentes Designsystem für Ihre Marke?",
     ctaBlurb:
-      "Bauen wir ein tokenbasiertes, skalierbares CSS-Designsystem, damit Web und Admin dieselbe Sprache sprechen. Kurzes Briefing — ich liefere den Umfang.",
-    ctaButton: "Projekt besprechen",
+      "Bauen wir ein tokenbasiertes, skalierbares CSS Designsystem, damit Web und Admin dieselbe Sprache sprechen. Kurzes Briefing, ich liefere den Umfang.",
+    ctaButton: "Mein Projekt starten",
   },
 };
 

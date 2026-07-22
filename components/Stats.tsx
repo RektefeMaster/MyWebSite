@@ -84,7 +84,11 @@ export default function Stats() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-14 max-w-2xl md:mb-16">
           <Reveal>
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-band-fg/40">
+            <p className="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-band-fg/40">
+              <span
+                aria-hidden
+                className="inline-block h-px w-6 bg-lime/70"
+              />
               {t("label")}
             </p>
           </Reveal>
@@ -99,8 +103,12 @@ export default function Stats() {
             <div
               key={item.value}
               data-stat-card
-              className="rounded-3xl border border-band-fg/10 bg-band-fg/[0.03] p-7 md:p-9"
+              className="relative overflow-hidden rounded-3xl border border-band-fg/10 bg-band-fg/[0.03] p-7 md:p-9"
             >
+              <span
+                aria-hidden
+                className="absolute inset-y-0 left-0 w-[3px] bg-lime/80"
+              />
               <p
                 data-stat-value
                 data-value={item.value}
