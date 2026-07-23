@@ -51,8 +51,11 @@ export default function BlogCard({
                 ? "(max-width: 768px) 100vw, 44vw"
                 : "(max-width: 768px) 100vw, 50vw"
             }
-            className="object-cover transition-transform duration-700 ease-out [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.03]"
+            quality={featured ? 85 : 72}
             priority={featured}
+            loading={featured ? "eager" : "lazy"}
+            decoding="async"
+            className="object-cover transition-transform duration-700 ease-out [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.03]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
           <span className="absolute bottom-4 left-5 rounded-full bg-surface/90 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-ink backdrop-blur-sm">

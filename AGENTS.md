@@ -8,6 +8,13 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 METEK Digital stüdyo sitesi (kurucu: Nurullah Aydın). Next.js 16 (App Router) + React Three Fiber + next-intl.
 
+## Copy / içerik işletim sistemi
+
+UI, proje, blog ve meta metinlerinde **zorunlu**: `content-system/` + Cursor skill `.cursor/skills/metek-copy-pipeline`. Üçüncü taraf skill’ler yalnızca `.cursor/skills/vendor/` (pin’li SHA + LICENSE/SOURCE). Ana kaynak yazılmış TR pazarlama metni değil; **semantic brief** + bağımsız locale draft. `avoid-ai-writing` her dilin son stil editörüdür.
+
+- `npm run content:inventory` — yüzey envanteri
+- `npm run content:lint` — parity / empty / forbidden / duplicate meta / length raporu
+
 ## Komutlar
 
 - `npm run dev` — dev server (port 3000)

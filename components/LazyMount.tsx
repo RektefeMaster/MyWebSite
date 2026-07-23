@@ -112,9 +112,9 @@ export default function LazyMount({
     return () => io.disconnect();
   }, [show, rootMargin, id]);
 
-  const style: CSSProperties | undefined = show
-    ? undefined
-    : { minHeight, contentVisibility: "auto" };
+  // content-visibility:auto burada KULLANMA — IO hedefini “skip” edip
+  // mid-fold’un hiç mount olmamasına yol açabiliyor (Chromium).
+  const style: CSSProperties | undefined = show ? undefined : { minHeight };
 
   return (
     <div ref={ref} id={id} className={className} style={style}>

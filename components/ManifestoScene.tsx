@@ -5,6 +5,7 @@ import Reveal from "./Reveal";
 
 /**
  * Kısa manifesto durak — band zemin (paper yığılmasını kırar).
+ * Sağ altta sade M. markası.
  */
 export default function ManifestoScene() {
   const t = useTranslations("manifestoScene");
@@ -29,11 +30,12 @@ export default function ManifestoScene() {
           </p>
         </Reveal>
       </div>
+
       <span
         aria-hidden
-        className="pointer-events-none absolute -right-4 bottom-4 hidden select-none font-display text-[12rem] leading-none text-band-fg/[0.04] md:block md:right-8 md:text-[13rem]"
+        className="pointer-events-none absolute -right-2 bottom-6 select-none font-display text-[clamp(6rem,28vw,13rem)] leading-none tracking-tight text-band-fg/[0.06] md:right-8 md:bottom-8"
       >
-        M.
+        M<span className="text-lime/40">.</span>
       </span>
     </section>
   );

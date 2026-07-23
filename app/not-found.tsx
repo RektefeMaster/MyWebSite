@@ -11,13 +11,13 @@ export default function NotFound() {
         Page not found
       </h1>
       <p className="mt-4 max-w-md text-sm leading-relaxed text-foreground/55">
-        This page does not exist or was moved. Back to {SITE.brand}.
+        This link is broken or the page moved. Head back to {SITE.brand}.
       </p>
       <Link
         href="/"
         className="mt-8 inline-flex min-h-12 items-center rounded-full bg-ink px-6 text-sm font-bold text-ink-fg"
       >
-        Home
+        Back to home
       </Link>
     </main>
   );

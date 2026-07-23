@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "METEK Digital Diseño web, software e IA",
-    "description": "METEK Digital desarrolla sitios web a medida, paneles, automatizaciones y productos digitales con IA."
+    "title": "METEK Digital · Sitios a medida, software y automatización",
+    "description": "METEK Digital diseña y desarrolla sitios web a medida, paneles de admin y automatización para marcas. Un solo equipo, de la idea al producto en vivo."
   },
   "nav": {
     "about": "Sobre mí",
@@ -15,78 +15,78 @@
     "notes": "Notas",
     "projects": "Proyectos",
     "contact": "Contacto",
-    "bookMeeting": "Empezar un proyecto",
-    "cta": "Empezar un proyecto",
-    "ctaShort": "Empezar"
+    "bookMeeting": "Iniciar proyecto",
+    "cta": "Iniciar proyecto",
+    "ctaShort": "Iniciar"
   },
   "pages": {
     "manifesto": {
       "metaTitle": "Manifiesto · METEK",
-      "metaDescription": "Diseño original, software sólido y resultados medibles. El enfoque de METEK Digital.",
+      "metaDescription": "Diseño propio, software sólido, un solo equipo responsable. El enfoque de METEK Digital.",
       "heroLabel": "Manifiesto",
-      "heroTitle": "Experiencias digitales originales.",
-      "heroBlurb": "Diseño, software y tecnología en un solo sistema.",
-      "ctaLabel": "Trabajemos",
-      "ctaTitle": "¿Listo para empezar un proyecto?",
-      "ctaBlurb": "Cuenta el objetivo y el plazo. En un día tienes alcance claro y el siguiente paso.",
-      "ctaButton": "Empezar mi proyecto"
+      "heroTitle": "Marca de verdad, no plantilla.",
+      "heroBlurb": "Diseño y código en la misma mano; no revendemos temas.",
+      "ctaLabel": "Hablemos",
+      "ctaTitle": "¿Listo para iniciar un proyecto?",
+      "ctaBlurb": "Cuente el objetivo y el plazo. En un día recibe alcance claro y el siguiente paso.",
+      "ctaButton": "Iniciar mi proyecto"
     },
     "approach": {
       "metaTitle": "Enfoque · METEK",
-      "metaDescription": "Claridad, sistema, tempo y resultado cómo pienso el trabajo de marca.",
+      "metaDescription": "Del descubrimiento al lanzamiento: alcance claro, avances verificables.",
       "heroLabel": "Enfoque",
       "heroTitle": "Método.",
-      "heroBlurb": "Del descubrimiento al lanzamiento. Cada paso atado a un resultado medible.",
-      "ctaLabel": "Trabajemos",
-      "ctaTitle": "¿Aplicamos este método a tu proyecto?",
-      "ctaBlurb": "Del descubrimiento al lanzamiento con alcance claro, actualizaciones constantes y avance comprobable.",
-      "ctaButton": "Empezar mi proyecto"
+      "heroBlurb": "Cada paso termina en algo concreto; sin sorpresas al final.",
+      "ctaLabel": "Hablemos",
+      "ctaTitle": "¿Aplicamos este método a su proyecto?",
+      "ctaBlurb": "Del descubrimiento al lanzamiento con alcance claro, actualizaciones frecuentes y avance que puede revisar.",
+      "ctaButton": "Iniciar mi proyecto"
     },
     "work": {
       "metaTitle": "Trabajo · METEK",
-      "metaDescription": "Proyectos web y de software seleccionados. Diseño a medida, ingeniería sólida.",
+      "metaDescription": "Sitios web, paneles y automatización en producción. Proyectos seleccionados.",
       "heroLabel": "Trabajo",
       "heroTitle": "Proyectos seleccionados.",
-      "heroBlurb": "Una selección de productos digitales que diseñamos y desarrollamos.",
-      "ctaLabel": "Trabajemos",
-      "ctaTitle": "¿Buscas trabajo en este rango?",
+      "heroBlurb": "Sitios, paneles y flujos automatizados que siguen en uso real.",
+      "ctaLabel": "Hablemos",
+      "ctaTitle": "¿Busca trabajo en este rango?",
       "ctaBlurb": "Sector, objetivo y plazo. Respondo con encaje y un siguiente paso concreto.",
-      "ctaButton": "Enviar mi brief"
+      "ctaButton": "Enviar mi necesidad"
     },
     "services": {
       "metaTitle": "Servicios · METEK",
-      "metaDescription": "Sitios web, software a medida, automatización e IA.",
+      "metaDescription": "Sitio a medida, panel de admin, automatización e identidad de marca. El alcance se define juntos.",
       "heroLabel": "Servicios",
       "heroTitle": "Servicios.",
-      "heroBlurb": "Web, software y automatización. Definimos el alcance juntos.",
-      "ctaLabel": "Trabajemos",
-      "ctaTitle": "¿No sabes qué servicio encaja?",
-      "ctaBlurb": "Describe lo que necesitas. Lo traduzco a un alcance real sin presupuestos inflados.",
-      "ctaButton": "Empezar mi proyecto"
+      "heroBlurb": "Web, software y automatización. Nos centramos en el trabajo, no en el paquete inflado.",
+      "ctaLabel": "Hablemos",
+      "ctaTitle": "¿No sabe qué servicio encaja?",
+      "ctaBlurb": "Describa la necesidad en pocas líneas. La traduzco a un alcance real, sin presupuestos inflados.",
+      "ctaButton": "Iniciar mi proyecto"
     },
     "blog": {
       "metaTitle": "Blog · METEK",
-      "metaDescription": "Notas sobre web, software y productos digitales.",
+      "metaDescription": "Notas sobre identidad de marca, sitios web y proceso de entrega.",
       "heroLabel": "Blog",
-      "heroTitle": "Notas y perspectivas.",
-      "heroBlurb": "Escritos seleccionados sobre sistemas de identidad, web editorial y proceso.",
-      "ctaLabel": "Trabajemos",
-      "ctaTitle": "¿Quieres esto para tu marca?",
-      "ctaBlurb": "Si una nota encaja con un problema tuyo, vemos cómo aplicarlo a tu proyecto.",
-      "ctaButton": "Empezar mi proyecto"
+      "heroTitle": "Notas.",
+      "heroBlurb": "Textos breves sobre identidad, sitios y cómo entregamos proyectos.",
+      "ctaLabel": "Hablemos",
+      "ctaTitle": "¿Quiere esto para su marca?",
+      "ctaBlurb": "Si una nota encaja con su necesidad, vemos cómo aplicarla a su proyecto.",
+      "ctaButton": "Iniciar mi proyecto"
     }
   },
   "blog": {
     "view": "Leer nota",
     "teaserLabel": "Notas",
     "teaserTitle": "Notas seleccionadas.",
-    "teaserBlurb": "Perspectivas breves sobre identidad, experiencia digital y proceso.",
+    "teaserBlurb": "Identidad, sitios web y proceso de entrega.",
     "teaserAll": "Ver todas las notas",
     "readMinutes": "{count} min de lectura",
     "relatedLabel": "Continuar",
     "relatedTitle": "Artículos relacionados.",
-    "articleCta": "Empezar mi proyecto",
-    "articleCtaBlurb": "Si esto encaja con un problema tuyo, empieza una conversación de proyecto para tu marca.",
+    "articleCta": "Iniciar mi proyecto",
+    "articleCtaBlurb": "Si esto encaja con su necesidad, inicie una conversación de proyecto.",
     "crumbHome": "Inicio",
     "crumbBlog": "Blog",
     "categories": {
@@ -99,42 +99,42 @@
   },
   "marquee": {
     "items": [
-      "Diseño web",
-      "Software",
-      "IA",
+      "Sitio a medida",
+      "Panel de admin",
       "Automatización",
-      "Paneles",
-      "Rendimiento"
+      "Next.js",
+      "Velocidad",
+      "SEO técnico"
     ]
   },
   "manifesto": {
     "label": "Manifiesto",
     "stamp": "METEK Digital",
     "lines": [
-      "No produzco trabajos que solo se ven bien.",
+      "No hago trabajos que solo se ven bien.",
       "Llevo el carácter de la marca al digital.",
-      "Uno diseño, software y tecnología en un sistema.",
-      "Cada proyecto se construye para distinguirse y dar resultado."
+      "Uno diseño y código en la misma línea.",
+      "Cada proyecto debe distinguirse y aguantar el uso diario."
     ]
   },
   "featured": {
     "label": "Proyecto destacado",
     "client": "Wholesale Cabinet Creations · 2026",
-    "title": "Sitio corporativo para un fabricante de muebles en EE. UU.",
-    "blurb": "Para Wholesale Cabinet Creations: un sitio que lleva la calidad de fabricación al digital. Rápido en móvil, listo para SEO, con CMS que el equipo puede gestionar.",
+    "title": "Sitio corporativo para fabricante de gabinetes en EE. UU.",
+    "blurb": "Para Wholesale Cabinet Creations: un sitio que muestra la calidad de fabricación en línea — rápido en móvil, listo para búsqueda, con ruta clara a cotización y un panel que el equipo puede actualizar.",
     "outcomes": [
-      "Una presencia de marca más fuerte y cuidada.",
-      "Mejor rendimiento móvil y experiencia de uso.",
-      "Contenido, medios y SEO en un solo panel."
+      "Presencia más clara para consultas con cotización.",
+      "Caminos más rápidos en móvil a producto y contacto.",
+      "Textos, medios y ajustes de búsqueda en un panel."
     ],
-    "cta": "Ver el caso completo",
+    "cta": "Abrir proyecto",
     "shotHero": "Wholesale Cabinet Creations — inicio",
-    "shotKitchen": "Wholesale Cabinet Creations — cocinas",
+    "shotKitchen": "Wholesale Cabinet Creations — gabinetes de cocina",
     "shotProjects": "Wholesale Cabinet Creations — galería de proyectos",
     "shotBrands": "Wholesale Cabinet Creations — marcas",
     "sceneLabel": "Resultado",
     "sceneTitle": "Calidad de fabricación, visible online.",
-    "sceneBody": "Rendimiento, SEO y gestión de contenidos en un sistema."
+    "sceneBody": "Velocidad, búsqueda y gestión de contenido en un solo sistema."
   },
   "principles": {
     "label": "Enfoque",
@@ -142,78 +142,81 @@
     "items": [
       {
         "title": "Claridad",
-        "body": "Corto el ruido. El mensaje se lee de un vistazo; cada capa tiene un propósito."
+        "body": "Quito el ruido. El mensaje se lee de un vistazo; cada capa cumple una función."
       },
       {
         "title": "Sistema",
-        "body": "No visuales sueltos reglas de identidad y componentes que escalan."
+        "body": "No visuales sueltos: reglas de identidad y componentes que escalan."
       },
       {
-        "title": "Tempo",
-        "body": "Decisiones rápidas, ejecución meticulosa. La fecha de lanzamiento es real."
+        "title": "Ritmo",
+        "body": "Decisiones rápidas, ejecución cuidadosa. La fecha de lanzamiento es real."
       },
       {
-        "title": "Resultado",
-        "body": "La belleza no basta. Se miden confianza, recuerdo y conversión."
+        "title": "Utilidad",
+        "body": "La belleza no basta. Se miden confianza, reconocimiento y contacto."
       }
     ]
   },
   "hero": {
     "line1": "De la idea",
     "line2": "al producto",
-    "line3": "en marcha.",
-    "blurb": "Sitios, paneles y herramientas para marcas que necesitan que el trabajo aguante. No solo que se vea terminado.",
-    "ctaWork": "Ver trabajo seleccionado",
-    "ctaContact": "Empezar un proyecto",
+    "line3": "en uso.",
+    "blurb": "Sitios a medida, paneles de admin y automatización. Un solo equipo; no plantilla reempaquetada, trabajo que sigue después del lanzamiento.",
+    "ctaWork": "Ver trabajos",
+    "ctaContact": "Iniciar proyecto",
     "scroll": "Ver proyectos",
     "metaStudio": "Estudio de diseño y software",
     "metaLocation": "Malatya · Todo el mundo",
-    "availability": "Abierto a unos pocos proyectos nuevos"
+    "availability": "Abiertos a unos pocos proyectos nuevos"
   },
   "selectedWork": {
     "label": "Trabajo seleccionado",
     "title": "Prueba en producción.",
-    "blurb": "Cuatro piezas publicadas en experiencias, sistemas y automatización.",
+    "blurb": "Cuatro piezas en vivo: sitio, panel y automatización.",
     "viewAll": "Ver todo el trabajo"
   },
   "capabilities": {
-    "label": "Capacidades",
+    "label": "Qué hacemos",
     "title": "Qué construimos.",
-    "blurb": "Sitios que convierten, sistemas que el equipo usa a diario y automatización que carga trabajo real.",
-    "cta": "Explorar capacidades",
-    "techLine": "Diseño primero · Rigor técnico · Listo para producción",
+    "blurb": "Sitios que generan contacto, paneles que su equipo abre cada día y automatización con carga real.",
+    "cta": "Ver servicios",
+    "techLine": "Diseño propio · Código sólido · Listo para lanzar",
     "items": {
       "experiences": {
-        "title": "Experiencias digitales",
-        "summary": "Sitios de marca, comercio y superficies editoriales",
-        "visual": "Experiencia",
-        "body": "Superficies digitales que llevan el carácter de la marca y convierten — sin parecer una plantilla.",
+        "title": "Sitios web",
+        "summary": "Sitios de marca, páginas de cotización y contenido editorial",
+        "visual": "Sitio web",
+        "body": "Sitios que llevan su marca y guían al visitante al siguiente paso, sin parecer plantilla.",
+        "detail": "Cada página tiene un trabajo: generar confianza, explicar la oferta y abrir camino a contacto o cotización. Texto, diseño y movimiento se planean juntos.",
         "outcomes": [
-          "Sitios de marca con ruta clara a contacto o reserva",
-          "Flujos de comercio sin ruido de plantilla",
-          "Experiencias editoriales al ritmo del scroll"
+          "Sitios de marca con ruta clara a contacto o cita",
+          "Páginas de servicio y cotización fáciles de leer",
+          "Contenido editorial con buen ritmo de lectura"
         ]
       },
       "systems": {
-        "title": "Sistemas de software",
-        "summary": "Paneles admin, CRM e interfaces de producto",
-        "visual": "Panel · CRM",
-        "body": "Herramientas internas y productos para el uso diario — arquitectura clara, entrega estable.",
+        "title": "Software y paneles",
+        "summary": "Paneles de admin, CRM e interfaces de producto",
+        "visual": "Panel de admin",
+        "body": "Herramientas que su equipo usa a diario: pantallas simples, estructura clara, entrega confiable.",
+        "detail": "Mantenemos ligeros los paneles de uso diario: datos correctos, acciones rápidas, poca fricción. El sistema puede crecer sin meses de capacitación.",
         "outcomes": [
-          "Paneles que se operan sin teatro de formación",
-          "CRM y leads que se mantienen en sync",
-          "Productos web y móvil con release estable"
+          "Paneles de admin que se usan con poca explicación",
+          "CRM y registros de clientes alineados",
+          "Productos web y móvil con lanzamientos estables"
         ]
       },
       "ai": {
-        "title": "IA y automatización",
-        "summary": "Asistentes de mensajería y flujos operativos",
+        "title": "Automatización y asistentes",
+        "summary": "WhatsApp, Instagram y flujos operativos",
         "visual": "Mensajería",
-        "body": "Asistentes y flujos que cargan trabajo real — reservas, FAQs, seguimientos — con handoff limpio a humanos.",
+        "body": "Asistentes que cargan citas, preguntas frecuentes y seguimientos. Cuando se atora, deja un resumen claro para su equipo.",
+        "detail": "Los armamos para operación, no para vitrina. Los casos dudosos pasan a su equipo con un resumen corto y accionable.",
         "outcomes": [
-          "Asistentes WhatsApp y DM que califican leads",
-          "Automatización de reservas y seguimientos",
-          "Flujos a medida ligados a tu CRM"
+          "Asistentes en WhatsApp e Instagram con primera respuesta",
+          "Automatización de citas y seguimientos",
+          "Flujos conectados a su panel de ventas"
         ]
       }
     }
@@ -227,182 +230,182 @@
   "approachTeaser": {
     "label": "Enfoque",
     "title": "Cómo trabajamos.",
-    "blurb": "Cuatro etapas del brief al lanzamiento. Cada paso termina en algo que puedes revisar.",
-    "principle": "Comunicación directa. Alcance claro. Sin teatro de estatus.",
-    "cta": "Ver cómo trabajamos",
+    "blurb": "Cuatro pasos del primer contacto al lanzamiento. Cada uno termina en algo que puede revisar y aprobar.",
+    "principle": "Comunicación directa. Alcance claro. Sin formalidades de más.",
+    "cta": "Ver el proceso",
     "steps": [
       {
         "title": "Descubrir",
-        "body": "Objetivos, audiencia y límites — antes del ruido visual."
+        "body": "Objetivo, audiencia y límites, antes del ruido visual."
       },
       {
         "title": "Definir",
-        "body": "Dirección, arquitectura y un alcance que puedes aprobar."
+        "body": "Dirección, estructura y alcance que puede aprobar."
       },
       {
         "title": "Diseñar y construir",
-        "body": "Interfaz e implementación en una sola pista — sin niebla de handoff."
+        "body": "Interfaz y código en la misma pista; sin pérdida en el traspaso."
       },
       {
-        "title": "Refinar y lanzar",
-        "body": "Probar, ajustar y publicar un release fiable."
+        "title": "Probar y lanzar",
+        "body": "Velocidad, accesibilidad básica y rutas críticas; luego lanzamiento confiable."
       }
     ]
   },
   "finalCta": {
-    "label": "Empezar",
-    "title": "Cuando estés listo.",
-    "blurb": "Envía un briefing corto. Recibes alcance, dirección y siguientes pasos — no una presentación comercial.",
-    "cta": "Empezar un proyecto",
-    "whatsapp": "¿Prefieres WhatsApp? Escríbeme directamente ↗",
+    "label": "Inicio",
+    "title": "Cuando esté listo.",
+    "blurb": "Envíe una nota corta. En un día recibe alcance, dirección y el siguiente paso.",
+    "cta": "Iniciar proyecto",
+    "whatsapp": "¿Prefiere WhatsApp? Escríbame directo ↗",
     "whatsappPrefill": "Hola. Me gustaría hablar de un proyecto con METEK."
   },
   "workLanes": {
-    "web": "Experiencias web",
-    "systems": "Productos y sistemas",
-    "ai": "IA y automatización",
-    "lab": "Experimentos / Lab"
+    "web": "Sitios web",
+    "systems": "Paneles y sistemas",
+    "ai": "Automatización",
+    "lab": "Pruebas"
   },
   "projects": {
     "label": "Trabajo",
     "title": "Todos los proyectos.",
-    "blurb": "Web, paneles y productos digitales — cada uno diseñado e ingenierizado para aguantar en producción.",
+    "blurb": "Sitios, paneles y productos digitales, cada uno hecho para aguantar en producción.",
     "loadMore": "Más trabajo",
-    "seeCase": "Ver el trabajo",
+    "seeCase": "Ver trabajos",
     "viewAll": "Ver todo el trabajo"
   },
   "projectUi": {
-    "view": "Abrir caso",
+    "view": "Abrir proyecto",
     "live": "Visitar sitio",
     "stack": "Tecnología",
     "back": "Volver al trabajo",
-    "gallery": "Fotogramas",
+    "gallery": "Capturas",
     "galleryHint": "Pantallas seleccionadas del sitio en vivo"
   },
   "services": {
     "label": "Servicios",
     "title": "En qué trabajamos",
     "included": "Qué incluye",
-    "cta": "Empezar mi proyecto",
+    "cta": "Iniciar mi proyecto",
     "seeAll": "Ver servicios",
     "items": [
       {
         "title": "Sitio web inicial",
-        "description": "Sitio rápido, moderno y profesional para pequeños negocios y marcas personales.",
+        "description": "Para negocios pequeños y marcas personales que necesitan su primer sitio en serio.",
         "includes": [
           "1 a 5 páginas",
-          "UI a medida",
-          "Responsive",
+          "Interfaz a medida",
+          "Diseño responsive",
           "SEO básico",
           "Contacto y WhatsApp",
-          "Optimización de rendimiento",
+          "Optimización de velocidad",
           "15 días de soporte"
         ]
       },
       {
         "title": "Sitio web corporativo",
-        "description": "Solución web completa para empresas que buscan marca fuerte y conversión.",
+        "description": "Para empresas que buscan presencia sólida de marca y más consultas.",
         "includes": [
           "5 a 12 páginas",
-          "UI/UX a medida",
-          "Animación",
-          "Blog o CMS",
+          "Interfaz y UX a medida",
+          "Animación y microinteracciones",
+          "Blog o área de contenido",
           "SEO avanzado",
-          "Analítica",
+          "Analítica conectada",
           "Velocidad y seguridad",
           "30 días de soporte"
         ]
       },
       {
         "title": "Experiencia digital a medida",
-        "description": "Diseño y software a medida para diferenciarse con claridad.",
+        "description": "Diseño y software propios para marcas que quieren diferenciarse con claridad.",
         "includes": [
           "Lenguaje visual propio",
           "3D o animación avanzada",
-          "Panel admin",
-          "CRM, API y automatización",
+          "Panel de admin a medida",
+          "CRM y conexiones de automatización",
           "Funciones de IA",
-          "SEO y rendimiento avanzados",
-          "QA y lanzamiento",
+          "SEO y velocidad avanzados",
+          "Pruebas y lanzamiento",
           "60 días de soporte"
         ]
       },
       {
-        "title": "Logo e Identidad de Marca",
-        "description": "Un logo distintivo y un sistema de identidad visual coherente que hacen tu marca reconocible a primera vista.",
+        "title": "Logo e identidad de marca",
+        "description": "Logo distintivo y sistema visual coherente que hace reconocible su marca al primer vistazo.",
         "includes": [
           "Descubrimiento y análisis de marca",
           "Diseño de logo original (varias direcciones)",
           "Paleta de color y tipografía",
-          "Variaciones del logo (horizontal, vertical, icono)",
+          "Variaciones del logo (horizontal, vertical, ícono)",
           "Guía de uso (mini manual de marca)",
-          "Sets para redes sociales y favicon",
-          "Archivos vectoriales fuente (SVG, PDF, PNG)"
+          "Sets para redes y favicon",
+          "Archivos vectoriales (SVG, PDF, PNG)"
         ]
       },
       {
         "title": "Software y automatización a medida",
-        "description": "Paneles, aplicaciones y sistemas de IA que digitalizan operaciones.",
+        "description": "Paneles, apps y flujos que llevan sus operaciones a pantalla.",
         "includes": [
           "Análisis de necesidades",
           "Arquitectura técnica",
           "App web o móvil",
-          "Panel admin",
-          "API e integraciones",
+          "Panel de admin",
+          "Integraciones con otros sistemas",
           "Escenarios de automatización",
           "Seguridad y pruebas"
         ]
       },
       {
         "title": "Asistente de chat de WhatsApp",
-        "description": "Habla con el cliente de WhatsApp como tú sin mirar el teléfono. Conoce precios y servicios. Sabe las horas libres y dirige las citas allí. Sabe las ocupadas y agenda en consecuencia. Si cancelan, sabe que esa hora quedó libre. Avisa 1 hora antes menos cancelaciones de última hora.",
+        "description": "Responde en WhatsApp con su tono. Conoce precios, servicios y horarios libres u ocupados; agenda citas, libera horas canceladas y envía recordatorio una hora antes.",
         "includes": [
-          "Chat como tú (con tus precios y servicios)",
-          "Sabe horas libres y dirige las citas allí",
-          "Sabe horas ocupadas y no las solapa",
-          "Tras cancelar, abre de nuevo la hora",
-          "Aviso 1 hora antes de la cita",
-          "Trabaja con el panel CRM",
-          "Instalación y formación"
+          "Chat con su tono (precios y servicios incluidos)",
+          "Conoce horas libres y dirige citas allí",
+          "Conoce horas ocupadas, sin doble reserva",
+          "Tras cancelar, abre la hora de nuevo",
+          "Recordatorio 1 hora antes de la cita",
+          "Conectado al panel de ventas",
+          "Instalación y capacitación"
         ]
       },
       {
-        "title": "Asistente de DM de Instagram",
-        "description": "En los DM de Instagram lo mismo. Sin mirar el teléfono: conoce precios y servicios, horas libres, ocupadas y las que quedan libres al cancelar. Aviso 1 hora antes.",
+        "title": "Asistente de mensajes de Instagram",
+        "description": "Misma lógica en Instagram: precios, servicios y calendario. Dirige a horas libres, evita ocupadas, libera cancelaciones y recuerda una hora antes.",
         "includes": [
-          "Chat en DM a tu nombre",
+          "Chat en mensajes a su nombre",
           "Respuestas de precio, servicio y preguntas frecuentes",
           "Citas en horas libres, no en ocupadas",
-          "Tras cancelar, abre de nuevo la hora",
-          "Aviso 1 hora antes",
-          "Trabaja con el panel CRM",
-          "Instalación y formación"
+          "Tras cancelar, abre la hora de nuevo",
+          "Recordatorio 1 hora antes",
+          "Conectado al panel de ventas",
+          "Instalación y capacitación"
         ]
       },
       {
-        "title": "Panel CRM de ventas",
-        "description": "Trabaja con los asistentes de WhatsApp e Instagram. Citas, cancelaciones y clientes en un panel. Qué horas libres, quién viene cuándo lo miras ahí.",
+        "title": "Panel de ventas y citas",
+        "description": "Trabaja con los asistentes de WhatsApp e Instagram. Citas, cancelaciones y clientes en una pantalla; ve qué horas están libres y quién viene cuándo.",
         "includes": [
           "Panel de ventas",
-          "Enlace al asistente de WhatsApp",
-          "Enlace al asistente de Instagram DM",
+          "Conexión al asistente de WhatsApp",
+          "Conexión al asistente de Instagram",
           "Registro automático al agendar",
           "Tras cancelar, la hora vuelve a libre",
           "Resumen diario y recordatorios",
-          "Instalación y formación"
+          "Instalación y capacitación"
         ]
       },
       {
-        "title": "Sistema de diseño CSS",
-        "description": "Tokens de marca para color, tipografía, componentes y spacing UI kit y docs coherentes.",
+        "title": "Sistema de diseño",
+        "description": "Reglas de color, tipografía y espaciado de marca con pantallas coherentes y guía de uso.",
         "includes": [
-          "Set de design tokens",
+          "Reglas de color y texto",
           "Escala tipográfica",
-          "Botones y componentes base",
-          "Sistema de spacing / radius",
-          "Superficie de documentación",
-          "Alineación web y admin",
-          "Guía de entrega"
+          "Estilos de botones y componentes base",
+          "Sistema de espaciado y bordes",
+          "Guía de uso",
+          "Alineación web y panel",
+          "Entrega y guía de uso"
         ]
       }
     ]
@@ -415,14 +418,14 @@
         "title": "Descubrimiento",
         "body": [
           "Objetivos, audiencia y límites técnicos.",
-          "El alcance y el éxito se definen aquí."
+          "Alcance y criterios de éxito se fijan aquí."
         ]
       },
       {
         "title": "Estrategia",
         "body": [
-          "Arquitectura de información y dirección de producto.",
-          "La hoja de ruta queda clara antes de diseñar."
+          "Arquitectura de información y dirección del producto.",
+          "La ruta queda clara antes de diseñar y desarrollar."
         ]
       },
       {
@@ -435,22 +438,22 @@
       {
         "title": "Desarrollo",
         "body": [
-          "Código orientado a rendimiento y seguridad.",
-          "Paneles, API y automatización en un sistema."
+          "Código enfocado en rendimiento y seguridad.",
+          "Panel, integraciones y automatización en un sistema."
         ]
       },
       {
         "title": "Pruebas",
         "body": [
-          "Dispositivos, velocidad y flujos críticos.",
-          "Se limpia la fricción antes del lanzamiento."
+          "Dispositivos, velocidad, accesibilidad básica y rutas críticas.",
+          "Se limpian errores y fricción antes del lanzamiento."
         ]
       },
       {
         "title": "Lanzamiento",
         "body": [
           "Publicación, monitoreo y soporte posterior.",
-          "La mejora continúa cuando hace falta."
+          "Mejora continua cuando hace falta."
         ]
       }
     ]
@@ -459,27 +462,27 @@
     "label": "Estudio",
     "titleLead": "METEK",
     "titleRest": "Digital",
-    "p1": "METEK Digital desarrolla diseño web, software y productos digitales con IA.",
+    "p1": "METEK Digital es un estudio liderado por su fundador: sitios a medida, software y automatización.",
     "p2": "El fundador Nurullah Aydın une diseño, software y tecnología en un solo sistema.",
-    "highlight": "Diseño original. Software sólido.",
-    "p3": "Cada proyecto se construye para ser distintivo y orientado a resultados.",
+    "highlight": "Diseño propio. Software sólido.",
+    "p3": "Cada proyecto se construye para distinguirse y seguir funcionando después de la entrega.",
     "role": "Fundador",
     "name": "Nurullah Aydın"
   },
   "contact": {
     "label": "Contacto",
-    "titleLine1": "¿Tienes un proyecto?",
+    "titleLine1": "¿Tiene un proyecto?",
     "titleLine2": "Empecemos.",
-    "blurb": "Sitio nuevo, panel, automatización o herramienta de IA. Una nota corta basta. Respondo con un siguiente paso claro.",
+    "blurb": "Sitio nuevo, panel o automatización. Un mensaje corto basta; respondo con el siguiente paso claro.",
     "name": "Nombre",
     "email": "Correo",
     "interestedIn": "Me interesa",
-    "message": "Unas líneas sobre tu objetivo y plazo",
+    "message": "Unas líneas sobre su objetivo y plazo",
     "send": "Enviar",
-    "sentHint": "Abriendo tu app de correo. Suelo responder en un día.",
-    "errorName": "Escribe tu nombre.",
-    "errorEmail": "Introduce un email válido.",
-    "errorMessage": "Añade unas líneas más para poder responder con el siguiente paso.",
+    "sentHint": "Se abre su app de correo. Suelo responder en un día.",
+    "errorName": "Escriba su nombre.",
+    "errorEmail": "Introduzca un correo válido.",
+    "errorMessage": "Añada unas líneas más para poder responder con el siguiente paso.",
     "mailSubject": "Consulta de proyecto",
     "mailName": "Nombre",
     "mailEmail": "Correo",
@@ -487,25 +490,25 @@
     "interests": [
       "Sitio web inicial",
       "Sitio corporativo",
-      "Experiencia web a medida",
+      "Experiencia digital a medida",
       "Logo e identidad de marca",
-      "E commerce",
+      "Comercio electrónico",
       "Panel de administración",
       "App web o móvil",
-      "IA y automatización",
+      "Automatización y asistentes",
       "Rediseño de sitio",
       "Otro"
     ],
     "response": "Suelo responder en un día. Si urge, WhatsApp es más rápido.",
-    "emailCta": "Abrir email"
+    "emailCta": "Abrir correo"
   },
   "footer": {
-    "tagline": "Diseño original. Software sólido. Resultados medibles.",
+    "tagline": "Diseño propio. Software sólido. Un solo equipo.",
     "quickLinks": "Enlaces rápidos",
     "manifesto": "Manifiesto",
     "work": "Trabajo",
     "approach": "Enfoque",
-    "bookMeeting": "Empezar mi proyecto",
+    "bookMeeting": "Iniciar mi proyecto",
     "services": "Servicios",
     "blog": "Blog",
     "projects": "Proyectos",

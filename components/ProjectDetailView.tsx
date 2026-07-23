@@ -151,7 +151,7 @@ export default async function ProjectDetailView({
                               ? "(max-width: 1024px) 90vw, 960px"
                               : "(max-width: 1024px) 45vw, 320px"
                         }
-                        quality={88}
+                        quality={75}
                         priority={false}
                         loading="lazy"
                         decoding="async"

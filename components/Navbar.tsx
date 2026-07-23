@@ -3,13 +3,13 @@
 import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
+import BrandMark from "./BrandMark";
 import LanguageSwitcher from "./LanguageSwitcher";
 import Magnetic from "./Magnetic";
 import Marquee from "./Marquee";
 import ThemeToggle from "./ThemeToggle";
 import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
 import { attachNavOffsetSync } from "@/lib/nav-scroll";
-import { SITE } from "@/lib/site";
 
 type NavHref =
   | "/"
@@ -116,14 +116,7 @@ export default function Navbar() {
       <header ref={headerRef} className="nav-shell">
         <div className="nav-glass border-b">
           <nav className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-2.5 sm:gap-3 sm:px-4 sm:py-3 md:gap-4 md:px-10 md:py-4">
-            <Link
-              href="/"
-              scroll={false}
-              className="brand-mark inline-flex min-h-11 min-w-10 shrink-0 items-center text-2xl leading-none tracking-tight text-foreground md:min-h-0 md:min-w-0 md:text-3xl"
-              aria-label={SITE.brand}
-            >
-              M<span className="text-lime">.</span>
-            </Link>
+            <BrandMark />
 
             <div className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 xl:gap-1 lg:flex">
               {links.map((link) => {

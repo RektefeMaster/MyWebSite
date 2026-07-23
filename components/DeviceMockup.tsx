@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { CSSProperties, ReactNode } from "react";
 import type { Project } from "@/data/projects";
 
@@ -71,6 +71,9 @@ function PlaceholderScreen({
 /**
  * Hover’da tam sayfa gibi kaydırır. Uzun screenshot gerekir;
  * yoksa statik cover gösterilir.
+ *
+ * Scroll strip (ham JPG) yalnızca yakın viewport’ta yüklenir —
+ * soft-nav’da 10× 0.5MB strip aynı anda inmesin.
  */
 function ScreenContent({
   src,
@@ -81,6 +84,7 @@ function ScreenContent({
   sizes,
   priority = false,
   scroll = false,
+  quality = 75,
 }: {
   src?: string;
   scrollSrc?: string;
@@ -90,16 +94,57 @@ function ScreenContent({
   sizes: string;
   priority?: boolean;
   scroll?: boolean;
+  quality?: number;
 }) {
+  const rootRef = useRef<HTMLDivElement>(null);
+  const [scrollReady, setScrollReady] = useState(false);
   const scrollable = Boolean(scroll && scrollSrc);
+
+  useEffect(() => {
+    if (!scrollable || priority || scrollReady) return;
+    const el = rootRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setScrollReady(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        setScrollReady(true);
+        io.disconnect();
+      },
+      { rootMargin: "120px 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [scrollable, priority, scrollReady]);
 
   if (!src && !scrollSrc) {
     return <PlaceholderScreen colors={colors} label={label} />;
   }
 
   if (scrollable && scrollSrc) {
+    // Yakın değilken optimize cover — soft-nav bandwidth
+    if (!scrollReady && !priority && src) {
+      return (
+        <div ref={rootRef} className="absolute inset-0 bg-black">
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            sizes={sizes}
+            quality={quality}
+            loading="lazy"
+            decoding="async"
+            className="object-cover object-top"
+          />
+        </div>
+      );
+    }
+
     return (
-      <div className="device-screen-scroll absolute inset-0 bg-black">
+      <div ref={rootRef} className="device-screen-scroll absolute inset-0 bg-black">
         {/* eslint-disable-next-line @next/next/no-img-element -- tall scroll strip; next/image fill kırpar */}
         <img
           src={scrollSrc}
@@ -133,7 +178,7 @@ function ScreenContent({
         alt={alt}
         fill
         sizes={sizes}
-        quality={priority ? 96 : 90}
+        quality={quality}
         priority={priority}
         loading={priority ? "eager" : "lazy"}
         decoding="async"
@@ -154,6 +199,7 @@ function DeviceFrame({
   style,
   priority = false,
   sizes,
+  quality = 75,
 }: {
   frameSrc: string;
   frameW: number;
@@ -171,6 +217,7 @@ function DeviceFrame({
   style?: CSSProperties;
   priority?: boolean;
   sizes: string;
+  quality?: number;
 }) {
   return (
     <div
@@ -210,7 +257,7 @@ function DeviceFrame({
           fill
           sizes={sizes}
           priority={priority}
-          quality={90}
+          quality={quality}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
           draggable={false}
@@ -235,9 +282,7 @@ export default function DeviceMockup({
   priority = false,
 }: DeviceMockupProps) {
   const isHero = variant === "hero";
-  // Dokunmatik cihazda hover ile kaydırma yok → uzun native <img> yerine
-  // optimize edilmiş statik next/image göster (daha keskin + çok daha hafif).
-  // Masaüstünde (fine pointer) hover-scroll aynen korunur.
+  // Dokunmatik: hover-scroll yok → optimize statik next/image
   const [coarse, setCoarse] = useState(false);
   useEffect(() => {
     const mq = window.matchMedia("(pointer: coarse)");
@@ -248,6 +293,8 @@ export default function DeviceMockup({
   }, []);
   const useScroll = !coarse && Boolean(project.desktopScrollImage);
   const canScroll = Boolean(project.desktopScrollImage);
+  const screenQ = isHero ? 85 : 75;
+  const frameQ = isHero ? 85 : 75;
 
   return (
     <div
@@ -255,10 +302,11 @@ export default function DeviceMockup({
       role="img"
       aria-label={project.name}
     >
-      {/* MacBook — baskın düzlem */}
+      {/* MacBook — LCP adayı yalnızca hero desktop screen */}
       <DeviceFrame
         {...MACBOOK}
-        priority={priority}
+        priority={false}
+        quality={frameQ}
         sizes={
           isHero
             ? "(max-width: 768px) 92vw, 920px"
@@ -278,6 +326,7 @@ export default function DeviceMockup({
           label={project.name}
           priority={priority}
           scroll={useScroll}
+          quality={screenQ}
           sizes={
             isHero
               ? "(max-width: 768px) 82vw, 740px"
@@ -287,12 +336,13 @@ export default function DeviceMockup({
       </DeviceFrame>
 
       {/*
-        iPhone — küçük kartta scroll koyu boşluklara düşüyor;
-        mobilde tek viewport (hero) daha net durur. Hafif eğim + net gölge.
+        iPhone — kartta asla priority (eski bug: !isHero → 14 eager preload).
+        Hero’da da peep LCP değil → lazy.
       */}
       <DeviceFrame
         {...IPHONE}
-        priority={priority}
+        priority={false}
+        quality={frameQ}
         sizes={
           isHero
             ? "(max-width: 768px) 34vw, 250px"
@@ -309,7 +359,8 @@ export default function DeviceMockup({
           alt={`${project.name} mobil`}
           colors={project.colors}
           label={project.name.split(" ")[0] ?? project.name}
-          priority={priority || !isHero}
+          priority={false}
+          quality={screenQ}
           sizes={
             isHero
               ? "(max-width: 768px) 42vw, 280px"

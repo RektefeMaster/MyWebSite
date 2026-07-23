@@ -16,11 +16,11 @@ import { SITE } from "@/lib/site";
 import { ThemeProvider, themeInitScript } from "@/lib/theme";
 import "../globals.css";
 
-/** Display — başlıklar (Hero 3D hariç) */
+/** Display — başlıklar (Hero 3D hariç). TR glifleri (ŞşĞğİı) TTF’ye gömülü. */
 const goks = localFont({
   src: [
-    { path: "../fonts/goks-regular.otf", weight: "400", style: "normal" },
-    { path: "../fonts/goks-italic.otf", weight: "400", style: "italic" },
+    { path: "../fonts/goks-regular.ttf", weight: "400", style: "normal" },
+    { path: "../fonts/goks-italic.ttf", weight: "400", style: "italic" },
   ],
   variable: "--font-goks",
   display: "swap",

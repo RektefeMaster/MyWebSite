@@ -155,11 +155,14 @@ body {
   font-synthesis: none;
 }
 
-/* Marka kimliği — M. işareti her zaman Space Grotesk */
+/* Marka kimliği — M. vektör; font smoothing yedek metin için */
 .brand-mark {
   font-family: var(--font-grotesk), system-ui, sans-serif;
   font-weight: 700;
   font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
 }
 
 main {
@@ -483,7 +486,7 @@ html::-webkit-scrollbar-corner {
   }
 }
 
-/* Marka marquee — GPU, sürekli */
+/* Marka marquee — GPU, sürekli (masaüstü / ince pointer) */
 @keyframes marquee-x {
   from {
     transform: translate3d(0, 0, 0);
@@ -497,8 +500,8 @@ html::-webkit-scrollbar-corner {
   animation: marquee-x 28s linear infinite;
 }
 
-/* Sekme gizliyken boşa compositor işi yapma */
-@media (prefers-reduced-motion: no-preference) {
+/* Sekme gizliyken boşa compositor işi yapma — yalnızca animasyonlu track */
+@media (prefers-reduced-motion: no-preference) and (pointer: fine) and (min-width: 769px) {
   .marquee-track {
     will-change: transform;
   }
@@ -508,6 +511,7 @@ html::-webkit-scrollbar-corner {
   .marquee-track {
     animation: none;
     transform: none;
+    will-change: auto;
   }
 }
 
@@ -517,13 +521,17 @@ html::-webkit-scrollbar-corner {
     --nav-offset: 10.75rem;
   }
 
-  .marquee-track {
-    animation-duration: 36s;
+  /* Mobil: sürekli translate compositor jank — içerik aynı, animasyon yok */
+  .marquee-track,
+  .marquee-track--header {
+    animation: none;
+    transform: none;
+    will-change: auto;
   }
 
   .nav-glass {
-    backdrop-filter: blur(14px) saturate(1.2);
-    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 }
 
@@ -641,7 +649,14 @@ html::-webkit-scrollbar-corner {
 
 /* Dokunmatik: 300ms tap gecikmesini kaldır, hover sticky önle */
 @media (pointer: coarse) {
-  .marquee-track {
+  /* Header şerit sabit — scroll sırasında sürekli paint yok */
+  .marquee-track--header {
+    animation: none;
+    transform: none;
+    will-change: auto;
+  }
+
+  .marquee-track:not(.marquee-track--header) {
     animation-duration: 40s;
   }
 

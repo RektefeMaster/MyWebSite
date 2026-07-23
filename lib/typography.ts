@@ -1,6 +1,7 @@
 /**
  * Goks display fontunda sorunlu glifleri güvenli karşılığa çevir.
- * Em/en dash ve middle-dot bırakılır — eksik glifte stack Space Grotesk'e düşer.
+ * Em/en dash ve tırnak normalize — eksik glifte stack Space Grotesk'e düşmesin.
+ * ŞşĞğİı glifleri font dosyasına gömülü (app/fonts/goks-*.ttf).
  */
 export function forDisplay(text: string): string {
   return text

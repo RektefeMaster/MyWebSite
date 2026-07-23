@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-07-23T21:09:08.649Z",
+  "count": 5,
+  "slugs": [
+    "identity-at-first-glance",
+    "system-not-logo",
+    "editorial-web-as-sales",
+    "quiet-luxury-online",
+    "brief-that-works"
+  ],
+  "sources": [
+    "data/blog-content/en.ts",
+    "data/blog-content/tr.ts",
+    "data/blog-content/es.ts",
+    "data/blog-content/de.ts"
+  ]
+}

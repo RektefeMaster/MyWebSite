@@ -1,0 +1,58 @@
+{
+  "generatedAt": "2026-07-23T21:09:08.648Z",
+  "locales": [
+    "en",
+    "tr",
+    "es",
+    "de"
+  ],
+  "totalLeafKeysEn": 368,
+  "byNamespace": {
+    "meta": 2,
+    "nav": 14,
+    "pages": 45,
+    "blog": 17,
+    "marquee": 6,
+    "manifesto": 6,
+    "featured": 15,
+    "principles": 10,
+    "hero": 10,
+    "selectedWork": 4,
+    "capabilities": 29,
+    "manifestoScene": 4,
+    "approachTeaser": 13,
+    "finalCta": 6,
+    "workLanes": 4,
+    "projects": 6,
+    "projectUi": 6,
+    "services": 88,
+    "process": 20,
+    "about": 9,
+    "contact": 29,
+    "footer": 17,
+    "whatsapp": 4,
+    "a11y": 4
+  },
+  "parity": {
+    "en": {
+      "leafCount": 368,
+      "missingVsEn": 0,
+      "extraVsEn": 0
+    },
+    "tr": {
+      "leafCount": 368,
+      "missingVsEn": 0,
+      "extraVsEn": 0
+    },
+    "es": {
+      "leafCount": 368,
+      "missingVsEn": 0,
+      "extraVsEn": 0
+    },
+    "de": {
+      "leafCount": 368,
+      "missingVsEn": 0,
+      "extraVsEn": 0
+    }
+  }
+}

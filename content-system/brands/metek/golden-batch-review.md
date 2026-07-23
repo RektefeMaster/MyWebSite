@@ -1,0 +1,25 @@
+# Golden batch + founder gates
+
+Surfaces: **Home**, **Services**, **WCC**, **Blog: identity-at-first-glance** × en / tr / es / de.
+
+## Proof points
+
+- [ ] `proof-points.md` → `status: approved` (founder)
+
+## Review questions
+
+1. Sounds like METEK — or generic studio?
+2. EN still feels translated from Turkish?
+3. DE breaks headlines/buttons on mobile?
+4. ES-US natural (not Spain-ES, not literal TR)?
+5. Skills made copy longer without meaning?
+6. SEO briefs made prose worse?
+
+## Checklist
+
+- [x] Copy drafted × 4 locales (golden + scaled remainder)
+- [x] `npm run content:lint` critical gates pass
+- [ ] Visual spot-check (esp. de-DE)
+- [ ] Founder approval for further voice iterations
+
+Browser: `/`, `/services`, `/work/wcc`, `/blog/identity-at-first-glance` × `en|tr|es|de`.

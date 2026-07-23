@@ -2,190 +2,196 @@ import type { BlogArticle } from "../blog";
 
 const content: Record<string, BlogArticle> = {
   "identity-at-first-glance": {
-    title: "How trust is built at first glance",
+    title: "What the first screen says before anyone reads",
     excerpt:
-      "When a site opens, the visitor has not read a line yet. In that second they already start deciding whether to trust the brand.",
-    lead: "The first screen is not a shop window. It is a handshake. If the type feels heavy, the spacing feels random, and three buttons shout with equal force, trust arrives late. Clever copy cannot save a messy surface.",
-    imageAlt: "Premium brand interface and typography detail",
+      "Visitors judge layout, type, and pace in under a second. That judgment lands before your offer does.",
+    lead: "Most brands treat the hero as a place for a slogan. The visitor's eye does something else first: it scans weight, spacing, and how many things compete for attention. If those signals clash, the copy never gets a fair hearing.",
+    imageAlt: "Typography and layout detail on a premium brand homepage",
     sections: [
       {
-        heading: "The eye reads composition before sentences",
+        heading: "Composition answers before copy does",
         paragraphs: [
-          "Most brands tie first impression to a slogan. When the screen opens, what shows first is the layout: leading, margins, crop, type weight. Those details answer “is this serious?” before conscious reading begins.",
-          "Stanford’s work on web credibility points the same way. People read design as a quality signal, not as decoration. A messy interface makes a strong product look doubtful. A clean interface opens the door before proof arrives.",
+          "Open any boutique or service site and watch what registers first. Not the headline. The density of the screen: how tight the margins feel, whether the logo floats alone or fights the menu, if three buttons share the same visual volume. Those cues read as competence or noise before a single sentence is parsed.",
+          "Research on web credibility has tracked this for years. People treat interface quality as a proxy for business quality. A strong product behind a cluttered first view still starts at a deficit. A calm, legible surface buys time for the actual argument.",
         ],
       },
       {
-        heading: "Clarity, consistency, measurable intent",
+        heading: "Identity here means type, pace, and hierarchy",
         paragraphs: [
-          "Clarity looks simple and is hard. Every element needs a job. If a decorative line, stock photo, or animation smothers the message, it goes. If users know what to do on the first screen, clarity is there.",
-          "Consistency matters just as much. A calm home page and a shouting product page sound like two brands. When type, colour, and space drift, trust breaks apart.",
-          "Intent ends the debate. “Make it modern” cannot be measured. “Position clear on the first screen, one primary action” can. When intent is written down, revisions shorten because everyone aims at the same target.",
+          "First-glance identity is not the logo file. It is the system that governs what appears above the fold: type scale (how many levels shout at once), color restraint (accent used once or everywhere), and rhythm (consistent spacing units versus arbitrary gaps).",
+          "Pace matters too. Auto-playing video, marquee text, and pop-ups on entry tell the visitor the brand is anxious. A site that loads fast, holds still, and offers one clear path reads as confident. Confidence is a design decision, not a copy trick.",
+          "When we build marketing sites, we lock these rules before illustration or photography. Custom interfaces, not reskinned themes, make that possible: the hierarchy is coded, not overridden with one-off CSS patches.",
         ],
       },
       {
-        heading: "The threshold before purchase",
+        heading: "Three checks you can run today",
         paragraphs: [
-          "Trust research keeps returning to one point: people want to trust a brand before they buy. In fashion, beauty, lifestyle, and services that bar sits higher. Even when the product is tangible, the experience is abstract. The site makes that abstraction concrete.",
-          "What grows trust online is not sparkle. Speed, legible type, a coherent visual language, and unforced claims do. A quiet, ordered surface persuades better than a loud one.",
+          "One thesis in the viewport. Can you state who you serve and what you do in one line, and does the layout support that line instead of burying it? If the hero tries to say five things, none of them stick.",
+          "One primary action. Secondary links can exist, but they should step back. Two buttons with equal weight is the same as no decision. On mobile, thumb reach and tap target size are part of the test, not an afterthought.",
+          "Cross-page consistency. The home page may look polished while product or contact pages revert to default template styling. That break is visible in seconds and costs more trust than a weak headline.",
         ],
       },
       {
-        heading: "Reduce the first screen to one sentence",
+        heading: "When the first screen matches the offer",
         paragraphs: [
-          "Keep one thesis in the main view: who you are and who you are for. Let the visuals carry that sentence, not fight it. Detail lives below. Scroll is not a penalty. It continues the story.",
-          "Then move to the system. Type scale, colour rules, component rhythm. A hero image alone will not scale. With a system, every new page does not have to re-prove the brand.",
-          "Check: one thesis on the first screen? Is the type hierarchy more tangled than three steps? One primary CTA? Same clarity on mobile? If those hold, the ground for trust at first glance is ready.",
+          "Categories with high consideration (fashion, beauty, manufacturing partnerships, professional services) need trust before detail. The visitor is not buying a pixel; they are buying judgment. The first screen should feel like the same judgment applied to their problem.",
+          "Speed, readable type, honest claims, and technical basics (contrast, focus states, metadata) belong in the same conversation as aesthetics. We test those before handoff because a pretty page that fails on mobile or loads late still breaks the handshake.",
+          "If your first screen already passes the three checks and still feels wrong, the issue is usually strategy, not decoration. Clarify the single sentence the layout must carry, then rebuild the system around it. That is slower than a new hero image and far more durable.",
         ],
       },
     ],
   },
   "system-not-logo": {
-    title: "A new logo is not enough. You need a system",
+    title: "The logo is the smallest part of identity",
     excerpt:
-      "A logo is a signature. What holds the brand up is the set of rules that make that signature speak the same language in every channel.",
-    lead: "Thinking a logo refresh will fix the brand is a common mistake. The real problem is rarely the mark. If type, colour, space, photography, and interface components do not hold together, the new logo stays alone.",
-    imageAlt: "Colour and grid tools for an identity system",
+      "A new mark in a PDF does not fix email signatures, product pages, or a site that still runs on template defaults.",
+    lead: "Rebrand projects often start with the symbol. They should start with rules. Without shared type, color, spacing, and component behavior, the freshest logo still sits on a fractured experience.",
+    imageAlt: "Grid, color swatches, and type specimens for a brand system",
     sections: [
       {
-        heading: "A system turns taste into rules",
+        heading: "What people actually remember",
         paragraphs: [
-          "A visual identity system turns “that looks nice” into “this is the rule.” Heading weight, where primary colour lives, button behaviour, image crop, spacing scale. That is daily production language, not a PDF for the shelf.",
-          "A good system answers fast: does this feel like us? A weak one forces every job to start from zero. Tempo drops, consistency frays, and the brand looks slightly different in every channel.",
+          "Ask a customer to describe a brand they trust. They rarely draw the logo from memory. They mention how the confirmation email looked, whether the invoice matched the site, if the Instagram grid felt like the same company as the packaging.",
+          "Touchpoints multiply faster than logo versions. A mark that works at 32px and on a truck wrap is necessary work, but it is not the workload. The workload is every surface where someone meets you after the ad click.",
         ],
       },
       {
-        heading: "People remember the experience, not the logo",
+        heading: "Systems turn taste into repeatable decisions",
         paragraphs: [
-          "The logo is the smallest unit. What sticks is the email signature, product page, social cover, packaging, mobile menu, even the invoice. If those do not feel like one family, no logo is good enough.",
-          "That sets the investment order. Thesis and rules first, mark second. Do it backwards and you get a beautiful, lonely logo. A lonely logo cannot carry a brand.",
+          "A visual identity system answers production questions in advance: heading weight for H1 versus H2, maximum number of accent colors on one screen, photo crop ratio, button radius, minimum padding scale. Designers and developers stop negotiating from zero on every page.",
+          "Good systems include prohibitions. No stretched logos, no drop shadows on body text, no third-party fonts in emails. Constraints speed teams up because rejection is obvious.",
+          "We ship sites and admin panels from the same rule set when a client needs both. A dashboard that ignores the public brand teaches internal users that the identity is cosmetic.",
         ],
       },
       {
-        heading: "Three layers: core, production, surface",
+        heading: "Core, production, surface",
         paragraphs: [
-          "At the core sit thesis, type family, colour system, logo rules and prohibitions. Without that layer locked, expansion gets messy.",
-          "In the middle sit grid, components, photography language, iconography. On-brand production speeds up here.",
-          "On the outside sit web, social, sales materials, packaging, and space. Designing the web apart from identity means shipping two brands. One lives in a deck. The other lives in the browser.",
+          "Core holds thesis, type family, color tokens, logo clear space, and voice boundaries. Lock this before scaling.",
+          "Production holds grid, UI components, icon style, photography direction, and motion limits. This layer is where daily work happens.",
+          "Surface is web, social templates, sales decks, signage, and packaging. Designing the web in isolation produces two brands: one in Figma, one in the browser. They should be one system with different canvases.",
         ],
       },
       {
-        heading: "A system is not for the shelf",
+        heading: "Documentation people open",
         paragraphs: [
-          "When a new channel opens, rules expand. They do not break. TikTok covers or an ecommerce filter bar, the test stays the same: the new piece must not betray the core thesis or the type and colour language.",
-          "Keep documentation short and examples plentiful. Teams do not memorise rules. They produce from examples. Twelve pages opened every week beat an eighty-page brand book nobody opens.",
+          "An eighty-page brand book that never leaves the shared drive is not a system. It is archive. Useful documentation is short, searchable, and example-heavy: do this, not that, with real screens.",
+          "When a new channel appears (marketplace listing, short-form video cover, partner co-brand lockup), extend the rules instead of breaking them. The test stays constant: does this piece inherit type and color logic from the core?",
+          "If you are about to fund another logo exploration while product pages still use three different button styles, pause and audit surfaces first. Fix the system, then refine the mark.",
         ],
       },
     ],
   },
   "editorial-web-as-sales": {
-    title: "How editorial web helps you sell",
+    title: "Editorial structure sells better than louder buttons",
     excerpt:
-      "A strong site does not stack like a catalogue. It sequences the story, speeds up trust, and makes the next step clear.",
-    lead: "Too many sites still feel like digital brochures. Heavy imagery, weak hierarchy, unclear next step. An editorial approach flips that. Type, space, and content rhythm become the quiet engine of sales. The job is not to shout. It is to direct.",
-    imageAlt: "Editorial web layout on a studio display",
+      "Sequence beats stack. A page that orders thesis, proof, and action outperforms a brochure with more images.",
+    lead: "Many sites still read like folded flyers: hero, feature grid, testimonial carousel, footer CTA. Nothing is wrong with those blocks individually. The problem is order. Without editorial pacing, visitors scroll past proof and arrive at the button unconvinced.",
+    imageAlt: "Editorial homepage layout with clear typographic hierarchy",
     sections: [
       {
-        heading: "Stacking is not sequencing",
+        heading: "Brochures stack; experiences sequence",
         paragraphs: [
-          "A brochure stacks information. An experience manages order: thesis, proof, action. As people scroll they should grow more convinced. Each section should build on the last. That does not mean less content. It means intentional content.",
-          "Ask every block the same question: why is this here? If there is no answer, the block eats attention instead of serving the page. In editorial web, cutting is editing, not weakness.",
+          "Stacking adds modules until the page feels full. Sequencing asks what must be believed next. First establish who this is for and what changes after contact. Then show evidence that the claim is real. Only then ask for action.",
+          "Each section should earn the next scroll. If a block cannot answer why it exists in the story, cut it or move it. Editing is not removing value; it is protecting attention.",
         ],
       },
       {
-        heading: "Typography is the visible part of selling",
+        heading: "Typography is the sales path",
         paragraphs: [
-          "In editorial interfaces, type is not decoration. It builds the reading path. When the scale is clear, the path is clear. Line length, leading, heading rhythm, contrast. That is UX without the jargon fog.",
-          "On mobile this gets harsher. Hierarchy that breaks on a small screen shrinks the brand promise. Premium comes from measure, not sparkle. If the headline falls apart on mobile, the desktop drama was already fake.",
+          "On editorial sites, type size and spacing are the navigation. Clear H1 to H2 steps create a path even when the menu is minimal. Line length near 65 characters, consistent leading, and enough contrast do more for comprehension than animated counters.",
+          "Mobile breaks weak hierarchy faster than desktop forgives it. If the headline wraps into five lines and the subhead disappears, the promise shrinks with it. Measure on a phone before signing off on desktop drama.",
         ],
       },
       {
-        heading: "Do not lock proof in a separate box",
+        heading: "Place proof where doubt appears",
         paragraphs: [
-          "Social proof, stats, and case notes do not have to live in a “trust section.” At the right dose they enter the story. A result line after the thesis. A short quote after the product story. A clear number after process.",
-          "A pile of weak statistics breaks the rhythm. One or two strong proofs beat ten soft claims.",
+          "Social proof trapped in a generic trust band is easy to skip. Proof works when it meets the objection: a result line after the promise, a named project after the capability list, a short quote after price context.",
+          "One strong case beats ten vague stats. We show real shipped work (manufacturing sites, boutique retail, operational tools) in context instead of abstract percentage badges without source.",
         ],
       },
       {
-        heading: "A CTA works better when it does not shout",
+        heading: "One primary action, calmly framed",
         paragraphs: [
-          "One primary action. Clear value around it. Secondary actions can stay visible without competing. “Buy now” and “explore” should not share the same weight.",
-          "A good editorial site does not rush people. It directs them. In fashion, beauty, and lifestyle, hesitation is normal. Panic kills trust. Calm direction converts better than pushy pressure.",
+          "Primary CTA gets weight: label, placement, surrounding whitespace. Secondary paths (catalog browse, FAQ, portfolio) stay visible but quieter. Equal-weight Buy and Learn buttons cancel each other out.",
+          "High-consideration categories need time. Editorial pacing respects that. Panic timers and aggressive pop-ups train visitors to distrust the brand. Clear next step plus honest copy converts better than pressure.",
+          "Map your current homepage into thesis, proof, and action columns. Gaps show up immediately. Filling them is copy and layout work, not a plugin install.",
         ],
       },
     ],
   },
   "quiet-luxury-online": {
-    title: "How quiet luxury holds up on screen",
+    title: "Quiet luxury online is restraint with intent",
     excerpt:
-      "Quiet luxury wants fewer elements and sharper intent. Online that comes from space, material feel, steady rhythm, and restrained motion.",
-    lead: "Quiet luxury is not a grey palette or a thin font. It is a discipline that puts measure over display. Online it gets misread often. Dropping saturation is not enough. Every decision has to feel calm and deliberate.",
-    imageAlt: "Minimal still life in a quiet-luxury aesthetic",
+      "Muted color and thin type are shortcuts. Real quiet luxury is disciplined space, material, and motion.",
+    lead: "Quiet luxury brands often translate physical calm into digital grey. That misses the point. Restraint online means every element justifies its presence. Empty space is not absence; it is structure.",
+    imageAlt: "Minimal product still life with soft natural light",
     sections: [
       {
-        heading: "Reduction is not killing content",
+        heading: "Less noise, sharper message",
         paragraphs: [
-          "Simplifying cuts noise. Three messages on one screen means none stick. One message gets remembered. Quiet luxury is not a pose of saying less. It is saying the right thing clearly.",
-          "The palette can stay narrow. Contrast still needs intent. Low saturation is not low legibility. An unreadable “premium” page is not premium. It is only dim.",
+          "Reduction removes competing claims. One hero message, one supporting line, one path forward. Three equal headlines on one screen guarantee none are remembered.",
+          "Narrow palettes are fine. Legibility is not optional. Low saturation must still meet contrast requirements. A page that whispers but cannot be read is not premium; it is neglected.",
         ],
       },
       {
-        heading: "Material feel and motion",
+        heading: "Material on screen",
         paragraphs: [
-          "Digital material comes from photo quality, controlled depth, sharp edges, and consistent crop. Stock smiles and heavy filters break the work instantly.",
-          "Motion exists for hierarchy, not for show. Every hover does not need to perform. Small, consistent responses are enough. If content vanishes while still in view on scroll, intent is broken. Readability comes first.",
+          "Digital material comes from photography discipline: consistent light, honest texture, controlled depth, crops that respect the product instead of filling space. Stock grins and heavy filters break luxury instantly.",
+          "Type carries material too. Letterspacing, weight, and margin breathe like packaging. Random system fonts bolted onto a luxury story feel like a label printed at home.",
         ],
       },
       {
-        heading: "If the store is calm and the site shouts, the brand splits",
+        heading: "Motion with a job",
         paragraphs: [
-          "Channel consistency is the spine of quiet luxury. Short copy, clear product story, unforced CTA, consistent type. Those should stay in the same breath in store and online.",
-          "That consistency raises perceived quality. People stop asking “is it expensive?” and start feeling “is it careful?” Care is both the cheapest and most expensive material in digital luxury. It needs no effect. It needs discipline.",
+          "Animation should clarify hierarchy, not perform. Subtle hover states, considered page transitions, and scroll behavior that keeps text readable beat dramatic parallax that hides content mid-read.",
+          "If motion runs while the user is still reading, the layout failed. Pause or remove. Luxury reads as control.",
         ],
       },
       {
-        heading: "Feeling also connects to numbers",
+        heading: "One brand in store and browser",
         paragraphs: [
-          "Quiet luxury is not only atmosphere. Clearer first screens, less hesitation, higher form completion, lower bounce. Design decisions meet business results here.",
-          "Aesthetics and performance are not opposite poles. A well-built calm interface protects the brand and shortens the path.",
+          "Quiet luxury lives on consistency. Short copy in the shop, long paragraphs online splits the brand. Match sentence length, product naming, and CTA tone across channels.",
+          "Performance is part of the feel. Slow load times read as careless. We treat speed and basic accessibility checks as release criteria, same as spacing and type, because care shows in mechanics too.",
+          "Audit your site against your best physical touchpoint. If the screen shouts where the store whispers, align them before the next campaign spend.",
         ],
       },
     ],
   },
   "brief-that-works": {
-    title: "Strong projects start with a strong brief",
+    title: "A brief that shortens the project",
     excerpt:
-      "When goals, audience, and constraints are clear, tempo rises. Revisions drop. Outcomes become discussable.",
-    lead: "A discovery call is not a moodboard collecting session. It is the work of writing what counts as success, who the work is for, and what stays out. A vague brief produces expensive revisions. A clear brief speeds up good design.",
-    imageAlt: "Notebook and studio desk for a discovery brief",
+      "Clear goals, audience, limits, and references turn subjective feedback into decisions you can build.",
+    lead: "Discovery is not moodboard tourism. It is writing down what success looks like, who the work speaks to, and what is out of scope. Vague input produces expensive loops. Specific input lets design and code move.",
+    imageAlt: "Project brief notes on a studio desk beside a keyboard",
     sections: [
       {
-        heading: "Four clear items in the brief",
+        heading: "Four blocks: goal, audience, constraints, references",
         paragraphs: [
-          "Goal: what will be different when this ships? “A more modern site” is not a goal. “Position clear on the first screen, discovery form completed” is.",
-          "Audience: who are we speaking to, what convinces them, what objections do they hold? Constraints: time, budget, tech, existing assets, prohibitions. References: what is liked and what is not wanted.",
-          "Without these, every comment stays subjective. “More premium” cannot be measured. “Trust on the first screen and one clear CTA” can.",
+          "Goal names a observable change: first screen states positioning clearly, inquiry form completes, dealer locator used. Not a mood word like modern or premium.",
+          "Audience names who decides, what they fear, what proof they need. Constraints list timeline, budget band, existing assets, integrations, legal lines you cannot cross.",
+          "References show tempo and structure, not theft targets. Include anti-references: sites or styles you reject and why.",
         ],
       },
       {
-        heading: "A reference is not a copy",
+        heading: "Good sentences beat long decks",
         paragraphs: [
-          "A reference is not a template. It describes tempo, space, type weight, photography, motion level. “We want their logo” slows the work. “This calm and this hierarchy” speeds it up.",
-          "Unwanted examples matter just as much. Knowing what something is not gives as much direction as knowing what it is. In a good brief the “do not” list is as open as the “do” list.",
+          "One page beats ten scattered docs. If stakeholders disagree, the brief surfaces it early instead of at round four of revisions.",
+          "Replace we want it cleaner with we need one primary CTA above the fold and specs downloadable without login. The second sentence is buildable.",
         ],
       },
       {
-        heading: "Early lock, late cost",
+        heading: "Lock early, pay late if you do not",
         paragraphs: [
-          "Discovery and strategy, creative direction, identity, interface, development, launch. Each stage locks the one before it. Decisions left open early get expensive late. Changing direction after code and content exist costs far more than changing a sketch.",
-          "The brief is the first link in that chain. It can be short. It cannot be vague. One clear page beats ten scattered ones.",
+          "Strategy, identity, interface, development, launch. Each phase assumes the last is settled. Changing positioning after components exist costs multiples of changing a sketch.",
+          "The brief is the first lock. A founder-led studio can move fast when intent is written; we still need that anchor to ship custom work without theme drift.",
         ],
       },
       {
-        heading: "A co-written brief cuts friction",
+        heading: "Write it together",
         paragraphs: [
-          "The best brief is not a one-sided demand. The studio asks, the brand answers, clarity is shared. That shared writing reduces later “that is not what we meant” arguments.",
-          "One question before you start: when the project is done, what single sentence will describe success? If you can write it, the brief is ready to work.",
+          "Best briefs are co-authored. Client brings domain knowledge; studio asks the questions that expose gaps. Shared language reduces this is not what we meant later.",
+          "Before you email a studio, finish this sentence: When we launch, we will know it worked because ___. If you cannot fill the blank, discovery still has work to do.",
+          "Send that sentence with links, constraints, and anti-references. You will get a sharper proposal and a shorter path to launch.",
         ],
       },
     ],

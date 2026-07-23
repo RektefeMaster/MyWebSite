@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "METEK Digital · Web Design, Software & AI",
-    "description": "METEK Digital builds custom websites, admin panels, automations, and AI powered digital products for brands."
+    "title": "METEK Digital · Custom Web & Software",
+    "description": "Custom websites, admin panels, and automation from one founder-led studio. Built on Next.js and React, tested before handoff."
   },
   "nav": {
     "about": "About",
@@ -22,10 +22,10 @@
   "pages": {
     "manifesto": {
       "metaTitle": "Manifesto · METEK",
-      "metaDescription": "Original design, solid software, measurable results. The METEK Digital approach.",
+      "metaDescription": "How METEK Digital thinks about design, software, and shipping work that holds up.",
       "heroLabel": "Manifesto",
-      "heroTitle": "Original digital experiences.",
-      "heroBlurb": "Design, software, and technology in one system.",
+      "heroTitle": "Work that holds up.",
+      "heroBlurb": "Design, software, and delivery from one practice.",
       "ctaLabel": "Work with me",
       "ctaTitle": "Ready to start a project?",
       "ctaBlurb": "Tell me the goal and timing. You get a clear scope and next step within a day.",
@@ -33,13 +33,13 @@
     },
     "approach": {
       "metaTitle": "Approach · METEK",
-      "metaDescription": "From discovery to launch: strategy, design, build, and QA.",
+      "metaDescription": "From discovery to launch: clear scope and progress you can check.",
       "heroLabel": "Approach",
       "heroTitle": "Method.",
-      "heroBlurb": "From discovery to launch. Every step tied to a measurable outcome.",
+      "heroBlurb": "From discovery to launch. Each step ends in something you can check.",
       "ctaLabel": "Work with me",
       "ctaTitle": "Want this method on your project?",
-      "ctaBlurb": "From discovery to launch with clear scope, steady updates, and progress you can check.",
+      "ctaBlurb": "Clear scope, steady updates, and progress you can verify before launch.",
       "ctaButton": "Start my project"
     },
     "work": {
@@ -47,18 +47,18 @@
       "metaDescription": "Selected web and software projects. Custom design, solid engineering.",
       "heroLabel": "Work",
       "heroTitle": "Selected projects.",
-      "heroBlurb": "A selection of digital products we design and build for brands.",
+      "heroBlurb": "Sites, panels, and tools in production across manufacturing, retail, and ops.",
       "ctaLabel": "Work with me",
       "ctaTitle": "Want work in this range?",
       "ctaBlurb": "Share sector, goal, and timing. I reply with fit and a concrete next step.",
-      "ctaButton": "Send my brief"
+      "ctaButton": "Send my request"
     },
     "services": {
       "metaTitle": "Services · METEK",
-      "metaDescription": "Websites, custom software, automation, and AI solutions.",
+      "metaDescription": "Websites, custom software, panels, and automation. Scope clarified together.",
       "heroLabel": "Services",
       "heroTitle": "Services.",
-      "heroBlurb": "Web, software, and automation. We clarify scope together.",
+      "heroBlurb": "Web, software, and automation. We map your need to a real scope.",
       "ctaLabel": "Work with me",
       "ctaTitle": "Not sure which service fits?",
       "ctaBlurb": "Describe the need. I map it to a real scope with no padded quotes.",
@@ -66,10 +66,10 @@
     },
     "blog": {
       "metaTitle": "Blog · METEK",
-      "metaDescription": "Notes on web, software, and digital products.",
+      "metaDescription": "Notes on web, software, and shipping digital products.",
       "heroLabel": "Blog",
       "heroTitle": "Notes and perspectives.",
-      "heroBlurb": "Selected writing on identity systems, editorial web, and project process.",
+      "heroBlurb": "Writing on identity, editorial web, and how projects get built.",
       "ctaLabel": "Work with me",
       "ctaTitle": "Want this for your brand?",
       "ctaBlurb": "If a note matches a problem you have, we figure out how it fits your project.",
@@ -80,7 +80,7 @@
     "view": "Read note",
     "teaserLabel": "Notes",
     "teaserTitle": "Selected notes.",
-    "teaserBlurb": "Notes on web, software, and digital products.",
+    "teaserBlurb": "Notes on web, software, and shipping digital products.",
     "teaserAll": "See all notes",
     "readMinutes": "{count} min read",
     "relatedLabel": "Continue",
@@ -99,11 +99,11 @@
   },
   "marquee": {
     "items": [
-      "Web design",
-      "Software",
-      "AI",
-      "Automation",
+      "Custom web",
       "Admin panels",
+      "Next.js",
+      "Automation",
+      "CRM tools",
       "Performance"
     ]
   },
@@ -113,28 +113,28 @@
     "lines": [
       "I do not ship work that only looks good.",
       "I carry the brand's character into digital.",
-      "I unite design, software, and technology in one system.",
-      "Every project is built to be distinct and outcome driven."
+      "Design, software, and delivery stay on one team.",
+      "Custom build every time. Not a reskinned theme."
     ]
   },
   "featured": {
     "label": "Featured project",
     "client": "Wholesale Cabinet Creations · 2026",
     "title": "Corporate site for a US cabinet manufacturer",
-    "blurb": "For Wholesale Cabinet Creations we built a site that carries manufacturing quality online. Fast on mobile, SEO ready, with a CMS the team can run day to day.",
+    "blurb": "For Wholesale Cabinet Creations we built a site that shows manufacturing quality online — fast on mobile, ready for search, with a clear path to request a quote and a panel the team can update.",
     "outcomes": [
-      "Clearer brand presence for quote led sales.",
-      "Faster mobile paths to product and contact.",
-      "Content, media, and SEO in one panel."
+      "Clearer presence for quote-led inquiries.",
+      "Faster mobile paths to products and contact.",
+      "Copy, media, and search settings in one panel."
     ],
-    "cta": "View full case study",
+    "cta": "Open project",
     "shotHero": "Wholesale Cabinet Creations — homepage",
     "shotKitchen": "Wholesale Cabinet Creations — kitchen cabinets",
     "shotProjects": "Wholesale Cabinet Creations — project gallery",
     "shotBrands": "Wholesale Cabinet Creations — brands",
-    "sceneLabel": "Outcome",
+    "sceneLabel": "Result",
     "sceneTitle": "Factory quality, readable online.",
-    "sceneBody": "Performance, SEO, and content management in one system."
+    "sceneBody": "Speed, technical SEO, and content management in one stack."
   },
   "principles": {
     "label": "Approach",
@@ -146,15 +146,15 @@
       },
       {
         "title": "System",
-        "body": "Not one off visuals, but scalable identity rules and components."
+        "body": "Not one-off visuals, but identity rules and components that scale."
       },
       {
         "title": "Tempo",
-        "body": "Fast decisions, meticulous craft. Launch dates become real targets."
+        "body": "Fast decisions, careful craft. Launch dates become real targets."
       },
       {
-        "title": "Outcome",
-        "body": "Beauty is not enough. Trust, recall, and conversion get measured."
+        "title": "Usefulness",
+        "body": "Looks are not enough. The work has to be usable after handoff — and speed, accessibility basics, and technical SEO get checked before release."
       }
     ]
   },
@@ -162,7 +162,7 @@
     "line1": "From idea",
     "line2": "to working",
     "line3": "product.",
-    "blurb": "Websites, panels, and tools for brands that need the work to hold up. Not just look finished.",
+    "blurb": "Websites, panels, and tools built for daily use. Custom design and engineering from one team.",
     "ctaWork": "View selected work",
     "ctaContact": "Start a project",
     "scroll": "See projects",
@@ -173,21 +173,22 @@
   "selectedWork": {
     "label": "Selected work",
     "title": "Proof in production.",
-    "blurb": "Four shipped pieces across experiences, systems, and automation.",
+    "blurb": "Shipped work across brand sites, panels, and automation.",
     "viewAll": "View all work"
   },
   "capabilities": {
     "label": "Capabilities",
     "title": "What we build.",
-    "blurb": "Sites that convert, systems teams use daily, and automation that carries real operational load.",
+    "blurb": "Brand sites, panels teams use daily, and automation that carries real operational load.",
     "cta": "Explore capabilities",
-    "techLine": "Design-led · Technically rigorous · Built for production",
+    "techLine": "Custom UI · Next.js stack · Tested before handoff",
     "items": {
       "experiences": {
         "title": "Digital Experiences",
         "summary": "Brand sites, commerce, and editorial surfaces",
         "visual": "Experience",
-        "body": "Digital surfaces that carry brand character and convert — without reading as a template.",
+        "body": "Public sites that carry brand character and convert without reading as a template.",
+        "detail": "Each screen has one job: build trust, give clear direction, and remove friction. Typography, pacing, and interaction are designed together and checked after launch.",
         "outcomes": [
           "Brand sites with a clear path to contact or book",
           "Commerce flows without template noise",
@@ -198,9 +199,10 @@
         "title": "Software Systems",
         "summary": "Admin panels, CRM, and product UIs",
         "visual": "Panel · CRM",
-        "body": "Internal tools and product surfaces built for daily use — clear architecture, steady delivery.",
+        "body": "Internal tools and product surfaces built for daily use with clear architecture.",
+        "detail": "Panels operators open every day stay lean: the right data, fast actions, low friction. Architecture stays ready to grow without heavy training.",
         "outcomes": [
-          "Panels operators can run without training theatre",
+          "Panels operators can run without heavy training",
           "CRM and lead flows that stay in sync",
           "Web and mobile products with a stable release path"
         ]
@@ -209,7 +211,8 @@
         "title": "AI & Automation",
         "summary": "Messaging assistants and operational workflows",
         "visual": "Messaging",
-        "body": "Assistants and workflows that handle real load — booking, FAQs, follow-ups — with a clean handoff to humans.",
+        "body": "Assistants and workflows that handle booking, FAQs, and follow-ups with a clean handoff to humans.",
+        "detail": "Bots for operations, not showcase demos. Booking, FAQs, and follow-ups run automatically; ambiguous cases hand off to your team with context.",
         "outcomes": [
           "WhatsApp and DM assistants that qualify leads",
           "Booking and follow-up automation",
@@ -227,13 +230,13 @@
   "approachTeaser": {
     "label": "Approach",
     "title": "How we work.",
-    "blurb": "Four stages from brief to launch. Every step ends in something you can check.",
-    "principle": "Direct communication. Clear scope. No status theatre.",
+    "blurb": "Four stages from first contact to launch. Every step ends in something you can check.",
+    "principle": "Direct communication. Clear scope. No empty status updates.",
     "cta": "See how we work",
     "steps": [
       {
         "title": "Discover",
-        "body": "Goals, audience, and constraints — before any visual noise."
+        "body": "Goals, audience, and constraints before any visual noise."
       },
       {
         "title": "Define",
@@ -241,18 +244,18 @@
       },
       {
         "title": "Design & Build",
-        "body": "Interface and implementation on one track — no handoff fog."
+        "body": "Interface and implementation on one track. No handoff fog."
       },
       {
         "title": "Refine & Launch",
-        "body": "Test, tighten, and ship a release you can trust."
+        "body": "Test speed, accessibility basics, and SEO. Then ship."
       }
     ]
   },
   "finalCta": {
     "label": "Start",
     "title": "Ready when you are.",
-    "blurb": "Send a short brief. You’ll get scope, direction, and next steps — not a pitch deck.",
+    "blurb": "Send a short note. You get scope, direction, and next steps within a day.",
     "cta": "Start a project",
     "whatsapp": "Prefer WhatsApp? Message directly ↗",
     "whatsappPrefill": "Hi. I would like to talk about a project with METEK."
@@ -266,13 +269,13 @@
   "projects": {
     "label": "Work",
     "title": "All projects.",
-    "blurb": "Web, panels, and digital products — each designed and engineered to hold up in production.",
+    "blurb": "Web, panels, and digital products designed and engineered for production.",
     "loadMore": "Show more work",
     "seeCase": "See the work",
     "viewAll": "View all work"
   },
   "projectUi": {
-    "view": "Open case",
+    "view": "Open project",
     "live": "Visit site",
     "stack": "Tech stack",
     "back": "Back to work",
@@ -288,7 +291,7 @@
     "items": [
       {
         "title": "Starter Website",
-        "description": "A fast, modern, professional site for small businesses and personal brands.",
+        "description": "A clean, fast site for service businesses and personal brands making a first serious web presence.",
         "includes": [
           "1 to 5 pages",
           "Custom UI design",
@@ -301,7 +304,7 @@
       },
       {
         "title": "Corporate Website",
-        "description": "A fuller web solution for businesses that need stronger brand presence and conversion.",
+        "description": "A fuller site for established businesses that need stronger brand presence and quote or lead paths.",
         "includes": [
           "5 to 12 pages",
           "Custom UI/UX",
@@ -315,7 +318,7 @@
       },
       {
         "title": "Premium Digital Experience",
-        "description": "Custom design and engineering for brands that need clear differentiation.",
+        "description": "Custom design and engineering for brands that need a distinct look and daily-use tooling.",
         "includes": [
           "Fully custom design language",
           "3D or advanced animation",
@@ -329,7 +332,7 @@
       },
       {
         "title": "Logo & Brand Identity",
-        "description": "A distinctive logo and a consistent visual identity system that make your brand recognizable at first glance.",
+        "description": "A logo and visual system that make your brand recognizable at first glance.",
         "includes": [
           "Discovery and brand analysis",
           "Original logo design (multiple directions)",
@@ -342,7 +345,7 @@
       },
       {
         "title": "Custom Software & Automation",
-        "description": "Admin panels, applications, and AI systems that digitize operations.",
+        "description": "Admin panels, apps, and workflows that replace spreadsheet ops and manual handoffs.",
         "includes": [
           "Needs & system analysis",
           "Technical architecture",
@@ -355,7 +358,7 @@
       },
       {
         "title": "WhatsApp Conversation Assistant",
-        "description": "Talks to WhatsApp customers like you no need to watch your phone. Knows prices and services. Knows free hours and sends bookings there. Knows busy hours and books around them. Knows when a cancel frees a slot. Reminder 1 hour before to cut last minute cancels.",
+        "description": "Handles WhatsApp inquiries with your prices and services. Books open slots, skips busy hours, reopens cancelled times, and sends a reminder one hour before.",
         "includes": [
           "Chat like you (with your prices and services)",
           "Knows free hours, directs bookings there",
@@ -368,7 +371,7 @@
       },
       {
         "title": "Instagram DM Assistant",
-        "description": "Same in Instagram DMs. Without watching your phone: knows prices and services, free hours, busy hours, and hours freed by cancels. Reminder 1 hour before.",
+        "description": "Same booking logic in Instagram DMs: prices, services, free hours, busy hours, and slots freed by cancels. Reminder one hour before.",
         "includes": [
           "DM chat in your name",
           "Answers on price, services, and FAQs",
@@ -381,7 +384,7 @@
       },
       {
         "title": "CRM Sales Panel",
-        "description": "Works with the WhatsApp and Instagram assistants. Appointments, cancels, and customers in one panel. Which hours are free, who's coming when you check it there.",
+        "description": "Central panel for appointments, cancels, and customers. Links to WhatsApp and Instagram assistants. See open hours and who's coming when.",
         "includes": [
           "Sales panel",
           "WhatsApp assistant link",
@@ -435,14 +438,14 @@
       {
         "title": "Development",
         "body": [
-          "Built for performance, security, and scale.",
+          "Built on Next.js and React for performance and maintainability.",
           "Panels, APIs, and automation join one system when needed."
         ]
       },
       {
         "title": "Testing",
         "body": [
-          "Devices, speed, accessibility, and critical flows.",
+          "Devices, speed, accessibility basics, and critical flows.",
           "Friction is cleared before launch."
         ]
       },
@@ -450,7 +453,7 @@
         "title": "Launch",
         "body": [
           "Go live, monitor, and support after delivery.",
-          "Measurement and iteration continue when needed."
+          "Iteration continues when the project needs it."
         ]
       }
     ]
@@ -459,10 +462,10 @@
     "label": "Studio",
     "titleLead": "METEK",
     "titleRest": "Digital",
-    "p1": "METEK Digital is a studio building web design, software, and AI powered digital products.",
-    "p2": "Founder Nurullah Aydın unites design, software, and technology in one system.",
-    "highlight": "Original design. Solid software.",
-    "p3": "Every project is built to be distinct and outcome driven.",
+    "p1": "METEK Digital is a founder-led studio that designs and builds websites, panels, and automation.",
+    "p2": "Nurullah Aydın runs design, software, and delivery from one practice.",
+    "highlight": "Custom design. Solid engineering.",
+    "p3": "Every project is built custom. Speed, accessibility basics, and technical SEO get checked before handoff.",
     "role": "Founder",
     "name": "Nurullah Aydın"
   },
@@ -470,7 +473,7 @@
     "label": "Contact",
     "titleLine1": "Have a project?",
     "titleLine2": "Let's start.",
-    "blurb": "New site, panel, automation, or AI tool. A short note is enough. I reply with a clear next step.",
+    "blurb": "New site, panel, automation, or messaging tool. A short note is enough. I reply with a clear next step.",
     "name": "Name",
     "email": "Email",
     "interestedIn": "I'm interested in",
@@ -500,7 +503,7 @@
     "emailCta": "Open email"
   },
   "footer": {
-    "tagline": "Original design. Solid software. Measurable results.",
+    "tagline": "Custom design. Solid engineering. Shipped to production.",
     "quickLinks": "Quick links",
     "manifesto": "Manifesto",
     "work": "Work",

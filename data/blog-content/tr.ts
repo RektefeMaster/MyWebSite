@@ -2,190 +2,196 @@ import type { BlogArticle } from "../blog";
 
 const content: Record<string, BlogArticle> = {
   "identity-at-first-glance": {
-    title: "İlk bakışta güven nasıl kurulur",
+    title: "İlk ekran okunmadan ne söyler",
     excerpt:
-      "Site açıldığı anda kullanıcı henüz bir satır okumamıştır. Ama o saniyede markaya güvenip güvenmeyeceğine çoktan karar vermeye başlar.",
-    lead: "İlk ekran bir vitrin değil, bir el sıkışmasıdır. Tipografi ağırsa, boşluk rastgeleyse, buton üç tane ve hepsi aynı güçteyse güven gecikir. Metin ne kadar akıllı olursa olsun, yüzey dağınıksa ikna işe yaramaz.",
-    imageAlt: "Premium marka arayüzü ve tipografi detayı",
+      "Ziyaretçi metne geçmeden düzeni, yazı ağırlığını ve ritmi ölçer. Karar çoğu zaman o saniyede verilir.",
+    lead: "İlk ekrana slogan koymak yaygın bir alışkanlık. Gözün yaptığı ise başka: kenar boşluklarına, menüyle logonun ilişkisine, kaç öğenin aynı anda bağırdığına bakar. Bu sinyaller uyumsuzsa metin adil bir şans bulamaz.",
+    imageAlt: "Premium marka ana sayfasında tipografi ve düzen detayı",
     sections: [
       {
-        heading: "Göz, cümleden önce kompozisyonu okur",
+        heading: "Kompozisyon cümleden önce konuşur",
         paragraphs: [
-          "Çoğu marka ilk izlenimi slogana bağlar. Oysa ekran açıldığında önce düzen görünür: satır aralığı, kenar boşluğu, görselin kırpımı, başlığın ağırlığı. Bunlar bilinçli bir okuma başlamadan “bu iş ciddi mi?” sorusunu cevaplar.",
-          "Stanford’un web güvenilirliği çalışmalarında da benzer bir sonuç çıkar. İnsanlar tasarımı süs gibi değil, kalite sinyali gibi okur. Dağınık bir arayüz, iyi bir ürünü bile şüpheli gösterir. Temiz bir arayüz ise henüz kanıt sunmadan kapıyı aralar.",
+          "Butik veya hizmet sitesi açın; ilk kaydedilen genelde başlık değildir. Ekranın yoğunluğu: marjların ne kadar sıkışık hissettirdiği, logonun tek başına mı durduğu, üç düğmenin aynı görsel ağırlığı taşıyıp taşımadığı. Bilinçli okuma başlamadan önce bunlar yetkinlik ya da gürültü olarak okunur.",
+          "Web güvenilirliği üzerine yapılan çalışmalar yıllardır aynı eğilimi gösteriyor: insanlar arayüz kalitesini iş kalitesinin göstergesi sayar. Dağınık bir ilk görünümün arkasında güçlü ürün olsa bile eksi puanla başlanır. Sakin ve okunaklı yüzey asıl argümana zaman kazandırır.",
         ],
       },
       {
-        heading: "Netlik, tutarlılık, ölçülebilir niyet",
+        heading: "Buradaki kimlik: tipografi, tempo, hiyerarşi",
         paragraphs: [
-          "Netlik basit görünür ama zordur. Her öğenin bir işi olmalı. Dekoratif çizgi, stok fotoğraf, animasyon mesajı boğuyorsa çıkarılmalı. Kullanıcı ilk ekranda ne yapacağını anlıyorsa netlik vardır.",
-          "Tutarlılık da aynı derecede kritik. Ana sayfa sakin, ürün sayfası bağırıyorsa tek marka değil iki ses duyulur. Tipografi, renk ve boşluk aynı dilde kalmazsa güven parçalanır.",
-          "Niyet ise tartışmayı bitirir. “Modern olsun” ölçülemez. “İlk ekranda konum net, tek birincil eylem var” ölçülebilir. Niyet yazıldığında revizyon da kısalır, çünkü herkes aynı hedefe bakıyordur.",
+          "İlk bakış kimliği logo dosyası değildir. Katmanın üstünde neyin göründüğünü yöneten sistemdir: kaç tipografik seviyenin aynı anda öne çıktığı, vurgu renginin bir kez mi yoksa her yerde mi kullanıldığı, boşluk birimlerinin tutarlı mı yoksa rastgele mi olduğu.",
+          "Tempo da mesaj verir. Girişte otomatik video, kayan yazı, pop-up markanın aceleci olduğunu söyler. Hızlı açılan, sabit duran, tek net yol sunan site özgüven okutur. Özgüven metin hilesi değil, tasarım kararıdır.",
+          "Pazarlama sitelerinde bu kuralları illüstrasyon ve fotoğraftan önce kilitleriz. Hazır tema değil, markaya özel arayüz: hiyerarşi koda yazılır, tek seferlik CSS yamalarıyla kurtarılmaz.",
         ],
       },
       {
-        heading: "Satın almadan önceki eşik",
+        heading: "Bugün uygulayabileceğiniz üç kontrol",
         paragraphs: [
-          "Güven araştırmaları yıllardır aynı noktaya dokunuyor: insanlar almadan önce markaya güvenmek ister. Moda, güzellik, yaşam tarzı ve hizmette bu eşik daha yüksektir. Ürün elde tutulabilir olsa bile deneyim soyuttur; site o soyutu somutlar.",
-          "Dijitalde güveni büyüten şey parıltı değildir. Hız, okunabilir tipografi, tutarlı görsel dil ve abartısız vaat büyütür. Sessiz ve düzenli bir yüzey, bağıran bir yüzeyden daha ikna edicidir.",
+          "Tek tez. Kimin için burada olduğunuzu ve ne yaptığınızı tek cümleyle söyleyebiliyor musunuz; düzen bu cümleyi taşıyor mu yoksa gömüyor mu? ilk ekranı beş şey anlatmaya çalışıyorsa hiçbiri kalmaz.",
+          "Tek birincil eylem. İkincil bağlantılar olabilir ama geri planda kalmalı. Eşit ağırlıklı iki düğme, karar vermemekle aynıdır. Mobilde başparmak erişimi ve dokunma alanı testin parçasıdır, sonradan eklenmez.",
+          "Sayfalar arası tutarlılık. Ana sayfa cilalı, ürün veya iletişim sayfası şablon stiline dönmüş olabilir. Bu kırılma saniyeler içinde görülür; zayıf bir başlıktan daha çok güven kaybettirir.",
         ],
       },
       {
-        heading: "İlk ekranı tek cümleye indirin",
+        heading: "İlk ekran teklifle aynı dili konuşunca",
         paragraphs: [
-          "Ana görünümde tek tez kalsın: kim olduğunuz ve kimin için buradasınız. Görsel dil bu cümleyi taşısın, onunla yarışmasın. Detay aşağıda yaşasın. Scroll ceza değil, hikâyenin devamı olsun.",
-          "Sonra sisteme geçin. Tipografi ölçeği, renk kuralları, bileşen ritmi. Kahraman görsel tek başına ölçeklenmez. Sistem varsa her yeni sayfa markayı yeniden ispatlamak zorunda kalmaz.",
-          "Kontrol edin: İlk ekranda tek tez var mı? Tipografi üç basamaktan fazla mı karmaşık? Birincil CTA tek mi? Mobilde aynı netlik duruyor mu? Bunlar yerindeyse ilk bakıştaki güven için zemin hazırdır.",
+          "Moda, güzellik, üretim ortaklıkları, profesyonel hizmet gibi yüksek değerlendirme kategorilerinde güven ayrıntıdan önce gelir. Ziyaretçi piksel değil, muhakeme satın alır. İlk ekran, onların problemine aynı muhakemenin uygulandığı hissini vermelidir.",
+          "Hız, okunaklı yazı tipi, abartısız vaatler ve teknik temeller (kontrast, odak durumları, meta veri) estetikle aynı masada konuşulmalıdır. Teslimden önce bunları test ederiz; geç açılan veya mobilde bozulan güzel sayfa el sıkışmayı yine kırar.",
+          "Üç kontrol geçiyor ama hâlâ yanlış hissediyorsanız sorun çoğu zaman süsleme değil, stratejidir. Düzenin taşıması gereken tek cümleyi netleştirin, sistemi onun etrafında yeniden kurun. Yeni kahraman görselinden yavaş, çok daha kalıcıdır.",
         ],
       },
     ],
   },
   "system-not-logo": {
-    title: "Logoyu yenilemek yetmez. Sistem kurmak gerekir",
+    title: "Logo kimliğin en küçük parçası",
     excerpt:
-      "Logo imzadır. Markayı ayakta tutan şey ise imzanın her kanalda aynı dilde konuşmasını sağlayan kurallardır.",
-    lead: "Logo değişince markanın düzeldiğini sanmak yaygın bir hatadır. Asıl sorun çoğu zaman işarette değildir. Tipografi, renk, boşluk, fotoğraf dili ve arayüz bileşenleri birbirini tutmuyorsa yeni logo da yalnız kalır.",
-    imageAlt: "Kimlik sistemi için renk ve grid çalışma masası",
+      "PDF'teki yeni işaret; e-posta imzasını, ürün sayfasını veya şablon varsayılanlarını düzeltmez.",
+    lead: "Yeniden markalaşma projeleri çoğu kez sembolle başlar. Kurallarla başlamalı. Ortak tipografi, renk, boşluk ve bileşen davranışı yoksa en taze logo da parçalı deneyimin üstünde yalnız kalır.",
+    imageAlt: "Marka sistemi için grid, renk örnekleri ve tipografi spesimenleri",
     sections: [
       {
-        heading: "Sistem, zevki kurala çevirir",
+        heading: "İnsanların gerçekten hatırladığı",
         paragraphs: [
-          "Görsel kimlik sistemi “güzel duruyor” cümlesini “kural bu” cümlesine çevirir. Başlık ağırlığı, birincil rengin yeri, buton davranışı, fotoğraf kırpımı, boşluk ölçeği. Bunlar raf için PDF değil, günlük üretim dilidir.",
-          "İyi sistem soruyu hızla cevaplar: bu bizim gibi mi? Kötü sistem her işi sıfırdan kurdurur. Tempo düşer, tutarlılık dağılır, marka her kanalda biraz başka birine benzer.",
+          "Güvendiği bir markayı tarif etmesini isteyin. Nadiren logoyu çizer. Onay e-postasının nasıl göründüğünü, faturanın siteyle uyumlu olup olmadığını, Instagram ızgarasının ambalajla aynı şirketi hissettirip hissettirmediğini söyler.",
+          "Temas noktaları logo versiyonlarından hızlı çoğalır. 32 pikselde ve kamyon giydirmesinde çalışan işaret gerekli ama iş yükünün tamamı değil. Asıl yük, reklam tıklamasından sonra sizinle karşılaştıkları her yüzeydir.",
         ],
       },
       {
-        heading: "İnsanlar logoyu değil deneyimi hatırlar",
+        heading: "Sistem zevki tekrarlanabilir karara çevirir",
         paragraphs: [
-          "Logo en küçük birimdir. Hatırlanan şey e-posta imzası, ürün sayfası, sosyal kapak, ambalaj, mobil menü, hatta faturadır. Hepsi aynı aile gibi durmuyorsa logo ne kadar iyi olursa olsun yetmez.",
-          "Yatırım sırası da bundan çıkar. Önce tez ve kurallar, sonra işaret. Tersi yapılırsa ortaya güzel ama yalnız bir logo çıkar. Yalnız logo markayı taşımaz.",
+          "Görsel kimlik sistemi üretim sorularını önceden cevaplar: H1 ile H2 ağırlığı, tek ekranda en fazla kaç vurgu rengi, fotoğraf kırpım oranı, düğme yarıçapı, minimum boşluk ölçeği. Tasarımcı ve geliştirici her sayfada sıfırdan pazarlık etmez.",
+          "İyi sistemler yasak da içerir. Gerilmiş logo yok, gövde metninde gölge yok, e-postada üçüncü taraf font yok. Sınırlar ekipleri hızlandırır çünkü reddetmek kolaylaşır.",
+          "Hem site hem yönetim paneli gerektiğinde aynı kural setinden çıkarız. Kamusal markayı yok sayan panel, kimliğin süs olduğunu iç kullanıcılara öğretir.",
         ],
       },
       {
-        heading: "Üç katman: çekirdek, üretim, yüzey",
+        heading: "Çekirdek, üretim, yüzey",
         paragraphs: [
-          "Çekirdekte tez, tipografi ailesi, renk sistemi, logo kuralları ve yasaklar vardır. Bu katman kilitlenmeden genişleme temiz olmaz.",
-          "Ortada grid, bileşenler, fotoğraf dili, ikonografi vardır. Marka gibi üretim burada hızlanır.",
-          "Dışarıda web, sosyal, satış materyali, ambalaj ve mekân vardır. Web’i kimlikten kopuk tasarlamak iki marka üretmektir. Biri sunumda kalır, biri tarayıcıda yaşar.",
+          "Çekirdekte tez, yazı tipi ailesi, renk token'ları, logo boşluğu ve ses sınırları vardır. Ölçeklemeden önce kilitlenir.",
+          "Üretimde grid, arayüz bileşenleri, ikon stili, fotoğraf yönü ve hareket limitleri vardır. Günlük iş burada döner.",
+          "Yüzey web, sosyal şablonlar, satış sunumları, tabela ve ambalajdır. Web'i kimlikten kopuk tasarlamak iki marka üretir: biri Figma'da, biri tarayıcıda. Farklı tuval, tek sistem olmalı.",
         ],
       },
       {
-        heading: "Sistem raf için değildir",
+        heading: "İnsanların açtığı dokümantasyon",
         paragraphs: [
-          "Yeni kanal açıldığında kurallar genişler, bozulmaz. TikTok kapağı da gelse, e-ticaret filtre çubuğu da gelse test aynıdır: yeni öğe çekirdek teze ve tipografi/renk diline ihanet etmemeli.",
-          "Dokümantasyon kısa, örnek bol olsun. Ekipler kural ezberlemez, örneğe bakarak üretir. Kullanılmayan 80 sayfalık brand book’tan, her hafta açılan 12 sayfa daha değerlidir.",
+          "Paylaşımlı sürücüde kalan seksen sayfalık brand book sistem değil, arşivdir. İşe yarayan dokümantasyon kısa, aranabilir ve örnek ağırlıklıdır: şunu yap, bunu yapma, gerçek ekranlarla.",
+          "Yeni kanal açıldığında (pazar yeri listesi, kısa video kapağı, ortak marka kilidi) kurallar genişler, kırılmaz. Test sabittir: bu parça çekirdekteki tip ve renk mantığını devralıyor mu?",
+          "Ürün sayfalarında hâlâ üç farklı düğme stili varken bir logo keşfine bütçe ayıracaksanız durun. Önce yüzeyleri denetleyin. Sistemi düzeltin, sonra işareti inceltin.",
         ],
       },
     ],
   },
   "editorial-web-as-sales": {
-    title: "Editoryal web satışa nasıl yardım eder",
+    title: "Editoryal yapı, bağıran çağrıdan daha çok satar",
     excerpt:
-      "İyi bir site katalog gibi yığmaz. Hikâyeyi sıraya koyar, güveni hızlandırır ve sonraki adımı netleştirir.",
-    lead: "Hâlâ çok site dijital broşür gibi duruyor. Bol görsel, zayıf hiyerarşi, belirsiz sonraki adım. Editoryal yaklaşım bunu tersine çevirir. Tipografi, boşluk ve içerik ritmi satışın sessiz motoru olur. Amaç bağırmak değil, yönlendirmektir.",
-    imageAlt: "Editoryal web düzeni stüdyo ekranında",
+      "Sıra yığmaktan üstündür. Tez, kanıt ve eylemi sıralayan sayfa, daha çok görselli broşürden iyi performans verir.",
+    lead: "Birçok site hâlâ katlanmış el ilanı gibi okunuyor: kahraman, özellik ızgarası, referans karuseli, sayfa sonu çağrısı. Blokların tek tek suçu yok. Sorun sıradır. Editoryal tempo olmadan ziyaretçi kanıtın yanından geçer, eyleme ikna olmadan varır.",
+    imageAlt: "Net tipografik hiyerarşili editoryal ana sayfa düzeni",
     sections: [
       {
-        heading: "Yığmak ile sıralamak aynı şey değildir",
+        heading: "Broşür yığar; deneyim sıralar",
         paragraphs: [
-          "Broşür bilgi yığar. Deneyim sırayı yönetir: tez, kanıt, eylem. Kullanıcı kaydırdıkça daha ikna olmalı. Her bölüm bir öncekinin üstüne binmeli. Bu “daha az içerik” demek değil. Daha bilinçli içerik demek.",
-          "Her bloğa aynı soruyu sorun: neden burada? Cevap yoksa blok sayfayı değil, dikkat süresini yer. Editoryal webde kesmek zayıflık değil, editörlüktür.",
+          "Yığmak sayfa dolana kadar modül eklemektir. Sıralamak bir sonraki adımda neye inanılması gerektiğini sorar. Önce kimin için olduğunuz ve iletişim sonrası ne değişecek. Sonra iddianın gerçek olduğuna dair kanıt. En son eylem isteği.",
+          "Her bölüm bir sonraki kaydırmayı hak etmeli. Blok hikâyedeki yerini cevaplayamıyorsa kesin veya taşıyın. Editörlük değer silmek değil, dikkati korumaktır.",
         ],
       },
       {
-        heading: "Tipografi satışın görünür kısmıdır",
+        heading: "Tipografi satış yoludur",
         paragraphs: [
-          "Editoryal arayüzde tipografi süs değildir. Okuma yolunu kurar. Ölçek netse yol nettir. Satır uzunluğu, satır aralığı, başlık ritmi, kontrast. Bunlar UX’in çıplak hâli.",
-          "Mobilde bu daha acımasızdır. Küçük ekranda bozulan hiyerarşi markanın vaadini küçültür. Premium hissi parıltıdan değil ölçüden gelir. Başlık mobilde parçalanıyorsa masaüstündeki görkem zaten sahte demektir.",
+          "Editoryal sitelerde punto ve aralık navigasyondur. Net H1-H2 basamakları menü minimal olsa bile yol çizer. ~65 karakter satır uzunluğu, tutarlı satır aralığı, yeterli kontrast animasyonlu sayaçtan daha çok anlaşılırlık getirir.",
+          "Mobil zayıf hiyerarşiyi masaüstünden hızlı cezalandırır. Başlık beş satıra düşüp alt başlık kayboluyorsa vaat de küçülür. Masaüstü dramını onaylamadan önce telefonda ölçün.",
         ],
       },
       {
-        heading: "Kanıtı ayrı kutuya hapsetmeyin",
+        heading: "Kanıtı şüphe nerede doğuyorsa oraya koyun",
         paragraphs: [
-          "Sosyal kanıt, istatistik ve vaka özeti “güven bölümü”nde mahkûm olmak zorunda değil. Doğru dozda hikâyenin içine girerler. Tezden sonra bir sonuç cümlesi. Ürün anlatısından sonra kısa bir alıntı. Süreçten sonra net bir rakam.",
-          "Zayıf istatistik yığını ritmi bozar. Bir veya iki güçlü kanıt, on yumuşak iddiadan daha ikna edicidir.",
+          "Genel bir güven bandına hapsolmuş sosyal kanıt atlanması kolaydır. Kanıt itirazla buluşunca işe yarar: vaatten sonra sonuç cümlesi, yetenek listesinden sonra adlı proje, fiyat bağlamından sonra kısa alıntı.",
+          "On belirsiz istatistikten güçlü bir örnek iş daha ikna edicidir. Kaynaksız soyut yüzde rozetleri yerine gerçek canlı işleri (üretim siteleri, butik perakende, operasyon araçları) bağlamında gösteririz.",
         ],
       },
       {
-        heading: "CTA bağırmazsa daha iyi çalışır",
+        heading: "Tek birincil eylem, sakin çerçeve",
         paragraphs: [
-          "Tek birincil eylem. Çevresinde net değer. İkincil eylemler görünür kalsın ama yarışmasın. “Hemen al” ile “keşfet” aynı ağırlıkta olmamalı.",
-          "İyi editoryal site acele ettirmez, yönlendirir. Özellikle moda, güzellik ve yaşam tarzında tereddüt normaldir. Panik yaratmak güveni düşürür. Sakin bir yön, aceleci bir baskıdan daha çok dönüşüm getirir.",
+          "Birincil eylem ağırlık alır: etiket, konum, etrafındaki boşluk. İkincil yollar (katalog, SSS, portföy) görünür kalır ama daha sessiz. Eşit ağırlıklı Satın Al ve Keşfet birbirini iptal eder.",
+          "Yüksek değerlendirme kategorileri zaman ister. Editoryal tempo buna saygı duyar. Panik sayacı ve agresif pop-up ziyaretçiyi markaya güvenmemeye alıştırır. Net sonraki adım ve dürüst metin baskıdan daha iyi dönüşür.",
+          "Mevcut ana sayfanızı tez, kanıt, eylem sütunlarına yerleştirin. Boşluklar hemen görünür. Doldurmak eklenti kurmaktan çok metin ve düzen işidir.",
         ],
       },
     ],
   },
   "quiet-luxury-online": {
-    title: "Sessiz lüks ekranda nasıl durur",
+    title: "Sessiz lüks online: niyetli sadeleşme",
     excerpt:
-      "Sessiz lüks az öğe ve yüksek niyet ister. Online’da bunu boşluk, malzeme hissi, tutarlı ritim ve abartısız hareket kurar.",
-    lead: "Quiet luxury bir gri palet veya ince font değildir. Gösteriş yerine ölçü koyan bir disiplindir. Dijitalde sık yanlış yapılır. Doygunluğu düşürmek yetmez. Her kararın sakin ve bilinçli durması gerekir.",
-    imageAlt: "Sessiz lüks estetiğinde minimal still life",
+      "Soluk renk ve ince font kısayol değildir. Asıl mesele disiplinli boşluk, malzeme ve harekettir.",
+    lead: "Sessiz lüks markalar fiziksel sakinliği dijital griye çevirmeyi sık dener. Kaçırılan nokta şu: online sadeleşme her öğenin varlığını haklı çıkarmasıdır. Boş alan yokluk değil, yapıdır.",
+    imageAlt: "Yumuşak doğal ışıkta minimal ürün ürün fotoğrafı",
     sections: [
       {
-        heading: "Azaltmak, içeriği öldürmek değildir",
+        heading: "Daha az gürültü, daha keskin mesaj",
         paragraphs: [
-          "Sadeleştirme gürültüyü kesmektir. Bir sayfada üç mesaj varsa hiçbiri kalmaz. Bir mesaj varsa hatırlanır. Sessiz lüks “az konuşayım” pozu değildir. Doğru şeyi net söylemektir.",
-          "Palet dar olabilir. Kontrast yine de bilinçli olmalı. Düşük doygunluk düşük okunurluk demek değildir. Okunamayan bir “premium” sayfa premium değildir. Sadece loştur.",
+          "Sadeleştirme yarışan iddiaları temizler. Tek ana mesaj, tek destek satırı, tek yol. Aynı ekranda üç eşit başlık hiçbirinin hatırlanmamasını garanti eder.",
+          "Dar palet olur. Okunabilirlik opsiyon değildir. Düşük doygunluk yine kontrast şartını karşılamalı. Fısıldayan ama okunamayan sayfa premium değil, ihmal edilmiştir.",
         ],
       },
       {
-        heading: "Malzeme hissi ve hareket",
+        heading: "Ekranda malzeme",
         paragraphs: [
-          "Dijitalde malzeme fotoğraf kalitesinden, kontrollü derinlikten, keskin kenardan ve tutarlı kırpımdan gelir. Stok gülümseme ve ağır filtre işi anında bozar.",
-          "Hareket hiyerarşi için vardır, şov için değil. Her hover performans olmak zorunda değil. Küçük ve tutarlı tepkiler yeter. Scroll’da içerik görünürken kayboluyorsa niyet bozulmuştur. Okunabilirlik her zaman önce gelir.",
+          "Dijital malzeme fotoğraf disiplininden gelir: tutarlı ışık, dürüst doku, kontrollü derinlik, alanı doldurmak yerine ürüne saygılı kırpım. Stok gülümseme ve ağır filtre lüksü anında bozar.",
+          "Tipografi de malzeme taşır. Harf aralığı, ağırlık ve marj ambalaj gibi nefes alır. Lüks hikâyeye rastgele sistem fontu yapıştırmak evde basılmış etiket hissi verir.",
         ],
       },
       {
-        heading: "Mağaza sakin, site bağırıyorsa marka bölünür",
+        heading: "İşi olan hareket",
         paragraphs: [
-          "Kanal tutarlılığı sessiz lüksün omurgasıdır. Kısa metin, net ürün hikâyesi, abartısız CTA, tutarlı tipografi. Bunlar mağazada da sitede de aynı nefeste kalmalı.",
-          "Bu tutarlılık kalite algısını yükseltir. Kullanıcı “pahalı mı?” diye sormaz. “Dikkatli mi?” diye hisseder. Dikkat, dijital lüksün hem ucuz hem pahalı hammaddesidir. Efekt istemez, disiplin ister.",
+          "Animasyon hiyerarşiyi netleştirmeli, gösteri yapmamalı. Hafif hover, düşünülmüş geçişler, metni okunur tutan scroll davranışı içeriği okurken gizleyen parallax'tan iyidir.",
+          "Kullanıcı hâlâ okurken hareket devam ediyorsa düzen başarısız demektir. Duraklatın veya kaldırın. Lüks kontrol olarak okunur.",
         ],
       },
       {
-        heading: "His, rakama da bağlanır",
+        heading: "Mağaza ve tarayıcıda tek marka",
         paragraphs: [
-          "Sessiz lüks sadece atmosfer değildir. Daha net ilk ekran, daha az tereddüt, daha yüksek form tamamlama, daha düşük bounce. Tasarım kararları burada iş sonucuna bağlanır.",
-          "Estetik ile performans zıt kutuplar değil. İyi kurulmuş sakin bir arayüz markayı korur ve yolu kısaltır.",
+          "Sessiz lüks tutarlılıkta yaşar. Dükkanda kısa metin, online uzun paragraf markayı böler. Cümle uzunluğu, ürün adlandırması ve eylem dilini kanallarda eşleştirin.",
+          "Performans hissin parçasıdır. Yavaş açılış dikkatsizlik okutur. Hız ve temel erişilebilirlik kontrollerini boşluk ve tipografiyle aynı teslim kriteri sayarız; özen mekanikte de görünür.",
+          "Sitenizi en iyi fiziksel temas noktanızla karşılaştırın. Ekran mağazanın fısıldadığı yerde bağırıyorsa bir sonraki kampanya bütçesinden önce hizalayın.",
         ],
       },
     ],
   },
   "brief-that-works": {
-    title: "İyi proje iyi brief ile başlar",
+    title: "Projeyi kısaltan proje notu",
     excerpt:
-      "Hedef, kitle ve kısıtlar netse tempo artar. Revizyon azalır. Sonuç konuşulabilir hale gelir.",
-    lead: "Keşif görüşmesi moodboard toplama seansı değildir. Neyin başarı sayılacağını, işin kimin için olduğunu ve nelerin dışarıda kalacağını yazıya dökme işidir. Belirsiz brief pahalı revizyon üretir. Net brief iyi tasarımı hızlandırır.",
-    imageAlt: "Keşif brief’i için defter ve stüdyo masası",
+      "Net hedef, kitle, sınır ve referans öznel geri bildirimi inşa edilebilir karara çevirir.",
+    lead: "Keşif görsel pano turizmi değildir. Başarının neye benzediğini, işin kime hitap ettiğini ve kapsam dışında kalanı yazmaktır. Belirsiz girdi pahalı döngü üretir. Somut girdi tasarım ve kodu hareket ettirir.",
+    imageAlt: "Klavye yanında stüdyo masasında proje notu",
     sections: [
       {
-        heading: "Brief’te dört net madde",
+        heading: "Dört blok: hedef, kitle, kısıt, referans",
         paragraphs: [
-          "Hedef: proje bitince ne değişmiş olacak? “Daha modern site” hedef değildir. “İlk ekranda konum net olsun, keşif formu tamamlansın” hedeftir.",
-          "Kitle: kime konuşuyoruz, neye ikna oluyorlar, hangi itirazları var? Kısıtlar: zaman, bütçe, teknik, mevcut varlıklar, yasaklar. Referanslar: neyin sevildiği ve neyin istenmediği.",
-          "Bu maddeler yoksa her yorum öznel kalır. “Daha premium” ölçülemez. “İlk ekranda güven ve tek net CTA” ölçülebilir.",
+          "Hedef gözlemlenebilir değişim adlandırır: ilk ekran konumlandırmayı net söyler, başvuru formu tamamlanır, bayi bulucu kullanılır. Modern veya premium gibi ruh hali kelimesi değil.",
+          "Kitle karar vereni, korkularını, hangi kanıta ihtiyaç duyduğunu adlandırır. Kısıtlar zaman çizelgesi, bütçe bandı, mevcut varlıklar, entegrasyonlar, geçilemeyecek hukuki çizgileri listeler.",
+          "Referanslar tempo ve yapı gösterir, hırsızlık hedefi değil. Reddettiğiniz siteleri ve nedenlerini de ekleyin.",
         ],
       },
       {
-        heading: "Referans kopya değildir",
+        heading: "İyi cümleler uzun sunumdan iyidir",
         paragraphs: [
-          "Referans şablon değildir. Tempo, boşluk, tipografi ağırlığı, fotoğraf dili, hareket seviyesi tarif eder. “Şunun logosunu istiyoruz” işi yavaşlatır. “Bu sakinlik ve bu hiyerarşi” işi hızlandırır.",
-          "İstenmeyen örnekler de aynı derecede değerlidir. Ne olmadığını bilmek, ne olacağını bilmek kadar yön verir. İyi brief’te “yapmayalım” listesi “yapalım” listesi kadar açıktır.",
+          "Tek sayfa on dağınık dokümandan iyidir. Paydaşlar anlaşmıyorsa proje notu bunu dördüncü revizyon turunda değil, erken gösterir.",
+          "Daha temiz istiyoruz yerine katmanın üstünde tek birincil eylem ve teknik dökümanların girişsiz indirilebilir olması yazın. İkinci cümle inşa edilebilir.",
         ],
       },
       {
-        heading: "Erken kilit, geç maliyet",
+        heading: "Erken kilitle; kilitlemezsen geç ödersin",
         paragraphs: [
-          "Keşif ve strateji, yaratıcı yön, kimlik, arayüz, geliştirme, lansman. Her aşama bir öncekini kilitler. Erken açık bırakılan karar geç aşamada pahalıya patlar. Kod ve içerik üretildikten sonra yön değiştirmek, eskizi değiştirmekten katbekat maliyetlidir.",
-          "Brief bu zincirin ilk halkasıdır. Kısa olabilir. Belirsiz olamaz. Bir sayfalık net brief, on sayfalık dağınık brief’ten daha işe yarar.",
+          "Strateji, kimlik, arayüz, geliştirme, yayın. Her faz bir öncekinin oturduğunu varsayar. Bileşenler varken konumlandırmayı değiştirmek eskiz değiştirmenin katını maliyetlendirir.",
+          "Proje notu ilk kilit noktasıdır. Kurucu liderliğindeki stüdyo niyet yazılıyken hızlı ilerler; tema kaymasız özel iş için yine de o çapa gerekir.",
         ],
       },
       {
-        heading: "Birlikte yazılan brief sürtünmeyi azaltır",
+        heading: "Birlikte yazın",
         paragraphs: [
-          "En iyi brief tek taraflı dayatma değildir. Stüdyo sorar, marka cevaplar, birlikte netleşir. Bu ortak yazım ileride “biz öyle dememiştik” tartışmasını azaltır.",
-          "Başlamadan önce tek soru: proje bittiğinde başarıyı hangi tek cümleyle anlatacağız? Cevabı yazabiliyorsanız brief çalışmaya hazırdır.",
+          "En iyi proje notları ortak yazılır. Müşteri alan bilgisini getirir; stüdyo boşlukları açığa çıkaran soruları sorar. Ortak dil sonradan biz bunu kastetmedik tartışmasını azaltır.",
+          "Stüdyoya yazmadan önce şu cümleyi bitirin: Yayına aldığımızda işe yaradığını şununla anlayacağız: ___. Boşluğu dolduramıyorsanız keşif hâlâ eksiktir.",
+          "O cümleyi bağlantılar, kısıtlar ve anti-referanslarla gönderin. Daha keskin teklif ve daha kısa yayın yolu alırsınız.",
         ],
       },
     ],

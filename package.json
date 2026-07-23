@@ -7,6 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "content:inventory": "node scripts/content/inventory-copy.mjs",
+    "content:evidence": "node scripts/content/verify-evidence.mjs",
+    "content:lint": "node scripts/content/lint.mjs",
+    "content:forbidden": "node scripts/content/check-forbidden-copy.mjs",
     "capture:scrolls": "node scripts/capture-project-scrolls.mjs"
   },
   "dependencies": {

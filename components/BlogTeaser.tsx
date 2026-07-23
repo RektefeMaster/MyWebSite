@@ -73,6 +73,7 @@ export default async function BlogTeaser({ locale }: BlogTeaserProps) {
                       alt={article.imageAlt}
                       fill
                       loading="lazy"
+                      decoding="async"
                       quality={72}
                       sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover transition-transform duration-700 [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.04]"

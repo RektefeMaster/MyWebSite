@@ -6,6 +6,7 @@ import type { Project } from "@/data/projects";
 import { getProjectCardCopy } from "@/data/project-card-copy";
 import { getProjectPunch } from "@/data/project-punch";
 import DeviceMockup from "./DeviceMockup";
+import LazyMount from "./LazyMount";
 
 /** /work kartı — DeviceMockup + Selected Work ile hizalı tipografi */
 export default function ProjectCard({ project }: { project: Project }) {
@@ -23,7 +24,14 @@ export default function ProjectCard({ project }: { project: Project }) {
         className="relative block aspect-[800/620] w-full overflow-hidden rounded-[1rem] bg-stone ring-1 ring-inset ring-foreground/8 transition-[box-shadow] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink [@media(hover:hover)_and_(pointer:fine)]:group-hover:ring-lime/35"
         aria-label={`${name} — ${t("view")}`}
       >
-        <DeviceMockup project={project} />
+        {/* Soft-nav: tüm grid’i birden decode etme — viewport’a yaklaşınca mount */}
+        <LazyMount
+          className="absolute inset-0"
+          minHeight="100%"
+          rootMargin="320px 0px"
+        >
+          <DeviceMockup project={project} />
+        </LazyMount>
       </Link>
 
       <div className="flex flex-1 flex-col px-1 pb-1 pt-5 md:pt-6">

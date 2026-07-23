@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 
 type MarqueeProps = {
@@ -8,24 +8,42 @@ type MarqueeProps = {
   variant?: "header" | "section";
 };
 
-/** Sonsuz yatay lime şerit */
+/** Sonsuz yatay lime şerit — mobilde header statik (içerik aynı, compositor yok) */
 export default function Marquee({ variant = "section" }: MarqueeProps) {
   const t = useTranslations("marquee");
   const items = t.raw("items") as string[];
-  const track = [...items, ...items, ...items];
   const isHeader = variant === "header";
   const trackRef = useRef<HTMLDivElement>(null);
+  const [staticStrip, setStaticStrip] = useState(false);
 
   useEffect(() => {
-    const el = trackRef.current;
-    if (!el) return;
+    const mqCoarse = window.matchMedia("(pointer: coarse)");
+    const mqNarrow = window.matchMedia("(max-width: 768px)");
     const sync = () => {
-      el.style.animationPlayState = document.hidden ? "paused" : "running";
+      const next = isHeader && (mqCoarse.matches || mqNarrow.matches);
+      setStaticStrip(next);
+      const el = trackRef.current;
+      if (!el) return;
+      if (next || document.hidden) {
+        el.style.animationPlayState = "paused";
+      } else {
+        el.style.animationPlayState = "running";
+      }
     };
+
     sync();
     document.addEventListener("visibilitychange", sync);
-    return () => document.removeEventListener("visibilitychange", sync);
-  }, []);
+    mqCoarse.addEventListener("change", sync);
+    mqNarrow.addEventListener("change", sync);
+    return () => {
+      document.removeEventListener("visibilitychange", sync);
+      mqCoarse.removeEventListener("change", sync);
+      mqNarrow.removeEventListener("change", sync);
+    };
+  }, [isHeader]);
+
+  // Statik şerit: 1 set yeter; animasyonlu loop: 3 set
+  const track = staticStrip ? items : [...items, ...items, ...items];
 
   return (
     <div
@@ -39,7 +57,7 @@ export default function Marquee({ variant = "section" }: MarqueeProps) {
       <div
         ref={trackRef}
         className={`marquee-track flex w-max items-center ${
-          isHeader ? "py-2" : ""
+          isHeader ? "marquee-track--header py-2" : ""
         }`}
       >
         {track.map((item, i) => (

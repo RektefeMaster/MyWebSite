@@ -52,6 +52,7 @@ function MediaStage({
             sizes="(max-width: 768px) 70vw, 280px"
             quality={72}
             loading="lazy"
+            decoding="async"
             className="object-cover object-top"
           />
         </div>
@@ -76,6 +77,7 @@ function MediaStage({
           }
           quality={75}
           loading="lazy"
+          decoding="async"
           className="object-cover object-top transition-transform duration-700 ease-out [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.02]"
           style={{ objectPosition: position }}
         />

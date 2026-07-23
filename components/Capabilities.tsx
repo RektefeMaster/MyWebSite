@@ -49,8 +49,9 @@ function CapVisual({ id, label }: { id: CapId; label: string }) {
         alt=""
         fill
         sizes="(max-width: 1024px) 100vw, 55vw"
-        quality={78}
+        quality={75}
         loading="lazy"
+        decoding="async"
         className="object-cover object-top"
         style={{ objectPosition: visual.objectPosition }}
       />
@@ -70,13 +71,17 @@ function CapVisual({ id, label }: { id: CapId; label: string }) {
 function CapDetail({
   id,
   body,
+  detail,
   outcomes,
   visualLabel,
+  showDetail,
 }: {
   id: CapId;
   body: string;
+  detail: string;
   outcomes: string[];
   visualLabel: string;
+  showDetail: boolean;
 }) {
   return (
     <>
@@ -84,6 +89,22 @@ function CapDetail({
       <p className="mt-5 text-sm leading-relaxed text-foreground/55 md:mt-6 md:max-w-lg md:text-base">
         {body}
       </p>
+      <div
+        className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
+          showDetail
+            ? "grid-rows-[1fr] opacity-100"
+            : "grid-rows-[0fr] opacity-0"
+        }`}
+        aria-hidden={!showDetail}
+      >
+        <div className="overflow-hidden">
+          {showDetail ? (
+            <p className="mt-3 max-w-lg border-l-2 border-lime/70 pl-3.5 text-sm leading-relaxed text-foreground/70 md:text-[15px]">
+              {detail}
+            </p>
+          ) : null}
+        </div>
+      </div>
       <ul className="mt-4 space-y-2.5 md:mt-5">
         {outcomes.map((item) => (
           <li
@@ -102,22 +123,32 @@ function CapDetail({
   );
 }
 
-/** Üç ana capability — click seçim, hover yalnızca preview */
+/** Üç ana capability — hover: lime + preview; tık: seçim + detay metin */
 export default function Capabilities() {
   const t = useTranslations("capabilities");
   const baseId = useId();
   const [active, setActive] = useState(0);
   const [hoverPreview, setHoverPreview] = useState<number | null>(null);
+  const [detailOpen, setDetailOpen] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
 
   const shown = hoverPreview ?? active;
   const shownId = CAP_IDS[shown];
   const outcomes = t.raw(`items.${shownId}.outcomes`) as string[];
+  const showDetail = detailOpen && hoverPreview === null;
 
-  const select = useCallback((index: number) => {
-    setActive(index);
-    setHoverPreview(null);
-  }, []);
+  const select = useCallback(
+    (index: number) => {
+      setHoverPreview(null);
+      if (index === active) {
+        setDetailOpen((open) => !open);
+        return;
+      }
+      setActive(index);
+      setDetailOpen(true);
+    },
+    [active]
+  );
 
   const onListKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
     let next: number | null = null;
@@ -179,6 +210,7 @@ export default function Capabilities() {
             {CAP_IDS.map((id, i) => {
               const selected = active === i;
               const preview = hoverPreview === i;
+              const hot = selected || preview;
               return (
                 <button
                   key={id}
@@ -188,28 +220,33 @@ export default function Capabilities() {
                   data-cap-tab
                   aria-selected={selected}
                   aria-controls={`${baseId}-panel`}
+                  aria-expanded={selected && detailOpen}
                   tabIndex={selected ? 0 : -1}
                   onClick={() => select(i)}
                   onMouseEnter={() => setHoverPreview(i)}
                   onMouseLeave={() => setHoverPreview(null)}
-                  className={`group flex items-start gap-5 border-b border-foreground/10 py-6 text-left transition-colors ${
-                    selected || preview
+                  className={`group flex items-start gap-5 border-b border-foreground/10 py-6 text-left transition-[color,transform] duration-300 ease-out ${
+                    hot
                       ? "text-ink"
                       : "text-foreground/40 [@media(hover:hover)_and_(pointer:fine)]:hover:text-foreground/70"
-                  }`}
+                  } ${preview && !selected ? "translate-x-1" : ""}`}
                 >
                   <span
-                    className={`font-mono text-xs font-bold ${
-                      selected ? "text-lime" : "text-foreground/25"
+                    className={`font-mono text-xs font-bold transition-colors duration-300 ${
+                      hot ? "text-lime" : "text-foreground/25"
                     }`}
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span>
-                    <span className="block text-2xl font-bold tracking-tight md:text-3xl">
+                    <span
+                      className={`block text-2xl font-bold tracking-tight transition-colors duration-300 md:text-3xl ${
+                        hot ? "text-foreground" : ""
+                      }`}
+                    >
                       {t(`items.${id}.title`)}
                     </span>
-                    <span className="mt-1 block max-w-sm text-sm leading-relaxed text-foreground/45">
+                    <span className="mt-1 block max-w-sm text-sm leading-relaxed text-foreground/45 transition-opacity duration-300 group-hover:text-foreground/55">
                       {t(`items.${id}.summary`)}
                     </span>
                   </span>
@@ -222,13 +259,15 @@ export default function Capabilities() {
             role="tabpanel"
             id={`${baseId}-panel`}
             aria-labelledby={`${baseId}-tab-${shown}`}
-            className="min-w-0"
+            className="min-w-0 transition-opacity duration-300"
           >
             <CapDetail
               id={shownId}
               body={t(`items.${shownId}.body`)}
+              detail={t(`items.${shownId}.detail`)}
               outcomes={outcomes}
               visualLabel={t(`items.${shownId}.visual`)}
+              showDetail={showDetail && shown === active}
             />
           </div>
         </div>
@@ -241,11 +280,12 @@ export default function Capabilities() {
                 <button
                   type="button"
                   aria-expanded={open}
+                  aria-controls={`${baseId}-mobile-panel-${i}`}
                   onClick={() => select(i)}
                   className="flex w-full items-start gap-4 py-5 text-left"
                 >
                   <span
-                    className={`font-mono text-xs font-bold ${
+                    className={`font-mono text-xs font-bold transition-colors duration-300 ${
                       open ? "text-lime" : "text-foreground/30"
                     }`}
                   >
@@ -261,12 +301,17 @@ export default function Capabilities() {
                   </span>
                 </button>
                 {open ? (
-                  <div className="pb-6">
+                  <div
+                    id={`${baseId}-mobile-panel-${i}`}
+                    className="pb-6"
+                  >
                     <CapDetail
                       id={id}
                       body={t(`items.${id}.body`)}
+                      detail={t(`items.${id}.detail`)}
                       outcomes={t.raw(`items.${id}.outcomes`) as string[]}
                       visualLabel={t(`items.${id}.visual`)}
+                      showDetail={detailOpen}
                     />
                   </div>
                 ) : null}

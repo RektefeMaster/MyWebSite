@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-07-23T21:09:08.649Z",
+  "count": 14,
+  "projectIds": [
+    "wcc",
+    "aydnnacar",
+    "wuffbutik",
+    "altitude-residence",
+    "casa-aurelia",
+    "seraphine-atelier",
+    "havva-baklava",
+    "mizan",
+    "sahra-butik",
+    "vela-skin-atelier",
+    "whatsapp-bot",
+    "instagram-bot",
+    "crm",
+    "css-system"
+  ],
+  "sources": [
+    "data/projects.ts",
+    "data/project-card-copy.ts",
+    "data/project-punch.ts",
+    "data/project-details.ts",
+    "data/project-galleries.ts"
+  ]
+}

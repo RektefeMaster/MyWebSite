@@ -28,6 +28,7 @@ export default function LightPhone({
         height={380}
         quality={65}
         loading="lazy"
+        decoding="async"
         sizes="(max-width: 767px) 70px, 96px"
         className="h-full w-full object-cover object-top"
       />

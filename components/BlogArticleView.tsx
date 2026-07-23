@@ -82,7 +82,9 @@ export default async function BlogArticleView({
             alt={article.imageAlt}
             fill
             priority
+            quality={85}
             sizes="(max-width: 1280px) 100vw, 1280px"
+            decoding="async"
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-paper via-transparent to-transparent opacity-40" />

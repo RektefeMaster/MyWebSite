@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-07-23T21:09:08.649Z",
+  "known": [
+    {
+      "file": "app/not-found.tsx",
+      "reason": "EN-only 404 copy"
+    },
+    {
+      "file": "components/CurvedInput.tsx",
+      "reason": "Default EN placeholder"
+    },
+    {
+      "file": "components/Footer.tsx",
+      "reason": "Decorative brand ring"
+    },
+    {
+      "file": "components/Intro.tsx",
+      "reason": "Intro brand mark"
+    }
+  ]
+}

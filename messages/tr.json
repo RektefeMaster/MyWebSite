@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "METEK Digital · Web Tasarım, Yazılım ve Yapay Zekâ",
-    "description": "METEK Digital; markalar için özgün web siteleri, yönetim panelleri, otomasyonlar ve yapay zekâ destekli dijital ürünler geliştirir."
+    "title": "METEK Digital · Özel Web Sitesi, Yazılım ve Otomasyon",
+    "description": "METEK Digital; markalar için özel web siteleri, yönetim panelleri ve otomasyon araçları tasarlar ve geliştirir. Tek ekip, fikirden yayına."
   },
   "nav": {
     "about": "Hakkımda",
@@ -22,57 +22,57 @@
   "pages": {
     "manifesto": {
       "metaTitle": "Manifesto · METEK",
-      "metaDescription": "Özgün tasarım, sağlam yazılım ve ölçülebilir sonuç. METEK Digital yaklaşımı.",
+      "metaDescription": "Özel tasarım, sağlam yazılım, tek sorumlu ekip. METEK Digital yaklaşımı.",
       "heroLabel": "Manifesto",
-      "heroTitle": "Özgün dijital deneyimler.",
-      "heroBlurb": "Tasarım, yazılım ve teknolojiyi tek sistemde birleştiriyoruz.",
-      "ctaLabel": "Birlikte çalışalım",
-      "ctaTitle": "Bir proje başlatmaya hazır mısınız?",
-      "ctaBlurb": "Hedefi ve zamanı yazın. Bir gün içinde net kapsam ve sonraki adım gelir.",
+      "heroTitle": "Şablon değil, marka işi.",
+      "heroBlurb": "Tasarım ve yazılım aynı elde; hazır tema satışı yok.",
+      "ctaLabel": "Konuşalım",
+      "ctaTitle": "Proje başlatmaya hazır mısınız?",
+      "ctaBlurb": "Hedefi ve zamanı yazın. Bir gün içinde kapsam ve sonraki adım gelir.",
       "ctaButton": "Projemi başlat"
     },
     "approach": {
       "metaTitle": "Yaklaşım · METEK",
-      "metaDescription": "Keşiften yayına: strateji, tasarım, geliştirme ve test.",
+      "metaDescription": "Keşiften yayına: net kapsam, düzenli güncelleme, kontrol edilebilir adımlar.",
       "heroLabel": "Yaklaşım",
       "heroTitle": "Yöntem.",
-      "heroBlurb": "Keşiften yayına. Her adım ölçülebilir sonuca bağlanır.",
-      "ctaLabel": "Birlikte çalışalım",
+      "heroBlurb": "Her adım somut bir çıktıyla biter; sürpriz teslim yok.",
+      "ctaLabel": "Konuşalım",
       "ctaTitle": "Bu yöntemi projenize uyarlayalım mı?",
-      "ctaBlurb": "Keşiften yayına net kapsam, düzenli güncelleme ve kontrol edilebilir ilerleme.",
+      "ctaBlurb": "Keşiften yayına net kapsam, düzenli bilgi ve onaylanabilir ilerleme.",
       "ctaButton": "Projemi başlat"
     },
     "work": {
       "metaTitle": "İşler · METEK",
-      "metaDescription": "Seçili web ve yazılım projeleri. Özgün tasarım, sağlam geliştirme.",
+      "metaDescription": "Seçili web ve yazılım projeleri. Özel tasarım, sağlam geliştirme — yayında ayakta kalan işler.",
       "heroLabel": "İşler",
       "heroTitle": "Seçili projeler.",
-      "heroBlurb": "Markalar için tasarladığımız ve geliştirdiğimiz dijital ürünlerden bir seçki.",
-      "ctaLabel": "Birlikte çalışalım",
-      "ctaTitle": "Bu aralıkta bir iş mi arıyorsunuz?",
-      "ctaBlurb": "Sektör, hedef ve zamanı yazın. Uygunluk ve somut sonraki adımla dönerim.",
-      "ctaButton": "Briefimi gönder"
+      "heroBlurb": "Gerçek kullanımda ayakta kalan siteler, paneller ve otomasyon işleri.",
+      "ctaLabel": "Konuşalım",
+      "ctaTitle": "Bu tarzda bir iş mi arıyorsunuz?",
+      "ctaBlurb": "Sektör, hedef ve zamanı yazın. Uygunluk ve net sonraki adımla dönerim.",
+      "ctaButton": "İhtiyacımı yaz"
     },
     "services": {
       "metaTitle": "Hizmetler · METEK",
-      "metaDescription": "Web sitesi, özel yazılım, otomasyon ve yapay zekâ çözümleri.",
+      "metaDescription": "Özel web sitesi, yönetim paneli, otomasyon ve marka kimliği. Kapsam birlikte netleşir.",
       "heroLabel": "Hizmetler",
       "heroTitle": "Hizmetler.",
-      "heroBlurb": "Web, yazılım ve otomasyon. Kapsamı birlikte netleştiriyoruz.",
-      "ctaLabel": "Birlikte çalışalım",
-      "ctaTitle": "Hangi hizmet uyuyor emin değil misiniz?",
-      "ctaBlurb": "İhtiyacı yazın. Gerçek bir kapsama indirgerim, şişirilmiş teklif yok.",
+      "heroBlurb": "Web, yazılım ve otomasyon. Hangi paket değil, hangi iş sorusuna odaklanırız.",
+      "ctaLabel": "Konuşalım",
+      "ctaTitle": "Hangi hizmet uygun emin değil misiniz?",
+      "ctaBlurb": "İhtiyacı birkaç cümleyle yazın. Gerçek kapsama indiririm; şişirilmiş teklif yok.",
       "ctaButton": "Projemi başlat"
     },
     "blog": {
       "metaTitle": "Blog · METEK",
-      "metaDescription": "Web, yazılım ve dijital ürün üzerine notlar.",
+      "metaDescription": "Marka kimliği, web siteleri ve proje süreci üzerine notlar.",
       "heroLabel": "Blog",
-      "heroTitle": "Notlar ve bakışlar.",
-      "heroBlurb": "Kimlik sistemleri, editoryal web ve proje süreci üzerine seçili yazılar.",
-      "ctaLabel": "Birlikte çalışalım",
+      "heroTitle": "Notlar.",
+      "heroBlurb": "Kimlik, site yapımı ve teslim süreci üzerine kısa yazılar.",
+      "ctaLabel": "Konuşalım",
       "ctaTitle": "Bunu markanız için ister misiniz?",
-      "ctaBlurb": "Bir not ihtiyacınıza denk geldiyse projenize nasıl oturacağını netleştiririz.",
+      "ctaBlurb": "Bir not ihtiyacınıza denk geldiyse projenize nasıl oturacağını konuşalım.",
       "ctaButton": "Projemi başlat"
     }
   },
@@ -80,13 +80,13 @@
     "view": "Notu oku",
     "teaserLabel": "Notlar",
     "teaserTitle": "Seçili yazılar.",
-    "teaserBlurb": "Web, yazılım ve dijital ürün üzerine notlar.",
+    "teaserBlurb": "Kimlik, web ve proje süreci üzerine kısa notlar.",
     "teaserAll": "Tüm notlar",
     "readMinutes": "{count} dk okuma",
     "relatedLabel": "Devamı",
     "relatedTitle": "İlgili yazılar.",
     "articleCta": "Projemi başlat",
-    "articleCtaBlurb": "Bu yazı bir ihtiyacınıza denk geldiyse markanız için proje konuşmasına başlayın.",
+    "articleCtaBlurb": "Bu yazı bir ihtiyacınıza denk geldiyse proje konuşmasına başlayın.",
     "crumbHome": "Ana sayfa",
     "crumbBlog": "Blog",
     "categories": {
@@ -99,12 +99,12 @@
   },
   "marquee": {
     "items": [
-      "Web tasarım",
-      "Yazılım",
-      "Yapay zekâ",
-      "Otomasyon",
+      "Özel web sitesi",
       "Yönetim paneli",
-      "Performans"
+      "Otomasyon",
+      "Next.js",
+      "Hız",
+      "Teknik SEO"
     ]
   },
   "manifesto": {
@@ -113,28 +113,28 @@
     "lines": [
       "Sadece güzel görünen işler üretmiyorum.",
       "Markanın karakterini dijitale taşıyorum.",
-      "Tasarımı, yazılımı ve teknolojiyi tek sistemde birleştiriyorum.",
-      "Her projeyi ayırt edilebilir ve sonuç odaklı tasarlıyorum."
+      "Tasarımı ve yazılımı aynı hatta birleştiriyorum.",
+      "Her proje şablon gibi durmamalı; kullanımda ayakta kalmalı."
     ]
   },
   "featured": {
     "label": "Öne çıkan proje",
     "client": "Wholesale Cabinet Creations · 2026",
-    "title": "ABD’li mobilya üreticisi için kurumsal site",
-    "blurb": "Wholesale Cabinet Creations için üretim kalitesini dijitalde taşıyan bir site kurduk. Mobilde hızlı, SEO için hazır, ekibin günlük yönetebileceği bir CMS ile.",
+    "title": "ABD’li dolap üreticisi için kurumsal site",
+    "blurb": "Wholesale Cabinet Creations için üretim kalitesini online taşıyan bir site kurduk — telefonda hızlı, aramaya hazır, teklif yolu net; ekip paneliyle güncellenir.",
     "outcomes": [
-      "Teklif odaklı satış için daha net marka yüzü.",
-      "Ürün ve iletişimde daha hızlı mobil yollar.",
-      "İçerik, medya ve SEO tek panelde."
+      "Teklif odaklı sorgular için daha net marka varlığı.",
+      "Telefonda ürüne ve iletişime daha hızlı yollar.",
+      "Metin, medya ve arama ayarları tek panelde."
     ],
-    "cta": "Tüm vaka çalışmasını gör",
+    "cta": "Projeyi aç",
     "shotHero": "Wholesale Cabinet Creations — ana sayfa",
     "shotKitchen": "Wholesale Cabinet Creations — mutfak dolapları",
     "shotProjects": "Wholesale Cabinet Creations — proje galerisi",
     "shotBrands": "Wholesale Cabinet Creations — markalar",
     "sceneLabel": "Sonuç",
     "sceneTitle": "Üretim kalitesi, ekranda okunur.",
-    "sceneBody": "Performans, SEO ve içerik yönetimi aynı sistemde."
+    "sceneBody": "Hız, arama görünürlüğü ve içerik yönetimi aynı sistemde."
   },
   "principles": {
     "label": "Yaklaşım",
@@ -146,74 +146,77 @@
       },
       {
         "title": "Sistem",
-        "body": "Tek seferlik görseller değil ölçeklenen kimlik kuralları ve bileşenler."
+        "body": "Tek seferlik görseller değil; büyüyen kimlik kuralları ve bileşenler."
       },
       {
         "title": "Tempo",
-        "body": "Hızlı karar, titiz uygulama. Lansman tarihi gerçek bir hedef olur."
+        "body": "Hızlı karar, titiz uygulama. Yayın tarihi gerçek bir hedef olur."
       },
       {
-        "title": "Sonuç",
-        "body": "Güzellik yeterli değil. Güven, hatırlanırlık ve dönüşüm ölçülür."
+        "title": "İşe yararlık",
+        "body": "Güzellik yetmez. Güven, hatırlanırlık ve iletişim hattı ölçülür."
       }
     ]
   },
   "hero": {
     "line1": "Fikirden",
-    "line2": "çalışan",
+    "line2": "canlı",
     "line3": "ürüne.",
-    "blurb": "Markalar için web, panel ve araçlar. Bitmiş gibi görünen değil, ayakta duran iş.",
-    "ctaWork": "Seçili işleri gör",
+    "blurb": "Özel web siteleri, yönetim panelleri ve otomasyon. Tek ekip; hazır tema değil, teslimden sonra ayakta kalan iş.",
+    "ctaWork": "Seçili işlere bak",
     "ctaContact": "Proje başlat",
     "scroll": "Projelere bak",
-    "metaStudio": "Tasarım & yazılım stüdyosu",
+    "metaStudio": "Tasarım ve yazılım stüdyosu",
     "metaLocation": "Malatya · Dünya geneli",
     "availability": "Birkaç yeni proje için açığız"
   },
   "selectedWork": {
     "label": "Seçili işler",
-    "title": "Üretimde kanıt.",
-    "blurb": "Deneyim, sistem ve otomasyonda yayına alınmış dört parça.",
+    "title": "Canlıda kanıt.",
+    "blurb": "Yayında dört örnek: web sitesi, panel ve otomasyon.",
     "viewAll": "Tüm işleri gör"
   },
   "capabilities": {
-    "label": "Yetenekler",
+    "label": "Ne yapıyoruz",
     "title": "Ne inşa ediyoruz.",
-    "blurb": "Dönüştüren siteler, ekibin her gün kullandığı sistemler ve gerçek operasyon yükünü taşıyan otomasyon.",
-    "cta": "Yetenekleri keşfet",
-    "techLine": "Tasarım odaklı · Teknik olarak titiz · Üretime hazır",
+    "blurb": "Müşteri getiren siteler, ekibin her gün açtığı paneller ve gerçek yükü taşıyan otomasyon.",
+    "cta": "Hizmetlere bak",
+    "techLine": "Özel tasarım · Sağlam kod · Yayına hazır",
     "items": {
       "experiences": {
-        "title": "Dijital Deneyimler",
-        "summary": "Marka siteleri, ticaret ve editoryal yüzeyler",
-        "visual": "Deneyim",
-        "body": "Marka karakterini taşıyan ve şablon gibi görünmeden dönüştüren dijital yüzeyler.",
+        "title": "Web Siteleri",
+        "summary": "Marka siteleri, teklif sayfaları ve içerik odaklı sayfalar",
+        "visual": "Web sitesi",
+        "body": "Hazır şablon gibi durmayan, markanızı taşıyan ve ziyaretçiyi doğru adıma götüren siteler.",
+        "detail": "Her sayfanın bir işi vardır: güven vermek, ne yaptığınızı anlatmak, iletişime veya teklife yol açmak. Yazı, düzen ve hareket birlikte kurulur.",
         "outcomes": [
-          "İletişim veya rezervasyona net yolu olan marka siteleri",
-          "Şablon gürültüsü olmayan ticaret akışları",
-          "Kaydırma ritmine göre editoryal deneyimler"
+          "İletişim veya randevuya net yolu olan marka siteleri",
+          "Anlaşılır teklif ve hizmet sayfaları",
+          "Okuması kolay, içerik odaklı sayfalar"
         ]
       },
       "systems": {
-        "title": "Yazılım Sistemleri",
-        "summary": "Admin panelleri, CRM ve ürün arayüzleri",
-        "visual": "Panel · CRM",
-        "body": "Günlük kullanıma uygun iç araçlar ve ürün yüzeyleri — net mimari, dengeli teslim.",
+        "title": "Yazılım ve Paneller",
+        "summary": "Yönetim ekranları, müşteri takibi ve ürün arayüzleri",
+        "visual": "Yönetim paneli",
+        "body": "Ekibin her gün açtığı yazılımlar: sade ekranlar, net yapı, güvenilir teslim.",
+        "detail": "Günlük kullanılan ekranları sade tutarız: doğru bilgi, hızlı işlem, az karışıklık. Sistem büyümeye açık kalır.",
         "outcomes": [
-          "Eğitim tiyatrosu olmadan işletilen paneller",
-          "Senkron kalan CRM ve lead akışları",
-          "Stabil yayın yolu olan web ve mobil ürünler"
+          "Kısa anlatımla kullanılabilen yönetim panelleri",
+          "Müşteri ve talep kayıtlarının birbirini tutması",
+          "Sorunsuz yayınlanan web ve mobil ürünler"
         ]
       },
       "ai": {
-        "title": "YZ & Otomasyon",
-        "summary": "Mesaj asistanları ve operasyonel iş akışları",
+        "title": "Otomasyon ve Asistanlar",
+        "summary": "WhatsApp, Instagram mesajları ve iş akışı otomasyonu",
         "visual": "Mesajlaşma",
-        "body": "Gerçek yükü taşıyan asistanlar ve akışlar — randevu, SSS, takip — insana temiz el değiştirme ile.",
+        "body": "Randevu, sık sorular ve takip işlerini taşıyan asistanlar. Takıldığında size kısa özet bırakır.",
+        "detail": "Asistanı vitrin için değil, operasyon için kurarız. Emin olunmayan durumda ekibinize net bir özet geçer.",
         "outcomes": [
-          "Lead nitelendiren WhatsApp ve DM asistanları",
-          "Randevu ve takip otomasyonu",
-          "CRM’e bağlı özel iş akışları"
+          "WhatsApp ve Instagram’da ilk cevabı veren asistanlar",
+          "Randevu ve takip işlerinin otomatikleşmesi",
+          "Satış paneline bağlı özel iş akışları"
         ]
       }
     }
@@ -227,52 +230,52 @@
   "approachTeaser": {
     "label": "Yaklaşım",
     "title": "Nasıl çalışıyoruz.",
-    "blurb": "Brief’ten lansmana dört aşama. Her adım kontrol edebileceğiniz bir çıktıyla biter.",
-    "principle": "Doğrudan iletişim. Net kapsam. Statü tiyatrosu yok.",
-    "cta": "Nasıl çalıştığımızı gör",
+    "blurb": "İlk nottan yayına dört adım. Her adım onaylayabileceğiniz bir çıktıyla biter.",
+    "principle": "Doğrudan konuşuruz. Kapsam net olur. Gereksiz formalite yok.",
+    "cta": "Süreci gör",
     "steps": [
       {
         "title": "Keşfet",
-        "body": "Görsel gürültüden önce hedef, kitle ve kısıtlar."
+        "body": "Hedef, kitle ve sınırlar; görsel gürültüden önce."
       },
       {
         "title": "Tanımla",
-        "body": "Yön, mimari ve onaylayabileceğiniz kapsam."
+        "body": "Yön, yapı ve onaylayabileceğiniz kapsam."
       },
       {
-        "title": "Tasarla & İnşa et",
-        "body": "Arayüz ve uygulama tek hat — el değiştirme sisi yok."
+        "title": "Tasarla ve Yap",
+        "body": "Tasarım ve yazılım aynı hatta; arada kaybolma olmaz."
       },
       {
-        "title": "İyileştir & Yayınla",
-        "body": "Test, sıkılaştırma ve güvenilir yayın."
+        "title": "Test et ve Yayınla",
+        "body": "Hız, erişilebilirlik ve kritik yollar; sonra güvenilir yayın."
       }
     ]
   },
   "finalCta": {
     "label": "Başlangıç",
     "title": "Hazırsanız başlayalım.",
-    "blurb": "Kısa bir brief gönderin. Kapsam, yön ve sonraki adımlar gelir — satış sunumu değil.",
+    "blurb": "Kısa bir not yeter. Bir gün içinde kapsam, yön ve sonraki adımı netleştiririm.",
     "cta": "Proje başlat",
     "whatsapp": "WhatsApp mı tercih edersiniz? Doğrudan yazın ↗",
     "whatsappPrefill": "Merhaba. METEK ile bir proje konuşmak istiyorum."
   },
   "workLanes": {
-    "web": "Web Deneyimleri",
-    "systems": "Ürünler & Sistemler",
-    "ai": "YZ & Otomasyon",
-    "lab": "Deneyler / Laboratuvar"
+    "web": "Web Siteleri",
+    "systems": "Paneller ve Sistemler",
+    "ai": "Otomasyon",
+    "lab": "Denemeler"
   },
   "projects": {
     "label": "İşler",
     "title": "Tüm projeler.",
-    "blurb": "Web, panel ve dijital ürünler — her biri üretimde ayakta duracak şekilde tasarlanır ve kodlanır.",
+    "blurb": "Web siteleri, yönetim ekranları ve dijital ürünler; hepsi gerçek kullanımda ayakta kalacak şekilde yazılır.",
     "loadMore": "Daha fazla iş",
-    "seeCase": "İşleri gör",
+    "seeCase": "İşlere bak",
     "viewAll": "Tüm işleri gör"
   },
   "projectUi": {
-    "view": "Vakayı aç",
+    "view": "Projeyi aç",
     "live": "Siteyi aç",
     "stack": "Teknoloji",
     "back": "İşlere dön",
@@ -288,48 +291,48 @@
     "items": [
       {
         "title": "Başlangıç Web Sitesi",
-        "description": "Küçük işletmeler ve kişisel markalar için hızlı, modern ve profesyonel web sitesi.",
+        "description": "İlk ciddi sitesine ihtiyaç duyan küçük işletmeler ve kişisel markalar için.",
         "includes": [
           "1 ile 5 sayfa",
           "Özgün arayüz tasarımı",
           "Mobil uyumluluk",
-          "Temel SEO",
-          "İletişim ve WhatsApp entegrasyonu",
-          "Performans optimizasyonu",
+          "Temel arama (Google) düzeni",
+          "İletişim ve WhatsApp bağlantısı",
+          "Hız ayarı",
           "15 gün teknik destek"
         ]
       },
       {
         "title": "Kurumsal Web Sitesi",
-        "description": "Güçlü marka algısı ve müşteri dönüşümü hedefleyen işletmeler için kapsamlı web çözümü.",
+        "description": "Güçlü marka algısı ve daha fazla müşteri hedefleyen işletmeler için.",
         "includes": [
           "5 ile 12 sayfa",
-          "Özgün arayüz ve deneyim tasarımı",
-          "Animasyon ve mikro etkileşimler",
-          "Blog veya içerik sistemi",
-          "Gelişmiş SEO altyapısı",
-          "Analitik entegrasyonu",
-          "Hız ve güvenlik optimizasyonu",
+          "Özgün arayüz ve kullanım tasarımı",
+          "Hareket ve küçük etkileşimler",
+          "Blog veya yazı alanı",
+          "Gelişmiş arama (Google) düzeni",
+          "Ziyaretçi ölçüm bağlantısı",
+          "Hız ve güvenlik ayarı",
           "30 gün teknik destek"
         ]
       },
       {
-        "title": "Üst Düzey Dijital Deneyim",
-        "description": "Markasını rakiplerinden belirgin şekilde ayırmak isteyen işletmeler için özel tasarım ve yazılım.",
+        "title": "Özel Dijital Deneyim",
+        "description": "Markasını rakiplerinden net biçimde ayırmak isteyen işletmeler için özel tasarım ve yazılım.",
         "includes": [
           "Tamamen özgün tasarım dili",
-          "3D veya ileri seviye animasyonlar",
+          "3D veya ileri seviye hareketler",
           "Özel yönetim paneli",
-          "CRM, API ve otomasyon entegrasyonları",
+          "Müşteri takip sistemi ve otomasyon bağlantıları",
           "Yapay zekâ özellikleri",
-          "İleri SEO ve performans",
+          "İleri arama ve hız düzeni",
           "Test ve yayınlama süreci",
           "60 gün teknik destek"
         ]
       },
       {
         "title": "Logo ve Marka Kimliği",
-        "description": "Markanızı ilk bakışta ayırt edilebilir kılan özgün logo ve tutarlı görsel kimlik sistemi.",
+        "description": "Markanızı ilk bakışta ayırt edilebilir kılan logo ve tutarlı görsel kimlik.",
         "includes": [
           "Keşif ve marka analizi",
           "Özgün logo tasarımı (birkaç yön)",
@@ -342,50 +345,50 @@
       },
       {
         "title": "Özel Yazılım ve Otomasyon",
-        "description": "İş süreçlerini dijitalleştiren yönetim panelleri, uygulamalar ve yapay zekâ sistemleri.",
+        "description": "İş süreçlerini ekrana taşıyan yönetim panelleri, uygulamalar ve otomasyon sistemleri.",
         "includes": [
           "İhtiyaç ve sistem analizi",
-          "Teknik mimari",
+          "Teknik yapı planı",
           "Web veya mobil uygulama",
           "Yönetim paneli",
-          "API ve üçüncü taraf entegrasyonları",
+          "Diğer yazılımlarla bağlantı",
           "Otomasyon senaryoları",
           "Güvenlik ve test süreçleri"
         ]
       },
       {
         "title": "WhatsApp Sohbet Asistanı",
-        "description": "Telefona bakmadan WhatsApp'tan gelen müşteriyle sizin gibi konuşur. Fiyat ve hizmetlerinizi bilir. Boş saatleri bilir, gelen randevuları oraya yönlendirir. Dolu saatleri bilir, ona göre alır. İptal olunca boş kalan saati de bilir. Saatten 1 saat önce randevu sahibine bildirim gider son dakika iptallerinin önüne geçer.",
+        "description": "WhatsApp’tan gelen müşteriyle sizin tonunuzda konuşur. Fiyat ve hizmetleri bilir; boş ve dolu saatleri takip eder, randevuları yönlendirir. İptalde saati açar; randevudan bir saat önce hatırlatma gönderir.",
         "includes": [
           "Sizin gibi sohbet (fiyat ve hizmet bilgisiyle)",
           "Boş saatleri bilme, randevuyu oraya yönlendirme",
           "Dolu saatleri bilme, çakışmadan alma",
           "İptal olunca boş kalan saati açma",
           "Saatten 1 saat önce hatırlatma bildirimi",
-          "CRM paneli ile birlikte çalışma",
+          "Satış paneli ile birlikte çalışma",
           "Kurulum ve kullanım eğitimi"
         ]
       },
       {
-        "title": "Instagram DM Asistanı",
-        "description": "Instagram DM'de de aynı. Telefona bakmadan fiyat ve hizmetlerinizi bilir. Boş saatleri bilir, randevuları oraya yönlendirir. Dolu saatleri bilir, ona göre alır. İptal olunca boş kalan saati de bilir. Saatten 1 saat önce bildirim gider.",
+        "title": "Instagram Mesaj Asistanı",
+        "description": "Instagram mesajlarında aynı mantık: fiyat, hizmet ve takvim bilgisiyle yanıt verir. Boş saatlere yönlendirir, dolu saatlere koymaz; iptalde saati açar ve bir saat önce hatırlatır.",
         "includes": [
-          "DM'de sizin adınıza sohbet",
+          "Mesajlarda sizin adınıza sohbet",
           "Fiyat, hizmet ve sık sorulara cevap",
           "Boş saatlere yönlendirme, dolu saatlere koymama",
           "İptalde boş kalan saati açma",
           "Saatten 1 saat önce hatırlatma",
-          "CRM paneli ile birlikte çalışma",
+          "Satış paneli ile birlikte çalışma",
           "Kurulum ve kullanım eğitimi"
         ]
       },
       {
-        "title": "CRM Satış Paneli",
-        "description": "WhatsApp ve Instagram asistanlarıyla birlikte çalışır. Botların aldığı randevular, iptaller ve müşteriler tek panelde. Hangi saat boş, kim ne zaman gelecek oradan bakarsınız.",
+        "title": "Satış ve Randevu Paneli",
+        "description": "WhatsApp ve Instagram asistanlarıyla birlikte çalışır. Randevular, iptaller ve müşteriler tek ekranda; hangi saat boş, kim ne zaman gelecek oradan görülür.",
         "includes": [
           "Satış paneli",
           "WhatsApp asistanı bağlantısı",
-          "Instagram DM asistanı bağlantısı",
+          "Instagram mesaj asistanı bağlantısı",
           "Randevu alınca otomatik kayıt",
           "İptalde saatin yeniden boşalması",
           "Günlük özet ve hatırlatmalar",
@@ -393,14 +396,14 @@
         ]
       },
       {
-        "title": "CSS Tasarım Sistemi",
-        "description": "Markaya özel renk, tipografi, bileşen ve boşluk kurallarıyla tutarlı arayüz kiti ve dokümantasyon.",
+        "title": "Tasarım Sistemi",
+        "description": "Markaya özel renk, yazı tipi ve boşluk kurallarıyla tutarlı ekran seti ve kullanım rehberi.",
         "includes": [
-          "Tasarım token seti",
-          "Tipografi ölçeği",
-          "Buton ve temel bileşenler",
-          "Boşluk / köşe yuvarlaklığı sistemi",
-          "Dokümantasyon yüzeyi",
+          "Renk ve yazı kuralları",
+          "Yazı tipi ölçeği",
+          "Eylem stilleri ve temel parçalar",
+          "Boşluk ve köşe yuvarlaklığı sistemi",
+          "Kullanım rehberi",
           "Web ve panel uyumu",
           "Teslim ve kullanım rehberi"
         ]
@@ -436,13 +439,13 @@
         "title": "Geliştirme",
         "body": [
           "Performans, güvenlik ve ölçeklenebilirlik odaklı kodlanır.",
-          "Gerekirse panel, API ve otomasyonlar aynı sistemde birleşir."
+          "Panel, dış bağlantılar ve otomasyon aynı sistemde birleşir."
         ]
       },
       {
         "title": "Test",
         "body": [
-          "Cihaz, hız, erişilebilirlik ve kritik akışlar kontrol edilir.",
+          "Telefon, bilgisayar, hız, erişilebilirlik ve kritik yollar kontrol edilir.",
           "Yayından önce hatalar ve sürtünme noktaları temizlenir."
         ]
       },
@@ -459,10 +462,10 @@
     "label": "Stüdyo",
     "titleLead": "METEK",
     "titleRest": "Digital",
-    "p1": "METEK Digital; web tasarım, yazılım ve yapay zekâ destekli dijital ürünler geliştiren bir stüdyodur.",
+    "p1": "METEK Digital; özel web siteleri, yazılım ve otomasyon geliştiren kurucu liderliğinde bir stüdyodur.",
     "p2": "Kurucu Nurullah Aydın; tasarımı, yazılımı ve teknolojiyi tek sistemde birleştirir.",
-    "highlight": "Özgün tasarım. Sağlam yazılım.",
-    "p3": "Her proje ayırt edilebilir ve sonuç odaklı kurulur.",
+    "highlight": "Özel tasarım. Sağlam yazılım.",
+    "p3": "Teslimden önce hız, temel erişilebilirlik ve teknik SEO kontrol edilir. Her proje ayırt edilebilir kurulur; yayında ayakta kalır.",
     "role": "Kurucu",
     "name": "Nurullah Aydın"
   },
@@ -470,15 +473,15 @@
     "label": "İletişim",
     "titleLine1": "Projeniz mi var?",
     "titleLine2": "Başlayalım.",
-    "blurb": "Yeni site, panel, otomasyon veya AI aracı. Kısa bir not yeter. Net bir sonraki adımla dönerim.",
+    "blurb": "Yeni site, yönetim paneli veya otomasyon. Kısa bir not yeter; net sonraki adımla dönerim.",
     "name": "İsim",
     "email": "E-posta",
     "interestedIn": "İlgilendiğiniz alan",
     "message": "Hedefiniz ve zamanınız hakkında birkaç satır",
     "send": "Gönder",
-    "sentHint": "Eposta uygulamanız açılıyor. Genelde bir gün içinde dönerim.",
+    "sentHint": "E-posta uygulamanız açılıyor. Genelde bir gün içinde dönerim.",
     "errorName": "Lütfen adınızı yazın.",
-    "errorEmail": "Geçerli bir eposta girin.",
+    "errorEmail": "Geçerli bir e-posta girin.",
     "errorMessage": "Net bir sonraki adım için birkaç satır daha ekleyin.",
     "mailSubject": "Proje talebi",
     "mailName": "İsim",
@@ -487,12 +490,12 @@
     "interests": [
       "Başlangıç web sitesi",
       "Kurumsal web sitesi",
-      "Üst düzey web deneyimi",
+      "Özel dijital deneyim",
       "Logo ve marka kimliği",
-      "E ticaret sitesi",
+      "E-ticaret sitesi",
       "Yönetim paneli",
       "Web veya mobil uygulama",
-      "Yapay zekâ ve otomasyon",
+      "Otomasyon ve asistanlar",
       "Mevcut siteyi yenileme",
       "Diğer"
     ],
@@ -500,7 +503,7 @@
     "emailCta": "E-postayı aç"
   },
   "footer": {
-    "tagline": "Özgün tasarım. Sağlam yazılım. Ölçülebilir sonuç.",
+    "tagline": "Özel tasarım. Sağlam yazılım. Tek ekip.",
     "quickLinks": "Hızlı bağlantılar",
     "manifesto": "Manifesto",
     "work": "İşler",
