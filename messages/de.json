@@ -22,14 +22,14 @@
   "pages": {
     "manifesto": {
       "metaTitle": "Wer wir sind · METEK",
-      "metaDescription": "Nurullah Aydın, Gründer von METEK Digital — individuelle Websites, Panels und Automation. Von Malatya bis Launch.",
+      "metaDescription": "Nurullah Aydın — Malatya. Individuelles Web, Designsprache und Automation. Ansehen, ausprobieren, dann sprechen.",
       "heroLabel": "Wer wir sind",
-      "heroTitle": "Gründergeführtes Studio.",
-      "heroBlurb": "Individuelles Web und Software. Eine Delivery-Linie von Malatya bis Launch.",
-      "ctaLabel": "Zusammenarbeiten",
-      "ctaTitle": "Bereit, ein Projekt zu starten?",
-      "ctaBlurb": "Ziel und Timing schreiben. Innerhalb eines Tages: klarer Scope und nächster Schritt.",
-      "ctaButton": "Mein Projekt starten"
+      "heroTitle": "Bleiben Sie nicht zurück.",
+      "heroBlurb": "Digital zurückzufallen ist ein Mangel. Bringen wir Ihre Arbeit nach vorne — treu zu Ihrer Marke oder mit neuer Sprache.",
+      "ctaLabel": "Sprechen wir",
+      "ctaTitle": "Melden Sie sich. Sprechen wir.",
+      "ctaBlurb": "Ich freue mich, Sie kennenzulernen und wäre stolz auf Ihre Arbeit in meinem Portfolio.",
+      "ctaButton": "Schreiben Sie mir"
     },
     "approach": {
       "metaTitle": "Ansatz · METEK",
@@ -111,10 +111,10 @@
     "label": "Manifest",
     "stamp": "METEK Digital",
     "lines": [
-      "Ich liefere Arbeit, die nach dem Launch hält — nicht nur auf den ersten Blick.",
-      "Markencharakter gehört in die Oberfläche, nicht nur in die Logo-Datei.",
-      "Design, Software und Delivery bleiben auf einer verantwortlichen Linie.",
-      "Jedes Mal Custom Build. Nie ein neu lackiertes Theme."
+      "Digital zurückzufallen ist ein Mangel.",
+      "Ich bleibe Ihrer Marke treu — oder öffne eine neue Sprache.",
+      "Eigener Code. Eigenes Design. Ihre Arbeit.",
+      "Ansehen, ausprobieren, gefällt es — dann sprechen wir."
     ]
   },
   "featured": {
@@ -462,32 +462,32 @@
     "label": "Studio",
     "titleLead": "METEK",
     "titleRest": "Digital",
-    "whoLabel": "Gründer",
+    "whoLabel": "Ich",
     "whoTitle": "Nurullah Aydın.",
     "origin": "Malatya, Türkiye",
-    "practice": "Software · vier Jahre · angewandte KI in Live-Systemen",
-    "p1": "Ich führe METEK Digital aus Malatya, Türkiye — ein gründergeführtes Studio für individuelle Websites, Admin-Panels und Automation. Vier Jahre Software. Design und Engineering bleiben von der ersten Notiz bis zum Launch auf einer Linie.",
-    "p2": "Kunden haben eine verantwortliche Delivery-Leitung, keine Handoff-Kette. Keine Marketplace-Themes. Jede Oberfläche wird für die Marke und für das Team gebaut, das sie täglich nutzt.",
-    "highlight": "Eigenes Design. Solide Software.",
-    "p3": "Vor der Übergabe prüfe ich Mobile-Tempo, grundlegende Barrierefreiheit und technisches SEO. Vereinbarte Inhaltsflächen bleiben nach dem Launch editierbar.",
-    "doLabel": "Was wir liefern",
-    "doTitle": "Websites, Panels und Automation in Produktion.",
-    "doIntro": "Die öffentliche Markenfläche. Interne Tools für den Alltag. Messaging- und KI-Flows an echte Arbeit — keine Demos.",
+    "practice": "Vier Jahre Software · KI · unabhängige Praxis",
+    "p1": "Ich bin Nurullah Aydın. Aus Malatya, Türkiye. Seit vier Jahren baue ich Software und schärfe mich bewusst in KI und benachbarten Feldern — ein unabhängiger Macher, eine verantwortliche Praxis. Diese Praxis heißt METEK Digital.",
+    "p2": "Im digitalen Zeitalter digital zurückzufallen ist ein Mangel. Bleiben Sie nicht dort. Ich bleibe der Marke und der Designsprache treu, die Sie bereits gebaut haben — oder öffne eine neue, wenn Sie wollen — und lege die Arbeit zur Beurteilung vor Ihnen.",
+    "highlight": "Ansehen. Ausprobieren. Gefällt es — dann sprechen wir.",
+    "p3": "Bauen wir eine Website, die für Ihr Unternehmen kodiert und gestaltet ist. Oder Automation, die Arbeit wegnimmt, die Ihre Zeit frisst, und Raum lässt für den Rest — auch für eine Tee-Pause. Ich freue mich, Sie kennenzulernen und wäre stolz, Ihre Arbeit in mein Portfolio aufzunehmen. Melden Sie sich. Sprechen wir.",
+    "doLabel": "Was wir bauen",
+    "doTitle": "Eine Site für Ihre Marke. Automation, die Zeit zurückgibt.",
+    "doIntro": "Kein Fertigpaket — Ihre Sprache, Ihre Arbeit. Erst sichtbar machen. Dann entscheiden.",
     "items": [
       {
-        "title": "Individuelle Websites",
-        "body": "Marketing- und Produktseiten; moderner Stack, wenn der Job ihn braucht — oft Next.js und React. Schnell auf dem Handy, suchbereit, mit klarem Weg zu Angebot, Termin oder Kauf."
+        "title": "Web treu zu Ihrer Marke",
+        "body": "Die Designsprache behalten, die Sie schon haben — oder eine neue öffnen — mit einer Site, die für Ihr Unternehmen kodiert und gestaltet ist."
       },
       {
-        "title": "Admin-Panels & CRM",
-        "body": "Panels für Inhalte, Leads und Betrieb. Dieselbe Hierarchie und Sorgfalt wie die öffentliche Site — kein verwaister Admin."
+        "title": "Automation, die Zeit freimacht",
+        "body": "Bots und Flows, die Wiederholarbeit kürzen, damit Raum für anderes bleibt — und eine Tee-Pause."
       },
       {
-        "title": "KI & Automatisierung",
-        "body": "WhatsApp- und Instagram-Bots, Intake- und Follow-up-Flows. KI nur dort, wo sie echte Arbeit vom Pfad nimmt."
+        "title": "Gemeinsam entscheiden",
+        "body": "Ansehen, ausprobieren, wenn es passt sprechen wir. Was nicht sitzt, klären wir. Kein Rush-Verkauf — ein klarer nächster Schritt."
       }
     ],
-    "linkWork": "Ausgewählte Arbeiten",
+    "linkWork": "Meine Arbeiten",
     "linkServices": "Leistungen ansehen",
     "role": "Gründer",
     "name": "Nurullah Aydın"

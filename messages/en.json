@@ -22,14 +22,14 @@
   "pages": {
     "manifesto": {
       "metaTitle": "Who we are · METEK",
-      "metaDescription": "Nurullah Aydın, founder of METEK Digital — custom websites, panels, and automation from Malatya to clients worldwide.",
+      "metaDescription": "Nurullah Aydın — Malatya. Custom web, design language, and automation. See it, try it, then we talk.",
       "heroLabel": "Who we are",
-      "heroTitle": "Founder-led studio.",
-      "heroBlurb": "Custom web and software. One delivery line from Malatya to launch.",
-      "ctaLabel": "Work with me",
-      "ctaTitle": "Ready to start a project?",
-      "ctaBlurb": "Share the goal and timing. Clear scope and next step within a day.",
-      "ctaButton": "Start my project"
+      "heroTitle": "Don't stay behind.",
+      "heroBlurb": "Falling behind digitally is a gap. Let's put your work forward — faithful to your brand, or with a new language.",
+      "ctaLabel": "Let's talk",
+      "ctaTitle": "Reach out. Let's talk.",
+      "ctaBlurb": "I'm eager to meet you and proud to add your work to my portfolio.",
+      "ctaButton": "Write to me"
     },
     "approach": {
       "metaTitle": "Approach · METEK",
@@ -111,10 +111,10 @@
     "label": "Manifesto",
     "stamp": "METEK Digital",
     "lines": [
-      "I ship work that holds after launch — not only on the first glance.",
-      "Brand character belongs in the interface, not only in the logo file.",
-      "Design, software, and delivery stay on one accountable line.",
-      "Custom build every time. Never a reskinned theme."
+      "Falling behind digitally is a gap.",
+      "I stay true to your brand — or open a new language.",
+      "Custom code. Custom design. Your work.",
+      "See it, try it, like it. Then we talk."
     ]
   },
   "featured": {
@@ -462,33 +462,33 @@
     "label": "Studio",
     "titleLead": "METEK",
     "titleRest": "Digital",
-    "whoLabel": "Founder",
+    "whoLabel": "Me",
     "whoTitle": "Nurullah Aydın.",
     "origin": "Malatya, Türkiye",
-    "practice": "Software · four years · applied AI in live systems",
-    "p1": "I run METEK Digital from Malatya, Türkiye — a founder-led studio for custom websites, admin panels, and automation. Four years in software. Design and engineering stay on one line from first brief to launch.",
-    "p2": "Clients get one accountable delivery lead, not a handoff chain. No marketplace themes. Interfaces are built for the brand and for the people who use them every day.",
-    "highlight": "Custom design. Solid engineering.",
-    "p3": "Before handoff I verify mobile speed, core accessibility, and technical SEO. Agreed content surfaces stay editable after launch.",
-    "doLabel": "What we ship",
-    "doTitle": "Sites, panels, and automation in production.",
-    "doIntro": "Public faces for the brand. Internal tools for daily operations. Messaging and AI flows tied to real work — not demos.",
+    "practice": "Four years in software · AI · independent practice",
+    "p1": "I'm Nurullah Aydın. From Malatya, Türkiye. I've been building software for four years, and I keep sharpening myself in AI and the fields around it — an independent maker, one accountable practice. That practice is METEK Digital.",
+    "p2": "In a digital age, falling behind digitally is a gap. Don't stay there. I can stay true to the brand and design language you already built — or open a new one if you want — and put the work in front of you to judge.",
+    "highlight": "See it. Try it. Like it. Then we talk.",
+    "p3": "Let's build a website coded and designed for your business. Or automation that takes the work eating your time and gives you room for the rest — even a tea break. I'm eager to meet you and proud to add your work to my portfolio. Reach out. Let's talk.",
+    "doLabel": "What we build",
+    "doTitle": "A site for your brand. Automation that gives time back.",
+    "doIntro": "Not a ready package — your language, your work. Make it visible first. Decide after.",
     "items": [
       {
-        "title": "Custom websites",
-        "body": "Marketing and product sites on a modern stack when the job needs it — often Next.js and React. Fast on phones, prepared for search, with a clear path to quote, book, or buy."
+        "title": "Web faithful to your brand",
+        "body": "Keep the design language you already own — or start a new one — with a site coded and designed for your business."
       },
       {
-        "title": "Admin panels & CRM",
-        "body": "Panels for content, leads, and operations. Same hierarchy and craft as the public site — no orphan admin skin."
+        "title": "Automation that frees time",
+        "body": "Bots and flows that shorten repeat work so you get room for other tasks — and a tea break."
       },
       {
-        "title": "AI & automation",
-        "body": "WhatsApp and Instagram bots, intake and follow-up flows. AI only where it removes real work from the path."
+        "title": "Decide together",
+        "body": "See it, try it, like it. We talk through what doesn't fit. No rush sell — a clear next step."
       }
     ],
-    "linkWork": "View selected work",
-    "linkServices": "See services",
+    "linkWork": "View my work",
+    "linkServices": "View services",
     "role": "Founder",
     "name": "Nurullah Aydın"
   },

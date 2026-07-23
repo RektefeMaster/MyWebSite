@@ -22,14 +22,14 @@
   "pages": {
     "manifesto": {
       "metaTitle": "Biz kimiz · METEK",
-      "metaDescription": "Nurullah Aydın, METEK Digital kurucusu — özel web siteleri, paneller ve otomasyon. Malatya’dan yayına.",
+      "metaDescription": "Nurullah Aydın — Malatya. Özel web, tasarım dili ve otomasyon. Görün, deneyin, sonra konuşalım.",
       "heroLabel": "Biz kimiz",
-      "heroTitle": "Kurucu liderliğinde stüdyo.",
-      "heroBlurb": "Özel web ve yazılım. Malatya’dan yayına tek teslim hattı.",
+      "heroTitle": "Burada kalmayın.",
+      "heroBlurb": "Dijitalden geri kalmak eksikliktir. Markanıza sadık — ya da yepyeni — bir dille işinizi öne çıkaralım.",
       "ctaLabel": "Konuşalım",
-      "ctaTitle": "Proje başlatmaya hazır mısınız?",
-      "ctaBlurb": "Hedefi ve zamanı yazın. Bir gün içinde net kapsam ve sonraki adım.",
-      "ctaButton": "Projemi başlat"
+      "ctaTitle": "İletişime geçin, konuşalım.",
+      "ctaBlurb": "Sizinle tanışmak ve portföyüme sizin işinizi eklemek için sabırsızlanıyorum.",
+      "ctaButton": "Yazın, konuşalım"
     },
     "approach": {
       "metaTitle": "Yaklaşım · METEK",
@@ -111,10 +111,10 @@
     "label": "Manifesto",
     "stamp": "METEK Digital",
     "lines": [
-      "Yalnızca ilk bakışta değil; yayından sonra da ayakta kalan iş teslim ederim.",
-      "Markanın karakteri logo dosyasında değil, arayüzde görünür.",
-      "Tasarım, yazılım ve teslim tek sorumlu hatta kalır.",
-      "Her proje özel kurulur. Hazır tema yeniden boyanmaz."
+      "Dijitalden geri kalmak eksikliktir.",
+      "Markanıza sadık kalırım — dilerseniz yeni dil açarım.",
+      "Özel kod. Özel tasarım. Sizin işiniz.",
+      "Görün, deneyin, beğenin. Sonra konuşalım."
     ]
   },
   "featured": {
@@ -462,33 +462,33 @@
     "label": "Stüdyo",
     "titleLead": "METEK",
     "titleRest": "Digital",
-    "whoLabel": "Kurucu",
+    "whoLabel": "Ben",
     "whoTitle": "Nurullah Aydın.",
     "origin": "Malatya, Türkiye",
-    "practice": "Yazılım · dört yıl · canlı sistemlerde yapay zeka",
-    "p1": "METEK Digital’i Malatya’dan yönetiyorum: markaya özel web siteleri, yönetim panelleri ve otomasyon. Dört yıldır yazılım geliştiriyorum. Tasarım ile mühendislik, ilk nottan yayına kadar aynı hatta kalır.",
-    "p2": "Müşteri tek sorumlu teslim hattı görür; elden ele zincir yok. Hazır tema satmıyorum. Her arayüz markaya ve her gün kullanan ekibe göre kurulur.",
-    "highlight": "Özel tasarım. Sağlam yazılım.",
-    "p3": "Teslimden önce mobil hız, temel erişilebilirlik ve teknik SEO kontrol edilir. Üzerinde anlaştığımız içerik yüzeyleri yayından sonra da güncellenebilir kalır.",
-    "doLabel": "Ne teslim ediyoruz",
-    "doTitle": "Yayındaki siteler, paneller, otomasyon.",
-    "doIntro": "Markanın dış yüzü. Günlük işin iç araçları. Operasyona bağlı mesajlaşma ve yapay zeka akışları — demo değil, üretim.",
+    "practice": "Dört yıldır yazılım · yapay zeka · bireysel pratik",
+    "p1": "Ben Nurullah Aydın. Malatya, Türkiye’denim. Dört yıldır yazılım geliştiriyorum; yapay zeka ve komşu alanlarda da kendimi bilinçli büyüten bireysel bir üreticiyim. METEK Digital bu pratiğin adı.",
+    "p2": "Dijital çağda dijitalden geri kalmak eksikliktir. Burada kalmayın. Özenle kurduğunuz markaya ve tasarım diline sadık kalarak — dilerseniz yepyeni bir dil açarak — işinizi beğeninize sunarım.",
+    "highlight": "Görün. Deneyin. Beğenin. Sonra konuşalım.",
+    "p3": "İşletmenize özel kodlanmış ve tasarlanmış bir web sitesi kuralım. Ya da zamanınızı yiyen işleri otomatikleştirip diğer işlerinize, hatta bir çay molasına yer açan otomasyonlar. Sizinle tanışmak ve portföyüme sizin işinizi eklemek için sabırsızlanıyorum. İletişime geçin, konuşalım.",
+    "doLabel": "Ne kuralım",
+    "doTitle": "Markanıza özel site. Zamana yer açan otomasyon.",
+    "doIntro": "Hazır paket değil; sizin diliniz, sizin işiniz. Önce görünür kılalım, sonra karar verelim.",
     "items": [
       {
-        "title": "Özel web siteleri",
-        "body": "Pazarlama ve ürün siteleri; iş gerektirdiğinde modern yığın — çoğu zaman Next.js ve React. Telefonda hızlı, aramaya hazır; teklif, randevu veya satış yolu net."
+        "title": "Markanıza sadık web",
+        "body": "Var olan tasarım dilinizi koruyarak — ya da sıfırdan yeni bir dil kurarak — işletmenize özel kodlanmış ve tasarlanmış site."
       },
       {
-        "title": "Yönetim paneli ve CRM",
-        "body": "İçerik, lead ve operasyon panelleri. Dış siteyle aynı hiyerarşi ve özen — yetim admin görünümü yok."
+        "title": "Zaman kazandıran otomasyon",
+        "body": "Tekrarlayan işleri kısaltan botlar ve akışlar. Diğer işlerinize yer açsın; bir çay molası da sığsın."
       },
       {
-        "title": "Yapay zeka ve otomasyon",
-        "body": "WhatsApp ve Instagram botları, başvuru ve takip akışları. Yapay zeka yalnızca gerçek iş yükünü düşüren yerde."
+        "title": "Birlikte netleştirme",
+        "body": "Görün, deneyin, beğenin. Uymayan yerleri konuşuruz. Acele satış yok; net sonraki adım var."
       }
     ],
-    "linkWork": "Seçili işlere bak",
-    "linkServices": "Hizmetleri gör",
+    "linkWork": "İşlerime bak",
+    "linkServices": "Hizmetlere bak",
     "role": "Kurucu",
     "name": "Nurullah Aydın"
   },

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T21:42:21.657Z",
+  "generatedAt": "2026-07-23T21:52:24.154Z",
   "sources": [
     "app/[locale]/layout.tsx → meta.*",
     "messages → pages.*.metaTitle/metaDescription",
