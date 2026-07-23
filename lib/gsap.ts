@@ -11,6 +11,8 @@ type AttachScrollRevealOptions = {
   enter?: string;
   onEnter?: () => void;
   onLeaveBack?: () => void;
+  /** true: leaveBack’te reverse yok */
+  once?: boolean;
 };
 
 /**
@@ -24,6 +26,7 @@ export function attachScrollReveal(
     enter = "top bottom",
     onEnter,
     onLeaveBack,
+    once = false,
   }: AttachScrollRevealOptions = {}
 ) {
   animation.pause(0);
@@ -31,11 +34,14 @@ export function attachScrollReveal(
   return ScrollTrigger.create({
     trigger,
     start: enter,
-    onEnter: () => {
+    onEnter: (self) => {
       animation.play();
       onEnter?.();
+      // once: tetik sonrası ST’yi öldür — uzun sayfada aktif trigger şişmesin
+      if (once) self.kill();
     },
     onLeaveBack: () => {
+      if (once) return;
       animation.reverse();
       onLeaveBack?.();
     },
@@ -47,6 +53,7 @@ export function attachScrollReveal(
       if (self.scroll() >= self.start) {
         animation.progress(1);
         onEnter?.();
+        if (once) self.kill();
         return;
       }
       const rect = trigger.getBoundingClientRect();
@@ -55,8 +62,10 @@ export function attachScrollReveal(
       if (vh > 0 && rect.top < vh && rect.bottom > 0) {
         animation.progress(1);
         onEnter?.();
+        if (once) self.kill();
         return;
       }
+      if (once && animation.progress() > 0) return;
       animation.progress(0);
       onLeaveBack?.();
     },

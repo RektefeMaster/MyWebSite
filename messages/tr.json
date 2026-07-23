@@ -7,14 +7,16 @@
     "about": "Hakkımda",
     "home": "Ana",
     "manifesto": "Manifesto",
+    "studio": "Stüdyo",
     "work": "İşler",
     "approach": "Yaklaşım",
     "services": "Hizmetler",
     "blog": "Blog",
+    "notes": "Notlar",
     "projects": "Projeler",
     "contact": "İletişim",
-    "bookMeeting": "Projemi başlat",
-    "cta": "Projemi başlat",
+    "bookMeeting": "Proje başlat",
+    "cta": "Proje başlat",
     "ctaShort": "Başla"
   },
   "pages": {
@@ -76,7 +78,7 @@
   },
   "blog": {
     "view": "Notu oku",
-    "teaserLabel": "Blog",
+    "teaserLabel": "Notlar",
     "teaserTitle": "Seçili yazılar.",
     "teaserBlurb": "Web, yazılım ve dijital ürün üzerine notlar.",
     "teaserAll": "Tüm notlar",
@@ -94,39 +96,6 @@
       "strategy": "Strateji"
     },
     "author": "Nurullah Aydın"
-  },
-  "showcase": {
-    "label": "Dizin",
-    "title": "Çalışma alanları.",
-    "blurb": "Manifesto, işler, yöntem, hizmetler ve blog.",
-    "view": "Sayfayı aç",
-    "cards": {
-      "manifesto": {
-        "label": "Manifesto",
-        "title": "Kimlik önce gelir",
-        "body": "Markanın tez cümlesi ve görsel sistemin temeli."
-      },
-      "work": {
-        "label": "İşler",
-        "title": "Seçili işler",
-        "body": "Seçili web ve yazılım projeleri."
-      },
-      "approach": {
-        "label": "Yaklaşım",
-        "title": "Yöntem",
-        "body": "İlkeler, süreç ve teslim modeli."
-      },
-      "services": {
-        "label": "Hizmetler",
-        "title": "Hizmetler",
-        "body": "Web, yazılım, otomasyon ve yapay zekâ."
-      },
-      "blog": {
-        "label": "Blog",
-        "title": "Notlar ve bakışlar",
-        "body": "Nurullah Aydın imzasıyla seçili yazılar."
-      }
-    }
   },
   "marquee": {
     "items": [
@@ -158,7 +127,11 @@
       "Ürün ve iletişimde daha hızlı mobil yollar.",
       "İçerik, medya ve SEO tek panelde."
     ],
-    "cta": "İşleri gör",
+    "cta": "Tüm vaka çalışmasını gör",
+    "shotHero": "Wholesale Cabinet Creations — ana sayfa",
+    "shotKitchen": "Wholesale Cabinet Creations — mutfak dolapları",
+    "shotProjects": "Wholesale Cabinet Creations — proje galerisi",
+    "shotBrands": "Wholesale Cabinet Creations — markalar",
     "sceneLabel": "Sonuç",
     "sceneTitle": "Üretim kalitesi, ekranda okunur.",
     "sceneBody": "Performans, SEO ve içerik yönetimi aynı sistemde."
@@ -185,31 +158,118 @@
       }
     ]
   },
-  "availability": {
-    "badge": "Müsaitlik",
-    "title": "Birkaç yeni proje için açığım",
-    "blurb": "Listeyi küçük tutuyorum ki her brief gerçek yer bulsun.",
-    "slots": "Ağustos 2026 için 2 proje yeri",
-    "cta": "Projemi başlat"
-  },
   "hero": {
     "line1": "Fikirden",
     "line2": "çalışan",
     "line3": "ürüne.",
     "blurb": "Markalar için web, panel ve araçlar. Bitmiş gibi görünen değil, ayakta duran iş.",
-    "ctaWork": "İşleri gör",
-    "ctaContact": "Projemi başlat",
+    "ctaWork": "Seçili işleri gör",
+    "ctaContact": "Proje başlat",
     "scroll": "Projelere bak",
     "metaStudio": "Tasarım & yazılım stüdyosu",
-    "metaLocation": "Malatya · Dünya geneli"
+    "metaLocation": "Malatya · Dünya geneli",
+    "availability": "Birkaç yeni proje için açığız"
+  },
+  "selectedWork": {
+    "label": "Seçili işler",
+    "title": "Üretimde kanıt.",
+    "blurb": "Deneyim, sistem ve otomasyonda yayına alınmış dört parça.",
+    "viewAll": "Tüm işleri gör"
+  },
+  "capabilities": {
+    "label": "Yetenekler",
+    "title": "Ne inşa ediyoruz.",
+    "blurb": "Dönüştüren siteler, ekibin her gün kullandığı sistemler ve gerçek operasyon yükünü taşıyan otomasyon.",
+    "cta": "Yetenekleri keşfet",
+    "techLine": "Tasarım odaklı · Teknik olarak titiz · Üretime hazır",
+    "items": {
+      "experiences": {
+        "title": "Dijital Deneyimler",
+        "summary": "Marka siteleri, ticaret ve editoryal yüzeyler",
+        "visual": "Deneyim",
+        "body": "Marka karakterini taşıyan ve şablon gibi görünmeden dönüştüren dijital yüzeyler.",
+        "outcomes": [
+          "İletişim veya rezervasyona net yolu olan marka siteleri",
+          "Şablon gürültüsü olmayan ticaret akışları",
+          "Kaydırma ritmine göre editoryal deneyimler"
+        ]
+      },
+      "systems": {
+        "title": "Yazılım Sistemleri",
+        "summary": "Admin panelleri, CRM ve ürün arayüzleri",
+        "visual": "Panel · CRM",
+        "body": "Günlük kullanıma uygun iç araçlar ve ürün yüzeyleri — net mimari, dengeli teslim.",
+        "outcomes": [
+          "Eğitim tiyatrosu olmadan işletilen paneller",
+          "Senkron kalan CRM ve lead akışları",
+          "Stabil yayın yolu olan web ve mobil ürünler"
+        ]
+      },
+      "ai": {
+        "title": "YZ & Otomasyon",
+        "summary": "Mesaj asistanları ve operasyonel iş akışları",
+        "visual": "Mesajlaşma",
+        "body": "Gerçek yükü taşıyan asistanlar ve akışlar — randevu, SSS, takip — insana temiz el değiştirme ile.",
+        "outcomes": [
+          "Lead nitelendiren WhatsApp ve DM asistanları",
+          "Randevu ve takip otomasyonu",
+          "CRM’e bağlı özel iş akışları"
+        ]
+      }
+    }
+  },
+  "manifestoScene": {
+    "label": "Tez",
+    "before": "İnsanlar bir işletmenin ne sattığını anlamadan önce",
+    "accent": "güvene",
+    "after": "karar verir."
+  },
+  "approachTeaser": {
+    "label": "Yaklaşım",
+    "title": "Nasıl çalışıyoruz.",
+    "blurb": "Brief’ten lansmana dört aşama. Her adım kontrol edebileceğiniz bir çıktıyla biter.",
+    "principle": "Doğrudan iletişim. Net kapsam. Statü tiyatrosu yok.",
+    "cta": "Nasıl çalıştığımızı gör",
+    "steps": [
+      {
+        "title": "Keşfet",
+        "body": "Görsel gürültüden önce hedef, kitle ve kısıtlar."
+      },
+      {
+        "title": "Tanımla",
+        "body": "Yön, mimari ve onaylayabileceğiniz kapsam."
+      },
+      {
+        "title": "Tasarla & İnşa et",
+        "body": "Arayüz ve uygulama tek hat — el değiştirme sisi yok."
+      },
+      {
+        "title": "İyileştir & Yayınla",
+        "body": "Test, sıkılaştırma ve güvenilir yayın."
+      }
+    ]
+  },
+  "finalCta": {
+    "label": "Başlangıç",
+    "title": "Hazırsanız başlayalım.",
+    "blurb": "Kısa bir brief gönderin. Kapsam, yön ve sonraki adımlar gelir — satış sunumu değil.",
+    "cta": "Proje başlat",
+    "whatsapp": "WhatsApp mı tercih edersiniz? Doğrudan yazın ↗",
+    "whatsappPrefill": "Merhaba. METEK ile bir proje konuşmak istiyorum."
+  },
+  "workLanes": {
+    "web": "Web Deneyimleri",
+    "systems": "Ürünler & Sistemler",
+    "ai": "YZ & Otomasyon",
+    "lab": "Deneyler / Laboratuvar"
   },
   "projects": {
-    "label": "Seçili işler",
-    "title": "Projeler",
-    "blurb": "Web, panel ve dijital ürün çalışmalarından bir kesit. Her proje özgün tasarım ve sağlam yazılımla kurulur.",
+    "label": "İşler",
+    "title": "Tüm projeler.",
+    "blurb": "Web, panel ve dijital ürünler — her biri üretimde ayakta duracak şekilde tasarlanır ve kodlanır.",
     "loadMore": "Daha fazla iş",
     "seeCase": "İşleri gör",
-    "viewAll": "İşleri gör"
+    "viewAll": "Tüm işleri gör"
   },
   "projectUi": {
     "view": "Vakayı aç",
@@ -395,45 +455,6 @@
       }
     ]
   },
-  "testimonials": {
-    "label": "Referanslar",
-    "title": "Referanslar yakında.",
-    "items": []
-  },
-  "clients": {
-    "label": "Ne yapıyorum",
-    "lead": "Tasarlayıp teslim ettiğim",
-    "rotating": [
-      "web siteleri",
-      "yazılımlar",
-      "yapay zekâ",
-      "otomasyonlar",
-      "yönetim panelleri",
-      "marka sistemleri"
-    ]
-  },
-  "stats": {
-    "label": "Sinyaller",
-    "title": "Güven tıklamadan önce gelir.",
-    "items": [
-      {
-        "value": "81%",
-        "label": "kullanıcı satın almadan önce markaya güvenmek ister"
-      },
-      {
-        "value": "55%",
-        "label": "ilk izlenim görsel unsurlarla oluşur"
-      },
-      {
-        "value": "+80%",
-        "label": "renk ve görsel tutarlılık marka bilinirliğini artırır"
-      },
-      {
-        "value": "+23%",
-        "label": "kanallar arası tutarlılık geliri yükseltir"
-      }
-    ]
-  },
   "about": {
     "label": "Stüdyo",
     "titleLead": "METEK",
@@ -456,6 +477,9 @@
     "message": "Hedefiniz ve zamanınız hakkında birkaç satır",
     "send": "Gönder",
     "sentHint": "Eposta uygulamanız açılıyor. Genelde bir gün içinde dönerim.",
+    "errorName": "Lütfen adınızı yazın.",
+    "errorEmail": "Geçerli bir eposta girin.",
+    "errorMessage": "Net bir sonraki adım için birkaç satır daha ekleyin.",
     "mailSubject": "Proje talebi",
     "mailName": "İsim",
     "mailEmail": "E-posta",
@@ -493,62 +517,6 @@
     "founder": "Kurucu: Nurullah Aydın",
     "location": "Malatya, Türkiye · Uzaktan dünya geneli",
     "instagram": "Instagram"
-  },
-  "tech": {
-    "label": "Teknoloji",
-    "title": "Bunlarla iş çıkarırım.",
-    "blurb": "Her araç için deneme sürümü değil. Üretimde kullandığım, bakımını yaptığım stack. Projede doğru olanı seçerim; moda olanı değil.",
-    "groups": [
-      {
-        "title": "Web ve ürün arayüzü",
-        "blurb": "Hızlı, SEO'ya uygun, mobilde bozulmayan siteler ve paneller. Animasyon ve kaydırma da kontrol altında.",
-        "items": [
-          "Next.js",
-          "React",
-          "TypeScript",
-          "Vite",
-          "Tailwind CSS",
-          "GSAP",
-          "Lenis"
-        ]
-      },
-      {
-        "title": "Mobil uygulama",
-        "blurb": "iOS ve Android için tek kod tabanı. Mağaza kalitesinde arayüz, stabil yayın.",
-        "items": [
-          "Flutter",
-          "Dart"
-        ]
-      },
-      {
-        "title": "Otomasyon ve mesajlaşma",
-        "blurb": "WhatsApp / Instagram botları, randevu akışları, hatırlatmalar. Elle yapılan işi sisteme bağlarım.",
-        "items": [
-          "Python",
-          "n8n",
-          "WhatsApp Cloud API",
-          "Instagram Graph API"
-        ]
-      },
-      {
-        "title": "Veri ve altyapı",
-        "blurb": "Müşteri, randevu ve satış kayıtları güvenli durur. Panel ile bot aynı kaynağı okur.",
-        "items": [
-          "PostgreSQL",
-          "Supabase"
-        ]
-      }
-    ]
-  },
-  "workingPrinciples": {
-    "label": "Çalışma İlkeleri",
-    "title": "Nasıl çalışırım.",
-    "items": [
-      "Doğrudan cevap. Statü tiyatrosu yok",
-      "İş ilerlerken ilerlemeyi görürsünüz",
-      "Hızlı teslim, bakımı kolay kod",
-      "Teslim sonrası bir şey kırılırsa destek"
-    ]
   },
   "whatsapp": {
     "label": "WhatsApp",

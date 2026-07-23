@@ -1,11 +1,10 @@
 import { setRequestLocale } from "next-intl/server";
-import Clients from "@/components/Clients";
-import Showcase from "@/components/Showcase";
 import BlogTeaser from "@/components/BlogTeaser";
 import HomeMidFold from "@/components/HomeMidFold";
 import HomeTailFold from "@/components/HomeTailFold";
+import LazyMount from "@/components/LazyMount";
 
-/** Ana sayfa = vitrin (özet). Hero layout'ta keep-alive (HomeHeroKeepAlive). */
+/** Ana sayfa = kontrollü editorial hikâye. Hero layout'ta keep-alive. */
 export default async function Home({
   params,
 }: {
@@ -16,10 +15,15 @@ export default async function Home({
 
   return (
     <>
-      <Clients />
-      <Showcase />
       <HomeMidFold />
-      <BlogTeaser locale={locale} />
+      <LazyMount
+        id="insights"
+        minHeight="min(42vh, 480px)"
+        rootMargin="240px 0px"
+        className="scroll-mt-[var(--nav-offset)]"
+      >
+        <BlogTeaser locale={locale} />
+      </LazyMount>
       <HomeTailFold />
     </>
   );

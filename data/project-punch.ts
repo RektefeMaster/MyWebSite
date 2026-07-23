@@ -1,6 +1,6 @@
 /**
- * Ana sayfa akan şerit (ProjectStrip) için kısa, çarpıcı tek satır anlatımlar.
- * Kart özetleri (project-card-copy) uzun; şeritte hızlı okunan güçlü cümle gerekir.
+ * Selected Work punch satırları — kısa tek satır anlatım.
+ * Kart özetleri (project-card-copy) uzun; grid’de hızlı okunan güçlü cümle gerekir.
  */
 const projectPunch: Record<string, Record<string, string>> = {
   tr: {

@@ -222,6 +222,7 @@ function DeviceFrame({
   );
 }
 
+/** Selected Work / Capabilities — Apple PNG peep kaldırıldı; LightPhone kullan */
 type DeviceMockupProps = {
   project: Project;
   variant?: "card" | "hero";

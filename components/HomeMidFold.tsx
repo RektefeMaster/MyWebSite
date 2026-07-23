@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import LazyMount from "@/components/LazyMount";
 
 /** Soft nav sırasında fold çökmesin — marka perde RouteTransition’da */
 function FoldSpacer({ h = "min(48vh, 520px)" }: { h?: string }) {
@@ -8,29 +9,56 @@ function FoldSpacer({ h = "min(48vh, 520px)" }: { h?: string }) {
 }
 
 /**
- * Below-fold — Client shell'den dynamic() (Next 16 gerçek code-split).
- * BlogTeaser Server Component olduğu için page.tsx'te ara katmanda kalır.
+ * Mid-fold: Selected Work → Capabilities → Manifesto → Featured Case → Approach
+ * Notes (BlogTeaser) page.tsx’te Approach’tan sonra gelir.
+ *
+ * dynamic() bundle böler; LazyMount viewport’a yaklaşınca mount eder
+ * (ST / image / client state ertelenir — CLS için minHeight).
  */
-const ProjectStrip = dynamic(() => import("@/components/ProjectStrip"), {
+const SelectedWork = dynamic(() => import("@/components/SelectedWork"), {
   loading: () => <FoldSpacer />,
 });
-const Stats = dynamic(() => import("@/components/Stats"), {
-  loading: () => <FoldSpacer h="min(28vh, 320px)" />,
-});
-const Services = dynamic(() => import("@/components/Services"), {
+const Capabilities = dynamic(() => import("@/components/Capabilities"), {
   loading: () => <FoldSpacer />,
 });
-const TechExpertise = dynamic(() => import("@/components/TechExpertise"), {
-  loading: () => <FoldSpacer h="min(36vh, 400px)" />,
+const ManifestoScene = dynamic(() => import("@/components/ManifestoScene"), {
+  loading: () => <FoldSpacer h="min(40vh, 420px)" />,
+});
+const FeaturedCase = dynamic(() => import("@/components/FeaturedCase"), {
+  loading: () => <FoldSpacer />,
+});
+const ApproachTeaser = dynamic(() => import("@/components/ApproachTeaser"), {
+  loading: () => <FoldSpacer />,
 });
 
 export default function HomeMidFold() {
   return (
     <>
-      <ProjectStrip />
-      <Stats />
-      <Services variant="teaser" />
-      <TechExpertise />
+      <LazyMount
+        id="work"
+        minHeight="min(48vh, 520px)"
+        rootMargin="320px 0px"
+        className="scroll-mt-[var(--nav-offset)]"
+      >
+        <SelectedWork />
+      </LazyMount>
+      <LazyMount minHeight="min(48vh, 520px)" rootMargin="280px 0px">
+        <Capabilities />
+      </LazyMount>
+      <LazyMount minHeight="min(40vh, 420px)" rootMargin="240px 0px">
+        <ManifestoScene />
+      </LazyMount>
+      <LazyMount
+        id="featured"
+        minHeight="min(48vh, 520px)"
+        rootMargin="240px 0px"
+        className="scroll-mt-[var(--nav-offset)]"
+      >
+        <FeaturedCase />
+      </LazyMount>
+      <LazyMount minHeight="min(48vh, 520px)" rootMargin="200px 0px">
+        <ApproachTeaser />
+      </LazyMount>
     </>
   );
 }

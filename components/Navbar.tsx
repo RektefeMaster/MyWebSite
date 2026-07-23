@@ -1,14 +1,14 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
 import Magnetic from "./Magnetic";
 import Marquee from "./Marquee";
 import ThemeToggle from "./ThemeToggle";
-import WhatsAppButton from "./WhatsAppButton";
 import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
+import { attachNavOffsetSync } from "@/lib/nav-scroll";
 import { SITE } from "@/lib/site";
 
 type NavHref =
@@ -29,19 +29,19 @@ export default function Navbar() {
   const progressRef = useRef<HTMLDivElement>(null);
 
   const links: { href: NavHref; label: string; match?: string }[] = [
-    { href: "/", label: t("home"), match: "/" },
-    { href: "/manifesto", label: t("manifesto"), match: "/manifesto" },
     { href: "/work", label: t("work"), match: "/work" },
-    { href: "/approach", label: t("approach"), match: "/approach" },
     { href: "/services", label: t("services"), match: "/services" },
-    { href: "/blog", label: t("blog"), match: "/blog" },
-    {
-      href: { pathname: "/", hash: "contact" },
-      label: t("contact"),
-    },
+    { href: "/manifesto", label: t("studio"), match: "/manifesto" },
+    { href: "/blog", label: t("notes"), match: "/blog" },
   ];
 
   const navEntered = useRef(false);
+
+  useEffect(() => {
+    const shell = shellRef.current;
+    if (!shell) return;
+    return attachNavOffsetSync(shell);
+  }, []);
 
   useGSAP(() => {
     const shell = shellRef.current;
@@ -115,11 +115,11 @@ export default function Navbar() {
     >
       <header ref={headerRef} className="nav-shell">
         <div className="nav-glass border-b">
-          <nav className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 md:gap-4 md:px-10 md:py-4">
+          <nav className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-2.5 sm:gap-3 sm:px-4 sm:py-3 md:gap-4 md:px-10 md:py-4">
             <Link
               href="/"
               scroll={false}
-              className="brand-mark inline-flex min-h-11 min-w-11 shrink-0 items-center text-2xl leading-none tracking-tight text-foreground md:min-h-0 md:min-w-0 md:text-3xl"
+              className="brand-mark inline-flex min-h-11 min-w-10 shrink-0 items-center text-2xl leading-none tracking-tight text-foreground md:min-h-0 md:min-w-0 md:text-3xl"
               aria-label={SITE.brand}
             >
               M<span className="text-lime">.</span>
@@ -143,7 +143,8 @@ export default function Navbar() {
                     key={key}
                     href={link.href}
                     scroll={false}
-                    className={`relative whitespace-nowrap rounded-full px-2.5 py-1.5 text-[12px] font-semibold tracking-tight transition-colors xl:px-3 xl:text-[13px] ${
+                    aria-current={isActive ? "page" : undefined}
+                    className={`relative inline-flex min-h-11 items-center whitespace-nowrap rounded-full px-2.5 py-1.5 text-[12px] font-semibold tracking-tight transition-colors xl:px-3 xl:text-[13px] ${
                       isActive
                         ? "bg-ink text-ink-fg"
                         : "text-ink/65 hover:bg-ink/5 hover:text-ink"
@@ -155,21 +156,22 @@ export default function Navbar() {
               })}
             </div>
 
-            <div className="flex shrink-0 items-center gap-1.5 md:gap-2.5">
+            <div className="flex min-w-0 shrink-0 items-center gap-1 sm:gap-1.5 md:gap-2.5">
               <ThemeToggle />
               <LanguageSwitcher />
-              <Magnetic strength={0.18} className="hidden sm:inline-block">
-                <WhatsAppButton variant="nav" />
-              </Magnetic>
               <Magnetic strength={0.18}>
                 <Link
                   href={{ pathname: "/", hash: "contact" }}
                   scroll={false}
                   aria-label={t("cta")}
-                  className="btn-sheen btn-stable btn-stable--nav inline-flex min-h-10 rounded-full bg-lime px-3.5 py-2 text-xs font-bold text-on-lime md:min-h-0 md:px-5 md:py-2.5 md:text-sm"
+                  className="btn-sheen btn-stable inline-flex min-h-10 shrink-0 rounded-full bg-lime px-3 py-2 text-xs font-bold text-on-lime sm:px-3.5 md:min-h-0 md:px-5 md:py-2.5 md:text-sm"
                 >
-                  <span className="sm:hidden">{t("ctaShort")}</span>
-                  <span className="hidden sm:inline">{t("cta")}</span>
+                  <span className="sm:hidden" aria-hidden="true">
+                    {t("ctaShort")}
+                  </span>
+                  <span className="hidden sm:inline" aria-hidden="true">
+                    {t("cta")}
+                  </span>
                 </Link>
               </Magnetic>
             </div>
@@ -193,6 +195,7 @@ export default function Navbar() {
                   key={key}
                   href={link.href}
                   scroll={false}
+                  aria-current={isActive ? "page" : undefined}
                   className={`inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full px-3.5 py-2 text-[13px] font-semibold transition-colors touch-manipulation ${
                     isActive
                       ? "bg-ink text-ink-fg"

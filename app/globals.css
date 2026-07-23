@@ -15,7 +15,7 @@
   --band: #161616;
   --band-fg: #f7f5f0;
   --glass: rgba(255, 255, 255, 0.52);
-  --glass-strong: rgba(255, 255, 255, 0.88);
+  --glass-strong: rgba(246, 245, 241, 0.94);
   --glass-border: rgba(255, 255, 255, 0.4);
   --glass-border-scrolled: rgba(22, 22, 22, 0.08);
   --hairline: rgba(18, 18, 18, 0.1);
@@ -61,8 +61,8 @@
   --mute: rgba(235, 232, 225, 0.55);
   --band: #0c0b0a;
   --band-fg: #ebe8e1;
-  --glass: rgba(26, 25, 22, 0.72);
-  --glass-strong: rgba(26, 25, 22, 0.92);
+  --glass: rgba(26, 25, 22, 0.78);
+  --glass-strong: rgba(18, 17, 15, 0.97);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-border-scrolled: rgba(255, 255, 255, 0.1);
   --hairline: rgba(235, 232, 225, 0.1);
@@ -110,7 +110,8 @@
 
 html {
   scroll-behavior: auto;
-  scroll-padding-top: calc(var(--nav-offset) + var(--safe-top));
+  /* --nav-offset shell yüksekliği (safe-top dahil) — tekrar ekleme */
+  scroll-padding-top: var(--nav-offset);
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   /* Scrollbar gutter html üzerinde — arka plan yoksa color-scheme
@@ -510,119 +511,26 @@ html::-webkit-scrollbar-corner {
   }
 }
 
-/* Ana sayfa projeler: tek sıra sonsuz akan şerit */
-@keyframes pstrip-flow {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-.pstrip-viewport {
-  position: relative;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    #000 5%,
-    #000 95%,
-    transparent
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    #000 5%,
-    #000 95%,
-    transparent
-  );
-}
-
-.pstrip-track {
-  display: flex;
-  width: max-content;
-  animation: pstrip-flow 64s linear infinite;
-}
-
-.pstrip-viewport:hover .pstrip-track,
-.pstrip-viewport:active .pstrip-track,
-.pstrip-viewport:focus-within .pstrip-track {
-  animation-play-state: paused;
-}
-
-.pstrip-card {
-  flex: 0 0 auto;
-  width: clamp(288px, 82vw, 432px);
-  height: 186px;
-  margin-right: 1rem;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .pstrip-track {
-    will-change: transform;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pstrip-viewport {
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .pstrip-track {
-    animation: none;
-  }
-
-  .pstrip-card {
-    scroll-snap-align: start;
-  }
-
-  .pstrip-card--clone {
-    display: none;
-  }
-}
-
 @media (max-width: 768px) {
   :root {
-    --nav-offset: 9.75rem;
+    /* JS sync yoksa güvenli fallback — gerçek nav ~10.75rem */
+    --nav-offset: 10.75rem;
   }
 
   .marquee-track {
     animation-duration: 36s;
   }
 
-  /* Mobilde otomatik marquee yerine kaydırılabilir şerit — dokunma + pil */
-  .pstrip-viewport {
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
-    -webkit-mask-image: none;
-    mask-image: none;
-  }
-
-  .pstrip-track {
-    animation: none;
-    will-change: auto;
-  }
-
-  .pstrip-card {
-    width: clamp(280px, 84vw, 360px);
-    height: clamp(196px, 54vw, 212px);
-    margin-right: 0.75rem;
-    scroll-snap-align: start;
-  }
-
-  .pstrip-card--clone {
-    display: none;
-  }
-
   .nav-glass {
     backdrop-filter: blur(14px) saturate(1.2);
     -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  }
+}
+
+/* Kısa telefon (SE vb.): hero dikey nefes */
+@media (max-width: 768px) and (max-height: 720px) {
+  .hero-section {
+    min-height: 100svh;
   }
 }
 
@@ -668,6 +576,38 @@ html::-webkit-scrollbar-corner {
   min-width: 9.5rem;
 }
 
+/* Hero → Selected Work: yumuşak koyu yükselme (mask/blur yok) */
+.hero-work-bridge {
+  position: relative;
+}
+
+.hero-work-bridge::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -4.5rem;
+  height: 4.5rem;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--band)
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-work-bridge::before {
+    top: -1.5rem;
+    height: 1.5rem;
+  }
+
+  .marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
 .btn-stable--cta {
   min-width: 11.5rem;
 }
@@ -687,8 +627,14 @@ html::-webkit-scrollbar-corner {
 
   .btn-stable--hero,
   .btn-stable--cta,
-  .btn-stable--pair {
+  .btn-stable--pair,
+  .btn-stable--chip {
     min-width: 0;
+  }
+
+  .btn-stable--hero,
+  .btn-stable--cta,
+  .btn-stable--pair {
     width: 100%;
   }
 }
@@ -701,6 +647,65 @@ html::-webkit-scrollbar-corner {
 
   :where(a, button, [role="button"], summary) {
     touch-action: manipulation;
+  }
+
+  /* Fixed nav blur — iOS scroll jank; opak glass, görünüm korunur */
+  .nav-glass,
+  .nav-shell.is-scrolled .nav-glass {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .nav-glass {
+    background: color-mix(in srgb, var(--background) 94%, transparent);
+  }
+
+  .nav-shell.is-scrolled .nav-glass {
+    background: color-mix(in srgb, var(--background) 98%, transparent);
+  }
+
+  .theme-toggle__glass,
+  .theme-toggle__knob-glass {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  /* Hero glow: daha ucuz blur — grain aynı, sahne keskinliği aynı */
+  .hero-glow {
+    filter: blur(48px);
+    width: 54vmax;
+    height: 54vmax;
+    will-change: auto;
+  }
+
+  /* Intro: atmosfer animasyonu WebGL boot ile çakışmasın */
+  .intro-root .hero-grain,
+  .intro-root .hero-glow {
+    animation: none;
+    will-change: auto;
+  }
+}
+
+/* Dar ekran: blur jank (ince pointer tablet dahil) */
+@media (max-width: 768px) {
+  .nav-glass,
+  .nav-shell.is-scrolled .nav-glass {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .nav-glass {
+    background: color-mix(in srgb, var(--background) 94%, transparent);
+  }
+
+  .nav-shell.is-scrolled .nav-glass {
+    background: color-mix(in srgb, var(--background) 98%, transparent);
+  }
+
+  .theme-toggle__glass,
+  .theme-toggle__knob-glass {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 }
 
@@ -715,11 +720,18 @@ html::-webkit-scrollbar-corner {
   color: var(--on-lime);
 }
 
+/* Reveal: hydrate öncesi flash yok (SSR opak → GSAP 0 sıçraması) */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-boot {
+    opacity: 0;
+  }
+}
+
 /* Tutarlı odak halkası (klavye) */
 :where(a, button, [role="button"], input, textarea, select, summary):focus-visible {
   outline: 2px solid color-mix(in srgb, var(--lime) 85%, var(--foreground));
   outline-offset: 3px;
-  border-radius: 6px;
+  border-radius: inherit;
 }
 
 /* Animasyonlu alt çizgi — metin bağlantıları için */

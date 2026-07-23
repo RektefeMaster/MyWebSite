@@ -7,14 +7,16 @@
     "about": "Sobre mí",
     "home": "Inicio",
     "manifesto": "Manifiesto",
+    "studio": "Estudio",
     "work": "Trabajo",
     "approach": "Enfoque",
     "services": "Servicios",
     "blog": "Blog",
+    "notes": "Notas",
     "projects": "Proyectos",
     "contact": "Contacto",
-    "bookMeeting": "Empezar mi proyecto",
-    "cta": "Empezar mi proyecto",
+    "bookMeeting": "Empezar un proyecto",
+    "cta": "Empezar un proyecto",
     "ctaShort": "Empezar"
   },
   "pages": {
@@ -76,7 +78,7 @@
   },
   "blog": {
     "view": "Leer nota",
-    "teaserLabel": "Blog",
+    "teaserLabel": "Notas",
     "teaserTitle": "Notas seleccionadas.",
     "teaserBlurb": "Perspectivas breves sobre identidad, experiencia digital y proceso.",
     "teaserAll": "Ver todas las notas",
@@ -94,39 +96,6 @@
       "strategy": "Estrategia"
     },
     "author": "Nurullah Aydın"
-  },
-  "showcase": {
-    "label": "Índice",
-    "title": "Áreas de trabajo.",
-    "blurb": "Manifiesto, trabajo, método, servicios y blog.",
-    "view": "Abrir página",
-    "cards": {
-      "manifesto": {
-        "label": "Manifiesto",
-        "title": "La identidad primero",
-        "body": "La tesis de la marca y la base del sistema visual."
-      },
-      "work": {
-        "label": "Trabajo",
-        "title": "Trabajo seleccionado",
-        "body": "Un caso de estudio y una selección del portafolio."
-      },
-      "approach": {
-        "label": "Enfoque",
-        "title": "Método",
-        "body": "Principios, proceso y modelo de entrega."
-      },
-      "services": {
-        "label": "Servicios",
-        "title": "Servicios",
-        "body": "Paquetes, alcance e inversión."
-      },
-      "blog": {
-        "label": "Blog",
-        "title": "Notas y perspectivas",
-        "body": "Escritos sobre identidad, web y proceso."
-      }
-    }
   },
   "marquee": {
     "items": [
@@ -158,7 +127,11 @@
       "Mejor rendimiento móvil y experiencia de uso.",
       "Contenido, medios y SEO en un solo panel."
     ],
-    "cta": "Ver el trabajo",
+    "cta": "Ver el caso completo",
+    "shotHero": "Wholesale Cabinet Creations — inicio",
+    "shotKitchen": "Wholesale Cabinet Creations — cocinas",
+    "shotProjects": "Wholesale Cabinet Creations — galería de proyectos",
+    "shotBrands": "Wholesale Cabinet Creations — marcas",
     "sceneLabel": "Resultado",
     "sceneTitle": "Calidad de fabricación, visible online.",
     "sceneBody": "Rendimiento, SEO y gestión de contenidos en un sistema."
@@ -185,31 +158,118 @@
       }
     ]
   },
-  "availability": {
-    "badge": "Disponibilidad",
-    "title": "Abierto a unos pocos proyectos nuevos",
-    "blurb": "Mantengo la lista pequeña para atender bien cada brief.",
-    "slots": "2 plazas de proyecto para agosto 2026",
-    "cta": "Empezar mi proyecto"
-  },
   "hero": {
     "line1": "De la idea",
     "line2": "al producto",
     "line3": "en marcha.",
     "blurb": "Sitios, paneles y herramientas para marcas que necesitan que el trabajo aguante. No solo que se vea terminado.",
-    "ctaWork": "Ver el trabajo",
-    "ctaContact": "Empezar mi proyecto",
+    "ctaWork": "Ver trabajo seleccionado",
+    "ctaContact": "Empezar un proyecto",
     "scroll": "Ver proyectos",
     "metaStudio": "Estudio de diseño y software",
-    "metaLocation": "Malatya · Todo el mundo"
+    "metaLocation": "Malatya · Todo el mundo",
+    "availability": "Abierto a unos pocos proyectos nuevos"
+  },
+  "selectedWork": {
+    "label": "Trabajo seleccionado",
+    "title": "Prueba en producción.",
+    "blurb": "Cuatro piezas publicadas en experiencias, sistemas y automatización.",
+    "viewAll": "Ver todo el trabajo"
+  },
+  "capabilities": {
+    "label": "Capacidades",
+    "title": "Qué construimos.",
+    "blurb": "Sitios que convierten, sistemas que el equipo usa a diario y automatización que carga trabajo real.",
+    "cta": "Explorar capacidades",
+    "techLine": "Diseño primero · Rigor técnico · Listo para producción",
+    "items": {
+      "experiences": {
+        "title": "Experiencias digitales",
+        "summary": "Sitios de marca, comercio y superficies editoriales",
+        "visual": "Experiencia",
+        "body": "Superficies digitales que llevan el carácter de la marca y convierten — sin parecer una plantilla.",
+        "outcomes": [
+          "Sitios de marca con ruta clara a contacto o reserva",
+          "Flujos de comercio sin ruido de plantilla",
+          "Experiencias editoriales al ritmo del scroll"
+        ]
+      },
+      "systems": {
+        "title": "Sistemas de software",
+        "summary": "Paneles admin, CRM e interfaces de producto",
+        "visual": "Panel · CRM",
+        "body": "Herramientas internas y productos para el uso diario — arquitectura clara, entrega estable.",
+        "outcomes": [
+          "Paneles que se operan sin teatro de formación",
+          "CRM y leads que se mantienen en sync",
+          "Productos web y móvil con release estable"
+        ]
+      },
+      "ai": {
+        "title": "IA y automatización",
+        "summary": "Asistentes de mensajería y flujos operativos",
+        "visual": "Mensajería",
+        "body": "Asistentes y flujos que cargan trabajo real — reservas, FAQs, seguimientos — con handoff limpio a humanos.",
+        "outcomes": [
+          "Asistentes WhatsApp y DM que califican leads",
+          "Automatización de reservas y seguimientos",
+          "Flujos a medida ligados a tu CRM"
+        ]
+      }
+    }
+  },
+  "manifestoScene": {
+    "label": "Tesis",
+    "before": "La gente decide si",
+    "accent": "confiar",
+    "after": "en un negocio antes de entender qué vende."
+  },
+  "approachTeaser": {
+    "label": "Enfoque",
+    "title": "Cómo trabajamos.",
+    "blurb": "Cuatro etapas del brief al lanzamiento. Cada paso termina en algo que puedes revisar.",
+    "principle": "Comunicación directa. Alcance claro. Sin teatro de estatus.",
+    "cta": "Ver cómo trabajamos",
+    "steps": [
+      {
+        "title": "Descubrir",
+        "body": "Objetivos, audiencia y límites — antes del ruido visual."
+      },
+      {
+        "title": "Definir",
+        "body": "Dirección, arquitectura y un alcance que puedes aprobar."
+      },
+      {
+        "title": "Diseñar y construir",
+        "body": "Interfaz e implementación en una sola pista — sin niebla de handoff."
+      },
+      {
+        "title": "Refinar y lanzar",
+        "body": "Probar, ajustar y publicar un release fiable."
+      }
+    ]
+  },
+  "finalCta": {
+    "label": "Empezar",
+    "title": "Cuando estés listo.",
+    "blurb": "Envía un briefing corto. Recibes alcance, dirección y siguientes pasos — no una presentación comercial.",
+    "cta": "Empezar un proyecto",
+    "whatsapp": "¿Prefieres WhatsApp? Escríbeme directamente ↗",
+    "whatsappPrefill": "Hola. Me gustaría hablar de un proyecto con METEK."
+  },
+  "workLanes": {
+    "web": "Experiencias web",
+    "systems": "Productos y sistemas",
+    "ai": "IA y automatización",
+    "lab": "Experimentos / Lab"
   },
   "projects": {
-    "label": "Trabajos seleccionados",
-    "title": "Proyectos",
-    "blurb": "Una selección de web, paneles y productos digitales. Cada proyecto se construye con diseño a medida e ingeniería sólida.",
+    "label": "Trabajo",
+    "title": "Todos los proyectos.",
+    "blurb": "Web, paneles y productos digitales — cada uno diseñado e ingenierizado para aguantar en producción.",
     "loadMore": "Más trabajo",
     "seeCase": "Ver el trabajo",
-    "viewAll": "Ver el trabajo"
+    "viewAll": "Ver todo el trabajo"
   },
   "projectUi": {
     "view": "Abrir caso",
@@ -395,45 +455,6 @@
       }
     ]
   },
-  "testimonials": {
-    "label": "Testimonios",
-    "title": "Pronto.",
-    "items": []
-  },
-  "clients": {
-    "label": "Lo que hago",
-    "lead": "Diseño y entrego",
-    "rotating": [
-      "sitios web",
-      "software",
-      "productos IA",
-      "automatizaciones",
-      "paneles admin",
-      "sistemas de marca"
-    ]
-  },
-  "stats": {
-    "label": "Señales",
-    "title": "La confianza llega antes del clic.",
-    "items": [
-      {
-        "value": "81%",
-        "label": "de los usuarios necesita confiar en una marca antes de comprar"
-      },
-      {
-        "value": "55%",
-        "label": "de la primera impresión se forma con elementos visuales"
-      },
-      {
-        "value": "+80%",
-        "label": "el reconocimiento de marca sube con consistencia de color y visual"
-      },
-      {
-        "value": "+23%",
-        "label": "la consistencia entre canales puede aumentar los ingresos"
-      }
-    ]
-  },
   "about": {
     "label": "Estudio",
     "titleLead": "METEK",
@@ -456,6 +477,9 @@
     "message": "Unas líneas sobre tu objetivo y plazo",
     "send": "Enviar",
     "sentHint": "Abriendo tu app de correo. Suelo responder en un día.",
+    "errorName": "Escribe tu nombre.",
+    "errorEmail": "Introduce un email válido.",
+    "errorMessage": "Añade unas líneas más para poder responder con el siguiente paso.",
     "mailSubject": "Consulta de proyecto",
     "mailName": "Nombre",
     "mailEmail": "Correo",
@@ -494,67 +518,11 @@
     "location": "Malatya, Türkiye · Remoto en todo el mundo",
     "instagram": "Instagram"
   },
-  "tech": {
-    "label": "Tecnología",
-    "title": "Con esto entrego.",
-    "blurb": "No es un stack de prueba. Herramientas que uso en producción y mantengo. Elijo lo que encaja en el trabajo, no lo que está de moda.",
-    "groups": [
-      {
-        "title": "Web y producto",
-        "blurb": "Sitios y paneles rápidos, listos para SEO, sólidos en móvil. Motion y scroll bajo control.",
-        "items": [
-          "Next.js",
-          "React",
-          "TypeScript",
-          "Vite",
-          "Tailwind CSS",
-          "GSAP",
-          "Lenis"
-        ]
-      },
-      {
-        "title": "Apps móviles",
-        "blurb": "Una base de código para iOS y Android. UI lista para tienda, releases estables.",
-        "items": [
-          "Flutter",
-          "Dart"
-        ]
-      },
-      {
-        "title": "Automatización y mensajería",
-        "blurb": "Bots de WhatsApp / Instagram, flujos de cita, recordatorios. El trabajo manual pasa a sistema.",
-        "items": [
-          "Python",
-          "n8n",
-          "WhatsApp Cloud API",
-          "Instagram Graph API"
-        ]
-      },
-      {
-        "title": "Datos e infraestructura",
-        "blurb": "Clientes, citas y ventas quedan bien guardados. Panel y bots leen la misma fuente.",
-        "items": [
-          "PostgreSQL",
-          "Supabase"
-        ]
-      }
-    ]
-  },
-  "workingPrinciples": {
-    "label": "Principios de trabajo",
-    "title": "Cómo trabajo.",
-    "items": [
-      "Respuestas directas. Sin teatro de estado",
-      "Ves el progreso mientras avanza el trabajo",
-      "Entrega rápida, código mantenible",
-      "Soporte tras la entrega si algo se rompe"
-    ]
-  },
   "whatsapp": {
     "label": "WhatsApp",
     "prefill": "Hola. Me gustaría hablar de un proyecto con METEK.",
     "cta": "Escribir por WhatsApp",
-    "fab": "Chat"
+    "fab": "Escribir"
   },
   "a11y": {
     "breadcrumb": "Ruta de navegación",

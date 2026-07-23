@@ -1,0 +1,295 @@
+"use client";
+
+import { useCallback, useId, useRef, useState, type KeyboardEvent } from "react";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+import LightPhone from "./LightPhone";
+import Reveal from "./Reveal";
+import Magnetic from "./Magnetic";
+import SpecularButton from "./SpecularButton";
+
+type CapId = "experiences" | "systems" | "ai";
+
+const CAP_IDS: CapId[] = ["experiences", "systems", "ai"];
+
+const CAP_VISUAL: Record<
+  CapId,
+  { hero: string; mobile: string; objectPosition: string; peep: boolean }
+> = {
+  experiences: {
+    hero: "/projects/casa-aurelia/desktop.jpg",
+    mobile: "/projects/casa-aurelia/mobile.jpg",
+    objectPosition: "50% 0%",
+    peep: false,
+  },
+  systems: {
+    hero: "/projects/crm/desktop.jpg",
+    mobile: "/projects/crm/mobile.jpg",
+    objectPosition: "8% 0%",
+    peep: true,
+  },
+  ai: {
+    hero: "/projects/whatsapp-bot/desktop.jpg",
+    mobile: "/projects/whatsapp-bot/mobile.jpg",
+    objectPosition: "35% 0%",
+    peep: true,
+  },
+};
+
+function CapVisual({ id, label }: { id: CapId; label: string }) {
+  const visual = CAP_VISUAL[id];
+
+  return (
+    <div
+      aria-hidden
+      className="relative min-h-[220px] overflow-hidden rounded-[1.15rem] bg-ink ring-1 ring-inset ring-white/10 md:min-h-[300px] md:rounded-[1.35rem]"
+    >
+      <Image
+        src={visual.hero}
+        alt=""
+        fill
+        sizes="(max-width: 1024px) 100vw, 55vw"
+        quality={78}
+        loading="lazy"
+        className="object-cover object-top"
+        style={{ objectPosition: visual.objectPosition }}
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/10 to-transparent" />
+
+      <div className="absolute left-4 top-4 z-[1] rounded-full bg-ink/55 px-2.5 py-1 backdrop-blur-sm md:left-5 md:top-5">
+        <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-white/90">
+          {label}
+        </span>
+      </div>
+
+      {visual.peep ? <LightPhone src={visual.mobile} /> : null}
+    </div>
+  );
+}
+
+function CapDetail({
+  id,
+  body,
+  outcomes,
+  visualLabel,
+}: {
+  id: CapId;
+  body: string;
+  outcomes: string[];
+  visualLabel: string;
+}) {
+  return (
+    <>
+      <CapVisual id={id} label={visualLabel} />
+      <p className="mt-5 text-sm leading-relaxed text-foreground/55 md:mt-6 md:max-w-lg md:text-base">
+        {body}
+      </p>
+      <ul className="mt-4 space-y-2.5 md:mt-5">
+        {outcomes.map((item) => (
+          <li
+            key={item}
+            className="flex items-start gap-3 text-sm text-foreground/70"
+          >
+            <span
+              aria-hidden
+              className="mt-2 size-1 shrink-0 rounded-full bg-lime"
+            />
+            {item}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
+
+/** Üç ana capability — click seçim, hover yalnızca preview */
+export default function Capabilities() {
+  const t = useTranslations("capabilities");
+  const baseId = useId();
+  const [active, setActive] = useState(0);
+  const [hoverPreview, setHoverPreview] = useState<number | null>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  const shown = hoverPreview ?? active;
+  const shownId = CAP_IDS[shown];
+  const outcomes = t.raw(`items.${shownId}.outcomes`) as string[];
+
+  const select = useCallback((index: number) => {
+    setActive(index);
+    setHoverPreview(null);
+  }, []);
+
+  const onListKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    let next: number | null = null;
+    if (e.key === "ArrowDown") next = (active + 1) % CAP_IDS.length;
+    else if (e.key === "ArrowUp")
+      next = (active - 1 + CAP_IDS.length) % CAP_IDS.length;
+    else if (e.key === "Home") next = 0;
+    else if (e.key === "End") next = CAP_IDS.length - 1;
+    if (next === null) return;
+    e.preventDefault();
+    select(next);
+    listRef.current
+      ?.querySelectorAll<HTMLButtonElement>("[data-cap-tab]")
+      [next]?.focus();
+  };
+
+  return (
+    <section
+      id="capabilities"
+      className="cv-auto scroll-mt-[var(--nav-offset)] border-t border-foreground/8 bg-background px-5 py-16 md:px-10 md:py-28"
+    >
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-2xl md:mb-16">
+          <Reveal>
+            <p className="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
+              <span
+                aria-hidden
+                className="inline-block h-px w-6 bg-lime/80"
+              />
+              {t("label")}
+            </p>
+          </Reveal>
+          <Reveal delay={40}>
+            <h2 className="font-display text-4xl font-bold tracking-tight md:text-6xl">
+              {t("title")}
+            </h2>
+          </Reveal>
+          <Reveal delay={80}>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-foreground/50 md:text-base">
+              {t("blurb")}
+            </p>
+          </Reveal>
+          <Reveal delay={100}>
+            <p className="mt-3 max-w-md font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-foreground/30">
+              {t("techLine")}
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="hidden gap-10 lg:grid lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
+          <div
+            ref={listRef}
+            role="tablist"
+            aria-orientation="vertical"
+            aria-label={t("label")}
+            onKeyDown={onListKeyDown}
+            className="flex flex-col border-t border-foreground/10"
+          >
+            {CAP_IDS.map((id, i) => {
+              const selected = active === i;
+              const preview = hoverPreview === i;
+              return (
+                <button
+                  key={id}
+                  type="button"
+                  role="tab"
+                  id={`${baseId}-tab-${i}`}
+                  data-cap-tab
+                  aria-selected={selected}
+                  aria-controls={`${baseId}-panel`}
+                  tabIndex={selected ? 0 : -1}
+                  onClick={() => select(i)}
+                  onMouseEnter={() => setHoverPreview(i)}
+                  onMouseLeave={() => setHoverPreview(null)}
+                  className={`group flex items-start gap-5 border-b border-foreground/10 py-6 text-left transition-colors ${
+                    selected || preview
+                      ? "text-ink"
+                      : "text-foreground/40 [@media(hover:hover)_and_(pointer:fine)]:hover:text-foreground/70"
+                  }`}
+                >
+                  <span
+                    className={`font-mono text-xs font-bold ${
+                      selected ? "text-lime" : "text-foreground/25"
+                    }`}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span>
+                    <span className="block text-2xl font-bold tracking-tight md:text-3xl">
+                      {t(`items.${id}.title`)}
+                    </span>
+                    <span className="mt-1 block max-w-sm text-sm leading-relaxed text-foreground/45">
+                      {t(`items.${id}.summary`)}
+                    </span>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div
+            role="tabpanel"
+            id={`${baseId}-panel`}
+            aria-labelledby={`${baseId}-tab-${shown}`}
+            className="min-w-0"
+          >
+            <CapDetail
+              id={shownId}
+              body={t(`items.${shownId}.body`)}
+              outcomes={outcomes}
+              visualLabel={t(`items.${shownId}.visual`)}
+            />
+          </div>
+        </div>
+
+        <div className="space-y-0 border-t border-foreground/10 lg:hidden">
+          {CAP_IDS.map((id, i) => {
+            const open = active === i;
+            return (
+              <div key={id} className="border-b border-foreground/10">
+                <button
+                  type="button"
+                  aria-expanded={open}
+                  onClick={() => select(i)}
+                  className="flex w-full items-start gap-4 py-5 text-left"
+                >
+                  <span
+                    className={`font-mono text-xs font-bold ${
+                      open ? "text-lime" : "text-foreground/30"
+                    }`}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="flex-1">
+                    <span className="block text-lg font-bold tracking-tight">
+                      {t(`items.${id}.title`)}
+                    </span>
+                    <span className="mt-0.5 block text-sm text-foreground/45">
+                      {t(`items.${id}.summary`)}
+                    </span>
+                  </span>
+                </button>
+                {open ? (
+                  <div className="pb-6">
+                    <CapDetail
+                      id={id}
+                      body={t(`items.${id}.body`)}
+                      outcomes={t.raw(`items.${id}.outcomes`) as string[]}
+                      visualLabel={t(`items.${id}.visual`)}
+                    />
+                  </div>
+                ) : null}
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="mt-12 flex justify-start md:mt-16">
+          <Magnetic strength={0.25} className="w-full sm:w-auto">
+            <SpecularButton
+              href="/services"
+              tone="ink"
+              size="md"
+              fillMobile
+              className="btn-stable btn-stable--chip"
+            >
+              {t("cta")}
+              <span aria-hidden>→</span>
+            </SpecularButton>
+          </Magnetic>
+        </div>
+      </div>
+    </section>
+  );
+}

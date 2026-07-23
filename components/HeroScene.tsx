@@ -8,7 +8,6 @@ import {
   Lightformer,
   MeshTransmissionMaterial,
   PerformanceMonitor,
-  Text,
 } from "@react-three/drei";
 
 const LIGHT_BG = { top: "#f5f5f5", mid: "#dedede", bot: "#c6c6c6" } as const;
@@ -77,42 +76,6 @@ function GradientBackground({
   return null;
 }
 
-/* Giant typography — refracted by the glass M */
-function HeroText({ lines, dark }: { lines: string[]; dark: boolean }) {
-  const { viewport } = useThree();
-  const maxLen = Math.max(...lines.map((l) => l.length), 1);
-  const fontSize = Math.min(
-    viewport.width / (maxLen * 0.54),
-    viewport.height / 3.2,
-    viewport.width * 0.155
-  );
-  const lineHeight = fontSize * 0.9;
-  const xOffsets = [0.04, -0.03, 0.015].map((f) => viewport.width * f);
-
-  return (
-    <group position={[-viewport.width * 0.06, 0.12, -0.6]}>
-      {lines.map((line, i) => (
-        <Text
-          key={`${i}-${line}`}
-          font="/fonts/SpaceGrotesk-Bold.ttf"
-          fontSize={fontSize}
-          maxWidth={viewport.width * 0.9}
-          position={[xOffsets[i] ?? 0, (1 - i) * lineHeight, 0]}
-          anchorX="center"
-          anchorY="middle"
-          color={dark ? "#ebe8e1" : "#0a0a0a"}
-          letterSpacing={-0.05}
-          textAlign="center"
-          whiteSpace="nowrap"
-          overflowWrap="normal"
-        >
-          {line}
-        </Text>
-      ))}
-    </group>
-  );
-}
-
 /**
  * Glass/chrome M.
  * Live transmission buffer at capped resolution — no stale/black FBO race,
@@ -165,6 +128,9 @@ function GlassM({
 
   const mesh = useRef<THREE.Mesh>(null);
   const intro = useRef(0);
+  const phaseY = useRef(0);
+  const phaseZ = useRef(0);
+  const phaseFloat = useRef(0);
   const { viewport } = useThree();
   const scale = Math.min(viewport.width, viewport.height) * (lite ? 0.26 : 0.23);
 
@@ -179,14 +145,17 @@ function GlassM({
       parent.scale.setScalar(scale * (0.86 + 0.14 * e));
     }
 
-    const t = state.clock.elapsedTime;
-    // Float yerine tek useFrame — aynı canlılık, bir RAF daha az
-    parent.rotation.y = Math.sin(t * (lite ? 0.3 : 0.38)) * (lite ? 0.4 : 0.62);
-    parent.rotation.z = Math.sin(t * 0.26) * 0.08 - 0.05;
+    // Delta-bazlı faz — idle demand pause/resume’da clock sıçraması yok
+    phaseY.current += delta * (lite ? 0.3 : 0.38);
+    phaseZ.current += delta * 0.26;
+    phaseFloat.current += delta * 0.55;
+
+    parent.rotation.y = Math.sin(phaseY.current) * (lite ? 0.4 : 0.62);
+    parent.rotation.z = Math.sin(phaseZ.current) * 0.08 - 0.05;
     if (!lite) {
       parent.position.y = THREE.MathUtils.lerp(
         parent.position.y,
-        Math.sin(t * 0.55) * 0.06 + state.pointer.y * 0.35,
+        Math.sin(phaseFloat.current) * 0.06 + state.pointer.y * 0.35,
         0.07
       );
       parent.rotation.x = THREE.MathUtils.lerp(
@@ -212,25 +181,27 @@ function GlassM({
       frustumCulled={false}
     >
       <MeshTransmissionMaterial
-        // Lite: 512/7 — 60fps için her-kare maliyeti düşük; keskinlik DPR'dan gelir.
-        // 640 üstü resolution bake riski (AGENTS.md).
+        // Chrome-glass: yüksek metal + env; transmission 1 değil — açık zeminde kaybolmasın.
         samples={lite ? 7 : 10}
+        // FBO üst sınır — canvas’tan büyük örnekleme yok; görsel aynı, bellek daha düşük
         resolution={lite ? 512 : 640}
-        transmission={1}
-        thickness={lite ? 0.55 : 0.65}
-        roughness={dark ? 0.14 : 0.1}
-        metalness={dark ? 0.14 : 0.08}
-        ior={1.4}
-        chromaticAberration={lite ? 0.03 : 0.04}
-        anisotropicBlur={lite ? 0.08 : 0.1}
+        backside
+        backsideThickness={lite ? 0.2 : 0.3}
+        transmission={0.82}
+        thickness={lite ? 0.7 : 0.9}
+        roughness={dark ? 0.1 : 0.06}
+        metalness={dark ? 0.55 : 0.48}
+        ior={1.5}
+        chromaticAberration={lite ? 0.04 : 0.06}
+        anisotropicBlur={lite ? 0.06 : 0.08}
         distortion={0}
         temporalDistortion={0}
-        clearcoat={0.75}
-        clearcoatRoughness={0.15}
-        attenuationColor={dark ? "#2a2824" : "#eef3f8"}
-        attenuationDistance={dark ? 6 : 8}
-        color={dark ? "#d8d4cb" : "#f6f8fb"}
-        envMapIntensity={dark ? 1.35 : 1.1}
+        clearcoat={1}
+        clearcoatRoughness={0.06}
+        attenuationColor={dark ? "#3a3832" : "#b8c0cc"}
+        attenuationDistance={dark ? 3.5 : 4.5}
+        color={dark ? "#c9c5bc" : "#d5d8e0"}
+        envMapIntensity={dark ? 2.1 : 1.85}
       />
     </mesh>
   );
@@ -269,14 +240,14 @@ function ThemeEnvironment({ dark }: { dark: boolean }) {
       frames={1}
     >
       <Lightformer
-        intensity={dark ? 2.2 : 2.8}
+        intensity={dark ? 2.6 : 3.4}
         position={[0, 4.5, 0]}
         rotation-x={Math.PI / 2}
         scale={[12, 12, 1]}
         color={dark ? "#f0ebe0" : "#ffffff"}
       />
       <Lightformer
-        intensity={dark ? 1.4 : 1.8}
+        intensity={dark ? 1.8 : 2.4}
         position={[-3.2, 1.4, 2.2]}
         rotation-y={Math.PI / 3}
         scale={[4, 8, 1]}
@@ -284,14 +255,20 @@ function ThemeEnvironment({ dark }: { dark: boolean }) {
       />
       {/* frames={1} baked → mobilde de dahil; sürekli maliyet yok, yansıma zenginleşir */}
       <Lightformer
-        intensity={dark ? 0.9 : 1.2}
+        intensity={dark ? 1.2 : 1.6}
         position={[3.2, -0.4, 1.6]}
         rotation-y={-Math.PI / 3}
         scale={[4, 7, 1]}
-        color={dark ? "#8a8678" : "#d8e2ec"}
+        color={dark ? "#8a8678" : "#c5d4e4"}
       />
       <Lightformer
-        intensity={dark ? 1.1 : 1.4}
+        intensity={dark ? 0.35 : 0.45}
+        position={[1.2, 0.2, 2.4]}
+        scale={[1.2, 6, 1]}
+        color="#0a0a0a"
+      />
+      <Lightformer
+        intensity={dark ? 1.4 : 1.8}
         position={[0, 0.6, -3.2]}
         scale={[8, 4, 1]}
         color={dark ? "#ebe8e1" : "#ffffff"}
@@ -314,10 +291,8 @@ const DESKTOP_DPR_CAP = 1.5;
 const LITE_DPR_FLOOR = 1.5;
 
 export default function HeroScene({
-  lines,
   active,
 }: {
-  lines: string[];
   active: boolean;
 }) {
   const [ready, setReady] = useState(false);
@@ -352,6 +327,12 @@ export default function HeroScene({
    * IntersectionObserver gecikmesi Text+cam'i "never"da boş bırakmasın.
    */
   const [bootLive, setBootLive] = useState(true);
+  /**
+   * Desktop idle: pointer yokken demand (son kare donar, malzeme kalitesi aynı).
+   * Mobil/lite: görünürken always (60fps hedefi).
+   */
+  const [interactionLive, setInteractionLive] = useState(true);
+  const idleTimer = useRef(0);
 
   const remountCanvas = () => {
     if (!mountedRef.current) return;
@@ -413,6 +394,30 @@ export default function HeroScene({
     document.addEventListener("visibilitychange", onVis);
     return () => document.removeEventListener("visibilitychange", onVis);
   }, []);
+
+  // Desktop: pointer/touch sonrası kısa süre always; idle’da demand (GPU boş)
+  useEffect(() => {
+    if (lite || reduced) {
+      setInteractionLive(true);
+      return;
+    }
+    const IDLE_MS = 2400;
+    const bump = () => {
+      setInteractionLive(true);
+      window.clearTimeout(idleTimer.current);
+      idleTimer.current = window.setTimeout(() => {
+        if (mountedRef.current) setInteractionLive(false);
+      }, IDLE_MS);
+    };
+    bump();
+    window.addEventListener("pointermove", bump, { passive: true });
+    window.addEventListener("pointerdown", bump, { passive: true });
+    return () => {
+      window.clearTimeout(idleTimer.current);
+      window.removeEventListener("pointermove", bump);
+      window.removeEventListener("pointerdown", bump);
+    };
+  }, [lite, reduced]);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -480,12 +485,18 @@ export default function HeroScene({
   const warming =
     (visible && introCovering && !baked) ||
     (bootLive && tabVisible && !reduced && !introCovering);
-  // Mobil + desktop: görünürken 60fps hedefi ("always"); görüş dışı "never".
+  // Mobil: görünürken always. Desktop: etkileşim/boot/intro’da always, idle’da demand.
+  const wantsAlways =
+    running || warming || bootLive
+      ? lite || interactionLive || warming || bootLive || introCovering
+      : false;
   const frameloop = reduced
     ? "demand"
-    : running || warming || bootLive
-      ? "always"
-      : "never";
+    : !running && !warming && !bootLive
+      ? "never"
+      : wantsAlways
+        ? "always"
+        : "demand";
   const clear = dark ? DARK_BG.mid : LIGHT_BG.mid;
   const dprCap = lite ? LITE_DPR_CAP : DESKTOP_DPR_CAP;
   const dprFloor = lite ? LITE_DPR_FLOOR : 1;
@@ -570,9 +581,8 @@ export default function HeroScene({
           onFallback={() => setDpr(dprFloor)}
         />
         <ThemeExposure dark={dark} />
-        <InvalidateOn dep={`${dark ? "d" : "l"}|${lines.join("\u0001")}`} />
+        <InvalidateOn dep={dark ? "d" : "l"} />
         <GradientBackground lite={lite} dark={dark} />
-        <HeroText lines={lines} dark={dark} />
         <GlassM reduced={reduced} lite={lite} dark={dark} />
         <ThemeEnvironment dark={dark} />
       </Canvas>

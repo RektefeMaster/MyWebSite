@@ -43,6 +43,7 @@ export default function LanguageSwitcher() {
       if (cur !== next) {
         window.history.replaceState(null, "", next);
       }
+      window.dispatchEvent(new Event("metek:lazy-reveal"));
       const hash = window.location.hash;
       if (hash && hash.length > 1) {
         const el = document.querySelector(hash);
@@ -64,7 +65,7 @@ export default function LanguageSwitcher() {
 
   return (
     <div
-      className="flex shrink-0 items-center gap-0.5 rounded-full bg-foreground/[0.06] p-1"
+      className="flex shrink-0 items-center gap-0 rounded-full bg-foreground/[0.06] p-0.5 sm:gap-0.5 sm:p-1"
       role="group"
       aria-label={t("language")}
     >
@@ -89,7 +90,7 @@ export default function LanguageSwitcher() {
             router.replace(pathname, { locale: l });
           }}
           aria-pressed={l === locale}
-          className={`inline-flex min-h-10 min-w-10 items-center justify-center rounded-full text-xs font-bold uppercase transition-colors ${
+          className={`relative inline-flex min-h-11 min-w-10 items-center justify-center rounded-full text-[11px] font-bold uppercase transition-colors before:absolute before:inset-[-4px_-2px] before:content-[''] sm:min-w-11 sm:text-xs sm:before:content-none ${
             l === locale
               ? "bg-ink text-ink-fg"
               : "text-ink/55 [@media(hover:hover)_and_(pointer:fine)]:hover:text-ink"

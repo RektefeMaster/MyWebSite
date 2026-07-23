@@ -7,25 +7,15 @@ import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
 
 /**
  * Sinematik açılış perdesi — süre bilinçli uzun tutulur ki perde kalkmadan
- * hero + below-fold chunk’lar + fontlar ısınsın.
+ * hero chunk + fontlar ısınsın (mid-fold LazyMount ile scroll’a bırakılır).
  * - `data-intro="play"` (layout inline script) → oynar; aksi halde CSS skip.
  * - Oturum başına bir kez; `?intro` ile yeniden.
  * - reduced-motion’da yok; JS yoksa CSS failsafe (~7.2s) temizler.
  */
 
 function warmHomeChunks() {
-  return Promise.allSettled([
-    import("./HeroScene"),
-    import("./ProjectStrip"),
-    import("./Stats"),
-    import("./Services"),
-    import("./TechExpertise"),
-    import("./WorkingPrinciples"),
-    import("./Availability"),
-    import("./Contact"),
-    import("./Showcase"),
-    import("./Clients"),
-  ]);
+  // Yalnızca hero — mid-fold LazyMount ile scroll’a bırakılır (TTI / long-task).
+  return Promise.allSettled([import("./HeroScene")]);
 }
 
 function waitForEvent(name: string, timeoutMs: number) {
@@ -74,7 +64,6 @@ export default function Intro() {
       const bootPromise = isHome
         ? warmHomeChunks()
         : Promise.allSettled([
-            import("./Showcase"),
             document.fonts?.ready ?? Promise.resolve(),
           ]);
 
@@ -121,6 +110,7 @@ export default function Intro() {
       };
 
       const finish = () => {
+        window.clearTimeout(watchdog);
         unlock();
         document.documentElement.dataset.intro = "skip";
         window.__lenis?.start();
@@ -128,6 +118,11 @@ export default function Intro() {
         setVisible(false);
         window.dispatchEvent(new Event("metek:intro-done"));
       };
+
+      // CSS failsafe (~7.2s) ile hizalı — timeline takılırsa kilit çözülsün
+      const watchdog = window.setTimeout(() => {
+        if (document.documentElement.dataset.intro === "play") finish();
+      }, 7600);
 
       /** Sayaç sonrası: font + chunk + (home) WebGL hazır olana kadar bekle */
       const waitUntilBooted = () =>
@@ -215,7 +210,7 @@ export default function Intro() {
           },
           0.2
         )
-        // Sayaç ortasında WebGL + mid-fold ısınması
+        // Sayaç ortasında WebGL ısınması
         .add(() => {
           if (isHome) {
             window.dispatchEvent(new Event("metek:hero-warm"));
@@ -261,6 +256,7 @@ export default function Intro() {
       );
 
       return () => {
+        window.clearTimeout(watchdog);
         tl.kill();
         unlock();
         document.documentElement.dataset.intro = "skip";

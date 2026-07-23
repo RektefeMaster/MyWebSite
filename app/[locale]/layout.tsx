@@ -41,8 +41,11 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-/** Perde kararı — ilk boyamadan önce html[data-intro] ayarlar (FOUC yok). */
-const introInitScript = `(function(){try{var r=document.documentElement;var q=location.search+location.hash;var play=q.indexOf("intro")>-1||(sessionStorage.getItem("metek-intro")!=="1"&&!matchMedia("(prefers-reduced-motion: reduce)").matches);r.setAttribute("data-intro",play?"play":"skip");}catch(e){document.documentElement.setAttribute("data-intro","skip");}})();`;
+/** Perde kararı — ilk boyamadan önce html[data-intro] ayarlar (FOUC yok).
+ *  `?intro=skip` atlar; `?intro` / `?intro=1` zorla oynatır (eski `indexOf("intro")`
+ *  `intro=skip`’i de play sanıyordu).
+ */
+const introInitScript = `(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var r=document.documentElement;var sp=new URLSearchParams(location.search);var iv=sp.get("intro");var forceSkip=iv==="skip"||iv==="0"||iv==="false";var forcePlay=!forceSkip&&(iv!==null||location.hash==="#intro");var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;var play=forceSkip?false:(forcePlay||(sessionStorage.getItem("metek-intro")!=="1"&&!reduce));r.setAttribute("data-intro",play?"play":"skip");if(play){setTimeout(function(){if(r.getAttribute("data-intro")==="play"){r.setAttribute("data-intro","skip");r.classList.remove("intro-lock");try{window.dispatchEvent(new Event("metek:intro-done"));}catch(e){}}},7800);}}catch(e){document.documentElement.setAttribute("data-intro","skip");}})();`;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

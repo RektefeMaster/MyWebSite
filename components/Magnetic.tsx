@@ -80,7 +80,9 @@ export default function Magnetic({
       onMouseMove={onMove}
       onMouseLeave={onLeave}
     >
-      <div ref={inner}>{children}</div>
+      <div ref={inner} className="h-full w-full">
+        {children}
+      </div>
     </div>
   );
 }

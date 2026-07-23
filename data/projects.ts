@@ -1,3 +1,5 @@
+export type ProjectLane = "web" | "systems" | "ai" | "lab";
+
 export type Project = {
   id: string;
   name: string;
@@ -9,6 +11,16 @@ export type Project = {
   desktopScrollImage?: string;
   /** Hover’da kaydırılan uzun mobil ekran görüntüsü */
   mobileScrollImage?: string;
+  /** /work ana grubu */
+  primaryLane: ProjectLane;
+  /** Filtre + capability eşlemesi */
+  lanes?: ProjectLane[];
+  /** Ana sayfa Selected Work */
+  featured?: boolean;
+  featuredOrder?: number;
+  year?: number;
+  /** Nadir full-bleed hint — layout bileşeni karar verir */
+  displayPreference?: "default" | "hero";
 };
 
 export const projects: Project[] = [
@@ -21,6 +33,10 @@ export const projects: Project[] = [
     mobileImage: "/projects/wcc/mobile.jpg",
     desktopScrollImage: "/projects/wcc/desktop-scroll.jpg",
     mobileScrollImage: "/projects/wcc/mobile-scroll.jpg",
+    primaryLane: "web",
+    lanes: ["web", "systems"],
+    year: 2026,
+    displayPreference: "hero",
   },
   {
     id: "aydnnacar",
@@ -31,6 +47,11 @@ export const projects: Project[] = [
     mobileImage: "/projects/aydnnacar/mobile.jpg",
     desktopScrollImage: "/projects/aydnnacar/desktop-scroll.jpg",
     mobileScrollImage: "/projects/aydnnacar/mobile-scroll.jpg",
+    primaryLane: "web",
+    lanes: ["web"],
+    featured: true,
+    featuredOrder: 1,
+    year: 2025,
   },
   {
     id: "wuffbutik",
@@ -41,6 +62,9 @@ export const projects: Project[] = [
     mobileImage: "/projects/wuffbutik/mobile-v3.jpg",
     desktopScrollImage: "/projects/wuffbutik/desktop-scroll-v4.jpg",
     mobileScrollImage: "/projects/wuffbutik/mobile-scroll-v4.jpg",
+    primaryLane: "web",
+    lanes: ["web"],
+    year: 2025,
   },
   {
     id: "altitude-residence",
@@ -51,6 +75,9 @@ export const projects: Project[] = [
     mobileImage: "/projects/altitude-residence/mobile.jpg",
     desktopScrollImage: "/projects/altitude-residence/desktop-scroll.jpg",
     mobileScrollImage: "/projects/altitude-residence/mobile-scroll.jpg",
+    primaryLane: "web",
+    lanes: ["web"],
+    year: 2025,
   },
   {
     id: "casa-aurelia",
@@ -61,6 +88,11 @@ export const projects: Project[] = [
     mobileImage: "/projects/casa-aurelia/mobile.jpg",
     desktopScrollImage: "/projects/casa-aurelia/desktop-scroll.jpg",
     mobileScrollImage: "/projects/casa-aurelia/mobile-scroll.jpg",
+    primaryLane: "web",
+    lanes: ["web"],
+    featured: true,
+    featuredOrder: 2,
+    year: 2025,
   },
   {
     id: "seraphine-atelier",
@@ -71,6 +103,9 @@ export const projects: Project[] = [
     mobileImage: "/projects/seraphine-atelier/mobile.jpg",
     desktopScrollImage: "/projects/seraphine-atelier/desktop-scroll.jpg",
     mobileScrollImage: "/projects/seraphine-atelier/mobile-scroll.jpg",
+    primaryLane: "web",
+    lanes: ["web"],
+    year: 2025,
   },
   {
     id: "havva-baklava",
@@ -81,6 +116,9 @@ export const projects: Project[] = [
     mobileImage: "/projects/havva-baklava/mobile-clear.jpg",
     desktopScrollImage: "/projects/havva-baklava/desktop-scroll.jpg",
     mobileScrollImage: "/projects/havva-baklava/mobile-scroll.jpg",
+    primaryLane: "web",
+    lanes: ["web"],
+    year: 2025,
   },
   {
     id: "mizan",
@@ -91,6 +129,9 @@ export const projects: Project[] = [
     mobileImage: "/projects/mizan/mobile.jpg",
     desktopScrollImage: "/projects/mizan/desktop-scroll.jpg",
     mobileScrollImage: "/projects/mizan/mobile-scroll.jpg",
+    primaryLane: "web",
+    lanes: ["web"],
+    year: 2025,
   },
   {
     id: "sahra-butik",
@@ -101,6 +142,9 @@ export const projects: Project[] = [
     mobileImage: "/projects/sahra-butik/mobile-v2.jpg",
     desktopScrollImage: "/projects/sahra-butik/desktop-scroll.jpg",
     mobileScrollImage: "/projects/sahra-butik/mobile-scroll.jpg",
+    primaryLane: "web",
+    lanes: ["web"],
+    year: 2025,
   },
   {
     id: "vela-skin-atelier",
@@ -111,6 +155,9 @@ export const projects: Project[] = [
     mobileImage: "/projects/vela-skin-atelier/mobile-v2.jpg",
     desktopScrollImage: "/projects/vela-skin-atelier/desktop-scroll-v2.jpg",
     mobileScrollImage: "/projects/vela-skin-atelier/mobile-scroll-v2.jpg",
+    primaryLane: "web",
+    lanes: ["web"],
+    year: 2025,
   },
   {
     id: "whatsapp-bot",
@@ -118,6 +165,11 @@ export const projects: Project[] = [
     colors: ["#0b141a", "#25D366"],
     desktopImage: "/projects/whatsapp-bot/desktop.jpg",
     mobileImage: "/projects/whatsapp-bot/mobile.jpg",
+    primaryLane: "ai",
+    lanes: ["ai", "systems"],
+    featured: true,
+    featuredOrder: 4,
+    year: 2025,
   },
   {
     id: "instagram-bot",
@@ -125,6 +177,9 @@ export const projects: Project[] = [
     colors: ["#111827", "#E1306C"],
     desktopImage: "/projects/instagram-bot/desktop.jpg",
     mobileImage: "/projects/instagram-bot/mobile.jpg",
+    primaryLane: "ai",
+    lanes: ["ai"],
+    year: 2025,
   },
   {
     id: "crm",
@@ -132,6 +187,11 @@ export const projects: Project[] = [
     colors: ["#0f172a", "#c8e84a"],
     desktopImage: "/projects/crm/desktop.jpg",
     mobileImage: "/projects/crm/mobile.jpg",
+    primaryLane: "systems",
+    lanes: ["systems", "ai"],
+    featured: true,
+    featuredOrder: 3,
+    year: 2025,
   },
   {
     id: "css-system",
@@ -139,9 +199,24 @@ export const projects: Project[] = [
     colors: ["#1c1917", "#a8a29e"],
     desktopImage: "/projects/css-system/desktop.jpg",
     mobileImage: "/projects/css-system/mobile.jpg",
+    primaryLane: "lab",
+    lanes: ["lab", "web"],
+    year: 2025,
   },
 ];
 
 export function getProjectById(id: string): Project | undefined {
   return projects.find((p) => p.id === id);
 }
+
+export function getFeaturedProjects(): Project[] {
+  return projects
+    .filter((p) => p.featured)
+    .sort((a, b) => (a.featuredOrder ?? 99) - (b.featuredOrder ?? 99));
+}
+
+export function getProjectsByPrimaryLane(lane: ProjectLane): Project[] {
+  return projects.filter((p) => p.primaryLane === lane);
+}
+
+export const PROJECT_LANES: ProjectLane[] = ["web", "systems", "ai", "lab"];

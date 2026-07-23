@@ -1,34 +1,21 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { flushSync } from "react-dom";
+import { useRef } from "react";
 import { useTranslations } from "next-intl";
-import { projects } from "@/data/projects";
+import {
+  PROJECT_LANES,
+  getProjectsByPrimaryLane,
+  type ProjectLane,
+} from "@/data/projects";
+import { editorialSpan } from "@/lib/editorial-layout";
 import ProjectCard from "./ProjectCard";
 import Reveal from "./Reveal";
-import WordReveal from "./WordReveal";
-import Magnetic from "./Magnetic";
-import SpecularButton from "./SpecularButton";
 import { gsap, useGSAP, attachScrollReveal } from "@/lib/gsap";
-import { scheduleScrollTriggerRefresh } from "@/lib/nav-scroll";
 
-/** Ana sayfa: canlı web siteleri (bot/CRM/CSS ürünlerinin üstünde) */
-const TEASER_COUNT = projects.findIndex((p) => !p.url);
-const FIRST_PRODUCT_INDEX = TEASER_COUNT;
-
-let flipRegistered = false;
-
-type ProjectsProps = {
-  /** teaser: ana sayfa vitrin (web siteleri + detaya link), full: /work detay */
-  variant?: "teaser" | "full";
-};
-
-export default function Projects({ variant = "full" }: ProjectsProps) {
+/** /work — primaryLane grupları + editorial grid */
+export default function Projects() {
   const t = useTranslations("projects");
-  const isTeaser = variant === "teaser";
-  const [visible, setVisible] = useState(
-    isTeaser ? Math.max(TEASER_COUNT, 0) : projects.length
-  );
+  const tLanes = useTranslations("workLanes");
   const gridRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -38,11 +25,15 @@ export default function Projects({ variant = "full" }: ProjectsProps) {
     const cards = grid.querySelectorAll("[data-project-item]");
     const mm = gsap.matchMedia();
 
+    mm.add("(prefers-reduced-motion: reduce)", () => {
+      gsap.set(cards, { clearProps: "all", opacity: 1, y: 0 });
+    });
+
     mm.add("(prefers-reduced-motion: no-preference)", () => {
       const tween = gsap.from(cards, {
         opacity: 0,
         y: 36,
-        stagger: 0.06,
+        stagger: 0.05,
         duration: 0.6,
         ease: "power2.out",
         force3D: true,
@@ -54,39 +45,6 @@ export default function Projects({ variant = "full" }: ProjectsProps) {
     return () => mm.revert();
   }, []);
 
-  async function loadMore() {
-    const grid = gridRef.current;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (!grid || reduced) {
-      setVisible(projects.length);
-      return;
-    }
-
-    const { Flip } = await import("gsap/Flip");
-    if (!flipRegistered) {
-      gsap.registerPlugin(Flip);
-      flipRegistered = true;
-    }
-
-    const state = Flip.getState(grid.querySelectorAll("[data-project-item]"));
-    flushSync(() => setVisible(projects.length));
-
-    Flip.from(state, {
-      duration: 0.75,
-      ease: "power3.inOut",
-      stagger: 0.04,
-      absolute: false,
-      onEnter: (els) =>
-        gsap.fromTo(
-          els,
-          { opacity: 0, y: 40, scale: 0.94 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.06 }
-        ),
-      onComplete: () => scheduleScrollTriggerRefresh(80),
-    });
-  }
-
   return (
     <section
       id="projects"
@@ -96,71 +54,57 @@ export default function Projects({ variant = "full" }: ProjectsProps) {
         <div className="mb-16 grid items-end gap-6 md:grid-cols-[1fr_1.2fr] md:gap-12">
           <div>
             <Reveal>
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
+              <p className="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
+                <span
+                  aria-hidden
+                  className="inline-block h-px w-6 bg-lime/80"
+                />
                 {t("label")}
               </p>
             </Reveal>
-            <WordReveal
-              text={t("title")}
-              className="text-6xl font-bold tracking-tight md:text-8xl"
-            />
+            <Reveal delay={40}>
+              <h2 className="font-display text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl">
+                {t("title")}
+              </h2>
+            </Reveal>
           </div>
-          <Reveal delay={120}>
+          <Reveal delay={80}>
             <p className="max-w-md text-sm leading-relaxed text-foreground/50 md:justify-self-end md:pb-2">
               {t("blurb")}
             </p>
           </Reveal>
         </div>
 
-        <div
-          ref={gridRef}
-          className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
-        >
-          {projects.slice(0, visible).map((project, index) => (
-            <div
-              key={project.id}
-              data-project-item
-              className={
-                index === FIRST_PRODUCT_INDEX
-                  ? "cv-card sm:col-start-1 lg:col-start-1"
-                  : "cv-card"
-              }
-            >
-              <ProjectCard project={project} />
-            </div>
-          ))}
+        <div ref={gridRef} className="space-y-16 md:space-y-24">
+          {PROJECT_LANES.map((lane: ProjectLane) => {
+            const items = getProjectsByPrimaryLane(lane);
+            if (items.length === 0) return null;
+            return (
+              <div key={lane}>
+                <Reveal>
+                  <h3 className="mb-8 flex items-center gap-3 font-mono text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
+                    <span
+                      aria-hidden
+                      className="inline-block h-px w-6 bg-lime/80"
+                    />
+                    {tLanes(lane)}
+                  </h3>
+                </Reveal>
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-12 md:gap-6">
+                  {items.map((project, i) => (
+                    <div
+                      key={project.id}
+                      data-project-item
+                      className={`cv-card min-w-0 ${editorialSpan(i, project.displayPreference)}`}
+                    >
+                      <ProjectCard project={project} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
-
-        {isTeaser ? (
-          <div className="mt-12 flex justify-center">
-            <Magnetic strength={0.35}>
-              <SpecularButton
-                href="/work"
-                tone="ink"
-                size="md"
-                className="btn-stable btn-stable--chip"
-              >
-                {t("seeCase")}
-              </SpecularButton>
-            </Magnetic>
-          </div>
-        ) : (
-          visible < projects.length && (
-            <div className="mt-12 flex justify-center">
-              <Magnetic strength={0.35}>
-                <SpecularButton
-                  type="button"
-                  tone="lime"
-                  size="md"
-                  onClick={loadMore}
-                  className="btn-stable btn-stable--chip"
-                >
-                  {t("loadMore")}
-                </SpecularButton>
-              </Magnetic>
-            </div>
-          )
-        )}
       </div>
     </section>
   );

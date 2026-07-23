@@ -8,8 +8,6 @@ import SpecularButton from "./SpecularButton";
 type PageCtaProps = {
   label: string;
   title: string;
-  /** Kept for call sites; cycling typewriter removed. */
-  titles?: string[];
   blurb: string;
   cta: string;
 };

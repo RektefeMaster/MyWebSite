@@ -44,21 +44,44 @@ export function navOffsetPx(): number {
   return shell?.getBoundingClientRect().height ?? 120;
 }
 
+/** CSS --nav-offset’u gerçek shell yüksekliğine bağla (hash scroll + hero pt) */
+export function attachNavOffsetSync(shell: HTMLElement): () => void {
+  const sync = () => {
+    const h = Math.ceil(shell.getBoundingClientRect().height);
+    if (h > 0) {
+      document.documentElement.style.setProperty("--nav-offset", `${h}px`);
+    }
+  };
+  sync();
+  const ro = new ResizeObserver(sync);
+  ro.observe(shell);
+  window.addEventListener("orientationchange", sync);
+  return () => {
+    ro.disconnect();
+    window.removeEventListener("orientationchange", sync);
+  };
+}
+
 export function scrollWindowTo(
   top: number,
   opts?: { immediate?: boolean; duration?: number }
 ): void {
+  const y = Math.max(0, top);
   const lenis = window.__lenis;
   const immediate = opts?.immediate ?? true;
   if (lenis) {
-    lenis.scrollTo(top, {
+    // stop() iken Lenis scrollTo no-op olabiliyor — native ile de kilitle
+    lenis.scrollTo(y, {
       immediate,
       duration: immediate ? 0 : (opts?.duration ?? 0.9),
     });
+    if (immediate) {
+      window.scrollTo({ top: y, left: 0, behavior: "auto" });
+    }
     return;
   }
   window.scrollTo({
-    top: Math.max(0, top),
+    top: y,
     left: 0,
     behavior: immediate ? "auto" : "smooth",
   });
@@ -85,6 +108,13 @@ export function scrollToElement(
       immediate,
       duration: immediate ? 0 : (opts?.duration ?? 1.05),
     });
+    if (immediate) {
+      const top =
+        (el as HTMLElement).getBoundingClientRect().top +
+        window.scrollY -
+        offset;
+      window.scrollTo({ top: Math.max(0, top), left: 0, behavior: "auto" });
+    }
     return;
   }
 

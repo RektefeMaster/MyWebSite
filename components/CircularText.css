@@ -1,5 +1,7 @@
 .circular-text {
   --circular-r: 3.85rem;
+  --circular-spin: 20s;
+  --circular-rate: 1;
   position: relative;
   margin: 0;
   width: 9.5rem;
@@ -8,10 +10,41 @@
   font-weight: 700;
   color: currentColor;
   text-align: center;
-  cursor: pointer;
+  cursor: inherit;
   transform-origin: 50% 50%;
   -webkit-transform-origin: 50% 50%;
   user-select: none;
+  animation: circular-spin calc(var(--circular-spin) / var(--circular-rate))
+    linear infinite;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .circular-text:hover {
+    will-change: transform;
+  }
+}
+
+.circular-text[data-hover="slowDown"]:hover {
+  --circular-rate: 0.5;
+}
+
+.circular-text[data-hover="speedUp"]:hover {
+  --circular-rate: 4;
+}
+
+.circular-text[data-hover="pause"]:hover {
+  animation-play-state: paused;
+}
+
+.circular-text[data-hover="goBonkers"]:hover {
+  --circular-rate: 20;
+  scale: 0.8;
+}
+
+@keyframes circular-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (min-width: 768px) {
@@ -46,5 +79,7 @@
 @media (prefers-reduced-motion: reduce) {
   .circular-text {
     cursor: default;
+    animation: none;
+    will-change: auto;
   }
 }

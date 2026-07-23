@@ -142,18 +142,47 @@ export default function SmoothScroll({
 
       // Aynı sayfa hash: Lenis/native offset ile biz kaydır
       if (hash && isSameDocumentHashLink(href, hash)) {
-        const el = document.querySelector(hash);
-        if (!el) return;
         e.preventDefault();
-        bumpNavGeneration();
+        const gen = bumpNavGeneration();
         if (
           `${window.location.pathname}${window.location.hash}` !==
           `${window.location.pathname}${hash}`
         ) {
           window.history.pushState(null, "", hash);
         }
-        scrollToHash(hash, !reducedRef.current);
-        scheduleScrollTriggerRefresh(180);
+        // pushState hashchange ateşlemez — lastKey + dinleyiciler (FinalCta) sync
+        lastKey.current = `${stripLocalePrefix(window.location.pathname)}${hash}`;
+        // LazyMount (#work) — henüz mount olmamışsa reveal + poll
+        window.dispatchEvent(new Event("metek:lazy-reveal"));
+
+        const settle = (smooth: boolean) => {
+          const el = document.querySelector(hash);
+          if (!el) return false;
+          (el as HTMLElement).style.contentVisibility = "visible";
+          scrollToElement(el, {
+            immediate: !smooth,
+            duration: smooth ? 0.9 : 0,
+          });
+          return true;
+        };
+
+        // 1) Anında hizala (lazy yükseklik değişmeden önce / hedef hazırsa)
+        settle(false);
+        // 2) Mount + layout sonrası tekrar (içerik açılınca offset kaymasın)
+        let tries = 0;
+        const poll = window.setInterval(() => {
+          if (!isCurrentNavGeneration(gen)) {
+            window.clearInterval(poll);
+            return;
+          }
+          tries += 1;
+          settle(false);
+          if (tries >= 12) {
+            window.clearInterval(poll);
+            settle(false);
+            scheduleScrollTriggerRefresh(120);
+          }
+        }, 50);
         return;
       }
 
@@ -182,6 +211,8 @@ export default function SmoothScroll({
         e.preventDefault();
         bumpNavGeneration();
         window.history.pushState(null, "", current);
+        lastKey.current = stripLocalePrefix(window.location.pathname);
+        window.dispatchEvent(new Event("metek:lazy-reveal"));
         pauseLenis();
         scrollWindowTop(true);
         resumeLenis();
@@ -237,8 +268,20 @@ export default function SmoothScroll({
           );
           window.addEventListener("load", onLoad);
 
-          if (window.location.hash) {
-            scrollToHash(window.location.hash, false);
+          // Lenis geç mount olunca mevcut hash’i yeniden hizala (LazyMount settle)
+          if (window.location.hash && window.location.hash !== "#") {
+            window.dispatchEvent(new Event("metek:lazy-reveal"));
+            const hash = window.location.hash;
+            let n = 0;
+            const realign = window.setInterval(() => {
+              n += 1;
+              const el = document.querySelector(hash);
+              if (el) {
+                (el as HTMLElement).style.contentVisibility = "visible";
+                scrollToElement(el, { immediate: true });
+              }
+              if (n >= 10) window.clearInterval(realign);
+            }, 50);
           }
         } catch {
           lenisRef.current = null;
@@ -268,21 +311,23 @@ export default function SmoothScroll({
 
   // Rota + hash settle — yalnızca son generation çalışır
   useEffect(() => {
-    const key = `${pathWithoutLocale(pathname)}${typeof window !== "undefined" ? window.location.hash : ""}`;
+    const hash =
+      typeof window !== "undefined" ? window.location.hash : "";
+    const key = `${pathWithoutLocale(pathname)}${hash}`;
 
     if (pathBoot.current) {
       pathBoot.current = false;
       lastKey.current = key;
+      // İlk yüklemede hash yoksa Lenis init yeter; hash varsa LazyMount poll şart
+      if (!hash || hash === "#") return;
+    } else if (lastKey.current === key) {
+      // Aynı key’e tekrar (StrictMode vs.) → no-op
       return;
+    } else {
+      lastKey.current = key;
     }
 
-    // Aynı key’e tekrar (StrictMode vs.) → no-op
-    if (lastKey.current === key) return;
-    lastKey.current = key;
-
     const gen = bumpNavGeneration();
-    const hash =
-      typeof window !== "undefined" ? window.location.hash : "";
     const timers: number[] = [];
 
     pauseLenis();
@@ -313,47 +358,46 @@ export default function SmoothScroll({
       };
     }
 
-    // Hash hedefi (ör. #contact) — lazy fold için poll
+    // Hash hedefi — LazyMount / dynamic yükseklik için tekrarlı settle
+    window.dispatchEvent(new Event("metek:lazy-reveal"));
     let tries = 0;
-    const maxTries = 24; // ~1.4s @ 60ms
+    const maxTries = 28;
+    let lastH = -1;
+    let stable = 0;
     const run = () => {
       if (!isCurrentNavGeneration(gen)) return true;
       const el = document.querySelector(hash);
       if (!el) return false;
-      // cv-auto ölçüm sapmasını azalt
       (el as HTMLElement).style.contentVisibility = "visible";
+      const h = (el as HTMLElement).offsetHeight;
       scrollToElement(el, { immediate: true });
-      return true;
+      if (h > 80 && Math.abs(h - lastH) < 2) {
+        stable += 1;
+      } else {
+        stable = 0;
+      }
+      lastH = h;
+      return stable >= 2;
     };
 
-    if (!run()) {
-      const poll = window.setInterval(() => {
-        tries += 1;
-        if (run() || tries >= maxTries || !isCurrentNavGeneration(gen)) {
-          window.clearInterval(poll);
-          if (isCurrentNavGeneration(gen)) {
-            timers.push(window.setTimeout(finish, 80));
-          }
-        }
-      }, 60);
-      timers.push(poll as unknown as number);
-    } else {
-      timers.push(
-        window.setTimeout(() => {
-          if (!isCurrentNavGeneration(gen)) return;
+    const poll = window.setInterval(() => {
+      tries += 1;
+      if (run() || tries >= maxTries || !isCurrentNavGeneration(gen)) {
+        window.clearInterval(poll);
+        if (isCurrentNavGeneration(gen)) {
           run();
-          finish();
-        }, 200)
-      );
-    }
+          timers.push(window.setTimeout(finish, 80));
+        }
+      }
+    }, 50);
+    timers.push(poll as unknown as number);
 
-    // Güvenlik: poll asılı kalmasın
     timers.push(
       window.setTimeout(() => {
         if (!isCurrentNavGeneration(gen)) return;
         run();
         finish();
-      }, 1600)
+      }, 1800)
     );
 
     return () => {
@@ -368,13 +412,27 @@ export default function SmoothScroll({
   useEffect(() => {
     let pollId = 0;
 
-    const onHash = () => {
+    const settleHash = (e?: Event) => {
       const key = `${pathWithoutLocale(pathname)}${window.location.hash}`;
-      if (lastKey.current === key) return;
+      const hash = window.location.hash;
+      const same = lastKey.current === key;
+
+      // Geri tuşu: key aynı görünse bile (edge) tepeye kilitle
+      if (same) {
+        if (
+          e?.type === "popstate" &&
+          (!hash || hash === "#") &&
+          window.scrollY > 8
+        ) {
+          pauseLenis();
+          scrollWindowTop(true);
+          resumeLenis();
+        }
+        return;
+      }
       lastKey.current = key;
 
       const gen = bumpNavGeneration();
-      const hash = window.location.hash;
       window.clearInterval(pollId);
 
       if (!hash || hash === "#") {
@@ -386,7 +444,10 @@ export default function SmoothScroll({
       }
 
       pauseLenis();
+      window.dispatchEvent(new Event("metek:lazy-reveal"));
       let tries = 0;
+      let lastH = -1;
+      let stable = 0;
       pollId = window.setInterval(() => {
         if (!isCurrentNavGeneration(gen)) {
           window.clearInterval(pollId);
@@ -396,22 +457,33 @@ export default function SmoothScroll({
         tries += 1;
         if (el) {
           (el as HTMLElement).style.contentVisibility = "visible";
+          const h = (el as HTMLElement).offsetHeight;
           scrollToElement(el, { immediate: true });
-          window.clearInterval(pollId);
-          resumeLenis();
-          scheduleScrollTriggerRefresh(160);
+          if (h > 80 && Math.abs(h - lastH) < 2) stable += 1;
+          else stable = 0;
+          lastH = h;
+          if (stable >= 2 || tries >= 28) {
+            window.clearInterval(pollId);
+            resumeLenis();
+            scheduleScrollTriggerRefresh(160);
+          }
           return;
         }
-        if (tries >= 24) {
+        if (tries >= 28) {
           window.clearInterval(pollId);
           resumeLenis();
         }
-      }, 60);
+      }, 50);
     };
 
-    window.addEventListener("hashchange", onHash);
+    window.addEventListener("hashchange", settleHash);
+    window.addEventListener("popstate", settleHash);
+    // Locale restore / pushState sonrası (hashchange yok) — lastKey sync + settle
+    window.addEventListener("metek:lazy-reveal", settleHash);
     return () => {
-      window.removeEventListener("hashchange", onHash);
+      window.removeEventListener("hashchange", settleHash);
+      window.removeEventListener("popstate", settleHash);
+      window.removeEventListener("metek:lazy-reveal", settleHash);
       window.clearInterval(pollId);
     };
   }, [pathname]);

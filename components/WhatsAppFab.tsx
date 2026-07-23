@@ -2,27 +2,48 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
+import { usePathname } from "@/i18n/navigation";
 import { whatsappHref } from "@/lib/site";
 
-/** Mobilde sabit WhatsApp erişimi — #contact görünürken gizlenir (çift CTA yok) */
+/**
+ * Mobil sabit WhatsApp — yalnızca aktif ana sayfa hero + #contact
+ * görünürken gizlenir. Park edilmiş keep-alive hero IO’ya girmez.
+ */
 export default function WhatsAppFab() {
   const t = useTranslations("whatsapp");
+  const pathname = usePathname();
   const href = whatsappHref(t("prefill"));
   const [hidden, setHidden] = useState(false);
+  const onHome = pathname === "/";
 
   useEffect(() => {
     const contact = document.getElementById("contact");
-    if (!contact) return;
+    const home =
+      onHome
+        ? (document.querySelector(
+            "#home-hero-keepalive:not([data-parked]) #home, section#home"
+          ) as HTMLElement | null)
+        : null;
+    const targets = [home, contact].filter(Boolean) as HTMLElement[];
+    if (targets.length === 0) {
+      setHidden(false);
+      return;
+    }
 
+    const visible = new Set<Element>();
     const io = new IntersectionObserver(
-      ([entry]) => {
-        setHidden(Boolean(entry?.isIntersecting));
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) visible.add(entry.target);
+          else visible.delete(entry.target);
+        }
+        setHidden(visible.size > 0);
       },
-      { root: null, threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      { root: null, threshold: 0.08, rootMargin: "0px 0px -6% 0px" }
     );
-    io.observe(contact);
+    for (const el of targets) io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [onHome]);
 
   return (
     <a
@@ -32,14 +53,15 @@ export default function WhatsAppFab() {
       aria-label={t("label")}
       aria-hidden={hidden || undefined}
       tabIndex={hidden ? -1 : undefined}
-      className={`wa-fab btn-stable fixed z-[90] inline-flex items-center gap-2 rounded-full bg-[#25D366] px-3.5 py-3 text-[13px] font-bold text-white shadow-[0_12px_32px_-8px_rgba(37,211,102,0.65)] transition-all duration-300 lg:hidden ${
+      inert={hidden ? true : undefined}
+      className={`wa-fab btn-stable fixed z-[90] inline-flex min-h-11 items-center gap-2 rounded-full bg-[#25D366] px-3.5 py-3 text-[13px] font-bold text-white shadow-[0_12px_32px_-8px_rgba(37,211,102,0.65)] transition-all duration-300 md:hidden ${
         hidden
           ? "pointer-events-none translate-y-3 opacity-0"
-          : "min-w-[6.5rem] opacity-100"
+          : "opacity-100"
       }`}
     >
       <WhatsAppIcon className="size-5 shrink-0" />
-      <span>{t("cta")}</span>
+      <span>{t("fab")}</span>
     </a>
   );
 }

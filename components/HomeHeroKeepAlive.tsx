@@ -28,7 +28,10 @@ export default function HomeHeroKeepAlive() {
   return (
     <div
       id="home-hero-keepalive"
+      data-parked={onHome ? undefined : "true"}
       aria-hidden={!onHome}
+      // Park’ta Tab odağı / hayalet tıklama — aria-hidden yetmez
+      inert={!onHome ? true : undefined}
       className={
         onHome
           ? "relative"

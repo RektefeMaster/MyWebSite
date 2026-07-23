@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { preload } from "react-dom";
+import { Link } from "@/i18n/navigation";
 import Magnetic from "./Magnetic";
 import SpecularButton from "./SpecularButton";
 import { gsap, useGSAP } from "@/lib/gsap";
@@ -37,15 +37,9 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
   const locale = useLocale();
   const sectionRef = useRef<HTMLElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
-  const cueRef = useRef<HTMLAnchorElement>(null);
-  /** Parked iken sahne kapalı; görünürken IntersectionObserver yönetir */
   const [inView, setInView] = useState(true);
   const sceneActive = !parked && inView;
   const mountedAt = useRef(0);
-  /**
-   * Intro oynarken WebGL'i ertele (GPU yarışı yok).
-   * data-intro / warm event / failsafe ile mount.
-   */
   const introSkip = useSyncExternalStore(
     subscribeIntroSkip,
     getIntroSkip,
@@ -53,13 +47,6 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
   );
   const [warmMount, setWarmMount] = useState(false);
   const sceneMounted = introSkip || warmMount;
-
-  // 3D başlık — tam Türkçe glif desteği
-  preload("/fonts/SpaceGrotesk-Bold.ttf", {
-    as: "font",
-    type: "font/ttf",
-    crossOrigin: "anonymous",
-  });
 
   useEffect(() => {
     if (introSkip || warmMount) return;
@@ -75,7 +62,6 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
   useEffect(() => {
     if (parked) return;
 
-    // Park'tan dönüş: bir sonraki frame'de aktif — IO gecikmesi boş frame üretmesin
     const resume = requestAnimationFrame(() => {
       mountedAt.current = performance.now();
       setInView(true);
@@ -86,8 +72,8 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
       return () => cancelAnimationFrame(resume);
     }
 
-    // Soft-nav'da scroll henüz tepeye gelmeden IO "görünmüyor" deyip frameloop'u
-    // kesmesin — ilk ~900ms grace ile active=true koru.
+    // Mobil: sahne görüş dışına çıkınca hemen uyu (GPU). Desktop: soft-nav payı.
+    const coarse = window.matchMedia("(pointer: coarse)").matches;
     const io = new IntersectionObserver(
       ([entry]) => {
         if (!entry) return;
@@ -98,7 +84,10 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
         }
         setInView(entry.isIntersecting);
       },
-      { rootMargin: "25% 0px", threshold: 0.01 }
+      {
+        rootMargin: coarse ? "0px 0px -10% 0px" : "25% 0px",
+        threshold: 0.01,
+      }
     );
     io.observe(el);
     return () => {
@@ -110,21 +99,18 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
   useGSAP(
     () => {
       const copy = copyRef.current;
-      const cue = cueRef.current;
       if (!copy) return;
 
       const nodes = copy.querySelectorAll<HTMLElement>("[data-hero-fade]");
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: reduce)", () => {
-        gsap.set([nodes, cue].filter(Boolean), {
+        gsap.set(nodes, {
           clearProps: "all",
           opacity: 1,
           y: 0,
         });
       });
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        // Soft-nav / dönen ziyaretçi: giriş animasyonu YOK — anında görünür
-        // (aksi halde 0.55–0.95s boş CTA/blurb + “header boş” hissi).
         const softReturn =
           document.documentElement.dataset.intro === "skip";
         const alreadyShown = [...nodes].some(
@@ -132,9 +118,6 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
         );
         if (softReturn || alreadyShown) {
           gsap.set(nodes, { clearProps: "opacity,transform", opacity: 1, y: 0 });
-          if (cue) {
-            gsap.set(cue, { clearProps: "opacity,transform", opacity: 1, y: 0 });
-          }
           return;
         }
         gsap.fromTo(
@@ -145,7 +128,7 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
             y: 0,
             duration: 0.55,
             stagger: 0.07,
-            delay: 0.55,
+            delay: 0.35,
             ease: "power2.out",
             overwrite: true,
             onComplete: () => {
@@ -153,23 +136,6 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
             },
           }
         );
-        if (cue) {
-          gsap.fromTo(
-            cue,
-            { opacity: 0, y: 12 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.55,
-              delay: 0.95,
-              ease: "power2.out",
-              overwrite: true,
-              onComplete: () => {
-                gsap.set(cue, { clearProps: "opacity,transform" });
-              },
-            }
-          );
-        }
       });
 
       return () => mm.revert();
@@ -177,51 +143,18 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
     { scope: sectionRef, dependencies: [locale] }
   );
 
-  // Scroll cue bob — yalnızca hero görünürken ve fine pointer'da
-  useEffect(() => {
-    const cue = cueRef.current;
-    if (!cue) return;
-
-    if (!sceneActive) {
-      gsap.killTweensOf(cue);
-      gsap.set(cue, { y: 0 });
-      return;
-    }
-
-    const mm = gsap.matchMedia();
-    mm.add(
-      "(prefers-reduced-motion: no-preference) and (pointer: fine)",
-      () => {
-        const bob = gsap.to(cue, {
-          y: 6,
-          duration: 1.35,
-          ease: "sine.inOut",
-          yoyo: true,
-          repeat: -1,
-          delay: 1.5,
-        });
-        return () => bob.kill();
-      }
-    );
-    return () => mm.revert();
-  }, [sceneActive]);
-
   return (
     <section
       ref={sectionRef}
-      id="home"
-      className="relative h-[100svh] max-h-[1100px] min-h-[560px] overflow-hidden bg-gradient-to-b from-[#f5f5f5] via-[#dedede] to-[#c6c6c6] dark:from-[#1c1b18] dark:via-[#141311] dark:to-[#0c0b0a]"
+      id={parked ? undefined : "home"}
+      className="hero-section relative flex h-[100svh] max-h-[1100px] min-h-[560px] flex-col overflow-x-clip overflow-y-hidden bg-gradient-to-b from-[#f5f5f5] via-[#dedede] to-[#c6c6c6] dark:from-[#1c1b18] dark:via-[#141311] dark:to-[#0c0b0a]"
     >
       {sceneMounted ? (
-        <HeroScene
-          lines={[t("line1"), t("line2"), t("line3")]}
-          active={sceneActive}
-        />
+        <HeroScene active={sceneActive} />
       ) : (
         <div className="absolute inset-0 bg-gradient-to-b from-[#f5f5f5] via-[#dedede] to-[#c6c6c6] dark:from-[#1c1b18] dark:via-[#141311] dark:to-[#0c0b0a]" />
       )}
 
-      {/* Sinematik atmosfer — canvas üstünde, metnin altında */}
       <div
         aria-hidden
         data-atmosphere-idle={!sceneActive}
@@ -232,74 +165,86 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
         <div className="hero-grain" />
       </div>
 
-      {/* Üst-sol: stüdyo künyesi — mobilde de görünür (profesyonellik) */}
-      <div
-        data-hero-fade
-        className="pointer-events-none absolute left-5 top-[calc(var(--nav-offset)+0.65rem)] z-10 text-[10px] font-semibold uppercase leading-relaxed tracking-[0.16em] text-ink/45 sm:text-[11px] md:left-16 md:top-[calc(var(--nav-offset)+1rem)] md:tracking-[0.18em]"
-      >
-        <span className="text-lime">●</span> {t("metaStudio")}
-        <br />
-        {t("metaLocation")}
-      </div>
-
-      {/* Alt-sağ: kısa vaat + CTA */}
+      {/*
+        Mobil: flex kolon — başlık her zaman nav altında, SE’de overlap yok.
+        Desktop: absolute başlık (mevcut kompozisyon).
+      */}
       <div
         ref={copyRef}
-        className="pointer-events-none absolute bottom-[max(5rem,calc(3.5rem+var(--safe-bottom)))] right-5 z-10 w-[min(22rem,calc(100%-2.5rem))] md:bottom-24 md:right-12 md:w-[min(24rem,42vw)] lg:right-16"
+        className="relative z-[2] flex min-h-0 flex-1 flex-col pt-[calc(var(--nav-offset)+0.35rem)] md:contents"
       >
-        <div className="flex flex-col items-end text-right">
-          <p
-            data-hero-fade
-            className="font-subtitle text-[13px] leading-relaxed text-ink/55 md:text-sm"
+        <div
+          data-hero-fade
+          className="pointer-events-none absolute left-5 top-[calc(var(--nav-offset)+0.35rem)] z-10 hidden text-[10px] font-semibold uppercase leading-relaxed tracking-[0.16em] text-ink/50 sm:block sm:text-[11px] md:left-16 md:top-[calc(var(--nav-offset)+0.75rem)] md:tracking-[0.18em]"
+        >
+          <span className="text-lime">●</span> {t("metaStudio")}
+          <br />
+          {t("metaLocation")}
+        </div>
+
+        <div
+          data-hero-fade
+          className="flex min-h-0 flex-1 items-center justify-center px-5 md:pointer-events-none md:absolute md:inset-x-12 md:top-[34%] md:-translate-y-1/2 md:flex-none lg:inset-x-16"
+        >
+          <h1
+            aria-label={`${t("line1")} ${t("line2")} ${t("line3")}`}
+            className="mx-auto max-w-5xl text-center font-display text-[clamp(2.1rem,7.2vw,5.75rem)] font-bold leading-[0.95] tracking-[-0.03em] text-ink [text-shadow:0_1px_24px_rgba(245,245,245,0.55)] dark:[text-shadow:0_1px_28px_rgba(0,0,0,0.45)] max-[390px]:text-[clamp(1.95rem,7vw,2.6rem)]"
           >
-            {t("blurb")}
-          </p>
-          <div
-            data-hero-fade
-            className="pointer-events-auto mt-4 flex w-full flex-col items-stretch gap-2 sm:w-auto sm:flex-row sm:items-center sm:justify-end sm:gap-2.5"
-          >
-            <Magnetic strength={0.2} className="w-full sm:w-auto">
-              <SpecularButton
-                href="/work"
-                tone="ink"
-                size="md"
-                fillMobile
-                className="btn-stable btn-stable--hero group"
+            <span className="block" aria-hidden>
+              {t("line1")}
+            </span>
+            <span className="block" aria-hidden>
+              {t("line2")}
+            </span>
+            <span className="block" aria-hidden>
+              {t("line3")}
+            </span>
+          </h1>
+        </div>
+
+        <div className="pointer-events-none shrink-0 px-5 pb-[max(1rem,calc(0.5rem+var(--safe-bottom)))] md:absolute md:inset-x-12 md:bottom-10 md:px-0 lg:inset-x-16">
+          <div className="mx-auto flex max-w-7xl flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-10">
+            <div data-hero-fade className="max-w-md">
+              <p className="text-[14px] leading-relaxed text-ink/65 md:text-[15px]">
+                {t("blurb")}
+              </p>
+              <p className="mt-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-ink/40 md:mt-3">
+                <span
+                  className="mr-1.5 inline-block size-1.5 rounded-full bg-lime"
+                  aria-hidden
+                />
+                {t("availability")}
+              </p>
+            </div>
+            <div
+              data-hero-fade
+              className={`flex w-full flex-col items-stretch gap-2.5 sm:w-auto sm:flex-row sm:items-center sm:justify-end sm:gap-3 ${
+                parked ? "pointer-events-none" : "pointer-events-auto"
+              }`}
+            >
+              <Magnetic strength={0.18} className="w-full sm:w-auto">
+                <SpecularButton
+                  href={{ pathname: "/", hash: "contact" }}
+                  tone="lime"
+                  size="md"
+                  fillMobile
+                  className="btn-stable btn-stable--hero"
+                >
+                  {t("ctaContact")}
+                </SpecularButton>
+              </Magnetic>
+              <Link
+                href={{ pathname: "/", hash: "work" }}
+                scroll={false}
+                className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full border border-ink/20 bg-paper/90 px-5 text-sm font-semibold text-ink/80 transition-colors hover:border-ink/35 hover:text-ink sm:min-h-10 md:bg-paper/70 md:backdrop-blur-sm"
               >
                 {t("ctaWork")}
-                <span
-                  aria-hidden
-                  className="transition-transform duration-300 [@media(hover:hover)_and_(pointer:fine)]:group-hover:translate-x-1"
-                >
-                  →
-                </span>
-              </SpecularButton>
-            </Magnetic>
-            <Magnetic strength={0.18} className="w-full sm:w-auto">
-              <SpecularButton
-                href={{ pathname: "/", hash: "contact" }}
-                tone="lime"
-                size="md"
-                fillMobile
-                className="btn-stable btn-stable--hero"
-              >
-                {t("ctaContact")}
-              </SpecularButton>
-            </Magnetic>
+                <span aria-hidden>↘</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-
-      <a
-        ref={cueRef}
-        href="#projects"
-        className="absolute bottom-[max(1.25rem,calc(0.75rem+var(--safe-bottom)))] left-5 z-10 inline-flex min-h-10 items-center gap-1.5 rounded-full bg-ink/5 px-3.5 py-2 text-xs font-semibold text-ink/70 backdrop-blur-sm transition-colors touch-manipulation hover:bg-ink/10 hover:text-ink md:bottom-8 md:left-16 md:min-h-0 md:bg-transparent md:px-0 md:py-0 md:text-sm md:font-medium md:text-lime md:backdrop-blur-none"
-      >
-        {t("scroll")}
-        <span aria-hidden className="md:ml-0.5">
-          ↓
-        </span>
-      </a>
     </section>
   );
 }

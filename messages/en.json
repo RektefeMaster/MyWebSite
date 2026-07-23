@@ -7,14 +7,16 @@
     "about": "About",
     "home": "Home",
     "manifesto": "Manifesto",
+    "studio": "Studio",
     "work": "Work",
     "approach": "Approach",
     "services": "Services",
     "blog": "Blog",
+    "notes": "Notes",
     "projects": "Projects",
     "contact": "Contact",
-    "bookMeeting": "Start my project",
-    "cta": "Start my project",
+    "bookMeeting": "Start a project",
+    "cta": "Start a project",
     "ctaShort": "Start"
   },
   "pages": {
@@ -76,7 +78,7 @@
   },
   "blog": {
     "view": "Read note",
-    "teaserLabel": "Blog",
+    "teaserLabel": "Notes",
     "teaserTitle": "Selected notes.",
     "teaserBlurb": "Notes on web, software, and digital products.",
     "teaserAll": "See all notes",
@@ -94,39 +96,6 @@
       "strategy": "Strategy"
     },
     "author": "Nurullah Aydın"
-  },
-  "showcase": {
-    "label": "Index",
-    "title": "Areas of focus.",
-    "blurb": "Manifesto, work, method, services, and blog.",
-    "view": "Open page",
-    "cards": {
-      "manifesto": {
-        "label": "Manifesto",
-        "title": "Identity first",
-        "body": "The brand thesis and the foundation of the visual system."
-      },
-      "work": {
-        "label": "Work",
-        "title": "Selected work",
-        "body": "Selected web and software projects."
-      },
-      "approach": {
-        "label": "Approach",
-        "title": "Method",
-        "body": "Principles, process, and delivery model."
-      },
-      "services": {
-        "label": "Services",
-        "title": "Services",
-        "body": "Web, software, automation, and AI."
-      },
-      "blog": {
-        "label": "Blog",
-        "title": "Notes and perspectives",
-        "body": "Selected notes signed by Nurullah Aydın."
-      }
-    }
   },
   "marquee": {
     "items": [
@@ -158,7 +127,11 @@
       "Faster mobile paths to product and contact.",
       "Content, media, and SEO in one panel."
     ],
-    "cta": "See the work",
+    "cta": "View full case study",
+    "shotHero": "Wholesale Cabinet Creations — homepage",
+    "shotKitchen": "Wholesale Cabinet Creations — kitchen cabinets",
+    "shotProjects": "Wholesale Cabinet Creations — project gallery",
+    "shotBrands": "Wholesale Cabinet Creations — brands",
     "sceneLabel": "Outcome",
     "sceneTitle": "Factory quality, readable online.",
     "sceneBody": "Performance, SEO, and content management in one system."
@@ -185,31 +158,118 @@
       }
     ]
   },
-  "availability": {
-    "badge": "Availability",
-    "title": "Open for a few new projects",
-    "blurb": "Roster stays small so each brief gets real attention.",
-    "slots": "2 openings for August 2026",
-    "cta": "Start my project"
-  },
   "hero": {
     "line1": "From idea",
     "line2": "to working",
     "line3": "product.",
     "blurb": "Websites, panels, and tools for brands that need the work to hold up. Not just look finished.",
-    "ctaWork": "See the work",
-    "ctaContact": "Start my project",
+    "ctaWork": "View selected work",
+    "ctaContact": "Start a project",
     "scroll": "See projects",
     "metaStudio": "Design & software studio",
-    "metaLocation": "Malatya · Worldwide"
+    "metaLocation": "Malatya · Worldwide",
+    "availability": "Open for a few new projects"
+  },
+  "selectedWork": {
+    "label": "Selected work",
+    "title": "Proof in production.",
+    "blurb": "Four shipped pieces across experiences, systems, and automation.",
+    "viewAll": "View all work"
+  },
+  "capabilities": {
+    "label": "Capabilities",
+    "title": "What we build.",
+    "blurb": "Sites that convert, systems teams use daily, and automation that carries real operational load.",
+    "cta": "Explore capabilities",
+    "techLine": "Design-led · Technically rigorous · Built for production",
+    "items": {
+      "experiences": {
+        "title": "Digital Experiences",
+        "summary": "Brand sites, commerce, and editorial surfaces",
+        "visual": "Experience",
+        "body": "Digital surfaces that carry brand character and convert — without reading as a template.",
+        "outcomes": [
+          "Brand sites with a clear path to contact or book",
+          "Commerce flows without template noise",
+          "Scroll-paced editorial experiences"
+        ]
+      },
+      "systems": {
+        "title": "Software Systems",
+        "summary": "Admin panels, CRM, and product UIs",
+        "visual": "Panel · CRM",
+        "body": "Internal tools and product surfaces built for daily use — clear architecture, steady delivery.",
+        "outcomes": [
+          "Panels operators can run without training theatre",
+          "CRM and lead flows that stay in sync",
+          "Web and mobile products with a stable release path"
+        ]
+      },
+      "ai": {
+        "title": "AI & Automation",
+        "summary": "Messaging assistants and operational workflows",
+        "visual": "Messaging",
+        "body": "Assistants and workflows that handle real load — booking, FAQs, follow-ups — with a clean handoff to humans.",
+        "outcomes": [
+          "WhatsApp and DM assistants that qualify leads",
+          "Booking and follow-up automation",
+          "Custom workflows tied to your CRM"
+        ]
+      }
+    }
+  },
+  "manifestoScene": {
+    "label": "Thesis",
+    "before": "People decide whether to",
+    "accent": "trust",
+    "after": "a business before they understand what it sells."
+  },
+  "approachTeaser": {
+    "label": "Approach",
+    "title": "How we work.",
+    "blurb": "Four stages from brief to launch. Every step ends in something you can check.",
+    "principle": "Direct communication. Clear scope. No status theatre.",
+    "cta": "See how we work",
+    "steps": [
+      {
+        "title": "Discover",
+        "body": "Goals, audience, and constraints — before any visual noise."
+      },
+      {
+        "title": "Define",
+        "body": "Direction, architecture, and a scope you can approve."
+      },
+      {
+        "title": "Design & Build",
+        "body": "Interface and implementation on one track — no handoff fog."
+      },
+      {
+        "title": "Refine & Launch",
+        "body": "Test, tighten, and ship a release you can trust."
+      }
+    ]
+  },
+  "finalCta": {
+    "label": "Start",
+    "title": "Ready when you are.",
+    "blurb": "Send a short brief. You’ll get scope, direction, and next steps — not a pitch deck.",
+    "cta": "Start a project",
+    "whatsapp": "Prefer WhatsApp? Message directly ↗",
+    "whatsappPrefill": "Hi. I would like to talk about a project with METEK."
+  },
+  "workLanes": {
+    "web": "Web Experiences",
+    "systems": "Products & Systems",
+    "ai": "AI & Automation",
+    "lab": "Experiments / Lab"
   },
   "projects": {
-    "label": "Selected work",
-    "title": "Projects",
-    "blurb": "Web, panels, and digital products. Each one custom designed and engineered to hold up.",
+    "label": "Work",
+    "title": "All projects.",
+    "blurb": "Web, panels, and digital products — each designed and engineered to hold up in production.",
     "loadMore": "Show more work",
     "seeCase": "See the work",
-    "viewAll": "See the work"
+    "viewAll": "View all work"
   },
   "projectUi": {
     "view": "Open case",
@@ -395,45 +455,6 @@
       }
     ]
   },
-  "testimonials": {
-    "label": "Testimonials",
-    "title": "Coming soon.",
-    "items": []
-  },
-  "clients": {
-    "label": "What I do",
-    "lead": "I design & ship",
-    "rotating": [
-      "websites",
-      "software",
-      "AI products",
-      "automations",
-      "admin panels",
-      "brand systems"
-    ]
-  },
-  "stats": {
-    "label": "Signals",
-    "title": "Trust arrives before the click.",
-    "items": [
-      {
-        "value": "81%",
-        "label": "of users need to trust a brand before they buy"
-      },
-      {
-        "value": "55%",
-        "label": "of first impressions are shaped by visuals"
-      },
-      {
-        "value": "+80%",
-        "label": "brand recognition rises with colour and visual consistency"
-      },
-      {
-        "value": "+23%",
-        "label": "cross channel consistency can lift revenue"
-      }
-    ]
-  },
   "about": {
     "label": "Studio",
     "titleLead": "METEK",
@@ -456,6 +477,9 @@
     "message": "A few lines on your goal and timing",
     "send": "Send",
     "sentHint": "Opening your email app. I usually reply within a day.",
+    "errorName": "Please enter your name.",
+    "errorEmail": "Please enter a valid email.",
+    "errorMessage": "Add a few more lines so I can reply with a clear next step.",
     "mailSubject": "Project enquiry",
     "mailName": "Name",
     "mailEmail": "Email",
@@ -493,62 +517,6 @@
     "founder": "Founder: Nurullah Aydın",
     "location": "Malatya, Türkiye · Remote worldwide",
     "instagram": "Instagram"
-  },
-  "tech": {
-    "label": "Technology",
-    "title": "I ship with these.",
-    "blurb": "Not a trial stack. Tools I run in production and maintain. I pick what fits the job, not what is trendy.",
-    "groups": [
-      {
-        "title": "Web & product UI",
-        "blurb": "Fast, SEO ready sites and panels that hold up on mobile. Motion and scroll stay under control.",
-        "items": [
-          "Next.js",
-          "React",
-          "TypeScript",
-          "Vite",
-          "Tailwind CSS",
-          "GSAP",
-          "Lenis"
-        ]
-      },
-      {
-        "title": "Mobile apps",
-        "blurb": "One codebase for iOS and Android. Store ready UI, stable releases.",
-        "items": [
-          "Flutter",
-          "Dart"
-        ]
-      },
-      {
-        "title": "Automation & messaging",
-        "blurb": "WhatsApp / Instagram bots, booking flows, reminders. Hand work becomes a system.",
-        "items": [
-          "Python",
-          "n8n",
-          "WhatsApp Cloud API",
-          "Instagram Graph API"
-        ]
-      },
-      {
-        "title": "Data & infrastructure",
-        "blurb": "Customer, booking, and sales records stay solid. Panel and bots read the same source.",
-        "items": [
-          "PostgreSQL",
-          "Supabase"
-        ]
-      }
-    ]
-  },
-  "workingPrinciples": {
-    "label": "Working principles",
-    "title": "How I work.",
-    "items": [
-      "Direct answers. No status theatre",
-      "You see progress while the work moves",
-      "Ship fast, keep it maintainable",
-      "Support after handoff when something breaks"
-    ]
   },
   "whatsapp": {
     "label": "WhatsApp",

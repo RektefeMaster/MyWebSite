@@ -184,6 +184,7 @@ export type CurvedInputProps = {
   autoComplete?: string;
   autoCapitalize?: "off" | "none" | "on" | "sentences" | "words" | "characters";
   ariaLabel?: string;
+  ariaInvalid?: boolean;
   theme?: ThemeName;
   width?: number | string;
   bend?: number;
@@ -220,6 +221,7 @@ export default function CurvedInput({
   autoComplete = "off",
   autoCapitalize = "none",
   ariaLabel,
+  ariaInvalid,
   theme = "dark",
   width = 450,
   bend = 28,
@@ -680,11 +682,15 @@ export default function CurvedInput({
         onSelect={handleSelect}
         onKeyUp={handleSelect}
         onKeyDown={(e) => {
-          if (e.key === "Enter") handleSubmit(e);
+          if (e.key !== "Enter") return;
+          // Form içi (showButton yok): native submit / sonraki alana bırak
+          if (!showButton) return;
+          handleSubmit(e);
         }}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         aria-label={ariaLabel || placeholder || "Curved input"}
+        aria-invalid={ariaInvalid || undefined}
         autoComplete={autoComplete}
         autoCapitalize={autoCapitalize}
         autoCorrect="off"
