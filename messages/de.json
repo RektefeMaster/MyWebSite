@@ -22,10 +22,10 @@
   "pages": {
     "manifesto": {
       "metaTitle": "Wer wir sind · METEK",
-      "metaDescription": "Nurullah Aydın, Malatya. Individuelles Web, Designsprache und Automation. Ansehen, ausprobieren, dann sprechen.",
+      "metaDescription": "Nurullah Aydın, Malatya. Individuelles Web, Designsprache und Automation.",
       "heroLabel": "Wer wir sind",
       "heroTitle": "Bleiben Sie nicht zurück.",
-      "heroBlurb": "Digital zurückzufallen ist ein Mangel. Bringen wir Ihre Arbeit nach vorne, treu zu Ihrer Marke oder mit neuer Sprache.",
+      "heroBlurb": "Im digitalen Zeitalter digital zurückzufallen ist ein Mangel. Bauen wir Arbeit, die Ihre Marke nach vorne bringt.",
       "ctaLabel": "Sprechen wir",
       "ctaTitle": "Melden Sie sich. Sprechen wir.",
       "ctaBlurb": "Ich freue mich, Sie kennenzulernen und wäre stolz auf Ihre Arbeit in meinem Portfolio.",
@@ -111,10 +111,10 @@
     "label": "Manifest",
     "stamp": "METEK Digital",
     "lines": [
-      "Digital zurückzufallen ist ein Mangel.",
-      "Ich bleibe Ihrer Marke treu, oder öffne eine neue Sprache.",
-      "Eigener Code. Eigenes Design. Ihre Arbeit.",
-      "Ansehen, ausprobieren, gefällt es, dann sprechen wir."
+      "Arbeit, die nach dem Launch hält.",
+      "Design und Code in einer Hand.",
+      "Kein Theme-Neulack; Custom Build.",
+      "Wenn es gefällt, machen wir weiter."
     ]
   },
   "featured": {
@@ -465,26 +465,26 @@
     "whoLabel": "Ich",
     "whoTitle": "Nurullah Aydın.",
     "origin": "Malatya, Türkiye",
-    "practice": "Vier Jahre Software, KI, unabhängige Praxis",
+    "practice": "Unabhängige Praxis, Software und KI",
     "p1": "Ich bin Nurullah Aydın. Aus Malatya, Türkiye. Seit vier Jahren baue ich Software und wachse bewusst in KI und benachbarten Feldern: ein unabhängiger Macher, eine verantwortliche Praxis. Diese Praxis heißt METEK Digital.",
-    "p2": "Im digitalen Zeitalter digital zurückzufallen ist ein Mangel. Bleiben Sie nicht dort. Ich bleibe der Marke und der Designsprache treu, die Sie bereits gebaut haben, oder öffne eine neue, wenn Sie wollen, und lege die Arbeit zur Beurteilung vor Ihnen.",
+    "p2": "Ich bleibe der Marke und der Designsprache treu, die Sie bereits gebaut haben, oder öffne eine neue, wenn Sie wollen, und lege die Arbeit zur Beurteilung vor Ihnen.",
     "highlight": "Ansehen. Ausprobieren. Gefällt es, dann sprechen wir.",
-    "p3": "Bauen wir eine Website, die für Ihr Unternehmen kodiert und gestaltet ist. Oder Automation, die Arbeit wegnimmt, die Ihre Zeit frisst, und Raum lässt für den Rest, auch für eine Tee-Pause. Ich freue mich, Sie kennenzulernen und wäre stolz, Ihre Arbeit in mein Portfolio aufzunehmen. Melden Sie sich. Sprechen wir.",
-    "doLabel": "Was wir bauen",
-    "doTitle": "Eine Site für Ihre Marke. Automation, die Zeit zurückgibt.",
-    "doIntro": "Kein Fertigpaket: Ihre Sprache, Ihre Arbeit. Erst sichtbar machen. Dann entscheiden.",
+    "p3": "Bauen wir eine Website, die für Ihr Unternehmen kodiert und gestaltet ist. Oder Automation, die Arbeit wegnimmt, die Ihre Zeit frisst, und Raum lässt für den Rest, auch für eine Tee-Pause.",
+    "doLabel": "Woran wir arbeiten",
+    "doTitle": "Sites, Panels, Automation.",
+    "doIntro": "Kein Fertigpaket. Jeder Job wird für Ihren Bedarf gebaut.",
     "items": [
       {
-        "title": "Web treu zu Ihrer Marke",
-        "body": "Die Designsprache behalten, die Sie schon haben, oder eine neue öffnen, mit einer Site, die für Ihr Unternehmen kodiert und gestaltet ist."
+        "title": "Websites",
+        "body": "Schnell auf dem Handy, suchbereit, klarer Weg zu Angebot oder Verkauf. Ihre Marke soll auf dem Screen wie sie selbst klingen."
       },
       {
-        "title": "Automation, die Zeit freimacht",
-        "body": "Bots und Flows, die Wiederholarbeit kürzen, damit Raum für anderes bleibt, und eine Tee-Pause."
+        "title": "Automation",
+        "body": "Bots und Flows, die Wiederholarbeit kürzen. Weniger Tageslast, mehr Raum für die eigentliche Arbeit."
       },
       {
         "title": "Gemeinsam entscheiden",
-        "body": "Ansehen, ausprobieren, wenn es passt sprechen wir. Was nicht sitzt, klären wir. Kein Rush-Verkauf: ein klarer nächster Schritt."
+        "body": "Was nicht sitzt, klären wir. Kein Rush-Verkauf. Ein klarer nächster Schritt."
       }
     ],
     "linkWork": "Meine Arbeiten",

@@ -22,10 +22,10 @@
   "pages": {
     "manifesto": {
       "metaTitle": "Biz kimiz · METEK",
-      "metaDescription": "Nurullah Aydın, Malatya. Özel web, tasarım dili ve otomasyon. Görün, deneyin, sonra konuşalım.",
+      "metaDescription": "Nurullah Aydın, Malatya. Özel web, tasarım dili ve otomasyon.",
       "heroLabel": "Biz kimiz",
       "heroTitle": "Burada kalmayın.",
-      "heroBlurb": "Dijitalden geri kalmak eksikliktir. Markanıza sadık ya da yepyeni bir dille işinizi öne çıkaralım.",
+      "heroBlurb": "Dijital çağda dijitalden geri kalmak eksikliktir. Markanızı öne çıkaracak işi birlikte kuralım.",
       "ctaLabel": "Konuşalım",
       "ctaTitle": "İletişime geçin, konuşalım.",
       "ctaBlurb": "Sizinle tanışmak ve portföyüme sizin işinizi eklemek için sabırsızlanıyorum.",
@@ -111,10 +111,10 @@
     "label": "Manifesto",
     "stamp": "METEK Digital",
     "lines": [
-      "Dijitalden geri kalmak eksikliktir.",
-      "Markanıza sadık kalırım, dilerseniz yeni dil açarım.",
-      "Özel kod. Özel tasarım. Sizin işiniz.",
-      "Görün, deneyin, beğenin. Sonra konuşalım."
+      "Yayından sonra da ayakta kalan iş.",
+      "Tasarım ve kod aynı elde.",
+      "Tema boyamak yok; özel kurulum.",
+      "Beğenirseniz devam ederiz."
     ]
   },
   "featured": {
@@ -465,26 +465,26 @@
     "whoLabel": "Ben",
     "whoTitle": "Nurullah Aydın.",
     "origin": "Malatya, Türkiye",
-    "practice": "Dört yıldır yazılım, yapay zeka, bireysel pratik",
+    "practice": "Bireysel pratik, yazılım ve yapay zeka",
     "p1": "Ben Nurullah Aydın. Malatya, Türkiye’denim. Dört yıldır yazılım geliştiriyorum; yapay zeka ve komşu alanlarda da kendimi bilinçli büyüten bireysel bir üreticiyim. METEK Digital bu pratiğin adı.",
-    "p2": "Dijital çağda dijitalden geri kalmak eksikliktir. Burada kalmayın. Özenle kurduğunuz markaya ve tasarım diline sadık kalarak, dilerseniz yepyeni bir dil açarak, işinizi beğeninize sunarım.",
+    "p2": "Özenle kurduğunuz markaya ve tasarım diline sadık kalarak, dilerseniz yepyeni bir dil açarak, işinizi beğeninize sunarım.",
     "highlight": "Görün. Deneyin. Beğenin. Sonra konuşalım.",
-    "p3": "İşletmenize özel kodlanmış ve tasarlanmış bir web sitesi kuralım. Ya da zamanınızı yiyen işleri otomatikleştirip diğer işlerinize, hatta bir çay molasına yer açan otomasyonlar. Sizinle tanışmak ve portföyüme sizin işinizi eklemek için sabırsızlanıyorum. İletişime geçin, konuşalım.",
-    "doLabel": "Ne kuralım",
-    "doTitle": "Markanıza özel site. Zamana yer açan otomasyon.",
-    "doIntro": "Hazır paket değil; sizin diliniz, sizin işiniz. Önce görünür kılalım, sonra karar verelim.",
+    "p3": "İşletmenize özel kodlanmış ve tasarlanmış bir web sitesi kuralım. Ya da zamanınızı yiyen işleri otomatikleştirip diğer işlerinize, hatta bir çay molasına yer açan otomasyonlar.",
+    "doLabel": "Ne üzerinde çalışırız",
+    "doTitle": "Site, panel, otomasyon.",
+    "doIntro": "Hazır paket yok. Her iş, sizin ihtiyaca göre kurulur.",
     "items": [
       {
-        "title": "Markanıza sadık web",
-        "body": "Var olan tasarım dilinizi koruyarak, ya da sıfırdan yeni bir dil kurarak, işletmenize özel kodlanmış ve tasarlanmış site."
+        "title": "Web siteleri",
+        "body": "Telefonda hızlı, aramaya hazır, teklif veya satış yolu net. Markanız ekranda kendi sesiyle dursun."
       },
       {
-        "title": "Zaman kazandıran otomasyon",
-        "body": "Tekrarlayan işleri kısaltan botlar ve akışlar. Diğer işlerinize yer açsın; bir çay molası da sığsın."
+        "title": "Otomasyon",
+        "body": "Tekrarlayan işleri kısaltan botlar ve akışlar. Günlük yükü azaltır, asıl işe alan bırakır."
       },
       {
         "title": "Birlikte netleştirme",
-        "body": "Görün, deneyin, beğenin. Uymayan yerleri konuşuruz. Acele satış yok; net sonraki adım var."
+        "body": "Uymayan yeri konuşuruz, acele satış yok. Net bir sonraki adım çıkarırız."
       }
     ],
     "linkWork": "İşlerime bak",

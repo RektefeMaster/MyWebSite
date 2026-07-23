@@ -22,10 +22,10 @@
   "pages": {
     "manifesto": {
       "metaTitle": "Who we are · METEK",
-      "metaDescription": "Nurullah Aydın, Malatya. Custom web, design language, and automation. See it, try it, then we talk.",
+      "metaDescription": "Nurullah Aydın, Malatya. Custom web, design language, and automation.",
       "heroLabel": "Who we are",
       "heroTitle": "Don't stay behind.",
-      "heroBlurb": "Falling behind digitally is a gap. Let's put your work forward, faithful to your brand, or with a new language.",
+      "heroBlurb": "In a digital age, falling behind digitally is a gap. Let's build work that puts your brand forward.",
       "ctaLabel": "Let's talk",
       "ctaTitle": "Reach out. Let's talk.",
       "ctaBlurb": "I'm eager to meet you and proud to add your work to my portfolio.",
@@ -111,10 +111,10 @@
     "label": "Manifesto",
     "stamp": "METEK Digital",
     "lines": [
-      "Falling behind digitally is a gap.",
-      "I stay true to your brand, or open a new language.",
-      "Custom code. Custom design. Your work.",
-      "See it, try it, like it. Then we talk."
+      "Work that still holds after launch.",
+      "Design and code in one hand.",
+      "No theme reskin; custom build.",
+      "If you like it, we continue."
     ]
   },
   "featured": {
@@ -465,26 +465,26 @@
     "whoLabel": "Me",
     "whoTitle": "Nurullah Aydın.",
     "origin": "Malatya, Türkiye",
-    "practice": "Four years in software, AI, independent practice",
+    "practice": "Independent practice, software and AI",
     "p1": "I'm Nurullah Aydın. From Malatya, Türkiye. I've been building software for four years, and I keep growing in AI and the fields around it: an independent maker, one accountable practice. That practice is METEK Digital.",
-    "p2": "In a digital age, falling behind digitally is a gap. Don't stay there. I can stay true to the brand and design language you already built, or open a new one if you want, and put the work in front of you to judge.",
+    "p2": "I can stay true to the brand and design language you already built, or open a new one if you want, and put the work in front of you to judge.",
     "highlight": "See it. Try it. Like it. Then we talk.",
-    "p3": "Let's build a website coded and designed for your business. Or automation that takes the work eating your time and gives you room for the rest, even a tea break. I'm eager to meet you and proud to add your work to my portfolio. Reach out. Let's talk.",
-    "doLabel": "What we build",
-    "doTitle": "A site for your brand. Automation that gives time back.",
-    "doIntro": "Not a ready package: your language, your work. Make it visible first. Decide after.",
+    "p3": "Let's build a website coded and designed for your business. Or automation that takes the work eating your time and gives you room for the rest, even a tea break.",
+    "doLabel": "What we work on",
+    "doTitle": "Sites, panels, automation.",
+    "doIntro": "No ready package. Each job is built for your need.",
     "items": [
       {
-        "title": "Web faithful to your brand",
-        "body": "Keep the design language you already own, or start a new one, with a site coded and designed for your business."
+        "title": "Websites",
+        "body": "Fast on phones, ready for search, clear path to quote or sale. Your brand should sound like itself on screen."
       },
       {
-        "title": "Automation that frees time",
-        "body": "Bots and flows that shorten repeat work so you get room for other tasks, and a tea break."
+        "title": "Automation",
+        "body": "Bots and flows that shorten repeat work. Less daily load, more room for the real job."
       },
       {
         "title": "Decide together",
-        "body": "See it, try it, like it. We talk through what doesn't fit. No rush sell: a clear next step."
+        "body": "We talk through what doesn't fit. No rush sell. A clear next step."
       }
     ],
     "linkWork": "View my work",

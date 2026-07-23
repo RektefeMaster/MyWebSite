@@ -22,10 +22,10 @@
   "pages": {
     "manifesto": {
       "metaTitle": "Quiénes somos · METEK",
-      "metaDescription": "Nurullah Aydın, Malatya. Web a medida, lenguaje de diseño y automatización. Véanlo, pruébenlo, luego hablamos.",
+      "metaDescription": "Nurullah Aydın, Malatya. Web a medida, lenguaje de diseño y automatización.",
       "heroLabel": "Quiénes somos",
       "heroTitle": "No se queden atrás.",
-      "heroBlurb": "Quedarse atrás en lo digital es una falta. Pongamos su trabajo adelante, fiel a su marca, o con un lenguaje nuevo.",
+      "heroBlurb": "En la era digital, quedarse atrás en lo digital es una falta. Armemos trabajo que ponga su marca adelante.",
       "ctaLabel": "Hablemos",
       "ctaTitle": "Escríbanme. Hablemos.",
       "ctaBlurb": "Quiero conocerlos y me enorgullecería sumar su trabajo a mi portafolio.",
@@ -111,10 +111,10 @@
     "label": "Manifiesto",
     "stamp": "METEK Digital",
     "lines": [
-      "Quedarse atrás en lo digital es una falta.",
-      "Respeto su marca, o abro un lenguaje nuevo.",
-      "Código propio. Diseño propio. Su trabajo.",
-      "Véanlo, pruébenlo, si les gusta hablamos."
+      "Trabajo que se sostiene después del lanzamiento.",
+      "Diseño y código en una sola mano.",
+      "Sin tema repintado; construcción a medida.",
+      "Si les gusta, seguimos."
     ]
   },
   "featured": {
@@ -465,26 +465,26 @@
     "whoLabel": "Yo",
     "whoTitle": "Nurullah Aydın.",
     "origin": "Malatya, Türkiye",
-    "practice": "Cuatro años en software, IA, práctica independiente",
+    "practice": "Práctica independiente, software e IA",
     "p1": "Soy Nurullah Aydın. De Malatya, Türkiye. Llevo cuatro años construyendo software y sigo creciendo con intención en IA y campos cercanos: un hacedor independiente, una sola práctica responsable. Esa práctica es METEK Digital.",
-    "p2": "En la era digital, quedarse atrás en lo digital es una falta. No se queden ahí. Puedo respetar la marca y el lenguaje de diseño que ya construyeron, o abrir uno nuevo si lo desean, y poner el trabajo frente a ustedes para que lo juzguen.",
+    "p2": "Puedo respetar la marca y el lenguaje de diseño que ya construyeron, o abrir uno nuevo si lo desean, y poner el trabajo frente a ustedes para que lo juzguen.",
     "highlight": "Véanlo. Pruébenlo. Si les gusta, hablamos.",
-    "p3": "Armemos un sitio codificado y diseñado para su negocio. O automatización que quite el trabajo que les come el tiempo y deje espacio para lo demás, incluso una pausa para el té. Quiero conocerlos y me enorgullecería sumar su trabajo a mi portafolio. Escríbanme. Hablemos.",
-    "doLabel": "Qué armamos",
-    "doTitle": "Un sitio para su marca. Automatización que devuelve tiempo.",
-    "doIntro": "No un paquete listo: su lenguaje, su trabajo. Primero que se vea. Después deciden.",
+    "p3": "Armemos un sitio codificado y diseñado para su negocio. O automatización que quite el trabajo que les come el tiempo y deje espacio para lo demás, incluso una pausa para el té.",
+    "doLabel": "En qué trabajamos",
+    "doTitle": "Sitios, paneles, automatización.",
+    "doIntro": "Sin paquete listo. Cada trabajo se arma según su necesidad.",
     "items": [
       {
-        "title": "Web fiel a su marca",
-        "body": "Conservamos el lenguaje de diseño que ya tienen, o abrimos uno nuevo, con un sitio codificado y diseñado para su negocio."
+        "title": "Sitios web",
+        "body": "Rápidos en el teléfono, listos para búsqueda, camino claro a cotizar o vender. Su marca debe sonar como ella en pantalla."
       },
       {
-        "title": "Automatización que libera tiempo",
-        "body": "Bots y flujos que acortan el trabajo repetido para que quede espacio para lo demás, y una pausa para el té."
+        "title": "Automatización",
+        "body": "Bots y flujos que acortan el trabajo repetido. Menos carga diaria, más espacio para lo importante."
       },
       {
         "title": "Decidir juntos",
-        "body": "Véanlo, pruébenlo, si les gusta hablamos. Ajustamos lo que no encaja. Sin venta apurada: un siguiente paso claro."
+        "body": "Hablamos lo que no encaja. Sin venta apurada. Un siguiente paso claro."
       }
     ],
     "linkWork": "Ver mi trabajo",
