@@ -21,11 +21,11 @@
   },
   "pages": {
     "manifesto": {
-      "metaTitle": "Manifesto · METEK",
-      "metaDescription": "How METEK Digital thinks about design, software, and shipping work that holds up.",
-      "heroLabel": "Manifesto",
-      "heroTitle": "Work that holds up.",
-      "heroBlurb": "Design, software, and delivery from one practice.",
+      "metaTitle": "Studio · METEK",
+      "metaDescription": "Nurullah Aydın / METEK Digital — custom websites, panels, and automation. Born in Malatya; shipping worldwide.",
+      "heroLabel": "Studio",
+      "heroTitle": "Who builds this.",
+      "heroBlurb": "Founder-led studio. Design and software in one hand — from Malatya to clients worldwide.",
       "ctaLabel": "Work with me",
       "ctaTitle": "Ready to start a project?",
       "ctaBlurb": "Tell me the goal and timing. You get a clear scope and next step within a day.",
@@ -462,10 +462,33 @@
     "label": "Studio",
     "titleLead": "METEK",
     "titleRest": "Digital",
-    "p1": "METEK Digital is a founder-led studio that designs and builds websites, panels, and automation.",
-    "p2": "Nurullah Aydın runs design, software, and delivery from one practice.",
+    "whoLabel": "Who I am",
+    "whoTitle": "Nurullah Aydın.",
+    "origin": "Born in Malatya, Türkiye",
+    "practice": "Four years building software · sharpening AI in real products",
+    "p1": "I am Nurullah Aydın. I was born in Malatya, Türkiye. For four years I have been writing software — sites, panels, and tools teams actually use — and I keep pushing how AI and automation earn a place inside those products, not as demos.",
+    "p2": "METEK Digital is the studio I built around that craft: custom design and solid engineering from one accountable lead. Discovery to launch stays with me. No theme marketplace handoff, no agency telephone game.",
     "highlight": "Custom design. Solid engineering.",
-    "p3": "Every project is built custom. Speed, accessibility basics, and technical SEO get checked before handoff.",
+    "p3": "Before handoff I check speed, core accessibility, and technical SEO. The work should hold up on a phone, read clearly, and stay editable where we agree it should.",
+    "doLabel": "What we do",
+    "doTitle": "Websites, panels, and automation that ship.",
+    "doIntro": "Public sites that carry a brand. Internal tools people open every day. Messaging and AI workflows wired to real operations — not slideware.",
+    "items": [
+      {
+        "title": "Custom websites",
+        "body": "Marketing and product sites built for the brand — Next.js and React when the stack needs it. Fast on mobile, ready for search, with a clear path to quote, book, or buy."
+      },
+      {
+        "title": "Admin panels & CRM",
+        "body": "Interfaces for content, leads, and operations. The same care as the public site: readable hierarchy, durable components, no orphan admin skin."
+      },
+      {
+        "title": "AI & automation",
+        "body": "WhatsApp and Instagram bots, intake flows, and assistive tools where they remove real work. I study and apply AI where it shortens a path — never as decoration."
+      }
+    ],
+    "linkWork": "View selected work",
+    "linkServices": "See services",
     "role": "Founder",
     "name": "Nurullah Aydın"
   },
@@ -505,7 +528,7 @@
   "footer": {
     "tagline": "Custom design. Solid engineering. Shipped to production.",
     "quickLinks": "Quick links",
-    "manifesto": "Manifesto",
+    "manifesto": "Studio",
     "work": "Work",
     "approach": "Approach",
     "bookMeeting": "Start my project",

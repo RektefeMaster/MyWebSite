@@ -21,11 +21,11 @@
   },
   "pages": {
     "manifesto": {
-      "metaTitle": "Manifesto · METEK",
-      "metaDescription": "Özel tasarım, sağlam yazılım, tek sorumlu ekip. METEK Digital yaklaşımı.",
-      "heroLabel": "Manifesto",
-      "heroTitle": "Şablon değil, marka işi.",
-      "heroBlurb": "Tasarım ve yazılım aynı elde; hazır tema satışı yok.",
+      "metaTitle": "Stüdyo · METEK",
+      "metaDescription": "Nurullah Aydın / METEK Digital — özel siteler, paneller, otomasyon. Malatya’dan, dünyaya teslim.",
+      "heroLabel": "Stüdyo",
+      "heroTitle": "Bunu kim kuruyor.",
+      "heroBlurb": "Kurucu liderliğinde stüdyo. Tasarım ve yazılım aynı elde — Malatya’dan, dünyaya.",
       "ctaLabel": "Konuşalım",
       "ctaTitle": "Proje başlatmaya hazır mısınız?",
       "ctaBlurb": "Hedefi ve zamanı yazın. Bir gün içinde kapsam ve sonraki adım gelir.",
@@ -462,10 +462,33 @@
     "label": "Stüdyo",
     "titleLead": "METEK",
     "titleRest": "Digital",
-    "p1": "METEK Digital; özel web siteleri, yazılım ve otomasyon geliştiren kurucu liderliğinde bir stüdyodur.",
-    "p2": "Kurucu Nurullah Aydın; tasarımı, yazılımı ve teknolojiyi tek sistemde birleştirir.",
+    "whoLabel": "Ben kimim",
+    "whoTitle": "Nurullah Aydın.",
+    "origin": "Malatya, Türkiye doğumlu",
+    "practice": "Dört yıldır yazılım · yapay zekayı gerçek üründe keskinleştiriyorum",
+    "p1": "Ben Nurullah Aydın. Malatya doğumluyum. Dört yıldır yazılım geliştiriyorum — siteler, paneller, ekiplerin her gün açtığı araçlar. Aynı zamanda yapay zeka ve otomasyonu vitrin demosu değil, işe yarayan ürün parçası olarak konumlamayı öğreniyor ve uyguluyorum.",
+    "p2": "METEK Digital’i bu zanaatın etrafında kurdum: özel tasarım ve sağlam mühendislik, tek sorumlu teslim hattı. Keşiften yayına iş bende kalır. Tema pazarı el değişimi yok; ajans telefonu yok.",
     "highlight": "Özel tasarım. Sağlam yazılım.",
-    "p3": "Teslimden önce hız, temel erişilebilirlik ve teknik SEO kontrol edilir. Her proje ayırt edilebilir kurulur; yayında ayakta kalır.",
+    "p3": "Teslimden önce hızı, temel erişilebilirliği ve teknik SEO’yu kontrol ederim. İş telefonda ayakta kalmalı, net okunmalı, üzerinde anlaştığımız yerlerden güncellenebilmeli.",
+    "doLabel": "Ne yapıyoruz",
+    "doTitle": "Yayına çıkan siteler, paneller, otomasyon.",
+    "doIntro": "Markayı taşıyan kamu siteleri. Her gün açılan iç araçlar. Operasyona bağlı mesajlaşma ve yapay zeka akışları — slayt değil, çalışan sistem.",
+    "items": [
+      {
+        "title": "Özel web siteleri",
+        "body": "Markaya göre kurulan pazarlama ve ürün siteleri — gerektiğinde Next.js ve React. Telefonda hızlı, aramaya hazır; teklif, randevu veya satış yolu net."
+      },
+      {
+        "title": "Yönetim paneli ve CRM",
+        "body": "İçerik, lead ve operasyon arayüzleri. Dış siteyle aynı özen: okunaklı hiyerarşi, dayanıklı bileşenler, yetim admin görünümü yok."
+      },
+      {
+        "title": "Yapay zeka ve otomasyon",
+        "body": "WhatsApp ve Instagram botları, başvuru akışları, gerçek iş yükünü azaltan yardımcı araçlar. Yapay zekayı süs diye değil, yolu kısaltıyorsa koyarım."
+      }
+    ],
+    "linkWork": "Seçili işlere bak",
+    "linkServices": "Hizmetleri gör",
     "role": "Kurucu",
     "name": "Nurullah Aydın"
   },
@@ -505,7 +528,7 @@
   "footer": {
     "tagline": "Özel tasarım. Sağlam yazılım. Tek ekip.",
     "quickLinks": "Hızlı bağlantılar",
-    "manifesto": "Manifesto",
+    "manifesto": "Stüdyo",
     "work": "İşler",
     "approach": "Yaklaşım",
     "bookMeeting": "Projemi başlat",

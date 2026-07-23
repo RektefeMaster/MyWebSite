@@ -1,6 +1,7 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
+import StudioAbout from "@/components/StudioAbout";
 import Manifesto from "@/components/Manifesto";
 import PageCta from "@/components/PageCta";
 
@@ -32,9 +33,10 @@ export default async function ManifestoPage({
         blurb={t("heroBlurb")}
         crumbs={[
           { label: nav("home"), href: "/" },
-          { label: nav("manifesto") },
+          { label: nav("studio") },
         ]}
       />
+      <StudioAbout />
       <Manifesto />
       <PageCta
         label={t("ctaLabel")}

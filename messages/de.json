@@ -21,15 +21,15 @@
   },
   "pages": {
     "manifesto": {
-      "metaTitle": "Manifest · METEK",
-      "metaDescription": "Eigenes Design, solide Software, ein verantwortliches Team. Der Ansatz von METEK Digital.",
-      "heroLabel": "Manifest",
-      "heroTitle": "Marke, kein Template.",
-      "heroBlurb": "Design und Code aus einer Hand; keine Theme-Weiterverkauf.",
-      "ctaLabel": "Sprechen wir",
+      "metaTitle": "Studio · METEK",
+      "metaDescription": "Nurullah Aydın / METEK Digital — individuelle Websites, Panels und Automation. Aus Malatya, weltweit.",
+      "heroLabel": "Studio",
+      "heroTitle": "Wer das baut.",
+      "heroBlurb": "Gründergeführtes Studio. Design und Software in einer Hand — von Malatya in die Welt.",
+      "ctaLabel": "Zusammenarbeiten",
       "ctaTitle": "Bereit, ein Projekt zu starten?",
-      "ctaBlurb": "Ziel und Zeitraum skizzieren. Innerhalb eines Tages: klarer Umfang und nächster Schritt.",
-      "ctaButton": "Projekt starten"
+      "ctaBlurb": "Ziel und Timing schreiben. Innerhalb eines Tages: klarer Scope und nächster Schritt.",
+      "ctaButton": "Mein Projekt starten"
     },
     "approach": {
       "metaTitle": "Ansatz · METEK",
@@ -462,10 +462,33 @@
     "label": "Studio",
     "titleLead": "METEK",
     "titleRest": "Digital",
-    "p1": "METEK Digital ist ein gründergeführtes Studio für individuelle Websites, Software und Automatisierung.",
-    "p2": "Gründer Nurullah Aydın vereint Design, Software und Technologie in einem System.",
+    "whoLabel": "Wer ich bin",
+    "whoTitle": "Nurullah Aydın.",
+    "origin": "Geboren in Malatya, Türkiye",
+    "practice": "Vier Jahre Software · KI in echten Produkten schärfen",
+    "p1": "Ich bin Nurullah Aydın. Geboren in Malatya, Türkiye. Seit vier Jahren baue ich Software — Websites, Panels und Tools, die Teams wirklich öffnen — und schärfe weiter, wie KI und Automatisierung in diesen Produkten einen Platz verdienen, nicht als Demo.",
+    "p2": "METEK Digital ist das Studio um dieses Handwerk: eigenes Design und solide Technik mit einer verantwortlichen Leitung. Von Discovery bis Launch bleibt die Arbeit bei mir. Kein Theme-Marktplatz, kein Agentur-Telefon.",
     "highlight": "Eigenes Design. Solide Software.",
-    "p3": "Jedes Projekt soll sich abheben und nach der Übergabe laufen.",
+    "p3": "Vor der Übergabe prüfe ich Tempo, grundlegende Barrierefreiheit und technisches SEO. Die Arbeit soll auf dem Handy halten, klar lesbar sein und dort editierbar bleiben, wo wir es vereinbaren.",
+    "doLabel": "Was wir tun",
+    "doTitle": "Websites, Panels und Automation, die live gehen.",
+    "doIntro": "Öffentliche Sites, die die Marke tragen. Interne Tools für den Alltag. Messaging- und KI-Flows an echte Abläufe — nicht an eine Folienpräsentation.",
+    "items": [
+      {
+        "title": "Individuelle Websites",
+        "body": "Marketing- und Produktseiten für die Marke — Next.js und React, wenn der Stack es braucht. Schnell auf dem Handy, suchbereit, mit klarem Weg zu Angebot, Termin oder Kauf."
+      },
+      {
+        "title": "Admin-Panels & CRM",
+        "body": "Oberflächen für Inhalte, Leads und Betrieb. Dieselbe Sorgfalt wie die öffentliche Site: lesbare Hierarchie, belastbare Komponenten, kein verwaister Admin-Look."
+      },
+      {
+        "title": "KI & Automatisierung",
+        "body": "WhatsApp- und Instagram-Bots, Intake-Flows und Hilfen, die echte Arbeit abnehmen. KI setze ich ein, wo sie einen Weg verkürzt — nie als Dekor."
+      }
+    ],
+    "linkWork": "Ausgewählte Arbeiten",
+    "linkServices": "Leistungen ansehen",
     "role": "Gründer",
     "name": "Nurullah Aydın"
   },
@@ -505,7 +528,7 @@
   "footer": {
     "tagline": "Eigenes Design. Solide Software. Ein Team.",
     "quickLinks": "Links",
-    "manifesto": "Manifest",
+    "manifesto": "Studio",
     "work": "Arbeiten",
     "approach": "Ansatz",
     "bookMeeting": "Projekt starten",

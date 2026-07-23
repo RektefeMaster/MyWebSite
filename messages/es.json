@@ -21,15 +21,15 @@
   },
   "pages": {
     "manifesto": {
-      "metaTitle": "Manifiesto · METEK",
-      "metaDescription": "Diseño propio, software sólido, un solo equipo responsable. El enfoque de METEK Digital.",
-      "heroLabel": "Manifiesto",
-      "heroTitle": "Marca de verdad, no plantilla.",
-      "heroBlurb": "Diseño y código en la misma mano; no revendemos temas.",
-      "ctaLabel": "Hablemos",
-      "ctaTitle": "¿Listo para iniciar un proyecto?",
-      "ctaBlurb": "Cuente el objetivo y el plazo. En un día recibe alcance claro y el siguiente paso.",
-      "ctaButton": "Iniciar mi proyecto"
+      "metaTitle": "Estudio · METEK",
+      "metaDescription": "Nurullah Aydın / METEK Digital — sitios, paneles y automatización a medida. De Malatya al mundo.",
+      "heroLabel": "Estudio",
+      "heroTitle": "Quién construye esto.",
+      "heroBlurb": "Estudio liderado por su fundador. Diseño y software en una sola mano — de Malatya al mundo.",
+      "ctaLabel": "Trabajemos",
+      "ctaTitle": "¿Listo para empezar un proyecto?",
+      "ctaBlurb": "Cuénteme el objetivo y el plazo. En un día recibe alcance y siguiente paso.",
+      "ctaButton": "Empezar mi proyecto"
     },
     "approach": {
       "metaTitle": "Enfoque · METEK",
@@ -462,10 +462,33 @@
     "label": "Estudio",
     "titleLead": "METEK",
     "titleRest": "Digital",
-    "p1": "METEK Digital es un estudio liderado por su fundador: sitios a medida, software y automatización.",
-    "p2": "El fundador Nurullah Aydın une diseño, software y tecnología en un solo sistema.",
+    "whoLabel": "Quién soy",
+    "whoTitle": "Nurullah Aydın.",
+    "origin": "Nacido en Malatya, Türkiye",
+    "practice": "Cuatro años construyendo software · afinando IA en productos reales",
+    "p1": "Soy Nurullah Aydın. Nací en Malatya, Türkiye. Llevo cuatro años escribiendo software — sitios, paneles y herramientas que los equipos usan de verdad — y sigo afinando cómo la IA y la automatización ganan lugar dentro de esos productos, no como demos.",
+    "p2": "METEK Digital es el estudio que construí alrededor de ese oficio: diseño a medida e ingeniería sólida con un solo responsable. Del discovery al lanzamiento, el trabajo queda conmigo. Sin reventa de temas ni teléfono de agencia.",
     "highlight": "Diseño propio. Software sólido.",
-    "p3": "Cada proyecto se construye para distinguirse y seguir funcionando después de la entrega.",
+    "p3": "Antes de la entrega reviso velocidad, accesibilidad básica y SEO técnico. El trabajo debe sostenerse en el móvil, leerse claro y poder editarse donde lo acordemos.",
+    "doLabel": "Qué hacemos",
+    "doTitle": "Sitios, paneles y automatización que salen a producción.",
+    "doIntro": "Sitios públicos que cargan la marca. Herramientas internas que se abren cada día. Flujos de mensajería e IA ligados a la operación real — no a una presentación.",
+    "items": [
+      {
+        "title": "Sitios a medida",
+        "body": "Sitios de marketing y producto hechos para la marca — Next.js y React cuando el stack lo pide. Rápidos en móvil, listos para búsqueda, con un camino claro a cotizar, reservar o comprar."
+      },
+      {
+        "title": "Paneles y CRM",
+        "body": "Interfaces para contenido, leads y operaciones. El mismo cuidado que el sitio público: jerarquía legible, componentes durables, sin admin huérfano."
+      },
+      {
+        "title": "IA y automatización",
+        "body": "Bots de WhatsApp e Instagram, flujos de ingreso y herramientas que quitan trabajo real. Aplico IA donde acorta un camino — nunca como decoración."
+      }
+    ],
+    "linkWork": "Ver trabajo seleccionado",
+    "linkServices": "Ver servicios",
     "role": "Fundador",
     "name": "Nurullah Aydın"
   },
@@ -505,7 +528,7 @@
   "footer": {
     "tagline": "Diseño propio. Software sólido. Un solo equipo.",
     "quickLinks": "Enlaces rápidos",
-    "manifesto": "Manifiesto",
+    "manifesto": "Estudio",
     "work": "Trabajo",
     "approach": "Enfoque",
     "bookMeeting": "Iniciar mi proyecto",
