@@ -22,13 +22,13 @@
   "pages": {
     "manifesto": {
       "metaTitle": "Quiénes somos · METEK",
-      "metaDescription": "Nurullah Aydın / METEK Digital — sitios, paneles y automatización a medida. De Malatya al mundo.",
+      "metaDescription": "Nurullah Aydın, fundador de METEK Digital — sitios, paneles y automatización a medida. De Malatya al lanzamiento.",
       "heroLabel": "Quiénes somos",
-      "heroTitle": "Quién construye esto.",
-      "heroBlurb": "Estudio liderado por su fundador. Diseño y software en una sola mano — de Malatya al mundo.",
+      "heroTitle": "Estudio liderado por su fundador.",
+      "heroBlurb": "Web y software a medida. Una sola línea de entrega de Malatya al lanzamiento.",
       "ctaLabel": "Trabajemos",
       "ctaTitle": "¿Listo para empezar un proyecto?",
-      "ctaBlurb": "Cuénteme el objetivo y el plazo. En un día recibe alcance y siguiente paso.",
+      "ctaBlurb": "Cuente el objetivo y el plazo. Alcance y siguiente paso claros en un día.",
       "ctaButton": "Empezar mi proyecto"
     },
     "approach": {
@@ -111,10 +111,10 @@
     "label": "Manifiesto",
     "stamp": "METEK Digital",
     "lines": [
-      "No hago trabajos que solo se ven bien.",
-      "Llevo el carácter de la marca al digital.",
-      "Uno diseño y código en la misma línea.",
-      "Cada proyecto debe distinguirse y aguantar el uso diario."
+      "Entrego trabajo que se sostiene después del lanzamiento — no solo a primera vista.",
+      "El carácter de la marca vive en la interfaz, no solo en el archivo del logo.",
+      "Diseño, software y entrega quedan en una sola línea responsable.",
+      "Construcción a medida cada vez. Nunca un tema repintado."
     ]
   },
   "featured": {
@@ -462,29 +462,29 @@
     "label": "Estudio",
     "titleLead": "METEK",
     "titleRest": "Digital",
-    "whoLabel": "Quién soy",
+    "whoLabel": "Fundador",
     "whoTitle": "Nurullah Aydın.",
-    "origin": "Nacido en Malatya, Türkiye",
-    "practice": "Cuatro años construyendo software · afinando IA en productos reales",
-    "p1": "Soy Nurullah Aydın. Nací en Malatya, Türkiye. Llevo cuatro años escribiendo software — sitios, paneles y herramientas que los equipos usan de verdad — y sigo afinando cómo la IA y la automatización ganan lugar dentro de esos productos, no como demos.",
-    "p2": "METEK Digital es el estudio que construí alrededor de ese oficio: diseño a medida e ingeniería sólida con un solo responsable. Del discovery al lanzamiento, el trabajo queda conmigo. Sin reventa de temas ni teléfono de agencia.",
+    "origin": "Malatya, Türkiye",
+    "practice": "Software · cuatro años · IA aplicada en sistemas en vivo",
+    "p1": "Dirijo METEK Digital desde Malatya, Türkiye: un estudio liderado por su fundador para sitios a medida, paneles de administración y automatización. Cuatro años en software. Diseño e ingeniería quedan en una sola línea desde la primera nota hasta el lanzamiento.",
+    "p2": "El cliente ve un solo responsable de entrega, no una cadena de traspasos. No vendo temas de marketplace. Cada interfaz se construye para la marca y para el equipo que la usa cada día.",
     "highlight": "Diseño propio. Software sólido.",
-    "p3": "Antes de la entrega reviso velocidad, accesibilidad básica y SEO técnico. El trabajo debe sostenerse en el móvil, leerse claro y poder editarse donde lo acordemos.",
-    "doLabel": "Qué hacemos",
-    "doTitle": "Sitios, paneles y automatización que salen a producción.",
-    "doIntro": "Sitios públicos que cargan la marca. Herramientas internas que se abren cada día. Flujos de mensajería e IA ligados a la operación real — no a una presentación.",
+    "p3": "Antes de la entrega verifico velocidad en móvil, accesibilidad básica y SEO técnico. Las superficies de contenido acordadas siguen editables después del lanzamiento.",
+    "doLabel": "Qué entregamos",
+    "doTitle": "Sitios, paneles y automatización en producción.",
+    "doIntro": "La cara pública de la marca. Herramientas internas del día a día. Flujos de mensajería e IA ligados al trabajo real — no demos.",
     "items": [
       {
         "title": "Sitios a medida",
-        "body": "Sitios de marketing y producto hechos para la marca — Next.js y React cuando el stack lo pide. Rápidos en móvil, listos para búsqueda, con un camino claro a cotizar, reservar o comprar."
+        "body": "Sitios de marketing y producto; stack moderno cuando el trabajo lo pide — a menudo Next.js y React. Rápidos en el teléfono, listos para búsqueda, con un camino claro a cotizar, reservar o comprar."
       },
       {
         "title": "Paneles y CRM",
-        "body": "Interfaces para contenido, leads y operaciones. El mismo cuidado que el sitio público: jerarquía legible, componentes durables, sin admin huérfano."
+        "body": "Paneles para contenido, leads y operaciones. La misma jerarquía y cuidado que el sitio público — sin admin huérfano."
       },
       {
         "title": "IA y automatización",
-        "body": "Bots de WhatsApp e Instagram, flujos de ingreso y herramientas que quitan trabajo real. Aplico IA donde acorta un camino — nunca como decoración."
+        "body": "Bots de WhatsApp e Instagram, flujos de ingreso y seguimiento. IA solo donde quita trabajo real del camino."
       }
     ],
     "linkWork": "Ver trabajo seleccionado",

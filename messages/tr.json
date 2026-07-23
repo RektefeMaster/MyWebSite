@@ -22,13 +22,13 @@
   "pages": {
     "manifesto": {
       "metaTitle": "Biz kimiz · METEK",
-      "metaDescription": "Nurullah Aydın / METEK Digital — özel siteler, paneller, otomasyon. Malatya’dan, dünyaya teslim.",
+      "metaDescription": "Nurullah Aydın, METEK Digital kurucusu — özel web siteleri, paneller ve otomasyon. Malatya’dan yayına.",
       "heroLabel": "Biz kimiz",
-      "heroTitle": "Bunu kim kuruyor.",
-      "heroBlurb": "Kurucu liderliğinde stüdyo. Tasarım ve yazılım aynı elde — Malatya’dan, dünyaya.",
+      "heroTitle": "Kurucu liderliğinde stüdyo.",
+      "heroBlurb": "Özel web ve yazılım. Malatya’dan yayına tek teslim hattı.",
       "ctaLabel": "Konuşalım",
       "ctaTitle": "Proje başlatmaya hazır mısınız?",
-      "ctaBlurb": "Hedefi ve zamanı yazın. Bir gün içinde kapsam ve sonraki adım gelir.",
+      "ctaBlurb": "Hedefi ve zamanı yazın. Bir gün içinde net kapsam ve sonraki adım.",
       "ctaButton": "Projemi başlat"
     },
     "approach": {
@@ -111,10 +111,10 @@
     "label": "Manifesto",
     "stamp": "METEK Digital",
     "lines": [
-      "Sadece güzel görünen işler üretmiyorum.",
-      "Markanın karakterini dijitale taşıyorum.",
-      "Tasarımı ve yazılımı aynı hatta birleştiriyorum.",
-      "Her proje şablon gibi durmamalı; kullanımda ayakta kalmalı."
+      "Yalnızca ilk bakışta değil; yayından sonra da ayakta kalan iş teslim ederim.",
+      "Markanın karakteri logo dosyasında değil, arayüzde görünür.",
+      "Tasarım, yazılım ve teslim tek sorumlu hatta kalır.",
+      "Her proje özel kurulur. Hazır tema yeniden boyanmaz."
     ]
   },
   "featured": {
@@ -462,29 +462,29 @@
     "label": "Stüdyo",
     "titleLead": "METEK",
     "titleRest": "Digital",
-    "whoLabel": "Ben kimim",
+    "whoLabel": "Kurucu",
     "whoTitle": "Nurullah Aydın.",
-    "origin": "Malatya, Türkiye doğumlu",
-    "practice": "Dört yıldır yazılım · yapay zekayı gerçek üründe keskinleştiriyorum",
-    "p1": "Ben Nurullah Aydın. Malatya doğumluyum. Dört yıldır yazılım geliştiriyorum — siteler, paneller, ekiplerin her gün açtığı araçlar. Aynı zamanda yapay zeka ve otomasyonu vitrin demosu değil, işe yarayan ürün parçası olarak konumlamayı öğreniyor ve uyguluyorum.",
-    "p2": "METEK Digital’i bu zanaatın etrafında kurdum: özel tasarım ve sağlam mühendislik, tek sorumlu teslim hattı. Keşiften yayına iş bende kalır. Tema pazarı el değişimi yok; ajans telefonu yok.",
+    "origin": "Malatya, Türkiye",
+    "practice": "Yazılım · dört yıl · canlı sistemlerde yapay zeka",
+    "p1": "METEK Digital’i Malatya’dan yönetiyorum: markaya özel web siteleri, yönetim panelleri ve otomasyon. Dört yıldır yazılım geliştiriyorum. Tasarım ile mühendislik, ilk nottan yayına kadar aynı hatta kalır.",
+    "p2": "Müşteri tek sorumlu teslim hattı görür; elden ele zincir yok. Hazır tema satmıyorum. Her arayüz markaya ve her gün kullanan ekibe göre kurulur.",
     "highlight": "Özel tasarım. Sağlam yazılım.",
-    "p3": "Teslimden önce hızı, temel erişilebilirliği ve teknik SEO’yu kontrol ederim. İş telefonda ayakta kalmalı, net okunmalı, üzerinde anlaştığımız yerlerden güncellenebilmeli.",
-    "doLabel": "Ne yapıyoruz",
-    "doTitle": "Yayına çıkan siteler, paneller, otomasyon.",
-    "doIntro": "Markayı taşıyan kamu siteleri. Her gün açılan iç araçlar. Operasyona bağlı mesajlaşma ve yapay zeka akışları — slayt değil, çalışan sistem.",
+    "p3": "Teslimden önce mobil hız, temel erişilebilirlik ve teknik SEO kontrol edilir. Üzerinde anlaştığımız içerik yüzeyleri yayından sonra da güncellenebilir kalır.",
+    "doLabel": "Ne teslim ediyoruz",
+    "doTitle": "Yayındaki siteler, paneller, otomasyon.",
+    "doIntro": "Markanın dış yüzü. Günlük işin iç araçları. Operasyona bağlı mesajlaşma ve yapay zeka akışları — demo değil, üretim.",
     "items": [
       {
         "title": "Özel web siteleri",
-        "body": "Markaya göre kurulan pazarlama ve ürün siteleri — gerektiğinde Next.js ve React. Telefonda hızlı, aramaya hazır; teklif, randevu veya satış yolu net."
+        "body": "Pazarlama ve ürün siteleri; iş gerektirdiğinde modern yığın — çoğu zaman Next.js ve React. Telefonda hızlı, aramaya hazır; teklif, randevu veya satış yolu net."
       },
       {
         "title": "Yönetim paneli ve CRM",
-        "body": "İçerik, lead ve operasyon arayüzleri. Dış siteyle aynı özen: okunaklı hiyerarşi, dayanıklı bileşenler, yetim admin görünümü yok."
+        "body": "İçerik, lead ve operasyon panelleri. Dış siteyle aynı hiyerarşi ve özen — yetim admin görünümü yok."
       },
       {
         "title": "Yapay zeka ve otomasyon",
-        "body": "WhatsApp ve Instagram botları, başvuru akışları, gerçek iş yükünü azaltan yardımcı araçlar. Yapay zekayı süs diye değil, yolu kısaltıyorsa koyarım."
+        "body": "WhatsApp ve Instagram botları, başvuru ve takip akışları. Yapay zeka yalnızca gerçek iş yükünü düşüren yerde."
       }
     ],
     "linkWork": "Seçili işlere bak",

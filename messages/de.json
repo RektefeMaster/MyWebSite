@@ -22,10 +22,10 @@
   "pages": {
     "manifesto": {
       "metaTitle": "Wer wir sind · METEK",
-      "metaDescription": "Nurullah Aydın / METEK Digital — individuelle Websites, Panels und Automation. Aus Malatya, weltweit.",
+      "metaDescription": "Nurullah Aydın, Gründer von METEK Digital — individuelle Websites, Panels und Automation. Von Malatya bis Launch.",
       "heroLabel": "Wer wir sind",
-      "heroTitle": "Wer das baut.",
-      "heroBlurb": "Gründergeführtes Studio. Design und Software in einer Hand — von Malatya in die Welt.",
+      "heroTitle": "Gründergeführtes Studio.",
+      "heroBlurb": "Individuelles Web und Software. Eine Delivery-Linie von Malatya bis Launch.",
       "ctaLabel": "Zusammenarbeiten",
       "ctaTitle": "Bereit, ein Projekt zu starten?",
       "ctaBlurb": "Ziel und Timing schreiben. Innerhalb eines Tages: klarer Scope und nächster Schritt.",
@@ -111,10 +111,10 @@
     "label": "Manifest",
     "stamp": "METEK Digital",
     "lines": [
-      "Ich liefere keine Arbeit, die nur gut aussieht.",
-      "Ich trage den Charakter der Marke ins Digitale.",
-      "Ich vereine Design und Code auf einer Spur.",
-      "Jedes Projekt soll sich abheben und im Alltag halten."
+      "Ich liefere Arbeit, die nach dem Launch hält — nicht nur auf den ersten Blick.",
+      "Markencharakter gehört in die Oberfläche, nicht nur in die Logo-Datei.",
+      "Design, Software und Delivery bleiben auf einer verantwortlichen Linie.",
+      "Jedes Mal Custom Build. Nie ein neu lackiertes Theme."
     ]
   },
   "featured": {
@@ -462,29 +462,29 @@
     "label": "Studio",
     "titleLead": "METEK",
     "titleRest": "Digital",
-    "whoLabel": "Wer ich bin",
+    "whoLabel": "Gründer",
     "whoTitle": "Nurullah Aydın.",
-    "origin": "Geboren in Malatya, Türkiye",
-    "practice": "Vier Jahre Software · KI in echten Produkten schärfen",
-    "p1": "Ich bin Nurullah Aydın. Geboren in Malatya, Türkiye. Seit vier Jahren baue ich Software — Websites, Panels und Tools, die Teams wirklich öffnen — und schärfe weiter, wie KI und Automatisierung in diesen Produkten einen Platz verdienen, nicht als Demo.",
-    "p2": "METEK Digital ist das Studio um dieses Handwerk: eigenes Design und solide Technik mit einer verantwortlichen Leitung. Von Discovery bis Launch bleibt die Arbeit bei mir. Kein Theme-Marktplatz, kein Agentur-Telefon.",
+    "origin": "Malatya, Türkiye",
+    "practice": "Software · vier Jahre · angewandte KI in Live-Systemen",
+    "p1": "Ich führe METEK Digital aus Malatya, Türkiye — ein gründergeführtes Studio für individuelle Websites, Admin-Panels und Automation. Vier Jahre Software. Design und Engineering bleiben von der ersten Notiz bis zum Launch auf einer Linie.",
+    "p2": "Kunden haben eine verantwortliche Delivery-Leitung, keine Handoff-Kette. Keine Marketplace-Themes. Jede Oberfläche wird für die Marke und für das Team gebaut, das sie täglich nutzt.",
     "highlight": "Eigenes Design. Solide Software.",
-    "p3": "Vor der Übergabe prüfe ich Tempo, grundlegende Barrierefreiheit und technisches SEO. Die Arbeit soll auf dem Handy halten, klar lesbar sein und dort editierbar bleiben, wo wir es vereinbaren.",
-    "doLabel": "Was wir tun",
-    "doTitle": "Websites, Panels und Automation, die live gehen.",
-    "doIntro": "Öffentliche Sites, die die Marke tragen. Interne Tools für den Alltag. Messaging- und KI-Flows an echte Abläufe — nicht an eine Folienpräsentation.",
+    "p3": "Vor der Übergabe prüfe ich Mobile-Tempo, grundlegende Barrierefreiheit und technisches SEO. Vereinbarte Inhaltsflächen bleiben nach dem Launch editierbar.",
+    "doLabel": "Was wir liefern",
+    "doTitle": "Websites, Panels und Automation in Produktion.",
+    "doIntro": "Die öffentliche Markenfläche. Interne Tools für den Alltag. Messaging- und KI-Flows an echte Arbeit — keine Demos.",
     "items": [
       {
         "title": "Individuelle Websites",
-        "body": "Marketing- und Produktseiten für die Marke — Next.js und React, wenn der Stack es braucht. Schnell auf dem Handy, suchbereit, mit klarem Weg zu Angebot, Termin oder Kauf."
+        "body": "Marketing- und Produktseiten; moderner Stack, wenn der Job ihn braucht — oft Next.js und React. Schnell auf dem Handy, suchbereit, mit klarem Weg zu Angebot, Termin oder Kauf."
       },
       {
         "title": "Admin-Panels & CRM",
-        "body": "Oberflächen für Inhalte, Leads und Betrieb. Dieselbe Sorgfalt wie die öffentliche Site: lesbare Hierarchie, belastbare Komponenten, kein verwaister Admin-Look."
+        "body": "Panels für Inhalte, Leads und Betrieb. Dieselbe Hierarchie und Sorgfalt wie die öffentliche Site — kein verwaister Admin."
       },
       {
         "title": "KI & Automatisierung",
-        "body": "WhatsApp- und Instagram-Bots, Intake-Flows und Hilfen, die echte Arbeit abnehmen. KI setze ich ein, wo sie einen Weg verkürzt — nie als Dekor."
+        "body": "WhatsApp- und Instagram-Bots, Intake- und Follow-up-Flows. KI nur dort, wo sie echte Arbeit vom Pfad nimmt."
       }
     ],
     "linkWork": "Ausgewählte Arbeiten",
