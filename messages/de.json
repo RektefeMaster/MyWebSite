@@ -4,7 +4,7 @@
     "description": "METEK Digital entwickelt individuelle Websites, Admin-Panels und Automatisierung für Marken. Ein Team von der Idee bis zum Launch."
   },
   "nav": {
-    "about": "Über mich",
+    "about": "Wer wir sind",
     "home": "Start",
     "manifesto": "Manifest",
     "studio": "Atelier",
@@ -21,9 +21,9 @@
   },
   "pages": {
     "manifesto": {
-      "metaTitle": "Studio · METEK",
+      "metaTitle": "Wer wir sind · METEK",
       "metaDescription": "Nurullah Aydın / METEK Digital — individuelle Websites, Panels und Automation. Aus Malatya, weltweit.",
-      "heroLabel": "Studio",
+      "heroLabel": "Wer wir sind",
       "heroTitle": "Wer das baut.",
       "heroBlurb": "Gründergeführtes Studio. Design und Software in einer Hand — von Malatya in die Welt.",
       "ctaLabel": "Zusammenarbeiten",
@@ -528,7 +528,7 @@
   "footer": {
     "tagline": "Eigenes Design. Solide Software. Ein Team.",
     "quickLinks": "Links",
-    "manifesto": "Studio",
+    "manifesto": "Wer wir sind",
     "work": "Arbeiten",
     "approach": "Ansatz",
     "bookMeeting": "Projekt starten",

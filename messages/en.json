@@ -4,7 +4,7 @@
     "description": "Custom websites, admin panels, and automation from one founder-led studio. Built on Next.js and React, tested before handoff."
   },
   "nav": {
-    "about": "About",
+    "about": "Who we are",
     "home": "Home",
     "manifesto": "Manifesto",
     "studio": "Studio",
@@ -21,9 +21,9 @@
   },
   "pages": {
     "manifesto": {
-      "metaTitle": "Studio · METEK",
+      "metaTitle": "Who we are · METEK",
       "metaDescription": "Nurullah Aydın / METEK Digital — custom websites, panels, and automation. Born in Malatya; shipping worldwide.",
-      "heroLabel": "Studio",
+      "heroLabel": "Who we are",
       "heroTitle": "Who builds this.",
       "heroBlurb": "Founder-led studio. Design and software in one hand — from Malatya to clients worldwide.",
       "ctaLabel": "Work with me",
@@ -528,7 +528,7 @@
   "footer": {
     "tagline": "Custom design. Solid engineering. Shipped to production.",
     "quickLinks": "Quick links",
-    "manifesto": "Studio",
+    "manifesto": "Who we are",
     "work": "Work",
     "approach": "Approach",
     "bookMeeting": "Start my project",

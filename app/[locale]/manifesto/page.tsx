@@ -33,7 +33,7 @@ export default async function ManifestoPage({
         blurb={t("heroBlurb")}
         crumbs={[
           { label: nav("home"), href: "/" },
-          { label: nav("studio") },
+          { label: nav("about") },
         ]}
       />
       <StudioAbout />

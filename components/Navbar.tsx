@@ -28,11 +28,12 @@ export default function Navbar() {
   const headerRef = useRef<HTMLElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
 
+  // Hero nav: İşler · Hizmetler · Notlar · Biz kimiz
   const links: { href: NavHref; label: string; match?: string }[] = [
     { href: "/work", label: t("work"), match: "/work" },
     { href: "/services", label: t("services"), match: "/services" },
-    { href: "/manifesto", label: t("studio"), match: "/manifesto" },
     { href: "/blog", label: t("notes"), match: "/blog" },
+    { href: "/manifesto", label: t("about"), match: "/manifesto" },
   ];
 
   const navEntered = useRef(false);
