@@ -3,6 +3,8 @@
   `components` katmanında: Tailwind utility'leri (hidden, w-full, opacity-*)
   buradaki kuralları her zaman geçsin.
 */
+@layer theme, base, components, utilities;
+
 @layer components {
   .curved-input {
     position: relative;

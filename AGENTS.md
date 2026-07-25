@@ -52,6 +52,15 @@ Tek istisna `globals.css` içindeki `.font-display` bloğu ve `--nav-offset`
 ölçeği: bunlar **bilerek** katmansız, çünkü sırasıyla `font-bold` utility'sini
 geçmeleri ve katmansız `:root` tanımıyla aynı yerde olmaları gerekiyor.
 
+**Katman SIRASI her CSS girişinin en üstünde sabitlenir:**
+`@layer theme, base, components, utilities;` — hem `globals.css` hem bileşen
+yanı `*.css` dosyalarında. Silme. Sebep: bileşen CSS'i Next tarafından ayrı
+stylesheet olarak globals'tan **önce** yüklenebiliyor; ilk görülen `@layer`
+bildirimi sırayı belirlediği için sıra sabitlenmezse `components` en düşük
+önceliğe düşüyor ve Tailwind preflight'ının `a { color: inherit }` kuralı
+`.specular-button`'ın rengini eziyor — lime CTA açık gri metinle 1.2:1
+kontrastta kalıyordu (ölçüldü, gözle de okunmuyordu).
+
 ## Bilinen kısıtlar / dikkat
 
 - `reactStrictMode: false` ŞART: StrictMode'un çift effect çalıştırması R3F'in WebGL context'ini kalıcı kaybettiriyor (boş gri hero). Açma.

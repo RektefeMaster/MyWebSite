@@ -53,7 +53,7 @@ function MediaStage({
             quality={72}
             loading="lazy"
             decoding="async"
-            className="object-cover object-top"
+            className="object-cover object-top transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.05]"
           />
         </div>
       </div>
@@ -78,7 +78,7 @@ function MediaStage({
           quality={75}
           loading="lazy"
           decoding="async"
-          className="object-cover object-top transition-transform duration-700 ease-out [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.02]"
+          className="object-cover object-top transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.03]"
           style={{ objectPosition: position }}
         />
       ) : null}

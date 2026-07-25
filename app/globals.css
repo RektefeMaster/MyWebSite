@@ -1,3 +1,12 @@
+/*
+  Katman sırasını burada sabitliyoruz. Sebep: bu dosya Next tarafından ayrı
+  bir stylesheet olarak, globals.css'ten ÖNCE yüklenebiliyor. İlk görülen
+  @layer bildirimi sırayı belirlediği için, sıra sabitlenmezse `components`
+  en düşük önceliğe düşüyor ve Tailwind preflight'ının `a { color: inherit }`
+  kuralı `.specular-button`'ın rengini eziyordu (lime CTA'da açık gri metin,
+  1.2:1). Bildirim idempotent — her CSS girişinde aynısı durmalı.
+*/
+@layer theme, base, components, utilities;
 @import "tailwindcss";
 @import "./craft.css" layer(components);
 
