@@ -12,7 +12,7 @@ import Footer from "@/components/Footer";
 import WhatsAppFab from "@/components/WhatsAppFab";
 import Intro from "@/components/Intro";
 import RouteTransition from "@/components/RouteTransition";
-import { SITE } from "@/lib/site";
+import { SITE, alternatesFor } from "@/lib/site";
 import { ThemeProvider, themeInitScript } from "@/lib/theme";
 import "../globals.css";
 
@@ -76,6 +76,12 @@ export async function generateMetadata({
     title: t("title"),
     description: t("description"),
     metadataBase: new URL(SITE.url),
+    /*
+      Ana sayfa canonical + hreflang. Alt rotalar kendi generateMetadata'sında
+      kendi yolunu veriyor — bu sürümde relative canonical route'a göre değil
+      metadataBase'e göre çözüldüğü için miras yeterli olmuyor.
+    */
+    alternates: alternatesFor(locale, ""),
     applicationName: SITE.brand,
     authors: [{ name: "Nurullah Aydın", url: SITE.url }],
     creator: "Nurullah Aydın",

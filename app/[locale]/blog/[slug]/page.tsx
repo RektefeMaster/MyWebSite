@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { alternatesFor } from "@/lib/site";
 import { blogPosts, getPostMeta } from "@/data/blog";
 import { getBlogArticle } from "@/data/blog-content";
 import { routing } from "@/i18n/routing";
@@ -23,6 +24,7 @@ export async function generateMetadata({
   return {
     title: `${article.title} — M`,
     description: article.excerpt,
+    alternates: alternatesFor(locale, `/blog/${slug}`),
   };
 }
 

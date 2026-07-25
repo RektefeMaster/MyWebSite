@@ -13,6 +13,8 @@ type BlogCardProps = {
   viewLabel: string;
   imageAlt: string;
   featured?: boolean;
+  /** /blog'da h1'in altında h2; bölüm başlığı olan yerlerde h3 */
+  headingLevel?: 2 | 3;
   delay?: number;
 };
 
@@ -26,8 +28,10 @@ export default function BlogCard({
   viewLabel,
   imageAlt,
   featured = false,
+  headingLevel = 3,
   delay = 0,
 }: BlogCardProps) {
+  const Heading = headingLevel === 2 ? "h2" : "h3";
   return (
     <Reveal delay={delay} className={featured ? "md:col-span-2" : ""}>
       <Link
@@ -70,7 +74,7 @@ export default function BlogCard({
               <span className="text-foreground/20">·</span>
               <span>{readLabel}</span>
             </div>
-            <h3
+            <Heading
               className={`font-bold tracking-tight ${
                 featured
                   ? "text-2xl md:text-3xl lg:text-4xl"
@@ -78,7 +82,7 @@ export default function BlogCard({
               }`}
             >
               {title}
-            </h3>
+            </Heading>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-foreground/50">
               {excerpt}
             </p>

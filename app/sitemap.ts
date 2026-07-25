@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { SITE } from "@/lib/site";
+import { SITE, localePath } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 import { blogPosts } from "@/data/blog";
 import { projects } from "@/data/projects";
@@ -12,13 +12,6 @@ const PATHS = [
   "/services",
   "/blog",
 ] as const;
-
-function localePath(locale: string, path: string): string {
-  if (locale === routing.defaultLocale) {
-    return path || "/";
-  }
-  return path ? `/${locale}${path}` : `/${locale}`;
-}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

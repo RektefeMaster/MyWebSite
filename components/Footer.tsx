@@ -43,9 +43,9 @@ export default function Footer() {
         </div>
 
         <div>
-          <h6 className="mb-4 text-xs font-bold uppercase tracking-wide">
+          <h2 className="mb-4 text-xs font-bold uppercase tracking-wide">
             {t("quickLinks")}
-          </h6>
+          </h2>
           <ul className="space-y-1 text-sm text-foreground/60">
             <li>
               <Link
@@ -105,9 +105,9 @@ export default function Footer() {
         </div>
 
         <div>
-          <h6 className="mb-4 text-xs font-bold uppercase tracking-wide">
+          <h2 className="mb-4 text-xs font-bold uppercase tracking-wide">
             {t("contact")}
-          </h6>
+          </h2>
           <p className="mb-3 text-sm leading-relaxed text-foreground/60">
             {t("location")}
           </p>
@@ -134,9 +134,9 @@ export default function Footer() {
         </div>
 
         <div>
-          <h6 className="mb-4 text-xs font-bold uppercase tracking-wide">
+          <h2 className="mb-4 text-xs font-bold uppercase tracking-wide">
             {t("follow")}
-          </h6>
+          </h2>
           <ul className="space-y-2 text-sm text-foreground/60">
             <li>
               <a

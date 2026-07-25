@@ -118,9 +118,14 @@ function GlassM({
       steps: 1,
     });
     geo.center();
-    const smooth = geo.toNonIndexed();
+    /*
+      ExtrudeGeometry zaten non-indexed dönüyor. Koşulsuz toNonIndexed()
+      hem "already non-indexed" uyarısı basıyor hem de tüm vertex buffer'ını
+      boşuna kopyalıyordu (hero'nun kritik yolunda). Sadece gerekirse çevir.
+    */
+    const smooth = geo.index ? geo.toNonIndexed() : geo;
     smooth.computeVertexNormals();
-    geo.dispose();
+    if (smooth !== geo) geo.dispose();
     return smooth;
   }, [lite]);
 

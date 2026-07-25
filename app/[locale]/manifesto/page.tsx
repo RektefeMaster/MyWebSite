@@ -1,5 +1,6 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
+import { alternatesFor } from "@/lib/site";
 import PageHero from "@/components/PageHero";
 import StudioAbout from "@/components/StudioAbout";
 import Manifesto from "@/components/Manifesto";
@@ -12,7 +13,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pages.manifesto" });
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: alternatesFor(locale, "/manifesto"),
+  };
 }
 
 export default async function ManifestoPage({

@@ -25,6 +25,7 @@ export default async function BlogIndex({ locale }: BlogIndexProps) {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-4 md:grid-cols-2">
           <BlogCard
+            headingLevel={2}
             post={featured}
             title={featuredArticle.title}
             excerpt={featuredArticle.excerpt}
@@ -38,6 +39,7 @@ export default async function BlogIndex({ locale }: BlogIndexProps) {
 
           {restArticles.map(({ post, article }, i) => (
             <BlogCard
+              headingLevel={2}
               key={post.slug}
               post={post}
               title={article.title}

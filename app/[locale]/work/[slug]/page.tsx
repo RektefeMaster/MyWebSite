@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { alternatesFor } from "@/lib/site";
 import { projects, getProjectById } from "@/data/projects";
 import { getProjectDetail } from "@/data/project-details";
 import { routing } from "@/i18n/routing";
@@ -24,6 +25,7 @@ export async function generateMetadata({
   return {
     title: `${project.name} — METEK`,
     description: detail.summary,
+    alternates: alternatesFor(locale, `/work/${slug}`),
   };
 }
 
