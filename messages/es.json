@@ -525,6 +525,14 @@
     "response": "Suelo responder en un día. Si urge, WhatsApp es más rápido.",
     "emailCta": "Abrir correo"
   },
+  "colophon": {
+    "title": "Colofón",
+    "lede": "Estos números no son un sello. La página se midió ahora mismo, en tu navegador.",
+    "paint": "Primera vista",
+    "shift": "Desplazamiento",
+    "ready": "Lista para usar",
+    "studio": "Malatya"
+  },
   "footer": {
     "tagline": "Diseño propio. Software sólido. Un solo equipo.",
     "quickLinks": "Enlaces rápidos",

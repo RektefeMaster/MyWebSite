@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-07-25T14:44:19.484Z",
+  "generatedAt": "2026-07-25T15:21:03.087Z",
   "locales": [
     "en",
     "tr",
     "es",
     "de"
   ],
-  "totalLeafKeysEn": 385,
+  "totalLeafKeysEn": 391,
   "byNamespace": {
     "meta": 2,
     "nav": 14,
@@ -29,28 +29,29 @@
     "process": 20,
     "about": 24,
     "contact": 29,
+    "colophon": 6,
     "footer": 17,
     "whatsapp": 4,
     "a11y": 6
   },
   "parity": {
     "en": {
-      "leafCount": 385,
+      "leafCount": 391,
       "missingVsEn": 0,
       "extraVsEn": 0
     },
     "tr": {
-      "leafCount": 385,
+      "leafCount": 391,
       "missingVsEn": 0,
       "extraVsEn": 0
     },
     "es": {
-      "leafCount": 385,
+      "leafCount": 391,
       "missingVsEn": 0,
       "extraVsEn": 0
     },
     "de": {
-      "leafCount": 385,
+      "leafCount": 391,
       "missingVsEn": 0,
       "extraVsEn": 0
     }

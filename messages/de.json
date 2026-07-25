@@ -525,6 +525,14 @@
     "response": "Antwort meist innerhalb eines Tages. Bei Eile: WhatsApp.",
     "emailCta": "E-Mail öffnen"
   },
+  "colophon": {
+    "title": "Kolophon",
+    "lede": "Diese Zahlen sind kein Siegel. Die Seite hat sich eben in Ihrem Browser selbst gemessen.",
+    "paint": "Erste Ansicht",
+    "shift": "Layout-Verschiebung",
+    "ready": "Bereit zur Nutzung",
+    "studio": "Malatya"
+  },
   "footer": {
     "tagline": "Eigenes Design. Solide Software. Ein Team.",
     "quickLinks": "Links",
