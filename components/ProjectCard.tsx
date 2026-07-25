@@ -16,8 +16,9 @@ export default function ProjectCard({ project }: { project: Project }) {
   const name = detail?.title ?? project.name;
   const punch = getProjectPunch(locale, project.id);
 
+  // data-project-item: DeviceMockup hover şeridini kart kenarında tetikler
   return (
-    <article className="group flex h-full flex-col">
+    <article className="group flex h-full flex-col" data-project-item>
       <Link
         scroll={false}
         href={`/work/${project.id}`}

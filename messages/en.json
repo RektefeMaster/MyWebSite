@@ -552,6 +552,8 @@
   },
   "a11y": {
     "breadcrumb": "Breadcrumb",
+    "deviceDesktop": "{name} — desktop view",
+    "deviceMobile": "{name} — mobile view",
     "language": "Language",
     "themeToDark": "Switch to dark theme",
     "themeToLight": "Switch to light theme"

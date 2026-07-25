@@ -8,11 +8,15 @@ import Magnetic from "./Magnetic";
 import SpecularButton from "./SpecularButton";
 import { gsap, useGSAP } from "@/lib/gsap";
 
-/** Chunk'ı erken çek — intro ısınmasında mount anında hazır olsun */
-const loadHeroScene = () => import("./HeroScene");
-if (typeof window !== "undefined") {
-  void loadHeroScene();
-}
+/**
+ * Chunk'ı erken çek — intro ısınmasında mount anında hazır olsun.
+ *
+ * Modül kapsamında ÇAĞIRMA: Hero, layout'taki HomeHeroKeepAlive tarafından
+ * statik import ediliyor; modül her rotada değerlendiği için three.js (~259KB
+ * gzip) /blog, /services gibi 3D'siz sayfalarda da iniyordu. Tetiği
+ * HomeHeroKeepAlive veriyor (ana sayfada hemen, diğerlerinde idle'da).
+ */
+export const loadHeroScene = () => import("./HeroScene");
 
 const HeroScene = dynamic(loadHeroScene, {
   ssr: false,
@@ -184,11 +188,16 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
 
         <div
           data-hero-fade
-          className="flex min-h-0 flex-1 items-center justify-center px-5 md:pointer-events-none md:absolute md:inset-x-12 md:top-[34%] md:-translate-y-1/2 md:flex-none lg:inset-x-16"
+          className="flex min-h-0 flex-1 items-start justify-center px-4 pt-[7svh] sm:px-5 md:pointer-events-none md:absolute md:inset-x-12 md:top-[34%] md:-translate-y-1/2 md:flex-none md:items-center md:p-0 lg:inset-x-16"
         >
+          {/*
+            Mobil ölçek DE kopyasıyla sınırlı ("Von der Idee / zum laufenden /
+            Produkt." en uzun satır). max-md clamp ~%91 satır doluluğunda
+            kalıyor; md+ üstünde masaüstü ölçeği aynen korunuyor.
+          */}
           <h1
             aria-label={`${t("line1")} ${t("line2")} ${t("line3")}`}
-            className="mx-auto max-w-5xl text-center font-display text-[clamp(2.1rem,7.2vw,5.75rem)] font-bold leading-[0.95] tracking-[-0.03em] text-ink [text-shadow:0_1px_24px_rgba(245,245,245,0.55)] dark:[text-shadow:0_1px_28px_rgba(0,0,0,0.45)] max-[390px]:text-[clamp(1.95rem,7vw,2.6rem)]"
+            className="mx-auto max-w-5xl text-center font-display text-[clamp(2.1rem,7.2vw,5.75rem)] font-bold leading-[0.95] tracking-[-0.03em] text-ink [text-shadow:0_1px_24px_rgba(245,245,245,0.55)] dark:[text-shadow:0_2px_30px_rgba(0,0,0,0.6)] max-md:text-[clamp(1.95rem,9vw,3.1rem)]"
           >
             <span className="block" aria-hidden>
               {t("line1")}
@@ -236,7 +245,7 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
               <Link
                 href={{ pathname: "/", hash: "work" }}
                 scroll={false}
-                className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full border border-ink/20 bg-paper/90 px-5 text-sm font-semibold text-ink/80 transition-colors hover:border-ink/35 hover:text-ink sm:min-h-10 md:bg-paper/70 md:backdrop-blur-sm"
+                className="inline-flex min-h-11 items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-ink/20 bg-paper/90 px-5 text-sm font-semibold text-ink/80 transition-colors hover:border-ink/35 hover:text-ink sm:min-h-10 md:bg-paper/70 md:backdrop-blur-sm"
               >
                 {t("ctaWork")}
                 <span aria-hidden>↘</span>

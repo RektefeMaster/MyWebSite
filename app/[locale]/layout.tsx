@@ -16,12 +16,16 @@ import { SITE } from "@/lib/site";
 import { ThemeProvider, themeInitScript } from "@/lib/theme";
 import "../globals.css";
 
-/** Display — başlıklar (Hero 3D hariç). TR glifleri (ŞşĞğİı) TTF’ye gömülü. */
+/**
+ * Display — başlıklar (Hero 3D hariç). TR glifleri (ŞşĞğİı) TTF’ye gömülü.
+ *
+ * Italic kesim bilerek kayıtlı değil: kodun hiçbir yerinde italic display
+ * metni yok, ama kayıtlıyken her sayfada preload edilip ~14KB indiriyordu.
+ * Italic başlık gerekirse şu satırı geri ekle (dosya `app/fonts/` içinde):
+ *   { path: "../fonts/goks-italic.ttf", weight: "400", style: "italic" },
+ */
 const goks = localFont({
-  src: [
-    { path: "../fonts/goks-regular.ttf", weight: "400", style: "normal" },
-    { path: "../fonts/goks-italic.ttf", weight: "400", style: "italic" },
-  ],
+  src: [{ path: "../fonts/goks-regular.ttf", weight: "400", style: "normal" }],
   variable: "--font-goks",
   display: "swap",
 });

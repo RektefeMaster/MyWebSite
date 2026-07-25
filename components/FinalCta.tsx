@@ -50,7 +50,8 @@ export default function FinalCta() {
   const locale = useLocale();
   const interests = tContact.raw("interests") as string[];
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState<string[]>([]);
+  /** Etiket metni değil indeks tut — dil değişince seçim düşmesin. */
+  const [selected, setSelected] = useState<number[]>([]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "sent" | "error">("idle");
@@ -166,9 +167,9 @@ export default function FinalCta() {
     }
   }
 
-  function toggleInterest(label: string) {
+  function toggleInterest(index: number) {
     setSelected((prev) =>
-      prev.includes(label) ? prev.filter((x) => x !== label) : [...prev, label]
+      prev.includes(index) ? prev.filter((x) => x !== index) : [...prev, index]
     );
   }
 
@@ -212,12 +213,17 @@ export default function FinalCta() {
       [
         `${tContact("mailName")}: ${nameValue}`,
         `${tContact("mailEmail")}: ${emailValue}`,
-        `${tContact("mailInterest")}: ${selected.join(", ") || "·"}`,
+        `${tContact("mailInterest")}: ${
+          selected
+            .map((i) => interests[i])
+            .filter(Boolean)
+            .join(", ") || "·"
+        }`,
         "",
         message,
       ].join("\n")
     );
-    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+    window.location.assign(`mailto:${EMAIL}?subject=${subject}&body=${body}`);
     setStatus("sent");
   }
 
@@ -364,12 +370,12 @@ export default function FinalCta() {
               </legend>
               <div className="flex flex-wrap gap-2">
                 {interests.map((label, i) => {
-                  const checked = selected.includes(label);
+                  const checked = selected.includes(i);
                   return (
                     <button
                       key={`${locale}-${i}`}
                       type="button"
-                      onClick={() => toggleInterest(label)}
+                      onClick={() => toggleInterest(i)}
                       aria-pressed={checked}
                       className={`inline-flex min-h-11 items-center rounded-full px-3.5 py-2.5 text-[13px] font-semibold transition-colors ${
                         checked

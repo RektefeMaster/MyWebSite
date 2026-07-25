@@ -331,8 +331,11 @@ export default function HeroScene({
    * Desktop idle: pointer yokken demand (son kare donar, malzeme kalitesi aynı).
    * Mobil/lite: görünürken always (60fps hedefi).
    */
-  const [interactionLive, setInteractionLive] = useState(true);
+  // Mount'ta canlı: giriş animasyonu tam kare koşsun, sonra idle'a düşsün.
+  const [pointerLive, setPointerLive] = useState(true);
   const idleTimer = useRef(0);
+  // lite/reduced'da sahne zaten sürekli canlı — türetiyoruz, saklamıyoruz.
+  const interactionLive = lite || reduced || pointerLive;
 
   const remountCanvas = () => {
     if (!mountedRef.current) return;
@@ -397,19 +400,20 @@ export default function HeroScene({
 
   // Desktop: pointer/touch sonrası kısa süre always; idle’da demand (GPU boş)
   useEffect(() => {
-    if (lite || reduced) {
-      setInteractionLive(true);
-      return;
-    }
+    if (lite || reduced) return;
     const IDLE_MS = 2400;
-    const bump = () => {
-      setInteractionLive(true);
+    const armIdle = () => {
       window.clearTimeout(idleTimer.current);
       idleTimer.current = window.setTimeout(() => {
-        if (mountedRef.current) setInteractionLive(false);
+        if (mountedRef.current) setPointerLive(false);
       }, IDLE_MS);
     };
-    bump();
+    const bump = () => {
+      setPointerLive(true);
+      armIdle();
+    };
+    // Mount'ta pointerLive zaten true — sadece düşüş sayacını kur.
+    armIdle();
     window.addEventListener("pointermove", bump, { passive: true });
     window.addEventListener("pointerdown", bump, { passive: true });
     return () => {

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import type { CSSProperties, ReactNode } from "react";
+import { useTranslations } from "next-intl";
 import type { Project } from "@/data/projects";
 
 /**
@@ -100,24 +101,25 @@ function ScreenContent({
   const [scrollReady, setScrollReady] = useState(false);
   const scrollable = Boolean(scroll && scrollSrc);
 
+  /*
+    Hover şeridi ~250KB ham JPG ve sayfada onlarca kart var. Viewport'a girer
+    girmez çekilince 768px'te LCP elemanı oluyor, /work'ü 5.5sn'ye çıkarıyordu.
+    Artık yalnızca hover niyetinde iniyor: hover yoksa tek bayt inmez.
+
+    Hedef mockup değil tüm kart (`data-project-item`) — imleç kartın kenarına
+    değdiği anda başlıyor, mockup'a varana kadar şerit hazır oluyor.
+    Dokunmatikte `useScroll` zaten false, şerit hiç istenmiyor.
+  */
   useEffect(() => {
     if (!scrollable || priority || scrollReady) return;
     const el = rootRef.current;
     if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setScrollReady(true);
-      return;
-    }
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry?.isIntersecting) return;
-        setScrollReady(true);
-        io.disconnect();
-      },
-      { rootMargin: "120px 0px" }
-    );
-    io.observe(el);
-    return () => io.disconnect();
+
+    const hoverTarget =
+      el.closest("[data-project-item]") ?? el.closest("[data-mock-root]") ?? el;
+    const load = () => setScrollReady(true);
+    hoverTarget.addEventListener("pointerenter", load, { once: true });
+    return () => hoverTarget.removeEventListener("pointerenter", load);
   }, [scrollable, priority, scrollReady]);
 
   if (!src && !scrollSrc) {
@@ -281,6 +283,7 @@ export default function DeviceMockup({
   variant = "card",
   priority = false,
 }: DeviceMockupProps) {
+  const t = useTranslations("a11y");
   const isHero = variant === "hero";
   // Dokunmatik: hover-scroll yok → optimize statik next/image
   const [coarse, setCoarse] = useState(false);
@@ -298,9 +301,8 @@ export default function DeviceMockup({
 
   return (
     <div
+      data-mock-root
       className={`group/mock relative h-full w-full ${canScroll ? "device-mockup--scrollable" : ""}`}
-      role="img"
-      aria-label={project.name}
     >
       {/* MacBook — LCP adayı yalnızca hero desktop screen */}
       <DeviceFrame
@@ -321,7 +323,7 @@ export default function DeviceMockup({
         <ScreenContent
           src={project.desktopImage}
           scrollSrc={project.desktopScrollImage}
-          alt={`${project.name} masaüstü`}
+          alt={t("deviceDesktop", { name: project.name })}
           colors={project.colors}
           label={project.name}
           priority={priority}
@@ -356,7 +358,7 @@ export default function DeviceMockup({
       >
         <ScreenContent
           src={project.mobileImage}
-          alt={`${project.name} mobil`}
+          alt={t("deviceMobile", { name: project.name })}
           colors={project.colors}
           label={project.name.split(" ")[0] ?? project.name}
           priority={false}

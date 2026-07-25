@@ -3,11 +3,9 @@
  * Single content gate: inventory → evidence → messages → forbidden.
  */
 import { spawnSync } from "node:child_process";
-import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
-  ROOT,
   LOCALES,
   loadMessages,
   flattenKeys,
@@ -95,7 +93,7 @@ for (const locale of LOCALES) {
   }
 }
 function reportDupes(map, label) {
-  for (const [value, refs] of map) {
+  for (const [, refs] of map) {
     /** @type {Record<string, string[]>} */
     const byLocale = {};
     for (const ref of refs) {

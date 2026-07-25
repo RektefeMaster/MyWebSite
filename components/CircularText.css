@@ -1,85 +1,92 @@
-.circular-text {
-  --circular-r: 3.85rem;
-  --circular-spin: 20s;
-  --circular-rate: 1;
-  position: relative;
-  margin: 0;
-  width: 9.5rem;
-  height: 9.5rem;
-  border-radius: 50%;
-  font-weight: 700;
-  color: currentColor;
-  text-align: center;
-  cursor: inherit;
-  transform-origin: 50% 50%;
-  -webkit-transform-origin: 50% 50%;
-  user-select: none;
-  animation: circular-spin calc(var(--circular-spin) / var(--circular-rate))
-    linear infinite;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .circular-text:hover {
-    will-change: transform;
-  }
-}
-
-.circular-text[data-hover="slowDown"]:hover {
-  --circular-rate: 0.5;
-}
-
-.circular-text[data-hover="speedUp"]:hover {
-  --circular-rate: 4;
-}
-
-.circular-text[data-hover="pause"]:hover {
-  animation-play-state: paused;
-}
-
-.circular-text[data-hover="goBonkers"]:hover {
-  --circular-rate: 20;
-  scale: 0.8;
-}
-
-@keyframes circular-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (min-width: 768px) {
+/*
+  Footer marka halkası — dönen dairesel metin.
+  `components` katmanında: Tailwind utility'leri (hidden, w-full, opacity-*)
+  buradaki kuralları her zaman geçsin.
+*/
+@layer components {
   .circular-text {
-    --circular-r: 4.5rem;
-    width: 11rem;
-    height: 11rem;
+    --circular-r: 3.85rem;
+    --circular-spin: 20s;
+    --circular-rate: 1;
+    position: relative;
+    margin: 0;
+    width: 9.5rem;
+    height: 9.5rem;
+    border-radius: 50%;
+    font-weight: 700;
+    color: currentColor;
+    text-align: center;
+    cursor: inherit;
+    transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    user-select: none;
+    animation: circular-spin calc(var(--circular-spin) / var(--circular-rate))
+      linear infinite;
   }
-}
 
-.circular-text span {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  display: inline-block;
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  font-weight: 700;
-  text-transform: uppercase;
-  line-height: 1;
-  transform-origin: 0 0;
-  -webkit-transform-origin: 0 0;
-  transition: all 0.5s cubic-bezier(0, 0, 0, 1);
-}
+  @media (hover: hover) and (pointer: fine) {
+    .circular-text:hover {
+      will-change: transform;
+    }
+  }
 
-@media (min-width: 768px) {
+  .circular-text[data-hover="slowDown"]:hover {
+    --circular-rate: 0.5;
+  }
+
+  .circular-text[data-hover="speedUp"]:hover {
+    --circular-rate: 4;
+  }
+
+  .circular-text[data-hover="pause"]:hover {
+    animation-play-state: paused;
+  }
+
+  .circular-text[data-hover="goBonkers"]:hover {
+    --circular-rate: 20;
+    scale: 0.8;
+  }
+
+  @keyframes circular-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .circular-text {
+      --circular-r: 4.5rem;
+      width: 11rem;
+      height: 11rem;
+    }
+  }
+
   .circular-text span {
-    font-size: 0.78rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transition: all 0.5s cubic-bezier(0, 0, 0, 1);
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .circular-text {
-    cursor: default;
-    animation: none;
-    will-change: auto;
+  @media (min-width: 768px) {
+    .circular-text span {
+      font-size: 0.78rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .circular-text {
+      cursor: default;
+      animation: none;
+      will-change: auto;
+    }
   }
 }

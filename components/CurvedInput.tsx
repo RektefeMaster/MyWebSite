@@ -364,7 +364,12 @@ export default function CurvedInput({
       scrollRef.current = next;
       setScrollLen(next);
     }
-    setCaretU(layout.textStartU + (caretLen - next) * geom.uPerLen);
+    const nextCaretU = layout.textStartU + (caretLen - next) * geom.uPerLen;
+    // Kardeşleri gibi eşik ile koru — ölçüm kayan noktada salınırsa
+    // dep'siz layout effect'i sonsuz döngüye sokmasın.
+    setCaretU((prev) => (Math.abs(prev - nextCaretU) > 0.01 ? nextCaretU : prev));
+    // SVG metin metrikleri ancak boyama sonrası okunabiliyor: bu effect
+    // bilerek her render'da çalışır, dep listesi almaz.
   });
 
   const commitValue = (v: string) => {

@@ -36,10 +36,37 @@ UI, proje, blog ve meta metinlerinde **zorunlu**: `content-system/` + Cursor ski
 - **Projeler**: `data/projects.ts` içindeki liste; kartlarda gerçekçi laptop+telefon mockup (`ProjectCard.tsx`). Ekran görselleri: `desktopImage` / `mobileImage` → dosyalar `public/projects/{id}/`. Path yoksa renkli placeholder.
 - **Blog**: meta `data/blog.ts`, yazılar `data/blog-content/{tr,en,es,de}.ts`. Liste `/blog`, detay `/blog/[slug]`.
 
+## CSS katmanları (ZORUNLU)
+
+El yazımı CSS **her zaman `@layer components` içinde** olacak:
+`app/craft.css` (globals.css `layer(components)` ile alır) ve bileşen yanı
+`*.css` dosyaları (`SpecularButton.css`, `CircularText.css`, `CurvedInput.css`)
+kendi `@layer components { }` bloğunu taşır.
+
+Sebep: Tailwind v4 utility'leri `@layer utilities` içinde. Katmansız CSS
+katmanlıyı **her zaman** geçer — yani katmansız `.btn-stable { display:inline-flex }`,
+aynı elemandaki `md:hidden`'ı sessizce eziyordu (WhatsApp FAB masaüstünde
+görünüyordu). Yeni bileşen stili eklerken katmanı atlama.
+
+Tek istisna `globals.css` içindeki `.font-display` bloğu ve `--nav-offset`
+ölçeği: bunlar **bilerek** katmansız, çünkü sırasıyla `font-bold` utility'sini
+geçmeleri ve katmansız `:root` tanımıyla aynı yerde olmaları gerekiyor.
+
 ## Bilinen kısıtlar / dikkat
 
 - `reactStrictMode: false` ŞART: StrictMode'un çift effect çalıştırması R3F'in WebGL context'ini kalıcı kaybettiriyor (boş gri hero). Açma.
 - 3D yazı fontu `public/fonts/SpaceGrotesk-Bold.ttf` (troika woff2 okumaz, TTF gerekli; latin-ext içeriyor — Türkçe karakterler tamam).
+- `--nav-offset` fallback'i gerçek header yüksekliğiyle **birebir** tutulacak
+  (<640:168 · 640–767:176 · 768–1023:186 · ≥1024:121, hepsi `+ var(--safe-top)`).
+  Uyuşmazsa hydrate'te tüm sayfa zıplıyor (ölçüldü: /work CLS 0.19). Nav
+  padding'i değişirse bu değerleri yeniden ölç.
+- Rotanın ana gövdesini `dynamic()` + `loading` ile sarma. SSR tam yükseklikte
+  basıyor, hydrate'te Suspense fallback'i yerine geçip altındaki her şeyi
+  zıplatıyor. `WorkBelowFold`/`ApproachBelowFold` bu yüzden statik import.
+  Görüş dışı bölümler için `LazyMount` kullan (o `null` render eder, swap yok).
+- `DeviceMockup` hover şeridi (~250KB ham JPG) yalnızca `pointerenter` ile
+  iner. Viewport tetiğine geri alma — 768px'te LCP elemanı olup /work'ü
+  5.5sn'ye çıkarıyordu.
 - UI fontu next/font ile Space Grotesk (`latin` + `latin-ext` subset).
 
 ## Kişiselleştirme noktaları

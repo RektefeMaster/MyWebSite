@@ -1,11 +1,12 @@
-"use client";
+import Process from "@/components/Process";
 
-import dynamic from "next/dynamic";
-
-const Process = dynamic(() => import("@/components/Process"), {
-  loading: () => <div style={{ minHeight: "min(50vh, 560px)" }} aria-hidden />,
-});
-
+/**
+ * /approach below-fold — süreç zaman çizelgesi.
+ *
+ * dynamic() KULLANMA: WorkBelowFold ile aynı gerekçe — SSR'de tam yükseklikte
+ * basılan ana gövdenin yerine hydrate sırasında Suspense fallback'i geçiyor ve
+ * altındaki bandı zıplatıyor.
+ */
 export default function ApproachBelowFold() {
   return <Process />;
 }

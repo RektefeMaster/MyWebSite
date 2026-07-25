@@ -48,7 +48,7 @@ export default async function BlogTeaser({ locale }: BlogTeaserProps) {
           <Reveal delay={80}>
             <Magnetic strength={0.3}>
               <Link
-        scroll={false}
+                scroll={false}
                 href="/blog"
                 className="link-underline inline-flex min-h-11 items-center gap-2 text-sm font-bold text-ink"
               >
@@ -63,7 +63,7 @@ export default async function BlogTeaser({ locale }: BlogTeaserProps) {
           {articles.map(({ post, article }, i) => (
               <Reveal key={post.slug} delay={i * 60}>
                 <Link
-        scroll={false}
+                  scroll={false}
                   href={`/blog/${post.slug}`}
                   className="group flex h-full flex-col overflow-hidden rounded-3xl border border-foreground/10 bg-surface transition-colors md:min-h-[320px] [@media(hover:hover)_and_(pointer:fine)]:hover:border-ink"
                 >

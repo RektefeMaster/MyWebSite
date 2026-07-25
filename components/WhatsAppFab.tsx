@@ -25,10 +25,8 @@ export default function WhatsAppFab() {
           ) as HTMLElement | null)
         : null;
     const targets = [home, contact].filter(Boolean) as HTMLElement[];
-    if (targets.length === 0) {
-      setHidden(false);
-      return;
-    }
+    // Gözlenecek hedef yoksa FAB görünür kalır (state zaten `false`).
+    if (targets.length === 0) return;
 
     const visible = new Set<Element>();
     const io = new IntersectionObserver(
@@ -42,7 +40,11 @@ export default function WhatsAppFab() {
       { root: null, threshold: 0.08, rootMargin: "0px 0px -6% 0px" }
     );
     for (const el of targets) io.observe(el);
-    return () => io.disconnect();
+    return () => {
+      io.disconnect();
+      // Rota değişiminde gizli kalmasın — yeni sayfada hedefler farklı.
+      setHidden(false);
+    };
   }, [onHome]);
 
   return (

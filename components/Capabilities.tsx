@@ -123,6 +123,23 @@ function CapDetail({
   );
 }
 
+function CapCta({ label }: { label: string }) {
+  return (
+    <Magnetic strength={0.25} className="w-full sm:w-auto">
+      <SpecularButton
+        href="/services"
+        tone="ink"
+        size="md"
+        fillMobile
+        className="btn-stable btn-stable--chip"
+      >
+        {label}
+        <span aria-hidden>→</span>
+      </SpecularButton>
+    </Magnetic>
+  );
+}
+
 /** Üç ana capability — hover: lime + preview; tık: seçim + detay metin */
 export default function Capabilities() {
   const t = useTranslations("capabilities");
@@ -199,6 +216,7 @@ export default function Capabilities() {
         </div>
 
         <div className="hidden gap-10 lg:grid lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
+          <div className="flex min-w-0 flex-col">
           <div
             ref={listRef}
             role="tablist"
@@ -254,11 +272,21 @@ export default function Capabilities() {
               );
             })}
           </div>
+            {/*
+              Sekme listesi sağ panelden kısa kalıyor; CTA ~230px boşlukta
+              yüzüyordu. mt-auto ile kolonun dibine otursun.
+            */}
+            <div className="mt-12 pt-2 lg:mt-auto">
+              <CapCta label={t("cta")} />
+            </div>
+          </div>
 
+          {/* Etiket her zaman *seçili* sekme — `shown` hover önizlemesiyle
+              değişiyor ve panel'i seçili olmayan bir sekmeye bağlıyordu. */}
           <div
             role="tabpanel"
             id={`${baseId}-panel`}
-            aria-labelledby={`${baseId}-tab-${shown}`}
+            aria-labelledby={`${baseId}-tab-${active}`}
             className="min-w-0 transition-opacity duration-300"
           >
             <CapDetail
@@ -320,19 +348,9 @@ export default function Capabilities() {
           })}
         </div>
 
-        <div className="mt-12 flex justify-start md:mt-16">
-          <Magnetic strength={0.25} className="w-full sm:w-auto">
-            <SpecularButton
-              href="/services"
-              tone="ink"
-              size="md"
-              fillMobile
-              className="btn-stable btn-stable--chip"
-            >
-              {t("cta")}
-              <span aria-hidden>→</span>
-            </SpecularButton>
-          </Magnetic>
+        {/* lg+ CTA sekme kolonunun dibinde; burada yalnızca akordeon altı */}
+        <div className="mt-12 flex justify-start md:mt-16 lg:hidden">
+          <CapCta label={t("cta")} />
         </div>
       </div>
     </section>

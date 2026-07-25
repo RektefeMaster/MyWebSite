@@ -50,7 +50,7 @@ export default function Marquee({ variant = "section" }: MarqueeProps) {
       aria-hidden
       className={
         isHeader
-          ? "relative overflow-hidden border-t border-ink/10 bg-lime"
+          ? "marquee-strip--header relative overflow-hidden border-t border-ink/10 bg-lime"
           : "relative overflow-hidden border-y border-ink/10 bg-lime py-4 md:py-5"
       }
     >

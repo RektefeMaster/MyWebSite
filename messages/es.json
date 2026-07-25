@@ -552,6 +552,8 @@
   },
   "a11y": {
     "breadcrumb": "Ruta de navegación",
+    "deviceDesktop": "{name} — vista de escritorio",
+    "deviceMobile": "{name} — vista móvil",
     "language": "Idioma",
     "themeToDark": "Cambiar a tema oscuro",
     "themeToLight": "Cambiar a tema claro"

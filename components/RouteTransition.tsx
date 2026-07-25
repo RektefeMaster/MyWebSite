@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useLocale } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
 import MetekLoader from "@/components/MetekLoader";
@@ -69,7 +69,7 @@ export default function RouteTransition() {
   const pathBoot = useRef(true);
   const armId = useRef(0);
 
-  const reveal = (id: number) => {
+  const reveal = useCallback((id: number) => {
     if (id !== armId.current) return;
     if (!pending.current || introPlaying()) return;
     window.clearTimeout(maxTimer.current);
@@ -81,9 +81,9 @@ export default function RouteTransition() {
       shownAt.current = 0;
       setActive(false);
     }, MAX_VISIBLE_MS);
-  };
+  }, []);
 
-  const arm = () => {
+  const arm = useCallback(() => {
     if (introPlaying()) return;
     const id = ++armId.current;
     pending.current = true;
@@ -102,9 +102,9 @@ export default function RouteTransition() {
     }
 
     showTimer.current = window.setTimeout(() => reveal(id), SHOW_AFTER_MS);
-  };
+  }, [reveal]);
 
-  const settle = () => {
+  const settle = useCallback(() => {
     const id = armId.current;
     pending.current = false;
     window.clearTimeout(showTimer.current);
@@ -124,7 +124,7 @@ export default function RouteTransition() {
       setActive(false);
       scheduleScrollTriggerRefresh(120);
     }, wait);
-  };
+  }, []);
 
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
@@ -160,7 +160,7 @@ export default function RouteTransition() {
       window.clearTimeout(hideTimer.current);
       window.clearTimeout(maxTimer.current);
     };
-  }, []);
+  }, [arm]);
 
   useEffect(() => {
     if (pathBoot.current) {
@@ -168,7 +168,7 @@ export default function RouteTransition() {
       return;
     }
     settle();
-  }, [pathname, locale]);
+  }, [pathname, locale, settle]);
 
   if (!active) return null;
 
