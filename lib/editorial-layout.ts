@@ -23,3 +23,43 @@ export function editorialSpan(
   if (displayPreference === "hero") return "md:col-span-12";
   return slotClass[layoutSlotAt(index)];
 }
+
+const slotCols: Record<LayoutSlot, number> = {
+  wide: 8,
+  narrow: 4,
+  medium: 5,
+  large: 7,
+};
+
+/** editorialSpan ile aynı karar — sayısal kolon adedi (sizes hesabı için) */
+export function editorialSpanCols(
+  index: number,
+  displayPreference?: "default" | "hero"
+): number {
+  if (displayPreference === "hero") return 12;
+  return slotCols[layoutSlotAt(index)] ?? 5;
+}
+
+/**
+ * Kart içindeki bir görselin `sizes` değeri.
+ *
+ * Grid geometrisi: kapsayıcı `max-w-7xl` (1280px), md+ `px-10` (2×40px),
+ * altında tek kolon + `px-5` (2×20px). Yani kart genişliği:
+ *   md+  → min(1280, 100vw − 80px) × cols/12
+ *   <md  → 100vw − 40px
+ * `frac` görselin kart genişliğine oranı (ölçüldü: MacBook 0.84, ekran 0.56).
+ *
+ * Neden gerekli: sabit `360px` gibi bir değer 12 kolonluk kartta 1075px'lik
+ * kutuya 384px'lik varyantı düşürüyordu. Kaynak 2400px olduğu halde ~3x
+ * upscale — dizüstü ekranındaki metin gözle görülür bulanıktı.
+ */
+export function cardImageSizes(cols: number, frac: number): string {
+  const wide = Math.ceil(((1280 * cols) / 12) * frac);
+  const mid = ((cols / 12) * frac).toFixed(4);
+  const mob = frac.toFixed(4);
+  return [
+    `(min-width: 1360px) ${wide}px`,
+    `(min-width: 768px) calc((100vw - 80px) * ${mid})`,
+    `calc((100vw - 40px) * ${mob})`,
+  ].join(", ");
+}

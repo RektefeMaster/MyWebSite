@@ -41,11 +41,11 @@ export default async function BlogArticleView({
               aria-label={a11y("breadcrumb")}
               className="mb-8 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground/40"
             >
-              <Link scroll={false} href="/" className="transition-colors hover:text-ink">
+              <Link scroll={false} href="/" className="inline-flex min-h-6 items-center py-1.5 -my-1.5 transition-colors hover:text-ink">
                 {t("crumbHome")}
               </Link>
               <span className="text-foreground/25">/</span>
-              <Link scroll={false} href="/blog" className="transition-colors hover:text-ink">
+              <Link scroll={false} href="/blog" className="inline-flex min-h-6 items-center py-1.5 -my-1.5 transition-colors hover:text-ink">
                 {t("crumbBlog")}
               </Link>
               <span className="text-foreground/25">/</span>

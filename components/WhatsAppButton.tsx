@@ -15,12 +15,18 @@ export default function WhatsAppButton({
   const t = useTranslations("whatsapp");
   const href = whatsappHref(t("prefill"));
 
+  /*
+    Dolu yeşil varyantlarda beyaz metin #25D366 üstünde 1.98:1 — WCAG AA
+    4.5'i de, ikon için 3:1'i de geçmiyor. Marka yeşili duruyor, yazı koyu
+    yeşile çekiliyor (9.7:1). Outline varyantlarında zemin koyu/şeffaf
+    olduğu için beyaz doğru olan, dokunulmadı.
+  */
   let styles =
-    "inline-flex min-h-12 items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-bold text-white";
+    "inline-flex min-h-12 items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-bold text-[#0b2e1a]";
   switch (variant) {
     case "nav":
       styles =
-        "btn-stable inline-flex min-h-10 min-w-[7.25rem] gap-1.5 rounded-full bg-[#25D366] px-3.5 py-2 text-xs font-bold text-white md:min-h-0 md:px-4 md:text-sm";
+        "btn-stable inline-flex min-h-10 min-w-[7.25rem] gap-1.5 rounded-full bg-[#25D366] px-3.5 py-2 text-xs font-bold text-[#0b2e1a] md:min-h-0 md:px-4 md:text-sm";
       break;
     case "footer":
       styles =

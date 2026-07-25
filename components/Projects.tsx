@@ -7,7 +7,7 @@ import {
   getProjectsByPrimaryLane,
   type ProjectLane,
 } from "@/data/projects";
-import { editorialSpan } from "@/lib/editorial-layout";
+import { editorialSpan, editorialSpanCols } from "@/lib/editorial-layout";
 import ProjectCard from "./ProjectCard";
 import Reveal from "./Reveal";
 import { gsap, useGSAP, attachScrollReveal } from "@/lib/gsap";
@@ -97,7 +97,10 @@ export default function Projects() {
                       data-project-item
                       className={`cv-card min-w-0 ${editorialSpan(i, project.displayPreference)}`}
                     >
-                      <ProjectCard project={project} />
+                      <ProjectCard
+                        project={project}
+                        cols={editorialSpanCols(i, project.displayPreference)}
+                      />
                     </div>
                   ))}
                 </div>

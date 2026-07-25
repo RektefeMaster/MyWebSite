@@ -16,6 +16,32 @@ type ProjectDetailViewProps = {
   detail: ProjectDetail;
 };
 
+/*
+  Galeri 6 kolonluk grid (gap-2.5 + p-2.5, kapsayıcı max-w-7xl).
+  Ölçülen kutu genişlikleri (1440vw): span-6=1258 · span-4=835 · span-2=413.
+  Bunlar span-6'nın oranı olarak sabit; `sizes` buradan türetiliyor.
+
+  Sabit px ("320px") yazılıydı ve span-3/span-2 karolar 1440@2x'te 825px
+  isterken 640px varyant iniyordu — kaynak 1920px olmasına rağmen bulanıktı.
+*/
+const GALLERY_FRAC: Record<number, number> = {
+  6: 1,
+  4: 0.664,
+  3: 0.494,
+  2: 0.328,
+};
+
+function gallerySizes(spanClass: string): string {
+  const cols = Number(spanClass.match(/col-span-(\d+)/)?.[1] ?? 6);
+  const frac = GALLERY_FRAC[cols] ?? 1;
+  const wide = Math.ceil(1258 * frac);
+  return [
+    `(min-width: 1360px) ${wide}px`,
+    `(min-width: 768px) calc((100vw - 100px) * ${frac})`,
+    `calc((100vw - 60px) * ${frac})`,
+  ].join(", ");
+}
+
 const DEFAULT_GALLERY_SPANS = [
   "col-span-4 row-span-2 min-h-[220px] md:min-h-[320px]",
   "col-span-2 min-h-[130px] md:min-h-[154px]",
@@ -45,11 +71,11 @@ export default async function ProjectDetailView({
               aria-label={a11y("breadcrumb")}
               className="mb-8 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground/40"
             >
-              <Link scroll={false} href="/" className="transition-colors hover:text-ink">
+              <Link scroll={false} href="/" className="inline-flex min-h-6 items-center py-1.5 -my-1.5 transition-colors hover:text-ink">
                 {nav("home")}
               </Link>
               <span className="text-foreground/25">/</span>
-              <Link scroll={false} href="/work" className="transition-colors hover:text-ink">
+              <Link scroll={false} href="/work" className="inline-flex min-h-6 items-center py-1.5 -my-1.5 transition-colors hover:text-ink">
                 {nav("work")}
               </Link>
               <span className="text-foreground/25">/</span>
@@ -130,27 +156,23 @@ export default async function ProjectDetailView({
             <Reveal delay={60}>
               <div className="overflow-hidden rounded-[1.75rem] border border-foreground/8 bg-background md:rounded-[2rem]">
                 <div className="grid grid-cols-6 gap-2 p-2 md:gap-2.5 md:p-2.5">
-                  {gallery.map((shot, i) => (
+                  {gallery.map((shot, i) => {
+                    // span'i bir kez çöz — `sizes` ile grid aynı değeri görsün
+                    const span =
+                      shot.span ??
+                      DEFAULT_GALLERY_SPANS[
+                        Math.min(i, DEFAULT_GALLERY_SPANS.length - 1)
+                      ];
+                    return (
                     <div
                       key={shot.src}
-                      className={`relative overflow-hidden rounded-[1rem] bg-stone md:rounded-[1.15rem] ${
-                        shot.span ??
-                        DEFAULT_GALLERY_SPANS[
-                          Math.min(i, DEFAULT_GALLERY_SPANS.length - 1)
-                        ]
-                      }`}
+                      className={`relative overflow-hidden rounded-[1rem] bg-stone md:rounded-[1.15rem] ${span}`}
                     >
                       <Image
                         src={shot.src}
                         alt={shot.alt}
                         fill
-                        sizes={
-                          i === 0
-                            ? "(max-width: 1024px) 90vw, 720px"
-                            : i === gallery.length - 1 && gallery.length >= 4
-                              ? "(max-width: 1024px) 90vw, 960px"
-                              : "(max-width: 1024px) 45vw, 320px"
-                        }
+                        sizes={gallerySizes(span)}
                         quality={75}
                         priority={false}
                         loading="lazy"
@@ -158,7 +180,8 @@ export default async function ProjectDetailView({
                         className="object-cover object-top transition-transform duration-700 ease-out [@media(hover:hover)_and_(pointer:fine)]:hover:scale-[1.03]"
                       />
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             </Reveal>

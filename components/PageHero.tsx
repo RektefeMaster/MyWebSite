@@ -87,9 +87,14 @@ export default function PageHero({
                 {i > 0 && <span className="text-foreground/25">/</span>}
                 {c.href ? (
                   <Link
-        scroll={false}
+                    scroll={false}
                     href={c.href}
-                    className="transition-colors hover:text-ink"
+                    /*
+                      11px metin → 17px'lik dokunma hedefi; WCAG 2.2 AA (2.5.8)
+                      24px istiyor. Dikey padding hedefi büyütür, negatif
+                      margin düzeni aynı bırakır (satır yüksekliği değişmez).
+                    */
+                    className="inline-flex min-h-6 items-center py-1.5 -my-1.5 transition-colors hover:text-ink"
                   >
                     {c.label}
                   </Link>

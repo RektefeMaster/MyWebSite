@@ -181,7 +181,7 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
           data-hero-fade
           className="pointer-events-none absolute left-5 top-[calc(var(--nav-offset)+0.35rem)] z-10 hidden text-[10px] font-semibold uppercase leading-relaxed tracking-[0.16em] text-ink/50 sm:block sm:text-[11px] md:left-16 md:top-[calc(var(--nav-offset)+0.75rem)] md:tracking-[0.18em]"
         >
-          <span className="text-lime">●</span> {t("metaStudio")}
+          <span className="text-lime-ink">●</span> {t("metaStudio")}
           <br />
           {t("metaLocation")}
         </div>

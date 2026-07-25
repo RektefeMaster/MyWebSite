@@ -64,7 +64,7 @@ export default function FeaturedCase() {
             <ul className="mt-10 space-y-4 border-t border-foreground/10 pt-8">
               {outcomes.map((item, i) => (
                 <li key={item} className="flex gap-4 text-sm md:text-[15px]">
-                  <span className="font-mono text-xs font-bold text-lime">
+                  <span className="font-mono text-xs font-bold text-lime-ink">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="leading-relaxed text-foreground/70">{item}</span>

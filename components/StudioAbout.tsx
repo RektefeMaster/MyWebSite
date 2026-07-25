@@ -26,7 +26,7 @@ export default function StudioAbout() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/40">
               {t("whoLabel")}
             </p>
-            <p className="mt-4 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-lime">
+            <p className="mt-4 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-lime-ink">
               {t("origin")}
             </p>
             <p className="mt-2 max-w-[16rem] text-sm leading-snug text-foreground/45">
@@ -115,14 +115,14 @@ export default function StudioAbout() {
               <Link
                 href="/work"
                 scroll={false}
-                className="font-semibold text-foreground underline decoration-foreground/25 underline-offset-4 transition-colors hover:decoration-lime"
+                className="inline-flex min-h-6 items-center py-1 -my-1 font-semibold text-foreground underline decoration-foreground/25 underline-offset-4 transition-colors hover:decoration-lime"
               >
                 {t("linkWork")}
               </Link>
               <Link
                 href="/services"
                 scroll={false}
-                className="font-semibold text-foreground underline decoration-foreground/25 underline-offset-4 transition-colors hover:decoration-lime"
+                className="inline-flex min-h-6 items-center py-1 -my-1 font-semibold text-foreground underline decoration-foreground/25 underline-offset-4 transition-colors hover:decoration-lime"
               >
                 {t("linkServices")}
               </Link>

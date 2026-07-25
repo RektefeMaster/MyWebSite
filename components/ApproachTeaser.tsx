@@ -52,7 +52,7 @@ export default function ApproachTeaser() {
               <Reveal delay={i * 50}>
                 <span
                   className={`font-mono text-xs font-bold ${
-                    i === 0 ? "text-lime" : "text-foreground/30"
+                    i === 0 ? "text-lime-ink" : "text-foreground/30"
                   }`}
                 >
                   {String(i + 1).padStart(2, "0")}

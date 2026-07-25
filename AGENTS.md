@@ -68,6 +68,22 @@ geçmeleri ve katmansız `:root` tanımıyla aynı yerde olmaları gerekiyor.
   iner. Viewport tetiğine geri alma — 768px'te LCP elemanı olup /work'ü
   5.5sn'ye çıkarıyordu.
 - UI fontu next/font ile Space Grotesk (`latin` + `latin-ext` subset).
+- `next/image` `sizes` değerine **sabit px yazma**. Editorial grid'de kart 4/5/7/8/12
+  kolon olabiliyor; sabit `360px` 12 kolonluk kartta 1075px'lik kutuya 384px
+  varyant düşürüp kaynağı (2400px) 3x upscale ediyordu. Kart görselleri
+  `cardImageSizes(cols, frac)` (lib/editorial-layout.ts), proje galerisi
+  `gallerySizes(span)` ile türetilir. Yeni görsel eklerken kutuyu ölç:
+  `served_w >= box * dpr` olmalı.
+- **Lime metin rengi tema-duyarlı**: `--lime` (#c8e84a) açık zeminde 1.1:1 —
+  okunmuyor. Tema-takipli yüzeylerde (`bg-background`, `bg-paper`) metin için
+  `text-lime-ink` kullan (light'ta koyu zeytin, dark'ta parlak lime). Her iki
+  temada da koyu kalan bantlarda (`bg-band`, `bg-ink`, koyu buton) `text-lime`
+  doğru olan. Arka plan/çizgi/nokta olarak `bg-lime` her yerde serbest.
+- WhatsApp yeşili (#25D366) üstünde **beyaz metin kullanma** (1.98:1). Dolu
+  yeşil varyantlarda yazı/ikon `#0b2e1a` (9.7:1). Outline varyantlarında zemin
+  koyu olduğu için beyaz doğru.
+- Dokunma hedefi min 24×24px (WCAG 2.2 AA 2.5.8). Küçük tipografili linkleri
+  (breadcrumb, 11px) `py-1.5 -my-1.5` ile büyüt — hedef büyür, düzen kaymaz.
 
 ## Kişiselleştirme noktaları
 

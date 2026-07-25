@@ -9,7 +9,14 @@ import DeviceMockup from "./DeviceMockup";
 import LazyMount from "./LazyMount";
 
 /** /work kartı — DeviceMockup + Selected Work ile hizalı tipografi */
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({
+  project,
+  cols = 5,
+}: {
+  project: Project;
+  /** Editorial grid kolonu — DeviceMockup `sizes` hesabı için */
+  cols?: number;
+}) {
   const t = useTranslations("projectUi");
   const locale = useLocale();
   const detail = getProjectCardCopy(locale, project.id);
@@ -31,7 +38,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           minHeight="100%"
           rootMargin="320px 0px"
         >
-          <DeviceMockup project={project} />
+          <DeviceMockup project={project} cardCols={cols} />
         </LazyMount>
       </Link>
 

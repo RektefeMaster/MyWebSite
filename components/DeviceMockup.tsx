@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import type { CSSProperties, ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import type { Project } from "@/data/projects";
+import { cardImageSizes } from "@/lib/editorial-layout";
 
 /**
  * Official Apple Product Bezel frames (transparent screen cutouts).
@@ -36,6 +37,27 @@ const MACBOOK = {
     radius: "1.1%",
   },
 } as const;
+
+/*
+  Kart içi görsellerin KART genişliğine oranı. Bunlar `sizes` hesabına girer;
+  yanlışsa Next küçük varyantı seçip görseli upscale eder (ölçüldü: 12 kolonluk
+  kartta 1075px kutuya 384px varyant → gözle görülür bulanıklık).
+
+  MacBook çerçevesi kartın %84'ü (className `w-[84%]`), ekran da çerçevenin
+  MACBOOK.screen.width kadarı — ikisi çarpılır.
+*/
+const MACBOOK_FRAME_FRAC = 0.84;
+const MACBOOK_SCREEN_FRAC = MACBOOK_FRAME_FRAC * MACBOOK.screen.width;
+
+/*
+  iPhone md+'da `max-w-[140px]` ile sabitlenir (çerçeve PNG'si şeffaf kenar
+  payı yüzünden kutudan ~%15 taşar → ~161px). Mobilde tek kolonlu karta göre
+  ölçeklenir. cols'a bağlı olmadığı için sabit string.
+*/
+const IPHONE_FRAME_SIZES =
+  "(min-width: 768px) 170px, calc((100vw - 40px) * 0.40)";
+const IPHONE_SCREEN_SIZES =
+  "(min-width: 768px) 140px, calc((100vw - 40px) * 0.32)";
 
 function PlaceholderScreen({
   colors,
@@ -276,12 +298,15 @@ type DeviceMockupProps = {
   project: Project;
   variant?: "card" | "hero";
   priority?: boolean;
+  /** Kartın editorial grid'te kapladığı kolon (4|5|7|8|12) — sizes hesabı */
+  cardCols?: number;
 };
 
 export default function DeviceMockup({
   project,
   variant = "card",
   priority = false,
+  cardCols = 5,
 }: DeviceMockupProps) {
   const t = useTranslations("a11y");
   const isHero = variant === "hero";
@@ -312,7 +337,7 @@ export default function DeviceMockup({
         sizes={
           isHero
             ? "(max-width: 768px) 92vw, 920px"
-            : "(max-width: 640px) 84vw, (max-width: 1024px) 44vw, 360px"
+            : cardImageSizes(cardCols, MACBOOK_FRAME_FRAC)
         }
         className={
           isHero
@@ -332,7 +357,7 @@ export default function DeviceMockup({
           sizes={
             isHero
               ? "(max-width: 768px) 82vw, 740px"
-              : "(max-width: 640px) 72vw, (max-width: 1024px) 36vw, 300px"
+              : cardImageSizes(cardCols, MACBOOK_SCREEN_FRAC)
           }
         />
       </DeviceFrame>
@@ -348,7 +373,7 @@ export default function DeviceMockup({
         sizes={
           isHero
             ? "(max-width: 768px) 34vw, 250px"
-            : "(max-width: 640px) 30vw, 124px"
+            : IPHONE_FRAME_SIZES
         }
         className={
           isHero
@@ -366,7 +391,7 @@ export default function DeviceMockup({
           sizes={
             isHero
               ? "(max-width: 768px) 42vw, 280px"
-              : "(max-width: 640px) 40vw, 220px"
+              : IPHONE_SCREEN_SIZES
           }
         />
       </DeviceFrame>

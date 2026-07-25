@@ -7,6 +7,14 @@
   --foreground: #121212;
   --lime: #c8e84a;
   --on-lime: #141311;
+  /*
+    Lime METİN olarak açık zeminde okunmuyor: #c8e84a paper üstünde 1.2:1
+    (WCAG AA 4.5 ister). Metin için koyu zeytin — aynı hue, 6.5:1.
+    Dark temada parlak lime geri gelir.
+    Yalnızca TEMA-TAKİPLİ yüzeylerde kullan; `bg-band` gibi her iki temada da
+    koyu kalan bantlarda `text-lime` doğru olan.
+  */
+  --lime-ink: #4d5c10;
   --ink: #161616;
   --ink-fg: #f7f5f0;
   --paper: #f4f2ec;
@@ -56,6 +64,8 @@
   --foreground: #ebe8e1;
   --lime: #d0ec5a;
   --on-lime: #141311;
+  /* Koyu zeminde parlak lime zaten 13:1 — kısma yok */
+  --lime-ink: #d0ec5a;
   --ink: #ebe8e1;
   --ink-fg: #141311;
   --paper: #1a1916;
@@ -124,6 +134,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-lime: var(--lime);
+  --color-lime-ink: var(--lime-ink);
   --color-on-lime: var(--on-lime);
   --color-ink: var(--ink);
   --color-ink-fg: var(--ink-fg);

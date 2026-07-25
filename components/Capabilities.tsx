@@ -251,7 +251,7 @@ export default function Capabilities() {
                 >
                   <span
                     className={`font-mono text-xs font-bold transition-colors duration-300 ${
-                      hot ? "text-lime" : "text-foreground/25"
+                      hot ? "text-lime-ink" : "text-foreground/25"
                     }`}
                   >
                     {String(i + 1).padStart(2, "0")}
@@ -314,7 +314,7 @@ export default function Capabilities() {
                 >
                   <span
                     className={`font-mono text-xs font-bold transition-colors duration-300 ${
-                      open ? "text-lime" : "text-foreground/30"
+                      open ? "text-lime-ink" : "text-foreground/30"
                     }`}
                   >
                     {String(i + 1).padStart(2, "0")}
