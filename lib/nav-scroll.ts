@@ -15,10 +15,6 @@ export function bumpNavGeneration(): number {
   return generation;
 }
 
-export function currentNavGeneration(): number {
-  return generation;
-}
-
 export function isCurrentNavGeneration(id: number): boolean {
   return id === generation;
 }

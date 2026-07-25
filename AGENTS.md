@@ -55,7 +55,13 @@ geçmeleri ve katmansız `:root` tanımıyla aynı yerde olmaları gerekiyor.
 ## Bilinen kısıtlar / dikkat
 
 - `reactStrictMode: false` ŞART: StrictMode'un çift effect çalıştırması R3F'in WebGL context'ini kalıcı kaybettiriyor (boş gri hero). Açma.
-- 3D yazı fontu `public/fonts/SpaceGrotesk-Bold.ttf` (troika woff2 okumaz, TTF gerekli; latin-ext içeriyor — Türkçe karakterler tamam).
+- `public/fonts/SpaceGrotesk-Bold.ttf` **silinmeyecek**: `app/icon.tsx` ve
+  `opengraph-image.tsx` `readFile` ile okuyor (next/og TTF ister). Kod içinde
+  import edilmediği için "kullanılmıyor" gibi görünür.
+- Fontlar tek kopya: display `app/fonts/goks-regular.ttf`, aksan
+  `app/fonts/vireon.otf`. `goks-italic.ttf` kayıtlı değil ama italic başlık
+  gerekirse diye duruyor (bkz. `app/[locale]/layout.tsx`). Aynı yüzün ikinci
+  formatını (otf/ttf ikizi) geri ekleme — ikisi de deploy'a gidiyordu.
 - `--nav-offset` fallback'i gerçek header yüksekliğiyle **birebir** tutulacak
   (<640:168 · 640–767:176 · 768–1023:186 · ≥1024:121, hepsi `+ var(--safe-top)`).
   Uyuşmazsa hydrate'te tüm sayfa zıplıyor (ölçüldü: /work CLS 0.19). Nav
