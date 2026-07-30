@@ -4,14 +4,13 @@ import WhatsAppButton from "./WhatsAppButton";
 import CircularText from "./CircularText";
 import { SITE } from "@/lib/site";
 
-const EMAILS = [SITE.email, SITE.emailAlt] as const;
 const BRAND_RING = "METEK DIGITAL · ";
 
 export default function Footer() {
   const t = useTranslations("footer");
 
   return (
-    <footer className="border-t border-foreground/10 bg-paper px-5 pb-[calc(5.5rem+var(--safe-bottom))] pt-14 md:px-10 md:pb-16 md:pt-16">
+    <footer className="border-t border-foreground/10 bg-paper px-5 pb-[calc(5.5rem+var(--safe-bottom))] pt-12 md:px-10 md:pb-16 md:pt-16">
       <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 md:grid-cols-[1.35fr_1fr_1fr_1fr]">
         <div>
           <Link
@@ -112,16 +111,14 @@ export default function Footer() {
             {t("location")}
           </p>
           <ul className="space-y-1 text-sm text-foreground/60">
-            {EMAILS.map((email) => (
-              <li key={email}>
-                <a
-                  href={`mailto:${email}`}
-                  className="inline-flex min-h-10 items-center hover:text-foreground"
-                >
-                  {email}
-                </a>
-              </li>
-            ))}
+            <li>
+              <a
+                href={`mailto:${SITE.email}`}
+                className="inline-flex min-h-10 items-center hover:text-foreground"
+              >
+                {SITE.email}
+              </a>
+            </li>
             <li>
               <a
                 href={`tel:${SITE.phoneTel}`}

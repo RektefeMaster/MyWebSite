@@ -112,8 +112,8 @@ kontrastta kalıyordu (ölçüldü, gözle de okunmuyordu).
 ## Kişiselleştirme noktaları
 
 - Marka: **METEK Digital** · Kurucu: Nurullah Aydın
-- E-posta: `components/Contact.tsx` → `EMAIL` (`admin@metehtec.com`)
+- E-posta / site URL: `lib/site.ts` (`SITE.email`, `SITE.url`)
 - Proje listesi: `data/projects.ts` (görseller `public/projects/{id}/`)
 - Hero 3 satır: `messages/*.json` → `hero.line1..3`
 - "M" şekli: `HeroScene.tsx` → `GlassM` içindeki `pts`
-- Sosyal URL’ler gelince `Footer.tsx` içine ekle (şimdilik yok)
+- Sosyal: Instagram + WhatsApp (`lib/site.ts`). Yeni kanal gelince `SITE` + `Footer.tsx`

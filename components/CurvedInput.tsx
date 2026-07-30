@@ -213,8 +213,8 @@ export default function CurvedInput({
   defaultValue = "",
   onChange,
   onSubmit,
-  placeholder = "Enter your email",
-  buttonText = "Get Started",
+  placeholder = "",
+  buttonText = "",
   type = "email",
   name,
   required = false,
@@ -335,6 +335,9 @@ export default function CurvedInput({
     };
   }, [geom, height, borderWidth, btnTextW, fontSize, showIcon, showButton]);
 
+  // SVG metin metrikleri ancak boyama sonrası okunabiliyor — bilerek her
+  // render. Dep eklemek ölçümü kaçırır; setState eşikleri salınımı keser.
+  /* eslint-disable react-hooks/exhaustive-deps -- SVG text metrics after paint */
   useLayoutEffect(() => {
     if (btnMeasureRef.current) {
       const bw = btnMeasureRef.current.getComputedTextLength();
@@ -365,12 +368,9 @@ export default function CurvedInput({
       setScrollLen(next);
     }
     const nextCaretU = layout.textStartU + (caretLen - next) * geom.uPerLen;
-    // Kardeşleri gibi eşik ile koru — ölçüm kayan noktada salınırsa
-    // dep'siz layout effect'i sonsuz döngüye sokmasın.
     setCaretU((prev) => (Math.abs(prev - nextCaretU) > 0.01 ? nextCaretU : prev));
-    // SVG metin metrikleri ancak boyama sonrası okunabiliyor: bu effect
-    // bilerek her render'da çalışır, dep listesi almaz.
   });
+  /* eslint-enable react-hooks/exhaustive-deps */
 
   const commitValue = (v: string) => {
     if (value === undefined) setInnerValue(v);

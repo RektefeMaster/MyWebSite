@@ -1,22 +1,25 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
-import type { Metadata } from "next";
-import { alternatesFor } from "@/lib/site";
+import type { Metadata, ResolvingMetadata } from "next";
+import { pageMeta } from "@/lib/site";
 import PageHero from "@/components/PageHero";
 import BlogIndex from "@/components/BlogIndex";
 import PageCta from "@/components/PageCta";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: { params: Promise<{ locale: string }> },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pages.blog" });
-  return {
-    title: t("metaTitle"),
-    description: t("metaDescription"),
-    alternates: alternatesFor(locale, "/blog"),
-  };
+  return pageMeta(
+    {
+      locale,
+      path: "/blog",
+      title: t("metaTitle"),
+      description: t("metaDescription"),
+    },
+    parent
+  );
 }
 
 export default async function BlogPage({

@@ -206,31 +206,27 @@ export default function FinalCta() {
     }
     setStatus("idle");
     setErrorField(null);
-    const subject = encodeURIComponent(
-      `${tContact("mailSubject")}${nameValue ? ` · ${nameValue}` : ""}`
-    );
-    const body = encodeURIComponent(
-      [
-        `${tContact("mailName")}: ${nameValue}`,
-        `${tContact("mailEmail")}: ${emailValue}`,
-        `${tContact("mailInterest")}: ${
-          selected
-            .map((i) => interests[i])
-            .filter(Boolean)
-            .join(", ") || "·"
-        }`,
-        "",
-        message,
-      ].join("\n")
-    );
-    window.location.assign(`mailto:${EMAIL}?subject=${subject}&body=${body}`);
+    const body = [
+      `${tContact("mailName")}: ${nameValue}`,
+      `${tContact("mailEmail")}: ${emailValue}`,
+      `${tContact("mailInterest")}: ${
+        selected
+          .map((i) => interests[i])
+          .filter(Boolean)
+          .join(", ") || "·"
+      }`,
+      "",
+      message,
+    ].join("\n");
+    // wa.me — popup engeline takılmasın diye aynı sekmede aç (eski mailto gibi).
     setStatus("sent");
+    window.location.assign(whatsappHref(body));
   }
 
   return (
     <section
       id="contact"
-      className="scroll-mt-[var(--nav-offset)] relative overflow-hidden bg-band px-5 pb-[calc(5rem+var(--safe-bottom))] pt-20 text-band-fg md:px-10 md:pb-28 md:pt-28"
+      className="scroll-mt-[var(--nav-offset)] relative overflow-hidden bg-band px-5 pb-[calc(5rem+var(--safe-bottom))] pt-16 text-band-fg md:px-10 md:pb-28 md:pt-28"
     >
       <span
         aria-hidden
@@ -288,6 +284,8 @@ export default function FinalCta() {
           id="final-cta-form"
           className="mt-12"
           aria-hidden={!open}
+          // Kapalıyken odaklanabilir çocuklar aria-hidden ile çelişmesin.
+          {...(!open ? { inert: true as const } : {})}
         >
           <form
             ref={formRef}
@@ -441,12 +439,10 @@ export default function FinalCta() {
             ) : null}
 
             <a
-              href={whatsappHref(t("whatsappPrefill"))}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`mailto:${EMAIL}`}
               className="mt-5 inline-flex min-h-11 items-center text-sm font-medium text-band-fg/45 underline-offset-4 transition-colors hover:text-band-fg/80 hover:underline"
             >
-              {t("whatsapp")}
+              {tContact("emailCta")}
             </a>
           </form>
         </div>

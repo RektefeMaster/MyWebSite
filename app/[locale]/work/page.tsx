@@ -1,22 +1,25 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
-import type { Metadata } from "next";
-import { alternatesFor } from "@/lib/site";
+import type { Metadata, ResolvingMetadata } from "next";
+import { pageMeta } from "@/lib/site";
 import PageHero from "@/components/PageHero";
 import PageCta from "@/components/PageCta";
 import WorkBelowFold from "@/components/WorkBelowFold";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: { params: Promise<{ locale: string }> },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pages.work" });
-  return {
-    title: t("metaTitle"),
-    description: t("metaDescription"),
-    alternates: alternatesFor(locale, "/work"),
-  };
+  return pageMeta(
+    {
+      locale,
+      path: "/work",
+      title: t("metaTitle"),
+      description: t("metaDescription"),
+    },
+    parent
+  );
 }
 
 export default async function WorkPage({

@@ -48,10 +48,10 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="scroll-mt-[var(--nav-offset)] bg-background px-5 py-16 md:px-10 md:py-24"
+      className="scroll-mt-[var(--nav-offset)] bg-background px-5 py-16 md:px-10 md:py-28"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-16 grid items-end gap-6 md:grid-cols-[1fr_1.2fr] md:gap-12">
+        <div className="mb-12 grid items-end gap-6 md:mb-16 md:grid-cols-[1fr_1.2fr] md:gap-12">
           <div>
             <Reveal>
               <p className="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">

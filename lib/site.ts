@@ -1,16 +1,20 @@
+import type { Metadata, ResolvingMetadata } from "next";
 import { routing } from "@/i18n/routing";
 
 /** Tek kaynak — iletişim ve sosyal sabitler */
 export const SITE = {
   brand: "METEK Digital",
-  email: "admin@metehtec.com",
-  emailAlt: "metehtec@gmail.com",
+  /*
+    Birincil iletişim Gmail. Kurumsal adres `metehtec.com` üzerindeydi ama o
+    alan adı "Yakında" placeholder'ı sunuyor; site metektechnologies.com'da.
+    Çalışmayan bir alan adına e-posta vermek güven kırıyordu.
+  */
+  email: "metehtec@gmail.com",
   phoneDisplay: "+90 506 055 02 39",
   phoneTel: "+905060550239",
   whatsapp: "905060550239",
-  instagram:
-    "https://www.instagram.com/meteknology?igsh=MWFhaDNpNmo2OGZzMA==",
-  url: "https://metehtec.com",
+  instagram: "https://www.instagram.com/meteknology",
+  url: "https://www.metektechnologies.com",
 } as const;
 
 export function whatsappHref(prefill: string) {
@@ -46,6 +50,107 @@ export function alternatesFor(locale: string, path: string) {
     languages: {
       ...languages,
       "x-default": localePath(routing.defaultLocale, path),
+    },
+  };
+}
+
+/** Absolute URL — OG / JSON-LD (metadataBase relative canonical ile karışmasın). */
+export function absoluteUrl(locale: string, path: string): string {
+  return new URL(localePath(locale, path), SITE.url).toString();
+}
+
+/**
+ * Sayfa özel openGraph + twitter.
+ * Uyarı: Next nested `openGraph`’ı shallow replace eder — images’siz
+ * openGraph, layout’taki opengraph-image dosyasını da siler. Alt sayfalarda
+ * `pageMeta(..., parent)` kullan.
+ */
+export function socialMeta({
+  locale,
+  path,
+  title,
+  description,
+  type = "website",
+  image,
+}: {
+  locale: string;
+  path: string;
+  title: string;
+  description: string;
+  type?: "website" | "article";
+  image?: string;
+}): Pick<Metadata, "openGraph" | "twitter"> {
+  const url = absoluteUrl(locale, path);
+  const imageUrl = image
+    ? image.startsWith("http")
+      ? image
+      : `${SITE.url}${image.startsWith("/") ? image : `/${image}`}`
+    : undefined;
+  return {
+    openGraph: {
+      title,
+      description,
+      url,
+      locale,
+      type,
+      siteName: SITE.brand,
+      ...(imageUrl ? { images: [{ url: imageUrl }] } : {}),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      ...(imageUrl ? { images: [imageUrl] } : {}),
+    },
+  };
+}
+
+/** Alt rota metadata — parent OG/twitter görsellerini korur. */
+export async function pageMeta(
+  {
+    locale,
+    path,
+    title,
+    description,
+    type = "website",
+    image,
+  }: {
+    locale: string;
+    path: string;
+    title: string;
+    description: string;
+    type?: "website" | "article";
+    image?: string;
+  },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const parentMeta = await parent;
+  const social = socialMeta({
+    locale,
+    path,
+    title,
+    description,
+    type,
+    image,
+  });
+  const ogImages = image
+    ? social.openGraph?.images
+    : parentMeta.openGraph?.images;
+  const twImages = image
+    ? social.twitter?.images
+    : parentMeta.twitter?.images;
+
+  return {
+    title,
+    description,
+    alternates: alternatesFor(locale, path),
+    openGraph: {
+      ...social.openGraph,
+      ...(ogImages ? { images: ogImages } : {}),
+    },
+    twitter: {
+      ...social.twitter,
+      ...(twImages ? { images: twImages } : {}),
     },
   };
 }

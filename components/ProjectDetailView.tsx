@@ -65,11 +65,11 @@ export default async function ProjectDetailView({
   return (
     <article className="bg-background">
       <header className="border-b border-foreground/8 bg-paper">
-        <div className="mx-auto max-w-7xl px-5 pb-8 pt-[calc(var(--nav-offset)+1rem)] md:px-10 md:pb-10 md:pt-32">
+        <div className="mx-auto max-w-7xl px-5 pb-12 pt-[calc(var(--nav-offset)+1.25rem)] md:px-10 md:pb-16 md:pt-32">
           <Reveal>
             <nav
               aria-label={a11y("breadcrumb")}
-              className="mb-8 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground/40"
+              className="mb-6 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground/40"
             >
               <Link scroll={false} href="/" className="inline-flex min-h-6 items-center py-1.5 -my-1.5 transition-colors hover:text-ink">
                 {nav("home")}
@@ -133,7 +133,7 @@ export default async function ProjectDetailView({
           </Reveal>
         </div>
 
-        <div className="mx-auto max-w-7xl px-4 pb-12 md:px-10 md:pb-16">
+        <div className="mx-auto max-w-7xl px-5 pb-12 md:px-10 md:pb-16">
           <Reveal delay={80}>
             <div className="relative aspect-[800/620] w-full md:aspect-[16/10]">
               <DeviceMockup project={project} variant="hero" priority />
@@ -189,7 +189,7 @@ export default async function ProjectDetailView({
         </section>
       ) : null}
 
-      <div className="mx-auto max-w-3xl px-5 py-12 md:px-10 md:py-20">
+      <div className="mx-auto max-w-3xl px-5 py-16 md:px-10 md:py-28">
         <div className="space-y-12">
           <Reveal>
             <section>

@@ -93,11 +93,7 @@ function buildHardcodedInventory() {
     known: [
       {
         file: "app/not-found.tsx",
-        reason: "EN-only 404 copy",
-      },
-      {
-        file: "components/CurvedInput.tsx",
-        reason: "Default EN placeholder",
+        reason: "Root 404 EN fallback; locale copy in [locale]/not-found",
       },
       {
         file: "components/Footer.tsx",

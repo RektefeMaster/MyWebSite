@@ -124,10 +124,10 @@ export default function Process() {
     <section
       ref={sectionRef}
       id="process"
-      className="scroll-mt-[var(--nav-offset)] bg-background px-5 py-16 md:px-10 md:py-32"
+      className="scroll-mt-[var(--nav-offset)] bg-background px-5 py-16 md:px-10 md:py-28"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="mx-auto mb-16 max-w-2xl text-center md:mb-20">
+        <div className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
             {t("label")}
           </p>

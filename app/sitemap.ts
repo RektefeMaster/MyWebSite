@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { SITE, localePath } from "@/lib/site";
+import { absoluteUrl } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 import { blogPosts } from "@/data/blog";
 import { projects } from "@/data/projects";
@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const locale of routing.locales) {
     for (const path of PATHS) {
       entries.push({
-        url: `${SITE.url}${localePath(locale, path)}`,
+        url: absoluteUrl(locale, path),
         lastModified: now,
         changeFrequency: path === "" ? "weekly" : "monthly",
         priority: path === "" ? 1 : 0.7,
@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     for (const post of blogPosts) {
       entries.push({
-        url: `${SITE.url}${localePath(locale, `/blog/${post.slug}`)}`,
+        url: absoluteUrl(locale, `/blog/${post.slug}`),
         lastModified: now,
         changeFrequency: "monthly",
         priority: 0.55,
@@ -38,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     for (const project of projects) {
       entries.push({
-        url: `${SITE.url}${localePath(locale, `/work/${project.id}`)}`,
+        url: absoluteUrl(locale, `/work/${project.id}`),
         lastModified: now,
         changeFrequency: "monthly",
         priority: 0.65,

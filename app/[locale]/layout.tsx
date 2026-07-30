@@ -13,7 +13,7 @@ import Footer from "@/components/Footer";
 import WhatsAppFab from "@/components/WhatsAppFab";
 import Intro from "@/components/Intro";
 import RouteTransition from "@/components/RouteTransition";
-import { SITE, alternatesFor } from "@/lib/site";
+import { SITE, alternatesFor, socialMeta } from "@/lib/site";
 import { ThemeProvider, themeInitScript } from "@/lib/theme";
 import "../globals.css";
 
@@ -73,9 +73,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
+  const title = t("title");
+  const description = t("description");
   return {
-    title: t("title"),
-    description: t("description"),
+    title,
+    description,
     metadataBase: new URL(SITE.url),
     /*
       Ana sayfa canonical + hreflang. Alt rotalar kendi generateMetadata'sında
@@ -87,19 +89,7 @@ export async function generateMetadata({
     authors: [{ name: "Nurullah Aydın", url: SITE.url }],
     creator: "Nurullah Aydın",
     publisher: SITE.brand,
-    openGraph: {
-      title: t("title"),
-      description: t("description"),
-      url: SITE.url,
-      locale,
-      type: "website",
-      siteName: SITE.brand,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: t("title"),
-      description: t("description"),
-    },
+    ...socialMeta({ locale, path: "", title, description }),
     robots: {
       index: true,
       follow: true,
@@ -120,6 +110,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   const tMeta = await getTranslations({ locale, namespace: "meta" });
+  const tA11y = await getTranslations({ locale, namespace: "a11y" });
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -199,10 +190,16 @@ export default async function LocaleLayout({
         <NextIntlClientProvider>
           <ThemeProvider>
             <SmoothScroll>
+              <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[10000] focus:inline-flex focus:min-h-11 focus:items-center focus:rounded-full focus:bg-ink focus:px-4 focus:text-sm focus:font-bold focus:text-ink-fg"
+              >
+                {tA11y("skipToContent")}
+              </a>
               <Navbar />
               {/* Hero WebGL keep-alive — ana sayfa dışına çıkınca unmount olmasın */}
               <HomeHeroKeepAlive />
-              <main>{children}</main>
+              <main id="main-content">{children}</main>
               {/* Künye: sayfanın kendi ölçümü — footer'dan önce */}
               <Colophon />
               <Footer />

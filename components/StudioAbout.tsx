@@ -21,7 +21,7 @@ export default function StudioAbout() {
         id="about"
         className="relative border-b border-foreground/8 bg-paper text-foreground"
       >
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:grid-cols-12 md:gap-10 md:px-10 md:py-24 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:grid-cols-12 md:gap-10 md:px-10 md:py-28">
           <Reveal className="md:col-span-4">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/40">
               {t("whoLabel")}
@@ -77,7 +77,7 @@ export default function StudioAbout() {
         id="what-we-do"
         className="relative border-b border-foreground/8 bg-background text-foreground"
       >
-        <div className="mx-auto max-w-7xl px-5 py-16 md:px-10 md:py-24 lg:py-28">
+        <div className="mx-auto max-w-7xl px-5 py-16 md:px-10 md:py-28">
           <Reveal>
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/40">
               {t("doLabel")}

@@ -257,7 +257,7 @@
     "title": "Hazırsanız başlayalım.",
     "blurb": "Kısa bir not yeter. Bir gün içinde kapsam, yön ve sonraki adımı netleştiririm.",
     "cta": "Proje başlat",
-    "whatsapp": "WhatsApp mı tercih edersiniz? Doğrudan yazın ↗",
+    "whatsapp": "Formsuz hızlı yaz ↗",
     "whatsappPrefill": "Merhaba. METEK ile bir proje konuşmak istiyorum."
   },
   "workLanes": {
@@ -501,8 +501,8 @@
     "email": "E-posta",
     "interestedIn": "İlgilendiğiniz alan",
     "message": "Hedefiniz ve zamanınız hakkında birkaç satır",
-    "send": "Gönder",
-    "sentHint": "E-posta uygulamanız açılıyor. Genelde bir gün içinde dönerim.",
+    "send": "WhatsApp ile gönder",
+    "sentHint": "WhatsApp açılıyor. Genelde bir gün içinde dönerim.",
     "errorName": "Lütfen adınızı yazın.",
     "errorEmail": "Geçerli bir e-posta girin.",
     "errorMessage": "Net bir sonraki adım için birkaç satır daha ekleyin.",
@@ -544,7 +544,6 @@
     "blog": "Blog",
     "projects": "Projeler",
     "contact": "İletişim",
-    "address": "admin@metehtec.com · metehtec@gmail.com",
     "follow": "Takip et",
     "rights": "Tüm hakları saklıdır.",
     "brand": "METEK Digital",
@@ -564,6 +563,12 @@
     "deviceMobile": "{name} — mobil görünümü",
     "language": "Dil seçimi",
     "themeToDark": "Koyu temaya geç",
-    "themeToLight": "Açık temaya geç"
+    "themeToLight": "Açık temaya geç",
+    "skipToContent": "İçeriğe geç"
+  },
+  "notFound": {
+    "title": "Sayfa bulunamadı",
+    "blurb": "Bu bağlantı bozuk veya sayfa taşındı. {brand} ana sayfasına dönün.",
+    "home": "Ana sayfaya dön"
   }
 }

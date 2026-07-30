@@ -3,6 +3,13 @@
   globals.css bunu `layer(components)` ile alır: Tailwind utility'leri
   (md:hidden, flex, opacity-*) buradaki kuralları her zaman geçer.
   Katmansız bırakılırsa utility'ler sessizce ezilir.
+
+  Dikey ritim (Tailwind sınıfları — yeni section eklerken sapma):
+  · Section L (varsayılan): py-16 md:py-28 + px-5 md:px-10
+  · Section S (Colophon / gallery): py-12 md:py-16
+  · PageHero alt: pb-12 md:pb-16 · üst: pt-[calc(var(--nav-offset)+1.25rem)] md:pt-32
+  · Section başlık → içerik: mb-12 md:mb-16
+  · md:py-32 / pt-4 gibi ad-hoc değerler kullanma
 */
 
 html {

@@ -136,13 +136,11 @@ export default function Services({ variant = "full" }: ServicesProps) {
   return (
     <section
       id="services"
-      className={`cv-auto scroll-mt-[var(--nav-offset)] px-5 md:px-10 ${
-        isTeaser ? "py-20 md:py-28" : "pb-20 pt-4 md:pb-28 md:pt-8"
-      }`}
+      className="cv-auto scroll-mt-[var(--nav-offset)] px-5 py-16 md:px-10 md:py-28"
     >
       <div className="mx-auto max-w-7xl">
         {isTeaser && (
-          <div className="mb-10 flex flex-col gap-4 md:mb-14 md:flex-row md:items-end md:justify-between">
+          <div className="mb-12 flex flex-col gap-4 md:mb-16 md:flex-row md:items-end md:justify-between">
             <div>
               <Reveal>
                 <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">

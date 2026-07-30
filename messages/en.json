@@ -257,7 +257,7 @@
     "title": "Ready when you are.",
     "blurb": "Send a short note. You get scope, direction, and next steps within a day.",
     "cta": "Start a project",
-    "whatsapp": "Prefer WhatsApp? Message directly ↗",
+    "whatsapp": "Quick chat without the form ↗",
     "whatsappPrefill": "Hi. I would like to talk about a project with METEK."
   },
   "workLanes": {
@@ -501,8 +501,8 @@
     "email": "Email",
     "interestedIn": "I'm interested in",
     "message": "A few lines on your goal and timing",
-    "send": "Send",
-    "sentHint": "Opening your email app. I usually reply within a day.",
+    "send": "Send on WhatsApp",
+    "sentHint": "Opening WhatsApp. I usually reply within a day.",
     "errorName": "Please enter your name.",
     "errorEmail": "Please enter a valid email.",
     "errorMessage": "Add a few more lines so I can reply with a clear next step.",
@@ -544,7 +544,6 @@
     "blog": "Blog",
     "projects": "Projects",
     "contact": "Contact",
-    "address": "admin@metehtec.com · metehtec@gmail.com",
     "follow": "Follow",
     "rights": "All rights reserved.",
     "brand": "METEK Digital",
@@ -564,6 +563,12 @@
     "deviceMobile": "{name} — mobile view",
     "language": "Language",
     "themeToDark": "Switch to dark theme",
-    "themeToLight": "Switch to light theme"
+    "themeToLight": "Switch to light theme",
+    "skipToContent": "Skip to content"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "blurb": "This link is broken or the page moved. Head back to {brand}.",
+    "home": "Back to home"
   }
 }

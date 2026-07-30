@@ -15,7 +15,7 @@ type PageCtaProps = {
 /** Page-end band — same composition, fixed title, craft accent. */
 export default function PageCta({ label, title, blurb, cta }: PageCtaProps) {
   return (
-    <section className="px-5 py-14 md:px-10 md:py-20">
+    <section className="px-5 py-16 md:px-10 md:py-28">
       <Reveal>
         <div className="relative mx-auto flex max-w-7xl flex-col items-stretch justify-between gap-8 overflow-hidden rounded-[1.75rem] bg-band px-6 py-10 text-band-fg md:flex-row md:items-center md:rounded-[2rem] md:px-12 md:py-14">
           <div

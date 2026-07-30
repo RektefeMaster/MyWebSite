@@ -80,7 +80,7 @@ export default function Manifesto() {
     >
       <div
         ref={pinRef}
-        className="flex min-h-[100svh] flex-col justify-center px-5 py-20 md:px-10 md:py-32"
+        className="flex min-h-[100svh] flex-col justify-center px-5 py-16 md:px-10 md:py-28"
       >
         <div className="mx-auto w-full max-w-7xl">
           <div className="max-w-5xl space-y-2 md:space-y-3">

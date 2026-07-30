@@ -37,7 +37,7 @@ export default function FeaturedCase() {
 
   return (
     <section
-      className="cv-auto border-t border-foreground/8 bg-paper px-5 py-14 md:px-10 md:py-24"
+      className="cv-auto border-t border-foreground/8 bg-paper px-5 py-16 md:px-10 md:py-28"
     >
       <div className="mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
         <div className="min-w-0 lg:sticky lg:top-[calc(var(--nav-offset)+1rem)] lg:self-start">

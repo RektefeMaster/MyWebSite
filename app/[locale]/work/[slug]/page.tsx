@@ -1,7 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import type { Metadata } from "next";
-import { alternatesFor } from "@/lib/site";
+import type { Metadata, ResolvingMetadata } from "next";
+import { pageMeta } from "@/lib/site";
 import { projects, getProjectById } from "@/data/projects";
 import { getProjectDetail } from "@/data/project-details";
 import { routing } from "@/i18n/routing";
@@ -13,20 +13,24 @@ export function generateStaticParams() {
   );
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string; slug: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: { params: Promise<{ locale: string; slug: string }> },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const { locale, slug } = await params;
   const project = getProjectById(slug);
   const detail = getProjectDetail(locale, slug);
   if (!project || !detail) return {};
-  return {
-    title: `${project.name} — METEK`,
-    description: detail.summary,
-    alternates: alternatesFor(locale, `/work/${slug}`),
-  };
+  return pageMeta(
+    {
+      locale,
+      path: `/work/${slug}`,
+      title: `${project.name} — METEK`,
+      description: detail.summary,
+      image: project.desktopImage,
+    },
+    parent
+  );
 }
 
 export default async function ProjectPage({

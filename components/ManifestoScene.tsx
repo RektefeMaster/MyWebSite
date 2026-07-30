@@ -13,7 +13,7 @@ export default function ManifestoScene() {
   return (
     <section
       id="idea"
-      className="cv-auto relative flex min-h-[52vh] items-center overflow-hidden border-t border-band-fg/10 bg-band px-5 py-20 text-band-fg md:min-h-[60vh] md:px-10 md:py-28"
+      className="cv-auto relative flex min-h-[52vh] items-center overflow-hidden border-t border-band-fg/10 bg-band px-5 py-16 text-band-fg md:min-h-[60vh] md:px-10 md:py-28"
     >
       <div className="relative z-[1] mx-auto w-full max-w-5xl">
         <Reveal>

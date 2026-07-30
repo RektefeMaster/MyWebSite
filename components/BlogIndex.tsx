@@ -21,7 +21,7 @@ export default async function BlogIndex({ locale }: BlogIndexProps) {
   );
 
   return (
-    <section className="bg-background px-5 py-14 md:px-10 md:py-20">
+    <section className="bg-background px-5 py-16 md:px-10 md:py-28">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-4 md:grid-cols-2">
           <BlogCard

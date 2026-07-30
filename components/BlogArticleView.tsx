@@ -35,11 +35,11 @@ export default async function BlogArticleView({
   return (
     <article className="bg-background">
       <header className="border-b border-foreground/8 bg-paper">
-        <div className="mx-auto max-w-3xl px-5 pb-10 pt-[calc(var(--nav-offset)+1rem)] md:px-10 md:pb-12 md:pt-32">
+        <div className="mx-auto max-w-3xl px-5 pb-12 pt-[calc(var(--nav-offset)+1.25rem)] md:px-10 md:pb-16 md:pt-32">
           <Reveal>
             <nav
               aria-label={a11y("breadcrumb")}
-              className="mb-8 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground/40"
+              className="mb-6 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground/40"
             >
               <Link scroll={false} href="/" className="inline-flex min-h-6 items-center py-1.5 -my-1.5 transition-colors hover:text-ink">
                 {t("crumbHome")}
@@ -91,7 +91,7 @@ export default async function BlogArticleView({
         </div>
       </header>
 
-      <div className="mx-auto max-w-3xl px-5 py-12 md:px-10 md:py-20">
+      <div className="mx-auto max-w-3xl px-5 py-16 md:px-10 md:py-28">
         <div className="space-y-14">
           {article.sections.map((section, i) => (
             <Reveal key={section.heading} delay={i * 40}>
@@ -141,13 +141,13 @@ export default async function BlogArticleView({
       </div>
 
       {related.length > 0 && (
-        <aside className="border-t border-foreground/8 bg-paper px-5 py-14 md:px-10 md:py-20">
+        <aside className="border-t border-foreground/8 bg-paper px-5 py-16 md:px-10 md:py-28">
           <div className="mx-auto max-w-7xl">
             <Reveal>
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
                 {t("relatedLabel")}
               </p>
-              <h2 className="mb-10 text-3xl font-bold tracking-tight md:text-4xl">
+              <h2 className="mb-12 text-3xl font-bold tracking-tight md:text-4xl">
                 {t("relatedTitle")}
               </h2>
             </Reveal>
@@ -164,7 +164,7 @@ export default async function BlogArticleView({
                         src={post.image}
                         alt={a.imageAlt}
                         fill
-                        sizes="200px"
+                        sizes="(min-width: 768px) 38vw, 100vw"
                         className="object-cover transition-transform duration-700 [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.03]"
                       />
                     </div>
