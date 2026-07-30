@@ -8,7 +8,6 @@ import { routing } from "@/i18n/routing";
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/Navbar";
 import HomeHeroKeepAlive from "@/components/HomeHeroKeepAlive";
-import Colophon from "@/components/Colophon";
 import Footer from "@/components/Footer";
 import WhatsAppFab from "@/components/WhatsAppFab";
 import Intro from "@/components/Intro";
@@ -200,8 +199,6 @@ export default async function LocaleLayout({
               {/* Hero WebGL keep-alive — ana sayfa dışına çıkınca unmount olmasın */}
               <HomeHeroKeepAlive />
               <main id="main-content">{children}</main>
-              {/* Künye: sayfanın kendi ölçümü — footer'dan önce */}
-              <Colophon />
               <Footer />
               <WhatsAppFab />
               <Intro />
