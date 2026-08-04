@@ -59,7 +59,7 @@ export default function WhatsAppFab() {
       /*
         Beyaz metin #25D366 üstünde 1.98:1 — WCAG AA 4.5 istiyor, ikon için
         de 3:1 sınırının altında. Marka yeşili korunur, yazı/ikon koyuya
-        çekilir (9.7:1). Sitenin `--on-lime` mantığıyla da aynı: parlak
+        çekilir (9.7:1). Sitenin `--on-accent` mantığıyla da aynı: parlak
         aksan + koyu metin.
       */
       className={`wa-fab btn-stable fixed z-[90] inline-flex min-h-11 items-center gap-2 rounded-full bg-[#25D366] px-3.5 py-3 text-[13px] font-bold text-[#0b2e1a] shadow-[0_12px_32px_-8px_rgba(37,211,102,0.65)] transition-all duration-300 md:hidden ${

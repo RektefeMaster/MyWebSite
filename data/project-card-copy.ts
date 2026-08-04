@@ -10,300 +10,300 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
     wcc: {
       tag: "Kurumsal web",
       summary:
-        "ABD'li dolap üreticisi için kurumsal site. Mobilde hızlı, arama için hazır; galeri, hizmetler ve teklif tek akışta.",
+        "ABD'li dolap üreticisi WCC için kurumsal site. Müşteri şantiyeden, telefondan bakıyor; site orada hızlı açılıyor ve teklif formu tek dokunuş uzakta.",
     },
     aydnnacar: {
       tag: "Marka ve katalog",
       summary:
-        "Nacar Mobilya için sade dijital vitrin. Koleksiyonlar mağaza hissiyle; her model ölçü, isim ve iletişime net bağlanır.",
+        "Nacar Mobilya için sade dijital vitrin. Koleksiyonlar mağazada gezer gibi ilerliyor; her model ölçüsüne, adına ve iletişime bağlanıyor.",
     },
     wuffbutik: {
       tag: "Butik web",
       summary:
-        "Wuuf Butik için sakin vitrin sitesi. Mağaza atmosferi ile WhatsApp satışı aynı sayfada, mobilde akıcı.",
+        "Wuuf Butik için sakin bir vitrin. Mağaza atmosferi ile WhatsApp satışı aynı sayfada duruyor, mobilde de akıcı kalıyor.",
     },
     "altitude-residence": {
       tag: "Lüks gayrimenkul",
       summary:
-        "Altitude için karanlık lüks konut sitesi. Skyline, rezidans tipleri ve görüntüleme randevusuna net yol.",
+        "Altitude için lüks konut sitesi. Skyline ve rezidans tipleri anlatılır; sayfanın tek işi görüntüleme randevusu almak.",
     },
     "casa-aurelia": {
       tag: "Butik otel",
       summary:
-        "Roma'daki Casa Aurelia için rezervasyon vitrini. İngilizce ve İtalyanca; oda tipleri ve net rezervasyon yolu.",
+        "Roma'daki Casa Aurelia için rezervasyon vitrini. İngilizce ve İtalyanca; oda tipleri ve tereddüde yer bırakmayan bir rezervasyon yolu.",
     },
     "seraphine-atelier": {
       tag: "Moda vitrini",
       summary:
-        "Séraphine Atelier için moda evi sitesi. Kadın/erkek katalog, butik hikâyesi; sepet değil, özel prova randevusu.",
+        "Séraphine Atelier için moda evi sitesi. Kadın ve erkek katalog, butiğin hikâyesi; satış sepetle değil, özel prova randevusuyla kapanıyor.",
     },
     "havva-baklava": {
       tag: "Butik web",
       summary:
-        "Köln Ehrenfeld'deki HAVVA için sinematik vitrin. Gaziantep–Köln hikâyesi, günlük fiyat listesi, WhatsApp sipariş yolu.",
+        "Köln Ehrenfeld'deki HAVVA için sinematik vitrin. Gaziantep–Köln hikâyesi, günlük fiyat listesi ve doğrudan WhatsApp sipariş yolu.",
     },
     mizan: {
       tag: "Estetik klinik",
       summary:
-        "Nişantaşı'ndaki MİZAN için gülüş mimarisi vitrini. Tedavi listesi ve ilk ölçü randevusuna akan sakin bir deneyim.",
+        "Nişantaşı'ndaki MİZAN için klinik sitesi. Tedaviler net; ton sakin; ziyaretçi ilk ölçü randevusuna yönlendirilir.",
     },
     "sahra-butik": {
       tag: "Butik web",
       summary:
-        "Malatya'daki Sahra Butik için katalog vitrini. Günlük, spor, tesettür; mağazada dene, stok ve bedeni online sor.",
+        "Malatya'daki Sahra Butik için katalog vitrini. Günlük, spor ve tesettür hatları; mağazada dene, bedeni ve stoğu online sor.",
     },
     "vela-skin-atelier": {
       tag: "Cilt atölyesi",
       summary:
-        "SoHo'daki VELA Skin Atelier için randevu sitesi. Önce gözlem, tedavi listesi; tek danışanlı stüdyo, klinik soğukluğu yok.",
+        "SoHo'daki VELA Skin Atelier için randevu sitesi. Önce gözlem, sonra tedavi; aynı anda tek danışan. Klinik soğukluğu yok.",
     },
     "whatsapp-bot": {
       title: "WhatsApp Sohbet Asistanı",
       tag: "Otomasyon",
       summary:
-        "WhatsApp sorularını fiyatlarınızla yanıtlar. Boş saatlere randevu yazar, dolu saatleri korur, 1 saat önce hatırlatır.",
+        "WhatsApp'a gelen soruları sizin fiyatlarınızla yanıtlar. Boş saate randevu yazar, dolu saati korur, randevudan 1 saat önce hatırlatır.",
     },
     "instagram-bot": {
       title: "Instagram Mesaj Asistanı",
       tag: "Otomasyon",
       summary:
-        "Instagram DM'lerinde aynı takvim ve fiyatlar. Randevu alır, iptalleri boş saate çevirir, 1 saat önce hatırlatma gönderir.",
+        "Instagram DM'lerinde aynı takvim ve aynı fiyatlar. Randevu alır, iptal olan saati yeniden açar, 1 saat önce hatırlatma gönderir.",
     },
     crm: {
       title: "Satış ve Randevu Paneli",
       tag: "Yazılım",
       summary:
-        "WhatsApp ve Instagram asistanlarının randevularını tek panelde toplar. Kanal, saat, müşteri ve notlar bir arada.",
+        "İki asistanın aldığı randevuları tek panelde toplar. Kanal, saat, müşteri ve notlar bir arada; günü tek ekrandan görürsünüz.",
     },
     "css-system": {
       tag: "Tasarım sistemi",
       summary:
-        "Renk, tipografi ve boşluk kurallarını tek kaynaktan yöneten CSS tasarım sistemi. Web ve panel aynı dili konuşur.",
+        "Renk, tipografi ve boşluk kurallarını tek kaynaktan yöneten CSS tasarım sistemi. Web ile panel aynı dili konuşur, tutarsızlık kalmaz.",
     },
   },
   en: {
     wcc: {
       tag: "Corporate web",
       summary:
-        "Corporate site for a US cabinet maker. Fast on mobile, built for search; gallery, services, and quote path in one flow.",
+        "Corporate site for a US cabinet maker. Buyers check it on site, on a phone; it loads fast there and puts the quote request one tap away.",
     },
     aydnnacar: {
       tag: "Brand & catalogue",
       summary:
-        "Minimal showroom for Nacar Mobilya. Store-floor collections; each model ties to size, fabric, and contact.",
+        "Minimal digital showroom for Nacar Mobilya. Collections move like a store floor, and each model ties back to its size, name and a way to get in touch.",
     },
     wuffbutik: {
       tag: "Boutique web",
       summary:
-        "Calm boutique site for Wuuf. Store mood and WhatsApp sales on one page, light enough to stay fast on mobile.",
+        "A calm boutique site for Wuuf. Store mood and WhatsApp selling share one page, and it stays light enough to feel quick on a phone.",
     },
     "altitude-residence": {
       tag: "Luxury real estate",
       summary:
-        "Dark luxury residence site for Altitude. Skyline story, residence types, and a direct path to book a viewing.",
+        "Dark, heavy residence site for Altitude. Skyline and residence types get their story, but the page only really wants one thing: a booked viewing.",
     },
     "casa-aurelia": {
       tag: "Boutique hotel",
       summary:
-        "Booking showcase for Casa Aurelia in Rome. English and Italian; room types and a clear reservation path.",
+        "Booking showcase for Casa Aurelia in Rome. English and Italian, room types laid out plainly, and a reservation path that leaves no room to hesitate.",
     },
     "seraphine-atelier": {
       tag: "Fashion showcase",
       summary:
-        "Fashion house site for Séraphine Atelier. Women/men lookbook; private fitting hour, not cart checkout.",
+        "Fashion house site for Séraphine Atelier. Women's and men's lookbook plus the atelier's story; it closes on a private fitting, not a checkout.",
     },
     "havva-baklava": {
       tag: "Artisan food",
       summary:
-        "Cinematic showcase for HAVVA in Köln Ehrenfeld. Gaziantep-to-Cologne craft story, daily prices, WhatsApp ordering.",
+        "Cinematic showcase for HAVVA in Köln Ehrenfeld. The Gaziantep-to-Cologne craft story, the day's price list, and ordering straight over WhatsApp.",
     },
     mizan: {
       tag: "Aesthetic clinic",
       summary:
-        "Smile architecture presence for MİZAN in Nişantaşı. Protocol list and a calm path to the first measurement booking.",
+        "Smile architecture presence for MİZAN in Nişantaşı. The protocol list is there, but the tone stays quiet and drifts toward the first measurement.",
     },
     "sahra-butik": {
       tag: "Boutique web",
       summary:
-        "Lookbook-led women's wear for Sahra Butik in Malatya. Daily, sport, tesettür lines; try in store, ask stock online.",
+        "Lookbook-led women's wear for Sahra Butik in Malatya. Daily, sport and tesettür lines; try it in store, ask about size and stock online.",
     },
     "vela-skin-atelier": {
       tag: "Skin atelier",
       summary:
-        "Booking site for VELA in SoHo. Observation-first care, treatment index, one-client studio rhythm.",
+        "Booking site for VELA in SoHo. Observation before treatment, a clear index of what's offered, and a studio that takes one client at a time.",
     },
     "whatsapp-bot": {
       title: "WhatsApp Conversation Assistant",
       tag: "Automation",
       summary:
-        "Answers WhatsApp questions with your prices, books open hours, protects busy slots, sends a reminder one hour before.",
+        "Answers WhatsApp questions with your prices. Books open hours, protects the busy ones, and sends the reminder an hour before the appointment.",
     },
     "instagram-bot": {
       title: "Instagram DM Assistant",
       tag: "Automation",
       summary:
-        "Same calendar and prices in Instagram DMs. Books appointments, frees cancelled slots, sends a one-hour reminder.",
+        "The same calendar and the same prices inside Instagram DMs. It books, it reopens the hour after a cancellation, it reminds an hour ahead.",
     },
     crm: {
       title: "CRM Sales Panel",
       tag: "Software",
       summary:
-        "Pulls WhatsApp and Instagram bot bookings into one panel. Channel, time, customer, and notes in one place.",
+        "Pulls the bookings from both assistants into one panel. Channel, time, customer and notes together, so the whole day reads off one screen.",
     },
     "css-system": {
       tag: "Design system",
       summary:
-        "CSS design system with brand tokens for color, type, and spacing. One source keeps web and admin UI aligned.",
+        "A CSS design system holding colour, type and spacing in one source. Web and admin speak the same language, so the drift never starts.",
     },
   },
   es: {
     wcc: {
       tag: "Web corporativa",
       summary:
-        "Sitio corporativo para fabricante de gabinetes en EE. UU. Rápido en móvil; cotización y galería juntos.",
+        "Sitio corporativo para un fabricante de gabinetes en EE. UU. Los clientes lo miran desde la obra, en el teléfono; ahí carga rápido y la cotización queda a un toque.",
     },
     aydnnacar: {
       tag: "Marca y catálogo",
       summary:
-        "Showroom digital para Nacar Mobilya. Colecciones con sensación de tienda; medida, tela y contacto.",
+        "Showroom digital para Nacar Mobilya. Las colecciones se recorren como una tienda y cada modelo enlaza con su medida, su nombre y el contacto.",
     },
     wuffbutik: {
       tag: "Web boutique",
       summary:
-        "Vitrina calmada para Wuuf Butik. Ambiente de tienda y venta por WhatsApp en una sola página, ligera en móvil.",
+        "Vitrina serena para Wuuf Butik. El ambiente de tienda y la venta por WhatsApp comparten una sola página, ligera para que vuele en móvil.",
     },
     "altitude-residence": {
       tag: "Bienes raíces de lujo",
       summary:
-        "Sitio oscuro de lujo para Altitude. Skyline, tipos de unidad y ruta directa para agendar visita.",
+        "Sitio oscuro y denso para Altitude. El skyline y los tipos de unidad tienen su relato, pero la página busca una sola cosa: agendar la visita.",
     },
     "casa-aurelia": {
       tag: "Hotel boutique",
       summary:
-        "Vitrina de reserva para Casa Aurelia en Roma. Inglés e italiano; tipos de habitación y camino claro a reservar.",
+        "Vitrina de reservas para Casa Aurelia en Roma. Inglés e italiano, tipos de habitación claros y un camino a reservar que no deja lugar a dudas.",
     },
     "seraphine-atelier": {
       tag: "Moda y atelier",
       summary:
-        "Sitio de casa de moda para Séraphine Atelier. Lookbook mujer/hombre e historia del atelier; cita privada, no carrito.",
+        "Sitio de casa de moda para Séraphine Atelier. Lookbook de mujer y hombre más la historia del taller; cierra en una cita privada, no en un carrito.",
     },
     "havva-baklava": {
       tag: "Gastronomía artesanal",
       summary:
-        "Vitrina cinematográfica para HAVVA en Ehrenfeld. Historia Gaziantep–Colonia, precios del día, WhatsApp.",
+        "Vitrina cinematográfica para HAVVA en Ehrenfeld. La historia de Gaziantep a Colonia, la lista de precios del día y el pedido directo por WhatsApp.",
     },
     mizan: {
       tag: "Clínica estética",
       summary:
-        "Presencia de arquitectura de sonrisa para MİZAN en Nişantaşı. Lista de protocolos y ruta calmada a la primera medida.",
+        "Presencia de arquitectura de sonrisa para MİZAN en Nişantaşı. La lista de protocolos está, pero el tono es sereno y lleva a la primera medida.",
     },
     "sahra-butik": {
       tag: "Web boutique",
       summary:
-        "Moda mujer con lookbook para Sahra Butik en Malatya. Líneas günlük, sport y tesettür; prueba en tienda, stock online.",
+        "Moda de mujer guiada por lookbook para Sahra Butik en Malatya. Líneas günlük, sport y tesettür; pruébalo en tienda, pregunta talla y stock en línea.",
     },
     "vela-skin-atelier": {
       tag: "Atelier de piel",
       summary:
-        "Sitio de reserva para VELA en SoHo. Cuidado que observa primero, índice de tratamientos, estudio de un cliente a la vez.",
+        "Sitio de reservas para VELA en SoHo. Primero observar, después tratar; un estudio que atiende a una persona a la vez, sin frialdad de clínica.",
     },
     "whatsapp-bot": {
       title: "Asistente de WhatsApp",
       tag: "Automatización",
       summary:
-        "Responde en WhatsApp con sus precios, agenda horas libres, respeta las ocupadas y manda recordatorio una hora antes.",
+        "Responde en WhatsApp con sus precios. Agenda las horas libres, respeta las ocupadas y manda el recordatorio una hora antes de la cita.",
     },
     "instagram-bot": {
       title: "Asistente de DM de Instagram",
       tag: "Automatización",
       summary:
-        "Mismo calendario y precios en DM de Instagram. Agenda citas, libera cancelaciones y recuerda una hora antes.",
+        "El mismo calendario y los mismos precios dentro de los DM de Instagram. Agenda, reabre la hora tras una cancelación y recuerda una hora antes.",
     },
     crm: {
       title: "Panel CRM de ventas",
       tag: "Software",
       summary:
-        "Reúne citas de bots de WhatsApp e Instagram en un panel. Canal, hora, cliente y notas en un solo lugar.",
+        "Reúne en un panel las citas de los dos asistentes. Canal, hora, cliente y notas juntos: el día entero se lee en una sola pantalla.",
     },
     "css-system": {
       tag: "Sistema de diseño",
       summary:
-        "Sistema CSS con tokens de marca para color, tipo y espaciado. Una fuente alinea web y panel administrativo.",
+        "Sistema CSS que guarda color, tipografía y espaciado en una sola fuente. Web y panel hablan el mismo idioma y la deriva nunca empieza.",
     },
   },
   de: {
     wcc: {
       tag: "Unternehmensweb",
       summary:
-        "Unternehmenswebsite für US-Schrankhersteller. Schnell mobil; Galerie, Leistungen und Angebot zusammen.",
+        "Unternehmenswebsite für einen US-Möbelhersteller. Kunden schauen auf der Baustelle aufs Handy; dort lädt sie schnell und legt die Anfrage einen Tipp entfernt.",
     },
     aydnnacar: {
       tag: "Marke & Katalog",
       summary:
-        "Digitaler Showroom für Nacar Mobilya. Kollektionen wie im Laden; jedes Modell mit Maß, Name und Kontakt verknüpft.",
+        "Digitaler Showroom für Nacar Mobilya. Die Kollektionen gehen sich wie eine Ladenfläche, und jedes Modell führt zu Maß, Name und Kontakt.",
     },
     wuffbutik: {
       tag: "Boutique-Web",
       summary:
-        "Ruhige Boutique-Vitrine für Wuuf. Ladenstimmung und WhatsApp-Verkauf auf einer Seite, leicht und schnell mobil.",
+        "Ruhige Boutique-Vitrine für Wuuf. Ladenstimmung und WhatsApp-Verkauf teilen sich eine Seite, die leicht genug bleibt, um mobil schnell zu wirken.",
     },
     "altitude-residence": {
       tag: "Luxusimmobilien",
       summary:
-        "Dunkle Luxusresidenz-Website für Altitude. Skyline, Wohnungstypen und direkter Weg zur Besichtigung.",
+        "Dunkle, schwere Residenz-Website für Altitude. Skyline und Wohnungstypen bekommen ihre Erzählung, doch die Seite will nur eines: die Besichtigung.",
     },
     "casa-aurelia": {
       tag: "Boutique-Hotel",
       summary:
-        "Buchungsvitrine für Casa Aurelia in Rom. Englisch und Italienisch; Zimmertypen und klarer Reservierungsweg.",
+        "Buchungsvitrine für Casa Aurelia in Rom. Englisch und Italienisch, klar aufgeführte Zimmertypen und ein Reservierungsweg ohne Zögern.",
     },
     "seraphine-atelier": {
       tag: "Mode & Atelier",
       summary:
-        "Modehaus-Website für Séraphine Atelier. Damen/Herren-Lookbook; privates Fitting, kein Warenkorb.",
+        "Modehaus-Website für Séraphine Atelier. Damen- und Herren-Lookbook samt Geschichte des Ateliers; am Ende steht die private Anprobe, kein Warenkorb.",
     },
     "havva-baklava": {
       tag: "Handwerk & Genuss",
       summary:
-        "Filmische Vitrine für HAVVA in Köln-Ehrenfeld. Geschichte Gaziantep–Köln, Tagespreise, Bestellung per WhatsApp.",
+        "Filmische Vitrine für HAVVA in Köln-Ehrenfeld. Die Geschichte von Gaziantep nach Köln, die Tagespreise und die Bestellung direkt über WhatsApp.",
     },
     mizan: {
       tag: "Ästhetik-Klinik",
       summary:
-        "Lächeln-Architektur-Präsenz für MİZAN in Nişantaşı. Protokolle und ruhiger Weg zur ersten Messung.",
+        "Lächeln-Architektur-Präsenz für MİZAN in Nişantaşı. Die Protokolle stehen da, der Ton bleibt ruhig und führt zur ersten Messung.",
     },
     "sahra-butik": {
       tag: "Boutique-Web",
       summary:
-        "Lookbook-Vitrine für Sahra Butik in Malatya. Günlük-, Sport- und Tesettür-Linien; anprobieren im Laden, Bestand online.",
+        "Lookbook-geführte Damenmode für Sahra Butik in Malatya. Günlük-, Sport- und Tesettür-Linien; im Laden anprobieren, Größe und Bestand online fragen.",
     },
     "vela-skin-atelier": {
       tag: "Skin Atelier",
       summary:
-        "Buchungswebsite für VELA in SoHo. Beobachtung zuerst, Behandlungsindex, Ein-Gast-Studio ohne klinische Kälte.",
+        "Buchungswebsite für VELA in SoHo. Erst beobachten, dann behandeln; ein Studio für jeweils einen Gast, ohne klinische Kälte.",
     },
     "whatsapp-bot": {
       title: "WhatsApp-Assistent",
       tag: "Automatisierung",
       summary:
-        "Antwortet in WhatsApp mit Ihren Preisen, bucht freie Stunden, schützt belegte und erinnert eine Stunde vorher.",
+        "Antwortet in WhatsApp mit Ihren Preisen. Bucht freie Stunden, schützt die belegten und erinnert eine Stunde vor dem Termin.",
     },
     "instagram-bot": {
       title: "Instagram-DM-Assistent",
       tag: "Automatisierung",
       summary:
-        "Gleicher Kalender und Preise in Instagram-DMs. Bucht Termine, gibt Stornos frei, Erinnerung eine Stunde vorher.",
+        "Derselbe Kalender und dieselben Preise in Instagram-DMs. Bucht, gibt die Stunde nach einer Absage wieder frei, erinnert eine Stunde vorher.",
     },
     crm: {
       title: "CRM-Verkaufspanel",
       tag: "Software",
       summary:
-        "Sammelt WhatsApp- und Instagram-Buchungen in einem Panel. Kanal, Zeit, Kunde und Notizen an einem Ort.",
+        "Bündelt die Termine beider Assistenten in einem Panel. Kanal, Zeit, Kunde und Notizen zusammen — der ganze Tag auf einem Bildschirm.",
     },
     "css-system": {
       tag: "Designsystem",
       summary:
-        "CSS-Designsystem mit Marken-Tokens für Farbe, Typo und Abstände. Eine Quelle für Web und Admin-Oberfläche.",
+        "CSS-Designsystem, das Farbe, Typografie und Abstände in einer Quelle hält. Web und Admin sprechen dieselbe Sprache, das Auseinanderdriften beginnt nicht.",
     },
   },
 };

@@ -147,9 +147,9 @@ html::-webkit-scrollbar-corner {
 .process-fill {
   background: linear-gradient(
     to bottom,
-    color-mix(in srgb, var(--lime) 85%, #fff) 0%,
-    var(--lime) 45%,
-    color-mix(in srgb, var(--lime) 70%, #161616) 100%
+    color-mix(in srgb, var(--accent) 85%, #fff) 0%,
+    var(--accent) 45%,
+    color-mix(in srgb, var(--accent) 62%, #0c2233) 100%
   );
 }
 
@@ -163,7 +163,7 @@ html::-webkit-scrollbar-corner {
 }
 
 .process-dot[data-lit="true"] {
-  background-color: var(--lime);
+  background-color: var(--accent);
 }
 
 /* ── Theme toggle: cam kapsül ── */
@@ -191,7 +191,7 @@ html::-webkit-scrollbar-corner {
 }
 
 .theme-toggle:focus-visible {
-  outline: 2px solid var(--lime);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
@@ -236,9 +236,9 @@ html::-webkit-scrollbar-corner {
   background:
     radial-gradient(
       120% 90% at 18% 40%,
-      #f3efe6 0%,
-      #e0dcd2 55%,
-      #cfcabf 100%
+      #f4f3ed 0%,
+      #dfe3e1 55%,
+      #cdd6dd 100%
     );
   opacity: 1;
 }
@@ -247,9 +247,9 @@ html::-webkit-scrollbar-corner {
   background:
     radial-gradient(
       120% 90% at 82% 55%,
-      #2a2824 0%,
-      #181714 50%,
-      #0e0d0b 100%
+      #22302f 0%,
+      #14201f 50%,
+      #041017 100%
     );
   opacity: 0;
 }
@@ -340,10 +340,10 @@ html::-webkit-scrollbar-corner {
   width: 5px;
   height: 5px;
   border-radius: 999px;
-  background: var(--lime);
+  background: var(--accent);
   box-shadow:
     0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent),
-    0 0 10px color-mix(in srgb, var(--lime) 55%, transparent);
+    0 0 10px color-mix(in srgb, var(--accent) 55%, transparent);
   transform: translate(-50%, -50%);
   transition: box-shadow 0.4s ease;
 }
@@ -351,7 +351,7 @@ html::-webkit-scrollbar-corner {
 .dark .theme-toggle__filament {
   box-shadow:
     0 0 0 1px color-mix(in srgb, #000 35%, transparent),
-    0 0 12px color-mix(in srgb, var(--lime) 65%, transparent);
+    0 0 12px color-mix(in srgb, var(--accent) 65%, transparent);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -410,8 +410,8 @@ html::-webkit-scrollbar-corner {
 
   /*
     Statik şerit kelimenin ortasından kesiliyordu — hata gibi duruyor.
-    Sağ kenara lime bir sönüm koyuyoruz: kesik değil, devam eden şerit.
-    Maske değil overlay; zemin tam opak lime kalsın.
+    Sağ kenara accent bir sönüm koyuyoruz: kesik değil, devam eden şerit.
+    Maske değil overlay; zemin tam opak accent kalsın.
   */
   .marquee-strip--header::after {
     content: "";
@@ -420,7 +420,7 @@ html::-webkit-scrollbar-corner {
     right: 0;
     width: 3.5rem;
     pointer-events: none;
-    background: linear-gradient(90deg, transparent, var(--lime) 78%);
+    background: linear-gradient(90deg, transparent, var(--band) 78%);
   }
 
   .nav-glass {
@@ -623,10 +623,10 @@ html::-webkit-scrollbar-corner {
    hero atmosferi ve başlık reveal yardımcıları
    ───────────────────────────────────────────── */
 
-/* Metin seçimi — marka lime */
+/* Metin seçimi — marka accent */
 ::selection {
-  background: color-mix(in srgb, var(--lime) 82%, transparent);
-  color: var(--on-lime);
+  background: color-mix(in srgb, var(--accent) 82%, transparent);
+  color: var(--on-accent);
 }
 
 /* Reveal: hydrate öncesi flash yok (SSR opak → GSAP 0 sıçraması) */
@@ -638,7 +638,7 @@ html::-webkit-scrollbar-corner {
 
 /* Tutarlı odak halkası (klavye) */
 :where(a, button, [role="button"], input, textarea, select, summary):focus-visible {
-  outline: 2px solid color-mix(in srgb, var(--lime) 85%, var(--foreground));
+  outline: 2px solid color-mix(in srgb, var(--accent) 85%, var(--foreground));
   outline-offset: 3px;
   border-radius: inherit;
 }
@@ -739,6 +739,39 @@ html::-webkit-scrollbar-corner {
   );
 }
 
+/*
+  Blueprint ızgarası — paletin imza öğesi.
+  Cyanotype konsepti: bitmiş nesnenin arkasındaki yapıyı göster. Izgara
+  hero'nun altında çok soluk durur, kenarlara doğru maskeyle söner ve
+  camdan "M"in arkasında teknik çizim kâğıdı hissi bırakır.
+  Statik — animasyon YOK; sürekli compositor işi istemiyoruz.
+*/
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(
+    ellipse 70% 65% at 50% 45%,
+    #000 20%,
+    transparent 78%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 70% 65% at 50% 45%,
+    #000 20%,
+    transparent 78%
+  );
+}
+
+@media (max-width: 768px) {
+  .hero-grid {
+    background-size: 48px 48px;
+  }
+}
+
 /* Yavaş dönen yumuşak ışık — sahneye canlılık */
 .hero-glow {
   position: absolute;
@@ -754,7 +787,7 @@ html::-webkit-scrollbar-corner {
   mix-blend-mode: screen;
   background: radial-gradient(
     circle at 50% 50%,
-    color-mix(in srgb, var(--lime) 22%, transparent) 0%,
+    color-mix(in srgb, var(--accent) 18%, transparent) 0%,
     transparent 62%
   );
   animation: hero-glow-drift 22s ease-in-out infinite alternate;
@@ -814,8 +847,8 @@ html::-webkit-scrollbar-corner {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #0d0c0b;
-  color: #f4f2ec;
+  background: #041017;
+  color: #e8eef3;
   overflow: hidden;
   will-change: transform;
   /* Failsafe: JS çalışmazsa / timeline kilitlenirse perde kalsın kalmasın (~7.2s) */
@@ -901,8 +934,8 @@ html.intro-lock {
   z-index: 9600;
   display: grid;
   place-items: center;
-  background: #0d0c0b;
-  color: #f4f2ec;
+  background: #041017;
+  color: #e8eef3;
   pointer-events: none;
   animation: route-loader-in 0.28s ease both;
 }
@@ -947,7 +980,7 @@ html.intro-lock {
   font-size: clamp(3.5rem, 12vw, 6.5rem);
   line-height: 0.9;
   letter-spacing: -0.04em;
-  color: #f4f2ec;
+  color: #e8eef3;
 }
 
 .metek-loader__m {
@@ -957,7 +990,7 @@ html.intro-lock {
 
 .metek-loader__dot {
   display: inline-block;
-  color: #d0ec5a;
+  color: #7ec8e8;
   animation: metek-loader-dot 1.4s ease-in-out infinite;
 }
 
@@ -965,7 +998,7 @@ html.intro-lock {
   width: min(7.5rem, 28vw);
   height: 2px;
   transform-origin: left center;
-  background: #d0ec5a;
+  background: #7ec8e8;
   animation: metek-loader-hair 1.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
 

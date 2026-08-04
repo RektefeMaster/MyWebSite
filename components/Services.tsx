@@ -178,7 +178,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
                 >
                   <span
                     className={`font-mono text-xs ${
-                      isOpen ? "text-lime" : "text-foreground/35"
+                      isOpen ? "text-accent" : "text-foreground/35"
                     }`}
                   >
                     {String(i + 1).padStart(2, "0")}
@@ -189,7 +189,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
                   <span
                     className={`inline-flex size-8 shrink-0 items-center justify-center rounded-full text-xl leading-none transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                       isOpen
-                        ? "rotate-45 bg-band-fg/10 text-lime"
+                        ? "rotate-45 bg-band-fg/10 text-accent"
                         : "rotate-0 text-foreground/30"
                     }`}
                   >
@@ -215,7 +215,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
                       <Magnetic strength={0.32} className="mt-5 inline-block">
                         <SpecularButton
                           href={{ pathname: "/", hash: "contact" }}
-                          tone="lime"
+                          tone="accent"
                           size="sm"
                           className="btn-stable btn-stable--chip"
                         >

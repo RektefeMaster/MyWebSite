@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-07-30T19:54:25.851Z",
+  "generatedAt": "2026-08-04T21:56:10.550Z",
   "locales": [
     "en",
     "tr",
     "es",
     "de"
   ],
-  "totalLeafKeysEn": 388,
+  "totalLeafKeysEn": 390,
   "byNamespace": {
     "meta": 2,
     "nav": 14,
     "pages": 45,
     "blog": 17,
-    "marquee": 6,
+    "marquee": 8,
     "manifesto": 6,
     "featured": 15,
     "principles": 10,
@@ -36,22 +36,22 @@
   },
   "parity": {
     "en": {
-      "leafCount": 388,
+      "leafCount": 390,
       "missingVsEn": 0,
       "extraVsEn": 0
     },
     "tr": {
-      "leafCount": 388,
+      "leafCount": 390,
       "missingVsEn": 0,
       "extraVsEn": 0
     },
     "es": {
-      "leafCount": 388,
+      "leafCount": 390,
       "missingVsEn": 0,
       "extraVsEn": 0
     },
     "de": {
-      "leafCount": 388,
+      "leafCount": 390,
       "missingVsEn": 0,
       "extraVsEn": 0
     }

@@ -1,18 +1,18 @@
 # Services — shared semantic brief
 
 ```yaml
-page_goal: Help the visitor map their need to a real service scope and start a project conversation without padded packages.
+page_goal: Help the visitor map their need to a named METEK service (web, panel, CRM, CSS, chatbot, mobile) and start a project conversation.
 primary_audience: [new_service_site, rebuild_legacy, ops_panel, boutique_brand, global_vertical]
-visitor_problem: Unsure which engagement fits — website, rebuild, panel, automation, or brand-led boutique build.
-main_message: Web, software, and automation with scope clarified together — custom build, not a theme SKU.
+visitor_problem: Unsure which engagement fits among website, admin panel, CRM, CSS design system, WhatsApp/Instagram chatbot, or mobile app.
+main_message: Clear agency service catalog — custom build, not a theme SKU; scope clarified together.
 proof_points: [1, 2, 3, 4, 6]
 required_information:
   - Service catalog with includes
-  - Who each service is for (segment mapping)
+  - Native SEO service names per locale
   - CTA when unsure which service fits
-desired_action: Start a project / send brief describing the need.
-search_intent: Commercial investigation for custom web / panels / automation (SEO weight high).
-tone_constraints: Sales-clear, no fake scarcity, no “innovative solutions”.
+desired_action: Start a project / describe the need.
+search_intent: Commercial investigation for web design agency / admin panel / CRM / chatbot / mobile app (SEO weight high).
+tone_constraints: Agency we-voice; sales-clear; no fake scarcity; no AI sludge.
 claims_not_allowed: [guaranteed rankings, fixed fake prices, theme resale]
 constraints:
   headline_max_chars: 48

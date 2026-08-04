@@ -10,8 +10,11 @@ import {
   PerformanceMonitor,
 } from "@react-three/drei";
 
-const LIGHT_BG = { top: "#f5f5f5", mid: "#dedede", bot: "#c6c6c6" } as const;
-const DARK_BG = { top: "#1c1b18", mid: "#141311", bot: "#0c0b0a" } as const;
+/* Hero.tsx'teki Tailwind gradient ile BİREBİR aynı olmalı — canvas boot
+   ederken arkasındaki DOM zemini görünüyor, uyuşmazsa geçiş sırasında
+   renk sıçraması oluyor. */
+const LIGHT_BG = { top: "#eff1f2", mid: "#d7dde3", bot: "#bcc6d0" } as const;
+const DARK_BG = { top: "#14293a", mid: "#0a1a26", bot: "#030c12" } as const;
 
 /* Silver / charcoal gradient as scene.background — one less mesh in every pass */
 function GradientBackground({
@@ -138,6 +141,14 @@ function GlassM({
   const phaseFloat = useRef(0);
   const { viewport } = useThree();
   const scale = Math.min(viewport.width, viewport.height) * (lite ? 0.26 : 0.23);
+  /*
+    Geniş ekranda M'i sağa kaydır. Başlık md+ üstünde sol sütuna alındı;
+    M ortada kalırsa büyük tipografi camın üstüne biniyor ve ikisi de
+    okunmuyordu. Dar ekranda kaydırma YOK — orada başlık zaten camın
+    üstünde, akış dikey.
+  */
+  const wide = viewport.width / viewport.height > 1.15;
+  const offsetX = wide ? viewport.width * 0.21 : 0;
 
   useFrame((state, delta) => {
     const parent = mesh.current;
@@ -177,6 +188,7 @@ function GlassM({
   });
 
   return (
+    <group position={[offsetX, 0, 0]}>
     <mesh
       ref={mesh}
       geometry={geometry}
@@ -203,12 +215,13 @@ function GlassM({
         temporalDistortion={0}
         clearcoat={1}
         clearcoatRoughness={0.06}
-        attenuationColor={dark ? "#3a3832" : "#b8c0cc"}
+        attenuationColor={dark ? "#2c3f4e" : "#aab8c6"}
         attenuationDistance={dark ? 3.5 : 4.5}
-        color={dark ? "#c9c5bc" : "#d5d8e0"}
+        color={dark ? "#c4cbd2" : "#d0d7de"}
         envMapIntensity={dark ? 2.1 : 1.85}
       />
     </mesh>
+    </group>
   );
 }
 
@@ -244,39 +257,46 @@ function ThemeEnvironment({ dark }: { dark: boolean }) {
       resolution={256}
       frames={1}
     >
+      {/* Anahtar ışık — tepeden, nötr */}
       <Lightformer
         intensity={dark ? 2.6 : 3.4}
         position={[0, 4.5, 0]}
         rotation-x={Math.PI / 2}
         scale={[12, 12, 1]}
-        color={dark ? "#f0ebe0" : "#ffffff"}
+        color={dark ? "#eef2f6" : "#ffffff"}
       />
+      {/*
+        Cam "M"in imzası burada: SOLDAN kayısı, SAĞDAN petrol. İki taraflı
+        renkli kenar ışığı, tek renk ortamda elde edilemeyen dikroik bir
+        kırılma veriyor — nesne cam değil, dökme pirinç gibi okunuyor.
+        Renkleri eşitleme; fark kaybolursa etki de kayboluyor.
+      */}
       <Lightformer
-        intensity={dark ? 1.8 : 2.4}
+        intensity={dark ? 2.0 : 2.5}
         position={[-3.2, 1.4, 2.2]}
         rotation-y={Math.PI / 3}
         scale={[4, 8, 1]}
-        color={dark ? "#d8d2c4" : "#ffffff"}
+        color={dark ? "#7ec8e8" : "#f2f8fc"}
       />
       {/* frames={1} baked → mobilde de dahil; sürekli maliyet yok, yansıma zenginleşir */}
       <Lightformer
-        intensity={dark ? 1.2 : 1.6}
+        intensity={dark ? 1.35 : 1.7}
         position={[3.2, -0.4, 1.6]}
         rotation-y={-Math.PI / 3}
         scale={[4, 7, 1]}
-        color={dark ? "#8a8678" : "#c5d4e4"}
+        color={dark ? "#2f6d92" : "#a9c4d8"}
       />
       <Lightformer
         intensity={dark ? 0.35 : 0.45}
         position={[1.2, 0.2, 2.4]}
         scale={[1.2, 6, 1]}
-        color="#0a0a0a"
+        color="#030b12"
       />
       <Lightformer
         intensity={dark ? 1.4 : 1.8}
         position={[0, 0.6, -3.2]}
         scale={[8, 4, 1]}
-        color={dark ? "#ebe8e1" : "#ffffff"}
+        color={dark ? "#e3e9ee" : "#ffffff"}
       />
     </Environment>
   );

@@ -285,7 +285,7 @@ export default function Intro() {
         </span>
         <span
           ref={dotRef}
-          className="inline-block text-[#d0ec5a]"
+          className="inline-block text-[#7ec8e8]"
           style={{ opacity: 0 }}
         >
           .
@@ -294,16 +294,16 @@ export default function Intro() {
 
       <div className="absolute inset-x-0 bottom-0 z-10 flex items-end justify-between px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] md:px-10 md:pb-8">
         <div ref={labelLRef} style={{ opacity: 0 }}>
-          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#f4f2ec] md:text-xs">
+          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#e8eef3] md:text-xs">
             METEK Digital
           </p>
-          <p className="mt-1.5 text-[10px] uppercase tracking-[0.18em] text-[#f4f2ec]/45 md:text-[11px]">
+          <p className="mt-1.5 text-[10px] uppercase tracking-[0.18em] text-[#e8eef3]/45 md:text-[11px]">
             {t("metaStudio")}
           </p>
         </div>
         <div
           ref={labelRRef}
-          className="font-mono text-xs tracking-[0.2em] text-[#f4f2ec]/70 md:text-sm"
+          className="font-mono text-xs tracking-[0.2em] text-[#e8eef3]/70 md:text-sm"
           style={{ opacity: 0 }}
         >
           <span ref={counterRef}>000</span>
@@ -312,7 +312,7 @@ export default function Intro() {
 
       <div
         ref={hairRef}
-        className="absolute inset-x-0 bottom-0 z-10 h-[2px] origin-left bg-[#d0ec5a]"
+        className="absolute inset-x-0 bottom-0 z-10 h-[2px] origin-left bg-[#7ec8e8]"
         style={{ transform: "scaleX(0)" }}
       />
     </div>

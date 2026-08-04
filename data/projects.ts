@@ -184,7 +184,7 @@ export const projects: Project[] = [
   {
     id: "crm",
     name: "CRM Platform",
-    colors: ["#0f172a", "#c8e84a"],
+    colors: ["#0c2233", "#175e86"],
     desktopImage: "/projects/crm/desktop.jpg",
     mobileImage: "/projects/crm/mobile.jpg",
     primaryLane: "systems",

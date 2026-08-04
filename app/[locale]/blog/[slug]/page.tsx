@@ -25,7 +25,7 @@ export async function generateMetadata(
     {
       locale,
       path: `/blog/${slug}`,
-      title: `${article.title} — METEK`,
+      title: `${article.title} · METEK Digital`,
       description: article.excerpt,
       type: "article",
       image: meta.image,
@@ -56,11 +56,21 @@ export default async function BlogPostPage({
     datePublished: meta.date,
     dateModified: meta.date,
     inLanguage: locale,
-    author: {
-      "@type": "Person",
-      name: "Nurullah Aydın",
-      url: SITE.url,
-    },
+    author: [
+      {
+        "@type": "Organization",
+        "@id": `${SITE.url}/#org`,
+        name: SITE.brand,
+        url: SITE.url,
+      },
+      {
+        "@type": "Person",
+        name: "Nurullah Aydın",
+        url: SITE.url,
+        jobTitle: "Founder",
+        worksFor: { "@id": `${SITE.url}/#org` },
+      },
+    ],
     publisher: {
       "@type": "Organization",
       "@id": `${SITE.url}/#org`,

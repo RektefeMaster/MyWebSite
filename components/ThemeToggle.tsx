@@ -7,7 +7,7 @@ import { gsap } from "@/lib/gsap";
 
 /**
  * Cam kapsül tema anahtarı — güneş/ay ikonu yok.
- * Kaydırılan cam boncuk + lime filament; basınca hafif yay.
+ * Kaydırılan cam boncuk + accent filament; basınca hafif yay.
  */
 export default function ThemeToggle() {
   const t = useTranslations("a11y");

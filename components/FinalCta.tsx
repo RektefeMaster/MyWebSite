@@ -20,22 +20,22 @@ const CurvedInput = dynamic(() => import("./CurvedInput"));
 const EMAIL = SITE.email;
 
 const CURVED_INPUT_COLORS = {
-  backgroundColor: "#1f1f1f",
-  textColor: "#f4f2ec",
-  placeholderColor: "rgba(244,242,236,0.4)",
-  borderColor: "rgba(255,255,255,0.12)",
-  buttonColor: "#c8e84a",
-  buttonTextColor: "#161616",
-  iconColor: "#c8e84a",
-  shadowColor: "#000000",
+  backgroundColor: "#0e2632",
+  textColor: "#e8eef3",
+  placeholderColor: "rgba(240,237,229,0.42)",
+  borderColor: "rgba(240,237,229,0.14)",
+  buttonColor: "#175e86",
+  buttonTextColor: "#06202e",
+  iconColor: "#7ec8e8",
+  shadowColor: "#02090a",
 } as const;
 
 const NAME_ICON = (
   <>
-    <circle cx="0" cy="-2.8" r="3.2" fill="#161616" />
+    <circle cx="0" cy="-2.8" r="3.2" fill="#06202e" />
     <path
       d="M -7 7.6 C -7 3.6 -3.9 1.3 0 1.3 C 3.9 1.3 7 3.6 7 7.6"
-      fill="#161616"
+      fill="#06202e"
     />
   </>
 );
@@ -253,7 +253,7 @@ export default function FinalCta() {
               <Magnetic strength={0.22} className="w-full sm:w-auto">
                 <SpecularButton
                   type="button"
-                  tone="lime"
+                  tone="accent"
                   size="lg"
                   fillMobile
                   aria-expanded={open}
@@ -377,7 +377,7 @@ export default function FinalCta() {
                       aria-pressed={checked}
                       className={`inline-flex min-h-11 items-center rounded-full px-3.5 py-2.5 text-[13px] font-semibold transition-colors ${
                         checked
-                          ? "bg-lime text-on-lime"
+                          ? "bg-accent text-on-accent"
                           : "border border-band-fg/15 text-band-fg/70 [@media(hover:hover)_and_(pointer:fine)]:hover:border-band-fg/40"
                       }`}
                     >
@@ -402,14 +402,14 @@ export default function FinalCta() {
                 aria-describedby={
                   status === "error" ? "final-cta-error" : undefined
                 }
-                className="w-full resize-y rounded-xl border border-band-fg/10 bg-band-fg/5 px-4 py-3 text-base outline-none transition focus:border-lime/60"
+                className="w-full resize-y rounded-xl border border-band-fg/10 bg-band-fg/5 px-4 py-3 text-base outline-none transition focus:border-accent/60"
               />
             </label>
 
             <Magnetic strength={0.22} className="mt-6 block w-full">
               <SpecularButton
                 type="submit"
-                tone="lime"
+                tone="accent"
                 size="lg"
                 fillMobile
                 className="w-full"
@@ -484,7 +484,7 @@ export default function FinalCta() {
             </label>
             <button
               type="submit"
-              className="rounded-full bg-lime px-6 py-3 text-sm font-bold text-on-lime"
+              className="rounded-full bg-accent px-6 py-3 text-sm font-bold text-on-accent"
             >
               {tContact("send")}
             </button>

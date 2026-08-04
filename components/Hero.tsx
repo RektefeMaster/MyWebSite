@@ -21,7 +21,7 @@ export const loadHeroScene = () => import("./HeroScene");
 const HeroScene = dynamic(loadHeroScene, {
   ssr: false,
   loading: () => (
-    <div className="absolute inset-0 bg-gradient-to-b from-[#f5f5f5] via-[#dedede] to-[#c6c6c6] dark:from-[#1c1b18] dark:via-[#141311] dark:to-[#0c0b0a]" />
+    <div className="absolute inset-0 bg-gradient-to-b from-[#eff1f2] via-[#d7dde3] to-[#bcc6d0] dark:from-[#14293a] dark:via-[#0a1a26] dark:to-[#030c12]" />
   ),
 });
 
@@ -151,12 +151,12 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
     <section
       ref={sectionRef}
       id={parked ? undefined : "home"}
-      className="hero-section relative flex h-[100svh] max-h-[1100px] min-h-[560px] flex-col overflow-x-clip overflow-y-hidden bg-gradient-to-b from-[#f5f5f5] via-[#dedede] to-[#c6c6c6] dark:from-[#1c1b18] dark:via-[#141311] dark:to-[#0c0b0a]"
+      className="hero-section relative flex h-[100svh] max-h-[1100px] min-h-[560px] flex-col overflow-x-clip overflow-y-hidden bg-gradient-to-b from-[#eff1f2] via-[#d7dde3] to-[#bcc6d0] dark:from-[#14293a] dark:via-[#0a1a26] dark:to-[#030c12]"
     >
       {sceneMounted ? (
         <HeroScene active={sceneActive} />
       ) : (
-        <div className="absolute inset-0 bg-gradient-to-b from-[#f5f5f5] via-[#dedede] to-[#c6c6c6] dark:from-[#1c1b18] dark:via-[#141311] dark:to-[#0c0b0a]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#eff1f2] via-[#d7dde3] to-[#bcc6d0] dark:from-[#14293a] dark:via-[#0a1a26] dark:to-[#030c12]" />
       )}
 
       <div
@@ -164,6 +164,7 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
         data-atmosphere-idle={!sceneActive}
         className="pointer-events-none absolute inset-0 z-[1] overflow-hidden"
       >
+        <div className="hero-grid" />
         <div className="hero-glow" />
         <div className="hero-vignette" />
         <div className="hero-grain" />
@@ -181,23 +182,22 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
           data-hero-fade
           className="pointer-events-none absolute left-5 top-[calc(var(--nav-offset)+0.35rem)] z-10 hidden text-[10px] font-semibold uppercase leading-relaxed tracking-[0.16em] text-ink/50 sm:block sm:text-[11px] md:left-16 md:top-[calc(var(--nav-offset)+0.75rem)] md:tracking-[0.18em]"
         >
-          <span className="text-lime-ink">●</span> {t("metaStudio")}
+          <span className="text-accent-ink">●</span> {t("metaStudio")}
           <br />
           {t("metaLocation")}
         </div>
 
         <div
           data-hero-fade
-          className="flex min-h-0 flex-1 items-start justify-center px-4 pt-[7svh] sm:px-5 md:pointer-events-none md:absolute md:inset-x-12 md:top-[34%] md:-translate-y-1/2 md:flex-none md:items-center md:p-0 lg:inset-x-16"
+          className="flex min-h-0 flex-1 items-start justify-center px-4 pt-[7svh] sm:px-5 md:pointer-events-none md:absolute md:inset-x-12 md:top-1/2 md:-translate-y-1/2 md:flex-none md:items-center md:justify-start md:p-0 lg:inset-x-16"
         >
           {/*
-            Mobil ölçek DE kopyasıyla sınırlı ("Von der Idee / zum laufenden /
-            Produkt." en uzun satır). max-md clamp ~%91 satır doluluğunda
-            kalıyor; md+ üstünde masaüstü ölçeği aynen korunuyor.
+            Mobil ölçek hero satır uzunluğuyla sınırlı (marka satırı
+            "METEK Digital" = 13ch). max-md clamp ~%91; md+ korunuyor.
           */}
           <h1
             aria-label={`${t("line1")} ${t("line2")} ${t("line3")}`}
-            className="mx-auto max-w-5xl text-center font-display text-[clamp(2.1rem,7.2vw,5.75rem)] font-bold leading-[0.95] tracking-[-0.03em] text-ink [text-shadow:0_1px_24px_rgba(245,245,245,0.55)] dark:[text-shadow:0_2px_30px_rgba(0,0,0,0.6)] max-md:text-[clamp(1.95rem,9vw,3.1rem)]"
+            className="mx-auto max-w-5xl text-center font-display text-[clamp(2.1rem,7.2vw,5.75rem)] font-bold leading-[0.95] tracking-[-0.03em] text-ink [text-shadow:0_1px_20px_rgba(242,243,241,0.5)] dark:[text-shadow:0_2px_26px_rgba(5,14,16,0.65)] max-md:text-[clamp(1.95rem,9vw,3.1rem)] md:mx-0 md:max-w-[13ch] md:text-left md:text-[clamp(2.5rem,4.9vw,4.75rem)]"
           >
             <span className="block" aria-hidden>
               {t("line1")}
@@ -219,7 +219,7 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
               </p>
               <p className="mt-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-ink/40 md:mt-3">
                 <span
-                  className="mr-1.5 inline-block size-1.5 rounded-full bg-lime"
+                  className="mr-1.5 inline-block size-1.5 rounded-full bg-accent"
                   aria-hidden
                 />
                 {t("availability")}
@@ -234,7 +234,7 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
               <Magnetic strength={0.18} className="w-full sm:w-auto">
                 <SpecularButton
                   href={{ pathname: "/", hash: "contact" }}
-                  tone="lime"
+                  tone="accent"
                   size="md"
                   fillMobile
                   className="btn-stable btn-stable--hero"

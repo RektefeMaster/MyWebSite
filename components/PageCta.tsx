@@ -20,7 +20,7 @@ export default function PageCta({ label, title, blurb, cta }: PageCtaProps) {
         <div className="relative mx-auto flex max-w-7xl flex-col items-stretch justify-between gap-8 overflow-hidden rounded-[1.75rem] bg-band px-6 py-10 text-band-fg md:flex-row md:items-center md:rounded-[2rem] md:px-12 md:py-14">
           <div
             aria-hidden
-            className="pointer-events-none absolute -right-20 -top-24 size-72 rounded-full bg-lime/20 blur-3xl"
+            className="pointer-events-none absolute -right-20 -top-24 size-72 rounded-full bg-accent/20 blur-3xl"
           />
           <div
             aria-hidden
@@ -38,7 +38,7 @@ export default function PageCta({ label, title, blurb, cta }: PageCtaProps) {
             <p className="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-band-fg/40">
               <span
                 aria-hidden
-                className="inline-block h-px w-6 bg-lime/70"
+                className="inline-block h-px w-6 bg-accent/70"
               />
               {label}
             </p>
@@ -54,7 +54,7 @@ export default function PageCta({ label, title, blurb, cta }: PageCtaProps) {
             <Magnetic strength={0.22} className="w-full sm:w-auto">
               <SpecularButton
                 href={{ pathname: "/", hash: "contact" }}
-                tone="lime"
+                tone="accent"
                 size="lg"
                 fillMobile
                 className="btn-stable btn-stable--cta"

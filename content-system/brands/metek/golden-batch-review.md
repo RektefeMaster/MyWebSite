@@ -1,6 +1,6 @@
 # Golden batch + founder gates
 
-Surfaces: **Home**, **Services**, **WCC**, **Blog: identity-at-first-glance** × en / tr / es / de.
+Surfaces: **Home**, **Services**, **WCC**, **Blog** (6 posts incl. technical-seo-checklist) × en / tr / es / de.
 
 ## Proof points
 
@@ -18,8 +18,13 @@ Surfaces: **Home**, **Services**, **WCC**, **Blog: identity-at-first-glance** ×
 ## Checklist
 
 - [x] Copy drafted × 4 locales (golden + scaled remainder)
+- [x] Buyer-first rewrite (hero, selected work, capabilities, pages, services, CTAs)
 - [x] `npm run content:lint` critical gates pass
-- [ ] Visual spot-check (esp. de-DE)
+- [ ] Visual spot-check (esp. de-DE headline wrap on mobile)
 - [ ] Founder approval for further voice iterations
 
 Browser: `/`, `/services`, `/work/wcc`, `/blog/identity-at-first-glance` × `en|tr|es|de`.
+
+## Rewrite notes (2026-08)
+
+Agency + SEO pass: METEK Digital as web design & software agency (we-voice). Hero = brand + category. Service nouns explicit (web, admin panel, CRM, CSS, WhatsApp/Instagram chatbot, mobile app). Meta titles/descriptions keyword-led per locale. Founder named on Agency page, not as sole home voice.

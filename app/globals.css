@@ -3,59 +3,79 @@
   bir stylesheet olarak, globals.css'ten ÖNCE yüklenebiliyor. İlk görülen
   @layer bildirimi sırayı belirlediği için, sıra sabitlenmezse `components`
   en düşük önceliğe düşüyor ve Tailwind preflight'ının `a { color: inherit }`
-  kuralı `.specular-button`'ın rengini eziyordu (lime CTA'da açık gri metin,
+  kuralı `.specular-button`'ın rengini eziyordu (accent CTA'da açık gri metin,
   1.2:1). Bildirim idempotent — her CSS girişinde aynısı durmalı.
 */
 @layer theme, base, components, utilities;
 @import "tailwindcss";
 @import "./craft.css" layer(components);
 
-/* Light — sıcak taş / mürekkep / lime */
+/*
+  ── Palet: cyanotype (teknik çizim) ──
+
+  Konsept: bir blueprint, bitmiş nesnenin ARKASINDAKİ yapıyı gösterir. Stüdyonun
+  sattığı şey de bu — görünen site ve arkasındaki panel. Palet bu yüzden tek bir
+  renk ailesinden kuruldu: gerçek cyanotype pigmenti (Prusya mavisi soyu) artı
+  sıcak çizim kâğıdı beji. ÜÇÜNCÜ BİR RENK YOK; disiplin burada. Kurumsal
+  lacivertten farkı, mavinin yeşile çalan derinliği ve nötrün soğuk gri değil
+  sıcak bej olması — ikisi birbirini ısıtıyor.
+
+  Ölçülen kontrastlar (WCAG 2.1 relative luminance):
+    foreground / background ....... 13.6:1   (light)
+    accent / on-accent ............ 6.4:1    (light, dolu buton)
+    accent-ink / background ....... 6.1:1    (light, metin)
+    foreground / background ....... 14.6:1   (dark)
+    accent / background ........... 9.9:1    (dark)
+  Değer değiştirirken bu tabloyu yeniden ölç.
+*/
+
+/* Light — sıcak çizim kâğıdı, cyanotype mürekkep */
 :root {
-  --background: #e6e4df;
-  --foreground: #121212;
-  --lime: #c8e84a;
-  --on-lime: #141311;
+  --background: #eae7de;
+  --foreground: #101f2b;
+  --accent: #175e86;
+  --on-accent: #f2f7fa;
   /*
-    Lime METİN olarak açık zeminde okunmuyor: #c8e84a paper üstünde 1.2:1
-    (WCAG AA 4.5 ister). Metin için koyu zeytin — aynı hue, 6.5:1.
-    Dark temada parlak lime geri gelir.
+    Cyanotype mavisi açık zeminde METİN olarak sınırda kalıyor. Metin için bir
+    tık koyusu — aynı hue, 6.1:1. Dark temada soluk çizgi mavisi geri gelir.
     Yalnızca TEMA-TAKİPLİ yüzeylerde kullan; `bg-band` gibi her iki temada da
-    koyu kalan bantlarda `text-lime` doğru olan.
+    koyu kalan bantlarda `text-accent` doğru olan.
   */
-  --lime-ink: #4d5c10;
-  --ink: #161616;
-  --ink-fg: #f7f5f0;
-  --paper: #f4f2ec;
-  --stone: #dcd8d0;
+  --accent-ink: #145a80;
+  --ink: #0c2233;
+  --ink-fg: #eef2f5;
+  --paper: #f4f1e9;
+  --stone: #d8d5cb;
   --surface: #ffffff;
-  --mute: rgba(18, 18, 18, 0.55);
-  --band: #161616;
-  --band-fg: #f7f5f0;
-  --glass: rgba(255, 255, 255, 0.52);
-  --glass-strong: rgba(246, 245, 241, 0.94);
-  --glass-border: rgba(255, 255, 255, 0.4);
-  --glass-border-scrolled: rgba(22, 22, 22, 0.08);
-  --hairline: rgba(18, 18, 18, 0.1);
+  --mute: rgba(16, 31, 43, 0.6);
+  --band: #0c2233;
+  --band-fg: #e8eef3;
+  --glass: rgba(255, 255, 255, 0.55);
+  --glass-strong: rgba(244, 241, 233, 0.94);
+  --glass-border: rgba(255, 255, 255, 0.42);
+  --glass-border-scrolled: rgba(12, 34, 51, 0.1);
+  --hairline: rgba(16, 31, 43, 0.13);
+  /* Blueprint ızgarası — hero atmosferinde ince çizgi ağı */
+  --grid-line: rgba(16, 31, 43, 0.09);
   --project-stage-gradient: linear-gradient(
     165deg,
-    #f3f3f5 0%,
-    #e8e8ec 48%,
-    #dedee3 100%
+    #f1f2f3 0%,
+    #e4e7ea 48%,
+    #d6dbe0 100%
   );
   --page-hero-wash:
     radial-gradient(
       ellipse 80% 60% at 10% -10%,
-      rgba(200, 232, 74, 0.35),
+      rgba(23, 94, 134, 0.22),
       transparent 55%
     ),
     radial-gradient(
       ellipse 50% 40% at 90% 0%,
-      rgba(22, 22, 22, 0.06),
+      rgba(12, 34, 51, 0.08),
       transparent 50%
     );
-  --process-head-ring: 0 0 0 3px rgba(22, 22, 22, 0.9),
-    0 0 14px rgba(200, 232, 74, 0.7);
+  --process-head-ring: 0 0 0 3px rgba(12, 34, 51, 0.9),
+    0 0 14px rgba(23, 94, 134, 0.6);
   /* Aşağıdaki responsive ölçekle birlikte oku — Navbar hydrate olunca
      attachNavOffsetSync gerçek px değerini inline yazar. */
   --nav-offset: calc(168px + var(--safe-top));
@@ -67,46 +87,47 @@
     box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Dark — sıcak kömür, stüdyo gecesi (mor/neon yok) */
+/* Dark — cyanotype gecesi */
 .dark {
-  --background: #121110;
-  --foreground: #ebe8e1;
-  --lime: #d0ec5a;
-  --on-lime: #141311;
-  /* Koyu zeminde parlak lime zaten 13:1 — kısma yok */
-  --lime-ink: #d0ec5a;
-  --ink: #ebe8e1;
-  --ink-fg: #141311;
-  --paper: #1a1916;
-  --stone: #262420;
-  --surface: #1f1e1a;
-  --mute: rgba(235, 232, 225, 0.55);
-  --band: #0c0b0a;
-  --band-fg: #ebe8e1;
-  --glass: rgba(26, 25, 22, 0.78);
-  --glass-strong: rgba(18, 17, 15, 0.97);
+  --background: #08161f;
+  --foreground: #e3e9ee;
+  --accent: #7ec8e8;
+  --on-accent: #06202e;
+  /* Koyu zeminde soluk çizgi mavisi zaten 9.9:1 — kısma yok */
+  --accent-ink: #7ec8e8;
+  --ink: #e3e9ee;
+  --ink-fg: #08161f;
+  --paper: #0e212c;
+  --stone: #172d3a;
+  --surface: #122733;
+  --mute: rgba(227, 233, 238, 0.6);
+  --band: #041017;
+  --band-fg: #e3e9ee;
+  --glass: rgba(14, 33, 44, 0.78);
+  --glass-strong: rgba(6, 18, 26, 0.97);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-border-scrolled: rgba(255, 255, 255, 0.1);
-  --hairline: rgba(235, 232, 225, 0.1);
+  --hairline: rgba(227, 233, 238, 0.12);
+  --grid-line: rgba(126, 200, 232, 0.09);
   --project-stage-gradient: linear-gradient(
     165deg,
-    #2a2824 0%,
-    #1f1e1a 48%,
-    #181714 100%
+    #22333f 0%,
+    #16262f 48%,
+    #0d1c25 100%
   );
   --page-hero-wash:
     radial-gradient(
       ellipse 80% 60% at 10% -10%,
-      rgba(208, 236, 90, 0.18),
+      rgba(126, 200, 232, 0.14),
       transparent 55%
     ),
     radial-gradient(
       ellipse 50% 40% at 90% 0%,
-      rgba(235, 232, 225, 0.06),
+      rgba(227, 233, 238, 0.06),
       transparent 50%
     );
-  --process-head-ring: 0 0 0 3px rgba(18, 17, 16, 0.95),
-    0 0 16px rgba(208, 236, 90, 0.45);
+  --process-head-ring: 0 0 0 3px rgba(4, 16, 23, 0.95),
+    0 0 16px rgba(126, 200, 232, 0.4);
 }
 
 /*
@@ -142,9 +163,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-lime: var(--lime);
-  --color-lime-ink: var(--lime-ink);
-  --color-on-lime: var(--on-lime);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-on-accent: var(--on-accent);
   --color-ink: var(--ink);
   --color-ink-fg: var(--ink-fg);
   --color-paper: var(--paper);

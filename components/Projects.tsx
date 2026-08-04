@@ -57,7 +57,7 @@ export default function Projects() {
               <p className="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
                 <span
                   aria-hidden
-                  className="inline-block h-px w-6 bg-lime/80"
+                  className="inline-block h-px w-6 bg-accent/80"
                 />
                 {t("label")}
               </p>
@@ -85,7 +85,7 @@ export default function Projects() {
                   <h3 className="mb-8 flex items-center gap-3 font-mono text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
                     <span
                       aria-hidden
-                      className="inline-block h-px w-6 bg-lime/80"
+                      className="inline-block h-px w-6 bg-accent/80"
                     />
                     {tLanes(lane)}
                   </h3>

@@ -45,7 +45,7 @@ export default function FeaturedCase() {
             <p className="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
               <span
                 aria-hidden
-                className="inline-block h-px w-6 bg-lime/80"
+                className="inline-block h-px w-6 bg-accent/80"
               />
               {t("label")}
             </p>
@@ -64,7 +64,7 @@ export default function FeaturedCase() {
             <ul className="mt-10 space-y-4 border-t border-foreground/10 pt-8">
               {outcomes.map((item, i) => (
                 <li key={item} className="flex gap-4 text-sm md:text-[15px]">
-                  <span className="font-mono text-xs font-bold text-lime-ink">
+                  <span className="font-mono text-xs font-bold text-accent-ink">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="leading-relaxed text-foreground/70">{item}</span>
@@ -83,7 +83,7 @@ export default function FeaturedCase() {
                 className="btn-stable btn-stable--chip"
               >
                 {t("cta")}
-                <span aria-hidden className="text-lime">
+                <span aria-hidden className="text-accent">
                   →
                 </span>
               </SpecularButton>

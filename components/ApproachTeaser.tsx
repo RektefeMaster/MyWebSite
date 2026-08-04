@@ -26,7 +26,7 @@ export default function ApproachTeaser() {
             <p className="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
               <span
                 aria-hidden
-                className="inline-block h-px w-6 bg-lime/80"
+                className="inline-block h-px w-6 bg-accent/80"
               />
               {t("label")}
             </p>
@@ -52,7 +52,7 @@ export default function ApproachTeaser() {
               <Reveal delay={i * 50}>
                 <span
                   className={`font-mono text-xs font-bold ${
-                    i === 0 ? "text-lime-ink" : "text-foreground/30"
+                    i === 0 ? "text-accent-ink" : "text-foreground/30"
                   }`}
                 >
                   {String(i + 1).padStart(2, "0")}
@@ -69,7 +69,7 @@ export default function ApproachTeaser() {
         </ol>
 
         <Reveal delay={120}>
-          <p className="mt-10 max-w-xl border-l-2 border-lime/70 pl-4 font-subtitle text-sm leading-relaxed text-foreground/55 md:mt-14 md:text-base">
+          <p className="mt-10 max-w-xl border-l-2 border-accent/70 pl-4 font-subtitle text-sm leading-relaxed text-foreground/55 md:mt-14 md:text-base">
             {t("principle")}
           </p>
         </Reveal>

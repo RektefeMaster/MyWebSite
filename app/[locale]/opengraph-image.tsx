@@ -18,7 +18,7 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-/** Marka paylaşım kartı — koyu stüdyo, cam "M" hissi, lime aksan. */
+/** Marka paylaşım kartı — koyu stüdyo, cam "M" hissi, accent aksan. */
 export default async function Image({
   params,
 }: {
@@ -35,9 +35,9 @@ export default async function Image({
     join(process.cwd(), "public/fonts/SpaceGrotesk-Bold.ttf")
   );
 
-  const INK = "#0d0c0b";
-  const PAPER = "#f4f2ec";
-  const LIME = "#d0ec5a";
+  const INK = "#041017";
+  const PAPER = "#e8eef3";
+  const ACCENT = "#7ec8e8";
   const MUTE = "rgba(244,242,236,0.55)";
 
   return new ImageResponse(
@@ -57,7 +57,7 @@ export default async function Image({
           overflow: "hidden",
         }}
       >
-        {/* atmosfer — lime ışıltı */}
+        {/* atmosfer — accent ışıltı */}
         <div
           style={{
             position: "absolute",
@@ -92,7 +92,7 @@ export default async function Image({
               width: 15,
               height: 15,
               borderRadius: 999,
-              background: LIME,
+              background: ACCENT,
             }}
           />
           <div
@@ -129,8 +129,8 @@ export default async function Image({
               marginTop: 34,
             }}
           >
-            <div style={{ width: 46, height: 4, background: LIME }} />
-            <div style={{ fontSize: 30, color: LIME }}>{services}</div>
+            <div style={{ width: 46, height: 4, background: ACCENT }} />
+            <div style={{ fontSize: 30, color: ACCENT }}>{services}</div>
           </div>
         </div>
 

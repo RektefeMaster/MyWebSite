@@ -29,7 +29,7 @@ export default function ProjectCard({
       <Link
         scroll={false}
         href={`/work/${project.id}`}
-        className="relative block aspect-[800/620] w-full overflow-hidden rounded-[1rem] bg-stone ring-1 ring-inset ring-foreground/8 transition-[box-shadow] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink [@media(hover:hover)_and_(pointer:fine)]:group-hover:ring-lime/35"
+        className="relative block aspect-[800/620] w-full overflow-hidden rounded-[1rem] bg-stone ring-1 ring-inset ring-foreground/8 transition-[box-shadow] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink [@media(hover:hover)_and_(pointer:fine)]:group-hover:ring-accent/35"
         aria-label={`${name} — ${t("view")}`}
       >
         {/* Soft-nav: tüm grid’i birden decode etme — viewport’a yaklaşınca mount */}

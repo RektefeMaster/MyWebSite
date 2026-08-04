@@ -110,7 +110,7 @@ function WorkCard({
       <Link
         href={`/work/${project.id}`}
         scroll={false}
-        className="flex h-full flex-col overflow-hidden bg-band-fg/[0.03] ring-1 ring-inset ring-band-fg/10 transition-[box-shadow,background-color] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime [@media(hover:hover)_and_(pointer:fine)]:hover:bg-band-fg/[0.055] [@media(hover:hover)_and_(pointer:fine)]:hover:ring-lime/35"
+        className="flex h-full flex-col overflow-hidden bg-band-fg/[0.03] ring-1 ring-inset ring-band-fg/10 transition-[box-shadow,background-color] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent [@media(hover:hover)_and_(pointer:fine)]:hover:bg-band-fg/[0.055] [@media(hover:hover)_and_(pointer:fine)]:hover:ring-accent/35"
       >
         <MediaStage
           project={project}
@@ -120,7 +120,7 @@ function WorkCard({
         />
         <div className="flex shrink-0 flex-col gap-2 px-5 py-5 md:px-6 md:py-6">
           <div className="flex items-baseline justify-between gap-3">
-            <p className="font-mono text-[10px] font-bold tabular-nums tracking-[0.12em] text-lime">
+            <p className="font-mono text-[10px] font-bold tabular-nums tracking-[0.12em] text-accent">
               {String(index + 1).padStart(2, "0")}
               {copy?.tag ? (
                 <span className="ml-3 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-band-fg/40">
@@ -165,7 +165,7 @@ export default function SelectedWork() {
               <p className="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-band-fg/40">
                 <span
                   aria-hidden
-                  className="inline-block h-px w-6 bg-lime/80"
+                  className="inline-block h-px w-6 bg-accent/80"
                 />
                 {t("label")}
               </p>
@@ -208,7 +208,7 @@ export default function SelectedWork() {
           <Magnetic strength={0.28} className="w-full sm:w-auto">
             <SpecularButton
               href="/work"
-              tone="lime"
+              tone="accent"
               size="md"
               fillMobile
               className="btn-stable btn-stable--chip"

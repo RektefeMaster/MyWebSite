@@ -5,7 +5,7 @@ import { join } from "node:path";
 export const size = { width: 256, height: 256 };
 export const contentType = "image/png";
 
-/** Marka ikonu — koyu kare, "M" + lime nokta. Favicon + JSON-LD logo. */
+/** Marka ikonu — koyu kare, "M" + accent nokta. Favicon + JSON-LD logo. */
 export default async function Icon() {
   const font = await readFile(
     join(process.cwd(), "public/fonts/SpaceGrotesk-Bold.ttf")
@@ -20,14 +20,14 @@ export default async function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0d0c0b",
-          color: "#f4f2ec",
+          background: "#041017",
+          color: "#e8eef3",
           fontFamily: "Space Grotesk",
           fontSize: 176,
           letterSpacing: -6,
         }}
       >
-        M<span style={{ color: "#d0ec5a" }}>.</span>
+        M<span style={{ color: "#7ec8e8" }}>.</span>
       </div>
     ),
     {

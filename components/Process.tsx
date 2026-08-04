@@ -154,7 +154,7 @@ export default function Process() {
               ref={headRef}
               className="absolute left-1/2 z-20 -translate-x-1/2 will-change-transform"
             >
-              <div className="process-head size-3.5 rounded-full bg-lime" />
+              <div className="process-head size-3.5 rounded-full bg-accent" />
             </div>
 
             <span

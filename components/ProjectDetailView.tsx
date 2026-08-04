@@ -111,7 +111,7 @@ export default async function ProjectDetailView({
                 <Magnetic strength={0.25} className="w-full sm:w-auto">
                   <SpecularButton
                     href={{ pathname: "/", hash: "contact" }}
-                    tone="lime"
+                    tone="accent"
                     size="md"
                     fillMobile
                   >
@@ -202,7 +202,7 @@ export default async function ProjectDetailView({
                     key={item}
                     className="flex gap-4 text-[15px] leading-relaxed text-foreground/65 md:text-base"
                   >
-                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-lime" />
+                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" />
                     <span>{item}</span>
                   </li>
                 ))}

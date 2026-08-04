@@ -75,7 +75,7 @@ export default function Principles() {
               >
                 <span
                   className={`pt-1 font-mono text-xs font-bold md:pt-2 ${
-                    isOpen ? "text-lime" : "text-foreground/30"
+                    isOpen ? "text-accent" : "text-foreground/30"
                   }`}
                 >
                   {String(i + 1).padStart(2, "0")}

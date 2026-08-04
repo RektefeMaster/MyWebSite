@@ -1,6 +1,6 @@
 /**
  * Marka yükleme işareti — Intro’nun küçük kardeşi.
- * Server + Client uyumlu (hook yok); ink / paper / lime sabit.
+ * Server + Client uyumlu (hook yok); ink / paper / accent sabit.
  */
 export default function MetekLoader({
   className = "",

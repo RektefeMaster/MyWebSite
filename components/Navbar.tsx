@@ -20,7 +20,7 @@ type NavHref =
   | "/blog"
   | { pathname: "/"; hash: string };
 
-/** Glass header + altında lime şerit — sayfa rotaları */
+/** Glass header + altında accent şerit — sayfa rotaları */
 export default function Navbar() {
   const t = useTranslations("nav");
   const pathname = usePathname();
@@ -158,7 +158,7 @@ export default function Navbar() {
                   href={{ pathname: "/", hash: "contact" }}
                   scroll={false}
                   aria-label={t("cta")}
-                  className="btn-sheen btn-stable inline-flex min-h-10 shrink-0 rounded-full bg-lime px-3 py-2 text-xs font-bold text-on-lime sm:px-3.5 md:min-h-0 md:px-5 md:py-2.5 md:text-sm"
+                  className="btn-sheen btn-stable inline-flex min-h-10 shrink-0 rounded-full bg-accent px-3 py-2 text-xs font-bold text-on-accent sm:px-3.5 md:min-h-0 md:px-5 md:py-2.5 md:text-sm"
                 >
                   <span className="sm:hidden" aria-hidden="true">
                     {t("ctaShort")}

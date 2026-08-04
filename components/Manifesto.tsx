@@ -97,10 +97,10 @@ export default function Manifesto() {
 
           <div
             data-manifesto-stamp
-            className="mt-14 inline-flex rotate-[-3deg] items-center gap-3 rounded-full border-2 border-lime px-5 py-2.5 md:mt-20"
+            className="mt-14 inline-flex rotate-[-3deg] items-center gap-3 rounded-full border-2 border-accent px-5 py-2.5 md:mt-20"
           >
-            <span className="size-2 rounded-full bg-lime" />
-            <span className="text-xs font-bold uppercase tracking-[0.18em] text-lime">
+            <span className="size-2 rounded-full bg-accent" />
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
               {t("stamp")}
             </span>
           </div>

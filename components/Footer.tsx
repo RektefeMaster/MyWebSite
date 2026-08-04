@@ -32,7 +32,7 @@ export default function Footer() {
             >
               <span className="brand-mark relative text-4xl leading-none tracking-tight md:text-5xl">
                 M
-                <span className="absolute left-[0.92em] top-[0.72em] size-[0.22em] rounded-full bg-lime md:top-[0.7em]" />
+                <span className="absolute left-[0.92em] top-[0.72em] size-[0.22em] rounded-full bg-accent md:top-[0.7em]" />
               </span>
             </span>
           </Link>

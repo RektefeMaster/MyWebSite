@@ -18,14 +18,14 @@ export default function ManifestoScene() {
       <div className="relative z-[1] mx-auto w-full max-w-5xl">
         <Reveal>
           <p className="mb-6 flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-band-fg/40">
-            <span aria-hidden className="inline-block h-px w-6 bg-lime/80" />
+            <span aria-hidden className="inline-block h-px w-6 bg-accent/80" />
             {t("label")}
           </p>
         </Reveal>
         <Reveal delay={60} mode="line" once>
           <p className="max-w-[22ch] font-display text-[clamp(1.85rem,5.2vw,3.75rem)] font-bold leading-[1.08] tracking-tight md:max-w-[26ch]">
             {t("before")}
-            <span className="text-lime"> {t("accent")} </span>
+            <span className="text-accent"> {t("accent")} </span>
             {t("after")}
           </p>
         </Reveal>
@@ -35,7 +35,7 @@ export default function ManifestoScene() {
         aria-hidden
         className="pointer-events-none absolute -right-2 bottom-6 select-none font-display text-[clamp(6rem,28vw,13rem)] leading-none tracking-tight text-band-fg/[0.06] md:right-8 md:bottom-8"
       >
-        M<span className="text-lime/40">.</span>
+        M<span className="text-accent/40">.</span>
       </span>
     </section>
   );

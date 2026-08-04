@@ -19,7 +19,7 @@ import "./SpecularButton.css";
 
 type LinkHref = ComponentProps<typeof Link>["href"];
 
-export type SpecularTone = "lime" | "ink";
+export type SpecularTone = "accent" | "ink";
 
 type SpecularButtonBase = {
   children?: ReactNode;
@@ -43,7 +43,7 @@ type SpecularButtonBase = {
   onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   type?: "button" | "submit" | "reset";
   className?: string;
-  /** Marka hazır ayarı — lime / ink birincil CTA */
+  /** Marka hazır ayarı — accent / ink birincil CTA */
   tone?: SpecularTone;
   /** Mobilde tam genişlik */
   fillMobile?: boolean;
@@ -79,20 +79,27 @@ const TONE: Record<
     "tint" | "tintOpacity" | "textColor" | "lineColor" | "baseColor" | "radius"
   >
 > = {
-  lime: {
-    tint: "#c8e84a",
+  /*
+    tint / textColor CSS'te (color-mix) çözülüyor → tema token'ı verilebilir.
+    Sabit hex bırakılırsa buton koyu temada sönük kalıyor ve navbar'daki
+    `bg-accent` CTA ile aynı rengi tutturmuyordu.
+    lineColor / baseColor WebGL specular katmanına gidiyor; orada var()
+    çözülmez, bu yüzden onlar iki temada da çalışan sabit ara tonlar.
+  */
+  accent: {
+    tint: "var(--accent)",
     tintOpacity: 1,
-    textColor: "#141311",
-    lineColor: "#ffffff",
-    baseColor: "#6b7f24",
+    textColor: "var(--on-accent)",
+    lineColor: "#f2f7fa",
+    baseColor: "#175e86",
     radius: 999,
   },
   ink: {
-    tint: "#161616",
+    tint: "var(--ink)",
     tintOpacity: 1,
-    textColor: "#f7f5f0",
-    lineColor: "#d0ec5a",
-    baseColor: "#3d3d3d",
+    textColor: "var(--ink-fg)",
+    lineColor: "#7ec8e8",
+    baseColor: "#234b63",
     radius: 999,
   },
 };
@@ -138,7 +145,7 @@ export default function SpecularButton({
   onClick,
   className = "",
   type = "button",
-  tone = "lime",
+  tone = "accent",
   fillMobile = false,
   href,
   externalHref,

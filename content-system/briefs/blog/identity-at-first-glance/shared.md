@@ -1,17 +1,17 @@
 # Blog identity-at-first-glance — shared semantic brief
 
 ```yaml
-page_goal: Teach why first-glance identity on the web decides trust before the offer is understood — and how METEK approaches that craft.
+page_goal: Teach why first-glance identity on the web decides trust before the offer is understood, and how METEK Digital approaches that craft as an agency.
 primary_audience: [boutique_brand, new_service_site, global_vertical]
 visitor_problem: Brand looks inconsistent or template-like in the first screen; trust drops before reading features.
 main_message: Identity is a system of first impressions (type, pace, hierarchy), not a logo file.
 proof_points: [3, 4, 5]
 required_information:
   - Practical guidance usable without buying
-  - Tie-back to studio capability without hard sell in every paragraph
-desired_action: Optional — start a project if the note matches their problem.
+  - Soft tie-back to METEK web design capability
+desired_action: Optional project inquiry if the article matches their problem.
 search_intent: Informational (brand identity on web / first impression) — high SEO weight.
-tone_constraints: Expert, specific, non-fluffy; avoid AI essay openers.
+tone_constraints: Agency we-voice; expert; specific; no AI essay openers.
 claims_not_allowed: [guaranteed conversion lift numbers]
 constraints:
   headline_max_chars: 70

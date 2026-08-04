@@ -99,7 +99,7 @@ function CapDetail({
       >
         <div className="overflow-hidden">
           {showDetail ? (
-            <p className="mt-3 max-w-lg border-l-2 border-lime/70 pl-3.5 text-sm leading-relaxed text-foreground/70 md:text-[15px]">
+            <p className="mt-3 max-w-lg border-l-2 border-accent/70 pl-3.5 text-sm leading-relaxed text-foreground/70 md:text-[15px]">
               {detail}
             </p>
           ) : null}
@@ -113,7 +113,7 @@ function CapDetail({
           >
             <span
               aria-hidden
-              className="mt-2 size-1 shrink-0 rounded-full bg-lime"
+              className="mt-2 size-1 shrink-0 rounded-full bg-accent"
             />
             {item}
           </li>
@@ -140,7 +140,7 @@ function CapCta({ label }: { label: string }) {
   );
 }
 
-/** Üç ana capability — hover: lime + preview; tık: seçim + detay metin */
+/** Üç ana capability — hover: accent + preview; tık: seçim + detay metin */
 export default function Capabilities() {
   const t = useTranslations("capabilities");
   const baseId = useId();
@@ -193,7 +193,7 @@ export default function Capabilities() {
             <p className="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
               <span
                 aria-hidden
-                className="inline-block h-px w-6 bg-lime/80"
+                className="inline-block h-px w-6 bg-accent/80"
               />
               {t("label")}
             </p>
@@ -251,7 +251,7 @@ export default function Capabilities() {
                 >
                   <span
                     className={`font-mono text-xs font-bold transition-colors duration-300 ${
-                      hot ? "text-lime-ink" : "text-foreground/25"
+                      hot ? "text-accent-ink" : "text-foreground/25"
                     }`}
                   >
                     {String(i + 1).padStart(2, "0")}
@@ -314,7 +314,7 @@ export default function Capabilities() {
                 >
                   <span
                     className={`font-mono text-xs font-bold transition-colors duration-300 ${
-                      open ? "text-lime-ink" : "text-foreground/30"
+                      open ? "text-accent-ink" : "text-foreground/30"
                     }`}
                   >
                     {String(i + 1).padStart(2, "0")}

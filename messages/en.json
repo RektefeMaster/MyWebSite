@@ -1,15 +1,15 @@
 {
   "meta": {
-    "title": "METEK Digital · Custom Web & Software",
-    "description": "Custom websites, admin panels, and automation from one founder-led studio. Built on Next.js and React, tested before handoff."
+    "title": "Web Design Agency | Admin Panel, CRM, Chatbots · METEK Digital",
+    "description": "METEK Digital is a web design and software agency. Custom websites, admin panels, CRM, CSS design systems, WhatsApp and Instagram chatbots, mobile apps. Portfolio and project inquiry."
   },
   "nav": {
-    "about": "Who we are",
+    "about": "Agency",
     "home": "Home",
-    "manifesto": "Manifesto",
-    "studio": "Studio",
+    "manifesto": "Agency",
+    "studio": "Agency",
     "work": "Work",
-    "approach": "Approach",
+    "approach": "Process",
     "services": "Services",
     "blog": "Blog",
     "notes": "Notes",
@@ -21,72 +21,72 @@
   },
   "pages": {
     "manifesto": {
-      "metaTitle": "Who we are · METEK",
-      "metaDescription": "Nurullah Aydın, Malatya. Custom web, design language, and automation.",
-      "heroLabel": "Who we are",
-      "heroTitle": "Don't stay behind.",
-      "heroBlurb": "In a digital age, falling behind digitally is a gap. Let's build work that puts your brand forward.",
-      "ctaLabel": "Let's talk",
-      "ctaTitle": "Reach out. Let's talk.",
-      "ctaBlurb": "I'm eager to meet you and proud to add your work to my portfolio.",
-      "ctaButton": "Write to me"
+      "metaTitle": "Agency | METEK Digital Web Design & Software",
+      "metaDescription": "METEK Digital is a web design and software agency based in Malatya. Websites, admin panels, CRM, chatbots and mobile apps. Founder Nurullah Aydın.",
+      "heroLabel": "Agency",
+      "heroTitle": "METEK Digital agency.",
+      "heroBlurb": "We design and build websites, admin panels, CRM systems, CSS design systems, WhatsApp and Instagram chatbots, and mobile apps.",
+      "ctaLabel": "Contact",
+      "ctaTitle": "Tell us about your project.",
+      "ctaBlurb": "Sector, goal and target launch date are enough. We reply with the right service and next step.",
+      "ctaButton": "Contact us"
     },
     "approach": {
-      "metaTitle": "Approach · METEK",
-      "metaDescription": "From discovery to launch: clear scope and progress you can check.",
-      "heroLabel": "Approach",
-      "heroTitle": "Method.",
-      "heroBlurb": "From discovery to launch. Each step ends in something you can check.",
-      "ctaLabel": "Work with me",
-      "ctaTitle": "Want this method on your project?",
-      "ctaBlurb": "Clear scope, steady updates, and progress you can verify before launch.",
-      "ctaButton": "Start my project"
+      "metaTitle": "Project Process | Web & Software Development · METEK Digital",
+      "metaDescription": "How METEK Digital runs a project: discovery, scope, design, build, audit and launch for websites, panels, CRM and chatbots.",
+      "heroLabel": "Process",
+      "heroTitle": "A clear path from discovery to launch.",
+      "heroBlurb": "Scope is written down. Every stage ends with something you can review. Website, panel or chatbot.",
+      "ctaLabel": "Contact",
+      "ctaTitle": "Want this process for your project?",
+      "ctaBlurb": "Describe the need. We clarify scope and timing with you.",
+      "ctaButton": "Start a project"
     },
     "work": {
-      "metaTitle": "Work · METEK",
-      "metaDescription": "Selected web and software projects. Custom design, solid engineering.",
-      "heroLabel": "Work",
-      "heroTitle": "Selected projects.",
-      "heroBlurb": "Sites, panels, and tools in production across manufacturing, retail, and ops.",
-      "ctaLabel": "Work with me",
-      "ctaTitle": "Want work in this range?",
-      "ctaBlurb": "Share sector, goal, and timing. I reply with fit and a concrete next step.",
-      "ctaButton": "Send my request"
+      "metaTitle": "Portfolio | Website, Panel, CRM & Chatbot Work · METEK Digital",
+      "metaDescription": "METEK Digital portfolio: corporate websites, admin panels, CRM and WhatsApp/Instagram chatbot projects across Türkiye, the US and Europe.",
+      "heroLabel": "Portfolio",
+      "heroTitle": "Selected web and software projects.",
+      "heroBlurb": "Websites, panels and chatbots for manufacturing, retail, hospitality and clinics. Live work, clear delivery.",
+      "ctaLabel": "Contact",
+      "ctaTitle": "Need a similar project?",
+      "ctaBlurb": "Share sector and goal. We come back with fit and a first step.",
+      "ctaButton": "Describe my need"
     },
     "services": {
-      "metaTitle": "Services · METEK",
-      "metaDescription": "Websites, custom software, panels, and automation. Scope clarified together.",
+      "metaTitle": "Services | Web Design, Admin Panel, CRM, Chatbots · METEK Digital",
+      "metaDescription": "METEK Digital services: custom website design, corporate web development, admin panels, CRM, CSS design systems, WhatsApp chatbots, Instagram chatbots, mobile apps.",
       "heroLabel": "Services",
-      "heroTitle": "Services.",
-      "heroBlurb": "Web, software, and automation. We map your need to a real scope.",
-      "ctaLabel": "Work with me",
+      "heroTitle": "Web, panels, CRM and chatbots.",
+      "heroBlurb": "We scope what you need: website, admin panel, CRM, CSS design system, WhatsApp or Instagram chatbot, mobile app.",
+      "ctaLabel": "Contact",
       "ctaTitle": "Not sure which service fits?",
-      "ctaBlurb": "Describe the need. I map it to a real scope with no padded quotes.",
-      "ctaButton": "Start my project"
+      "ctaBlurb": "Write a few lines. We map the right package and scope.",
+      "ctaButton": "Start a project"
     },
     "blog": {
-      "metaTitle": "Blog · METEK",
-      "metaDescription": "Notes on web, software, and shipping digital products.",
+      "metaTitle": "Blog | Web Design, UI & SEO Notes · METEK Digital",
+      "metaDescription": "METEK Digital blog: practical notes on web design, interface decisions, SEO and shipping software projects.",
       "heroLabel": "Blog",
-      "heroTitle": "Notes and perspectives.",
-      "heroBlurb": "Writing on identity, editorial web, and how projects get built.",
-      "ctaLabel": "Work with me",
-      "ctaTitle": "Want this for your brand?",
-      "ctaBlurb": "If a note matches a problem you have, we figure out how it fits your project.",
-      "ctaButton": "Start my project"
+      "heroTitle": "Notes on web and software.",
+      "heroBlurb": "Practical writing from website, panel and chatbot projects. Includes SEO and UI decisions.",
+      "ctaLabel": "Contact",
+      "ctaTitle": "Talk about your project.",
+      "ctaBlurb": "If a topic matches your need, write in. We suggest the right service.",
+      "ctaButton": "Start a project"
     }
   },
   "blog": {
-    "view": "Read note",
-    "teaserLabel": "Notes",
-    "teaserTitle": "Selected notes.",
-    "teaserBlurb": "Notes on web, software, and shipping digital products.",
-    "teaserAll": "See all notes",
+    "view": "Read article",
+    "teaserLabel": "Blog",
+    "teaserTitle": "Web and software notes.",
+    "teaserBlurb": "Short notes on design, SEO and development.",
+    "teaserAll": "All articles",
     "readMinutes": "{count} min read",
     "relatedLabel": "Continue",
-    "relatedTitle": "Related articles.",
+    "relatedTitle": "Related articles",
     "articleCta": "Start my project",
-    "articleCtaBlurb": "If this matches a problem you have, start a project conversation for your brand.",
+    "articleCtaBlurb": "If this matches your project, write in and we will scope it.",
     "crumbHome": "Home",
     "crumbBlog": "Blog",
     "categories": {
@@ -99,244 +99,246 @@
   },
   "marquee": {
     "items": [
-      "Custom web",
+      "Custom websites",
       "Admin panels",
-      "Next.js",
-      "Automation",
-      "CRM tools",
-      "Performance"
+      "CRM",
+      "CSS design systems",
+      "WhatsApp chatbots",
+      "Instagram chatbots",
+      "Mobile apps",
+      "Technical SEO"
     ]
   },
   "manifesto": {
-    "label": "Manifesto",
+    "label": "Principles",
     "stamp": "METEK Digital",
     "lines": [
-      "Work that still holds after launch.",
-      "Design and code in one hand.",
-      "No theme reskin; custom build.",
-      "If you like it, we continue."
+      "We do not sell bought themes.",
+      "Web, panels and chatbots in one team.",
+      "Speed and SEO checks before launch.",
+      "Written scope, visible delivery."
     ]
   },
   "featured": {
     "label": "Featured project",
     "client": "Wholesale Cabinet Creations · 2026",
-    "title": "Corporate site for a US cabinet manufacturer",
-    "blurb": "For Wholesale Cabinet Creations we built a site that shows manufacturing quality online — fast on mobile, ready for search, with a clear path to request a quote and a panel the team can update.",
+    "title": "Corporate website and panel for a US cabinet maker",
+    "blurb": "We built the corporate website for Wholesale Cabinet Creations. It loads fast on mobile, is prepared for search, and puts the quote form up front. The team updates copy and images from an admin panel.",
     "outcomes": [
-      "Clearer presence for quote-led inquiries.",
-      "Faster mobile paths to products and contact.",
-      "Copy, media, and search settings in one panel."
+      "Short path from browse to quote request",
+      "Products and contact reachable on mobile",
+      "Content and SEO settings in one panel"
     ],
     "cta": "Open project",
-    "shotHero": "Wholesale Cabinet Creations — homepage",
-    "shotKitchen": "Wholesale Cabinet Creations — kitchen cabinets",
-    "shotProjects": "Wholesale Cabinet Creations — project gallery",
-    "shotBrands": "Wholesale Cabinet Creations — brands",
+    "shotHero": "Wholesale Cabinet Creations, homepage",
+    "shotKitchen": "Wholesale Cabinet Creations, kitchen cabinets",
+    "shotProjects": "Wholesale Cabinet Creations, project gallery",
+    "shotBrands": "Wholesale Cabinet Creations, brands",
     "sceneLabel": "Result",
-    "sceneTitle": "Factory quality, readable online.",
-    "sceneBody": "Speed, technical SEO, and content management in one stack."
+    "sceneTitle": "Fast mobile site, manageable content",
+    "sceneBody": "Corporate web, technical SEO prep and admin panel together."
   },
   "principles": {
-    "label": "Approach",
-    "title": "How I think",
+    "label": "Principles",
+    "title": "How we work",
     "items": [
       {
         "title": "Clarity",
-        "body": "I cut the noise. The message reads in one glance; every layer earns its place."
+        "body": "If it does no job, it leaves the page. Visitors should know what you do quickly."
       },
       {
         "title": "System",
-        "body": "Not one-off visuals, but identity rules and components that scale."
+        "body": "Shared components and CSS rules. Adding page eleven stays cheaper."
       },
       {
-        "title": "Tempo",
-        "body": "Fast decisions, careful craft. Launch dates become real targets."
+        "title": "Schedule",
+        "body": "We keep the launch date we give. Slip risk is flagged early."
       },
       {
-        "title": "Usefulness",
-        "body": "Looks are not enough. The work has to be usable after handoff — and speed, accessibility basics, and technical SEO get checked before release."
+        "title": "Quality",
+        "body": "Before launch we check speed, mobile, accessibility and technical SEO."
       }
     ]
   },
   "hero": {
-    "line1": "From idea",
-    "line2": "to working",
-    "line3": "product.",
-    "blurb": "Websites, panels, and tools built for daily use. Custom design and engineering from one team.",
-    "ctaWork": "View selected work",
+    "line1": "METEK Digital",
+    "line2": "web design",
+    "line3": "agency.",
+    "blurb": "Websites, admin panels, CRM, CSS, WhatsApp and Instagram chatbots, mobile apps. Portfolio below.",
+    "ctaWork": "View portfolio",
     "ctaContact": "Start a project",
-    "scroll": "See projects",
-    "metaStudio": "Design & software studio",
+    "scroll": "View portfolio",
+    "metaStudio": "Web design and software agency",
     "metaLocation": "Malatya · Worldwide",
-    "availability": "Open for a few new projects"
+    "availability": "Open for new projects"
   },
   "selectedWork": {
-    "label": "Selected work",
-    "title": "Proof in production.",
-    "blurb": "Shipped work across brand sites, panels, and automation.",
-    "viewAll": "View all work"
+    "label": "Portfolio",
+    "title": "Selected projects",
+    "blurb": "Fourteen live projects. Websites, admin panels, CRM and chatbot work. Includes the US, Germany and Italy.",
+    "viewAll": "Full portfolio"
   },
   "capabilities": {
-    "label": "Capabilities",
-    "title": "What we build.",
-    "blurb": "Brand sites, panels teams use daily, and automation that carries real operational load.",
-    "cta": "Explore capabilities",
-    "techLine": "Custom UI · Next.js stack · Tested before handoff",
+    "label": "Services",
+    "title": "What we build",
+    "blurb": "Corporate websites and web design. Admin panels, CRM and mobile apps. WhatsApp and Instagram chatbots. CSS design systems.",
+    "cta": "All services",
+    "techLine": "Web · Panel · CRM · Chatbot · Mobile · SEO",
     "items": {
       "experiences": {
-        "title": "Digital Experiences",
-        "summary": "Brand sites, commerce, and editorial surfaces",
-        "visual": "Experience",
-        "body": "Public sites that carry brand character and convert without reading as a template.",
-        "detail": "Each screen has one job: build trust, give clear direction, and remove friction. Typography, pacing, and interaction are designed together and checked after launch.",
+        "title": "Websites and web design",
+        "summary": "Corporate sites, service pages, brand storefronts",
+        "visual": "Website",
+        "body": "Custom website design and development. Not a bought theme. Built around your brand and sales path.",
+        "detail": "Structure, content hierarchy, mobile layout and technical SEO move in one plan. Goal: trust, a clear offer, contact or quote.",
         "outcomes": [
-          "Brand sites with a clear path to contact or book",
-          "Commerce flows without template noise",
-          "Scroll-paced editorial experiences"
+          "Corporate and service websites",
+          "Mobile-ready, fast pages",
+          "Technical SEO and analytics setup"
         ]
       },
       "systems": {
-        "title": "Software Systems",
-        "summary": "Admin panels, CRM, and product UIs",
-        "visual": "Panel · CRM",
-        "body": "Internal tools and product surfaces built for daily use with clear architecture.",
-        "detail": "Panels operators open every day stay lean: the right data, fast actions, low friction. Architecture stays ready to grow without heavy training.",
+        "title": "Admin panels, CRM, mobile",
+        "summary": "Admin panel, CRM, CSS design system, mobile app",
+        "visual": "Admin panel",
+        "body": "Admin panels and CRM used every day. Mobile apps and CSS design systems when the project needs them.",
+        "detail": "Screens people open daily stay simple and consistent. Data, bookings and customer records live in one place.",
         "outcomes": [
-          "Panels operators can run without heavy training",
-          "CRM and lead flows that stay in sync",
-          "Web and mobile products with a stable release path"
+          "Admin panel and CRM screens",
+          "CSS design system for consistent UI",
+          "Web and mobile app development"
         ]
       },
       "ai": {
-        "title": "AI & Automation",
-        "summary": "Messaging assistants and operational workflows",
+        "title": "WhatsApp and Instagram chatbots",
+        "summary": "Booking, FAQs, sales panel connection",
         "visual": "Messaging",
-        "body": "Assistants and workflows that handle booking, FAQs, and follow-ups with a clean handoff to humans.",
-        "detail": "Bots for operations, not showcase demos. Booking, FAQs, and follow-ups run automatically; ambiguous cases hand off to your team with context.",
+        "body": "WhatsApp and Instagram chatbots for pricing, FAQs, bookings, reminders and CRM links.",
+        "detail": "Flows follow your business rules. Unclear chats go to your team with a short summary; routine work stays automatic.",
         "outcomes": [
-          "WhatsApp and DM assistants that qualify leads",
-          "Booking and follow-up automation",
-          "Custom workflows tied to your CRM"
+          "WhatsApp chatbot setup",
+          "Instagram chatbot setup",
+          "CRM and booking panel integration"
         ]
       }
     }
   },
   "manifestoScene": {
-    "label": "Thesis",
-    "before": "People decide whether to",
+    "label": "Focus",
+    "before": "A strong website earns",
     "accent": "trust",
-    "after": "a business before they understand what it sells."
+    "after": "first, then explains the offer."
   },
   "approachTeaser": {
-    "label": "Approach",
-    "title": "How we work.",
-    "blurb": "Four stages from first contact to launch. Every step ends in something you can check.",
-    "principle": "Direct communication. Clear scope. No empty status updates.",
-    "cta": "See how we work",
+    "label": "Process",
+    "title": "How a project runs",
+    "blurb": "Four stages. Each one ends with an output you can review.",
+    "principle": "Scope is written. Progress is visible weekly. Design and build stay in one team.",
+    "cta": "See the process",
     "steps": [
       {
-        "title": "Discover",
-        "body": "Goals, audience, and constraints before any visual noise."
+        "title": "Discovery",
+        "body": "Goals, audience, channels and technical limits."
       },
       {
-        "title": "Define",
-        "body": "Direction, architecture, and a scope you can approve."
+        "title": "Scope",
+        "body": "Service choice, feature list and approved scope."
       },
       {
-        "title": "Design & Build",
-        "body": "Interface and implementation on one track. No handoff fog."
+        "title": "Design and build",
+        "body": "UI and code together. Panel or chatbot joins the same plan."
       },
       {
-        "title": "Refine & Launch",
-        "body": "Test speed, accessibility basics, and SEO. Then ship."
+        "title": "Audit and launch",
+        "body": "Speed, mobile, access and technical SEO checks, then launch."
       }
     ]
   },
   "finalCta": {
-    "label": "Start",
-    "title": "Ready when you are.",
-    "blurb": "Send a short note. You get scope, direction, and next steps within a day.",
+    "label": "Inquiry",
+    "title": "Tell us about the project.",
+    "blurb": "A few lines is enough. Within a day you get scope, timing and a price range.",
     "cta": "Start a project",
-    "whatsapp": "Quick chat without the form ↗",
-    "whatsappPrefill": "Hi. I would like to talk about a project with METEK."
+    "whatsapp": "Message on WhatsApp ↗",
+    "whatsappPrefill": "Hello METEK Digital. I would like to discuss a website / panel / chatbot project."
   },
   "workLanes": {
-    "web": "Web Experiences",
-    "systems": "Products & Systems",
-    "ai": "AI & Automation",
-    "lab": "Experiments / Lab"
+    "web": "Websites",
+    "systems": "Panel, CRM, mobile",
+    "ai": "Chatbots",
+    "lab": "Experiments"
   },
   "projects": {
-    "label": "Work",
-    "title": "All projects.",
-    "blurb": "Web, panels, and digital products designed and engineered for production.",
-    "loadMore": "Show more work",
-    "seeCase": "See the work",
-    "viewAll": "View all work"
+    "label": "Portfolio",
+    "title": "All projects",
+    "blurb": "Website, admin panel, CRM and chatbot projects across manufacturing, retail, hospitality and clinics.",
+    "loadMore": "Show more",
+    "seeCase": "View project",
+    "viewAll": "Full portfolio"
   },
   "projectUi": {
     "view": "Open project",
     "live": "Visit site",
     "stack": "Tech stack",
     "back": "Back to work",
-    "gallery": "Page frames",
+    "gallery": "Screens",
     "galleryHint": "Selected screens from the live site"
   },
   "services": {
     "label": "Services",
-    "title": "What we work on",
-    "included": "What's included",
-    "cta": "Start my project",
-    "seeAll": "See all services",
+    "title": "Service list",
+    "included": "Included",
+    "cta": "Start a project",
+    "seeAll": "All services",
     "items": [
       {
         "title": "Starter Website",
-        "description": "A clean, fast site for service businesses and personal brands making a first serious web presence.",
+        "description": "Custom website design for businesses launching a first serious site. Mobile layout, basic SEO, contact and WhatsApp.",
         "includes": [
           "1 to 5 pages",
           "Custom UI design",
           "Mobile responsive",
           "Basic SEO",
-          "Contact & WhatsApp",
-          "Performance optimization",
+          "Contact and WhatsApp",
+          "Performance tuning",
           "15 days technical support"
         ]
       },
       {
         "title": "Corporate Website",
-        "description": "A fuller site for established businesses that need stronger brand presence and quote or lead paths.",
+        "description": "Corporate web design and development. More pages, a stronger first impression, measurable enquiries and advanced SEO.",
         "includes": [
           "5 to 12 pages",
-          "Custom UI/UX",
-          "Animation & micro interactions",
-          "Blog or CMS",
+          "Custom UI and UX",
+          "Motion and micro interactions",
+          "Blog or content area",
           "Advanced SEO",
           "Analytics",
-          "Speed & security",
+          "Speed and security",
           "30 days technical support"
         ]
       },
       {
-        "title": "Premium Digital Experience",
-        "description": "Custom design and engineering for brands that need a distinct look and daily-use tooling.",
+        "title": "Custom Web and Panel",
+        "description": "Custom UI, admin panel and CRM-ready advanced web builds. No marketplace themes.",
         "includes": [
           "Fully custom design language",
-          "3D or advanced animation",
+          "3D or advanced motion",
           "Custom admin panel",
-          "CRM, API & automation",
+          "CRM, API and automation",
           "AI features",
-          "Advanced SEO & performance",
+          "Advanced SEO and performance",
           "QA and launch",
           "60 days technical support"
         ]
       },
       {
-        "title": "Logo & Brand Identity",
-        "description": "A logo and visual system that make your brand recognizable at first glance.",
+        "title": "Logo and Brand Identity",
+        "description": "Logo, color, type and usage rules for a consistent brand across web and social.",
         "includes": [
           "Discovery and brand analysis",
           "Original logo design (multiple directions)",
-          "Color palette and typography",
+          "Colour palette and typography",
           "Logo variations (horizontal, vertical, icon)",
           "Usage guidelines (mini brandbook)",
           "Social media and favicon sets",
@@ -344,65 +346,65 @@
         ]
       },
       {
-        "title": "Custom Software & Automation",
-        "description": "Admin panels, apps, and workflows that replace spreadsheet ops and manual handoffs.",
+        "title": "Admin Panel and Mobile App",
+        "description": "Custom software: admin panel, mobile app, integrations and automation. Daily tools instead of spreadsheets.",
         "includes": [
-          "Needs & system analysis",
+          "Needs and system analysis",
           "Technical architecture",
           "Web or mobile app",
           "Admin panel",
-          "API & third party integrations",
+          "API and third party integrations",
           "Automation scenarios",
           "Security and testing"
         ]
       },
       {
-        "title": "WhatsApp Conversation Assistant",
-        "description": "Handles WhatsApp inquiries with your prices and services. Books open slots, skips busy hours, reopens cancelled times, and sends a reminder one hour before.",
+        "title": "WhatsApp Chatbot",
+        "description": "WhatsApp chatbot for FAQs, pricing, booking, cancels and reminders. Can connect to a CRM panel.",
         "includes": [
-          "Chat like you (with your prices and services)",
-          "Knows free hours, directs bookings there",
-          "Knows busy hours, avoids double booking",
-          "Opens the hour again after a cancel",
+          "Chats in your register (with your prices and services)",
+          "Knows open hours, directs bookings there",
+          "Knows busy hours, prevents double booking",
+          "Reopens the hour after a cancellation",
           "Reminder 1 hour before the appointment",
-          "Works with the CRM panel",
+          "Works with the sales panel",
           "Setup and training"
         ]
       },
       {
-        "title": "Instagram DM Assistant",
-        "description": "Same booking logic in Instagram DMs: prices, services, free hours, busy hours, and slots freed by cancels. Reminder one hour before.",
+        "title": "Instagram Chatbot",
+        "description": "Instagram chatbot for booking and answers in DMs. Same calendar and CRM logic as WhatsApp.",
         "includes": [
-          "DM chat in your name",
-          "Answers on price, services, and FAQs",
-          "Books free hours, skips busy ones",
-          "Opens the hour again after a cancel",
+          "DM conversation in your name",
+          "Answers on price, services and FAQs",
+          "Books open hours, protects busy ones",
+          "Reopens the hour after a cancellation",
           "Reminder 1 hour before",
-          "Works with the CRM panel",
+          "Works with the sales panel",
           "Setup and training"
         ]
       },
       {
-        "title": "CRM Sales Panel",
-        "description": "Central panel for appointments, cancels, and customers. Links to WhatsApp and Instagram assistants. See open hours and who's coming when.",
+        "title": "CRM and Booking Panel",
+        "description": "CRM sales and booking panel. WhatsApp and Instagram chatbot records on one screen.",
         "includes": [
           "Sales panel",
           "WhatsApp assistant link",
           "Instagram DM assistant link",
-          "Auto record when a booking is made",
-          "Hour opens again after a cancel",
+          "Automatic record on booking",
+          "Hour reopens after a cancellation",
           "Daily summary and reminders",
           "Setup and training"
         ]
       },
       {
         "title": "CSS Design System",
-        "description": "Brand tokens for colour, type, components, and spacing with a consistent UI kit and docs.",
+        "description": "CSS design system: color, type, spacing and components. Shared language for web and admin.",
         "includes": [
           "Design token set",
           "Type scale",
           "Buttons and base components",
-          "Spacing / radius system",
+          "Spacing and radius system",
           "Documentation surface",
           "Web and admin alignment",
           "Handoff guide"
@@ -412,82 +414,82 @@
   },
   "process": {
     "label": "Process",
-    "title": "From discovery to launch",
+    "title": "From first call to launch",
     "steps": [
       {
         "title": "Discovery",
         "body": [
-          "Goals, audience, and technical constraints get clear.",
-          "Scope and success criteria lock here."
+          "Goals, audience and technical limits are written down.",
+          "We clarify whether you need web, panel, CRM or chatbot work."
         ]
       },
       {
-        "title": "Strategy",
+        "title": "Scope",
         "body": [
-          "Information architecture, priorities, and product direction.",
-          "The roadmap is set before design and build."
+          "Page and feature list, priorities, success criteria.",
+          "No build starts without approved scope."
         ]
       },
       {
         "title": "Design",
         "body": [
-          "Interface, interaction, and visual language.",
-          "Every screen carries brand character and intent."
+          "Interface, components and a CSS design system when needed.",
+          "If brand language is missing, identity comes before code."
         ]
       },
       {
         "title": "Development",
         "body": [
-          "Built on Next.js and React for performance and maintainability.",
-          "Panels, APIs, and automation join one system when needed."
+          "Web on Next.js and React; panels, CRM and chatbots connect to the same system.",
+          "Mobile apps join the same plan when required."
         ]
       },
       {
-        "title": "Testing",
+        "title": "Audit",
         "body": [
-          "Devices, speed, accessibility basics, and critical flows.",
-          "Friction is cleared before launch."
+          "Speed, mobile, accessibility and technical SEO are checked.",
+          "Critical paths (quote, booking, contact) are tested."
         ]
       },
       {
         "title": "Launch",
         "body": [
-          "Go live, monitor, and support after delivery.",
-          "Iteration continues when the project needs it."
+          "It goes live and we monitor it. Support days follow the package.",
+          "Further improvements open under a new scope when needed."
         ]
       }
     ]
   },
   "about": {
-    "label": "Studio",
+    "label": "Agency",
     "titleLead": "METEK",
     "titleRest": "Digital",
-    "whoLabel": "Me",
+    "whoLabel": "Founder",
     "whoTitle": "Nurullah Aydın.",
     "origin": "Malatya, Türkiye",
-    "practice": "Independent practice, software and AI",
-    "p1": "I'm Nurullah Aydın. From Malatya, Türkiye. I've been building software for four years, and I keep growing in AI and the fields around it: an independent maker, one accountable practice. That practice is METEK Digital.",
-    "p2": "I can stay true to the brand and design language you already built, or open a new one if you want, and put the work in front of you to judge.",
-    "highlight": "See it. Try it. Like it. Then we talk.",
-    "p3": "Let's build a website coded and designed for your business. Or automation that takes the work eating your time and gives you room for the rest, even a tea break.",
-    "doLabel": "What we work on",
-    "doTitle": "Sites, panels, automation.",
-    "doIntro": "No ready package. Each job is built for your need.",
+    "practice": "Web design and software agency",
+    "p1": "METEK Digital is a web design and software agency based in Malatya. We build corporate websites, admin panels, CRM systems, CSS design systems, WhatsApp and Instagram chatbots, and mobile apps. The agency is led by Nurullah Aydın.",
+    "p2": "If your brand language is ready, we work inside it. If not, we start with logo and identity, then build after approval.",
+    "highlight": "See it first, then decide.",
+    "p3": "We do not sell bought themes. Each project is scoped to how the business sells and operates.",
+    "doLabel": "Service areas",
+    "doTitle": "Web, panels, chatbots, mobile.",
+    "doIntro": "No shelf packages. Website, panel, CRM, chatbot or mobile app is scoped to the real need.",
     "items": [
       {
         "title": "Websites",
-        "body": "Fast on phones, ready for search, clear path to quote or sale. Your brand should sound like itself on screen."
+        "body": "Custom web design and development. Mobile speed, technical SEO, clear contact or quote path."
       },
       {
-        "title": "Automation",
-        "body": "Bots and flows that shorten repeat work. Less daily load, more room for the real job."
+        "title": "Panels and CRM",
+        "body": "Admin panels, CRM, CSS design systems and mobile apps when needed."
       },
       {
-        "title": "Decide together",
-        "body": "We talk through what doesn't fit. No rush sell. A clear next step."
+        "title": "Chatbots",
+        "body": "WhatsApp and Instagram chatbots for booking, answers and panel records."
       }
     ],
-    "linkWork": "View my work",
+    "linkWork": "View portfolio",
     "linkServices": "View services",
     "role": "Founder",
     "name": "Nurullah Aydın"
@@ -495,17 +497,17 @@
   "contact": {
     "label": "Contact",
     "titleLine1": "Have a project?",
-    "titleLine2": "Let's start.",
-    "blurb": "New site, panel, automation, or messaging tool. A short note is enough. I reply with a clear next step.",
+    "titleLine2": "Let's talk.",
+    "blurb": "Website, admin panel, CRM, chatbot or mobile app. Tell us the sector and goal. We reply within a day.",
     "name": "Name",
     "email": "Email",
     "interestedIn": "I'm interested in",
-    "message": "A few lines on your goal and timing",
+    "message": "A few lines on goal, timing and the service you need",
     "send": "Send on WhatsApp",
-    "sentHint": "Opening WhatsApp. I usually reply within a day.",
-    "errorName": "Please enter your name.",
-    "errorEmail": "Please enter a valid email.",
-    "errorMessage": "Add a few more lines so I can reply with a clear next step.",
+    "sentHint": "Opening WhatsApp. We usually reply within a day.",
+    "errorName": "Please add your name.",
+    "errorEmail": "That email address doesn't look valid.",
+    "errorMessage": "A couple more lines so we can answer properly.",
     "mailSubject": "Project enquiry",
     "mailName": "Name",
     "mailEmail": "Email",
@@ -513,24 +515,24 @@
     "interests": [
       "Starter website",
       "Corporate website",
-      "Premium web experience",
-      "Logo & brand identity",
-      "E commerce site",
       "Admin panel",
-      "Web or mobile app",
-      "AI and automation",
+      "CRM",
+      "CSS design system",
+      "WhatsApp chatbot",
+      "Instagram chatbot",
+      "Mobile app",
       "Website redesign",
       "Other"
     ],
-    "response": "I usually reply within a day. For something urgent, WhatsApp is faster.",
+    "response": "We usually reply within a day. For urgency, WhatsApp is faster.",
     "emailCta": "Open email"
   },
   "footer": {
-    "tagline": "Custom design. Solid engineering. Shipped to production.",
+    "tagline": "Web design and software agency. Custom work, no bought themes.",
     "quickLinks": "Quick links",
-    "manifesto": "Who we are",
+    "manifesto": "Agency",
     "work": "Work",
-    "approach": "Approach",
+    "approach": "Process",
     "bookMeeting": "Start my project",
     "services": "Services",
     "blog": "Blog",
@@ -545,14 +547,14 @@
   },
   "whatsapp": {
     "label": "WhatsApp",
-    "prefill": "Hi. I would like to talk about a project with METEK.",
-    "cta": "Chat on WhatsApp",
+    "prefill": "Hello METEK Digital. I would like to discuss a website / panel / chatbot project.",
+    "cta": "Message on WhatsApp",
     "fab": "Chat"
   },
   "a11y": {
     "breadcrumb": "Breadcrumb",
-    "deviceDesktop": "{name} — desktop view",
-    "deviceMobile": "{name} — mobile view",
+    "deviceDesktop": "{name}, desktop view",
+    "deviceMobile": "{name}, mobile view",
     "language": "Language",
     "themeToDark": "Switch to dark theme",
     "themeToLight": "Switch to light theme",
@@ -560,7 +562,7 @@
   },
   "notFound": {
     "title": "Page not found",
-    "blurb": "This link is broken or the page moved. Head back to {brand}.",
+    "blurb": "This link is broken or the page has moved. Head back to {brand}.",
     "home": "Back to home"
   }
 }
