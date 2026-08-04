@@ -116,7 +116,7 @@ export default function Navbar() {
     >
       <header ref={headerRef} className="nav-shell">
         <div className="nav-glass border-b">
-          <nav className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-2.5 sm:gap-3 sm:px-4 sm:py-3 md:gap-4 md:px-10 md:py-4">
+          <nav className="mx-auto flex max-w-7xl items-center justify-between gap-1.5 px-3 py-2.5 sm:gap-3 sm:px-4 sm:py-3 md:gap-4 md:px-10 md:py-4">
             <BrandMark />
 
             <div className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 xl:gap-1 lg:flex">
@@ -150,7 +150,7 @@ export default function Navbar() {
               })}
             </div>
 
-            <div className="flex min-w-0 shrink-0 items-center gap-1 sm:gap-1.5 md:gap-2.5">
+            <div className="flex min-w-0 shrink-0 items-center gap-0.5 sm:gap-1.5 md:gap-2.5">
               <ThemeToggle />
               <LanguageSwitcher />
               <Magnetic strength={0.18}>
@@ -158,7 +158,7 @@ export default function Navbar() {
                   href={{ pathname: "/", hash: "contact" }}
                   scroll={false}
                   aria-label={t("cta")}
-                  className="btn-sheen btn-stable inline-flex min-h-10 shrink-0 rounded-full bg-accent px-3 py-2 text-xs font-bold text-on-accent sm:px-3.5 md:min-h-0 md:px-5 md:py-2.5 md:text-sm"
+                  className="btn-sheen btn-stable inline-flex min-h-10 shrink-0 rounded-full bg-accent px-2.5 py-2 text-xs font-bold text-on-accent sm:px-3.5 md:min-h-0 md:px-5 md:py-2.5 md:text-sm"
                 >
                   <span className="sm:hidden" aria-hidden="true">
                     {t("ctaShort")}

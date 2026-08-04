@@ -90,7 +90,11 @@ export default function LanguageSwitcher() {
             router.replace(pathname, { locale: l });
           }}
           aria-pressed={l === locale}
-          className={`relative inline-flex min-h-11 min-w-10 items-center justify-center rounded-full text-[11px] font-bold uppercase transition-colors before:absolute before:inset-[-4px_-2px] before:content-[''] sm:min-w-11 sm:text-xs sm:before:content-none ${
+          /*
+           * 320px’te 4×40px dil hapı + tema + CTA taşıyor ("Başl" kesiliyordu).
+           * min-w-8 + kompakt tip; sm+ eski dokunma alanı.
+           */
+          className={`relative inline-flex min-h-11 min-w-8 items-center justify-center rounded-full text-[10px] font-bold uppercase transition-colors before:absolute before:inset-[-4px_-1px] before:content-[''] sm:min-w-10 sm:text-[11px] sm:before:inset-[-4px_-2px] md:min-w-11 md:text-xs md:before:content-none ${
             l === locale
               ? "bg-ink text-ink-fg"
               : "text-ink/55 [@media(hover:hover)_and_(pointer:fine)]:hover:text-ink"

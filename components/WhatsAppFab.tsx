@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
 import { whatsappHref } from "@/lib/site";
@@ -13,8 +13,16 @@ export default function WhatsAppFab() {
   const t = useTranslations("whatsapp");
   const pathname = usePathname();
   const href = whatsappHref(t("prefill"));
-  const [hidden, setHidden] = useState(false);
   const onHome = pathname === "/";
+  /*
+   * Ana sayfada IO settle olana kadar gizli başla — aksi halde ilk boyamada
+   * hero CTA'ların üstüne binen FAB flaşı (opacity:1 → 0) oluşuyor.
+   */
+  const [hidden, setHidden] = useState(onHome);
+
+  useLayoutEffect(() => {
+    if (onHome) setHidden(true);
+  }, [onHome]);
 
   useEffect(() => {
     const contact = document.getElementById("contact");
@@ -25,8 +33,12 @@ export default function WhatsAppFab() {
           ) as HTMLElement | null)
         : null;
     const targets = [home, contact].filter(Boolean) as HTMLElement[];
-    // Gözlenecek hedef yoksa FAB görünür kalır (state zaten `false`).
-    if (targets.length === 0) return;
+    // Optimistic: home’da hero varsa gizle; hedef yoksa göster.
+    setHidden(Boolean(home));
+    if (targets.length === 0) {
+      setHidden(false);
+      return;
+    }
 
     const visible = new Set<Element>();
     const io = new IntersectionObserver(
@@ -42,8 +54,6 @@ export default function WhatsAppFab() {
     for (const el of targets) io.observe(el);
     return () => {
       io.disconnect();
-      // Rota değişiminde gizli kalmasın — yeni sayfada hedefler farklı.
-      setHidden(false);
     };
   }, [onHome]);
 

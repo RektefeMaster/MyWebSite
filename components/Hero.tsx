@@ -197,7 +197,7 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
           */}
           <h1
             aria-label={`${t("line1")} ${t("line2")} ${t("line3")}`}
-            className="mx-auto max-w-5xl text-center font-display text-[clamp(2.1rem,7.2vw,5.75rem)] font-bold leading-[0.95] tracking-[-0.03em] text-ink [text-shadow:0_1px_20px_rgba(242,243,241,0.5)] dark:[text-shadow:0_2px_26px_rgba(5,14,16,0.65)] max-md:text-[clamp(1.95rem,9vw,3.1rem)] md:mx-0 md:max-w-[13ch] md:text-left md:text-[clamp(2.5rem,4.9vw,4.75rem)]"
+            className="mx-auto max-w-5xl text-center font-display text-[clamp(2.1rem,7.2vw,5.75rem)] font-bold leading-[0.95] tracking-[-0.03em] text-ink [text-shadow:0_1px_20px_rgba(242,243,241,0.5)] dark:[text-shadow:0_2px_26px_rgba(5,14,16,0.65)] max-md:text-[clamp(1.85rem,8.4vw,3.1rem)] max-md:leading-[1.02] md:mx-0 md:max-w-[13ch] md:text-left md:text-[clamp(2.5rem,4.9vw,4.75rem)]"
           >
             <span className="block" aria-hidden>
               {t("line1")}
