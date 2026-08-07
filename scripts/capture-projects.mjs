@@ -30,6 +30,11 @@ const sites = [
     waitFor: "text=Altitude",
   },
   {
+    id: "aiahi",
+    url: "https://www.aiahi.net/",
+    waitFor: "text=Ahi",
+  },
+  {
     id: "casa-aurelia",
     url: "https://casa-aurelia-jet.vercel.app/",
     waitFor: "text=CASA AURELIA",

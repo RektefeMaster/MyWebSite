@@ -310,6 +310,36 @@ export const projectDetails: ProjectDetailsByLocale = {
         "Gözlem önce dilini, tedavi listesini ve randevuya akan atölye deneyimini kuralım. Kısa bir özet yeter.",
       ctaButton: "Projemi başlat",
     },
+    aiahi: {
+      title: "Ahi AI",
+      tag: "WhatsApp + CRM",
+      summary:
+        "Randevu temposu yüksek işletmeler için WhatsApp asistanı ve müşteri paneli. Mevcut hat kalır; gelen talep uygun saate yazılır, müşteri kaydı panelde birikir.",
+      whatTitle: "Ne yaptım?",
+      what: [
+        "WhatsApp Cloud API üzerinden çalışan randevu asistanı.",
+        "Çalışma saati, hizmet süresi, fiyat ve personel tercihine bağlı yanıtlar.",
+        "Randevu, müşteri kaydı, etiket ve ekip notunu aynı panelde tutan CRM.",
+        "Kuaför, klinik, servis ve danışmanlık için sektöre göre dil.",
+        "Sohbeti istediğiniz anda devralma; asistan geri çekilir.",
+        "Ürünü anlatan, paneli gösteren pazarlama sitesi (aiahi.net).",
+      ],
+      howTitle: "Nasıl çalışıyor?",
+      how: [
+        "Müşteri mevcut WhatsApp numaranıza yazar.",
+        "Asistan kurallarınıza göre uygun saat önerir; uydurma slot vermez.",
+        "Seçilen saat takvime düşer, müşteri kaydı açılır veya güncellenir.",
+        "Panelde günün tablosu, bekleyen iş ve riskli randevular durur.",
+      ],
+      stack: ["Next.js", "TypeScript", "WhatsApp Cloud API", "PostgreSQL"],
+      result:
+        "Yayında: WhatsApp talebi randevuya ve müşteri kaydına dönüşüyor; gün tek panelden okunuyor.",
+      ctaLabel: "Sıradaki proje",
+      ctaTitle: "İşletmeniz için WhatsApp randevu ve CRM ister misiniz?",
+      ctaBlurb:
+        "Saatlerinizi, hizmetlerinizi ve panel ihtiyacınızı anlatın. Kurulumu işinize göre netleştiririz.",
+      ctaButton: "Projemi başlat",
+    },
     "whatsapp-bot": {
       title: "WhatsApp Sohbet Asistanı",
       tag: "Otomasyon",
@@ -707,6 +737,36 @@ export const projectDetails: ProjectDetailsByLocale = {
       ctaTitle: "Want a booking site like this for your skincare brand?",
       ctaBlurb:
         "Let's build the observation-first language, the treatment index and an atelier experience that flows into the booking. A short summary is enough.",
+      ctaButton: "Start my project",
+    },
+    aiahi: {
+      title: "Ahi AI",
+      tag: "WhatsApp + CRM",
+      summary:
+        "WhatsApp booking assistant and customer panel for businesses that live on appointments. Keep the existing line; incoming requests land on open slots and in the CRM record.",
+      whatTitle: "What I built",
+      what: [
+        "A booking assistant on the WhatsApp Cloud API.",
+        "Replies tied to opening hours, service length, prices and staff preference.",
+        "A CRM that keeps bookings, customer records, tags and team notes in one panel.",
+        "Sector-tuned language for salons, clinics, repair shops and consulting.",
+        "Takeover anytime — you step into the chat and the assistant stands down.",
+        "A marketing site that explains the product and shows the panel (aiahi.net).",
+      ],
+      howTitle: "How it works",
+      how: [
+        "The customer writes to your existing WhatsApp number.",
+        "The assistant offers open hours from your rules — no invented slots.",
+        "The chosen time hits the calendar; the customer record opens or updates.",
+        "The panel holds today's board, waiting work and risky bookings.",
+      ],
+      stack: ["Next.js", "TypeScript", "WhatsApp Cloud API", "PostgreSQL"],
+      result:
+        "Live: WhatsApp requests become bookings and customer records; the day reads from one panel.",
+      ctaLabel: "Next project",
+      ctaTitle: "Want WhatsApp booking and a CRM for your business?",
+      ctaBlurb:
+        "Tell us your hours, services and what the panel needs to show. We scope the setup around your trade.",
       ctaButton: "Start my project",
     },
     "whatsapp-bot": {
@@ -1107,6 +1167,36 @@ export const projectDetails: ProjectDetailsByLocale = {
         "Construyamos el lenguaje de observar primero, el índice de tratamientos y una experiencia que lleve a la reserva. Con un resumen breve basta.",
       ctaButton: "Iniciar mi proyecto",
     },
+    aiahi: {
+      title: "Ahi AI",
+      tag: "WhatsApp + CRM",
+      summary:
+        "Asistente de citas por WhatsApp y panel de clientes para negocios que viven de la agenda. Conserva su línea; la petición cae en huecos libres y en la ficha del CRM.",
+      whatTitle: "Qué construí",
+      what: [
+        "Un asistente de citas sobre WhatsApp Cloud API.",
+        "Respuestas ligadas a horario, duración del servicio, precios y preferencia de personal.",
+        "Un CRM que junta citas, ficha de cliente, etiquetas y notas del equipo en un panel.",
+        "Lenguaje afinado por sector: salones, clínicas, talleres y consultoría.",
+        "Puede tomar el chat cuando quiera; el asistente se retira.",
+        "Un sitio de producto que explica el sistema y muestra el panel (aiahi.net).",
+      ],
+      howTitle: "Cómo funciona",
+      how: [
+        "El cliente escribe a su número de WhatsApp actual.",
+        "El asistente ofrece horas libres según sus reglas — sin huecos inventados.",
+        "La hora elegida entra al calendario; la ficha se abre o se actualiza.",
+        "El panel muestra el día, el trabajo pendiente y las citas de riesgo.",
+      ],
+      stack: ["Next.js", "TypeScript", "WhatsApp Cloud API", "PostgreSQL"],
+      result:
+        "En línea: las peticiones de WhatsApp se vuelven citas y fichas; el día se lee en un solo panel.",
+      ctaLabel: "Siguiente proyecto",
+      ctaTitle: "¿Quiere citas por WhatsApp y un CRM para su negocio?",
+      ctaBlurb:
+        "Cuéntenos horarios, servicios y qué debe mostrar el panel. Ajustamos el montaje a su oficio.",
+      ctaButton: "Iniciar mi proyecto",
+    },
     "whatsapp-bot": {
       title: "Asistente de WhatsApp",
       tag: "Automatización",
@@ -1503,6 +1593,36 @@ export const projectDetails: ProjectDetailsByLocale = {
       ctaTitle: "So eine Buchungswebsite für Ihre Hautpflegemarke?",
       ctaBlurb:
         "Bauen wir die Beobachten-zuerst-Sprache, den Behandlungsindex und ein Erlebnis, das in die Buchung mündet. Eine kurze Notiz genügt.",
+      ctaButton: "Mein Projekt starten",
+    },
+    aiahi: {
+      title: "Ahi AI",
+      tag: "WhatsApp + CRM",
+      summary:
+        "WhatsApp-Terminassistent und Kundenpanel für Betriebe, deren Tag aus Terminen besteht. Die bestehende Nummer bleibt; Anfragen landen auf freien Stunden und in der Kundendatei.",
+      whatTitle: "Was ich gebaut habe",
+      what: [
+        "Einen Terminassistenten über die WhatsApp Cloud API.",
+        "Antworten gebunden an Öffnungszeiten, Leistungsdauer, Preise und Mitarbeiterwunsch.",
+        "Ein CRM, das Termine, Kundendatei, Tags und Teamnotizen in einem Panel hält.",
+        "Branchensprache für Salons, Kliniken, Werkstätten und Beratung.",
+        "Chat jederzeit übernehmen — der Assistent zieht sich zurück.",
+        "Eine Produktseite, die das System erklärt und das Panel zeigt (aiahi.net).",
+      ],
+      howTitle: "So funktioniert es",
+      how: [
+        "Der Kunde schreibt an Ihre bestehende WhatsApp-Nummer.",
+        "Der Assistent bietet freie Stunden nach Ihren Regeln — keine erfundenen Slots.",
+        "Die gewählte Zeit landet im Kalender; die Kundendatei öffnet oder aktualisiert sich.",
+        "Das Panel hält den Tagesplan, offene Arbeit und riskante Termine.",
+      ],
+      stack: ["Next.js", "TypeScript", "WhatsApp Cloud API", "PostgreSQL"],
+      result:
+        "Live: WhatsApp-Anfragen werden zu Terminen und Kundendateien; der Tag liest sich aus einem Panel.",
+      ctaLabel: "Nächstes Projekt",
+      ctaTitle: "WhatsApp-Termine und CRM für Ihren Betrieb?",
+      ctaBlurb:
+        "Schildern Sie Stunden, Leistungen und was das Panel zeigen soll. Wir richten die Einrichtung auf Ihr Handwerk aus.",
       ctaButton: "Mein Projekt starten",
     },
     "whatsapp-bot": {

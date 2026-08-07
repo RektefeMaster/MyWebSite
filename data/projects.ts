@@ -50,7 +50,7 @@ export const projects: Project[] = [
     primaryLane: "web",
     lanes: ["web"],
     featured: true,
-    featuredOrder: 1,
+    featuredOrder: 2,
     year: 2025,
   },
   {
@@ -91,7 +91,7 @@ export const projects: Project[] = [
     primaryLane: "web",
     lanes: ["web"],
     featured: true,
-    featuredOrder: 2,
+    featuredOrder: 3,
     year: 2025,
   },
   {
@@ -160,6 +160,22 @@ export const projects: Project[] = [
     year: 2025,
   },
   {
+    id: "aiahi",
+    name: "Ahi AI",
+    colors: ["#0f172a", "#059669"],
+    url: "https://www.aiahi.net/",
+    desktopImage: "/projects/aiahi/desktop.jpg",
+    mobileImage: "/projects/aiahi/mobile.jpg",
+    desktopScrollImage: "/projects/aiahi/desktop-scroll.jpg",
+    mobileScrollImage: "/projects/aiahi/mobile-scroll.jpg",
+    primaryLane: "ai",
+    lanes: ["ai", "systems"],
+    featured: true,
+    featuredOrder: 1,
+    year: 2026,
+    displayPreference: "hero",
+  },
+  {
     id: "whatsapp-bot",
     name: "WhatsApp Chatbot",
     colors: ["#0b141a", "#25D366"],
@@ -167,8 +183,6 @@ export const projects: Project[] = [
     mobileImage: "/projects/whatsapp-bot/mobile.jpg",
     primaryLane: "ai",
     lanes: ["ai", "systems"],
-    featured: true,
-    featuredOrder: 4,
     year: 2025,
   },
   {
@@ -190,7 +204,7 @@ export const projects: Project[] = [
     primaryLane: "systems",
     lanes: ["systems", "ai"],
     featured: true,
-    featuredOrder: 3,
+    featuredOrder: 4,
     year: 2025,
   },
   {

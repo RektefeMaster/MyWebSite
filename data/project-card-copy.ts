@@ -57,6 +57,11 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
       summary:
         "SoHo'daki VELA Skin Atelier için randevu sitesi. Önce gözlem, sonra tedavi; aynı anda tek danışan. Klinik soğukluğu yok.",
     },
+    aiahi: {
+      tag: "WhatsApp + CRM",
+      summary:
+        "İşletmeler için WhatsApp randevu asistanı ve müşteri paneli. Mevcut numara kalır; talep takvime düşer, kayıt panelde birikir.",
+    },
     "whatsapp-bot": {
       title: "WhatsApp Sohbet Asistanı",
       tag: "Otomasyon",
@@ -131,6 +136,11 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
       tag: "Skin atelier",
       summary:
         "Booking site for VELA in SoHo. Observation before treatment, a clear index of what's offered, and a studio that takes one client at a time.",
+    },
+    aiahi: {
+      tag: "WhatsApp + CRM",
+      summary:
+        "WhatsApp booking assistant and customer panel for service businesses. Keep your number; requests land on the calendar and in the CRM.",
     },
     "whatsapp-bot": {
       title: "WhatsApp Conversation Assistant",
@@ -207,6 +217,11 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
       summary:
         "Sitio de reservas para VELA en SoHo. Primero observar, después tratar; un estudio que atiende a una persona a la vez, sin frialdad de clínica.",
     },
+    aiahi: {
+      tag: "WhatsApp + CRM",
+      summary:
+        "Asistente de citas por WhatsApp y panel de clientes para negocios de servicios. Conserva su número; la petición cae en el calendario y en el CRM.",
+    },
     "whatsapp-bot": {
       title: "Asistente de WhatsApp",
       tag: "Automatización",
@@ -281,6 +296,11 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
       tag: "Skin Atelier",
       summary:
         "Buchungswebsite für VELA in SoHo. Erst beobachten, dann behandeln; ein Studio für jeweils einen Gast, ohne klinische Kälte.",
+    },
+    aiahi: {
+      tag: "WhatsApp + CRM",
+      summary:
+        "WhatsApp-Terminassistent und Kundenpanel für terminbasierte Betriebe. Nummer bleibt; Anfragen landen im Kalender und in der Kundendatei.",
     },
     "whatsapp-bot": {
       title: "WhatsApp-Assistent",

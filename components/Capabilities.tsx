@@ -29,10 +29,10 @@ const CAP_VISUAL: Record<
     peep: true,
   },
   ai: {
-    hero: "/projects/whatsapp-bot/desktop.jpg",
-    mobile: "/projects/whatsapp-bot/mobile.jpg",
-    objectPosition: "35% 0%",
-    peep: true,
+    hero: "/projects/aiahi/desktop.jpg",
+    mobile: "/projects/aiahi/mobile.jpg",
+    objectPosition: "50% 18%",
+    peep: false,
   },
 };
 

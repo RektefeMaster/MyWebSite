@@ -646,6 +646,69 @@ function devicePack(
   ]);
 }
 
+const aiahi = pack([
+  {
+    src: "/projects/aiahi/featured/01-hero.jpg",
+    span: HERO,
+    alt: {
+      tr: "Ahi AI ana sayfa: WhatsApp sohbeti ve günlük randevu paneli",
+      en: "Ahi AI homepage with WhatsApp chat and daily booking panel",
+      es: "Inicio de Ahi AI con chat de WhatsApp y panel de citas del día",
+      de: "Ahi-AI-Startseite mit WhatsApp-Chat und Tages-Terminpanel",
+    },
+  },
+  {
+    src: "/projects/aiahi/featured/02-sectors.jpg",
+    span: HALF,
+    alt: {
+      tr: "Kuaför, klinik ve servis gibi randevu yoğun sektörler bölümü",
+      en: "Section for appointment-heavy trades such as salons, clinics and repair",
+      es: "Sección para oficios con muchas citas: salones, clínicas y talleres",
+      de: "Abschnitt für terminstarke Betriebe wie Salons, Kliniken und Werkstätten",
+    },
+  },
+  {
+    src: "/projects/aiahi/featured/03-panel.jpg",
+    span: HALF,
+    alt: {
+      tr: "Müşteri kaydı, ziyaret geçmişi ve ekip notları paneli",
+      en: "Customer record panel with visit history and team notes",
+      es: "Panel de ficha de cliente con historial de visitas y notas del equipo",
+      de: "Kundenakte mit Besuchshistorie und Teamnotizen",
+    },
+  },
+  {
+    src: "/projects/aiahi/featured/04-how.jpg",
+    span: MID,
+    alt: {
+      tr: "Müşteri yazar, kurallar yanıtlar, randevu kayda düşer adımları",
+      en: "Steps from customer message to rule-based reply and booked record",
+      es: "Pasos del mensaje del cliente a la respuesta por reglas y la cita registrada",
+      de: "Schritte von der Kundennachricht zur regelbasierten Antwort und Terminakte",
+    },
+  },
+  {
+    src: "/projects/aiahi/featured/05-cta.jpg",
+    span: MID,
+    alt: {
+      tr: "Ahi AI iletişim ve panel inceleme çağrısı",
+      en: "Ahi AI contact and panel preview call to action",
+      es: "Llamada a contacto y vista del panel de Ahi AI",
+      de: "Kontakt- und Panelansicht-Aufruf von Ahi AI",
+    },
+  },
+  {
+    src: "/projects/aiahi/mobile.jpg",
+    span: MOBILE_TALL,
+    alt: {
+      tr: "Ahi AI mobil ana sayfa ekran görüntüsü",
+      en: "Ahi AI mobile homepage screenshot",
+      es: "Captura móvil de la página de inicio de Ahi AI",
+      de: "Mobiler Screenshot der Ahi-AI-Startseite",
+    },
+  },
+]);
+
 const whatsapp = devicePack("whatsapp-bot", {
   tr: "WhatsApp Asistanı",
   en: "WhatsApp Assistant",
@@ -685,6 +748,7 @@ export const projectGalleries: Record<string, GalleryPack> = {
   mizan,
   "sahra-butik": sahra,
   "vela-skin-atelier": vela,
+  aiahi,
   "whatsapp-bot": whatsapp,
   "instagram-bot": instagram,
   crm,

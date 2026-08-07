@@ -12,6 +12,12 @@ export type WorkStage = {
 };
 
 export const selectedWorkStages: Record<string, WorkStage> = {
+  aiahi: {
+    hero: "/projects/aiahi/desktop.jpg",
+    objectPosition: "50% 18%",
+    mobile: "/projects/aiahi/mobile.jpg",
+    peep: false,
+  },
   aydnnacar: {
     /* desktop üst kırpım — featured hero’daki dev tipografi kartı boğmasın */
     hero: "/projects/aydnnacar/desktop.jpg",
@@ -29,12 +35,6 @@ export const selectedWorkStages: Record<string, WorkStage> = {
     hero: "/projects/crm/desktop.jpg",
     objectPosition: "8% 0%",
     mobile: "/projects/crm/mobile.jpg",
-    peep: true,
-  },
-  "whatsapp-bot": {
-    hero: "/projects/whatsapp-bot/desktop.jpg",
-    objectPosition: "35% 0%",
-    mobile: "/projects/whatsapp-bot/mobile.jpg",
     peep: true,
   },
 };

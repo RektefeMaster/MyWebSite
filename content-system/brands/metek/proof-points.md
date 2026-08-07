@@ -73,7 +73,7 @@ priority: core
 tags: [trust, brand]
 allowed_surfaces: [hero, services, project, about, blog]
 claim: Portfolio work spans manufacturing, furniture, boutique retail, hospitality, and internal operational software.
-evidence_ids: [PORT-001, WCC-001, CRM-001]
+evidence_ids: [PORT-001, WCC-001, CRM-001, AIAHI-001]
 bad: Live sites trusted by industry-leading brands worldwide.
 good: Portfolio work across manufacturing, furniture, retail, hospitality, and ops software.
 ```
@@ -87,7 +87,7 @@ priority: secondary
 tags: [technical, trust]
 allowed_surfaces: [services, project, about, blog]
 claim: The studio ships both public marketing sites and internal/product UIs (panels, CRM, automation).
-evidence_ids: [PORT-001, CRM-001]
+evidence_ids: [PORT-001, CRM-001, AIAHI-001]
 bad: Full-funnel digital transformation platforms.
 good: Marketing sites and the panels or bots teams use day to day.
 ```
@@ -147,7 +147,7 @@ priority: core
 tags: [technical, conversion, ux]
 allowed_surfaces: [services, project, blog, about]
 claim: Custom admin / operations interfaces are built when the brief requires them.
-evidence_ids: [CRM-001, WCC-001]
+evidence_ids: [CRM-001, AIAHI-001, WCC-001]
 bad: AI-powered dashboards that elevate operations.
 good: Custom admin panels when the team needs to run content, leads, or bookings themselves.
 ```

@@ -23,6 +23,7 @@ evidence/
 | ID | File | path |
 |----|------|------|
 | WCC-001 | [projects/WCC-001.md](projects/WCC-001.md) | data/project-details.ts |
+| AIAHI-001 | [projects/AIAHI-001.md](projects/AIAHI-001.md) | data/projects.ts |
 | CRM-001 | [projects/CRM-001.md](projects/CRM-001.md) | data/projects.ts |
 | CSS-001 | [projects/CSS-001.md](projects/CSS-001.md) | data/projects.ts |
 | PORT-001 | [projects/PORT-001.md](projects/PORT-001.md) | data/projects.ts |

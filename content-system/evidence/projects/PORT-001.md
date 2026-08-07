@@ -16,7 +16,7 @@ Vertical coverage from `data/projects.ts` (non-exhaustive labels):
 | Furniture | `aydnnacar` |
 | Boutique retail | `wuffbutik`, `sahra-butik`, `seraphine-atelier`, `havva-baklava` |
 | Hospitality / residence | `casa-aurelia`, `altitude-residence`, `vela-skin-atelier`, `mizan` |
-| Ops / automation / systems | `crm`, `whatsapp-bot`, `instagram-bot`, `css-system` |
+| Ops / automation / systems | `aiahi`, `crm`, `whatsapp-bot`, `instagram-bot`, `css-system` |
 
 ## Sources
 
