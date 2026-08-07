@@ -851,8 +851,8 @@ html::-webkit-scrollbar-corner {
   color: #e8eef3;
   overflow: hidden;
   will-change: transform;
-  /* Failsafe: JS çalışmazsa / timeline kilitlenirse perde kalsın kalmasın (~7.2s) */
-  animation: intro-failsafe 0.6s ease 7.2s forwards;
+  /* Failsafe: JS çalışmazsa / timeline kilitlenirse perde kalkmasın diye (~4.2s) */
+  animation: intro-failsafe 0.6s ease 4.2s forwards;
 }
 
 /* İlk boyamadan itibaren gizle — dönen ziyaretçi / reduced-motion */
@@ -1072,5 +1072,119 @@ html.intro-lock {
   .device-screen-scroll__img {
     transition: none;
     will-change: auto;
+  }
+}
+
+/* ── Hero duvarı: gerçek proje ekranları ──
+   Hero zemininde, sütun sütun sürüklenen gerçek proje ekran görüntüleri.
+   Ekranlar zaten `public/projects/*` içinde duruyordu; burada ilk ekranda
+   kanıt olarak kullanılıyorlar.
+   Perf: 3 sütun = 3 composite katman, salt translate3d (layout/paint yok).
+   `data-idle` true olunca duruyor (Hero görüş dışına çıkınca) — ekran
+   dışında sıfır iş. */
+
+.hero-wall__tilt {
+  /* Hafif eğim — dümdüz ızgara "stok mockup duvarı" gibi okunuyor.
+     scale, döndürünce açılan köşe boşluklarını kapatıyor. */
+  transform: rotate(-7deg) scale(1.34);
+  transform-origin: center;
+}
+
+.hero-wall__col {
+  flex: none;
+  flex-direction: column;
+  /* gap 0: döngü matematiği set'in kendi padding'ine dayanıyor (aşağıda) */
+  gap: 0;
+  /* Bilinçli küçük: ekranlar tek tek bağırmamalı, bir DOKU olarak okunmalı. */
+  width: clamp(4.75rem, 14vw, 9rem);
+  animation: hero-wall-drift var(--dur, 60s) linear infinite;
+  will-change: transform;
+}
+
+/* Orta sütun ters yönde — üçü aynı yöne akarsa tek blok gibi görünüyor */
+.hero-wall__col:nth-child(2) {
+  animation-direction: reverse;
+}
+
+/* Kusursuz döngü: kolonun toplam yüksekliği = 2 × set. Bunun için boşluk
+   set'in İÇİNDE (padding-bottom) duruyor; kolona gap verilirse iki set arası
+   fazladan boşluk oluşup -50%'de görünür bir sıçrama yapıyor. */
+.hero-wall__set {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.hero-wall__shot {
+  aspect-ratio: 900 / 1947;
+  overflow: hidden;
+  border-radius: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--foreground) 12%, transparent);
+  background: var(--stone);
+  box-shadow: 0 24px 55px -38px rgba(0, 0, 0, 0.85);
+}
+
+/* Metnin okunduğu perde. Dikey katman üst/alt kenarları zemine bağlar
+   (kolonlar sert kesilmesin), yatay katman başlığın oturduğu sol tarafı
+   neredeyse opak yapar. */
+.hero-wall__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      var(--background) 0%,
+      color-mix(in srgb, var(--background) 42%, transparent) 20%,
+      color-mix(in srgb, var(--background) 42%, transparent) 76%,
+      var(--background) 100%
+    ),
+    linear-gradient(
+      98deg,
+      var(--background) 0%,
+      var(--background) 26%,
+      color-mix(in srgb, var(--background) 76%, transparent) 52%,
+      color-mix(in srgb, var(--background) 34%, transparent) 76%,
+      color-mix(in srgb, var(--background) 44%, transparent) 100%
+    );
+}
+
+@media (max-width: 767px) {
+  /* Mobilde başlık duvarın üstünde — yatay perde işe yaramaz, dikey güçlenir */
+  .hero-wall__veil {
+    background: linear-gradient(
+      to bottom,
+      var(--background) 0%,
+      color-mix(in srgb, var(--background) 88%, transparent) 30%,
+      color-mix(in srgb, var(--background) 74%, transparent) 62%,
+      var(--background) 100%
+    );
+  }
+}
+
+[data-idle="true"].hero-wall .hero-wall__col {
+  animation-play-state: paused;
+  will-change: auto;
+}
+
+/* Hareket azaltma: duvar duruyor ama görünür kalıyor — kanıt kaybolmasın */
+@media (prefers-reduced-motion: reduce) {
+  .hero-wall__col {
+    animation: none;
+    transform: none;
+    will-change: auto;
+  }
+
+  .hero-wall__tilt {
+    transform: rotate(-7deg) scale(1.34) translate3d(0, -12%, 0);
+  }
+}
+
+@keyframes hero-wall-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -50%, 0);
   }
 }

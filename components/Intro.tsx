@@ -10,7 +10,7 @@ import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
  * hero chunk + fontlar ısınsın (mid-fold LazyMount ile scroll’a bırakılır).
  * - `data-intro="play"` (layout inline script) → oynar; aksi halde CSS skip.
  * - Oturum başına bir kez; `?intro` ile yeniden.
- * - reduced-motion’da yok; JS yoksa CSS failsafe (~7.2s) temizler.
+ * - reduced-motion’da yok; JS yoksa CSS failsafe (~4.2s) temizler.
  */
 
 function warmHomeChunks() {
@@ -119,21 +119,19 @@ export default function Intro() {
         window.dispatchEvent(new Event("metek:intro-done"));
       };
 
-      // CSS failsafe (~7.2s) ile hizalı — timeline takılırsa kilit çözülsün
+      // CSS failsafe (~4.2s) ile hizalı — timeline takılırsa kilit çözülsün
       const watchdog = window.setTimeout(() => {
         if (document.documentElement.dataset.intro === "play") finish();
-      }, 7600);
+      }, 4000);
 
       /** Sayaç sonrası: font + chunk + (home) WebGL hazır olana kadar bekle */
       const waitUntilBooted = () =>
         new Promise<void>((resolve) => {
           const fonts = document.fonts?.ready ?? Promise.resolve();
-          const heroGate =
-            isHome && !window.__metekHeroReady
-              ? waitForEvent("metek:hero-ready", 2200)
-              : Promise.resolve();
-
-          void Promise.all([bootPromise, fonts, heroGate]).then(() => {
+          /* Eskiden burada `metek:hero-ready` beklenirdi (2200ms'e kadar).
+             Artık gerek yok: hero'nun görseli HeroWall, cam "M" idle'da
+             sonradan iniyor. Perde WebGL'i beklerse boşuna 1–2sn duruyordu. */
+          void Promise.all([bootPromise, fonts]).then(() => {
             // Bir frame boya — gradient flash’ı kes
             requestAnimationFrame(() => resolve());
           });
@@ -142,17 +140,17 @@ export default function Intro() {
           const bootCap =
             window.matchMedia("(pointer: coarse)").matches ||
             window.matchMedia("(max-width: 768px)").matches
-              ? 1200
-              : 2800;
+              ? 600
+              : 900;
           window.setTimeout(() => resolve(), bootCap);
         });
 
       const mobileLite =
         window.matchMedia("(pointer: coarse)").matches ||
         window.matchMedia("(max-width: 768px)").matches;
-      const countDur = mobileLite ? 1.35 : 2.55;
-      const warmAt = mobileLite ? 0.7 : 1.35;
-      const exitDur = mobileLite ? 0.75 : 1.05;
+      const countDur = mobileLite ? 0.75 : 1.15;
+      const warmAt = mobileLite ? 0.35 : 0.55;
+      const exitDur = mobileLite ? 0.5 : 0.7;
 
       gsap.set([labelLRef.current, labelRRef.current], { opacity: 0, y: 12 });
       gsap.set(markRef.current, { opacity: 0, y: 22 });
@@ -217,7 +215,7 @@ export default function Intro() {
           }
         }, warmAt)
         // 100’de kısa nefes + boot senkronu
-        .to({}, { duration: mobileLite ? 0.15 : 0.35 })
+        .to({}, { duration: mobileLite ? 0.1 : 0.15 })
         .add(() => {
           tl.pause();
           void waitUntilBooted().then(() => {

@@ -65,16 +65,25 @@ function GradientBackground({
   }, [lite, dark, palette.bot, palette.mid, palette.top]);
 
   useEffect(() => {
+    /*
+      Canvas artık ŞEFFAF: hero zemininde DOM tarafında dönen proje duvarı
+      (HeroWall) var, sahne onu kapatmamalı. Bu yüzden scene.background
+      atanmıyor ve clear alpha 0.
+
+      Gradyan dokusu yine de üretiliyor ve `scene.environment` olarak
+      kullanılıyor — MeshTransmissionMaterial kırılma için arkasında bir şey
+      arıyor; background kalkınca cam düz/boş görünüyordu. Environment olarak
+      kalması camın hacmini koruyor, ama piksel olarak duvarı örtmüyor.
+    */
     // Three.js / R3F: scene mutasyonu kasıtlı (immutable hook değeri değil)
     // eslint-disable-next-line react-hooks/immutability -- R3F scene.background
-    scene.background = texture;
-    gl.setClearColor(palette.mid, 1);
+    scene.background = null;
+    gl.setClearColor(0x000000, 0);
     invalidate();
     return () => {
-      scene.background = null;
       texture.dispose();
     };
-  }, [scene, texture, gl, palette.mid, invalidate]);
+  }, [scene, texture, gl, invalidate]);
 
   return null;
 }
@@ -199,11 +208,11 @@ function GlassM({
     >
       <MeshTransmissionMaterial
         // Chrome-glass: yüksek metal + env; transmission 1 değil — açık zeminde kaybolmasın.
-        samples={lite ? 7 : 10}
+        samples={lite ? 3 : 6}
         // FBO üst sınır — canvas’tan büyük örnekleme yok; görsel aynı, bellek daha düşük
-        resolution={lite ? 512 : 640}
-        backside
-        backsideThickness={lite ? 0.2 : 0.3}
+        resolution={lite ? 256 : 384}
+        backside={!lite}
+        backsideThickness={0.3}
         transmission={0.82}
         thickness={lite ? 0.7 : 0.9}
         roughness={dark ? 0.1 : 0.06}
@@ -310,7 +319,7 @@ function ThemeEnvironment({ dark }: { dark: boolean }) {
  * 2.0'da keskin & 60fps; zorlanan telefon en fazla 1.5'e iner (asla eski bulanıklık
  * seviyesine değil) → her koşulda akıcı 60'a yakın + net görüntü.
  */
-const LITE_DPR_CAP = 2;
+const LITE_DPR_CAP = 1.75;
 const DESKTOP_DPR_CAP = 1.5;
 /** Mobil DPR tabanı — 1.5: eski 1.2'den belirgin keskin, yine de 60fps dostu */
 const LITE_DPR_FLOOR = 1.5;
@@ -526,7 +535,6 @@ export default function HeroScene({
       : wantsAlways
         ? "always"
         : "demand";
-  const clear = dark ? DARK_BG.mid : LIGHT_BG.mid;
   const dprCap = lite ? LITE_DPR_CAP : DESKTOP_DPR_CAP;
   const dprFloor = lite ? LITE_DPR_FLOOR : 1;
 
@@ -545,7 +553,7 @@ export default function HeroScene({
         style={lite ? { pointerEvents: "none" } : undefined}
         gl={{
           antialias: true,
-          alpha: false,
+          alpha: true,
           stencil: false,
           depth: true,
           // Mobilde de GPU tercihi — low-power yumuşak/grenli çıktıya yol açıyordu
@@ -574,7 +582,7 @@ export default function HeroScene({
           canvas.addEventListener("webglcontextlost", onLost, false);
           canvas.addEventListener("webglcontextrestored", onRestored, false);
 
-          gl.setClearColor(clear, 1);
+          gl.setClearColor(0x000000, 0);
           setBaked(false);
           readyRef.current = true;
           setReady(true);

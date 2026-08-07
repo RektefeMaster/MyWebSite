@@ -12,8 +12,22 @@ import Hero, { loadHeroScene } from "@/components/Hero";
 function usePrefetchHeroScene(onHome: boolean) {
   useEffect(() => {
     if (onHome) {
-      void loadHeroScene();
-      return;
+      /*
+        Ana sayfada da ARTIK hemen çekmiyoruz. three+drei+fiber ~259KB gzip
+        ve hero'nun görselleriyle aynı anda bant genişliği için yarışıyordu.
+        Arkada HeroWall zaten duruyor — hero ilk boyamada dolu görünüyor, cam
+        "M" boşluğa değil hazır bir sahneye iniyor. Idle'a alınca ilk ekran
+        belirgin biçimde hızlanıyor, M birkaç yüz ms sonra geliyor.
+      */
+      const ric = window.requestIdleCallback as
+        | typeof window.requestIdleCallback
+        | undefined;
+      if (!ric) {
+        const timer = window.setTimeout(() => void loadHeroScene(), 600);
+        return () => window.clearTimeout(timer);
+      }
+      const handle = ric(() => void loadHeroScene(), { timeout: 1800 });
+      return () => window.cancelIdleCallback(handle);
     }
 
     const conn = (

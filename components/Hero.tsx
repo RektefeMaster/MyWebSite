@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import HeroWall from "./HeroWall";
 import Magnetic from "./Magnetic";
 import SpecularButton from "./SpecularButton";
 import { gsap, useGSAP } from "@/lib/gsap";
@@ -18,12 +19,9 @@ import { gsap, useGSAP } from "@/lib/gsap";
  */
 export const loadHeroScene = () => import("./HeroScene");
 
-const HeroScene = dynamic(loadHeroScene, {
-  ssr: false,
-  loading: () => (
-    <div className="absolute inset-0 bg-gradient-to-b from-[#eff1f2] via-[#d7dde3] to-[#bcc6d0] dark:from-[#14293a] dark:via-[#0a1a26] dark:to-[#030c12]" />
-  ),
-});
+/* Yükleme yer tutucusu yok: arkada HeroWall zaten duruyor, opak bir gradient
+   basmak duvarı sahne hazır olana kadar gizliyordu. */
+const HeroScene = dynamic(loadHeroScene, { ssr: false });
 
 function getIntroSkip() {
   return document.documentElement.dataset.intro !== "play";
@@ -50,18 +48,38 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
     () => false
   );
   const [warmMount, setWarmMount] = useState(false);
-  const sceneMounted = introSkip || warmMount;
+  /*
+    Sahne artık `introSkip` ile ANINDA mount olmuyor. WebGL context kurulumu +
+    transmission FBO bake'i ilk boyamayla aynı karelere denk geliyordu; arkada
+    HeroWall hazır durduğu için beklemenin görsel maliyeti yok. Perde
+    oynuyorsa eskisi gibi "metek:hero-warm" ile, oynamıyorsa idle'da mount.
+  */
+  const sceneMounted = warmMount;
 
   useEffect(() => {
-    if (introSkip || warmMount) return;
+    if (warmMount || parked) return;
     const mount = () => setWarmMount(true);
     window.addEventListener("metek:hero-warm", mount);
-    const failsafe = window.setTimeout(mount, 3200);
+
+    // Perde atlandıysa (tekrar ziyaret) idle'ı bekle
+    const ric = window.requestIdleCallback as
+      | typeof window.requestIdleCallback
+      | undefined;
+    let handle = 0;
+    let timer = 0;
+    if (introSkip) {
+      if (ric) handle = ric(mount, { timeout: 2000 });
+      else timer = window.setTimeout(mount, 700);
+    } else {
+      timer = window.setTimeout(mount, 3200); // failsafe
+    }
+
     return () => {
       window.removeEventListener("metek:hero-warm", mount);
-      window.clearTimeout(failsafe);
+      if (handle) window.cancelIdleCallback(handle);
+      if (timer) window.clearTimeout(timer);
     };
-  }, [introSkip, warmMount]);
+  }, [introSkip, warmMount, parked]);
 
   useEffect(() => {
     if (parked) return;
@@ -151,13 +169,17 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
     <section
       ref={sectionRef}
       id={parked ? undefined : "home"}
-      className="hero-section relative flex h-[100svh] max-h-[1100px] min-h-[560px] flex-col overflow-x-clip overflow-y-hidden bg-gradient-to-b from-[#eff1f2] via-[#d7dde3] to-[#bcc6d0] dark:from-[#14293a] dark:via-[#0a1a26] dark:to-[#030c12]"
+      className="hero-section relative flex h-[100svh] max-h-[1100px] min-h-[560px] flex-col overflow-x-clip overflow-y-hidden bg-background"
     >
-      {sceneMounted ? (
-        <HeroScene active={sceneActive} />
-      ) : (
-        <div className="absolute inset-0 bg-gradient-to-b from-[#eff1f2] via-[#d7dde3] to-[#bcc6d0] dark:from-[#14293a] dark:via-[#0a1a26] dark:to-[#030c12]" />
-      )}
+      {/*
+        Zemin: gerçek proje ekranlarından oluşan sürüklenen duvar. Cam "M"
+        bunun ÜSTÜNDE duruyor — HeroScene canvas'ı bu yüzden şeffaf
+        (alpha:true + clearAlpha 0, scene.background yok). Duvar görüş
+        dışına çıkınca `idle` ile duruyor.
+      */}
+      <HeroWall idle={!sceneActive} />
+
+      {sceneMounted ? <HeroScene active={sceneActive} /> : null}
 
       <div
         aria-hidden
