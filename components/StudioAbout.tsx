@@ -19,14 +19,11 @@ export default function StudioAbout() {
     <>
       <section
         id="about"
-        className="relative border-b border-foreground/8 bg-paper text-foreground"
+        className="relative border-b border-[color:var(--chrome-edge)] bg-paper text-foreground"
       >
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:grid-cols-12 md:gap-10 md:px-10 md:py-28">
           <Reveal className="md:col-span-4">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/40">
-              {t("whoLabel")}
-            </p>
-            <p className="mt-4 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-accent-ink">
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-accent-ink">
               {t("origin")}
             </p>
             <p className="mt-2 max-w-[16rem] text-sm leading-snug text-foreground/45">
@@ -75,14 +72,11 @@ export default function StudioAbout() {
 
       <section
         id="what-we-do"
-        className="relative border-b border-foreground/8 bg-background text-foreground"
+        className="relative border-b border-[color:var(--chrome-edge)] bg-paper text-foreground"
       >
         <div className="mx-auto max-w-7xl px-5 py-16 md:px-10 md:py-28">
           <Reveal>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/40">
-              {t("doLabel")}
-            </p>
-            <h2 className="mt-4 max-w-3xl text-[clamp(1.85rem,4vw,3rem)] font-bold leading-[1.08] tracking-tight">
+            <h2 className="max-w-3xl font-display text-[clamp(1.85rem,4vw,3rem)] font-bold leading-[1.08] tracking-tight">
               {forDisplay(t("doTitle"))}
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-foreground/60 md:text-lg">

@@ -124,14 +124,11 @@ export default function Process() {
     <section
       ref={sectionRef}
       id="process"
-      className="scroll-mt-[var(--nav-offset)] bg-background px-5 py-16 md:px-10 md:py-28"
+      className="scroll-mt-[var(--nav-offset)] bg-paper px-5 py-16 md:px-10 md:py-28"
     >
       <div className="mx-auto max-w-6xl">
         <div className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
-            {t("label")}
-          </p>
-          <h2 className="text-4xl font-bold leading-tight tracking-tight md:text-6xl">
+          <h2 className="font-display text-4xl font-bold leading-tight tracking-[-0.03em] md:text-6xl">
             {t("title")}
           </h2>
         </div>
@@ -159,7 +156,7 @@ export default function Process() {
 
             <span
               ref={progressLabelRef}
-              className="absolute -top-8 left-1/2 hidden -translate-x-1/2 rounded-full border border-foreground/10 bg-surface px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-wider text-ink shadow-sm md:inline-block"
+              className="absolute -top-8 left-1/2 hidden -translate-x-1/2 rounded-sm border border-[color:var(--chrome-edge)] bg-paper px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-wider text-ink shadow-[inset_0_1px_0_var(--chrome-shine)] md:inline-block"
             >
               0%
             </span>
@@ -183,7 +180,7 @@ export default function Process() {
 
                   <article
                     data-process-card
-                    className={`col-start-2 row-start-1 rounded-2xl border border-foreground/10 bg-surface p-6 shadow-[0_12px_40px_-24px_rgba(0,0,0,0.35)] md:p-8 ${
+                    className={`col-start-2 row-start-1 rounded-sm border border-[color:var(--chrome-edge)] bg-background p-6 shadow-[inset_0_1px_0_var(--chrome-shine)] md:p-8 ${
                       isLeft
                         ? "md:col-start-1 md:text-right"
                         : "md:col-start-3 md:text-left"

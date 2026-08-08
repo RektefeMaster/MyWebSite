@@ -25,21 +25,6 @@ export default function WhatsAppFab() {
   }, [onHome]);
 
   useEffect(() => {
-    const contact = document.getElementById("contact");
-    const home =
-      onHome
-        ? (document.querySelector(
-            "#home-hero-keepalive:not([data-parked]) #home, section#home"
-          ) as HTMLElement | null)
-        : null;
-    const targets = [home, contact].filter(Boolean) as HTMLElement[];
-    // Optimistic: home’da hero varsa gizle; hedef yoksa göster.
-    setHidden(Boolean(home));
-    if (targets.length === 0) {
-      setHidden(false);
-      return;
-    }
-
     const visible = new Set<Element>();
     const io = new IntersectionObserver(
       (entries) => {
@@ -51,9 +36,41 @@ export default function WhatsAppFab() {
       },
       { root: null, threshold: 0.08, rootMargin: "0px 0px -6% 0px" }
     );
-    for (const el of targets) io.observe(el);
+
+    const bind = () => {
+      io.disconnect();
+      visible.clear();
+      const homeEl = onHome
+        ? (document.querySelector(
+            "#home-hero-keepalive:not([data-parked]) #home, section#home"
+          ) as HTMLElement | null)
+        : null;
+      const contactEl = document.getElementById("contact");
+      const targets = [homeEl, contactEl].filter(Boolean) as HTMLElement[];
+      /*
+        Hero dynamic chunk gecikmesinde #home henüz yok. Eskiden hedef yok
+        → FAB gösteriliyordu ve hero CTA’nın üstüne biniyordu. Home’da
+        hero gelene kadar gizli kal; diğer rotalarda hedef yoksa göster.
+      */
+      if (targets.length === 0) {
+        setHidden(onHome);
+        return;
+      }
+      setHidden(Boolean(homeEl));
+      for (const el of targets) io.observe(el);
+    };
+
+    bind();
+    const keepalive = document.getElementById("home-hero-keepalive");
+    const mo =
+      onHome && keepalive
+        ? new MutationObserver(() => bind())
+        : null;
+    mo?.observe(keepalive!, { childList: true, subtree: true });
+
     return () => {
       io.disconnect();
+      mo?.disconnect();
     };
   }, [onHome]);
 

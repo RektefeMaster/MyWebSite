@@ -1,53 +1,41 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { usePathname } from "@/i18n/navigation";
-import Hero, { loadHeroScene } from "@/components/Hero";
+import { loadHeroScene } from "@/lib/load-hero-scene";
 
 /**
- * Ana sayfada sahneyi hemen çek. Diğer rotalarda kritik yükü bitirip idle'da —
- * ve tasarruf modu / yavaş bağlantıda hiç çekme. Böylece /blog'a doğrudan
- * giren biri 3D sahnenin bedelini ödemez, M.'ye dönüş yine anında açılır.
+ * Hero shell SSR edilir (duvar + copy); Canvas Hero içinde ssr:false.
+ * Layout’ta static import yok → /blog three çekmez. Loading’de yükseklik
+ * rezervi → CLS / boş flash yok.
+ */
+const Hero = dynamic(() => import("@/components/Hero"), {
+  loading: () => (
+    <div
+      className="relative h-[100svh] max-h-[1100px] bg-background"
+      aria-hidden
+    />
+  ),
+});
+
+/**
+ * Ana sayfada idle’da WebGL chunk’ını ısıt. Diğer rotalarda prefetch YOK —
+ * doğrudan /blog giren ziyaretçi 3D bedeli ödemesin. Keep-alive yalnızca
+ * home ziyaretinden sonra `kept` ile devreye girer.
  */
 function usePrefetchHeroScene(onHome: boolean) {
   useEffect(() => {
-    if (onHome) {
-      /*
-        Ana sayfada da ARTIK hemen çekmiyoruz. three+drei+fiber ~259KB gzip
-        ve hero'nun görselleriyle aynı anda bant genişliği için yarışıyordu.
-        Arkada HeroWall zaten duruyor — hero ilk boyamada dolu görünüyor, cam
-        "M" boşluğa değil hazır bir sahneye iniyor. Idle'a alınca ilk ekran
-        belirgin biçimde hızlanıyor, M birkaç yüz ms sonra geliyor.
-      */
-      const ric = window.requestIdleCallback as
-        | typeof window.requestIdleCallback
-        | undefined;
-      if (!ric) {
-        const timer = window.setTimeout(() => void loadHeroScene(), 600);
-        return () => window.clearTimeout(timer);
-      }
-      const handle = ric(() => void loadHeroScene(), { timeout: 1800 });
-      return () => window.cancelIdleCallback(handle);
-    }
-
-    const conn = (
-      navigator as Navigator & {
-        connection?: { saveData?: boolean; effectiveType?: string };
-      }
-    ).connection;
-    if (conn?.saveData) return;
-    if (conn?.effectiveType && /(^|-)2g$/.test(conn.effectiveType)) return;
+    if (!onHome) return;
 
     const ric = window.requestIdleCallback as
       | typeof window.requestIdleCallback
       | undefined;
-
     if (!ric) {
-      const timer = window.setTimeout(() => void loadHeroScene(), 2000);
+      const timer = window.setTimeout(() => void loadHeroScene(), 600);
       return () => window.clearTimeout(timer);
     }
-
-    const handle = ric(() => void loadHeroScene(), { timeout: 4000 });
+    const handle = ric(() => void loadHeroScene(), { timeout: 1800 });
     return () => window.cancelIdleCallback(handle);
   }, [onHome]);
 }
@@ -84,7 +72,7 @@ export default function HomeHeroKeepAlive() {
       inert={!onHome ? true : undefined}
       className={
         onHome
-          ? "relative"
+          ? "relative min-h-[100svh] max-h-[1100px]"
           : "relative h-0 max-h-0 overflow-hidden opacity-0 pointer-events-none"
       }
     >

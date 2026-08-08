@@ -97,7 +97,7 @@ export default function Manifesto() {
 
           <div
             data-manifesto-stamp
-            className="mt-14 inline-flex rotate-[-3deg] items-center gap-3 rounded-full border-2 border-accent px-5 py-2.5 md:mt-20"
+            className="mt-14 inline-flex rotate-[-3deg] items-center gap-3 rounded-sm border border-accent px-5 py-2.5 shadow-[inset_0_1px_0_var(--chrome-shine)] md:mt-20"
           >
             <span className="size-2 rounded-full bg-accent" />
             <span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">

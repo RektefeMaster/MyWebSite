@@ -6,25 +6,11 @@ import { projects } from "@/data/projects";
 /**
  * Hero duvarı — gerçek proje ekranları, sütun sütun sürükleniyor.
  *
- * Neden bu: stüdyonun satacak müşteri logosu yok, o yüzden ilk ekran iddia
- * değil KANIT göstermeli. Ekranlar zaten çekilmiş (`public/projects/*`);
- * eskiden yalnızca kart içinde minik mockup olarak görünüyorlardı.
- *
- * Perf: 3 sütun = 3 composite katman, `translate3d` keyframe (layout/paint
- * yok). `data-idle` true olunca duruyor — hero görüş dışına çıkınca
- * Hero.tsx set ediyor, yani ekran dışında sıfır iş. reduced-motion'da hiç
- * başlamıyor (craft.css).
+ * 3 sütun × 3 ekran = 9 benzersiz görsel. İkinci döngü seti aynı src
+ * (ağ tekrarı yok). `loading=lazy` + düşük fetchPriority: kalite aynı,
+ * LCP ile yarışmaz. `data-idle` true olunca animasyon durur.
  */
 
-/*
-  Sütun başına 3 ekran (toplam 9 benzersiz görsel), 14 değil.
-
-  Ölçüldü: 14 görselle hero ilk yüklemede ~465KB indiriyordu ve duvar zaten
-  perde altında, 7° eğik, ~190px genişlikte bir DOKU olarak okunuyor —
-  kimse 14'ünü tek tek ayırt etmiyor. 9 görsel aynı etkiyi veriyor.
-  Not: her sütun iki kez basılıyor (kesintisiz döngü) ama src aynı olduğu
-  için ikinci set ağdan TEK bayt indirmiyor, sadece DOM düğümü.
-*/
 const PER_COLUMN = 3;
 
 const COLUMNS: string[][] = (() => {
@@ -64,15 +50,10 @@ export default function HeroWall({ idle = false }: { idle?: boolean }) {
                       alt=""
                       width={900}
                       height={1947}
-                      /*
-                        Kutu: clamp(4.75rem,14vw,9rem) × scale(1.34) ≈ 193px CSS.
-                        DPR2'de ~386px lazım → 20vw (1440'ta 288) next/image'ı
-                        384 varyantına düşürüyor. Sabit px yazma (AGENTS.md):
-                        kutu vw ile büyüyor.
-                      */
                       sizes="(max-width: 767px) 45vw, 20vw"
-                      /* Perde altında, eğik, arka plan dokusu — 55 yeterli */
                       quality={55}
+                      loading="lazy"
+                      fetchPriority="low"
                       className="h-full w-full object-cover object-top"
                     />
                   </div>

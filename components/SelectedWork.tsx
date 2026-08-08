@@ -44,7 +44,7 @@ function MediaStage({
         className="relative min-h-[240px] flex-1 overflow-hidden md:min-h-[300px]"
         style={{ background: `linear-gradient(160deg, ${c1}, ${c2})` }}
       >
-        <div className="absolute inset-x-[18%] bottom-[8%] top-[8%] overflow-hidden rounded-[1rem] border border-white/30 shadow-[0_16px_40px_rgba(0,0,0,0.4)] ring-1 ring-black/25 md:inset-x-[16%]">
+        <div className="absolute inset-x-[14%] bottom-[6%] top-[6%] overflow-hidden rounded-sm border border-white/25 shadow-[0_16px_40px_rgba(0,0,0,0.45)] md:inset-x-[12%]">
           <Image
             src={mobile}
             alt={name}
@@ -110,7 +110,7 @@ function WorkCard({
       <Link
         href={`/work/${project.id}`}
         scroll={false}
-        className="flex h-full flex-col overflow-hidden bg-band-fg/[0.03] ring-1 ring-inset ring-band-fg/10 transition-[box-shadow,background-color] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent [@media(hover:hover)_and_(pointer:fine)]:hover:bg-band-fg/[0.055] [@media(hover:hover)_and_(pointer:fine)]:hover:ring-accent/35"
+        className="flex h-full flex-col overflow-hidden bg-band-fg/[0.02] shadow-[inset_0_0_0_1px_var(--chrome-edge)] transition-[box-shadow,background-color] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent [@media(hover:hover)_and_(pointer:fine)]:hover:bg-band-fg/[0.05] [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-[inset_0_0_0_1px_color-mix(in_srgb,var(--accent)_55%,transparent)]"
       >
         <MediaStage
           project={project}
@@ -159,31 +159,22 @@ export default function SelectedWork() {
       className="hero-work-bridge bg-band px-5 py-16 text-band-fg md:px-10 md:py-28"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 grid items-end gap-6 md:mb-16 md:grid-cols-[1fr_1.05fr] md:gap-16">
+        <div className="mb-14 grid items-end gap-6 md:mb-20 md:grid-cols-[1.15fr_0.85fr] md:gap-20">
           <div>
             <Reveal>
-              <p className="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-band-fg/40">
-                <span
-                  aria-hidden
-                  className="inline-block h-px w-6 bg-accent/80"
-                />
-                {t("label")}
-              </p>
-            </Reveal>
-            <Reveal delay={40}>
-              <h2 className="font-display text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
+              <h2 className="font-display text-[clamp(2.75rem,8vw,5.5rem)] font-bold leading-[0.92] tracking-[-0.04em]">
                 {t("title")}
               </h2>
             </Reveal>
           </div>
-          <Reveal delay={80}>
-            <p className="max-w-md text-sm leading-relaxed text-band-fg/50 md:justify-self-end md:pb-2 md:text-base">
+          <Reveal delay={60}>
+            <p className="max-w-md text-sm leading-relaxed text-band-fg/55 md:justify-self-end md:pb-1 md:text-base">
               {t("blurb")}
             </p>
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 items-stretch gap-5 md:grid-cols-12 md:gap-5">
+        <div className="grid grid-cols-1 items-stretch gap-3 md:grid-cols-12 md:gap-4">
           {items.map((project, i) => {
             const slot = layoutSlotAt(i);
             return (

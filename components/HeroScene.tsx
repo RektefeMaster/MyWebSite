@@ -10,83 +10,7 @@ import {
   PerformanceMonitor,
 } from "@react-three/drei";
 
-/* Hero.tsx'teki Tailwind gradient ile BİREBİR aynı olmalı — canvas boot
-   ederken arkasındaki DOM zemini görünüyor, uyuşmazsa geçiş sırasında
-   renk sıçraması oluyor. */
-const LIGHT_BG = { top: "#eff1f2", mid: "#d7dde3", bot: "#bcc6d0" } as const;
-const DARK_BG = { top: "#14293a", mid: "#0a1a26", bot: "#030c12" } as const;
-
-/* Silver / charcoal gradient as scene.background — one less mesh in every pass */
-function GradientBackground({
-  lite = false,
-  dark = false,
-}: {
-  lite?: boolean;
-  dark?: boolean;
-}) {
-  const { scene, gl, invalidate } = useThree();
-  const palette = dark ? DARK_BG : LIGHT_BG;
-  const texture = useMemo(() => {
-    const size = lite ? 768 : 1024;
-    const c = document.createElement("canvas");
-    c.width = size;
-    c.height = size;
-    const ctx = c.getContext("2d")!;
-
-    const g = ctx.createLinearGradient(0, 0, 0, size);
-    g.addColorStop(0, palette.top);
-    g.addColorStop(0.45, palette.mid);
-    g.addColorStop(1, palette.bot);
-    ctx.fillStyle = g;
-    ctx.fillRect(0, 0, size, size);
-
-    const blob = (x: number, y: number, r: number, a: number, tone: string) => {
-      const rg = ctx.createRadialGradient(x, y, 0, x, y, r);
-      rg.addColorStop(0, tone.replace("ALPHA", String(a)));
-      rg.addColorStop(1, tone.replace("ALPHA", "0"));
-      ctx.fillStyle = rg;
-      ctx.fillRect(0, 0, size, size);
-    };
-    const s = size / 1024;
-    if (dark) {
-      blob(size * 0.56, size * 0.06, 220 * s, 0.35, "rgba(200,198,188,ALPHA)");
-      blob(size * 0.88, size * 0.18, 180 * s, 0.18, "rgba(180,176,160,ALPHA)");
-      blob(size * 0.12, size * 0.9, 170 * s, 0.22, "rgba(0,0,0,ALPHA)");
-    } else {
-      blob(size * 0.56, size * 0.06, 200 * s, 0.26, "rgba(30,30,30,ALPHA)");
-      blob(size * 0.9, size * 0.1, 170 * s, 0.22, "rgba(30,30,30,ALPHA)");
-      blob(size * 0.12, size * 0.92, 160 * s, 0.14, "rgba(30,30,30,ALPHA)");
-    }
-
-    const tex = new THREE.CanvasTexture(c);
-    tex.colorSpace = THREE.SRGBColorSpace;
-    tex.needsUpdate = true;
-    return tex;
-  }, [lite, dark, palette.bot, palette.mid, palette.top]);
-
-  useEffect(() => {
-    /*
-      Canvas artık ŞEFFAF: hero zemininde DOM tarafında dönen proje duvarı
-      (HeroWall) var, sahne onu kapatmamalı. Bu yüzden scene.background
-      atanmıyor ve clear alpha 0.
-
-      Gradyan dokusu yine de üretiliyor ve `scene.environment` olarak
-      kullanılıyor — MeshTransmissionMaterial kırılma için arkasında bir şey
-      arıyor; background kalkınca cam düz/boş görünüyordu. Environment olarak
-      kalması camın hacmini koruyor, ama piksel olarak duvarı örtmüyor.
-    */
-    // Three.js / R3F: scene mutasyonu kasıtlı (immutable hook değeri değil)
-    // eslint-disable-next-line react-hooks/immutability -- R3F scene.background
-    scene.background = null;
-    gl.setClearColor(0x000000, 0);
-    invalidate();
-    return () => {
-      texture.dispose();
-    };
-  }, [scene, texture, gl, invalidate]);
-
-  return null;
-}
+/** Canvas şeffaf — zemin HeroWall (DOM). Env bake ThemeEnvironment’da. */
 
 /**
  * Glass/chrome M.
@@ -262,7 +186,7 @@ function ThemeEnvironment({ dark }: { dark: boolean }) {
   return (
     <Environment
       key={dark ? "env-d" : "env-l"}
-      // frames={1} → tek sefer bake; mobilde de 256 → daha temiz yansıma (sürekli maliyet yok)
+      // frames={1} → tek sefer bake; sürekli maliyet yok
       resolution={256}
       frames={1}
     >
@@ -275,31 +199,28 @@ function ThemeEnvironment({ dark }: { dark: boolean }) {
         color={dark ? "#eef2f6" : "#ffffff"}
       />
       {/*
-        Cam "M"in imzası burada: SOLDAN kayısı, SAĞDAN petrol. İki taraflı
-        renkli kenar ışığı, tek renk ortamda elde edilemeyen dikroik bir
-        kırılma veriyor — nesne cam değil, dökme pirinç gibi okunuyor.
-        Renkleri eşitleme; fark kaybolursa etki de kayboluyor.
+        Cam "M" imzası: SOLDAN petrol, SAĞDAN çelik. İki taraflı renkli
+        kenar — tek renk ortamda olmayan dikroik kırılma.
       */}
       <Lightformer
         intensity={dark ? 2.0 : 2.5}
         position={[-3.2, 1.4, 2.2]}
         rotation-y={Math.PI / 3}
         scale={[4, 8, 1]}
-        color={dark ? "#7ec8e8" : "#f2f8fc"}
+        color={dark ? "#3dcdc4" : "#f2fffe"}
       />
-      {/* frames={1} baked → mobilde de dahil; sürekli maliyet yok, yansıma zenginleşir */}
       <Lightformer
         intensity={dark ? 1.35 : 1.7}
         position={[3.2, -0.4, 1.6]}
         rotation-y={-Math.PI / 3}
         scale={[4, 7, 1]}
-        color={dark ? "#2f6d92" : "#a9c4d8"}
+        color={dark ? "#5a6575" : "#8b9099"}
       />
       <Lightformer
         intensity={dark ? 0.35 : 0.45}
         position={[1.2, 0.2, 2.4]}
         scale={[1.2, 6, 1]}
-        color="#030b12"
+        color="#06080b"
       />
       <Lightformer
         intensity={dark ? 1.4 : 1.8}
@@ -312,16 +233,13 @@ function ThemeEnvironment({ dark }: { dark: boolean }) {
 }
 
 /**
- * Mobil/lite render stratejisi — hedef: kesintisiz 60fps + yüksek keskinlik.
- * Eski hata: mobilde DPR zemini 1.2'ye çöküyordu (bulanık "doku kaybı") çünkü
- * PerformanceMonitor 60'a ulaşamamayı DPR'ı dibe çekerek çözmeye çalışıyordu.
- * Çözüm: 60fps hedefini koru ama DPR aralığını sıkılaştır (1.5–2.0). Güçlü telefon
- * 2.0'da keskin & 60fps; zorlanan telefon en fazla 1.5'e iner (asla eski bulanıklık
- * seviyesine değil) → her koşulda akıcı 60'a yakın + net görüntü.
+ * Mobil/lite: 60fps + keskinlik. DPR 1.5–1.75 — eski 1.2 tabanı bulanıklık
+ * yapıyordu; PerformanceMonitor bu aralıkta oynatır. Kalite düşürmeden maliyet
+ * idle frameloop / scoped pointer / lazy chunk ile yönetilir.
  */
 const LITE_DPR_CAP = 1.75;
 const DESKTOP_DPR_CAP = 1.5;
-/** Mobil DPR tabanı — 1.5: eski 1.2'den belirgin keskin, yine de 60fps dostu */
+/** Mobil DPR tabanı — 1.5: keskin cam, 60fps dostu */
 const LITE_DPR_FLOOR = 1.5;
 
 export default function HeroScene({
@@ -335,6 +253,7 @@ export default function HeroScene({
     () => document.documentElement.classList.contains("dark")
   );
   const mountedRef = useRef(true);
+  const containerRef = useRef<HTMLDivElement>(null);
   const glRef = useRef<THREE.WebGLRenderer | null>(null);
   const invalidateRef = useRef<(() => void) | null>(null);
   const readyRef = useRef(false);
@@ -432,10 +351,12 @@ export default function HeroScene({
     return () => document.removeEventListener("visibilitychange", onVis);
   }, []);
 
-  // Desktop: pointer/touch sonrası kısa süre always; idle’da demand (GPU boş)
+  // Desktop: yalnızca hero üstünde pointer → always; sayfa scroll’u GPU’yu uyutmasın
   useEffect(() => {
     if (lite || reduced) return;
-    const IDLE_MS = 2400;
+    const root = containerRef.current;
+    if (!root) return;
+    const IDLE_MS = 1800;
     const armIdle = () => {
       window.clearTimeout(idleTimer.current);
       idleTimer.current = window.setTimeout(() => {
@@ -446,14 +367,13 @@ export default function HeroScene({
       setPointerLive(true);
       armIdle();
     };
-    // Mount'ta pointerLive zaten true — sadece düşüş sayacını kur.
     armIdle();
-    window.addEventListener("pointermove", bump, { passive: true });
-    window.addEventListener("pointerdown", bump, { passive: true });
+    root.addEventListener("pointermove", bump, { passive: true });
+    root.addEventListener("pointerdown", bump, { passive: true });
     return () => {
       window.clearTimeout(idleTimer.current);
-      window.removeEventListener("pointermove", bump);
-      window.removeEventListener("pointerdown", bump);
+      root.removeEventListener("pointermove", bump);
+      root.removeEventListener("pointerdown", bump);
     };
   }, [lite, reduced]);
 
@@ -539,7 +459,7 @@ export default function HeroScene({
   const dprFloor = lite ? LITE_DPR_FLOOR : 1;
 
   return (
-    <div className="absolute inset-0">
+    <div ref={containerRef} className="absolute inset-0">
       {/*
         Tema değişiminde Canvas remount YOK — WebGL context kaybını önler.
         Yalnızca gerçek context loss / recovery’de contextKey artar.
@@ -556,7 +476,6 @@ export default function HeroScene({
           alpha: true,
           stencil: false,
           depth: true,
-          // Mobilde de GPU tercihi — low-power yumuşak/grenli çıktıya yol açıyordu
           powerPreference: "high-performance",
           toneMapping: THREE.ACESFilmicToneMapping,
           toneMappingExposure: 1.08,
@@ -619,7 +538,6 @@ export default function HeroScene({
         />
         <ThemeExposure dark={dark} />
         <InvalidateOn dep={dark ? "d" : "l"} />
-        <GradientBackground lite={lite} dark={dark} />
         <GlassM reduced={reduced} lite={lite} dark={dark} />
         <ThemeEnvironment dark={dark} />
       </Canvas>

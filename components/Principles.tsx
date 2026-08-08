@@ -53,10 +53,10 @@ export default function Principles() {
   return (
     <section
       id="approach"
-      className="bg-background px-5 py-16 md:px-10 md:py-28"
+      className="bg-paper px-5 py-16 md:px-10 md:py-28"
     >
       <div className="mx-auto max-w-7xl">
-        <div ref={listRef} className="border-t border-foreground/10">
+        <div ref={listRef} className="border-t border-[color:var(--chrome-edge)]">
           {items.map((item, i) => {
             const isOpen = open === i;
             return (

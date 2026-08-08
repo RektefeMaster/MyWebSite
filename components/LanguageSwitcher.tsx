@@ -1,16 +1,25 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
-import {
-  bumpNavGeneration,
-  scheduleScrollTriggerRefresh,
-  scrollToElement,
-} from "@/lib/nav-scroll";
+import { bumpNavGeneration, scrollToElement } from "@/lib/nav-scroll";
 
 const SUFFIX_KEY = "metek-locale-suffix";
+
+const LOCALE_META = {
+  en: { code: "EN", label: "English" },
+  tr: { code: "TR", label: "Türkçe" },
+  es: { code: "ES", label: "Español" },
+  de: { code: "DE", label: "Deutsch" },
+} as const;
+
+type AppLocale = (typeof routing.locales)[number];
+
+function isAppLocale(value: string): value is AppLocale {
+  return (routing.locales as readonly string[]).includes(value);
+}
 
 export default function LanguageSwitcher() {
   const t = useTranslations("a11y");
@@ -18,6 +27,14 @@ export default function LanguageSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
   const boot = useRef(true);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const [open, setOpen] = useState(false);
+  const listId = useId();
+
+  const current = isAppLocale(locale)
+    ? LOCALE_META[locale]
+    : LOCALE_META.en;
 
   // Locale settle sonrası hash/search’ü geri yaz — tek rAF yetmiyordu
   useEffect(() => {
@@ -32,10 +49,8 @@ export default function LanguageSwitcher() {
     } catch {
       /* private mode */
     }
-    if (!suffix) {
-      scheduleScrollTriggerRefresh(160);
-      return;
-    }
+    // ScrollTrigger.refresh → SmoothScroll locale effect (tek sahip)
+    if (!suffix) return;
 
     const apply = () => {
       const next = `${window.location.pathname}${suffix}`;
@@ -52,7 +67,6 @@ export default function LanguageSwitcher() {
           scrollToElement(el, { immediate: true });
         }
       }
-      scheduleScrollTriggerRefresh(160);
     };
 
     const t1 = window.setTimeout(apply, 40);
@@ -63,46 +77,139 @@ export default function LanguageSwitcher() {
     };
   }, [locale]);
 
+  /*
+    Menü fixed — nav shell `overflow-x-clip` dikey menüyü de kesiyordu.
+    Tetikleyici kutusuna göre top/right CSS değişkenleriyle hizala.
+  */
+  useLayoutEffect(() => {
+    if (!open) return;
+    const root = rootRef.current;
+    const trigger = triggerRef.current;
+    if (!root || !trigger) return;
+
+    const place = () => {
+      const r = trigger.getBoundingClientRect();
+      root.style.setProperty("--lang-menu-top", `${Math.round(r.bottom + 6)}px`);
+      root.style.setProperty(
+        "--lang-menu-right",
+        `${Math.round(window.innerWidth - r.right)}px`
+      );
+    };
+
+    place();
+    window.addEventListener("resize", place);
+    window.addEventListener("scroll", place, true);
+    return () => {
+      window.removeEventListener("resize", place);
+      window.removeEventListener("scroll", place, true);
+    };
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const onPointerDown = (event: MouseEvent | TouchEvent) => {
+      const root = rootRef.current;
+      if (!root) return;
+      const target = event.target;
+      if (target instanceof Node && !root.contains(target)) {
+        setOpen(false);
+      }
+    };
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("touchstart", onPointerDown, { passive: true });
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("touchstart", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
+  const switchLocale = (next: AppLocale) => {
+    if (next === locale) {
+      setOpen(false);
+      return;
+    }
+    window.dispatchEvent(new Event("metek:route-pending"));
+    const hash = window.location.hash;
+    const search = window.location.search;
+    try {
+      if (hash || search) {
+        sessionStorage.setItem(SUFFIX_KEY, `${search}${hash}`);
+      } else {
+        sessionStorage.removeItem(SUFFIX_KEY);
+      }
+    } catch {
+      /* private mode */
+    }
+    setOpen(false);
+    router.replace(pathname, { locale: next });
+  };
+
   return (
     <div
-      className="flex shrink-0 items-center gap-0 rounded-full bg-foreground/[0.06] p-0.5 sm:gap-0.5 sm:p-1"
-      role="group"
-      aria-label={t("language")}
+      ref={rootRef}
+      className={`lang-switch${open ? " is-open" : ""}`}
     >
-      {routing.locales.map((l) => (
-        <button
-          key={l}
-          type="button"
-          onClick={() => {
-            if (l === locale) return;
-            window.dispatchEvent(new Event("metek:route-pending"));
-            const hash = window.location.hash;
-            const search = window.location.search;
-            try {
-              if (hash || search) {
-                sessionStorage.setItem(SUFFIX_KEY, `${search}${hash}`);
-              } else {
-                sessionStorage.removeItem(SUFFIX_KEY);
-              }
-            } catch {
-              /* private mode */
-            }
-            router.replace(pathname, { locale: l });
-          }}
-          aria-pressed={l === locale}
-          /*
-           * 320px’te 4×40px dil hapı + tema + CTA taşıyor ("Başl" kesiliyordu).
-           * min-w-8 + kompakt tip; sm+ eski dokunma alanı.
-           */
-          className={`relative inline-flex min-h-11 min-w-8 items-center justify-center rounded-full text-[10px] font-bold uppercase transition-colors before:absolute before:inset-[-4px_-1px] before:content-[''] sm:min-w-10 sm:text-[11px] sm:before:inset-[-4px_-2px] md:min-w-11 md:text-xs md:before:content-none ${
-            l === locale
-              ? "bg-ink text-ink-fg"
-              : "text-ink/55 [@media(hover:hover)_and_(pointer:fine)]:hover:text-ink"
-          }`}
-        >
-          {l}
-        </button>
-      ))}
+      <button
+        ref={triggerRef}
+        type="button"
+        className="lang-switch__trigger"
+        aria-label={t("language")}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-controls={listId}
+        onClick={() => setOpen((v) => !v)}
+      >
+        <span className="lang-switch__code" aria-hidden>
+          {current.code}
+        </span>
+        <span className="lang-switch__chevron" aria-hidden>
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
+            <path
+              d="M1 1.25L5 4.75L9 1.25"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="square"
+              strokeLinejoin="miter"
+            />
+          </svg>
+        </span>
+      </button>
+
+      <div
+        id={listId}
+        className="lang-switch__menu"
+        role="listbox"
+        aria-label={t("language")}
+        hidden={!open}
+      >
+        {routing.locales.map((l) => {
+          const meta = LOCALE_META[l];
+          const selected = l === locale;
+          return (
+            <button
+              key={l}
+              type="button"
+              role="option"
+              aria-selected={selected}
+              className={`lang-switch__option${selected ? " is-active" : ""}`}
+              onClick={() => switchLocale(l)}
+            >
+              <span className="lang-switch__option-label">{meta.label}</span>
+              <span className="lang-switch__option-code">{meta.code}</span>
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }

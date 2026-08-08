@@ -30,17 +30,12 @@ export default async function BlogTeaser({ locale }: BlogTeaserProps) {
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 flex flex-col items-start justify-between gap-6 md:mb-16 md:flex-row md:items-end">
           <div className="max-w-xl">
-            <Reveal>
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
-                {t("teaserLabel")}
-              </p>
-            </Reveal>
             <WordReveal
               text={t("teaserTitle")}
-              className="text-4xl font-bold tracking-tight md:text-6xl"
+              className="font-display text-4xl font-bold tracking-tight md:text-6xl"
             />
             <Reveal delay={120}>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-foreground/50">
+              <p className="mt-5 max-w-[68ch] text-sm leading-relaxed text-foreground/55">
                 {t("teaserBlurb")}
               </p>
             </Reveal>
@@ -65,7 +60,7 @@ export default async function BlogTeaser({ locale }: BlogTeaserProps) {
                 <Link
                   scroll={false}
                   href={`/blog/${post.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-foreground/10 bg-surface transition-colors md:min-h-[320px] [@media(hover:hover)_and_(pointer:fine)]:hover:border-ink"
+                  className="group flex h-full flex-col overflow-hidden rounded-sm border border-[color:var(--chrome-edge)] bg-surface shadow-[inset_0_1px_0_var(--chrome-shine)] transition-colors md:min-h-[320px] [@media(hover:hover)_and_(pointer:fine)]:hover:border-ink/30"
                 >
                   <div className="relative h-40 overflow-hidden">
                     <Image

@@ -22,11 +22,11 @@ export default function WhatsAppButton({
     olduğu için beyaz doğru olan, dokunulmadı.
   */
   let styles =
-    "inline-flex min-h-12 items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-bold text-[#0b2e1a]";
+    "inline-flex min-h-12 items-center gap-2 rounded-sm bg-[#25D366] px-6 py-3 text-sm font-bold text-[#0b2e1a]";
   switch (variant) {
     case "nav":
       styles =
-        "btn-stable inline-flex min-h-10 min-w-[7.25rem] gap-1.5 rounded-full bg-[#25D366] px-3.5 py-2 text-xs font-bold text-[#0b2e1a] md:min-h-0 md:px-4 md:text-sm";
+        "btn-stable inline-flex min-h-10 min-w-[7.25rem] gap-1.5 rounded-sm bg-[#25D366] px-3.5 py-2 text-xs font-bold text-[#0b2e1a] md:min-h-0 md:px-4 md:text-sm";
       break;
     case "footer":
       styles =
@@ -34,11 +34,11 @@ export default function WhatsAppButton({
       break;
     case "outline":
       styles =
-        "inline-flex min-h-12 items-center gap-2 rounded-full border border-foreground/12 bg-surface px-6 py-3 text-sm font-bold text-ink transition-colors hover:border-[#25D366]/50 hover:bg-[#25D366]/8";
+        "inline-flex min-h-12 items-center gap-2 rounded-sm border border-[color:var(--chrome-edge)] bg-surface px-6 py-3 text-sm font-bold text-ink transition-colors hover:border-[#25D366]/50 hover:bg-[#25D366]/8";
       break;
     case "outlineOnDark":
       styles =
-        "inline-flex min-h-12 items-center gap-2 rounded-full border border-band-fg/20 bg-transparent px-6 py-3 text-sm font-bold text-white transition-colors hover:border-[#25D366]/55 hover:bg-[#25D366]/15";
+        "inline-flex min-h-12 items-center gap-2 rounded-sm border border-band-fg/20 bg-transparent px-6 py-3 text-sm font-bold text-white transition-colors hover:border-[#25D366]/55 hover:bg-[#25D366]/15";
       break;
     case "solid":
       break;

@@ -34,12 +34,12 @@ export default async function BlogArticleView({
 
   return (
     <article className="bg-background">
-      <header className="border-b border-foreground/8 bg-paper">
+      <header className="border-b border-[color:var(--chrome-edge)] bg-paper">
         <div className="mx-auto max-w-3xl px-5 pb-12 pt-[calc(var(--nav-offset)+1.25rem)] md:px-10 md:pb-16 md:pt-32">
           <Reveal>
             <nav
               aria-label={a11y("breadcrumb")}
-              className="mb-6 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground/40"
+              className="mb-8 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground/40"
             >
               <Link scroll={false} href="/" className="inline-flex min-h-6 items-center py-1.5 -my-1.5 transition-colors hover:text-ink">
                 {t("crumbHome")}
@@ -76,7 +76,7 @@ export default async function BlogArticleView({
           </Reveal>
         </div>
 
-        <div className="relative mx-auto aspect-[16/9] max-w-7xl overflow-hidden md:aspect-[21/9] md:rounded-t-[2rem]">
+        <div className="relative mx-auto aspect-[16/9] max-w-7xl overflow-hidden md:aspect-[21/9] md:rounded-t-sm">
           <Image
             src={meta.image}
             alt={article.imageAlt}
@@ -141,23 +141,20 @@ export default async function BlogArticleView({
       </div>
 
       {related.length > 0 && (
-        <aside className="border-t border-foreground/8 bg-paper px-5 py-16 md:px-10 md:py-28">
+        <aside className="border-t border-[color:var(--chrome-edge)] bg-paper px-5 py-16 md:px-10 md:py-28">
           <div className="mx-auto max-w-7xl">
             <Reveal>
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
-                {t("relatedLabel")}
-              </p>
-              <h2 className="mb-12 text-3xl font-bold tracking-tight md:text-4xl">
+              <h2 className="mb-12 font-display text-3xl font-bold tracking-tight md:text-4xl">
                 {t("relatedTitle")}
               </h2>
             </Reveal>
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className="grid gap-3 md:grid-cols-2">
               {relatedArticles.map(({ post, article: a }, i) => (
                 <Reveal key={post.slug} delay={i * 60}>
                   <Link
         scroll={false}
                     href={`/blog/${post.slug}`}
-                    className="group flex h-full overflow-hidden rounded-3xl border border-foreground/10 bg-surface transition-colors md:min-h-[200px] [@media(hover:hover)_and_(pointer:fine)]:hover:border-ink"
+                    className="group flex h-full overflow-hidden rounded-sm border border-[color:var(--chrome-edge)] bg-surface shadow-[inset_0_1px_0_var(--chrome-shine)] transition-colors md:min-h-[200px] [@media(hover:hover)_and_(pointer:fine)]:hover:border-ink/30"
                   >
                     <div className="relative hidden w-[38%] shrink-0 sm:block">
                       <Image

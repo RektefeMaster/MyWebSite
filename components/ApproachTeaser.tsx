@@ -18,26 +18,17 @@ export default function ApproachTeaser() {
   return (
     <section
       id="approach-home"
-      className="cv-auto scroll-mt-[var(--nav-offset)] border-t border-foreground/8 bg-background px-5 py-16 md:px-10 md:py-28"
+      className="cv-auto scroll-mt-[var(--nav-offset)] border-t border-foreground/8 bg-paper px-5 py-16 md:px-10 md:py-28"
     >
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 max-w-2xl md:mb-16">
           <Reveal>
-            <p className="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
-              <span
-                aria-hidden
-                className="inline-block h-px w-6 bg-accent/80"
-              />
-              {t("label")}
-            </p>
-          </Reveal>
-          <Reveal delay={40}>
             <h2 className="font-display text-4xl font-bold tracking-tight md:text-6xl">
               {t("title")}
             </h2>
           </Reveal>
-          <Reveal delay={80}>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-foreground/50 md:text-base">
+          <Reveal delay={60}>
+            <p className="mt-5 max-w-[68ch] text-sm leading-relaxed text-foreground/55 md:text-base">
               {t("blurb")}
             </p>
           </Reveal>

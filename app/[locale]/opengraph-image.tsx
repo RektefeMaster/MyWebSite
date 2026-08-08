@@ -35,10 +35,10 @@ export default async function Image({
     join(process.cwd(), "public/fonts/SpaceGrotesk-Bold.ttf")
   );
 
-  const INK = "#041017";
-  const PAPER = "#e8eef3";
-  const ACCENT = "#7ec8e8";
-  const MUTE = "rgba(244,242,236,0.55)";
+  const INK = "#0a0d11";
+  const PAPER = "#eef1f4";
+  const ACCENT = "#3dcdc4";
+  const MUTE = "rgba(238,241,244,0.55)";
 
   return new ImageResponse(
     (
@@ -67,7 +67,7 @@ export default async function Image({
             height: 760,
             borderRadius: 999,
             background:
-              "radial-gradient(circle, rgba(208,236,90,0.22) 0%, rgba(208,236,90,0) 62%)",
+              "radial-gradient(circle, rgba(61,205,196,0.22) 0%, rgba(61,205,196,0) 62%)",
           }}
         />
         {/* dev "M" filigran */}

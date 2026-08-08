@@ -142,30 +142,25 @@ export default function Services({ variant = "full" }: ServicesProps) {
         {isTeaser && (
           <div className="mb-12 flex flex-col gap-4 md:mb-16 md:flex-row md:items-end md:justify-between">
             <div>
-              <Reveal>
-                <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
-                  {t("label")}
-                </p>
-              </Reveal>
               <WordReveal
                 text={t("title")}
-                className="text-3xl font-bold tracking-tight md:text-5xl"
+                className="font-display text-3xl font-bold tracking-tight md:text-5xl"
               />
             </div>
           </div>
         )}
 
-        <div ref={listRef} className="space-y-3">
+        <div ref={listRef} className="space-y-2">
           {items.map((item, i) => {
             const isOpen = open === i;
             return (
               <article
                 key={item.title}
                 data-service-item={i}
-                className={`overflow-hidden rounded-2xl border ${
+                className={`overflow-hidden rounded-sm border ${
                   isOpen
                     ? "border-band"
-                    : "border-foreground/10 [@media(hover:hover)_and_(pointer:fine)]:hover:border-foreground/25"
+                    : "border-[color:var(--chrome-edge)] [@media(hover:hover)_and_(pointer:fine)]:hover:border-ink/25"
                 }`}
               >
                 <button
@@ -173,7 +168,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
                   aria-expanded={isOpen}
                   onClick={() => toggle(i)}
                   className={`flex w-full items-center gap-4 px-5 py-5 text-left transition-colors duration-200 md:gap-6 md:px-7 md:py-6 ${
-                    isOpen ? "bg-band text-band-fg" : "bg-surface text-ink"
+                    isOpen ? "bg-band text-band-fg" : "bg-paper text-ink"
                   }`}
                 >
                   <span
@@ -187,7 +182,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
                     {item.title}
                   </span>
                   <span
-                    className={`inline-flex size-8 shrink-0 items-center justify-center rounded-full text-xl leading-none transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                    className={`inline-flex size-8 shrink-0 items-center justify-center rounded-sm text-xl leading-none transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                       isOpen
                         ? "rotate-45 bg-band-fg/10 text-accent"
                         : "rotate-0 text-foreground/30"

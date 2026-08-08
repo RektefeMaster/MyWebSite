@@ -12,6 +12,7 @@ type Crumb = {
 };
 
 type PageHeroProps = {
+  /** Kept for call-site API; not shown (Atelier Signal — no eyebrows). */
   label: string;
   title: string;
   blurb?: string;
@@ -19,7 +20,7 @@ type PageHeroProps = {
 };
 
 /**
- * Alt sayfa üst bandı — glass hissi, net hiyerarşi.
+ * Alt sayfa üst bandı — paper editorial + chrome hairline (Atelier Signal).
  */
 export default function PageHero({
   label,
@@ -65,11 +66,11 @@ export default function PageHero({
   return (
     <div
       ref={ref}
-      className="page-hero relative overflow-hidden border-b border-foreground/8 bg-gradient-to-b from-paper via-paper to-background"
+      className="page-hero relative overflow-hidden border-b border-[color:var(--chrome-edge)] bg-paper"
     >
       <div
         aria-hidden
-        className="page-hero__wash pointer-events-none absolute inset-0"
+        className="page-hero__wash pointer-events-none absolute inset-0 opacity-60"
       />
 
       <div className="relative mx-auto max-w-7xl px-5 pb-12 pt-[calc(var(--nav-offset)+1.25rem)] md:px-10 md:pb-16 md:pt-32">
@@ -77,7 +78,7 @@ export default function PageHero({
           <nav
             data-ph
             aria-label={t("breadcrumb")}
-            className="mb-6 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground/40"
+            className="mb-8 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground/40"
           >
             {crumbs.map((c, i) => (
               <span
@@ -89,11 +90,6 @@ export default function PageHero({
                   <Link
                     scroll={false}
                     href={c.href}
-                    /*
-                      11px metin → 17px'lik dokunma hedefi; WCAG 2.2 AA (2.5.8)
-                      24px istiyor. Dikey padding hedefi büyütür, negatif
-                      margin düzeni aynı bırakır (satır yüksekliği değişmez).
-                    */
                     className="inline-flex min-h-6 items-center py-1.5 -my-1.5 transition-colors hover:text-ink"
                   >
                     {c.label}
@@ -106,22 +102,16 @@ export default function PageHero({
           </nav>
         )}
 
-        <p
-          data-ph
-          className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-foreground/40"
-        >
-          {label}
-        </p>
         <h1
           data-ph
-          className="font-display max-w-4xl text-4xl leading-[1.05] tracking-tight md:text-6xl lg:text-7xl"
+          className="font-display max-w-4xl text-[clamp(2.5rem,7vw,4.75rem)] leading-[0.98] tracking-[-0.035em]"
         >
           {safeTitle}
         </h1>
         {blurb && (
           <p
             data-ph
-            className="font-subtitle mt-5 max-w-xl text-sm leading-relaxed text-foreground/55 md:text-base"
+            className="font-subtitle mt-6 max-w-[68ch] text-sm leading-relaxed text-foreground/55 md:text-base"
           >
             {blurb}
           </p>

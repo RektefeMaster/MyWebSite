@@ -20,22 +20,22 @@ const CurvedInput = dynamic(() => import("./CurvedInput"));
 const EMAIL = SITE.email;
 
 const CURVED_INPUT_COLORS = {
-  backgroundColor: "#0e2632",
-  textColor: "#e8eef3",
-  placeholderColor: "rgba(240,237,229,0.42)",
-  borderColor: "rgba(240,237,229,0.14)",
-  buttonColor: "#175e86",
-  buttonTextColor: "#06202e",
-  iconColor: "#7ec8e8",
-  shadowColor: "#02090a",
+  backgroundColor: "#13181f",
+  textColor: "#eef1f4",
+  placeholderColor: "rgba(238,241,244,0.42)",
+  borderColor: "rgba(238,241,244,0.14)",
+  buttonColor: "#0c6b66",
+  buttonTextColor: "#f2fffe",
+  iconColor: "#3dcdc4",
+  shadowColor: "#06080b",
 } as const;
 
 const NAME_ICON = (
   <>
-    <circle cx="0" cy="-2.8" r="3.2" fill="#06202e" />
+    <circle cx="0" cy="-2.8" r="3.2" fill="#0a0d11" />
     <path
       d="M -7 7.6 C -7 3.6 -3.9 1.3 0 1.3 C 3.9 1.3 7 3.6 7 7.6"
-      fill="#06202e"
+      fill="#0a0d11"
     />
   </>
 );
@@ -291,7 +291,7 @@ export default function FinalCta() {
             ref={formRef}
             noValidate
             onSubmit={onSubmit}
-            className="rounded-[1.75rem] border border-band-fg/10 bg-band-fg/[0.04] p-5 backdrop-blur-sm md:max-w-2xl md:rounded-3xl md:p-8"
+            className="rounded-sm border border-band-fg/10 bg-band-fg/[0.04] p-5 shadow-[inset_0_1px_0_var(--chrome-shine)] backdrop-blur-sm md:max-w-2xl md:p-8"
           >
             <div className="grid gap-4">
               <label className="block">
@@ -375,7 +375,7 @@ export default function FinalCta() {
                       type="button"
                       onClick={() => toggleInterest(i)}
                       aria-pressed={checked}
-                      className={`inline-flex min-h-11 items-center rounded-full px-3.5 py-2.5 text-[13px] font-semibold transition-colors ${
+                      className={`inline-flex min-h-11 items-center rounded-sm px-3.5 py-2.5 text-[13px] font-semibold transition-colors ${
                         checked
                           ? "bg-accent text-on-accent"
                           : "border border-band-fg/15 text-band-fg/70 [@media(hover:hover)_and_(pointer:fine)]:hover:border-band-fg/40"
@@ -453,7 +453,7 @@ export default function FinalCta() {
             action={`mailto:${EMAIL}`}
             method="get"
             encType="text/plain"
-            className="mt-12 rounded-[1.75rem] border border-band-fg/10 bg-band-fg/[0.04] p-5 md:max-w-2xl md:p-8"
+            className="mt-12 rounded-sm border border-band-fg/10 bg-band-fg/[0.04] p-5 shadow-[inset_0_1px_0_var(--chrome-shine)] md:max-w-2xl md:p-8"
           >
             <p className="mb-4 text-sm text-band-fg/55">{t("blurb")}</p>
             <label className="mb-3 block text-xs text-band-fg/40">
@@ -484,7 +484,7 @@ export default function FinalCta() {
             </label>
             <button
               type="submit"
-              className="rounded-full bg-accent px-6 py-3 text-sm font-bold text-on-accent"
+              className="rounded-sm bg-accent px-6 py-3 text-sm font-bold text-on-accent shadow-[inset_0_1px_0_var(--chrome-shine)]"
             >
               {tContact("send")}
             </button>

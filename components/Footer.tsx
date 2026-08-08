@@ -10,7 +10,7 @@ export default function Footer() {
   const t = useTranslations("footer");
 
   return (
-    <footer className="border-t border-foreground/10 bg-paper px-5 pb-[calc(5.5rem+var(--safe-bottom))] pt-12 md:px-10 md:pb-16 md:pt-16">
+    <footer className="border-t border-[color:var(--chrome-edge)] bg-paper px-5 pb-[calc(5.5rem+var(--safe-bottom))] pt-12 md:px-10 md:pb-16 md:pt-16">
       <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 md:grid-cols-[1.35fr_1fr_1fr_1fr]">
         <div>
           <Link

@@ -11,10 +11,7 @@ import {
 } from "react";
 import { Link } from "@/i18n/navigation";
 import type { ComponentProps } from "react";
-import {
-  mountSpecularFx,
-  type SpecularFxProps,
-} from "@/lib/specular-fx";
+import type { SpecularFxProps } from "@/lib/specular-fx";
 import "./SpecularButton.css";
 
 type LinkHref = ComponentProps<typeof Link>["href"];
@@ -90,17 +87,18 @@ const TONE: Record<
     tint: "var(--accent)",
     tintOpacity: 1,
     textColor: "var(--on-accent)",
-    lineColor: "#f2f7fa",
-    baseColor: "#175e86",
-    radius: 999,
+    /* WebGL katmanı var() çözmez — Petrol chrome ara tonları */
+    lineColor: "#f2fffe",
+    baseColor: "#0a524f",
+    radius: 4,
   },
   ink: {
     tint: "var(--ink)",
     tintOpacity: 1,
     textColor: "var(--ink-fg)",
-    lineColor: "#7ec8e8",
-    baseColor: "#234b63",
-    radius: 999,
+    lineColor: "#3dcdc4",
+    baseColor: "#222a34",
+    radius: 4,
   },
 };
 
@@ -215,15 +213,21 @@ export default function SpecularButton({
     const fx = fxRef.current;
     if (!fxOn || !btn || !fx) return;
 
-    // Context limit: yalnızca görünür (veya yakında) iken WebGL bağla
+    // ogl yalnızca görünür butonda lazy — blog/services critical path’e girmez
     let unmountFx: (() => void) | null = null;
+    let cancelled = false;
+    let mounting = false;
     const io = new IntersectionObserver(
       ([entry]) => {
         const vis = entry?.isIntersecting ?? false;
         if (vis) {
-          if (!unmountFx) {
+          if (unmountFx || mounting) return;
+          mounting = true;
+          void import("@/lib/specular-fx").then(({ mountSpecularFx }) => {
+            mounting = false;
+            if (cancelled || unmountFx) return;
             unmountFx = mountSpecularFx(btn, fx, () => propsRef.current);
-          }
+          });
           return;
         }
         if (unmountFx) {
@@ -235,6 +239,7 @@ export default function SpecularButton({
     );
     io.observe(btn);
     return () => {
+      cancelled = true;
       io.disconnect();
       unmountFx?.();
     };

@@ -37,7 +37,7 @@ export default function BlogCard({
       <Link
         scroll={false}
         href={`/blog/${post.slug}`}
-        className={`group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-foreground/10 bg-surface transition-colors [@media(hover:hover)_and_(pointer:fine)]:hover:border-ink ${
+        className={`group flex h-full flex-col overflow-hidden rounded-sm border border-[color:var(--chrome-edge)] bg-paper shadow-[inset_0_1px_0_var(--chrome-shine)] transition-colors [@media(hover:hover)_and_(pointer:fine)]:hover:border-ink/30 ${
           featured ? "md:min-h-[340px] md:flex-row" : "min-h-[300px]"
         }`}
       >
@@ -62,7 +62,7 @@ export default function BlogCard({
             className="object-cover transition-transform duration-700 ease-out [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.03]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-          <span className="absolute bottom-4 left-5 rounded-full bg-surface/90 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-ink backdrop-blur-sm">
+          <span className="absolute bottom-4 left-5 rounded-sm bg-paper/92 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-ink shadow-[inset_0_0_0_1px_var(--chrome-edge)] backdrop-blur-sm">
             {categoryLabel}
           </span>
         </div>

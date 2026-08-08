@@ -28,6 +28,7 @@ const nextConfig: NextConfig = {
       "@react-three/drei",
       "three",
       "@react-three/fiber",
+      "ogl",
     ],
   },
   async headers() {

@@ -48,28 +48,19 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="scroll-mt-[var(--nav-offset)] bg-background px-5 py-16 md:px-10 md:py-28"
+      className="scroll-mt-[var(--nav-offset)] bg-band px-5 py-16 text-band-fg md:px-10 md:py-28"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 grid items-end gap-6 md:mb-16 md:grid-cols-[1fr_1.2fr] md:gap-12">
+        <div className="mb-14 grid items-end gap-6 md:mb-20 md:grid-cols-[1.15fr_0.85fr] md:gap-16">
           <div>
             <Reveal>
-              <p className="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
-                <span
-                  aria-hidden
-                  className="inline-block h-px w-6 bg-accent/80"
-                />
-                {t("label")}
-              </p>
-            </Reveal>
-            <Reveal delay={40}>
-              <h2 className="font-display text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl">
+              <h2 className="font-display text-[clamp(2.75rem,8vw,5.5rem)] font-bold leading-[0.92] tracking-[-0.04em]">
                 {t("title")}
               </h2>
             </Reveal>
           </div>
-          <Reveal delay={80}>
-            <p className="max-w-md text-sm leading-relaxed text-foreground/50 md:justify-self-end md:pb-2">
+          <Reveal delay={60}>
+            <p className="max-w-md text-sm leading-relaxed text-band-fg/55 md:justify-self-end md:pb-1 md:text-base">
               {t("blurb")}
             </p>
           </Reveal>
@@ -82,15 +73,11 @@ export default function Projects() {
             return (
               <div key={lane}>
                 <Reveal>
-                  <h3 className="mb-8 flex items-center gap-3 font-mono text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
-                    <span
-                      aria-hidden
-                      className="inline-block h-px w-6 bg-accent/80"
-                    />
+                  <h3 className="mb-8 font-mono text-xs font-bold uppercase tracking-[0.16em] text-band-fg/40">
                     {tLanes(lane)}
                   </h3>
                 </Reveal>
-                <div className="grid grid-cols-1 gap-5 md:grid-cols-12 md:gap-6">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-5">
                   {items.map((project, i) => (
                     <div
                       key={project.id}

@@ -36,6 +36,7 @@ body {
   text-rendering: optimizeLegibility;
   overflow-x: clip;
   -webkit-tap-highlight-color: transparent;
+  caret-color: var(--accent-ink);
   transition: var(--theme-ease);
 }
 
@@ -84,9 +85,13 @@ html::-webkit-scrollbar-corner {
 .nav-glass {
   background: var(--glass);
   border-color: var(--glass-border);
+  /* Chrome edge — ince metal çerçeve */
+  box-shadow:
+    inset 0 1px 0 var(--chrome-shine),
+    0 0 0 0.5px var(--chrome-edge);
   /* Top'ta hafif blur — scroll'da güçlenir (Safari compositor maliyeti ↓) */
-  backdrop-filter: blur(10px) saturate(1.2);
-  -webkit-backdrop-filter: blur(10px) saturate(1.2);
+  backdrop-filter: blur(10px) saturate(1.05);
+  -webkit-backdrop-filter: blur(10px) saturate(1.05);
   transition:
     background 0.35s ease,
     box-shadow 0.35s ease,
@@ -97,13 +102,19 @@ html::-webkit-scrollbar-corner {
 .nav-shell.is-scrolled .nav-glass {
   background: var(--glass-strong);
   border-color: var(--glass-border-scrolled);
-  backdrop-filter: blur(18px) saturate(1.35);
-  -webkit-backdrop-filter: blur(18px) saturate(1.35);
-  box-shadow: 0 12px 40px -28px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(18px) saturate(1.15);
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+  box-shadow:
+    inset 0 1px 0 var(--chrome-shine),
+    0 0 0 0.5px var(--chrome-edge),
+    0 12px 40px -28px rgba(0, 0, 0, 0.45);
 }
 
 .dark .nav-shell.is-scrolled .nav-glass {
-  box-shadow: 0 12px 40px -24px rgba(0, 0, 0, 0.75);
+  box-shadow:
+    inset 0 1px 0 var(--chrome-shine),
+    0 0 0 0.5px var(--chrome-edge),
+    0 12px 40px -24px rgba(0, 0, 0, 0.75);
 }
 
 .nav-mobile-rail {
@@ -149,7 +160,7 @@ html::-webkit-scrollbar-corner {
     to bottom,
     color-mix(in srgb, var(--accent) 85%, #fff) 0%,
     var(--accent) 45%,
-    color-mix(in srgb, var(--accent) 62%, #0c2233) 100%
+    color-mix(in srgb, var(--accent) 62%, #10141a) 100%
   );
 }
 
@@ -164,6 +175,201 @@ html::-webkit-scrollbar-corner {
 
 .process-dot[data-lit="true"] {
   background-color: var(--accent);
+}
+
+/* ── Language switch: chrome tetikleyici + menü ── */
+.lang-switch {
+  position: relative;
+  z-index: 20;
+  flex-shrink: 0;
+}
+
+.lang-switch__trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-width: 3.25rem;
+  height: 2rem;
+  padding: 0 0.55rem 0 0.65rem;
+  border: 0;
+  border-radius: 4px;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface) 88%, #fff) 0%,
+      var(--surface) 100%
+    );
+  color: var(--ink);
+  box-shadow:
+    inset 0 1px 0 var(--chrome-shine),
+    0 0 0 0.5px var(--chrome-edge);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition:
+    color 0.18s ease,
+    background-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+/* Görsel 32px; dokunma ~44px */
+.lang-switch__trigger::before {
+  content: "";
+  position: absolute;
+  inset: -0.55rem -0.25rem;
+}
+
+.lang-switch__trigger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.lang-switch.is-open .lang-switch__trigger,
+.lang-switch__trigger:active {
+  box-shadow:
+    inset 0 1px 0 var(--chrome-shine),
+    0 0 0 0.5px var(--chrome-edge),
+    0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.lang-switch__code {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.lang-switch__chevron {
+  display: inline-flex;
+  color: color-mix(in srgb, var(--ink) 45%, transparent);
+  transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), color 0.18s ease;
+}
+
+.lang-switch.is-open .lang-switch__chevron {
+  transform: rotate(180deg);
+  color: var(--accent-ink);
+}
+
+.lang-switch__menu {
+  /* fixed: nav shell overflow-x-clip menüyü dikeyde de kesmesin */
+  position: fixed;
+  top: var(--lang-menu-top, calc(100% + 0.4rem));
+  right: var(--lang-menu-right, 0.75rem);
+  left: auto;
+  z-index: 200;
+  display: flex;
+  min-width: 10.5rem;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.4rem;
+  border-radius: 6px;
+  background: var(--glass-strong);
+  color: var(--foreground);
+  box-shadow:
+    inset 0 1px 0 var(--chrome-shine),
+    0 0 0 0.5px var(--chrome-edge),
+    0 14px 36px -18px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  transform-origin: top right;
+  animation: lang-switch-in 0.16s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.lang-switch__menu[hidden] {
+  display: none;
+}
+
+.lang-switch__option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 2.75rem;
+  padding: 0.45rem 0.7rem;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: color-mix(in srgb, var(--ink) 72%, transparent);
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color 0.14s ease,
+    color 0.14s ease;
+}
+
+.lang-switch__option-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.lang-switch__option-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: color-mix(in srgb, var(--ink) 40%, transparent);
+}
+
+.lang-switch__option.is-active {
+  background: var(--ink);
+  color: var(--ink-fg);
+}
+
+.lang-switch__option.is-active .lang-switch__option-code {
+  color: color-mix(in srgb, var(--ink-fg) 55%, var(--accent));
+}
+
+.lang-switch__option:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+@keyframes lang-switch-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lang-switch__trigger:hover {
+    color: var(--ink);
+  }
+
+  .lang-switch__trigger:hover .lang-switch__chevron {
+    color: var(--accent-ink);
+  }
+
+  .lang-switch__option:not(.is-active):hover {
+    background: color-mix(in srgb, var(--ink) 6%, transparent);
+    color: var(--ink);
+  }
+
+  .lang-switch__option:not(.is-active):hover .lang-switch__option-code {
+    color: var(--accent-ink);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-switch__chevron,
+  .lang-switch__option,
+  .lang-switch__trigger {
+    transition: none;
+  }
+
+  .lang-switch__menu {
+    animation: none;
+  }
 }
 
 /* ── Theme toggle: cam kapsül ── */
@@ -247,9 +453,9 @@ html::-webkit-scrollbar-corner {
   background:
     radial-gradient(
       120% 90% at 82% 55%,
-      #22302f 0%,
-      #14201f 50%,
-      #041017 100%
+      #252a33 0%,
+      #151920 50%,
+      #0c0e12 100%
     );
   opacity: 0;
 }
@@ -574,12 +780,13 @@ html::-webkit-scrollbar-corner {
   }
 
   .theme-toggle__glass,
-  .theme-toggle__knob-glass {
+  .theme-toggle__knob-glass,
+  .lang-switch__menu {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
 
-  /* Hero glow: daha ucuz blur — grain aynı, sahne keskinliği aynı */
+  /* Hero glow: daha ucuz blur — görsel kalite korunur, grain aynı */
   .hero-glow {
     filter: blur(48px);
     width: 54vmax;
@@ -612,7 +819,8 @@ html::-webkit-scrollbar-corner {
   }
 
   .theme-toggle__glass,
-  .theme-toggle__knob-glass {
+  .theme-toggle__knob-glass,
+  .lang-switch__menu {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
@@ -740,39 +948,46 @@ html::-webkit-scrollbar-corner {
 }
 
 /*
-  Blueprint ızgarası — paletin imza öğesi.
-  Cyanotype konsepti: bitmiş nesnenin arkasındaki yapıyı göster. Izgara
-  hero'nun altında çok soluk durur, kenarlara doğru maskeyle söner ve
-  camdan "M"in arkasında teknik çizim kâğıdı hissi bırakır.
-  Statik — animasyon YOK; sürekli compositor işi istemiyoruz.
+  Chrome edge — Atelier Signal. Blueprint ızgara terk edildi; neredeyse
+  görünmez metal çizgi ağı cam M’nin arkasında malzeme hissi bırakır.
+  Statik — animasyon YOK.
 */
 .hero-grid {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  opacity: 0.35;
   background-image:
     linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-  background-size: 72px 72px;
+  background-size: 96px 96px;
   mask-image: radial-gradient(
-    ellipse 70% 65% at 50% 45%,
-    #000 20%,
-    transparent 78%
+    ellipse 55% 50% at 50% 42%,
+    #000 10%,
+    transparent 70%
   );
   -webkit-mask-image: radial-gradient(
-    ellipse 70% 65% at 50% 45%,
-    #000 20%,
-    transparent 78%
+    ellipse 55% 50% at 50% 42%,
+    #000 10%,
+    transparent 70%
   );
 }
 
 @media (max-width: 768px) {
   .hero-grid {
-    background-size: 48px 48px;
+    background-size: 64px 64px;
+    opacity: 0.22;
+  }
+
+  .hero-glow {
+    filter: blur(48px);
+    width: 54vmax;
+    height: 54vmax;
+    will-change: auto;
   }
 }
 
-/* Yavaş dönen yumuşak ışık — sahneye canlılık */
+/* Petrol glow — yalnızca hero, düşük opacity (AI neon-dark default değil) */
 .hero-glow {
   position: absolute;
   pointer-events: none;
@@ -782,12 +997,12 @@ html::-webkit-scrollbar-corner {
   top: 42%;
   translate: -50% -50%;
   border-radius: 999px;
-  filter: blur(72px);
-  opacity: 0.22;
+  filter: blur(80px);
+  opacity: 0.1;
   mix-blend-mode: screen;
   background: radial-gradient(
     circle at 50% 50%,
-    color-mix(in srgb, var(--accent) 18%, transparent) 0%,
+    color-mix(in srgb, var(--accent) 12%, transparent) 0%,
     transparent 62%
   );
   animation: hero-glow-drift 22s ease-in-out infinite alternate;
@@ -795,7 +1010,7 @@ html::-webkit-scrollbar-corner {
 }
 
 .dark .hero-glow {
-  opacity: 0.34;
+  opacity: 0.16;
 }
 
 /* Hero görüş dışındayken atmosfer animasyonlarını duraklat — boşa
@@ -847,8 +1062,9 @@ html::-webkit-scrollbar-corner {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #041017;
-  color: #e8eef3;
+  /* Kinetic void — tema-bağımsız; perde her zaman atölye gecesi */
+  background: #0a0d11;
+  color: #eef1f4;
   overflow: hidden;
   will-change: transform;
   /* Failsafe: JS çalışmazsa / timeline kilitlenirse perde kalkmasın diye (~4.2s) */
@@ -934,8 +1150,8 @@ html.intro-lock {
   z-index: 9600;
   display: grid;
   place-items: center;
-  background: #041017;
-  color: #e8eef3;
+  background: #0c0e12;
+  color: #eef0f3;
   pointer-events: none;
   animation: route-loader-in 0.28s ease both;
 }
@@ -980,7 +1196,7 @@ html.intro-lock {
   font-size: clamp(3.5rem, 12vw, 6.5rem);
   line-height: 0.9;
   letter-spacing: -0.04em;
-  color: #e8eef3;
+  color: #eef0f3;
 }
 
 .metek-loader__m {
@@ -990,7 +1206,7 @@ html.intro-lock {
 
 .metek-loader__dot {
   display: inline-block;
-  color: #7ec8e8;
+  color: var(--accent);
   animation: metek-loader-dot 1.4s ease-in-out infinite;
 }
 
@@ -998,7 +1214,7 @@ html.intro-lock {
   width: min(7.5rem, 28vw);
   height: 2px;
   transform-origin: left center;
-  background: #7ec8e8;
+  background: var(--accent);
   animation: metek-loader-hair 1.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
 
@@ -1119,10 +1335,13 @@ html.intro-lock {
 .hero-wall__shot {
   aspect-ratio: 900 / 1947;
   overflow: hidden;
-  border-radius: 0.85rem;
-  border: 1px solid color-mix(in srgb, var(--foreground) 12%, transparent);
+  /* Chrome material — yumuşak kart değil, keskin sahne dokusu */
+  border-radius: 2px;
+  border: 1px solid var(--chrome-edge);
   background: var(--stone);
-  box-shadow: 0 24px 55px -38px rgba(0, 0, 0, 0.85);
+  box-shadow:
+    inset 0 1px 0 var(--chrome-shine),
+    0 18px 40px -32px rgba(0, 0, 0, 0.9);
 }
 
 /* Metnin okunduğu perde. Dikey katman üst/alt kenarları zemine bağlar

@@ -57,8 +57,8 @@ export function generateStaticParams() {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#eae7de" },
-    { media: "(prefers-color-scheme: dark)", color: "#08161f" },
+    { media: "(prefers-color-scheme: light)", color: "#e5e8eb" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0d11" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -178,6 +178,14 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body>
+        {/*
+          THESIS: Machine first (glass M), then brutal proof, then editorial thinking — one chrome system.
+          OWN-WORLD: Carbon·Mist·Petrol — void/paper grounds, petrol accent, chrome edge; Goks+Vireon.
+          STORY: Hire the studio that shows craft before claims.
+          FIRST VIEWPORT: Full-bleed 3D M + display headline + one CTA group; no cards/stats.
+          FORM: Atelier Signal fused world · seed:plan-atelier-signal
+          FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+        */}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script dangerouslySetInnerHTML={{ __html: introInitScript }} />
         <script
@@ -191,7 +199,7 @@ export default async function LocaleLayout({
             <SmoothScroll>
               <a
                 href="#main-content"
-                className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[10000] focus:inline-flex focus:min-h-11 focus:items-center focus:rounded-full focus:bg-ink focus:px-4 focus:text-sm focus:font-bold focus:text-ink-fg"
+                className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[10000] focus:inline-flex focus:min-h-11 focus:items-center focus:rounded-sm focus:bg-accent focus:px-4 focus:text-sm focus:font-bold focus:text-on-accent"
               >
                 {tA11y("skipToContent")}
               </a>

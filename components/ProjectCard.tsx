@@ -29,7 +29,7 @@ export default function ProjectCard({
       <Link
         scroll={false}
         href={`/work/${project.id}`}
-        className="relative block aspect-[800/620] w-full overflow-hidden rounded-[1rem] bg-stone ring-1 ring-inset ring-foreground/8 transition-[box-shadow] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink [@media(hover:hover)_and_(pointer:fine)]:group-hover:ring-accent/35"
+        className="relative block aspect-[800/620] w-full overflow-hidden rounded-sm bg-stone shadow-[inset_0_0_0_1px_var(--chrome-edge)] transition-[box-shadow] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink [@media(hover:hover)_and_(pointer:fine)]:group-hover:shadow-[inset_0_0_0_1px_color-mix(in_srgb,var(--accent)_50%,transparent)]"
         aria-label={`${name} — ${t("view")}`}
       >
         {/* Soft-nav: tüm grid’i birden decode etme — viewport’a yaklaşınca mount */}
@@ -45,33 +45,33 @@ export default function ProjectCard({
       <div className="flex flex-1 flex-col px-1 pb-1 pt-5 md:pt-6">
         <div className="flex items-baseline justify-between gap-3">
           {detail?.tag ? (
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/35">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-band-fg/40">
               {detail.tag}
             </p>
           ) : (
             <span />
           )}
           {project.year ? (
-            <p className="font-mono text-[10px] font-bold tabular-nums text-foreground/30">
+            <p className="font-mono text-[10px] font-bold tabular-nums text-band-fg/30">
               {project.year}
             </p>
           ) : null}
         </div>
-        <h3 className="mt-2 text-xl font-bold tracking-tight md:text-2xl">
+        <h3 className="mt-2 text-xl font-bold tracking-tight text-band-fg md:text-2xl">
           <Link
             scroll={false}
             href={`/work/${project.id}`}
-            className="rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
+            className="rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
           >
             {name}
           </Link>
         </h3>
         {punch ? (
-          <p className="mt-2 max-w-[36ch] text-sm leading-relaxed text-foreground/50">
+          <p className="mt-2 max-w-[36ch] text-sm leading-relaxed text-band-fg/50">
             {punch}
           </p>
         ) : detail?.summary ? (
-          <p className="mt-2 line-clamp-3 max-w-[36ch] text-sm leading-relaxed text-foreground/45">
+          <p className="mt-2 line-clamp-3 max-w-[36ch] text-sm leading-relaxed text-band-fg/45">
             {detail.summary}
           </p>
         ) : null}
@@ -80,7 +80,7 @@ export default function ProjectCard({
           <Link
             scroll={false}
             href={`/work/${project.id}`}
-            className="inline-flex min-h-10 items-center gap-1.5 text-sm font-semibold text-ink underline-offset-4 transition-colors hover:underline"
+            className="inline-flex min-h-10 items-center gap-1.5 text-sm font-semibold text-band-fg underline-offset-4 transition-colors hover:text-accent hover:underline"
           >
             {t("view")}
             <span aria-hidden>→</span>
@@ -90,7 +90,7 @@ export default function ProjectCard({
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-10 items-center gap-1 text-sm font-medium text-foreground/40 transition-colors hover:text-foreground/70"
+              className="inline-flex min-h-10 items-center gap-1 text-sm font-medium text-band-fg/40 transition-colors hover:text-band-fg/70"
             >
               {t("live")}
               <span aria-hidden>↗</span>

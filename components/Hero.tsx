@@ -8,16 +8,10 @@ import HeroWall from "./HeroWall";
 import Magnetic from "./Magnetic";
 import SpecularButton from "./SpecularButton";
 import { gsap, useGSAP } from "@/lib/gsap";
+import { loadHeroScene } from "@/lib/load-hero-scene";
 
-/**
- * Chunk'ı erken çek — intro ısınmasında mount anında hazır olsun.
- *
- * Modül kapsamında ÇAĞIRMA: Hero, layout'taki HomeHeroKeepAlive tarafından
- * statik import ediliyor; modül her rotada değerlendiği için three.js (~259KB
- * gzip) /blog, /services gibi 3D'siz sayfalarda da iniyordu. Tetiği
- * HomeHeroKeepAlive veriyor (ana sayfada hemen, diğerlerinde idle'da).
- */
-export const loadHeroScene = () => import("./HeroScene");
+/** Prefetch tetikleri için re-export — HomeHeroKeepAlive / Intro. */
+export { loadHeroScene };
 
 /* Yükleme yer tutucusu yok: arkada HeroWall zaten duruyor, opak bir gradient
    basmak duvarı sahne hazır olana kadar gizliyordu. */
@@ -205,8 +199,6 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
           className="pointer-events-none absolute left-5 top-[calc(var(--nav-offset)+0.35rem)] z-10 hidden text-[10px] font-semibold uppercase leading-relaxed tracking-[0.16em] text-ink/50 sm:block sm:text-[11px] md:left-16 md:top-[calc(var(--nav-offset)+0.75rem)] md:tracking-[0.18em]"
         >
           <span className="text-accent-ink">●</span> {t("metaStudio")}
-          <br />
-          {t("metaLocation")}
         </div>
 
         <div
@@ -219,7 +211,7 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
           */}
           <h1
             aria-label={`${t("line1")} ${t("line2")} ${t("line3")}`}
-            className="mx-auto max-w-5xl text-center font-display text-[clamp(2.1rem,7.2vw,5.75rem)] font-bold leading-[0.95] tracking-[-0.03em] text-ink [text-shadow:0_1px_20px_rgba(242,243,241,0.5)] dark:[text-shadow:0_2px_26px_rgba(5,14,16,0.65)] max-md:text-[clamp(1.85rem,8.4vw,3.1rem)] max-md:leading-[1.02] md:mx-0 md:max-w-[13ch] md:text-left md:text-[clamp(2.5rem,4.9vw,4.75rem)]"
+            className="mx-auto max-w-5xl text-center font-display text-[clamp(2.1rem,7.2vw,5.75rem)] font-bold leading-[0.95] tracking-[-0.035em] text-ink [text-shadow:0_1px_18px_rgba(232,230,224,0.45)] dark:[text-shadow:0_2px_28px_rgba(12,11,10,0.7)] max-md:text-[clamp(1.85rem,8.4vw,3.1rem)] max-md:leading-[1.02] md:mx-0 md:max-w-[13ch] md:text-left md:text-[clamp(2.5rem,4.9vw,4.75rem)]"
           >
             <span className="block" aria-hidden>
               {t("line1")}
@@ -254,6 +246,7 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
               }`}
             >
               <Magnetic strength={0.18} className="w-full sm:w-auto">
+                {/* ogl SpecularButton içinde lazy — kalite tam, critical path şişmez */}
                 <SpecularButton
                   href={{ pathname: "/", hash: "contact" }}
                   tone="accent"
@@ -267,7 +260,7 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
               <Link
                 href={{ pathname: "/", hash: "work" }}
                 scroll={false}
-                className="inline-flex min-h-11 items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-ink/20 bg-paper/90 px-5 text-sm font-semibold text-ink/80 transition-colors hover:border-ink/35 hover:text-ink sm:min-h-10 md:bg-paper/70 md:backdrop-blur-sm"
+                className="inline-flex min-h-11 items-center justify-center gap-1.5 whitespace-nowrap rounded-sm border border-[color:var(--chrome-edge)] bg-paper/90 px-5 text-sm font-semibold text-ink/80 shadow-[inset_0_1px_0_var(--chrome-shine)] transition-colors hover:border-ink/35 hover:text-ink sm:min-h-10 md:bg-paper/70 md:backdrop-blur-sm"
               >
                 {t("ctaWork")}
                 <span aria-hidden>↘</span>

@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
 import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
+import { loadHeroScene } from "@/lib/load-hero-scene";
 
 /**
  * Sinematik açılış perdesi — süre bilinçli uzun tutulur ki perde kalkmadan
@@ -15,7 +16,7 @@ import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
 
 function warmHomeChunks() {
   // Yalnızca hero — mid-fold LazyMount ile scroll’a bırakılır (TTI / long-task).
-  return Promise.allSettled([import("./HeroScene")]);
+  return Promise.allSettled([loadHeroScene()]);
 }
 
 function waitForEvent(name: string, timeoutMs: number) {
@@ -283,7 +284,7 @@ export default function Intro() {
         </span>
         <span
           ref={dotRef}
-          className="inline-block text-[#7ec8e8]"
+          className="inline-block text-accent"
           style={{ opacity: 0 }}
         >
           .
@@ -292,16 +293,16 @@ export default function Intro() {
 
       <div className="absolute inset-x-0 bottom-0 z-10 flex items-end justify-between px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] md:px-10 md:pb-8">
         <div ref={labelLRef} style={{ opacity: 0 }}>
-          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#e8eef3] md:text-xs">
+          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#eef0f3] md:text-xs">
             METEK Digital
           </p>
-          <p className="mt-1.5 text-[10px] uppercase tracking-[0.18em] text-[#e8eef3]/45 md:text-[11px]">
+          <p className="mt-1.5 text-[10px] uppercase tracking-[0.18em] text-[#eef0f3]/45 md:text-[11px]">
             {t("metaStudio")}
           </p>
         </div>
         <div
           ref={labelRRef}
-          className="font-mono text-xs tracking-[0.2em] text-[#e8eef3]/70 md:text-sm"
+          className="font-mono text-xs tracking-[0.2em] text-[#eef0f3]/70 md:text-sm"
           style={{ opacity: 0 }}
         >
           <span ref={counterRef}>000</span>
@@ -310,7 +311,7 @@ export default function Intro() {
 
       <div
         ref={hairRef}
-        className="absolute inset-x-0 bottom-0 z-10 h-[2px] origin-left bg-[#7ec8e8]"
+        className="absolute inset-x-0 bottom-0 z-10 h-[2px] origin-left bg-accent"
         style={{ transform: "scaleX(0)" }}
       />
     </div>

@@ -138,10 +138,10 @@ export default function Navbar() {
                     href={link.href}
                     scroll={false}
                     aria-current={isActive ? "page" : undefined}
-                    className={`relative inline-flex min-h-11 items-center whitespace-nowrap rounded-full px-2.5 py-1.5 text-[12px] font-semibold tracking-tight transition-colors xl:px-3 xl:text-[13px] ${
+                    className={`relative inline-flex min-h-11 items-center whitespace-nowrap rounded-sm px-2.5 py-1.5 text-[12px] font-semibold tracking-tight transition-colors xl:px-3 xl:text-[13px] ${
                       isActive
                         ? "bg-ink text-ink-fg"
-                        : "text-ink/65 hover:bg-ink/5 hover:text-ink"
+                        : "text-ink/65 hover:text-ink"
                     }`}
                   >
                     {link.label}
@@ -150,7 +150,7 @@ export default function Navbar() {
               })}
             </div>
 
-            <div className="flex min-w-0 shrink-0 items-center gap-0.5 sm:gap-1.5 md:gap-2.5">
+            <div className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-2.5 md:gap-3.5">
               <ThemeToggle />
               <LanguageSwitcher />
               <Magnetic strength={0.18}>
@@ -158,7 +158,7 @@ export default function Navbar() {
                   href={{ pathname: "/", hash: "contact" }}
                   scroll={false}
                   aria-label={t("cta")}
-                  className="btn-sheen btn-stable inline-flex min-h-10 shrink-0 rounded-full bg-accent px-2.5 py-2 text-xs font-bold text-on-accent sm:px-3.5 md:min-h-0 md:px-5 md:py-2.5 md:text-sm"
+                  className="btn-sheen btn-stable inline-flex min-h-10 shrink-0 rounded-sm bg-accent px-2.5 py-2 text-xs font-bold text-on-accent shadow-[inset_0_1px_0_var(--chrome-shine)] sm:px-3.5 md:min-h-0 md:px-5 md:py-2.5 md:text-sm"
                 >
                   <span className="sm:hidden" aria-hidden="true">
                     {t("ctaShort")}
@@ -190,10 +190,10 @@ export default function Navbar() {
                   href={link.href}
                   scroll={false}
                   aria-current={isActive ? "page" : undefined}
-                  className={`inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full px-3.5 py-2 text-[13px] font-semibold transition-colors touch-manipulation ${
+                  className={`inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-sm px-3.5 py-2 text-[13px] font-semibold transition-colors touch-manipulation ${
                     isActive
                       ? "bg-ink text-ink-fg"
-                      : "bg-foreground/[0.04] text-ink/60 active:bg-foreground/[0.08]"
+                      : "text-ink/60 active:bg-foreground/[0.06]"
                   }`}
                 >
                   {link.label}
@@ -206,7 +206,7 @@ export default function Navbar() {
         <div
           ref={progressRef}
           aria-hidden
-          className="h-[2px] origin-left scale-x-0 bg-ink"
+          className="h-[2px] origin-left scale-x-0 bg-accent"
         />
       </header>
 

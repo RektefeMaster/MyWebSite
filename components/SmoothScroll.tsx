@@ -494,10 +494,9 @@ export default function SmoothScroll({
       localeBoot.current = false;
       return;
     }
-    scheduleScrollTriggerRefresh(80);
-    const t = window.setTimeout(() => scheduleScrollTriggerRefresh(280), 280);
-    void document.fonts?.ready.then(() => scheduleScrollTriggerRefresh(0));
-    return () => window.clearTimeout(t);
+    // Tek debounce — 80+280+fonts üçlüsü dil değişiminde jank yaratıyordu
+    scheduleScrollTriggerRefresh(140);
+    void document.fonts?.ready.then(() => scheduleScrollTriggerRefresh(60));
   }, [locale]);
 
   return children;

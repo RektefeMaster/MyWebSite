@@ -18,7 +18,7 @@ export default function LightPhone({
       aria-hidden
       className={
         className ??
-        "pointer-events-none absolute bottom-2.5 right-2.5 z-[2] block aspect-[9/19] w-[19%] max-w-[4.35rem] overflow-hidden rounded-[0.85rem] border border-white/35 bg-[#0a0a0a] shadow-[0_10px_24px_rgba(0,0,0,0.4)] ring-1 ring-black/40 md:bottom-4 md:right-4 md:max-w-[6.5rem] md:rounded-[1rem] md:shadow-[0_12px_28px_rgba(0,0,0,0.45)]"
+        "pointer-events-none absolute bottom-2.5 right-2.5 z-[2] block aspect-[9/19] w-[19%] max-w-[4.35rem] overflow-hidden rounded-sm border border-white/30 bg-[#0a0a0a] shadow-[0_10px_24px_rgba(0,0,0,0.4)] md:bottom-4 md:right-4 md:max-w-[6.5rem] md:shadow-[0_12px_28px_rgba(0,0,0,0.45)]"
       }
     >
       <Image

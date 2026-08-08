@@ -9,7 +9,8 @@ function FoldSpacer({ h = "min(48vh, 520px)" }: { h?: string }) {
 }
 
 /**
- * Mid-fold: Selected Work → Capabilities → Manifesto → Featured Case → Approach
+ * Mid-fold (Atelier Signal): void kanıt → paper omurga
+ * Selected Work → Featured Case → Capabilities → Manifesto → Approach
  * Notes (BlogTeaser) page.tsx’te Approach’tan sonra gelir.
  *
  * dynamic() bundle böler; LazyMount viewport’a yaklaşınca mount eder
@@ -18,14 +19,14 @@ function FoldSpacer({ h = "min(48vh, 520px)" }: { h?: string }) {
 const SelectedWork = dynamic(() => import("@/components/SelectedWork"), {
   loading: () => <FoldSpacer />,
 });
+const FeaturedCase = dynamic(() => import("@/components/FeaturedCase"), {
+  loading: () => <FoldSpacer />,
+});
 const Capabilities = dynamic(() => import("@/components/Capabilities"), {
   loading: () => <FoldSpacer />,
 });
 const ManifestoScene = dynamic(() => import("@/components/ManifestoScene"), {
   loading: () => <FoldSpacer h="min(40vh, 420px)" />,
-});
-const FeaturedCase = dynamic(() => import("@/components/FeaturedCase"), {
-  loading: () => <FoldSpacer />,
 });
 const ApproachTeaser = dynamic(() => import("@/components/ApproachTeaser"), {
   loading: () => <FoldSpacer />,
@@ -42,19 +43,19 @@ export default function HomeMidFold() {
       >
         <SelectedWork />
       </LazyMount>
-      <LazyMount minHeight="min(48vh, 520px)" rootMargin="280px 0px">
+      <LazyMount
+        id="featured"
+        minHeight="min(48vh, 520px)"
+        rootMargin="280px 0px"
+        className="scroll-mt-[var(--nav-offset)]"
+      >
+        <FeaturedCase />
+      </LazyMount>
+      <LazyMount minHeight="min(48vh, 520px)" rootMargin="240px 0px">
         <Capabilities />
       </LazyMount>
       <LazyMount minHeight="min(40vh, 420px)" rootMargin="240px 0px">
         <ManifestoScene />
-      </LazyMount>
-      <LazyMount
-        id="featured"
-        minHeight="min(48vh, 520px)"
-        rootMargin="240px 0px"
-        className="scroll-mt-[var(--nav-offset)]"
-      >
-        <FeaturedCase />
       </LazyMount>
       <LazyMount minHeight="min(48vh, 520px)" rootMargin="200px 0px">
         <ApproachTeaser />

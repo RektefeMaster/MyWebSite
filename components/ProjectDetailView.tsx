@@ -64,12 +64,12 @@ export default async function ProjectDetailView({
 
   return (
     <article className="bg-background">
-      <header className="border-b border-foreground/8 bg-paper">
+      <header className="border-b border-[color:var(--chrome-edge)] bg-paper">
         <div className="mx-auto max-w-7xl px-5 pb-12 pt-[calc(var(--nav-offset)+1.25rem)] md:px-10 md:pb-16 md:pt-32">
           <Reveal>
             <nav
               aria-label={a11y("breadcrumb")}
-              className="mb-6 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground/40"
+              className="mb-8 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-foreground/40"
             >
               <Link scroll={false} href="/" className="inline-flex min-h-6 items-center py-1.5 -my-1.5 transition-colors hover:text-ink">
                 {nav("home")}
@@ -84,13 +84,13 @@ export default async function ProjectDetailView({
           </Reveal>
 
           <Reveal delay={40}>
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
+            <p className="mb-4 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-foreground/40">
               {detail.tag}
             </p>
-            <h1 className="font-display max-w-4xl text-3xl leading-[1.08] tracking-tight md:text-5xl lg:text-6xl">
+            <h1 className="font-display max-w-4xl text-[clamp(2.25rem,5.5vw,3.75rem)] leading-[0.98] tracking-[-0.035em]">
               {forDisplay(name)}
             </h1>
-            <p className="font-subtitle mt-5 max-w-2xl text-base leading-relaxed text-foreground/55 md:text-lg">
+            <p className="font-subtitle mt-6 max-w-[68ch] text-base leading-relaxed text-foreground/55 md:text-lg">
               {detail.summary}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
@@ -143,19 +143,16 @@ export default async function ProjectDetailView({
       </header>
 
       {gallery.length > 0 ? (
-        <section className="border-b border-foreground/8 bg-paper px-5 py-12 md:px-10 md:py-16">
+        <section className="border-b border-[color:var(--chrome-edge)] bg-band px-5 py-12 text-band-fg md:px-10 md:py-16">
           <div className="mx-auto max-w-7xl">
             <Reveal>
-              <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-foreground/35">
-                {t("gallery")}
-              </p>
-              <p className="mb-6 max-w-lg text-sm text-foreground/50 md:text-[15px]">
+              <p className="mb-6 max-w-lg text-sm text-band-fg/55 md:text-[15px]">
                 {t("galleryHint")}
               </p>
             </Reveal>
             <Reveal delay={60}>
-              <div className="overflow-hidden rounded-[1.75rem] border border-foreground/8 bg-background md:rounded-[2rem]">
-                <div className="grid grid-cols-6 gap-2 p-2 md:gap-2.5 md:p-2.5">
+              <div className="overflow-hidden rounded-sm bg-band-fg/[0.03] shadow-[inset_0_0_0_1px_var(--chrome-edge)]">
+                <div className="grid grid-cols-6 gap-1 p-1 md:gap-1.5 md:p-1.5">
                   {gallery.map((shot, i) => {
                     // span'i bir kez çöz — `sizes` ile grid aynı değeri görsün
                     const span =
@@ -166,7 +163,7 @@ export default async function ProjectDetailView({
                     return (
                     <div
                       key={shot.src}
-                      className={`relative overflow-hidden rounded-[1rem] bg-stone md:rounded-[1.15rem] ${span}`}
+                      className={`relative overflow-hidden rounded-sm bg-stone ${span}`}
                     >
                       <Image
                         src={shot.src}
@@ -233,22 +230,22 @@ export default async function ProjectDetailView({
 
           {detail.result ? (
             <Reveal delay={80}>
-              <p className="rounded-3xl border border-foreground/10 bg-surface px-6 py-5 text-sm leading-relaxed text-foreground/60 md:text-[15px]">
+              <p className="rounded-sm border border-[color:var(--chrome-edge)] bg-paper px-6 py-5 text-sm leading-relaxed text-foreground/60 shadow-[inset_0_1px_0_var(--chrome-shine)] md:text-[15px]">
                 {detail.result}
               </p>
             </Reveal>
           ) : null}
 
           <Reveal delay={100}>
-            <div className="rounded-3xl border border-foreground/10 bg-surface p-6 md:p-7">
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-foreground/35">
+            <div className="rounded-sm border border-[color:var(--chrome-edge)] bg-paper p-6 shadow-[inset_0_1px_0_var(--chrome-shine)] md:p-7">
+              <p className="mb-4 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-foreground/40">
                 {t("stack")}
               </p>
               <div className="flex flex-wrap gap-2">
                 {detail.stack.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-foreground/10 bg-paper px-3 py-1.5 text-xs font-semibold text-ink"
+                    className="rounded-sm border border-[color:var(--chrome-edge)] bg-surface px-3 py-1.5 text-xs font-semibold text-ink"
                   >
                     {item}
                   </span>

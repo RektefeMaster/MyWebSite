@@ -42,7 +42,7 @@ function CapVisual({ id, label }: { id: CapId; label: string }) {
   return (
     <div
       aria-hidden
-      className="relative min-h-[220px] overflow-hidden rounded-[1.15rem] bg-ink ring-1 ring-inset ring-white/10 md:min-h-[300px] md:rounded-[1.35rem]"
+      className="relative min-h-[220px] overflow-hidden rounded-sm bg-ink shadow-[inset_0_0_0_1px_var(--chrome-edge)] md:min-h-[300px]"
     >
       <Image
         src={visual.hero}
@@ -57,7 +57,7 @@ function CapVisual({ id, label }: { id: CapId; label: string }) {
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/10 to-transparent" />
 
-      <div className="absolute left-4 top-4 z-[1] rounded-full bg-ink/55 px-2.5 py-1 backdrop-blur-sm md:left-5 md:top-5">
+      <div className="absolute left-4 top-4 z-[1] rounded-sm bg-ink/55 px-2.5 py-1 backdrop-blur-sm md:left-5 md:top-5">
         <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-white/90">
           {label}
         </span>
@@ -185,30 +185,21 @@ export default function Capabilities() {
   return (
     <section
       id="capabilities"
-      className="cv-auto scroll-mt-[var(--nav-offset)] border-t border-foreground/8 bg-background px-5 py-16 md:px-10 md:py-28"
+      className="cv-auto scroll-mt-[var(--nav-offset)] border-t border-foreground/8 bg-paper px-5 py-16 md:px-10 md:py-28"
     >
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 max-w-2xl md:mb-16">
           <Reveal>
-            <p className="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-foreground/40">
-              <span
-                aria-hidden
-                className="inline-block h-px w-6 bg-accent/80"
-              />
-              {t("label")}
-            </p>
-          </Reveal>
-          <Reveal delay={40}>
             <h2 className="font-display text-4xl font-bold tracking-tight md:text-6xl">
               {t("title")}
             </h2>
           </Reveal>
-          <Reveal delay={80}>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-foreground/50 md:text-base">
+          <Reveal delay={60}>
+            <p className="mt-5 max-w-[68ch] text-sm leading-relaxed text-foreground/55 md:text-base">
               {t("blurb")}
             </p>
           </Reveal>
-          <Reveal delay={100}>
+          <Reveal delay={90}>
             <p className="mt-3 max-w-md font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-foreground/30">
               {t("techLine")}
             </p>

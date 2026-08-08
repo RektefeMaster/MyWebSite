@@ -30,7 +30,7 @@ export const blogPosts: BlogPostMeta[] = [
     date: "2026-08-05",
     readMinutes: 16,
     category: "digital",
-    accent: "#175e86",
+    accent: "#0c6b66",
     image: "/blog/what-is-seo.webp",
   },
   {
@@ -38,7 +38,7 @@ export const blogPosts: BlogPostMeta[] = [
     date: "2026-08-05",
     readMinutes: 12,
     category: "strategy",
-    accent: "#0c2233",
+    accent: "#14171c",
     image: "/blog/website-pricing-why-cheap-costs-more.webp",
   },
   {
@@ -54,7 +54,7 @@ export const blogPosts: BlogPostMeta[] = [
     date: "2026-08-05",
     readMinutes: 12,
     category: "digital",
-    accent: "#175e86",
+    accent: "#0c6b66",
     image: "/blog/technical-seo-checklist-business-website.webp",
   },
   {
@@ -62,7 +62,7 @@ export const blogPosts: BlogPostMeta[] = [
     date: "2026-07-18",
     readMinutes: 10,
     category: "identity",
-    accent: "#175e86",
+    accent: "#0c6b66",
     image: "/blog/identity-at-first-glance.webp",
   },
   {
@@ -70,7 +70,7 @@ export const blogPosts: BlogPostMeta[] = [
     date: "2026-07-12",
     readMinutes: 10,
     category: "identity",
-    accent: "#0c2233",
+    accent: "#14171c",
     image: "/blog/system-not-logo.webp",
   },
   {
@@ -94,7 +94,7 @@ export const blogPosts: BlogPostMeta[] = [
     date: "2026-06-20",
     readMinutes: 11,
     category: "process",
-    accent: "#175e86",
+    accent: "#0c6b66",
     image: "/blog/brief-that-works.webp",
   },
 ];

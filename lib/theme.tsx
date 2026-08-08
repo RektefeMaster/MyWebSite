@@ -63,7 +63,7 @@ function applyTheme(theme: Theme, opts?: { immediateColorScheme?: boolean }) {
   if (meta) {
     meta.setAttribute(
       "content",
-      theme === "dark" ? "#08161f" : "#eae7de"
+      theme === "dark" ? "#0c0e12" : "#e6e8ec"
     );
   }
 
