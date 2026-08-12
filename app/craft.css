@@ -786,7 +786,8 @@ html::-webkit-scrollbar-corner {
     -webkit-backdrop-filter: none;
   }
 
-  /* Hero glow: daha ucuz blur — görsel kalite korunur, grain aynı */
+  /* Hero hale/glow: daha ucuz blur — görsel kalite korunur, grain aynı */
+  .hero-halo,
   .hero-glow {
     filter: blur(48px);
     width: 54vmax;
@@ -898,24 +899,24 @@ html::-webkit-scrollbar-corner {
   }
 }
 
-/* ── Hero atmosferi ── */
+/* ── Hero atmosferi ──
+   Hero artık her iki temada da aynı siyah film; bu katmanlar tema-bağımsız.
+   (.hero-glow + .hero-vignette + .hero-grain'i Intro perdesi de kullanıyor —
+   o perde de ink zeminli, aynı ayar ikisine de doğru geliyor.) */
 
-/* İnce film greni — her iki temada */
+/* İnce film greni */
 .hero-grain {
   position: absolute;
   /* Yalnızca ±4% kayma için gereken taşma — daha az harmanlanan alan */
   inset: -14%;
   pointer-events: none;
-  opacity: 0.42;
-  mix-blend-mode: soft-light;
+  /* Kadraj mutlak siyah: gren burada çok çabuk "kar"a dönüyor (0.26'da
+     gökyüzü kumlanıyordu). Sadece filmin dokusunu taşıyacak kadar. */
+  opacity: 0.12;
+  mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   animation: grain-shift 7s steps(6) infinite;
   will-change: transform;
-}
-
-.dark .hero-grain {
-  opacity: 0.3;
-  mix-blend-mode: overlay;
 }
 
 @keyframes grain-shift {
@@ -927,67 +928,53 @@ html::-webkit-scrollbar-corner {
   100% { transform: translate3d(0, 0, 0); }
 }
 
-/* Kenar karartma — sinematik derinlik */
+/* Kenar karartma — kadrajın kendi vinyetini uzatır, köşeleri kapatır */
 .hero-vignette {
   position: absolute;
   inset: 0;
   pointer-events: none;
   background: radial-gradient(
-    120% 100% at 50% 42%,
-    transparent 52%,
-    color-mix(in srgb, #000 22%, transparent) 100%
-  );
-}
-
-.dark .hero-vignette {
-  background: radial-gradient(
-    120% 100% at 50% 42%,
-    transparent 46%,
-    color-mix(in srgb, #000 55%, transparent) 100%
+    120% 100% at 50% 46%,
+    transparent 42%,
+    color-mix(in srgb, #000 62%, transparent) 100%
   );
 }
 
 /*
-  Chrome edge — Atelier Signal. Blueprint ızgara terk edildi; neredeyse
-  görünmez metal çizgi ağı cam M’nin arkasında malzeme hissi bırakır.
-  Statik — animasyon YOK.
+  Ay ışığı — cam M'in arkasında duran hale.
+  Mutlak siyah gökte krom M yalnızca kendi kenar ışığıyla görünüyor; bu
+  hale hem markayı zeminden ayırıyor hem de kilidin ağırlık merkezini
+  işaretliyor. Konum M ile AYNI orandan besleniyor (--hero-mark-y);
+  HeroScene'deki MARK_Y ile birlikte değiştir.
 */
-.hero-grid {
+.hero-halo {
   position: absolute;
-  inset: 0;
   pointer-events: none;
-  opacity: 0.35;
-  background-image:
-    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-  background-size: 96px 96px;
-  mask-image: radial-gradient(
-    ellipse 55% 50% at 50% 42%,
-    #000 10%,
-    transparent 70%
+  width: 46vmax;
+  height: 46vmax;
+  left: 50%;
+  top: var(--hero-mark-y);
+  translate: -50% -50%;
+  border-radius: 999px;
+  filter: blur(70px);
+  opacity: 0.5;
+  mix-blend-mode: screen;
+  background: radial-gradient(
+    circle at 50% 50%,
+    color-mix(in srgb, var(--hero-field) 26%, transparent) 0%,
+    color-mix(in srgb, var(--hero-field) 8%, transparent) 42%,
+    transparent 68%
   );
-  -webkit-mask-image: radial-gradient(
-    ellipse 55% 50% at 50% 42%,
-    #000 10%,
-    transparent 70%
-  );
+  animation: hero-halo-breathe 18s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
-@media (max-width: 768px) {
-  .hero-grid {
-    background-size: 64px 64px;
-    opacity: 0.22;
-  }
-
-  .hero-glow {
-    filter: blur(48px);
-    width: 54vmax;
-    height: 54vmax;
-    will-change: auto;
-  }
+@keyframes hero-halo-breathe {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(0, -2%, 0) scale(1.1); }
 }
 
-/* Petrol glow — yalnızca hero, düşük opacity (AI neon-dark default değil) */
+/* Petrol glow — Intro perdesi kullanıyor (hero'da .hero-halo var) */
 .hero-glow {
   position: absolute;
   pointer-events: none;
@@ -998,7 +985,7 @@ html::-webkit-scrollbar-corner {
   translate: -50% -50%;
   border-radius: 999px;
   filter: blur(80px);
-  opacity: 0.1;
+  opacity: 0.16;
   mix-blend-mode: screen;
   background: radial-gradient(
     circle at 50% 50%,
@@ -1009,26 +996,91 @@ html::-webkit-scrollbar-corner {
   will-change: transform;
 }
 
-.dark .hero-glow {
-  opacity: 0.16;
-}
-
 /* Hero görüş dışındayken atmosfer animasyonlarını duraklat — boşa
    harmanlama/blur kompozit maliyeti olmasın (görsel değişmez) */
 [data-atmosphere-idle="true"] .hero-grain,
+[data-atmosphere-idle="true"] .hero-halo,
 [data-atmosphere-idle="true"] .hero-glow {
   animation-play-state: paused;
-  will-change: auto;
-}
-
-/* Reveal bittikten sonra kalıcı compositing layer bırakma */
-.word-reveal-inner.is-settled {
   will-change: auto;
 }
 
 @keyframes hero-glow-drift {
   0% { transform: translate3d(-8%, -4%, 0) scale(1); }
   100% { transform: translate3d(10%, 6%, 0) scale(1.12); }
+}
+
+/* ── Hero marka kilidi ──
+   Kadrajın negatif alanına oturan jenerik: krom M gökyüzünde (WebGL),
+   kelime markası hemen altında, figür ikisinin altında. Konumlar yüzde
+   çünkü kadraj da yüzdeyle kırpılıyor. --hero-mark-y HeroScene'deki
+   MARK_Y ile, --hero-word-y de onun altındaki boşlukla eşleşir. */
+.hero-lockup {
+  top: var(--hero-word-y);
+}
+
+/*
+  İki basamaklı kelime markası: METEK sol üstte, Digital sağ altta.
+  Basamaklar dikeyde hafif biniyor (-0.06em) — iki ayrı satır değil, tek
+  bir jenerik bloğu okunuyor. Kaçış em cinsinden, yani punto büyüyünce
+  kompozisyon bozulmadan birlikte büyüyor.
+*/
+.hero-wordmark {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Marka daima film üstünde: tema tokenı değil, kadrajın kendi beyazı */
+  color: var(--hero-fg);
+  font-size: var(--hero-word-size);
+  line-height: 1;
+  /* Goks geniş bir yüz — jenerik hissi için hafif açılım yeter */
+  letter-spacing: 0.04em;
+  /* Parlak piksele denk gelirse okunurluk + camın halesiyle aynı dil */
+  text-shadow:
+    0 1px 2px rgba(4, 6, 10, 0.55),
+    0 0 38px color-mix(in srgb, var(--hero-field) 42%, transparent);
+}
+
+.hero-wordmark__tail {
+  margin-left: var(--hero-word-stagger);
+  /* Basamaklar arası nefes: yarım örtüşme "hata" gibi duruyordu, net
+     ayrım kararlı bir jenerik gibi duruyor. */
+  margin-top: 0.06em;
+}
+
+/* Kaydırma imi — metin yok, yalnızca inen bir ışık çizgisi */
+.hero-scroll {
+  bottom: max(1.25rem, calc(0.75rem + var(--safe-bottom)));
+}
+
+.hero-scroll__line {
+  display: block;
+  width: 1px;
+  height: 44px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    color-mix(in srgb, var(--hero-fg) 55%, transparent)
+  );
+  mask-image: linear-gradient(to bottom, #000 0 55%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0 55%, transparent 100%);
+  animation: hero-scroll-drop 2.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes hero-scroll-drop {
+  0% { opacity: 0; transform: scaleY(0.35); transform-origin: top; }
+  35% { opacity: 1; }
+  70% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+  100% { opacity: 0; transform: scaleY(1); transform-origin: bottom; }
+}
+
+[data-atmosphere-idle="true"] .hero-scroll__line {
+  animation-play-state: paused;
+}
+
+/* Reveal bittikten sonra kalıcı compositing layer bırakma */
+.word-reveal-inner.is-settled {
+  will-change: auto;
 }
 
 /* ── Başlık reveal (WordReveal) ── */
@@ -1108,7 +1160,9 @@ html.intro-lock {
   }
 
   .hero-grain,
-  .hero-glow {
+  .hero-halo,
+  .hero-glow,
+  .hero-scroll__line {
     animation: none;
   }
 
@@ -1291,119 +1345,161 @@ html.intro-lock {
   }
 }
 
-/* ── Hero duvarı: gerçek proje ekranları ──
-   Hero zemininde, sütun sütun sürüklenen gerçek proje ekran görüntüleri.
-   Ekranlar zaten `public/projects/*` içinde duruyordu; burada ilk ekranda
-   kanıt olarak kullanılıyorlar.
-   Perf: 3 sütun = 3 composite katman, salt translate3d (layout/paint yok).
-   `data-idle` true olunca duruyor (Hero görüş dışına çıkınca) — ekran
-   dışında sıfır iş. */
+/* ── Hero zemini: "tarla" filmi ──
+   Hero'nun tüm arka planı bu film: mutlak siyah gökyüzünde, ışıyan çiçek
+   tarlasında duran humanoid. Yön başına ayrı master var (bkz. HeroFilm.tsx);
+   burada sadece kaplama, kadraj hizası ve okunurluk perdesi.
 
-.hero-wall__tilt {
-  /* Hafif eğim — dümdüz ızgara "stok mockup duvarı" gibi okunuyor.
-     scale, döndürünce açılan köşe boşluklarını kapatıyor. */
-  transform: rotate(-7deg) scale(1.34);
-  transform-origin: center;
+   Kadraj sözleşmesi: master'lar üstten siyahla uzatıldı, yani "gökyüzü"
+   kadrajın parçası. `object-position` bu yüzden merkez DEĞİL — kırpma
+   olduğunda gökyüzü değil zemin verilir; marka kilidi (M + kelime markası)
+   gökyüzüne oturuyor, oradan pay çalınırsa figürün başına biner.
+
+   Perf: tek video katmanı + statik gradient perde. Hero görüş dışına
+   çıkınca video duruyor (HeroFilm `active`), atmosfer katmanları da
+   `data-atmosphere-idle` ile duruyor. */
+
+/*
+  Hero tokenları — TEMA-BAĞIMSIZ. Hero her iki temada da aynı siyah film;
+  --ink / --background gibi tema tokenları burada metin rengi olarak
+  kullanılamaz (açık temada siyah kadrajda siyah yazı). Tek istisna
+  perdenin alt ucu: orası kasten sayfanın zeminine erir.
+
+  --hero-mark-y / --hero-word-y kadrajla eşleşir: figürün başı yatay
+  master'da ~%50, dikeyde ~%61. Değiştirirsen HeroScene'deki
+  MARK_Y / MARK_Y_PORTRAIT ile birlikte değiştir.
+*/
+.hero-section {
+  --hero-void: #04060a;
+  --hero-fg: #eef1f4;
+  /* Tarlanın menekşe-mavisi — HeroScene VOID.field ile aynı */
+  --hero-field: #5b62c8;
+  --hero-mark-y: 40%;
+  --hero-word-y: 41%;
+  --hero-word-size: clamp(1.9rem, 10vw, 3.4rem);
+  /* İkinci basamağın sağa kaçışı — "birazcık", em cinsinden (ölçekle büyür) */
+  --hero-word-stagger: 1.15em;
+  background: var(--hero-void);
 }
 
-.hero-wall__col {
-  flex: none;
-  flex-direction: column;
-  /* gap 0: döngü matematiği set'in kendi padding'ine dayanıyor (aşağıda) */
-  gap: 0;
-  /* Bilinçli küçük: ekranlar tek tek bağırmamalı, bir DOKU olarak okunmalı. */
-  width: clamp(4.75rem, 14vw, 9rem);
-  animation: hero-wall-drift var(--dur, 60s) linear infinite;
-  will-change: transform;
+@media (orientation: landscape) {
+  .hero-section {
+    --hero-mark-y: 34%;
+    --hero-word-y: 34.5%;
+    --hero-word-size: clamp(2rem, 5.2vw, 5.2rem);
+    --hero-word-stagger: 1.5em;
+  }
 }
 
-/* Orta sütun ters yönde — üçü aynı yöne akarsa tek blok gibi görünüyor */
-.hero-wall__col:nth-child(2) {
-  animation-direction: reverse;
+.hero-film {
+  /* Video inene kadar zemin gökyüzüyle aynı — poster/video pop etmiyor */
+  background: var(--hero-void);
 }
 
-/* Kusursuz döngü: kolonun toplam yüksekliği = 2 × set. Bunun için boşluk
-   set'in İÇİNDE (padding-bottom) duruyor; kolona gap verilirse iki set arası
-   fazladan boşluk oluşup -50%'de görünür bir sıçrama yapıyor. */
-.hero-wall__set {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  padding-bottom: 0.75rem;
+.hero-film__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Kırpma payı gökten değil zeminden gitsin (bkz. kadraj sözleşmesi) */
+  object-position: 50% 16%;
+  /*
+    Ne transform ne filtre. İkisi de kareyi bir kez daha örneklettiriyor
+    (scale ile yumuşama, filter ile ek kompozit geçişi); kadraj 1:1
+    basıldığında gözle görülür şekilde daha keskin. Renk zaten master'da.
+  */
 }
 
-.hero-wall__shot {
-  aspect-ratio: 900 / 1947;
-  overflow: hidden;
-  /* Chrome material — yumuşak kart değil, keskin sahne dokusu */
-  border-radius: 2px;
-  border: 1px solid var(--chrome-edge);
-  background: var(--stone);
-  box-shadow:
-    inset 0 1px 0 var(--chrome-shine),
-    0 18px 40px -32px rgba(0, 0, 0, 0.9);
+/*
+  Sahne hazır olunca DOM kelime markası GÖRSEL olarak siliniyor: marka
+  artık yalnızca cam M'in içinden, kırılmış hâliyle okunuyor (kopyası
+  HeroScene'de kırılma arkaplanına çiziliyor). `visibility`/`display`
+  KULLANMA — <h1> erişilebilirlik ağacında ve aramada kalmalı; WebGL
+  yoksa `data-scene-ready` hiç gelmez ve yazı görünür kalır.
+*/
+.hero-lockup[data-scene-ready] .hero-wordmark {
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
-/* Metnin okunduğu perde. Dikey katman üst/alt kenarları zemine bağlar
-   (kolonlar sert kesilmesin), yatay katman başlığın oturduğu sol tarafı
-   neredeyse opak yapar. */
-.hero-wall__veil {
+/* Video ancak ilk kare çözüldüğünde posterin üstüne açılıyor */
+.hero-film__video {
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.hero-film__video[data-playing] {
+  opacity: 1;
+}
+
+/* Okunurluk perdesi. Kadrajın kendisi zaten siyah — perde kadraja
+   dokunmuyor, yalnızca iki uçta iş görüyor:
+   · üst: nav camının altındaki alan (her iki temada da nav okunur kalsın)
+   · alt: sayfaya geçiş — siyah kadraj bir sonraki bölümün zeminine erisin.
+   Alt yıkama KISA (%14): tarla kadrajın en güzel yeri, griye boyamıyoruz.
+   Tema-bağımsız: hero her iki temada da aynı siyah film. */
+.hero-film__veil {
   position: absolute;
   inset: 0;
   background:
     linear-gradient(
       to bottom,
-      var(--background) 0%,
-      color-mix(in srgb, var(--background) 42%, transparent) 20%,
-      color-mix(in srgb, var(--background) 42%, transparent) 76%,
-      var(--background) 100%
+      color-mix(in srgb, var(--hero-void) 55%, transparent) 0%,
+      transparent 22%
     ),
     linear-gradient(
-      98deg,
-      var(--background) 0%,
-      var(--background) 26%,
-      color-mix(in srgb, var(--background) 76%, transparent) 52%,
-      color-mix(in srgb, var(--background) 34%, transparent) 76%,
-      color-mix(in srgb, var(--background) 44%, transparent) 100%
-    );
-}
-
-@media (max-width: 767px) {
-  /* Mobilde başlık duvarın üstünde — yatay perde işe yaramaz, dikey güçlenir */
-  .hero-wall__veil {
-    background: linear-gradient(
       to bottom,
-      var(--background) 0%,
-      color-mix(in srgb, var(--background) 88%, transparent) 30%,
-      color-mix(in srgb, var(--background) 74%, transparent) 62%,
+      transparent 86%,
+      color-mix(in srgb, var(--background) 45%, transparent) 94%,
       var(--background) 100%
     );
-  }
 }
 
-[data-idle="true"].hero-wall .hero-wall__col {
-  animation-play-state: paused;
-  will-change: auto;
+/* ── Atölye kareleri (StudioFrames) ──
+   Kareler artık yayındaki üç yüzeyin gerçek ekran görüntüsü (vitrin /
+   mesaj / sistem). Plaka çerçevesi hero/duvar diliyle aynı: chrome-edge
+   + 2px radius.
+
+   Eski sürümde `filter: saturate(.92)` vardı; üç AI stok fotoğrafını tek
+   sanat yönünde toplamak içindi. Artık kareler BİLEREK birbirine
+   benzemiyor (koyu food editorial → yeşil sohbet → açık UI kit) ve bu
+   zıtlık bölümün argümanı. Doygunluğu kısmak kanıtı zayıflatıyordu:
+   ekran görüntüsü gerçek rengiyle durmalı. Filtre yok. */
+
+.studio-plate {
+  overflow: hidden;
+  border-radius: 2px;
+  border: 1px solid color-mix(in srgb, var(--band-fg) 14%, transparent);
+  background: color-mix(in srgb, var(--band-fg) 6%, transparent);
+  box-shadow: 0 40px 80px -60px rgba(0, 0, 0, 0.9);
 }
 
-/* Hareket azaltma: duvar duruyor ama görünür kalıyor — kanıt kaybolmasın */
-@media (prefers-reduced-motion: reduce) {
-  .hero-wall__col {
-    animation: none;
-    transform: none;
-    will-change: auto;
-  }
-
-  .hero-wall__tilt {
-    transform: rotate(-7deg) scale(1.34) translate3d(0, -12%, 0);
-  }
+/* Parallax kadrajı taşırmasın: kare içinde %7 pay bırakılıyor */
+.studio-plate__shot {
+  transform-origin: center;
+  scale: 1.07;
 }
 
-@keyframes hero-wall-drift {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(0, -50%, 0);
-  }
+/* Telefon karesi: cihaz okuması için daha yumuşak köşe. Parallax YOK —
+   dar kadrajda dikey kayma sohbet balonlarını kırpıyordu. */
+.studio-plate--device {
+  border-radius: 12px;
+}
+
+.studio-caption__label {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--band-fg) 78%, transparent);
+  white-space: nowrap;
+}
+
+.studio-caption__index {
+  color: var(--accent);
 }

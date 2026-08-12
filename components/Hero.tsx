@@ -3,18 +3,15 @@
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { Link } from "@/i18n/navigation";
-import HeroWall from "./HeroWall";
-import Magnetic from "./Magnetic";
-import SpecularButton from "./SpecularButton";
+import HeroFilm from "./HeroFilm";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { loadHeroScene } from "@/lib/load-hero-scene";
 
 /** Prefetch tetikleri için re-export — HomeHeroKeepAlive / Intro. */
 export { loadHeroScene };
 
-/* Yükleme yer tutucusu yok: arkada HeroWall zaten duruyor, opak bir gradient
-   basmak duvarı sahne hazır olana kadar gizliyordu. */
+/* Yükleme yer tutucusu yok: arkada film zaten duruyor, opak bir gradient
+   basmak kadrajı sahne hazır olana kadar gizliyordu. */
 const HeroScene = dynamic(loadHeroScene, { ssr: false });
 
 function getIntroSkip() {
@@ -26,6 +23,20 @@ function subscribeIntroSkip(onStoreChange: () => void) {
   const obs = new MutationObserver(onStoreChange);
   obs.observe(root, { attributes: true, attributeFilter: ["data-intro"] });
   return () => obs.disconnect();
+}
+
+/*
+  WebGL sahnesi ekrana geldi mi. Dış kaynak (HeroScene'in olayı) olduğu
+  için effect + setState değil useSyncExternalStore: sahne Hero'dan önce
+  hazır olabiliyor, o durumda ilk okuma zaten true dönüyor.
+*/
+function getSceneReady() {
+  return Boolean(window.__metekHeroReady);
+}
+
+function subscribeSceneReady(onStoreChange: () => void) {
+  window.addEventListener("metek:hero-ready", onStoreChange);
+  return () => window.removeEventListener("metek:hero-ready", onStoreChange);
 }
 
 export default function Hero({ parked = false }: { parked?: boolean }) {
@@ -42,6 +53,12 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
     () => false
   );
   const [warmMount, setWarmMount] = useState(false);
+  /** Sahne hazır → DOM kelime markası söner, marka camın içinden okunur */
+  const sceneReady = useSyncExternalStore(
+    subscribeSceneReady,
+    getSceneReady,
+    () => false
+  );
   /*
     Sahne artık `introSkip` ile ANINDA mount olmuyor. WebGL context kurulumu +
     transmission FBO bake'i ilk boyamayla aynı karelere denk geliyordu; arkada
@@ -114,10 +131,10 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
 
   useGSAP(
     () => {
-      const copy = copyRef.current;
-      if (!copy) return;
+      const root = sectionRef.current;
+      if (!root) return;
 
-      const nodes = copy.querySelectorAll<HTMLElement>("[data-hero-fade]");
+      const nodes = root.querySelectorAll<HTMLElement>("[data-hero-fade]");
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: reduce)", () => {
         gsap.set(nodes, {
@@ -159,19 +176,25 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
     { scope: sectionRef, dependencies: [locale] }
   );
 
+  const brand = t("line1");
+  const splitAt = brand.indexOf(" ");
+  const brandLead = splitAt > 0 ? brand.slice(0, splitAt) : brand;
+  const brandTail = splitAt > 0 ? brand.slice(splitAt + 1) : "";
+
   return (
     <section
       ref={sectionRef}
       id={parked ? undefined : "home"}
-      className="hero-section relative flex h-[100svh] max-h-[1100px] min-h-[560px] flex-col overflow-x-clip overflow-y-hidden bg-background"
+      className="hero-section relative flex h-[100svh] max-h-[1100px] min-h-[560px] flex-col overflow-x-clip overflow-y-hidden"
     >
       {/*
-        Zemin: gerçek proje ekranlarından oluşan sürüklenen duvar. Cam "M"
-        bunun ÜSTÜNDE duruyor — HeroScene canvas'ı bu yüzden şeffaf
-        (alpha:true + clearAlpha 0, scene.background yok). Duvar görüş
-        dışına çıkınca `idle` ile duruyor.
+        Zemin: humanoid + çiçek tarlası filmi, tam ekran. Cam "M" bunun
+        ÜSTÜNDE — canvas metnin de üstünde (z-[3]), böylece kelime markası
+        YALNIZCA camın içinden kırılarak görünüyor. Canvas şeffaf
+        (alpha:true + clearAlpha 0, scene.background yok). Film görüş
+        dışına çıkınca `active` ile duruyor.
       */}
-      <HeroWall idle={!sceneActive} />
+      <HeroFilm ready={sceneMounted} active={sceneActive} />
 
       {sceneMounted ? <HeroScene active={sceneActive} /> : null}
 
@@ -180,95 +203,56 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
         data-atmosphere-idle={!sceneActive}
         className="pointer-events-none absolute inset-0 z-[1] overflow-hidden"
       >
-        <div className="hero-grid" />
-        <div className="hero-glow" />
+        {/* Cam M'nin arkasındaki ay ışığı — siyah gökte cam kendi başına
+            neredeyse görünmez; bu hale hem markayı ayırıyor hem de filmin
+            içindeki tek ışık kaynağıyla (tarla) aynı dili konuşuyor. */}
+        <div className="hero-halo" />
         <div className="hero-vignette" />
         <div className="hero-grain" />
       </div>
 
       {/*
-        Mobil: flex kolon — başlık her zaman nav altında, SE’de overlap yok.
-        Desktop: absolute başlık (mevcut kompozisyon).
+        Jenerik kilidi. Kelime markası ekranda ÇIPLAK GÖZLE GÖRÜNMÜYOR:
+        sahne hazır olunca DOM kopyası sönüyor ve marka yalnızca cam M'in
+        içinden, kırılmış hâliyle okunuyor (kopyası HeroScene'de kırılma
+        arkaplanına çiziliyor). <h1> yine de DOM'da kalıyor — başlık
+        hiyerarşisi ve arama için; WebGL yoksa görünür kalıp marka
+        kaybolmuyor.
+
+        Konum yüzdeyle veriliyor (--hero-word-y) çünkü kadrajın kendisi de
+        yüzdeyle kırpılıyor — px verilirse ultrawide'da marka figürün
+        başına biniyor.
       */}
       <div
         ref={copyRef}
-        className="relative z-[2] flex min-h-0 flex-1 flex-col pt-[calc(var(--nav-offset)+0.35rem)] md:contents"
+        data-scene-ready={sceneReady || undefined}
+        className="hero-lockup pointer-events-none absolute inset-x-0 z-[2] flex justify-center px-5"
       >
-        <div
-          data-hero-fade
-          className="pointer-events-none absolute left-5 top-[calc(var(--nav-offset)+0.35rem)] z-10 hidden text-[10px] font-semibold uppercase leading-relaxed tracking-[0.16em] text-ink/50 sm:block sm:text-[11px] md:left-16 md:top-[calc(var(--nav-offset)+0.75rem)] md:tracking-[0.18em]"
-        >
-          <span className="text-accent-ink">●</span> {t("metaStudio")}
-        </div>
-
-        <div
-          data-hero-fade
-          className="flex min-h-0 flex-1 items-start justify-center px-4 pt-[7svh] sm:px-5 md:pointer-events-none md:absolute md:inset-x-12 md:top-1/2 md:-translate-y-1/2 md:flex-none md:items-center md:justify-start md:p-0 lg:inset-x-16"
-        >
-          {/*
-            Mobil ölçek hero satır uzunluğuyla sınırlı (marka satırı
-            "METEK Digital" = 13ch). max-md clamp ~%91; md+ korunuyor.
-          */}
-          <h1
-            aria-label={`${t("line1")} ${t("line2")} ${t("line3")}`}
-            className="mx-auto max-w-5xl text-center font-display text-[clamp(2.1rem,7.2vw,5.75rem)] font-bold leading-[0.95] tracking-[-0.035em] text-ink [text-shadow:0_1px_18px_rgba(232,230,224,0.45)] dark:[text-shadow:0_2px_28px_rgba(12,11,10,0.7)] max-md:text-[clamp(1.85rem,8.4vw,3.1rem)] max-md:leading-[1.02] md:mx-0 md:max-w-[13ch] md:text-left md:text-[clamp(2.5rem,4.9vw,4.75rem)]"
-          >
-            <span className="block" aria-hidden>
-              {t("line1")}
-            </span>
-            <span className="block" aria-hidden>
-              {t("line2")}
-            </span>
-            <span className="block" aria-hidden>
-              {t("line3")}
-            </span>
-          </h1>
-        </div>
-
-        <div className="pointer-events-none shrink-0 px-5 pb-[max(1rem,calc(0.5rem+var(--safe-bottom)))] md:absolute md:inset-x-12 md:bottom-10 md:px-0 lg:inset-x-16">
-          <div className="mx-auto flex max-w-7xl flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-10">
-            <div data-hero-fade className="max-w-md">
-              <p className="text-[14px] leading-relaxed text-ink/65 md:text-[15px]">
-                {t("blurb")}
-              </p>
-              <p className="mt-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-ink/40 md:mt-3">
-                <span
-                  className="mr-1.5 inline-block size-1.5 rounded-full bg-accent"
-                  aria-hidden
-                />
-                {t("availability")}
-              </p>
-            </div>
-            <div
-              data-hero-fade
-              className={`flex w-full flex-col items-stretch gap-2.5 sm:w-auto sm:flex-row sm:items-center sm:justify-end sm:gap-3 ${
-                parked ? "pointer-events-none" : "pointer-events-auto"
-              }`}
-            >
-              <Magnetic strength={0.18} className="w-full sm:w-auto">
-                {/* ogl SpecularButton içinde lazy — kalite tam, critical path şişmez */}
-                <SpecularButton
-                  href={{ pathname: "/", hash: "contact" }}
-                  tone="accent"
-                  size="md"
-                  fillMobile
-                  className="btn-stable btn-stable--hero"
-                >
-                  {t("ctaContact")}
-                </SpecularButton>
-              </Magnetic>
-              <Link
-                href={{ pathname: "/", hash: "work" }}
-                scroll={false}
-                className="inline-flex min-h-11 items-center justify-center gap-1.5 whitespace-nowrap rounded-sm border border-[color:var(--chrome-edge)] bg-paper/90 px-5 text-sm font-semibold text-ink/80 shadow-[inset_0_1px_0_var(--chrome-shine)] transition-colors hover:border-ink/35 hover:text-ink sm:min-h-10 md:bg-paper/70 md:backdrop-blur-sm"
-              >
-                {t("ctaWork")}
-                <span aria-hidden>↘</span>
-              </Link>
-            </div>
-          </div>
-        </div>
+        <h1 data-hero-fade className="hero-wordmark font-display">
+          {/* Kelime markası iki basamak: METEK sol üstte, Digital sağ altta.
+              Bölme boşluktan — marka dört locale'de de "METEK Digital",
+              boşluk yoksa tek satıra düşüyor. */}
+          <span className="hero-wordmark__lead">{brandLead}</span>
+          {brandTail ? (
+            <span className="hero-wordmark__tail">{brandTail}</span>
+          ) : null}
+          {/* Görünür metin yalnızca marka; tanım satırı ekran okuyucu ve
+              arama için duruyor (metadata/OG ile aynı cümle). */}
+          <span className="sr-only">
+            {" "}
+            — {t("line2")} {t("line3")}
+          </span>
+        </h1>
       </div>
+
+      <div
+        aria-hidden
+        data-hero-fade
+        className="hero-scroll pointer-events-none absolute inset-x-0 bottom-0 z-[2] flex justify-center"
+      >
+        <span className="hero-scroll__line" />
+      </div>
+
     </section>
   );
 }
