@@ -51,6 +51,7 @@ export default function Magnetic({
       duration: 0.55,
       ease: "power3.out",
       overwrite: true,
+      force3D: true,
     });
   }
 
@@ -69,18 +70,23 @@ export default function Magnetic({
       duration: 0.55,
       ease: "power3.out",
       overwrite: true,
+      force3D: true,
     });
   }
 
   return (
     <div
       ref={root}
-      className={className}
+      className={`inline-flex ${className}`.trim()}
       onMouseEnter={onEnter}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
     >
-      <div ref={inner} className="h-full w-full">
+      <div
+        ref={inner}
+        className="h-full w-full will-change-transform"
+        style={{ transform: "translateZ(0)" }}
+      >
         {children}
       </div>
     </div>

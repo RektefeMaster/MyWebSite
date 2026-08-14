@@ -4,10 +4,10 @@
  */
 export default function MetekLoader({
   className = "",
-  label = "Loading",
+  label,
 }: {
   className?: string;
-  label?: string;
+  label: string;
 }) {
   return (
     <div

@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-07T22:40:25.213Z",
+  "generatedAt": "2026-08-14T10:14:18.557Z",
   "locales": [
     "en",
     "tr",
     "es",
     "de"
   ],
-  "totalLeafKeysEn": 390,
+  "totalLeafKeysEn": 408,
   "byNamespace": {
     "meta": 2,
     "nav": 14,
@@ -17,7 +17,7 @@
     "featured": 15,
     "principles": 10,
     "hero": 10,
-    "selectedWork": 4,
+    "selectedWork": 5,
     "capabilities": 29,
     "manifestoScene": 4,
     "approachTeaser": 13,
@@ -31,27 +31,29 @@
     "contact": 29,
     "footer": 16,
     "whatsapp": 4,
-    "a11y": 7,
-    "notFound": 3
+    "a11y": 8,
+    "notFound": 3,
+    "studioFrames": 13,
+    "intro": 3
   },
   "parity": {
     "en": {
-      "leafCount": 390,
+      "leafCount": 408,
       "missingVsEn": 0,
       "extraVsEn": 0
     },
     "tr": {
-      "leafCount": 390,
+      "leafCount": 408,
       "missingVsEn": 0,
       "extraVsEn": 0
     },
     "es": {
-      "leafCount": 390,
+      "leafCount": 408,
       "missingVsEn": 0,
       "extraVsEn": 0
     },
     "de": {
-      "leafCount": 390,
+      "leafCount": 408,
       "missingVsEn": 0,
       "extraVsEn": 0
     }

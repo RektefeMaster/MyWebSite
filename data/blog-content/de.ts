@@ -2,412 +2,437 @@ import type { BlogArticle } from "../blog";
 
 const content: Record<string, BlogArticle> = {
   "what-is-seo": {
-    title: "Was ist SEO? Klar erklärt für Unternehmenswebsites",
+    title: "Was ist SEO? Suchmaschinenoptimierung verständlich erklärt",
     excerpt:
-      "Was SEO bedeutet, wie Suchmaschinen Seiten finden und ordnen. Technisches SEO, On-Page-SEO und Inhalte für Firmenwebsites. Keine Ranking-Garantien. Praktische Definition.",
-    lead: "SEO heißt Search Engine Optimization. Klar gesagt: die Arbeit, Suchmaschinen zu helfen, Ihre Seiten zu finden, zu verstehen und Menschen zu zeigen, die bereits nach Ihrem Angebot suchen. Bei METEK Digital ist SEO Teil des Website-Baus, kein Slogan nach dem Launch.",
+      "SEO hilft Suchmaschinen, Unternehmensseiten zu finden, zu verstehen und passenden Suchanfragen zuzuordnen. Die wichtigsten Grundlagen im Überblick.",
+    lead: "SEO steht für Suchmaschinenoptimierung. Gemeint ist die Arbeit, mit der eine Website technisch erreichbar, inhaltlich verständlich und für passende Suchanfragen relevant wird. Für Unternehmen beginnt das bereits bei der Seitenplanung: Welche Leistung sucht ein Kunde, welche Seite beantwortet seine Frage und welche Belege braucht er für den nächsten Schritt?",
     imageAlt: "Laptop und Lupe als Motiv für Suchmaschinenoptimierung",
     sections: [
       {
-        heading: "Was SEO in der Praxis bedeutet",
+        heading: "Wie eine Suchmaschine mit Ihrer Website arbeitet",
         paragraphs: [
-          "Suchmaschinen belohnen Seiten, die eine echte Anfrage beantworten, zuverlässig laden und vertrauenswürdig wirken. SEO ist kein geheimer Keyword-Trick. Es ist technische Bereitschaft, klare Struktur, nützlicher Inhalt und Signale, dass der Betrieb seriös ist.",
-          "Für Dienstleister, Fertigung, Praxis oder Boutique heißt SEO meist: Wenn jemand Ihre Leistung im Zielmarkt sucht, kann Ihre Site erscheinen. Erscheinen dürfen ist keine Garantie für Platz eins. Keine ehrliche Agentur verkauft ein fixes Ranking.",
+          "Zuerst entdeckt ein Suchdienst eine URL über Links, eine XML-Sitemap oder einen früheren Besuch. Dieser Vorgang heißt Crawling. Danach verarbeitet der Suchdienst den Inhalt und entscheidet, ob die Seite in den Index aufgenommen wird. Erst aus diesem Bestand wählt er Ergebnisse für eine konkrete Suchanfrage aus.",
+          "Jede Stufe kann scheitern. Eine wichtige Seite ohne internen Link wird womöglich spät entdeckt. Widersprüchliche Canonical-Angaben erschweren die Einordnung. Ein vager Text kann technisch sauber indexiert sein und trotzdem an der Suchabsicht vorbeigehen. SEO betrachtet daher Technik, Struktur und Inhalt gemeinsam.",
         ],
       },
       {
-        heading: "So arbeiten Suchmaschinen",
+        heading: "Technisches SEO schafft die Voraussetzung",
         paragraphs: [
-          "Crawl: Bots finden URLs über Links, Sitemaps und frühere Besuche. Ist eine Seite blockiert, verwaist oder hinter kaputter Navigation, wird sie oft nie gesehen.",
-          "Index: Die Engine speichert, was sie verstanden hat. Titles, Überschriften, Text und Medien helfen. Dünne oder doppelte Seiten sind schwache Kandidaten.",
-          "Ranking: Bei einer Suche ordnet die Engine passende Seiten nach Relevanz und Qualität. Ihre Aufgabe ist die ehrlich beste Antwort auf die Query, kein Trick gegen einen geheimnisvollen Score.",
+          "Eine crawlbare Navigation, eindeutige Statuscodes und eine aktuelle Sitemap bilden die technische Grundlage. Hinzu kommen konsistente Canonicals, sinnvolle Weiterleitungen und Regeln in der robots.txt. Bei mehrsprachigen Websites muss hreflang die richtige Sprach- und Marktversion ausweisen.",
+          "Auch die Nutzung auf dem Smartphone gehört dazu. Bilder sollten passend dimensioniert sein, Schriften sparsam geladen werden und zentrale Inhalte ohne unnötige Skripte erscheinen. Eine schnelle Seite erhält dadurch keinen garantierten Rang. Sie vermeidet jedoch technische Hindernisse, die Besucher und Suchdienste gleichermaßen betreffen.",
         ],
       },
       {
-        heading: "Technisches SEO und On-Page-SEO",
+        heading: "Jede Seite braucht eine eindeutige Aufgabe",
         paragraphs: [
-          "Technisches SEO: eigene Titles und Meta, ein H1 pro Seite, sinnvolle Überschriften, mobiles Tempo, XML-Sitemap, korrektes robots.txt, konsistente Canonicals, saubere Redirects. Bei Mehrsprachigkeit muss hreflang stimmen.",
-          "On-Page: Jede Seite erklärt sich selbst. Title nennt das Thema klar. Meta verdient den Klick. H1 passt zum Thema. Text beantwortet die Frage ohne Keyword-Stopfen. Interne Links verbinden Leistungen, Portfolio und Kontakt.",
-          "Für die Launch-Checkliste lesen Sie unseren Beitrag zum technischen SEO für Unternehmenswebsites. Hier die Definition, dort die Feldliste.",
+          "Der Seitentitel benennt Thema und gegebenenfalls Marke. Die Meta-Beschreibung fasst den Nutzen des Ergebnisses zusammen. Eine klare H1 ordnet den Inhalt ein, während H2- und H3-Überschriften die Argumentation gliedern. Diese Elemente sollten zueinander passen, ohne dieselbe Wortfolge ständig zu wiederholen.",
+          "Entscheidend ist die Suchabsicht. Eine Person mit der Frage „Was ist SEO?“ erwartet eine Erklärung. Wer „Webdesign-Agentur für Hersteller“ sucht, prüft Anbieter und Referenzen. Eine Anfrage nach „Angebot Website Relaunch“ liegt näher an einer Kontaktentscheidung. Ein einzelner Seitentyp kann diese verschiedenen Aufgaben kaum gleich gut erfüllen.",
         ],
       },
       {
-        heading: "Inhalt, Intention und Vertrauen",
+        heading: "Inhalt beantwortet die nächste echte Frage",
         paragraphs: [
-          "Suchen haben Absichten: Information, Vergleich, Kontakt oder Kauf. Startseite, Leistungsseite und Blogpost bedienen unterschiedliche Absichten. Guter SEO-Inhalt ist konkret und nicht künstlich lang.",
-          "Admin-Panel oder CMS zählt nach dem Launch. Preise und Leistungen ändern sich. Das Team muss Titles und Texte pflegen können, ohne jedes Mal einen Entwickler zu brauchen.",
-          "Off-Page-Vertrauen: seriöse Erwähnungen, konsistente Firmendaten, echte Referenzen. Zufällige Linkpakete schaden oft.",
+          "Guter SEO-Inhalt beginnt beim Informationsbedarf des Lesers. Eine Leistungsseite nennt Umfang, Zielgruppe, Ablauf und einen nachvollziehbaren Kontaktweg. Ein Fachartikel erklärt ein enges Thema so weit, dass der Leser eine Entscheidung treffen oder eine Prüfung selbst durchführen kann.",
+          "Länge ist dafür kein Qualitätsmaß. Ein kurzer, präziser Abschnitt kann hilfreicher sein als mehrere Seiten allgemeiner Text. Prüfen Sie jeden Absatz: Liefert er eine neue Information, ein Beispiel oder eine notwendige Einschränkung? Wiederholt er nur die Überschrift, kann er entfallen.",
         ],
       },
       {
-        heading: "SEO und bezahlte Anzeigen, häufige Mythen",
+        heading: "Vertrauen entsteht auch außerhalb der Website",
         paragraphs: [
-          "Bezahlte Suche kann heute Sichtbarkeit kaufen; endet das Budget, endet oft auch die Sicht. SEO wächst mit gesunder Site und Inhalt, dauert länger und rettet kein schwaches Angebot. Eine langsame, unklare Site repariert keines von beiden allein.",
-          "Mythos: SEO ist einmal eingerichtet. Realität: Fundament einmal, Pflege laufend. Mythos: mehr Keywords bedeuten mehr Traffic. Realität: Stuffing schadet der Lesbarkeit. Mythos: Platz-eins-Garantie in dreißig Tagen. Realität: Garantien sind Verkaufstaktik, keine Methode.",
+          "Suchdienste berücksichtigen Signale, die über die eigene Website hinausgehen. Für lokale Unternehmen sind korrekte Angaben zu Name, Adresse und Telefonnummer wichtig. Für einen Hersteller können fachlich passende Erwähnungen, Händlerseiten oder nachvollziehbare Referenzprojekte mehr Aussagekraft besitzen als beliebige Verzeichniseinträge.",
+          "Gekaufte Linkpakete ersetzen diese Glaubwürdigkeit nicht. Prüfen Sie stattdessen, wo Kunden Ihren Betrieb tatsächlich erwarten und welche unabhängige Quelle Ihre Arbeit sachlich bestätigen kann. Der Wert liegt im Zusammenhang zur Branche und zum Angebot.",
         ],
       },
       {
-        heading: "Was Sie beim Website-Bau fragen sollten",
+        heading: "Was beim Website-Auftrag geklärt sein sollte",
         paragraphs: [
-          "Wer setzt Titles, Meta, Überschriften und Sitemap vor dem Launch. Wie wird mobiles Tempo geprüft. Zielen Leistungsseiten auf echte Suchphrasen in Ihrer Marktsprache. Wer pflegt Inhalte nach der Übergabe.",
-          "Bei METEK Digital gehören technisches SEO, lesbare Struktur und Inhaltskontrolle in den Umfang, wenn die Site in der Suche konkurrieren soll. Für eine suchbereite Unternehmenswebsite oder ein Panel schreiben Sie uns Branche und Ziel. Sie bekommen einen klaren Umfang zurück.",
+          "Fragen Sie, wer Seitentitel, Meta-Beschreibungen, Überschriften und Sitemap vor der Veröffentlichung prüft. Lassen Sie sich erklären, wie mobile Leistung, Weiterleitungen und Indexierbarkeit getestet werden. Für internationale Seiten gehört eine eigene Sprachfassung pro Markt in den Plan.",
+          "Klären Sie außerdem den Pflegeweg. Ihr Team sollte vereinbarte Inhalte ändern können, ohne bei jeder Korrektur in den Quellcode einzugreifen. Ein Admin-Panel oder eine CMS-Anbindung ist sinnvoll, wenn Leistungen, Standorte oder Fachartikel regelmäßig aktualisiert werden.",
+        ],
+      },
+      {
+        heading: "SEO bleibt laufende Arbeit",
+        paragraphs: [
+          "Nach der Veröffentlichung zeigen Suchanfragen, Indexierungsberichte und das Verhalten auf wichtigen Seiten, wo Lücken bestehen. Neue Leistungen benötigen eigene Inhalte. Veraltete Informationen werden korrigiert, interne Links angepasst und technische Fehler nach Änderungen erneut geprüft.",
+          "Feste Spitzenpositionen lassen sich nicht zusagen, weil Wettbewerb und Nachfrage veränderlich sind. Seriöse SEO-Arbeit hält die technischen Grundlagen prüfbar und verbessert Seiten anhand tatsächlicher Suchfragen.",
         ],
       },
     ],
   },
+
   "website-pricing-why-cheap-costs-more": {
-    title: "Website-Kosten: warum individuell teurer wirkt und billig teuer wird",
+    title: "Was kostet eine Website? So vergleichen Sie Angebote",
     excerpt:
-      "Was eine Website kostet, folgt dem Umfang. Was den Preis für individuelles Webdesign treibt, was günstige Website-Angebote oft streichen, und wie Sie Agenturangebote vergleichen.",
-    lead: "Website-Preise sind keine Einzelzahl. Zwei Angebote können dieselben Worte nutzen und Gegenteiliges meinen: ein fertiges Theme umfärben oder individuelles Design, sauberer Code, technisches SEO und Support nach dem Launch. Bei METEK Digital kalkulieren wir nach Umfang, nicht nach Katalog. Dieser Text zeigt, wie Sie Angebote lesen und warum eine günstige Website oft die teure wird.",
+      "Website-Kosten folgen dem Umfang. Erfahren Sie, wie Design, Entwicklung, SEO-Vorbereitung, Pflege und Übergabe ein Angebot bestimmen.",
+    lead: "Der Preis einer Website lässt sich erst beurteilen, wenn der Leistungsumfang lesbar ist. Zwei Angebote können beide „individuelles Webdesign“ nennen und völlig verschiedene Arbeiten enthalten. Entscheidend sind die geplanten Seiten, Funktionen, Inhalte, Qualitätsprüfungen und der Pflegeweg nach der Veröffentlichung.",
     imageAlt: "Schreibtisch als Motiv für Website-Kosten und Projektumfang",
     sections: [
       {
-        heading: "Warum „Was kostet eine Website“ die falsche erste Frage ist",
+        heading: "Der Umfang erklärt den Preis",
         paragraphs: [
-          "Fragen Sie, was im Preis steckt. Seitenzahl, Eigenes Design oder Theme, wer Inhalte schreibt, Mobil- und Tempochecks, technisches SEO, Admin-Panel, Supporttage. Eine Zahl ohne diese Liste ist Feilschen, keine Schätzung.",
-          "Unternehmenswebsite, Visitenkarte und Shop sind nicht dasselbe Paket. Kommt WhatsApp-Chatbot oder CRM-Panel dazu, wächst der Umfang erneut. Die meisten Preisabstände entstehen genau dort.",
+          "Eine kompakte Unternehmenswebsite braucht eine andere Planung als ein mehrsprachiger Auftritt mit Leistungsarchiv, Blog und Admin-Panel. Formulare, CRM-Anbindungen oder Terminlogik erweitern die Entwicklung. Auch die Frage, wer Texte und Bilder vorbereitet, verändert den Aufwand deutlich.",
+          "Verlangen Sie deshalb mehr als eine Gesamtsumme. Ein Angebot sollte Seitenarten, Funktionen, Zuständigkeiten und ausdrücklich ausgeschlossene Leistungen nennen. Erst diese Angaben machen Preise vergleichbar.",
         ],
       },
       {
-        heading: "Wohin das Geld geht",
+        heading: "Wofür Design- und Entwicklungszeit benötigt wird",
         paragraphs: [
-          "Analyse und Umfang: Ziele, Zielgruppe, Grenzen und Erfolgskriterien schriftlich. Fehlt das, wachsen Revisionsrechnungen.",
-          "Design und UI: Layout, Schrift, Komponenten für die Marke. Beim Theme gehören diese Entscheidungen jemand anderem. Im individuellen Webdesign gehören sie zu Ihrem Betrieb.",
-          "Entwicklung: wartbarer Code, mobiles Layout, Formulare, bei Bedarf Admin-Panel. Technisches SEO: eigene Titles und Meta, H1-Struktur, Sitemap, Index-Grundlagen. Übergabe und Support: nach dem Launch ist klar, wer Brüche besitzt.",
-          "Jeder Punkt braucht Stunden. Versteckt das Angebot die Stunden, wurde etwas gekürzt: Qualität, Ownership oder beides.",
+          "Zu Beginn werden Zielgruppen, Inhalte und zentrale Nutzerwege geklärt. Daraus entstehen Informationsarchitektur und Entwürfe für die wichtigsten Seitentypen. Eine individuelle Oberfläche benötigt Regeln für Typografie, Abstände, Farben und Zustände. Diese Regeln tragen später weitere Seiten und interne Bereiche.",
+          "In der Entwicklung folgen responsive Layouts, Komponenten, Formulare und gegebenenfalls Schnittstellen. Danach müssen Kontaktwege, mobile Darstellung, grundlegende Barrierefreiheit und technische SEO-Voraussetzungen geprüft werden. Die Übergabe umfasst außerdem Zugänge, Dokumentation und den vereinbarten Pflegeweg.",
         ],
       },
       {
-        heading: "Warum Sie keine Dumping-Website beauftragen sollten",
+        heading: "Warum sehr niedrige Angebote genauer geprüft werden müssen",
         paragraphs: [
-          "Sehr niedrige Preise bedeuten meist ein Marketplace-Theme mit neuer Farbe. Themes veralten, Plugins kollidieren, Tempo fällt, Mobil bricht. Eine Woche sieht es gut aus. Nach sechs Monaten gehört die Site nicht mehr wirklich Ihnen.",
-          "Was bei Billigarbeit fehlt, ist vorhersehbar: keine Analyse, kein Inhaltsplan, kein technisches SEO, kein Accessibility-Pass, keine Übergabenotizen, kein Support. Wenn das Formular stirbt oder die Site unsichtbar bleibt, besitzt niemand den Fix.",
-          "Ein höherer Neubau ist oft günstiger als Jahre Flickwerk auf schwachem Fundament. Ein falsches Fundament zu retten ist schwerer als einmal richtig zu bauen.",
+          "Ein niedriger Preis kann zu einem kleinen, klar abgegrenzten Projekt passen. Problematisch wird er, wenn ein umfangreicher Anspruch versprochen wird, aber die notwendigen Arbeitsschritte fehlen. Häufig werden dann eine vorgefertigte Vorlage angepasst, Inhalte übernommen und Prüfungen auf den Veröffentlichungstag verschoben.",
+          "Die Folgekosten zeigen sich bei Änderungen. Unklare Komponenten erschweren neue Seiten, ein Plugin-Konflikt blockiert Funktionen oder jede Textkorrektur benötigt Entwicklung. Fragen Sie im Angebot, wer solche Fälle übernimmt und wie die technische Grundlage gepflegt werden kann.",
         ],
       },
       {
-        heading: "Was ein höheres Angebot wirklich enthalten sollte",
+        heading: "Ein Angebot vollständig prüfen",
         paragraphs: [
-          "Schriftlicher Umfang. Seiten, Features, klare Ausschlüsse. Individuelles Design als individuell benannt, nicht ein Theme-Name im Kleingedruckten. Checks vor dem Launch für Tempo, Mobil und technisches SEO.",
-          "Wer Inhalte pflegt. Ohne Admin-Panel oder CMS ist jede Textänderung eine neue Rechnung. Supportlänge und Kontaktweg nach dem Launch. Live-Arbeiten, die Sie öffnen können, nicht nur Mockups.",
-          "METEK Digital hält diese Überschriften offen. Website, Panel, Chatbot oder Markenarbeit wird nach Bedarf geschnitten. Kein Rabattkatalog. Eine echte Lieferliste.",
+          "Klären Sie, wem Domain, Hosting-Konto, Quellcode und Drittanbieterzugänge gehören. Das Unternehmen sollte nach der Übergabe auf die vereinbarten Konten und Inhalte zugreifen können. Lizenzkosten für Schriften, Plugins oder Dienste müssen sichtbar sein.",
+          "Geben Sie allen Anbietern dieselbe Projektbeschreibung. Nennen Sie das geschäftliche Ziel, die wichtigsten Nutzer und die erforderlichen Handlungen. Fragen Sie außerdem nach Designgrundlage, technischer SEO-Vorbereitung, mobilen Prüfungen, Revisionen und Übergabe.",
+          "Sehen Sie sich veröffentlichte oder dokumentierte Arbeiten im passenden Zusammenhang an. Ein Hersteller braucht andere Belege als eine Boutique. Lassen Sie sich erklären, welche Rolle der Anbieter im gezeigten Projekt übernommen hat und wie der spätere Pflegeweg aussieht.",
         ],
       },
       {
-        heading: "So vergleichen Sie Angebote",
+        heading: "Ein knappes Budget sinnvoll einsetzen",
         paragraphs: [
-          "Legen Sie drei Angebote nebeneinander und stellen Sie dieselben Fragen. Eigenes Design oder Theme. Technisches SEO inklusive. Panel inklusive. Supporttage. Wie Revisionen laufen. Wem Code und Accounts gehören.",
-          "Die niedrigste Zahl ist nicht das niedrigste Risiko. Die höchste Zahl ist nicht automatisch die beste Arbeit. Gewonnen hat, wer lesbaren Umfang schreibt und nach der Übergabe erreichbar bleibt.",
-          "Bevor Sie über Preis sprechen, schreiben Sie einen Absatz: für wen die Site ist, welche Handlung (Anfrage, Termin, WhatsApp), wann sie live sein muss. Ohne das ist jeder Preis Luft.",
-        ],
-      },
-      {
-        heading: "Der richtige Preis ist der richtige Umfang",
-        paragraphs: [
-          "Eine gute Website-Investition kauft Vertrauen, einen klaren Kontaktweg und eine Site, die Ihr Team pflegen kann. Eine billige Site mietet oft nur den ersten Screen und übergibt kein Ownership.",
-          "Ist das Budget eng, wollen Sie nicht alles auf einmal. Starten Sie mit einer soliden Unternehmenssite und klarem Anfrageweg. Panel, Chatbot oder erweiterte Bewegung können folgen. Eng und richtig schlägt breit und halb.",
-          "Möchten Sie eine klare Preisspanne für Ihren Website-Umfang? Schreiben Sie METEK Digital. Branche, Ziel und Zeitplan reichen. Innerhalb eines Tages kommen Umfang und Preisspanne zurück.",
+          "Priorisieren Sie zuerst die Seiten, die Angebot, Beleg und Kontaktweg tragen. Zusätzliche Animationen, ein umfangreicher Inhaltsbereich oder Automatisierungen können als spätere Ausbaustufe geplant werden. Diese Reihenfolge sollte im technischen Aufbau bereits berücksichtigt sein.",
+          "Ein klar begrenzter erster Umfang ist besser kalkulierbar als eine lange Wunschliste ohne Prioritäten. Wenn Sie METEK Digital anfragen, reichen für den Einstieg Branche, Ziel, benötigte Funktionen und ein ungefährer Zeitrahmen. Daraus lässt sich ein nachvollziehbarer Umfang ableiten.",
         ],
       },
     ],
   },
+
   "whatsapp-chatbot-for-business": {
-    title: "WhatsApp Chatbot für Unternehmen: Nutzen und Einrichtung",
+    title: "WhatsApp-Chatbot für Unternehmen: Aufgaben, Grenzen, CRM",
     excerpt:
-      "Was ein WhatsApp Chatbot im Unternehmen leisten soll: FAQ, Termine, Schutz belegter Stunden, Erinnerungen und CRM-Anbindung. Lesen vor der WhatsApp Automatisierung.",
-    lead: "Viele Betriebe beantworten in WhatsApp täglich dieselben Fragen: Preis, Öffnungszeiten, Adresse, Verfügbarkeit. Ein WhatsApp Chatbot übernimmt diese Last. Er bucht freie Stunden, schützt belegte und übergibt unklare Chats mit Kurzfassung an Ihr Team. Bei METEK Digital bauen wir Chatbots als Betriebsmittel mit CRM- oder Terminpanel, nicht als Demo.",
-    imageAlt: "Smartphone auf dem Schreibtisch zum Artikel WhatsApp Chatbot Unternehmen",
+      "Ein WhatsApp-Chatbot kann Fragen und Termine bearbeiten. Entscheidend sind klare Regeln, menschliche Übergabe und eine passende CRM-Anbindung.",
+    lead: "Ein WhatsApp-Chatbot lohnt sich, wenn wiederkehrende Nachrichten nach eindeutigen Regeln bearbeitet werden können. Dazu zählen freigegebene Fragen, verfügbare Termine oder der Status einer Anfrage. Der Nutzen hängt weniger von langen Dialogen ab als von sauberen Daten, klaren Grenzen und einer verlässlichen Übergabe an Mitarbeitende.",
+    imageAlt: "Smartphone auf einem Schreibtisch zum Thema WhatsApp-Chatbot für Unternehmen",
     sections: [
       {
-        heading: "Was ein WhatsApp Chatbot ist",
+        heading: "Mit echten Gesprächsverläufen beginnen",
         paragraphs: [
-          "Ein WhatsApp Chatbot ist Software, die auf Ihrer Unternehmensleitung nach definierten Regeln antwortet. Mehr als Textbausteine: Er kennt Leistungen und Preise, prüft den Kalender, öffnet oder sperrt Termine und eskaliert an Menschen, sobald die Routine endet.",
-          "Gesucht wird oft WhatsApp Automatisierung oder WhatsApp Terminbot. Der Name ist zweitrangig. Wichtig ist die Aufgabe: Was beendet der Bot, was bleibt beim Team. Ist die Grenze unklar, entsteht Lärm.",
+          "Sammeln Sie zunächst wiederkehrende Fragen aus einem repräsentativen Zeitraum. Ordnen Sie diese nach Absicht: Information, Termin, Änderung, Absage oder persönlicher Klärungsbedarf. So wird sichtbar, welche Aufgaben festen Regeln folgen und wo eine Person entscheiden muss.",
+          "Für jede automatisierte Antwort braucht es eine freigegebene Quelle. Preise, Leistungen, Öffnungszeiten und Standorte sollten einen Verantwortlichen und ein Änderungsdatum haben. Ohne diesen Pflegeprozess veraltet ein Chatbot schneller als die Website.",
         ],
       },
       {
-        heading: "Für welche Betriebe es passt",
+        heading: "Geeignete Abläufe sind eng und überprüfbar",
         paragraphs: [
-          "Gut geeignet bei hohem FAQ- und Terminaufkommen: Praxen, Beauty, Boutique-Services, kleine Hotels, Außendienst, Showrooms. Drehen sich die meisten Nachrichten um Preis, Zeiten und freie Slots, ist ein Chatbot ein starker Kandidat.",
-          "Im B2B-Verkauf mit individueller Verhandlung sollte der Bot nur erster Filter sein. Angebotsdetail, Sonderpreise und Beschwerden bleiben bei Menschen. In METEK-Projekten stehen diese Grenzen früh in der Projektnotiz.",
+          "Ein Terminablauf kann freie Zeiten abfragen, eine Auswahl bestätigen und nach einer Absage das Zeitfenster wieder freigeben. Ein Informationsablauf kann Leistungen erklären und anschließend zur passenden Kontaktperson führen. Beide Prozesse haben einen klaren Anfang und ein prüfbares Ende.",
+          "Individuelle Preisverhandlungen, Beschwerden und unklare Anfragen benötigen meist menschliche Bearbeitung. Definieren Sie diese Übergabepunkte vor der Entwicklung. Der Chatbot soll früh erkennen, wann seine Regeln nicht ausreichen.",
         ],
       },
       {
-        heading: "Was ein guter Unternehmens-Chatbot tut",
+        heading: "Die Übergabe muss Kontext erhalten",
         paragraphs: [
-          "Er beantwortet häufige Fragen in Ihrem Ton. Er kennt freie Stunden und leitet Buchungen dorthin. Belegte Stunden bleiben geschützt. Nach Absage öffnet sich der Slot wieder. Vor dem Termin kommt eine Erinnerung.",
-          "Bei unklaren oder verärgerten Chats erfindet der Bot nichts. Er übergibt: wer schreibt, was gefragt wurde, wo der Thread stand. Ohne diese Zusammenfassung bleibt Automatisierung unvollständig.",
-          "Nutzen Instagram-DMs denselben Kalender, folgt ein Instagram-Chatbot denselben Regeln. Zwei Kanäle, eine Verfügbarkeit. Sonst drohen Doppelbuchungen.",
+          "Bei einer Übergabe braucht das Team mehr als eine Benachrichtigung. Sinnvoll sind Name oder bekannte Kontaktdaten, die erkannte Absicht, bereits gewählte Optionen und die letzte offene Frage. Mitarbeitende können das Gespräch dann fortsetzen, ohne alles erneut abzufragen.",
+          "Die Formulierung gegenüber dem Kunden sollte ebenso eindeutig sein. Teilen Sie mit, dass eine Person übernimmt, und vermeiden Sie weitere automatische Antworten im selben Vorgang. So bleiben Zuständigkeit und Gesprächsstand nachvollziehbar.",
         ],
       },
       {
-        heading: "Warum CRM oder Terminpanel nötig ist",
+        heading: "CRM und Kalender bilden die betriebliche Grundlage",
         paragraphs: [
-          "Chattet der Bot nur, zerfallen die Daten. Wer gebucht hat, welcher Kanal schrieb, was storniert wurde: Das gehört ins CRM oder Vertriebspanel. WhatsApp Chatbot plus CRM-Panel zeigt dem Team den Tag ohne drei Apps.",
-          "Ohne Panel geht ein Bot, aber die Pflege leidet. Ändern sich Preise, Feiertage oder Leistungen, muss der Update-Weg klar sein. METEK plant Chatbot und Panel im selben Umfang.",
+          "Ein Chatbot erzeugt Daten: neue Kontakte, Terminwünsche, Absagen und Gesprächsnotizen. Diese Informationen sollten in das vereinbarte CRM- oder Terminpanel fließen. Sonst verteilt sich der Arbeitsstand auf WhatsApp, Tabellen und persönliche Notizen.",
+          "Nutzen WhatsApp und Instagram denselben Kalender, benötigen beide Kanäle eine gemeinsame Verfügbarkeitslogik. Der Kalender bleibt dabei die maßgebliche Quelle. Der Chatbot zeigt nur Zeiten an, die das System tatsächlich freigibt.",
         ],
       },
       {
-        heading: "Schritte zur Einrichtung",
+        heading: "Vor der Freigabe mit Randfällen testen",
         paragraphs: [
-          "Sammeln Sie echte Nachrichten der letzten zwei Wochen. Listen Sie Wissen für den Bot: Leistungen, Preisspannen, Zeiten, Standort, Stornoregeln. Dann Übergabe-Trigger: Beschwerde, Sonderpreis, unklare Absicht.",
-          "Testen Sie Abläufe: Happy Path, volle Stunde, Absage, Missverständnis. Beobachten Sie die ersten Tage nach dem Launch und schärfen Sie Antworten früh. WhatsApp Business API oder freigegebener Kanal hängen vom Betrieb ab und werden in der Analyse geklärt.",
-        ],
-      },
-      {
-        heading: "Kurze Checkliste vor dem Start",
-        paragraphs: [
-          "Preise und Leistungen aktuell. Kalender korrekt. Belegte Stunden geschützt. Absagen öffnen Slots. Erinnerungszeit richtig. Unklare Chats erzeugen Team-Zusammenfassung. Panel-Einträge entstehen.",
-          "Sind diese Punkte nicht grün, den Bot nicht für alle öffnen. Mit engem Szenario starten. Breite Automatisierung kann warten. Für WhatsApp Chatbot, Instagram Chatbot oder CRM-Panel schreiben Sie METEK Digital.",
+          "Prüfen Sie neben dem normalen Ablauf auch belegte Zeiten, verspätete Antworten, doppelte Nachrichten und eine Änderung während der Buchung. Testen Sie, ob eine Absage den richtigen Termin betrifft und ob die menschliche Übergabe zuverlässig stoppt, was automatisiert wurde.",
+          "Beginnen Sie mit einem begrenzten Anwendungsfall. Nach der ersten Nutzung können unklare Formulierungen und fehlende Regeln anhand echter Verläufe korrigiert werden. Eine Ausweitung sollte erst folgen, wenn Datenquelle und Zuständigkeit stabil sind.",
+          "Bearbeitet Ihr Team viele ähnliche Nachrichten und kann es die zugrunde liegenden Informationen verlässlich pflegen, lässt sich der Umfang konkret prüfen. METEK Digital benötigt dafür die häufigsten Anfragen, die gewünschte Übergabe und eine Beschreibung von Kalender oder CRM.",
         ],
       },
     ],
   },
+
   "technical-seo-checklist-business-website": {
-    title: "Technisches SEO: Checkliste für Unternehmenswebsites",
+    title: "Technische SEO-Checkliste für Unternehmenswebsites",
     excerpt:
-      "Technische SEO-Checkliste vor dem Launch: Titles und Meta, H1-Struktur, Tempo, Mobil, Indexierung und Content-Panel. Klare Schritte für Firmenwebsites.",
-    lead: "Technisches SEO ist keine magische Keyword-Liste. Es geht darum, ob Suchmaschinen die Site korrekt lesen, Seiten schnell laden und Inhalte pflegbar bleiben. Bei METEK Digital sind diese Checks vor jedem Launch Pflicht. Die folgende Liste gilt für individuelle Unternehmenswebsites, mit oder ohne Admin-Panel.",
-    imageAlt:
-      "Laptop mit Analytics auf dem Schreibtisch für eine SEO-Prüfung",
+      "Prüfen Sie vor der Veröffentlichung Crawling, Metadaten, mobile Leistung, Indexierung, Sitemap, Weiterleitungen und den späteren Pflegeweg.",
+    lead: "Technisches SEO entscheidet, ob Suchdienste wichtige Unternehmensseiten zuverlässig erreichen und einordnen können. Die Prüfung beginnt vor der Entwicklung und endet nicht mit der Veröffentlichung. Diese Checkliste ordnet die Arbeit nach Projektphasen, damit Fehler früh sichtbar werden.",
+    imageAlt: "Laptop mit Analyseansicht zur technischen SEO-Prüfung einer Unternehmenswebsite",
     sections: [
       {
-        heading: "Was technisches SEO ist und was nicht",
+        heading: "Vor dem Design: Seiten und Suchabsichten zuordnen",
         paragraphs: [
-          "Technisches SEO umfasst Seitentitel, Meta-Beschreibungen, Überschriftenhierarchie, Tempo, Mobile, Crawl- und Index-Einstellungen. Es ersetzt keine guten Inhalte. Ohne technische Basis bleibt Sichtbarkeit trotzdem begrenzt.",
-          "Wenn Sie eine Webdesign-Agentur beauftragen, fordern Sie einen technischen SEO-Pass vor dem Launch, nicht nur Design. Theme-Projekte lassen das oft halb. Individuelle Entwicklung kann es von Anfang an einbauen.",
+          "Listen Sie alle wichtigen Seitentypen auf: Startseite, Leistungen, Referenzen, Standorte, Fachbeiträge und Kontakt. Jede Seite erhält eine eindeutige Aufgabe und eine Hauptüberschrift. Doppelungen werden bereits in dieser Karte sichtbar.",
+          "Planen Sie außerdem die endgültigen URLs. Kurze, beschreibende Pfade erleichtern interne Links und spätere Auswertungen. Bei einem Relaunch braucht jede alte URL eine Entscheidung: behalten, gezielt weiterleiten oder bewusst entfernen.",
         ],
       },
       {
-        heading: "Titles, Meta und H1-Struktur",
+        heading: "Während der Entwicklung: Crawling kontrollieren",
         paragraphs: [
-          "Jede wichtige Seite braucht einen eigenen Title und eine eigene Meta-Description. Der Title nennt Marke und Leistung klar. Die Meta verdient den Klick, ohne Keyword-Stuffing.",
-          "Pro Seite ein H1. H2 und H3 tragen Unterthemen der Reihe nach. Auf der Startseite nennt das H1 meist das Hauptangebot. Leistungsseiten für Webdesign, Admin-Panel oder Chatbots tragen ihr eigenes H1.",
-          "Denselben Title nicht auf mehreren Seiten kopieren. Doppelte Titles schwächen Nutzerführung und Suchergebnisse.",
+          "Testumgebungen gehören vor Suchdiensten geschützt. Die veröffentlichte Website muss dagegen wichtige Seiten über normale Links erreichbar machen. Prüfen Sie robots.txt, Meta-Robots-Angaben und Canonicals gemeinsam, da widersprüchliche Regeln die Indexierung erschweren.",
+          "Erstellen Sie eine XML-Sitemap mit den indexierbaren Hauptseiten. Nicht benötigte Filter-, Vorschau- oder System-URLs gehören nicht hinein. Bei mehreren Sprachen müssen hreflang-Verweise wechselseitig und auf die richtige Marktversion zeigen.",
         ],
       },
       {
-        heading: "Tempo, Mobil und Core Web Vitals",
+        heading: "Seitentitel, Beschreibungen und Überschriften",
         paragraphs: [
-          "Die meisten öffnen die Site am Handy. Bilder in passender Größe ausliefern, unnötige Skripte streichen, Schriften schlank halten. Ein schneller First Screen zählt für Verkauf und SEO.",
-          "Mobil-Layout vor dem Launch auf einem echten Gerät prüfen. Menü, Kontakt und Formulare müssen mit dem Daumen funktionieren. Desktop-Politur, die mobil zerbricht, ist auch ein SEO-Problem.",
+          "Jede wichtige Seite benötigt einen eigenen Seitentitel und eine passende Meta-Beschreibung. Der Titel nennt das konkrete Thema. Die Beschreibung fasst zusammen, was der Suchende auf der Seite findet. Beide bleiben lesbar und vermeiden unnötige Wiederholungen.",
+          "Verwenden Sie eine eindeutige H1 pro Seite und ordnen Sie Unterthemen logisch darunter. Überschriften dienen dem Inhalt, nicht der optischen Größe. Wenn ein Text nur wegen des Aussehens als H3 markiert wird, verliert die Dokumentstruktur ihren Sinn.",
         ],
       },
       {
-        heading: "Struktur, interne Links und Sitemap",
+        heading: "Mobile Leistung und Bedienbarkeit prüfen",
         paragraphs: [
-          "Leistungen, Portfolio, Blog und Kontakt müssen über Menü und Text verbunden sein. Wichtige Seiten gehören nicht nur in den Footer. Interne Links führen Menschen und Crawler.",
-          "XML-Sitemap und robots.txt gehören zum Launch. 404er mit Redirects klären. Canonical-URLs konsistent halten. Bei Mehrsprachigkeit muss hreflang stimmen, sonst bricht die Sprachzielung.",
+          "Messen Sie die wichtigsten Seiten auf einem realen Smartphone und unter gedrosselter Verbindung. Kontrollieren Sie die Größe ausgelieferter Bilder, blockierende Skripte und unnötige Schriftdateien. Der erste sichtbare Inhalt sollte ohne lange Verzögerung erscheinen.",
+          "Menü, Formular und primäre Kontaktaktion müssen mit Tastatur und Berührung erreichbar sein. Prüfen Sie Fokuszustände, Beschriftungen und Fehlermeldungen. Technische SEO-Bereitschaft und grundlegende Barrierefreiheit überschneiden sich an vielen dieser Stellen.",
         ],
       },
       {
-        heading: "Admin-Panel und pflegbare Inhalte",
+        heading: "Vor der Veröffentlichung: Statuscodes und Weiterleitungen",
         paragraphs: [
-          "Technisches SEO ist kein einmaliger Akt. Leistungen und Artikel ändern sich. Deshalb braucht es Admin-Panel oder CMS. Das Team soll Titles, Meta und Texte selbst pflegen können.",
-          "In METEK-Projekten wird das Content-Panel mit Tempo- und SEO-Checks geplant. Ziel ist keine Launch-Spitze, sondern eine Firmenwebsite, die ein Jahr später noch führbar ist.",
+          "Rufen Sie alle geplanten URLs automatisiert oder anhand einer vollständigen Liste ab. Wichtige Seiten sollten den erwarteten Statuscode liefern. Ketten aus mehreren Weiterleitungen werden auf ein direktes Ziel verkürzt, interne Links zeigen ebenfalls auf dieses Ziel.",
+          "Testen Sie Formulare, Telefonnummern, E-Mail- und WhatsApp-Links. Prüfen Sie strukturierte Daten nur dort, wo der sichtbare Inhalt sie stützt. Eine Markierung darf keine Leistungen, Bewertungen oder Standorte erfinden.",
         ],
       },
       {
-        heading: "Kurze Checkliste vor dem Launch",
+        heading: "Nach dem Start: Indexierung und Pflege beobachten",
         paragraphs: [
-          "Eigene Titles und Meta. Ein H1 pro Seite. Komprimierte Bilder in richtiger Größe. Klarer Kontaktweg mobil. Sitemap und robots bereit. Formulare und WhatsApp-Wege geprüft. 404er und Redirects kontrolliert.",
-          "Die meisten Punkte gehören vor dem fertigen Design auf den Tisch. SEO am letzten Tag kostet Geld und Nerven. Wenn technisches SEO Teil von Website-, Panel- oder Chatbot-Umfang sein soll, schreiben Sie METEK Digital.",
+          "Melden Sie die Sitemap in den verfügbaren Webmaster-Werkzeugen an und beobachten Sie Indexierungsfehler. Kontrollieren Sie nach einem Relaunch besonders alte URLs und Weiterleitungen. Auffällige 404-Aufrufe können auf vergessene interne oder externe Links hinweisen.",
+          "Legen Sie fest, wer Seitentitel, Beschreibungen und Inhalte später pflegt. Ein Admin-Panel oder CMS sollte nur die Felder öffnen, die das Team tatsächlich benötigt.",
+          "Dokumentieren Sie die Prüfergebnisse in einer Freigabeliste. Nach größeren technischen oder inhaltlichen Änderungen sollte dieselbe Prüfung erneut laufen.",
         ],
       },
     ],
   },
+
   "identity-at-first-glance": {
-    title: "Erster Eindruck der Website: Vertrauen vor der Headline",
+    title: "Der erste Eindruck einer Website: Identität im ersten Bildschirm",
     excerpt:
-      "Besucher lesen Layout, Abstand und Tempo in der ersten Sekunde. Professionelles Webdesign versteht Markenidentität als Hierarchie und Klarheit, nicht nur als Logo.",
-    lead: "Auf einer Unternehmenswebsite ist der erste Screen kein Slogan-Brett. Besucher messen Dichte, Button-Anzahl und ob die Marke gesetzt wirkt. Widersprechen diese Signale dem Text, verliert der Text. Bei METEK Digital fixieren wir diesen ersten Eindruck vor dem Feinschliff der Worte.",
-    imageAlt: "Typografie- und Layoutdetail auf einer Marken-Startseite",
+      "Typografie, Hierarchie, Abstände und Bildwahl prägen den ersten Eindruck einer Website. So prüfen Sie die Markenidentität im ersten Bildschirm.",
+    lead: "Besucher erfassen eine Website zunächst als Gesamtbild. Noch bevor sie jedes Wort lesen, erkennen sie Ordnung, Gewichtung und mögliche Handlungen. Der erste Bildschirm muss deshalb Angebot und Markenhaltung sichtbar strukturieren. Ein Logo allein kann diese Aufgabe nicht übernehmen.",
+    imageAlt: "Typografie und Layoutdetail auf der Startseite einer Marke",
     sections: [
       {
-        heading: "Was in der ersten Sekunde ankommt",
+        heading: "Der erste Bildschirm setzt eine Erwartung",
         paragraphs: [
-          "Öffnen Sie eine Dienstleistungs- oder Fertigungsseite. Was zuerst landet, ist selten die Headline. Es sind enge Ränder, Logo gegen Menü, drei Buttons auf gleicher Lautstärke. Das sitzt, bevor ein Satz gelesen wird.",
-          "Menschen nehmen Interface-Qualität als Zeichen für Geschäftsqualität. Das ist nicht immer fair. Es ist ihr Verhalten. Ein starkes Angebot hinter einem vollen First Screen startet im Rückstand. Eine ruhige, lesbare Fläche kauft dem Angebot Sekunden.",
+          "Eine Unternehmenswebsite wirkt anders als ein Online-Shop oder ein Boutique-Hotel. Der erste Bildschirm sollte diese Rolle unmittelbar erkennen lassen. Dazu gehören eine verständliche Aussage, ein passender visueller Beleg und eine klar gewichtete nächste Handlung. Wenn Menü, Hinweisleiste, Überschrift und mehrere Schaltflächen gleichzeitig Aufmerksamkeit verlangen, muss der Besucher die Reihenfolge dagegen selbst herstellen.",
         ],
       },
       {
-        heading: "Markenidentität online: Schrift, Tempo, Hierarchie",
+        heading: "Typografie macht Hierarchie sichtbar",
         paragraphs: [
-          "Der erste Blick ist nicht die Logo-Datei. Es ist, wie viele Schriftgrößen konkurrieren, wie oft die Akzentfarbe erscheint und ob Abstände einem System folgen.",
-          "Tempo sendet auch eine Botschaft. Autoplay, Laufschrift und Popups vor dem Lesen wirken angespannt. Eine schnelle Seite mit einem klaren Weg wirkt gesetzt.",
-          "Bei gekauften Themes werden Regeln nachträglich geflickt. Im individuellen Webdesign lebt Hierarchie im Code. Bei METEK stehen diese Regeln, bevor der Fotoordner geöffnet wird.",
+          "Schriftwahl allein erzeugt noch keine Identität.",
+          "Entscheidend ist das Verhältnis von Überschrift, Fließtext, Navigation und Beschriftungen. Wiederkehrende Größen und Abstände zeigen, welche Information zuerst gelesen werden soll.",
+          "Prüfen Sie den ersten Bildschirm auf einem schmalen Smartphone. Eine lange Überschrift kann dort den Beleg und die Handlung vollständig verdrängen. Kürzen Sie den Satz oder ändern Sie die Gewichtung, bevor Sie die Schrift so klein setzen, dass sie ihre Funktion verliert.",
         ],
       },
       {
-        heading: "Drei Checks für heute",
+        heading: "Bilder müssen eine Behauptung belegen",
         paragraphs: [
-          "Eine These im ersten Screen. Können Sie Zielgruppe und Leistung in einem Satz sagen, und trägt das Layout diesen Satz. Fünf Claims im selben Raum lassen keinen übrig.",
-          "Eine primäre Handlung. Sekundäre Links treten zurück. Zwei gleich schwere Buttons erzeugen keine Entscheidung. Am Handy gehört die Tap-Größe dazu.",
-          "Konsistenz nach der Startseite. Eine polierte Home, die auf Leistungs- oder Kontaktseiten ins Theme fällt, bricht Vertrauen. Reparieren Sie den Bruch, bevor Sie den Slogan neu schreiben.",
+          "Ein Hersteller kann Material, Fertigung oder ein abgeschlossenes Projekt zeigen. Eine Unterkunft braucht Bilder, die Raum und Zustand nachvollziehbar machen. Für professionelle Dienstleistungen können Arbeitsoberflächen oder konkrete Ergebnisse geeigneter sein als austauschbare Stockmotive.",
+          "Fragen Sie bei jedem Bild, welche Aussage es stützt. Dient es nur als farbige Fläche, sollte es die Lesbarkeit nicht beeinträchtigen. Trägt es Belegwert, braucht es genügend Größe und einen sinnvollen Bildausschnitt.",
         ],
       },
       {
-        heading: "Wenn der erste Screen zum Angebot passt",
+        heading: "Tempo und Stabilität gehören zur Wahrnehmung",
         paragraphs: [
-          "In Mode, Fertigung, Hotellerie und Professionalservices kaufen Besucher zuerst Urteilskraft. Der erste Screen ist die Probe.",
-          "Tempo, lesbare Schrift, ehrliche Claims und Kontrast gehören zur Ästhetik. Schön, aber langsam oder kaputt, scheitert trotzdem.",
-          "Greifen die drei Checks und fühlt sich etwas falsch an, ist es Strategie. Schreiben Sie den einen Satz, den das Layout tragen muss, und bauen Sie darum. METEK Digital hilft, Satz und System zu fixieren.",
+          "Ein sorgfältiges Layout verliert Wirkung, wenn der Hauptinhalt beim Laden springt oder ein schweres Medium lange leer bleibt. Dimensionierte Bilder, zurückhaltend geladene Schriften und eine belastbare mobile Darstellung schützen den ersten Eindruck.",
+          "Bewegung sollte die Reihenfolge erklären. Eine kurze Einführung kann den Blick führen, doch der Inhalt muss anschließend ruhig lesbar bleiben. Dauernde Bewegung konkurriert mit Text und Bedienung.",
+        ],
+      },
+      {
+        heading: "Die bestehende Startseite prüfen",
+        paragraphs: [
+          "Blenden Sie für einen Moment den Fließtext aus. Lassen Bild, Typografie und Anordnung noch erkennen, um welche Art von Unternehmen es geht? Lesen Sie danach nur Überschrift und primäre Aktion. Passen beide zum tatsächlichen Angebot?",
+          "Öffnen Sie anschließend eine Leistungs- und die Kontaktseite. Dieselben Regeln für Schrift, Abstand und Handlung sollten weiterführen. Ein starker erster Bildschirm hilft wenig, wenn die folgenden Seiten in ein anderes System wechseln.",
+          "Dokumentieren Sie den Einsatz der Akzentfarbe und die Gewichtung der Hauptaktion. Wiederkehrende Muster gehören in gemeinsame Tokens und Komponenten.",
         ],
       },
     ],
   },
+
   "system-not-logo": {
-    title: "Logo reicht nicht: Marke und CSS-Designsystem",
+    title: "Vom Logo zum Marken-Designsystem für Website und Panel",
     excerpt:
-      "Ein neues Logo repariert weder Rechnung noch Produktseite. Für konsistentes Web und Admin braucht es Regeln für Farbe, Schrift, Abstand und Komponenten.",
-    lead: "Rebrands starten oft mit dem Zeichen. Der tragfähige Weg startet mit Regeln. Ohne gemeinsame Schrift, Farbe, Abstände und Komponentenverhalten sitzt das neue Zeichen auf einem brüchigen Erlebnis. Bei METEK Digital planen wir Logo mit CSS-Designsystem und Nutzungsregeln.",
-    imageAlt: "Raster, Farbmuster und Schriftproben für ein Markensystem",
+      "Ein CSS-Designsystem übersetzt Markenidentität in Regeln für Farbe, Typografie, Abstand, Zustände und Komponenten auf Website und Panel.",
+    lead: "Ein Logo kennzeichnet die Marke. Im digitalen Alltag bestimmen jedoch zahlreiche weitere Entscheidungen den Eindruck: Textgrößen, Farben, Abstände, Formzustände und Komponenten. Ein Marken-Designsystem hält diese Entscheidungen im Quellcode und in einer kurzen Dokumentation fest.",
+    imageAlt: "Raster, Farbfelder und Schriftproben für ein Marken-Designsystem",
     sections: [
       {
-        heading: "Was Menschen wirklich erinnern",
+        heading: "Markenzeichen und Oberfläche erfüllen verschiedene Aufgaben",
         paragraphs: [
-          "Bitten Sie jemanden, eine vertrauenswürdige Marke zu beschreiben. Die wenigsten zeichnen das Logo. Sie sprechen von Bestätigungsmail, ob die Rechnung zur Site passt, ob Social zum Packaging passt.",
-          "Touchpoints wachsen schneller als Logo-Varianten. Das Zeichen muss klein und auf Schildern halten. Die echte Last liegt nach dem Klick: Web, Panel, E-Mail, Social.",
+          "Das Markenzeichen muss in vereinbarten Größen und Umgebungen funktionieren. Eine Website benötigt zusätzlich Regeln für Navigation, Inhalte und Interaktion. Ein Admin-Panel stellt andere Informationsmengen dar, braucht aber eine erkennbare Verbindung zur öffentlichen Marke.",
+          "Diese Verbindung entsteht durch wiederkehrende Grundentscheidungen. Typografie, Farbrollen und Formensprache können gemeinsam sein, während Dichte und Komponenten je nach Oberfläche variieren. Gleichheit ist dafür nicht erforderlich.",
         ],
       },
       {
-        heading: "Systeme machen Entscheidungen wiederholbar",
+        heading: "Mit wenigen belastbaren Tokens beginnen",
         paragraphs: [
-          "Ein visuelles System beantwortet Produktionsfragen früh. H1 zu H2, Akzente pro Screen, Fotoformat, Button-Radius, Mindestabstand. Teams verhandeln das nicht auf jeder Seite neu.",
-          "Gute Systeme sagen auch Nein. Kein gestrecktes Logo. Kein Schatten im Fließtext. Keine Zufallsschrift in E-Mails. Grenzen beschleunigen, weil Ablehnung klar ist.",
-          "Wenn Website und Admin-Panel dasselbe Regelset teilen, sieht das Team Identität als Struktur. Getrennte Sprachen für Site und Panel teilen die Marke.",
+          "Definieren Sie Farben nach Funktion: Hintergrund, Text, Linie, Akzent, Erfolg und Fehler.",
+          "Benennen Sie Schriftgrößen nach Rolle und legen Sie eine begrenzte Abstandsfolge fest. Radien und Schatten erhalten ebenfalls feste Werte, sofern die Marke sie verwendet.",
+          "Solche Tokens machen Änderungen nachvollziehbar. Wenn eine Textfarbe angepasst wird, sollte sie an den relevanten Stellen aus einer Quelle stammen. Einzelne Farbwerte in vielen Dateien führen dagegen schnell zu sichtbaren Abweichungen.",
         ],
       },
       {
-        heading: "Kern, Produktion, Oberfläche",
+        heading: "Komponenten brauchen Zustände und Inhaltstests",
         paragraphs: [
-          "Kern: These, Schriftfamilien, Farb-Tokens, Logo-Freiraum, Stimmgrenzen. Vor dem Skalieren fixieren.",
-          "Produktion: Raster, UI-Komponenten, Ikonensprache, Fotoregie, Bewegungslimits. Hier läuft der Alltag. Viele Brandbooks überspringen diese Schicht.",
-          "Oberfläche: Web, Social, Decks, Beschilderung, Packaging. Isoliertes Site-Design erzeugt zwei Marken. Ein System, verschiedene Flächen.",
+          "Beginnen Sie mit Navigation, Schaltflächen, Links, Formularfeldern, Hinweisen und Inhaltskarten. Dokumentieren Sie Normal-, Fokus-, Fehler- und deaktivierte Zustände. Der Fokuszustand ist dabei eine Bedienanforderung und kein optionales Detail.",
+          "Testen Sie Komponenten mit realistischen Inhalten. Lange deutsche Überschriften, Fehlermeldungen und leere Datensätze decken Schwächen auf, die in einer idealisierten Musteransicht verborgen bleiben.",
         ],
       },
       {
-        heading: "Kurzes Dokument, das man öffnet",
+        heading: "Gemeinsame Regeln, eigenständige Komponenten",
         paragraphs: [
-          "Ein achtzigseitiges Buch, das niemand öffnet, ist Archiv. Ein nützlicher Guide ist kurz, suchbar und voller Beispiele. So machen. Das vermeiden. Auf echten Screens zeigen.",
-          "Kommt ein neuer Kanal, erweitern Sie das System statt zu flicken. Der Test bleibt: erbt das Stück Kernschrift und Farblogik.",
-          "Wenn Produktseiten noch drei Button-Stile mischen, pausieren Sie die nächste Logo-Runde. Oberflächen prüfen, CSS-Designsystem setzen, dann das Zeichen schärfen. Eine kurze Projektnotiz reicht, wenn METEK Digital das übernehmen soll.",
+          "Die öffentliche Website priorisiert Angebot, Belege und Kontakt. Ein internes Panel priorisiert Datendichte, wiederkehrende Aufgaben und Rückmeldung zum Systemstatus. Beide können dieselbe Schriftfamilie und Farbsemantik verwenden, ohne dieselbe Seitenstruktur zu kopieren. Teilen Sie deshalb nur Bausteine, deren Verhalten tatsächlich übereinstimmt. Ein öffentlicher Projektteaser und eine interne Datentabelle haben unterschiedliche Aufgaben.",
+        ],
+      },
+      {
+        heading: "Eine bestehende Marke prüfen und Regeln sichern",
+        paragraphs: [
+          "Sammeln Sie Screenshots aus Website, Panel, E-Mail und Social Media. Markieren Sie unterschiedliche Schaltflächen, Schriftgrößen und Farbbedeutungen. Prüfen Sie anschließend, welche Abweichung sachlich begründet ist und welche nur historisch gewachsen ist.",
+          "Erstellen Sie aus den häufigsten, gut funktionierenden Mustern einen kleinen Kern. Versionieren Sie diesen zusammen mit den Oberflächen und ergänzen Sie kurze Anwendungsbeispiele. Ein nutzbares System beantwortet Fragen der täglichen Produktion.",
+          "METEK Digital entwickelt projektbezogene Tokens und Komponenten für Websites und interne Oberflächen. Einige Screenshots und eine Beschreibung der wiederkehrenden Inkonsistenzen helfen, den notwendigen Umfang einzugrenzen.",
         ],
       },
     ],
   },
+
   "editorial-web-as-sales": {
-    title: "Webdesign, das verkauft: Reihenfolge, Beweis, eine klare Handlung",
+    title: "Eine verkaufsstarke Website sinnvoll strukturieren",
     excerpt:
-      "Conversion kommt auf Firmenwebsites selten durch lautere Bilder. These, Beweis und Handlung in der richtigen Reihenfolge machen den Verkaufsweg klarer.",
-    lead: "Viele Sites wirken wie eine gescrollte Broschüre: Cover, Feature-Grid, Logo-Leiste, Button unten. Die Blöcke sind nicht immer falsch. Die Reihenfolge ist es. Besucher übergehen den Beweis und erreichen den Button unüberzeugt. Bei METEK Digital bauen wir Seiten als Verkaufsweg.",
+      "Eine gute Startseite ordnet Angebot, Beleg, Einwand und Handlung. So prüfen Sie Inhalt und Hierarchie einer Unternehmenswebsite.",
+    lead: "Eine Website unterstützt den Verkauf, wenn sie die Fragen eines Interessenten in einer sinnvollen Reihenfolge beantwortet. Eine Sammlung ansprechender Abschnitte reicht dafür nicht aus. Angebot, Belege, Einwände und nächste Handlung müssen als zusammenhängende Argumentation lesbar sein.",
     imageAlt: "Editoriale Startseite mit klarer typografischer Hierarchie",
     sections: [
       {
-        heading: "Reihen statt Stapeln",
+        heading: "Mit dem konkreten Angebot beginnen",
         paragraphs: [
-          "Stapeln füllt die Seite mit Modulen. Reihen fragt, was als Nächstes geglaubt werden muss: für wen, was ändert sich nach dem Kontakt, dann Beweis, dann Handlung.",
-          "Jeder Abschnitt muss den nächsten Scroll verdienen. Können Sie die Aufgabe eines Blocks nicht nennen, kürzen oder verschieben. Kürzere Seiten schützen oft Aufmerksamkeit statt Wert zu löschen.",
+          "Der erste Bildschirm sollte erkennen lassen, welche Leistung für wen angeboten wird. Eine breite Selbstbeschreibung zwingt Besucher, die Bedeutung selbst abzuleiten. Ein Hersteller kann Produktgruppe und Zielmarkt benennen, eine Praxis ihre Behandlung und den passenden Kontaktweg.",
+          "Die primäre Handlung folgt dieser Aussage. Bei erklärungsbedürftigen Leistungen kann das eine Anfrage sein, bei einer Unterkunft eine Verfügbarkeitsprüfung. Weitere Links bleiben erreichbar, erhalten aber weniger visuelles Gewicht.",
         ],
       },
       {
-        heading: "Der Verkaufsweg ist Typografie",
+        heading: "Belege an die passende Aussage setzen",
         paragraphs: [
-          "Schriftgröße und Abstand übernehmen einen Teil der Navigation. Klare Stufen von H1 zu H2 zeichnen die Route. Lesbare Zeilenlänge und ehrlicher Kontrast schlagen animierte Zähler.",
-          "Mobil bestraft schwache Hierarchie schnell. Läuft die Headline über fünf Zeilen und schiebt Support-Text weg, schrumpft das Versprechen. Seite zuerst am Handy fertigstellen.",
+          "Ein Beleg wirkt dort, wo eine konkrete Frage entsteht. Nach einer Qualitätsaussage kann ein benanntes Projekt, ein Prozessdetail oder ein nachvollziehbares Produktbild folgen. Ein allgemeiner Logo-Streifen erklärt selten, was die gezeigte Zusammenarbeit belegt.",
+          "Wählen Sie den Beleg nach Branche.",
+          "Für Fertigung zählen Material, Kapazität oder Referenzanwendungen. Bei einer Boutique können Produktfotografie, Größeninformation und Rückgabeweg wichtiger sein. Dienstleistungen benötigen häufig Ablauf, Zuständigkeit und ein Beispiel aus der Praxis.",
         ],
       },
       {
-        heading: "Beweis dorthin, wo Zweifel entsteht",
+        heading: "Einwände in der richtigen Reihenfolge beantworten",
         paragraphs: [
-          "Testimonials in einem generischen Streifen sind leicht zu überspringen. Beweis wirkt neben dem Einwand: Ergebniszeile nach dem Versprechen, genanntes Projekt nach der Leistungsliste, kurzes Zitat nahe am Preis.",
-          "Ein starker Case schlägt zehn vage Zahlen ohne Quelle. Echtes Werk im Kontext, Fertigungsseite, Boutique-Vitrine, Operations-Panel, wirkt glaubwürdiger.",
+          "Nach dem ersten Interesse folgen Fragen zu Eignung, Aufwand und Risiko. Die Seite sollte diese Fragen dort aufnehmen, wo sie im Gedankenablauf auftauchen. Leistungsumfang vor Detailreferenzen, Ablauf vor Kontakt und Pflegeweg vor der endgültigen Entscheidung sind häufig sinnvolle Übergänge.",
+          "Diese Reihenfolge ist kein universelles Schema. Gespräche mit Kunden, Suchanfragen und Vertriebserfahrung zeigen, welche Unsicherheit zuerst geklärt werden muss. Die Seitenstruktur sollte diesen Erkenntnissen folgen.",
         ],
       },
       {
-        heading: "Eine primäre Handlung",
+        heading: "Typografie und Text führen gemeinsam",
         paragraphs: [
-          "Die primäre Handlung trägt durch Label, Position und Raum darum. Sekundäre Wege bleiben sichtbar, aber ruhiger. Zwei gleich schwere Buttons lassen die Entscheidung beim Besucher.",
-          "Editoriales Tempo respektiert denkende Käufer. Countdown und aggressive Popups lehren Misstrauen.",
-          "Legen Sie die Startseite in These, Beweis und Handlung. Lücken werden sofort sichtbar. Füllen ist Text- und Layoutarbeit, kein weiteres Plugin. Schreiben Sie METEK Digital, wenn Sie diese Struktur in einer Unternehmenswebsite brauchen.",
+          "Überschriften geben der Argumentation Stationen. Der Fließtext erklärt nur, was für die nächste Entscheidung nötig ist. Ein klarer Größenunterschied und ausreichender Abstand helfen beim Überfliegen, dürfen jedoch wichtige Einschränkungen nicht verstecken.",
+          "Schaltflächen brauchen konkrete Beschriftungen. „Angebot anfragen“ oder „Verfügbarkeit prüfen“ beschreibt die Folge besser als „Mehr erfahren“. Wiederholen Sie die primäre Aktion an sinnvollen Stellen mit derselben Bedeutung.",
+        ],
+      },
+      {
+        heading: "Die Startseite als Argument prüfen",
+        paragraphs: [
+          "Schreiben Sie neben jeden Abschnitt eine Aufgabe: Angebot erklären, Eignung belegen, Einwand beantworten oder Handlung ermöglichen. Bleibt die Aufgabe unklar, wird der Abschnitt gekürzt, verschoben oder entfernt. Mehrere Abschnitte mit derselben Aufgabe sollten zusammengeführt werden.",
+          "Prüfen Sie danach die mobile Reihenfolge. Bilder, Karten und Animationen dürfen den Zusammenhang zwischen Aussage und Beleg nicht trennen. Der Nutzer sollte nach jedem Bildschirm verstehen, warum der nächste Abschnitt folgt.",
+          "Wenn die Argumentation steht, kann die Gestaltung mit Maßstab und Bild arbeiten, ohne die Orientierung zu verlieren. Prüfen Sie zuletzt, ob jeder Abschnitt eine Frage beantwortet oder den nächsten Schritt vorbereitet.",
         ],
       },
     ],
   },
+
   "quiet-luxury-online": {
-    title: "Luxus-Markenwebsites: ruhiges Design mit Begründung",
+    title: "Webdesign für Luxusmarken: reduziert und gut lesbar",
     excerpt:
-      "Luxus-Webdesign ist nicht nur blasse Farbe. Es braucht disziplinierten Raum, ehrliche Bilder und Bewegung mit Aufgabe.",
-    lead: "Marken, die im Laden ruhig wirken, werden online oft flach grau und bleiben dort. Ruhe am Screen ist nicht fehlende Farbe. Jedes Element braucht einen Grund. Bei METEK Digital binden wir diese Disziplin an ein Designsystem für Boutiquen, Hotellerie und selektiven Handel.",
-    imageAlt: "Schlichtes Produktstillleben in weichem Licht",
+      "Reduziertes Webdesign braucht lesbare Typografie, belastbare Kontraste, präzise Bilder und gezielte Bewegung. Ein Leitfaden für Boutique-Marken.",
+    lead: "Ein zurückhaltender Markenauftritt wirkt online nur dann hochwertig, wenn er Information klar ordnet. Kleine Schrift, schwacher Kontrast und große leere Flächen sind keine Zeichen für Qualität. Reduktion bedeutet, dass Raum, Bild und Bewegung eine erkennbare Aufgabe übernehmen.",
+    imageAlt: "Reduziertes Produktstillleben in weichem Tageslicht",
     sections: [
       {
-        heading: "Weniger Lärm, schärfere Botschaft",
+        heading: "Reduktion darf keine Information entfernen",
         paragraphs: [
-          "Reduktion räumt konkurrierende Claims. Eine Hauptbotschaft, eine Support-Zeile, ein Weg nach vorn. Drei gleich starke Headlines auf einem Screen bleiben oft keine.",
-          "Enge Palette ist in Ordnung. Unlesbarkeit nicht. Niedrige Sättigung muss Kontrast trotzdem schaffen. Eine Seite, die man nicht lesen kann, ist nicht premium, sondern nachlässig.",
+          "Eine Boutique-Website muss Produkt, Material, Größe, Preis oder Anfrageweg verständlich darstellen. Großzügiger Raum kann diese Angaben rahmen, solange der Besucher nicht nach grundlegenden Informationen suchen muss. Fehlende Orientierung wirkt schnell unfertig.",
+          "Ordnen Sie Inhalte nach ihrer Bedeutung und lassen Sie nachrangige Angaben zurücktreten. Die Hauptaussage bleibt sichtbar, während Details an der Stelle erscheinen, an der sie für die Entscheidung gebraucht werden.",
         ],
       },
       {
-        heading: "Materialqualität am Screen",
+        heading: "Typografie und Kontrast tragen den ruhigen Eindruck",
         paragraphs: [
-          "Digitales Material kommt aus Fotodisziplin: konsistentes Licht, ehrliche Textur, kontrollierte Tiefe. Stock-Lächeln und harte Filter zerstören eine Luxusposition in einem Frame.",
-          "Schrift trägt auch Material. Laufweite, Gewicht und Ränder müssen atmen. Eine Systemschrift mitten in einer Luxuserzählung wirkt wie ein Heimetikett.",
+          "Wählen Sie eine Schrift mit gut lesbaren Formen und passenden Schnitten. Große Überschriften können Charakter zeigen, doch Fließtext und Bedienhinweise benötigen belastbare Größen und Zeilenabstände. Sehr dünne Schnitte verlieren auf kleinen Displays schnell an Klarheit.",
+          "Gedämpfte Farben brauchen weiterhin ausreichenden Kontrast. Prüfen Sie Text, Links und Fokuszustände in hellen und dunklen Bereichen. Ein Akzent gewinnt an Wirkung, wenn er sparsam und konsistent eingesetzt wird.",
         ],
       },
       {
-        heading: "Bewegung mit Aufgabe",
+        heading: "Fotografie liefert den materiellen Beleg",
         paragraphs: [
-          "Animation soll Hierarchie klären, nicht performen. Gemessenes Hover, gewogene Übergänge und lesbarer Text schlagen Parallax, der den Satz versteckt.",
-          "Bewegt sich etwas weiter, während jemand liest, ist das Layout gescheitert. Stoppen oder entfernen. Kontrolle liest sich als Luxus. Dauerndes Zucken als Unsicherheit.",
+          "Licht, Perspektive und Ausschnitt sollten Material und Verarbeitung nachvollziehbar zeigen. Eine einheitliche Bildrichtung verbindet Produktseiten stärker als ein nachträglicher Filter. Aufnahmen benötigen genügend Auflösung für den vorgesehenen Bildausschnitt.",
+          "Leere Bildflächen können Text aufnehmen, wenn sie bereits bei der Produktion berücksichtigt wurden. Wird Text später über ein unruhiges Motiv gelegt, leiden Lesbarkeit und Bildwirkung zugleich.",
         ],
       },
       {
-        heading: "Eine Marke in Laden und Browser",
+        heading: "Abstand zeigt Beziehungen",
         paragraphs: [
-          "Wer im Laden flüstert und online schreit, teilt die Marke. Satzlänge, Produktnamen und Aufrufton auf beiden Seiten angleichen.",
-          "Tempo gehört zum Gefühl. Elegantes Layout mit langsamem First Load wirkt nachlässig. Tempo und Zugang sind Lieferkriterien wie Abstand und Schrift.",
-          "Vergleichen Sie die Site mit Ihrem besten physischen Touchpoint. Flüstert der Laden und schreit der Screen, zuerst das lösen. Für eine Luxus-Markensite auf dieser Linie sprechen Sie mit METEK Digital.",
+          "Große Abstände funktionieren, wenn sie Gruppen trennen und den Blick auf das Produkt lenken. Innerhalb einer Gruppe müssen Überschrift, Beschreibung und Handlung dagegen erkennbar zusammengehören. Ein einheitliches Abstandssystem verhindert zufällige Lücken.",
+          "Auf dem Smartphone ist die verfügbare Höhe begrenzt. Übertragen Sie Desktop-Leerräume deshalb nicht unverändert. Der erste Bildschirm sollte weiterhin Marke, Angebot und den nächsten sinnvollen Schritt erkennen lassen.",
+        ],
+      },
+      {
+        heading: "Bewegung und Markenerlebnis abgleichen",
+        paragraphs: [
+          "Eine Übergangsanimation kann eine neue Ansicht verorten oder ein Produktdetail öffnen. Sobald gelesen oder verglichen wird, sollte die Oberfläche stabil bleiben. Berücksichtigen Sie außerdem die Systemeinstellung für reduzierte Bewegung.",
+          "Vergleichen Sie Website, Verpackung, Ladenraum und Kundenkommunikation. Materialfarben, Bildausschnitte oder sprachliche Entscheidungen können eine Verbindung schaffen, während die digitale Oberfläche ihre eigenen Bedienanforderungen erfüllt.",
+          "Prüfen Sie vor der Übergabe Lesbarkeit und Tastaturbedienung auf mobilen Geräten. Kontrollieren Sie anschließend Bildqualität und Ladeverhalten unter realen Bedingungen.",
         ],
       },
     ],
   },
+
   "brief-that-works": {
-    title: "Projektnotiz, die einen Web-Build verkürzt",
+    title: "Projektanforderungen für Website, Panel oder Chatbot",
     excerpt:
-      "Klares Ziel, Zielgruppe, Grenzen und Referenzen verkürzen Webdesign- und Softwareprojekte. Vier Blöcke für eine nützliche Agentur-Projektnotiz.",
-    lead: "Analyse ist keine Moodboard-Tour. Es geht darum, Erfolg zu beschreiben, wen es zu überzeugen gilt und was außerhalb des Umfangs liegt. Unklarer Input erzeugt teure Revisionen. Klarer Input lässt Design und Code im ersten Durchgang laufen. Bei METEK Digital fixieren wir diese Notiz gemeinsam im Prozess.",
-    imageAlt: "Projektnotizen neben der Tastatur auf einem Studiotisch",
+      "Eine gute Projektnotiz beschreibt Problem, Nutzer, Aufgaben, Inhalte, Integrationen, Grenzen und Entscheidungsträger. So bereiten Sie ein Agenturgespräch vor.",
+    lead: "Eine brauchbare Projektnotiz erklärt zuerst die geschäftliche Aufgabe. Referenzseiten und Funktionswünsche werden dadurch einordenbar. Für Website, Admin-Panel oder Chatbot braucht die Agentur außerdem Informationen zu Nutzern, Inhalten, vorhandenen Systemen und dem Entscheidungsweg.",
+    imageAlt: "Projektanforderungen neben einer Tastatur auf einem Arbeitstisch",
     sections: [
       {
-        heading: "Vier Blöcke: Ziel, Zielgruppe, Grenzen, Referenzen",
+        heading: "Problem und Hauptnutzer benennen",
         paragraphs: [
-          "Ein Ziel nennt eine beobachtbare Änderung. Der erste Screen sagt das Angebot klar. Das Formular wird ausgefüllt. Die Händlerkarte wird genutzt. Stimmungswörter wie modern sind keine Ziele.",
-          "Der Zielgruppenblock nennt Entscheider, Angst und nötigen Beweis. Grenzen listen Zeitplan, Budgetrahmen, vorhandene Assets, Integrationen und rechtliche Linien.",
-          "Referenzen zeigen Tempo und Struktur, keine Kopiervorlagen. Gegenreferenzen ergänzen: abgelehnte Sites und warum. Dieser Absatz ist oft der nützlichste.",
+          "Beschreiben Sie die aktuelle Situation in beobachtbaren Begriffen. Kunden finden die passende Leistung nicht, Anfragen enthalten zu wenig Angaben oder Mitarbeitende übertragen Termine zwischen mehreren Systemen. Diese Sätze geben dem Projekt eine prüfbare Aufgabe.",
+          "Nennen Sie anschließend den wichtigsten Nutzer und seinen Kontext. Ein Einkäufer auf dem Smartphone benötigt andere Informationen als ein Mitarbeiter, der täglich viele Datensätze bearbeitet. Weitere Nutzergruppen können folgen, erhalten aber eine erkennbare Priorität.",
         ],
       },
       {
-        heading: "Ein guter Satz schlägt ein langes Deck",
+        heading: "Erforderliche Handlungen konkret beschreiben",
         paragraphs: [
-          "Eine Seite schlägt zehn verstreute Docs. Uneinigkeit der Stakeholder kommt früh ans Licht. Das ist billiger als Revision vier nach gebauten Komponenten.",
-          "Statt einfacher bitte schreiben: eine primäre Handlung im ersten Screen und ein technisches Blatt ohne Login. Die zweite Fassung ist baubar.",
+          "Listen Sie auf, was ein Nutzer abschließen können muss.",
+          "Eine Angebotsanfrage senden, einen Termin wählen, einen Datensatz freigeben oder einen Fachbeitrag veröffentlichen sind konkrete Anforderungen. Verben machen sie baubar.",
+          "Ergänzen Sie für jede wichtige Handlung die notwendigen Daten und den nächsten Systemschritt. Wohin geht eine Anfrage? Wer bestätigt sie? Welche Informationen müssen gespeichert werden? Daraus ergeben sich Formulare, Zustände und Schnittstellen.",
         ],
       },
       {
-        heading: "Früh fixieren",
+        heading: "Inhalte und vorhandene Materialien erfassen",
         paragraphs: [
-          "Strategie, Identität, Interface, Entwicklung, Launch. Jede Stufe setzt die vorige voraus. Positionierung nach Komponenten zu ändern kostet mehr als eine Skizze.",
-          "Die Projektnotiz ist der erste Riegel. Website, Admin-Panel oder Chatbot: geschriebene Absicht hält Custom-Arbeit vom Theme-Pfad fern.",
+          "Notieren Sie, welche Texte, Bilder, Produktdaten und Markenregeln bereits vorliegen. Weisen Sie für fehlende Inhalte einen Verantwortlichen zu. Ein Layout kann erst verlässlich geplant werden, wenn Umfang und Beschaffenheit des Inhalts bekannt sind.",
+          "Referenzseiten helfen bei Struktur und gestalterischer Richtung. Schreiben Sie zu jedem Link, was Sie daran relevant finden. Ergänzen Sie Gegenbeispiele, wenn bestimmte Muster für Ihre Marke oder Ihre Nutzer ungeeignet sind.",
         ],
       },
       {
-        heading: "Notiz gemeinsam schreiben",
+        heading: "Integrationen und technische Grenzen offenlegen",
         paragraphs: [
-          "Die besten Notizen entstehen gemeinsam. Sie bringen Fachwissen. Die Agentur stellt Lückenfragen. Gemeinsames Vokabular reduziert das haben wir nicht gewollt am Ende.",
-          "Bevor Sie eine Agentur anschreiben, vervollständigen Sie: wir wissen, dass es funktioniert hat, wenn ___. Bleibt die Lücke leer, ist die Analyse nicht fertig.",
-          "Schicken Sie den Satz mit Links, Grenzen und Gegenreferenzen. Sie bekommen ein schärferes Angebot und einen kürzeren Weg zum Launch. Ein paar Zeilen reichen für den Start mit METEK Digital.",
+          "Nennen Sie bestehende CRM-, Kalender-, Zahlungs- oder Analysesysteme sowie verfügbare Zugänge. Halten Sie fest, welches System die maßgebliche Datenquelle bleibt. Eine Integration lässt sich nur bewerten, wenn Schnittstelle und Zuständigkeit bekannt sind.",
+          "Führen Sie außerdem rechtliche, sicherheitsbezogene oder organisatorische Grenzen auf. Dazu können freigegebene Hosting-Regionen, Rollenmodelle oder verbindliche Veröffentlichungsschritte gehören.",
+        ],
+      },
+      {
+        heading: "Zeit, Entscheidung und Ausschlüsse festhalten",
+        paragraphs: [
+          "Ein gewünschter Termin braucht seinen Anlass und bekannte Abhängigkeiten. Produktfotografie, interne Freigaben oder Datenmigration können den Plan bestimmen. Nennen Sie die Person, die Inhalt, Design und Umfang verbindlich freigibt.",
+          "Ausschlüsse schützen die erste Projektphase. Wenn eine Mobile-App, Mehrsprachigkeit oder ein Kundenkonto später folgen soll, schreiben Sie das ausdrücklich. Die technische Planung kann die Erweiterung berücksichtigen, ohne sie in den aktuellen Umfang zu rechnen.",
+          "Ein kompaktes Beispiel: „Unsere Händler finden technische Unterlagen auf dem bestehenden Auftritt nur über die Suche. Einkäufer sollen Produkte nach Einsatzgebiet filtern und ein Datenblatt ohne Anmeldung laden können. Produktdaten liegen als Tabelle vor; Fotos und deutsche Texte sind freigegeben. Anfragen gehen an das bestehende CRM. Die Vertriebsleitung entscheidet, ein Kundenkonto gehört nicht zur ersten Phase.“",
+          "Der Absatz enthält genug Kontext für gezielte Rückfragen. Links und Zeitrahmen können danach ergänzt werden. Für ein erstes Gespräch mit METEK Digital genügt diese Form, um einen sinnvollen Umfang vorzubereiten.",
         ],
       },
     ],

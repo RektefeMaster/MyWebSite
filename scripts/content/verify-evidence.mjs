@@ -86,6 +86,44 @@ if (!fs.existsSync(PROOF_POINTS_PATH)) {
 }
 
 const proof = fs.readFileSync(PROOF_POINTS_PATH, "utf8");
+
+// Brand contact facts must match the runtime source of truth. A path-only
+// evidence check cannot catch a stale address copied into Markdown.
+const siteSource = fs.readFileSync(path.join(ROOT, "lib/site.ts"), "utf8");
+const siteEmail = siteSource.match(/\bemail:\s*["']([^"']+)["']/)?.[1];
+if (!siteEmail) {
+  trackFail("lib/site.ts: SITE.email could not be read");
+} else {
+  const brandEvidencePath = path.join(
+    EVIDENCE_DIR,
+    "brand",
+    "BRAND-001.md",
+  );
+  const contactDocs = [
+    { name: "proof-points.md", text: proof },
+    ...(fs.existsSync(brandEvidencePath)
+      ? [
+          {
+            name: "content-system/evidence/brand/BRAND-001.md",
+            text: fs.readFileSync(brandEvidencePath, "utf8"),
+          },
+        ]
+      : []),
+  ];
+  for (const doc of contactDocs) {
+    const emails = new Set(
+      [...doc.text.matchAll(/[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}/g)].map(
+        (match) => match[0],
+      ),
+    );
+    for (const email of emails) {
+      if (email !== siteEmail) {
+        trackFail(`${doc.name}: ${email} differs from SITE.email (${siteEmail})`);
+      }
+    }
+  }
+}
+
 const claims = parseProofClaims(proof);
 const claimIds = new Set();
 /** @type {Set<string>} */

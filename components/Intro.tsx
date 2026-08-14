@@ -1,319 +1,497 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
-import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
+import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { loadHeroScene } from "@/lib/load-hero-scene";
 
 /**
- * Sinematik açılış perdesi — süre bilinçli uzun tutulur ki perde kalkmadan
- * hero chunk + fontlar ısınsın (mid-fold LazyMount ile scroll’a bırakılır).
- * - `data-intro="play"` (layout inline script) → oynar; aksi halde CSS skip.
- * - Oturum başına bir kez; `?intro` ile yeniden.
- * - reduced-motion’da yok; JS yoksa CSS failsafe (~4.2s) temizler.
+ * Oturum başına bir kez oynayan sessiz açılış filmi.
+ * Film bittiğinde son baskı yüzeyi HeroScene'deki gerçek M geometrisinden
+ * kesilir; dış yüzey iki yana, M çekirdeği yukarı ayrılarak hero'yu açar.
  */
+const INTRO_IN_POINT = 5 / 24;
+
+type FrameReadyVideo = HTMLVideoElement & {
+  requestVideoFrameCallback?: (callback: () => void) => number;
+  cancelVideoFrameCallback?: (handle: number) => void;
+};
 
 function warmHomeChunks() {
-  // Yalnızca hero — mid-fold LazyMount ile scroll’a bırakılır (TTI / long-task).
   return Promise.allSettled([loadHeroScene()]);
 }
 
-function waitForEvent(name: string, timeoutMs: number) {
-  return new Promise<void>((resolve) => {
-    let settled = false;
-    const done = () => {
-      if (settled) return;
-      settled = true;
-      window.clearTimeout(timeout);
-      window.removeEventListener(name, onReady);
-      resolve();
-    };
-    const onReady = () => done();
-    const timeout = window.setTimeout(done, timeoutMs);
-    window.addEventListener(name, onReady);
-  });
-}
-
 export default function Intro() {
-  const t = useTranslations("hero");
+  const t = useTranslations("intro");
   const pathname = usePathname();
   const [visible, setVisible] = useState(true);
 
   const rootRef = useRef<HTMLDivElement>(null);
-  const markRef = useRef<HTMLDivElement>(null);
-  const mRef = useRef<HTMLSpanElement>(null);
-  const dotRef = useRef<HTMLSpanElement>(null);
-  const labelLRef = useRef<HTMLDivElement>(null);
-  const labelRRef = useRef<HTMLDivElement>(null);
-  const counterRef = useRef<HTMLSpanElement>(null);
-  const hairRef = useRef<HTMLDivElement>(null);
+  const filmRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const chromeRef = useRef<HTMLDivElement>(null);
+  const skipRef = useRef<HTMLButtonElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
+  const progressBarRef = useRef<HTMLDivElement>(null);
+  const exitGridRef = useRef<HTMLDivElement>(null);
+  const exitTimelineRef = useRef<gsap.core.Timeline | null>(null);
+  const progressRafRef = useRef<number | null>(null);
+  const videoFrameCallbackRef = useRef<number | null>(null);
+  const watchdogRef = useRef<number | null>(null);
+  const isExiting = useRef(false);
+  const warmed = useRef(false);
 
-  useGSAP(
-    () => {
-      const root = rootRef.current;
-      if (!root) return;
+  const unlockScroll = useCallback(() => {
+    document.documentElement.classList.remove("intro-lock");
+  }, []);
 
-      if (document.documentElement.dataset.intro !== "play") {
+  const completeExit = useCallback(() => {
+    unlockScroll();
+    document.documentElement.dataset.intro = "skip";
+    window.__lenis?.start();
+    setVisible(false);
+    window.dispatchEvent(new Event("metek:intro-done"));
+
+    // Perde DOM'dan çıktıktan sonra ölçüm al; intro katmanı görünürken refresh
+    // etmek ScrollTrigger başlangıçlarını yanlış bir viewport'a bağlayabiliyor.
+    window.requestAnimationFrame(() => ScrollTrigger.refresh());
+  }, [unlockScroll]);
+
+  const finish = useCallback(() => {
+    if (isExiting.current) return;
+    isExiting.current = true;
+
+    if (watchdogRef.current !== null) {
+      window.clearTimeout(watchdogRef.current);
+      watchdogRef.current = null;
+    }
+    if (progressRafRef.current !== null) {
+      window.cancelAnimationFrame(progressRafRef.current);
+      progressRafRef.current = null;
+    }
+
+    if (pathname === "/") {
+      window.dispatchEvent(new Event("metek:hero-warm"));
+    }
+
+    const video = videoRef.current;
+    const frameVideo = video as FrameReadyVideo | null;
+    if (videoFrameCallbackRef.current !== null) {
+      frameVideo?.cancelVideoFrameCallback?.(videoFrameCallbackRef.current);
+      videoFrameCallbackRef.current = null;
+    }
+    try {
+      video?.pause();
+    } catch {
+      /* Medya öğesi kaldırılmışsa çıkış yine tamamlanır. */
+    }
+
+    const root = rootRef.current;
+    const film = filmRef.current;
+    const exitGrid = exitGridRef.current;
+    const core = exitGrid?.querySelector<HTMLElement>(
+      ".intro-exit-surface--core",
+    );
+    const shellLeft = exitGrid?.querySelector<HTMLElement>(
+      ".intro-exit-shell--left",
+    );
+    const shellRight = exitGrid?.querySelector<HTMLElement>(
+      ".intro-exit-shell--right",
+    );
+
+    if (!root || !film || !exitGrid || !core || !shellLeft || !shellRight) {
+      completeExit();
+      return;
+    }
+
+    const mobile = window.matchMedia(
+      "(max-width: 767px), (pointer: coarse)",
+    ).matches;
+
+    exitTimelineRef.current?.kill();
+    gsap.set([shellLeft, shellRight, core], {
+      xPercent: 0,
+      yPercent: 0,
+      rotation: 0,
+      scale: 1,
+      autoAlpha: 1,
+      willChange: "transform",
+    });
+    gsap.set(exitGrid, { autoAlpha: 0 });
+
+    exitTimelineRef.current = gsap
+      .timeline({ onComplete: completeExit })
+      .to(
+        [chromeRef.current, progressRef.current],
+        { autoAlpha: 0, duration: 0.1, ease: "power2.in" },
+        0,
+      )
+      // Oynayan kare, tamamlanmış baskı yüzeyine tek kurgu karesinde geçer.
+      .set(exitGrid, { autoAlpha: 1 }, 0.04)
+      .set(film, { autoAlpha: 0 }, 0.04)
+      .set(root, { backgroundColor: "transparent" }, 0.05)
+      // M çekirdeğini bir nefes küçültmek, hero'yu önce gerçek marka
+      // siluetinin çevresinden gösteren ince bir kesim oluşturur.
+      .to(
+        core,
+        {
+          scale: mobile ? 0.975 : 0.96,
+          duration: mobile ? 0.1 : 0.14,
+          ease: "power2.inOut",
+        },
+        0.08,
+      )
+      // Kâğıt M, alttaki cam M'e kısa bir match-cut verir ve yukarı çıkar.
+      .to(
+        core,
+        {
+          xPercent: mobile ? 2 : 4,
+          yPercent: mobile ? -103 : -108,
+          rotation: mobile ? -1.5 : -3.5,
+          scale: mobile ? 1.02 : 1.06,
+          duration: mobile ? 0.62 : 0.78,
+          ease: "expo.inOut",
+        },
+        mobile ? 0.2 : 0.22,
+      )
+      .to(
+        shellLeft,
+        {
+          xPercent: -101,
+          rotation: mobile ? -0.6 : -1.2,
+          duration: mobile ? 0.7 : 0.88,
+          ease: "expo.inOut",
+        },
+        mobile ? 0.29 : 0.31,
+      )
+      .to(
+        shellRight,
+        {
+          xPercent: 101,
+          rotation: mobile ? 0.6 : 1.2,
+          duration: mobile ? 0.7 : 0.88,
+          ease: "expo.inOut",
+        },
+        mobile ? 0.31 : 0.35,
+      );
+  }, [completeExit, pathname]);
+
+  useEffect(() => {
+    if (document.documentElement.dataset.intro !== "play") {
+      const skipFrame = window.requestAnimationFrame(() => {
         setVisible(false);
         window.dispatchEvent(new Event("metek:intro-done"));
+      });
+      return () => window.cancelAnimationFrame(skipFrame);
+    }
+
+    const warmTimer =
+      pathname === "/"
+        ? window.setTimeout(() => void warmHomeChunks(), 900)
+        : null;
+    void document.fonts?.ready;
+
+    try {
+      sessionStorage.setItem("metek-intro", "1");
+    } catch {
+      /* Private mode. */
+    }
+
+    const html = document.documentElement;
+    html.classList.add("intro-lock");
+    window.__lenis?.stop();
+
+    const preventScroll = (event: Event) => event.preventDefault();
+    const scrollKeys = new Set([
+      "ArrowUp",
+      "ArrowDown",
+      "PageUp",
+      "PageDown",
+      "Home",
+      "End",
+      " ",
+      "Spacebar",
+    ]);
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement | null;
+      const tag = target?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || target?.isContentEditable) {
         return;
       }
 
-      const isHome = pathname === "/";
-      // Chunk ısıtmayı timeline başında başlat — sayaç bitene kadar paralel
-      const bootPromise = isHome
-        ? warmHomeChunks()
-        : Promise.allSettled([
-            document.fonts?.ready ?? Promise.resolve(),
-          ]);
-
-      try {
-        sessionStorage.setItem("metek-intro", "1");
-      } catch {
-        /* private mode */
+      if (event.key === "Escape") {
+        event.preventDefault();
+        finish();
+        return;
       }
 
-      const html = document.documentElement;
-      html.classList.add("intro-lock");
-      window.__lenis?.stop();
+      if (event.key === "Tab") {
+        event.preventDefault();
+        skipRef.current?.focus({ preventScroll: true });
+        return;
+      }
 
-      const preventScroll = (e: Event) => e.preventDefault();
-      const SCROLL_KEYS = new Set([
-        "ArrowUp",
-        "ArrowDown",
-        "PageUp",
-        "PageDown",
-        "Home",
-        "End",
-        " ",
-        "Spacebar",
-      ]);
-      const preventKeys = (e: KeyboardEvent) => {
-        const el = e.target as HTMLElement | null;
-        const tag = el?.tagName;
-        if (tag === "INPUT" || tag === "TEXTAREA" || el?.isContentEditable)
-          return;
-        if (SCROLL_KEYS.has(e.key)) e.preventDefault();
-      };
-      window.addEventListener("wheel", preventScroll, { passive: false });
-      window.addEventListener("touchmove", preventScroll, { passive: false });
-      window.addEventListener("keydown", preventKeys);
+      if (scrollKeys.has(event.key)) {
+        event.preventDefault();
+      }
+    };
 
-      const counter = counterRef.current;
-      const proxy = { v: 0 };
+    window.addEventListener("wheel", preventScroll, { passive: false });
+    window.addEventListener("touchmove", preventScroll, { passive: false });
+    window.addEventListener("keydown", handleKeyDown);
 
-      const unlock = () => {
-        html.classList.remove("intro-lock");
-        window.removeEventListener("wheel", preventScroll);
-        window.removeEventListener("touchmove", preventScroll);
-        window.removeEventListener("keydown", preventKeys);
-      };
+    let playbackFallback: number | null = null;
+    let seekFallback: number | null = null;
+    let playbackPrepared = false;
+    let playbackStarted = false;
+    const video = videoRef.current;
+    const frameVideo = video as FrameReadyVideo | null;
 
-      const finish = () => {
-        window.clearTimeout(watchdog);
-        unlock();
-        document.documentElement.dataset.intro = "skip";
-        window.__lenis?.start();
-        ScrollTrigger.refresh();
-        setVisible(false);
-        window.dispatchEvent(new Event("metek:intro-done"));
-      };
+    const renderProgress = () => {
+      videoFrameCallbackRef.current = null;
+      progressRafRef.current = null;
+      if (isExiting.current) return;
 
-      // CSS failsafe (~4.2s) ile hizalı — timeline takılırsa kilit çözülsün
-      const watchdog = window.setTimeout(() => {
-        if (document.documentElement.dataset.intro === "play") finish();
-      }, 4000);
+      if (video && Number.isFinite(video.duration) && video.duration > 0) {
+        const ratio = Math.min(
+          1,
+          Math.max(
+            0,
+            (video.currentTime - INTRO_IN_POINT) /
+              (video.duration - INTRO_IN_POINT),
+          ),
+        );
+        if (progressBarRef.current) {
+          progressBarRef.current.style.transform = `scaleX(${ratio})`;
+        }
 
-      /** Sayaç sonrası: font + chunk + (home) WebGL hazır olana kadar bekle */
-      const waitUntilBooted = () =>
-        new Promise<void>((resolve) => {
-          const fonts = document.fonts?.ready ?? Promise.resolve();
-          /* Eskiden burada `metek:hero-ready` beklenirdi (2200ms'e kadar).
-             Artık gerek yok: hero'nun görseli HeroWall, cam "M" idle'da
-             sonradan iniyor. Perde WebGL'i beklerse boşuna 1–2sn duruyordu. */
-          void Promise.all([bootPromise, fonts]).then(() => {
-            // Bir frame boya — gradient flash’ı kes
-            requestAnimationFrame(() => resolve());
-          });
-
-          // Sert tavan — mobilde daha kısa; ağ çok yavaşsa yine de aç
-          const bootCap =
-            window.matchMedia("(pointer: coarse)").matches ||
-            window.matchMedia("(max-width: 768px)").matches
-              ? 600
-              : 900;
-          window.setTimeout(() => resolve(), bootCap);
-        });
-
-      const mobileLite =
-        window.matchMedia("(pointer: coarse)").matches ||
-        window.matchMedia("(max-width: 768px)").matches;
-      const countDur = mobileLite ? 0.75 : 1.15;
-      const warmAt = mobileLite ? 0.35 : 0.55;
-      const exitDur = mobileLite ? 0.5 : 0.7;
-
-      gsap.set([labelLRef.current, labelRRef.current], { opacity: 0, y: 12 });
-      gsap.set(markRef.current, { opacity: 0, y: 22 });
-      gsap.set(dotRef.current, {
-        opacity: 0,
-        scale: 0,
-        transformOrigin: "50% 60%",
-      });
-      gsap.set(hairRef.current, { scaleX: 0, transformOrigin: "left center" });
-
-      const tl = gsap.timeline({
-        defaults: { ease: "power3.out" },
-        onComplete: finish,
-      });
-
-      tl.to(
-        [labelLRef.current, labelRRef.current],
-        { opacity: 1, y: 0, duration: mobileLite ? 0.4 : 0.65, stagger: 0.08 },
-        0.12
-      )
-        .to(
-          markRef.current,
-          { opacity: 1, y: 0, duration: mobileLite ? 0.55 : 0.9 },
-          0.2
-        )
-        .to(
-          dotRef.current,
-          {
-            opacity: 1,
-            scale: 1,
-            duration: 0.45,
-            ease: "back.out(2.4)",
-          },
-          mobileLite ? 0.55 : 1.05
-        )
-        .to(
-          hairRef.current,
-          { scaleX: 1, duration: countDur, ease: "power1.inOut" },
-          0.2
-        )
-        .to(
-          proxy,
-          {
-            v: 100,
-            duration: countDur,
-            ease: "power1.inOut",
-            onUpdate: () => {
-              if (counter) {
-                counter.textContent = String(Math.round(proxy.v)).padStart(
-                  3,
-                  "0"
-                );
-              }
-            },
-          },
-          0.2
-        )
-        // Sayaç ortasında WebGL ısınması
-        .add(() => {
-          if (isHome) {
+        if (video.currentTime >= 2 && !warmed.current) {
+          warmed.current = true;
+          if (pathname === "/") {
             window.dispatchEvent(new Event("metek:hero-warm"));
           }
-        }, warmAt)
-        // 100’de kısa nefes + boot senkronu
-        .to({}, { duration: mobileLite ? 0.1 : 0.15 })
-        .add(() => {
-          tl.pause();
-          void waitUntilBooted().then(() => {
-            if (tl.paused()) tl.resume();
-          });
-        })
-        // Çıkış — marka büyür, perde yukarı
-        .to(
-          [markRef.current, labelLRef.current, labelRRef.current],
-          { opacity: 0, duration: mobileLite ? 0.35 : 0.5, ease: "power2.in" }
-        )
-        .to(
-          markRef.current,
-          {
-            scale: 1.1,
-            duration: mobileLite ? 0.65 : 0.95,
-            ease: "power3.inOut",
-          },
-          "<"
-        )
-        .to(
-          root,
-          { yPercent: -100, duration: exitDur, ease: "power4.inOut" },
-          "<0.1"
+        }
+      }
+
+      // Poster yalnız ilk gerçekten decode edilmiş kare geldiğinde kalkar.
+      filmRef.current?.setAttribute("data-video-ready", "true");
+
+      if (frameVideo?.requestVideoFrameCallback) {
+        videoFrameCallbackRef.current =
+          frameVideo.requestVideoFrameCallback(renderProgress);
+        return;
+      }
+
+      progressRafRef.current = window.requestAnimationFrame(renderProgress);
+    };
+
+    const startProgress = () => {
+      if (playbackFallback !== null) {
+        window.clearTimeout(playbackFallback);
+        playbackFallback = null;
+      }
+      if (
+        progressRafRef.current === null &&
+        videoFrameCallbackRef.current === null &&
+        !isExiting.current
+      ) {
+        if (frameVideo?.requestVideoFrameCallback) {
+          videoFrameCallbackRef.current =
+            frameVideo.requestVideoFrameCallback(renderProgress);
+        } else {
+          // Eski tarayıcı fallback'i compositor karesine bağlanır.
+          progressRafRef.current =
+            window.requestAnimationFrame(renderProgress);
+        }
+      }
+    };
+
+    const handlePlaybackFailure = () => {
+      // Boş bir perdeyi 12 saniye tutma. Poster bir an okunur, ardından aynı
+      // editöryel çıkışla sayfaya güvenli biçimde geçilir.
+      if (playbackFallback === null) {
+        playbackFallback = window.setTimeout(finish, 700);
+      }
+    };
+
+    const beginPlayback = () => {
+      if (!video || playbackStarted || isExiting.current) return;
+      playbackStarted = true;
+      if (seekFallback !== null) {
+        window.clearTimeout(seekFallback);
+        seekFallback = null;
+      }
+      video.removeEventListener("seeked", beginPlayback);
+      void video.play().then(startProgress).catch(handlePlaybackFailure);
+    };
+
+    const preparePlayback = () => {
+      if (!video || playbackPrepared || isExiting.current) return;
+      if (video.readyState < HTMLMediaElement.HAVE_METADATA) return;
+      playbackPrepared = true;
+
+      // Kaynağın ilk beş stop-motion karesi ile eski poster ileri/geri
+      // sıçrıyordu. Yeni poster ve oynatma aynı 5/24 sn karesinde buluşur.
+      video.addEventListener("seeked", beginPlayback, { once: true });
+      try {
+        video.currentTime = INTRO_IN_POINT;
+        seekFallback = window.setTimeout(beginPlayback, 500);
+      } catch {
+        beginPlayback();
+      }
+    };
+
+    if (video) {
+      // DOM niteliği tek başına yeterli değil: her oynatmadan önce medya
+      // nesnesini de sessizleştiriyoruz. Dosyaların ses izi ayrıca söküldü.
+      video.defaultMuted = true;
+      video.muted = true;
+      video.volume = 0;
+      video.preload = "auto";
+      video.addEventListener("playing", startProgress);
+      video.addEventListener("error", handlePlaybackFailure);
+      video.addEventListener("loadedmetadata", preparePlayback, { once: true });
+      // JSX autoPlay bilerek yok: tek playback sahibi bu effect. Böylece
+      // hydration sırasında play → load(reset) → play titremesi oluşmaz.
+      video.load();
+      if (video.readyState >= HTMLMediaElement.HAVE_METADATA) {
+        preparePlayback();
+      }
+    } else {
+      handlePlaybackFailure();
+    }
+
+    // 10 saniyelik filmin ve çıkış animasyonunun dışında kalan sert güvenlik
+    // tavanı. JS/medya kilitlense bile scroll kalıcı biçimde kapanmaz.
+    watchdogRef.current = window.setTimeout(finish, 12500);
+    window.requestAnimationFrame(() =>
+      rootRef.current?.focus({ preventScroll: true }),
+    );
+
+    return () => {
+      if (warmTimer !== null) {
+        window.clearTimeout(warmTimer);
+      }
+      if (watchdogRef.current !== null) {
+        window.clearTimeout(watchdogRef.current);
+        watchdogRef.current = null;
+      }
+      if (playbackFallback !== null) {
+        window.clearTimeout(playbackFallback);
+      }
+      if (seekFallback !== null) {
+        window.clearTimeout(seekFallback);
+      }
+      if (progressRafRef.current !== null) {
+        window.cancelAnimationFrame(progressRafRef.current);
+        progressRafRef.current = null;
+      }
+      if (videoFrameCallbackRef.current !== null) {
+        frameVideo?.cancelVideoFrameCallback?.(
+          videoFrameCallbackRef.current,
         );
-
-      // "M" dönüşü — sayaçla örtüşen daha yavaş tur
-      tl.to(
-        mRef.current,
-        {
-          rotationY: 360,
-          duration: mobileLite ? 1.1 : 1.85,
-          ease: "power2.inOut",
-        },
-        mobileLite ? 0.35 : 0.7
-      );
-
-      return () => {
-        window.clearTimeout(watchdog);
-        tl.kill();
-        unlock();
-        document.documentElement.dataset.intro = "skip";
-        window.__lenis?.start();
-      };
-    },
-    // pathname’e bağlama — soft-nav intro’yu yeniden başlatmasın / Lenis’i kilitli bırakmasın
-    { scope: rootRef, dependencies: [] }
-  );
+        videoFrameCallbackRef.current = null;
+      }
+      video?.removeEventListener("playing", startProgress);
+      video?.removeEventListener("error", handlePlaybackFailure);
+      video?.removeEventListener("loadedmetadata", preparePlayback);
+      video?.removeEventListener("seeked", beginPlayback);
+      exitTimelineRef.current?.kill();
+      window.removeEventListener("wheel", preventScroll);
+      window.removeEventListener("touchmove", preventScroll);
+      window.removeEventListener("keydown", handleKeyDown);
+      unlockScroll();
+      document.documentElement.dataset.intro = "skip";
+      window.__lenis?.start();
+    };
+  }, [finish, pathname, unlockScroll]);
 
   if (!visible) return null;
 
   return (
-    <div ref={rootRef} className="intro-root" role="presentation" aria-hidden>
-      <div className="hero-glow" />
-      <div className="hero-vignette" />
-      <div className="hero-grain" />
-
-      <div
-        ref={markRef}
-        className="brand-mark relative z-10 flex select-none items-center text-[27vw] leading-none tracking-tight md:text-[17vw]"
-        style={{ opacity: 0, perspective: "1000px" }}
-      >
-        <span ref={mRef} className="inline-block will-change-transform">
-          M
-        </span>
-        <span
-          ref={dotRef}
-          className="inline-block text-accent"
-          style={{ opacity: 0 }}
+    <div
+      ref={rootRef}
+      className="intro-root"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="metek-intro-title"
+      tabIndex={-1}
+    >
+      <div ref={filmRef} className="intro-video-wrapper">
+        <div className="intro-poster intro-film-media" aria-hidden="true" />
+        <video
+          ref={videoRef}
+          className="intro-video intro-film-media"
+          muted
+          playsInline
+          preload="none"
+          suppressHydrationWarning
+          onEnded={finish}
         >
-          .
-        </span>
+          <source src="/intro/metek-intro.mp4" type="video/mp4" />
+          <source src="/intro/metek-intro.webm" type="video/webm" />
+        </video>
+        <div className="intro-matte" aria-hidden="true" />
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 z-10 flex items-end justify-between px-5 pb-[max(1.5rem,env(safe-area-inset-bottom))] md:px-10 md:pb-8">
-        <div ref={labelLRef} style={{ opacity: 0 }}>
-          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#eef0f3] md:text-xs">
-            METEK Digital
-          </p>
-          <p className="mt-1.5 text-[10px] uppercase tracking-[0.18em] text-[#eef0f3]/45 md:text-[11px]">
-            {t("metaStudio")}
-          </p>
+      <div ref={exitGridRef} className="intro-exit-grid" aria-hidden="true">
+        <div className="intro-exit-shell intro-exit-shell--left">
+          <div className="intro-exit-surface intro-exit-surface--shell">
+            <div className="intro-exit-frame intro-film-media" />
+          </div>
         </div>
-        <div
-          ref={labelRRef}
-          className="font-mono text-xs tracking-[0.2em] text-[#eef0f3]/70 md:text-sm"
-          style={{ opacity: 0 }}
-        >
-          <span ref={counterRef}>000</span>
+        <div className="intro-exit-shell intro-exit-shell--right">
+          <div className="intro-exit-surface intro-exit-surface--shell">
+            <div className="intro-exit-frame intro-film-media" />
+          </div>
+        </div>
+        <div className="intro-exit-surface intro-exit-surface--core">
+          <div className="intro-exit-frame intro-film-media" />
         </div>
       </div>
 
-      <div
-        ref={hairRef}
-        className="absolute inset-x-0 bottom-0 z-10 h-[2px] origin-left bg-accent"
-        style={{ transform: "scaleX(0)" }}
-      />
+      <div ref={chromeRef} className="intro-topbar">
+        <p id="metek-intro-title" className="intro-brand">
+          <span>METEK DIGITAL</span>
+          <span className="intro-brand__folio" aria-hidden="true">
+            / FILM 01
+          </span>
+        </p>
+
+        <button
+          ref={skipRef}
+          type="button"
+          className="intro-skip-btn"
+          onClick={finish}
+          aria-label={t("skip")}
+        >
+          <svg
+            className="intro-skip-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M4.5 5.5 12 12l-7.5 6.5V5.5Z" />
+            <path d="M11 5.5 18.5 12 11 18.5v-13Z" />
+            <path d="M19.5 5.5v13" />
+          </svg>
+        </button>
+      </div>
+
+      <div ref={progressRef} className="intro-progress" aria-hidden="true">
+        <span>00:00</span>
+        <div className="intro-progress-track">
+          <div
+            ref={progressBarRef}
+            className="intro-progress-bar"
+            style={{ transform: "scaleX(0)" }}
+          />
+        </div>
+        <span>00:10</span>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
 import { whatsappHref } from "@/lib/site";
@@ -19,10 +19,12 @@ export default function WhatsAppFab() {
    * hero CTA'ların üstüne binen FAB flaşı (opacity:1 → 0) oluşuyor.
    */
   const [hidden, setHidden] = useState(onHome);
+  const [prevOnHome, setPrevOnHome] = useState(onHome);
 
-  useLayoutEffect(() => {
+  if (onHome !== prevOnHome) {
+    setPrevOnHome(onHome);
     if (onHome) setHidden(true);
-  }, [onHome]);
+  }
 
   useEffect(() => {
     const visible = new Set<Element>();

@@ -5,10 +5,7 @@ import { useTranslations } from "next-intl";
 import { useTheme } from "@/lib/theme";
 import { gsap } from "@/lib/gsap";
 
-/**
- * Cam kapsül tema anahtarı — güneş/ay ikonu yok.
- * Kaydırılan cam boncuk + accent filament; basınca hafif yay.
- */
+/** Monokrom tema anahtarı — dekoratif cam, glow veya renk noktası yok. */
 export default function ThemeToggle() {
   const t = useTranslations("a11y");
   const { theme, toggleTheme } = useTheme();
@@ -38,14 +35,18 @@ export default function ThemeToggle() {
       title={isDark ? t("themeToLight") : t("themeToDark")}
       suppressHydrationWarning
     >
-      <span className="theme-toggle__glass" aria-hidden>
-        <span className="theme-toggle__field theme-toggle__field--day" />
-        <span className="theme-toggle__field theme-toggle__field--night" />
-        <span className="theme-toggle__sheen" />
-        <span className="theme-toggle__knob">
-          <span className="theme-toggle__knob-glass" />
-          <span className="theme-toggle__filament" />
-        </span>
+      <span
+        className={`theme-toggle__mode${!isDark ? " is-active" : ""}`}
+        aria-hidden
+      >
+        L
+      </span>
+      <span className="theme-toggle__divider" aria-hidden>/</span>
+      <span
+        className={`theme-toggle__mode${isDark ? " is-active" : ""}`}
+        aria-hidden
+      >
+        D
       </span>
     </button>
   );

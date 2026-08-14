@@ -22,8 +22,8 @@
     transform-origin: 50% 50%;
     -webkit-transform-origin: 50% 50%;
     user-select: none;
-    animation: circular-spin calc(var(--circular-spin) / var(--circular-rate))
-      linear infinite;
+    animation: circular-spin var(--circular-spin) linear infinite;
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   @media (hover: hover) and (pointer: fine) {
@@ -33,11 +33,11 @@
   }
 
   .circular-text[data-hover="slowDown"]:hover {
-    --circular-rate: 0.5;
+    opacity: 0.75;
   }
 
   .circular-text[data-hover="speedUp"]:hover {
-    --circular-rate: 4;
+    opacity: 1;
   }
 
   .circular-text[data-hover="pause"]:hover {
@@ -45,8 +45,7 @@
   }
 
   .circular-text[data-hover="goBonkers"]:hover {
-    --circular-rate: 20;
-    scale: 0.8;
+    scale: 0.94;
   }
 
   @keyframes circular-spin {
@@ -75,7 +74,7 @@
     line-height: 1;
     transform-origin: 0 0;
     -webkit-transform-origin: 0 0;
-    transition: all 0.5s cubic-bezier(0, 0, 0, 1);
+    transition: font-size 0.35s ease, opacity 0.35s ease;
   }
 
   @media (min-width: 768px) {

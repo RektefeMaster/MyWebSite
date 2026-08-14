@@ -50,7 +50,7 @@ const sites = [
   {
     id: "sahra-butik",
     urls: ["https://sahrabutik.vercel.app/"],
-    waitFor: /sahra|malatya|lookbook/i,
+    waitFor: /sahra|lookbook/i,
   },
   {
     id: "vela-skin-atelier",

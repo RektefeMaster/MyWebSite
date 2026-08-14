@@ -1,10 +1,6 @@
 {
-  "generatedAt": "2026-08-07T22:40:25.215Z",
+  "generatedAt": "2026-08-14T10:14:18.558Z",
   "known": [
-    {
-      "file": "app/not-found.tsx",
-      "reason": "Root 404 EN fallback; locale copy in [locale]/not-found"
-    },
     {
       "file": "components/Footer.tsx",
       "reason": "Decorative brand ring"

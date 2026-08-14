@@ -2,125 +2,146 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import Reveal from "./Reveal";
-import Magnetic from "./Magnetic";
-import SpecularButton from "./SpecularButton";
+import DecryptedText from "./DecryptedText";
+import TextType from "./TextType";
 
-const FEATURED_SHOTS = [
-  {
-    src: "/projects/wcc/featured/01-hero.jpg",
-    altKey: "shotHero" as const,
-    /** SE: full; ≥380: 2/2; md+: 4/6 sticky mozaik */
-    span: "col-span-full min-h-[200px] sm:min-h-[240px] min-[380px]:col-span-2 md:col-span-4 md:row-span-2 md:min-h-[320px]",
-  },
-  {
-    src: "/projects/wcc/featured/02-kitchen.jpg",
-    altKey: "shotKitchen" as const,
-    span: "col-span-full min-h-[140px] min-[380px]:col-span-1 md:col-span-2 md:min-h-[150px]",
-  },
-  {
-    src: "/projects/wcc/featured/03-projects.jpg",
-    altKey: "shotProjects" as const,
-    span: "col-span-full min-h-[140px] min-[380px]:col-span-1 md:col-span-2 md:min-h-[150px]",
-  },
-  {
-    src: "/projects/wcc/featured/04-brands.jpg",
-    altKey: "shotBrands" as const,
-    span: "col-span-full min-h-[140px] min-[380px]:col-span-2 md:col-span-6 md:min-h-[160px]",
-  },
-];
+const FEATURED_MAIN_SIZES =
+  "(min-width: 1360px) 737px, (min-width: 768px) calc((100vw - 80px) * 0.5833), calc(100vw - 40px)";
+const FEATURED_LEFT_SIZES =
+  "(min-width: 1360px) 500px, (min-width: 768px) calc((100vw - 80px) * 0.395), calc((100vw - 40px) * 0.5833)";
+const FEATURED_RIGHT_SIZES =
+  "(min-width: 1360px) 360px, (min-width: 768px) calc((100vw - 80px) * 0.282), calc((100vw - 40px) * 0.4167)";
 
-/** Tek vaka — void bloğunda brutal ölçek (Atelier Signal) */
+/** Tek vaka: portföy kartı değil, iki sayfalık bir dergi dosyası. */
 export default function FeaturedCase() {
   const t = useTranslations("featured");
   const outcomes = t.raw("outcomes") as string[];
 
   return (
-    <section className="cv-auto border-t border-band-fg/10 bg-band px-5 py-16 text-band-fg md:px-10 md:py-28">
-      <div className="mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
-        <div className="min-w-0 lg:sticky lg:top-[calc(var(--nav-offset)+1rem)] lg:self-start">
-          <Reveal>
-            <p className="mb-4 font-mono text-xs font-bold text-band-fg/40">
-              {t("client")}
+    <section className="cv-auto overflow-hidden bg-paper px-5 py-14 text-foreground md:px-10 md:py-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-12 gap-x-5 md:gap-x-6">
+          <Reveal className="col-span-12 md:col-span-4 md:pt-2">
+            <p className="border-t border-foreground/20 pt-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/40">
+              <DecryptedText text={t("client")} animateOn="inViewHover" />
             </p>
-            <h2 className="font-display text-[clamp(2.25rem,5.5vw,3.75rem)] font-bold leading-[0.98] tracking-[-0.035em]">
+            <h2 className="mt-8 font-display type-display text-[clamp(2.8rem,6vw,5.4rem)] leading-[1.44] tracking-[-0.05em]">
               {t("title")}
             </h2>
-            <p className="mt-6 max-w-md text-sm leading-relaxed text-band-fg/55 md:text-base">
+            <div className="mt-3 flex min-h-[1.5rem] items-center gap-1.5 font-mono text-[11px] font-bold text-accent">
+              <span>›</span>
+              <TextType
+                text={[
+                  "Next.js 16 Web Platformu",
+                  "100/100 Core Web Vitals Skoru",
+                  "Özel Mermer & Taş Koleksiyon Kataloğu",
+                  "0.4s İlk İçerikli Boyama (LCP)",
+                ]}
+                typingSpeed={42}
+                deletingSpeed={22}
+                pauseDuration={2200}
+                showCursor={true}
+                cursorCharacter="▍"
+                startOnVisible={true}
+                loop={true}
+              />
+            </div>
+            <p className="mt-5 max-w-[42ch] text-[15px] leading-[1.7] text-foreground/62">
               {t("blurb")}
             </p>
-          </Reveal>
 
-          <Reveal delay={100}>
-            <ul className="mt-10 space-y-4 border-t border-band-fg/10 pt-8">
-              {outcomes.map((item, i) => (
-                <li key={item} className="flex gap-4 text-sm md:text-[15px]">
-                  <span className="font-mono text-xs font-bold text-accent">
-                    {String(i + 1).padStart(2, "0")}
+            <ol className="mt-12 border-t border-foreground/18">
+              {outcomes.map((item, index) => (
+                <li
+                  key={item}
+                  className="grid grid-cols-[2.5rem_1fr] gap-3 border-b border-foreground/18 py-4 text-sm leading-relaxed"
+                >
+                  <span className="font-mono text-[10px] font-bold tabular-nums text-foreground/35">
+                    <DecryptedText
+                      text={String(index + 1).padStart(2, "0")}
+                      animateOn="inViewHover"
+                    />
                   </span>
-                  <span className="leading-relaxed text-band-fg/70">{item}</span>
+                  <span className="text-foreground/68">{item}</span>
                 </li>
               ))}
-            </ul>
-          </Reveal>
+            </ol>
 
-          <Reveal delay={160}>
-            <Magnetic
-              strength={0.3}
-              className="mt-10 block w-full sm:inline-block sm:w-auto"
+            <Link
+              href="/work/wcc"
+              scroll={false}
+              className="group mt-9 inline-flex min-h-11 items-center gap-5 text-sm font-bold"
             >
-              <SpecularButton
-                href="/work/wcc"
-                tone="accent"
-                size="md"
-                fillMobile
-                className="btn-stable btn-stable--chip"
+              <DecryptedText text={t("cta")} animateOn="hover" />
+              <span
+                aria-hidden
+                className="inline-flex size-10 items-center justify-center border border-foreground/30 transition-[background-color,color] group-hover:bg-foreground group-hover:text-paper"
               >
-                {t("cta")}
-                <span aria-hidden>→</span>
-              </SpecularButton>
-            </Magnetic>
+                ↗
+              </span>
+            </Link>
           </Reveal>
-        </div>
 
-        <Reveal from="right" y={0} className="min-w-0">
-          <div className="relative overflow-hidden rounded-sm bg-band-fg/[0.03] shadow-[inset_0_0_0_1px_var(--chrome-edge)] md:min-h-[460px]">
-            <div className="grid grid-cols-1 gap-1 p-1 min-[380px]:grid-cols-2 md:grid-cols-6 md:gap-1.5 md:p-1.5">
-              {FEATURED_SHOTS.map((shot, i) => (
-                <div
-                  key={shot.src}
-                  className={`relative overflow-hidden rounded-sm bg-stone ${shot.span}`}
-                >
+          <div className="col-span-12 mt-14 md:col-span-7 md:col-start-6 md:mt-0">
+            <Reveal mode="mask" from="right" y={0}>
+              <figure className="m-0">
+                <div className="relative aspect-[8/5] overflow-hidden bg-stone">
                   <Image
-                    src={shot.src}
-                    alt={t(shot.altKey)}
+                    src="/projects/wcc/featured/01-hero.jpg"
+                    alt={t("shotHero")}
                     fill
-                    sizes={
-                      i === 0
-                        ? "(max-width: 767px) 92vw, (max-width: 1024px) 90vw, 520px"
-                        : i === 3
-                          ? "(max-width: 767px) 92vw, (max-width: 1024px) 90vw, 560px"
-                          : "(max-width: 767px) 46vw, (max-width: 1024px) 40vw, 220px"
-                    }
-                    quality={72}
+                    sizes={FEATURED_MAIN_SIZES}
+                    quality={85}
                     loading="lazy"
                     decoding="async"
-                    className="object-cover object-top transition-transform duration-700 ease-out [@media(hover:hover)_and_(pointer:fine)]:hover:scale-[1.03]"
+                    className="object-contain object-top"
                   />
                 </div>
-              ))}
-            </div>
+                <figcaption className="grid gap-3 border-b border-foreground/18 py-5 md:grid-cols-[1fr_1fr] md:gap-8">
+                  <p className="text-lg font-bold leading-tight tracking-tight">
+                    {t("sceneTitle")}
+                  </p>
+                  <p className="text-sm leading-relaxed text-foreground/52">
+                    {t("sceneBody")}
+                  </p>
+                </figcaption>
+              </figure>
+            </Reveal>
 
-            <div className="border-t border-band-fg/10 px-5 py-5 md:px-8 md:py-6">
-              <p className="mt-0 max-w-md text-lg font-bold leading-tight tracking-tight md:text-xl">
-                {t("sceneTitle")}
-              </p>
-              <p className="mt-2 max-w-md text-sm leading-relaxed text-band-fg/50">
-                {t("sceneBody")}
-              </p>
+            <div className="mt-12 grid grid-cols-12 items-end gap-3 md:-ml-[18%] md:mt-16 md:gap-4">
+              <Reveal mode="mask" className="col-span-7">
+                <div className="relative aspect-[8/5] overflow-hidden bg-stone">
+                  <Image
+                    src="/projects/wcc/featured/02-kitchen.jpg"
+                    alt={t("shotKitchen")}
+                    fill
+                    sizes={FEATURED_LEFT_SIZES}
+                    quality={78}
+                    loading="lazy"
+                    decoding="async"
+                    className="object-contain object-top"
+                  />
+                </div>
+              </Reveal>
+              <Reveal mode="mask" delay={70} className="col-span-5 md:mb-[18%]">
+                <div className="relative aspect-[8/5] overflow-hidden bg-stone">
+                  <Image
+                    src="/projects/wcc/featured/03-projects.jpg"
+                    alt={t("shotProjects")}
+                    fill
+                    sizes={FEATURED_RIGHT_SIZES}
+                    quality={78}
+                    loading="lazy"
+                    decoding="async"
+                    className="object-contain object-top"
+                  />
+                </div>
+              </Reveal>
             </div>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

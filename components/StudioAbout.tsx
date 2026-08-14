@@ -3,13 +3,17 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Reveal from "./Reveal";
+import BlurText from "./BlurText";
+import DecryptedText from "./DecryptedText";
+import ScrollTextHighlight from "./ScrollTextHighlight";
+import TextType from "./TextType";
 import { forDisplay } from "@/lib/typography";
 
 type DoItem = { title: string; body: string };
 
 /**
- * Studio page body: who builds METEK + what ships.
- * Sits between PageHero and the pinned manifesto lines.
+ * Ajans / Hakkında gövdesi:
+ * Stüdyo profili, çalışma modeli ve disiplin dökümü.
  */
 export default function StudioAbout() {
   const t = useTranslations("about");
@@ -19,109 +23,165 @@ export default function StudioAbout() {
     <>
       <section
         id="about"
-        className="relative border-b border-[color:var(--chrome-edge)] bg-paper text-foreground"
+        className="relative overflow-hidden border-b border-foreground/15 bg-paper text-foreground"
       >
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:grid-cols-12 md:gap-10 md:px-10 md:py-28">
-          <Reveal className="md:col-span-4">
-            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-accent-ink">
-              {t("origin")}
-            </p>
-            <p className="mt-2 max-w-[16rem] text-sm leading-snug text-foreground/45">
-              {t("practice")}
-            </p>
-          </Reveal>
+        <div className="mx-auto max-w-7xl px-5 py-16 md:px-10 md:py-28">
+          {/* Stüdyo Başlık Çerçevesi */}
+          <div className="grid grid-cols-12 border-y border-foreground/20">
+            <aside className="col-span-12 border-b border-foreground/15 py-6 md:col-span-3 md:border-b-0 md:border-r md:py-10 md:pr-8">
+              <Reveal>
+                <DecryptedText
+                  text={t("origin")}
+                  className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/45"
+                />
+                <p className="mt-3 max-w-[18rem] text-sm leading-relaxed text-foreground/50">
+                  {t("practice")}
+                </p>
+              </Reveal>
+            </aside>
 
-          <div className="md:col-span-8 md:pl-4 lg:pl-8">
-            <Reveal>
-              <h2 className="max-w-3xl text-[clamp(2rem,4.5vw,3.5rem)] font-bold leading-[1.05] tracking-tight">
-                {forDisplay(t("whoTitle"))}
-              </h2>
-            </Reveal>
-            <Reveal delay={60}>
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-foreground/70 md:text-lg">
-                {t("p1")}
-              </p>
-            </Reveal>
-            <Reveal delay={100}>
-              <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/70 md:text-lg">
-                {t("p2")}
-              </p>
-            </Reveal>
-            <Reveal delay={140}>
-              <p className="mt-8 max-w-xl text-lg font-semibold leading-snug tracking-tight text-foreground md:text-xl">
-                {forDisplay(t("highlight"))}
-              </p>
-            </Reveal>
-            <Reveal delay={180}>
-              <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/55 md:text-lg">
-                {t("p3")}
-              </p>
-            </Reveal>
-            <Reveal delay={220}>
-              <p className="mt-8 text-sm text-foreground/40">
-                <span className="font-semibold text-foreground/70">
-                  {t("name")}
-                </span>
-                <span className="mx-2 text-foreground/25">·</span>
-                {t("role")}
-              </p>
-            </Reveal>
+            <div className="col-span-12 py-8 md:col-span-9 md:py-10 md:pl-10 lg:pl-16">
+              <BlurText
+                text={forDisplay(t("whoTitle"))}
+                as="h2"
+                className="max-w-3xl font-display type-display text-[clamp(2.25rem,4.5vw,4.25rem)] font-bold leading-[1.35] tracking-[-0.04em]"
+              />
+            </div>
+          </div>
+
+          {/* İki Kolonlu Dengeli Editoryal Metin Bloğu */}
+          <div className="mt-12 grid grid-cols-1 gap-12 md:mt-16 md:grid-cols-12 md:gap-x-12">
+            <div className="md:col-span-6 md:border-r md:border-foreground/15 md:pr-12">
+              <Reveal delay={60}>
+                <p className="text-base leading-relaxed text-foreground/75 md:text-[1.05rem]">
+                  {t("p1")}
+                </p>
+              </Reveal>
+              <Reveal delay={100}>
+                <p className="mt-6 text-base leading-relaxed text-foreground/70 md:text-[1.05rem]">
+                  {t("p2")}
+                </p>
+              </Reveal>
+            </div>
+
+            <div className="flex flex-col justify-between md:col-span-6">
+              <div>
+                <blockquote className="border-l-2 border-foreground/30 pl-5 font-subtitle text-lg font-medium leading-snug text-foreground md:text-xl">
+                  <ScrollTextHighlight text={forDisplay(t("highlight"))} as="span" />
+                </blockquote>
+                <Reveal delay={180}>
+                  <p className="mt-6 text-base leading-relaxed text-foreground/65 md:text-[1.05rem]">
+                    {t("p3")}
+                  </p>
+                </Reveal>
+              </div>
+
+              <Reveal delay={220}>
+                <div className="mt-10 border-t border-foreground/15 pt-5 text-sm text-foreground/50">
+                  <span className="block font-semibold text-foreground/80">
+                    {t("name")}
+                  </span>
+                  <span className="mt-1 block font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/40">
+                    {t("role")}
+                  </span>
+                </div>
+              </Reveal>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Hizmet Alanları / Uzmanlık Disiplini */}
       <section
         id="what-we-do"
-        className="relative border-b border-[color:var(--chrome-edge)] bg-paper text-foreground"
+        className="relative border-b border-foreground/15 bg-paper text-foreground"
       >
         <div className="mx-auto max-w-7xl px-5 py-16 md:px-10 md:py-28">
-          <Reveal>
-            <h2 className="max-w-3xl font-display text-[clamp(1.85rem,4vw,3rem)] font-bold leading-[1.08] tracking-tight">
-              {forDisplay(t("doTitle"))}
-            </h2>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-foreground/60 md:text-lg">
-              {t("doIntro")}
-            </p>
-          </Reveal>
+          <div className="grid grid-cols-12 gap-x-5 md:gap-x-8">
+            <div className="col-span-12 md:col-span-4">
+              <Reveal>
+                <DecryptedText
+                  text={t("doLabel")}
+                  className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/45"
+                />
+                <BlurText
+                  text={forDisplay(t("doTitle"))}
+                  as="h2"
+                  className="mt-4 max-w-[12ch] font-display type-display text-[clamp(2.25rem,4vw,3.75rem)] font-bold leading-[1.3] tracking-[-0.035em]"
+                />
+                <p className="mt-6 max-w-sm text-base leading-relaxed text-foreground/60">
+                  {t("doIntro")}
+                </p>
+                <div className="mt-4 flex min-h-[1.75rem] items-center gap-2 border-l border-foreground/30 pl-3 font-mono text-xs tracking-wide text-foreground/50">
+                  <span className="font-bold text-accent">›</span>
+                  <TextType
+                    text={items.map((it) => it.title)}
+                    typingSpeed={60}
+                    pauseDuration={2200}
+                    deletingSpeed={28}
+                    showCursor={true}
+                    cursorCharacter="▍"
+                    startOnVisible={true}
+                    loop={true}
+                    className="font-mono text-xs font-medium text-foreground/75"
+                  />
+                </div>
+              </Reveal>
 
-          <ul className="mt-12 divide-y divide-foreground/10 border-y border-foreground/10 md:mt-16">
-            {items.map((item, i) => (
-              <li key={item.title}>
-                <Reveal delay={40 * i}>
-                  <div className="grid gap-3 py-8 md:grid-cols-12 md:gap-8 md:py-10">
-                    <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-foreground/35 md:col-span-1">
-                      {String(i + 1).padStart(2, "0")}
-                    </p>
-                    <h3 className="text-xl font-bold tracking-tight md:col-span-4 md:text-2xl">
-                      {forDisplay(item.title)}
-                    </h3>
-                    <p className="text-base leading-relaxed text-foreground/60 md:col-span-7 md:text-[1.05rem]">
-                      {item.body}
-                    </p>
-                  </div>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
-
-          <Reveal delay={120}>
-            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm md:mt-12">
-              <Link
-                href="/work"
-                scroll={false}
-                className="inline-flex min-h-6 items-center py-1 -my-1 font-semibold text-foreground underline decoration-foreground/25 underline-offset-4 transition-colors hover:decoration-accent"
-              >
-                {t("linkWork")}
-              </Link>
-              <Link
-                href="/services"
-                scroll={false}
-                className="inline-flex min-h-6 items-center py-1 -my-1 font-semibold text-foreground underline decoration-foreground/25 underline-offset-4 transition-colors hover:decoration-accent"
-              >
-                {t("linkServices")}
-              </Link>
+              <Reveal delay={120}>
+                <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-foreground/20 pt-6 text-sm md:mt-12">
+                  <Link
+                    href="/work"
+                    scroll={false}
+                    className="group inline-flex min-h-10 items-center gap-2 font-semibold text-foreground underline decoration-foreground/30 underline-offset-4 transition-colors hover:decoration-foreground"
+                  >
+                    {t("linkWork")}
+                    <span
+                      aria-hidden
+                      className="transition-transform group-hover:translate-x-1"
+                    >
+                      ↗
+                    </span>
+                  </Link>
+                  <Link
+                    href="/services"
+                    scroll={false}
+                    className="group inline-flex min-h-10 items-center gap-2 font-semibold text-foreground underline decoration-foreground/30 underline-offset-4 transition-colors hover:decoration-foreground"
+                  >
+                    {t("linkServices")}
+                    <span
+                      aria-hidden
+                      className="transition-transform group-hover:translate-x-1"
+                    >
+                      ↗
+                    </span>
+                  </Link>
+                </div>
+              </Reveal>
             </div>
-          </Reveal>
+
+            <div className="col-span-12 mt-12 md:col-span-8 md:mt-0">
+              <ul className="border-t border-foreground/20">
+                {items.map((item, i) => (
+                  <li key={item.title} className="border-b border-foreground/15">
+                    <Reveal delay={40 * i}>
+                      <div className="grid grid-cols-1 gap-y-3 py-8 md:grid-cols-12 md:gap-x-6 md:py-10">
+                        <span className="font-mono text-xs font-bold tracking-[0.18em] text-foreground/30 md:col-span-2">
+                          <DecryptedText text={String(i + 1).padStart(2, "0")} />
+                        </span>
+                        <h3 className="font-display type-display text-xl font-bold leading-[1.4] tracking-[-0.025em] md:col-span-4 md:text-2xl">
+                          {forDisplay(item.title)}
+                        </h3>
+                        <p className="text-base leading-relaxed text-foreground/65 md:col-span-6">
+                          {item.body}
+                        </p>
+                      </div>
+                    </Reveal>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
     </>

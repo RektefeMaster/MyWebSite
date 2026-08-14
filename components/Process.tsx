@@ -2,7 +2,9 @@
 
 import { useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { gsap, useGSAP, ScrollTrigger, attachScrollReveal } from "@/lib/gsap";
+import { gsap, useGSAP, attachScrollReveal } from "@/lib/gsap";
+import DecryptedText from "./DecryptedText";
+import TextType from "./TextType";
 
 type Step = {
   title: string;
@@ -14,205 +16,145 @@ export default function Process() {
   const locale = useLocale();
   const steps = t.raw("steps") as Step[];
   const sectionRef = useRef<HTMLElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const fillRef = useRef<HTMLDivElement>(null);
-  const headRef = useRef<HTMLDivElement>(null);
-  const progressLabelRef = useRef<HTMLSpanElement>(null);
 
   useGSAP(
     () => {
-      const track = trackRef.current;
-      const fill = fillRef.current;
-      const head = headRef.current;
-      const progressLabel = progressLabelRef.current;
       const section = sectionRef.current;
-      if (!track || !fill || !head || !section) return;
+      if (!section) return;
 
       const reduced = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
+        "(prefers-reduced-motion: reduce)",
       ).matches;
 
-      gsap.set(fill, { scaleY: 0, transformOrigin: "top center", force3D: true });
-      gsap.set(head, { top: 0, yPercent: -50, y: 0, force3D: true });
-
-      const setFill = gsap.quickSetter(fill, "scaleY");
-      const setHeadY = gsap.quickSetter(head, "y", "px");
-      let trackH = track.offsetHeight;
-
-      ScrollTrigger.create({
-        trigger: track,
-        start: "top 75%",
-        end: "bottom 50%",
-        scrub: reduced ? true : 0.35,
-        onRefresh: () => {
-          trackH = track.offsetHeight;
-        },
-        onUpdate: (self) => {
-          const p = self.progress;
-          setFill(p);
-          setHeadY(p * trackH);
-          if (progressLabel) {
-            progressLabel.textContent = `${Math.round(p * 100)}%`;
-          }
-        },
-      });
-
-      const cards = gsap.utils.toArray<HTMLElement>(
-        section.querySelectorAll("[data-process-card]")
-      );
-      const dots = gsap.utils.toArray<HTMLElement>(
-        section.querySelectorAll("[data-process-dot]")
+      const entries = gsap.utils.toArray<HTMLElement>(
+        section.querySelectorAll("[data-process-entry]"),
       );
 
-      const desktop = window.matchMedia("(min-width: 768px)").matches;
+      if (reduced) {
+        gsap.set(entries, { clearProps: "all", opacity: 1, y: 0 });
+        return;
+      }
 
-      cards.forEach((card, i) => {
-        const fromLeft = i % 2 === 0;
-        const xFrom = reduced ? 0 : desktop ? (fromLeft ? -48 : 48) : 28;
-
-        if (reduced) {
-          gsap.set(card, { opacity: 1, x: 0 });
-          if (dots[i]) {
-            gsap.set(dots[i], { scale: 1 });
-            dots[i].dataset.lit = "true";
-          }
-          return;
-        }
-
-        const cardTween = gsap.fromTo(
-          card,
-          { opacity: 0, x: xFrom, force3D: true },
+      entries.forEach((entry) => {
+        const entryTween = gsap.fromTo(
+          entry,
+          { opacity: 0, y: 48, force3D: true },
           {
             opacity: 1,
-            x: 0,
-            duration: 0.65,
-            ease: "power2.out",
+            y: 0,
+            duration: 0.75,
+            ease: "power3.out",
             force3D: true,
             paused: true,
-          }
+          },
         );
-        attachScrollReveal(cardTween, card);
-
-        const dot = dots[i];
-        if (dot) {
-          // Renk CSS token ile — GSAP inline #hex dark’ta kalmasın
-          const dotTween = gsap.fromTo(
-            dot,
-            { scale: 0.6 },
-            {
-              scale: 1,
-              duration: 0.35,
-              ease: "power2.out",
-              paused: true,
-            }
-          );
-          attachScrollReveal(dotTween, card, {
-            onEnter: () => {
-              dot.dataset.lit = "true";
-            },
-            onLeaveBack: () => {
-              delete dot.dataset.lit;
-            },
-          });
-        }
+        attachScrollReveal(entryTween, entry, { once: true });
       });
     },
-    { scope: sectionRef, dependencies: [locale, steps.length] }
+    { scope: sectionRef, dependencies: [locale, steps.length] },
   );
 
   return (
     <section
       ref={sectionRef}
       id="process"
-      className="scroll-mt-[var(--nav-offset)] bg-paper px-5 py-16 md:px-10 md:py-28"
+      className="scroll-mt-[var(--nav-offset)] overflow-hidden bg-paper px-5 py-14 md:px-10 md:py-20"
     >
-      <div className="mx-auto max-w-6xl">
-        <div className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
-          <h2 className="font-display text-4xl font-bold leading-tight tracking-[-0.03em] md:text-6xl">
-            {t("title")}
-          </h2>
-        </div>
-
-        <div ref={trackRef} className="relative">
+      <div className="mx-auto max-w-7xl">
+        <header className="grid grid-cols-12 items-end gap-x-5 border-b border-foreground/20 pb-10 md:gap-x-6 md:pb-16">
+          <div className="col-span-12 md:col-span-9">
+            <h2 className="max-w-[10ch] font-display type-display text-[clamp(3.25rem,9vw,8rem)] font-bold leading-[1.4] tracking-[-0.052em]">
+              {t("title")}
+            </h2>
+            <div className="mt-4 flex min-h-[2.75rem] items-center gap-1.5 font-mono text-xs text-foreground/45 sm:min-h-[1.5rem]">
+              <span className="font-bold text-accent">›</span>
+              <TextType
+                text={[
+                  "Keşif & Kapsam Belirleme",
+                  "Editoryal Tasarım & Tipografi",
+                  "Next.js 16 Mimarisi & R3F",
+                  "Maksimum Hız & Canlı Yayına Alma",
+                ]}
+                typingSpeed={40}
+                deletingSpeed={20}
+                pauseDuration={2200}
+                showCursor={true}
+                cursorCharacter="▍"
+                startOnVisible={true}
+                loop={true}
+                className="font-mono text-xs font-medium text-foreground/75"
+              />
+            </div>
+          </div>
           <div
             aria-hidden
-            className="pointer-events-none absolute top-3 bottom-3 left-3 w-3 -translate-x-1/2 md:left-1/2"
+            className="col-span-12 mt-8 flex items-end justify-between font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/35 md:col-span-3 md:mt-0 md:block md:text-right"
           >
-            <div className="absolute inset-y-0 left-1/2 w-[3px] -translate-x-1/2 overflow-hidden rounded-full bg-foreground/[0.08]">
-              <div
-                ref={fillRef}
-                className="relative h-full w-full origin-top will-change-transform"
-              >
-                <div className="process-fill absolute inset-0 rounded-full" />
-              </div>
-            </div>
-
-            <div
-              ref={headRef}
-              className="absolute left-1/2 z-20 -translate-x-1/2 will-change-transform"
-            >
-              <div className="process-head size-3.5 rounded-full bg-accent" />
-            </div>
-
-            <span
-              ref={progressLabelRef}
-              className="absolute -top-8 left-1/2 hidden -translate-x-1/2 rounded-sm border border-[color:var(--chrome-edge)] bg-paper px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-wider text-ink shadow-[inset_0_1px_0_var(--chrome-shine)] md:inline-block"
-            >
-              0%
+            <span className="md:block">
+              <DecryptedText text="01" animateOn="inViewHover" />
+            </span>
+            <span className="md:mt-2 md:block">
+              <DecryptedText
+                text={String(steps.length).padStart(2, "0")}
+                animateOn="inViewHover"
+              />
             </span>
           </div>
+        </header>
 
-          <ol className="relative space-y-4 md:space-y-0">
-            {steps.map((step, i) => {
-              const isLeft = i % 2 === 0;
-              return (
-                <li
-                  key={step.title}
-                  className="relative grid grid-cols-[1.5rem_1fr] items-center gap-5 py-6 md:grid-cols-[1fr_2.5rem_1fr] md:gap-8 md:py-12"
+        <ol>
+          {steps.map((step, i) => {
+            const shifted = i % 2 === 1;
+            return (
+              <li
+                key={step.title}
+                data-process-entry
+                className="relative grid grid-cols-12 gap-x-5 border-b border-foreground/15 py-12 md:min-h-[21rem] md:gap-x-6 md:py-16"
+              >
+                <span
+                  aria-hidden
+                  className="col-span-12 font-display type-display text-[clamp(4rem,9vw,7.5rem)] leading-[1.4] tracking-[-0.06em] text-foreground/[0.1] md:col-span-2"
                 >
-                  <span className="relative z-10 col-start-1 row-start-1 mx-auto flex size-5 items-center justify-center md:col-start-2">
-                    <span
-                      data-process-dot
-                      aria-hidden
-                      className="process-dot relative size-3 rounded-full ring-[5px] ring-background"
-                    />
-                  </span>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
 
-                  <article
-                    data-process-card
-                    className={`col-start-2 row-start-1 rounded-sm border border-[color:var(--chrome-edge)] bg-background p-6 shadow-[inset_0_1px_0_var(--chrome-shine)] md:p-8 ${
-                      isLeft
-                        ? "md:col-start-1 md:text-right"
-                        : "md:col-start-3 md:text-left"
+                <article className="col-span-12 mt-8 grid min-w-0 grid-cols-1 gap-10 md:col-span-10 md:mt-0 md:grid-cols-10 md:gap-x-6">
+                  <h3
+                    className={`min-w-0 font-display type-display text-[clamp(2rem,4.5vw,4.25rem)] font-bold leading-[1.46] tracking-[-0.04em] md:col-span-4 ${
+                      shifted ? "md:col-start-2" : ""
                     }`}
                   >
-                    <div
-                      className={`mb-3 flex items-center gap-3 ${
-                        isLeft ? "md:justify-end" : ""
-                      }`}
-                    >
-                      <span className="font-mono text-xs font-bold text-foreground/35">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <h3 className="text-xl font-bold tracking-tight md:text-2xl">
-                        {step.title}
-                      </h3>
-                    </div>
-                    <div
-                      className={`max-w-md space-y-2 text-sm leading-relaxed text-foreground/55 md:text-[15px] ${
-                        isLeft ? "md:ms-auto" : ""
-                      }`}
-                    >
-                      {step.body.map((p) => (
-                        <p key={p}>{p}</p>
-                      ))}
-                    </div>
-                  </article>
-                </li>
-              );
-            })}
-          </ol>
-        </div>
+                    {step.title}
+                  </h3>
+                  <div
+                    className={`min-w-0 border-t border-foreground/25 ${
+                      shifted
+                        ? "md:col-start-7 md:col-span-4"
+                        : "md:col-start-6 md:col-span-5"
+                    }`}
+                  >
+                    {step.body.map((p, noteIndex) => (
+                      <div
+                        key={p}
+                        className="grid grid-cols-[3rem_1fr] gap-3 border-b border-foreground/10 py-4"
+                      >
+                        <span
+                          aria-hidden
+                          className="font-mono text-[9px] font-bold tracking-[0.14em] text-foreground/30"
+                        >
+                          {String(i + 1).padStart(2, "0")}.{noteIndex + 1}
+                        </span>
+                        <p className="text-sm leading-relaxed text-foreground/60 md:text-base">
+                          {p}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </article>
+              </li>
+            );
+          })}
+        </ol>
       </div>
     </section>
   );

@@ -73,7 +73,7 @@
     0 0 14px rgba(12, 107, 102, 0.45);
   /* Aşağıdaki responsive ölçekle birlikte oku — Navbar hydrate olunca
      attachNavOffsetSync gerçek px değerini inline yazar. */
-  --nav-offset: calc(168px + var(--safe-top));
+  --nav-offset: calc(119px + var(--safe-top));
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-top: env(safe-area-inset-top, 0px);
   --theme-ease: color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
@@ -133,25 +133,25 @@
   fallback'i uyuşmazsa tüm sayfa zıplıyordu (/work'te CLS 0.106).
 
   Ölçülen gerçek değerler (locale'den bağımsız, tüm dillerde aynı):
-    <640: 168px · 640–767: 176px · 768–1023: 186px · >=1024: 121px
+    <640: 119px · 640–767: 119px · 768–1023: 131px · >=1024: 78px
   Katmansız tutuluyor: `:root` temel tanımı da katmansız, aksi halde
   utility katmanı bunları ezerdi.
 */
 @media (min-width: 640px) {
   :root {
-    --nav-offset: calc(176px + var(--safe-top));
+    --nav-offset: calc(119px + var(--safe-top));
   }
 }
 
 @media (min-width: 768px) {
   :root {
-    --nav-offset: calc(186px + var(--safe-top));
+    --nav-offset: calc(131px + var(--safe-top));
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --nav-offset: calc(121px + var(--safe-top));
+    --nav-offset: calc(78px + var(--safe-top));
   }
 }
 

@@ -92,10 +92,6 @@ function buildHardcodedInventory() {
     generatedAt: new Date().toISOString(),
     known: [
       {
-        file: "app/not-found.tsx",
-        reason: "Root 404 EN fallback; locale copy in [locale]/not-found",
-      },
-      {
         file: "components/Footer.tsx",
         reason: "Decorative brand ring",
       },

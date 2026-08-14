@@ -2,35 +2,37 @@
 
 import { useTranslations } from "next-intl";
 import Reveal from "./Reveal";
+import BlurText from "./BlurText";
+import DecryptedText from "./DecryptedText";
 
-/**
- * Manifesto durak — editorial paper omurga (Atelier Signal).
- * Sağ altta sade M. markası.
- */
+/** Manifesto durak — tek cümlelik tipografik ara kapak. */
 export default function ManifestoScene() {
   const t = useTranslations("manifestoScene");
+
+  const fullSentence = `${t("before")} ${t("accent")} ${t("after")}`;
 
   return (
     <section
       id="idea"
-      className="cv-auto relative flex min-h-[52vh] items-center overflow-hidden border-t border-foreground/8 bg-paper px-5 py-16 text-foreground md:min-h-[60vh] md:px-10 md:py-28"
+      className="cv-auto relative overflow-hidden bg-paper px-5 py-20 text-foreground md:px-10 md:py-36"
     >
-      <div className="relative z-[1] mx-auto w-full max-w-5xl">
-        <Reveal delay={40} mode="line" once>
-          <p className="max-w-[22ch] font-display text-[clamp(1.85rem,5.2vw,3.75rem)] font-bold leading-[1.08] tracking-tight md:max-w-[26ch]">
-            {t("before")}
-            <span className="text-accent-ink"> {t("accent")} </span>
-            {t("after")}
-          </p>
+      <div className="relative z-[1] mx-auto grid w-full max-w-7xl grid-cols-12 gap-x-5 border-y border-foreground/20 py-10 md:gap-x-6 md:py-16">
+        <Reveal className="col-span-3 md:col-span-2">
+          <DecryptedText
+            text={t("label")}
+            className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-foreground/35"
+          />
         </Reveal>
+        <div className="col-span-9 col-start-4 md:col-span-9 md:col-start-4">
+          <BlurText
+            text={fullSentence}
+            as="p"
+            stagger={0.045}
+            duration={0.8}
+            className="max-w-[23ch] font-display type-display text-[clamp(2.15rem,6vw,5rem)] font-bold leading-[1.44] tracking-[-0.04em]"
+          />
+        </div>
       </div>
-
-      <span
-        aria-hidden
-        className="pointer-events-none absolute -right-2 bottom-6 select-none font-display text-[clamp(6rem,28vw,13rem)] leading-none tracking-tight text-foreground/[0.05] md:right-8 md:bottom-8"
-      >
-        M<span className="text-accent/35">.</span>
-      </span>
     </section>
   );
 }

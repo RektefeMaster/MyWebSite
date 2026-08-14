@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Web Tasarım Ajansı | Yönetim Paneli, CRM, Chatbot · METEK Digital",
-    "description": "METEK Digital web tasarım ve yazılım ajansı. Özel web sitesi, yönetim paneli, CRM, CSS tasarım sistemi, WhatsApp ve Instagram chatbot, mobil uygulama. Portföy ve teklif."
+    "title": "Özel Web Tasarımı ve Yazılım Stüdyosu | METEK Digital",
+    "description": "METEK Digital; markalara özel kurumsal web platformları, yönetim panelleri, CRM altyapıları ve mesajlaşma otomasyonları tasarlayıp geliştiren dijital stüdyo."
   },
   "nav": {
     "about": "Ajans",
@@ -21,72 +21,72 @@
   },
   "pages": {
     "manifesto": {
-      "metaTitle": "Ajans | METEK Digital Web Tasarım ve Yazılım",
-      "metaDescription": "METEK Digital: Malatya merkezli web tasarım ve yazılım ajansı. Web sitesi, yönetim paneli, CRM, chatbot ve mobil uygulama. Kurucu Nurullah Aydın.",
+      "metaTitle": "Ajans | METEK Digital Web Tasarım ve Yazılım Stüdyosu",
+      "metaDescription": "Nurullah Aydın yönetimindeki METEK Digital; özel web platformları, yönetim panelleri, CRM ve mesajlaşma otomasyonları geliştirir.",
       "heroLabel": "Ajans",
-      "heroTitle": "METEK Digital ajansı.",
-      "heroBlurb": "Web sitesi, yönetim paneli, CRM, CSS tasarım sistemi, WhatsApp ve Instagram chatbot, mobil uygulama tasarlıyor ve geliştiriyoruz.",
+      "heroTitle": "Dijital arayüzleri ve operasyonel altyapıyı birlikte inşa ediyoruz.",
+      "heroBlurb": "METEK Digital, Nurullah Aydın yönetiminde çalışan bir web tasarım ve yazılım stüdyosu. Ziyaretçilerin karşılaştığı web platformlarını ve ekiplerin kullandığı yönetim panellerini işletmenin çalışma modeline göre tasarlayıp kodluyoruz.",
       "ctaLabel": "İletişim",
-      "ctaTitle": "Projenizi anlatın.",
-      "ctaBlurb": "Sektör, hedef ve istenen teslim tarihi yeterli. Uygun hizmet ve sonraki adımı net yazarız.",
+      "ctaTitle": "Projenizin kapsamını belirleyelim.",
+      "ctaBlurb": "Sektörünüzü, teknik gereksinimlerinizi ve hedeflediğiniz teslim takvimini paylaşın. İlk görüşmede proje çerçevesini ve çalışma modelini netleştirelim.",
       "ctaButton": "İletişime geç"
     },
     "approach": {
-      "metaTitle": "Proje Süreci | Web ve Yazılım Geliştirme · METEK Digital",
-      "metaDescription": "METEK Digital proje süreci: keşif, kapsam, tasarım, geliştirme, denetim ve yayın. Web sitesi, panel, CRM ve chatbot projelerinde şeffaf adımlar.",
+      "metaTitle": "Proje Süreci | Nasıl İlerliyoruz · METEK Digital",
+      "metaDescription": "METEK Digital projelerinde keşif, yazılı kapsam, tasarım, yazılım geliştirme, kalite denetimi ve yayın adımlarının nasıl işlediğini inceleyin.",
       "heroLabel": "Süreç",
-      "heroTitle": "Keşiften yayına net süreç.",
-      "heroBlurb": "Kapsam yazılıdır. Her aşamada kontrol edebileceğiniz bir çıktı vardır. Web, panel veya chatbot fark etmez.",
+      "heroTitle": "Yazılı kapsam, öngörülebilir takvim ve eş zamanlı üretim.",
+      "heroBlurb": "Sayfa yapıları, teknik işlevler, teslim edilecek çıktılar ve kontrol aşamaları proje başlangıcında dokümante edilir. Tasarım ve yazılım geliştirme süreçleri bu çerçeveye bağlı ilerler.",
       "ctaLabel": "İletişim",
-      "ctaTitle": "Projenizi bu süreçle mi ilerletelim?",
-      "ctaBlurb": "İhtiyacınızı yazın. Kapsam ve zaman planını birlikte netleştiririz.",
+      "ctaTitle": "Projeniz için teknik çerçeveyi kuralım.",
+      "ctaBlurb": "Gereksinim duyduğunuz sistemi özetleyin. Öncelikleri, harici servis entegrasyonlarını ve geliştirme adımlarını birlikte planlayalım.",
       "ctaButton": "Proje başlat"
     },
     "work": {
-      "metaTitle": "Portföy | Web Sitesi, Panel, CRM, Chatbot Projeleri · METEK Digital",
-      "metaDescription": "METEK Digital portföyü: kurumsal web sitesi, yönetim paneli, CRM, WhatsApp ve Instagram chatbot projeleri. Türkiye, ABD ve Avrupa referansları.",
+      "metaTitle": "Portföy | Web Sitesi ve Yazılım Projeleri · METEK Digital",
+      "metaDescription": "Üretim, mobilya, perakende, konaklama ve sağlık sektörleri için geliştirdiğimiz web platformları, paneller, CRM ve chatbot projelerini inceleyin.",
       "heroLabel": "Portföy",
-      "heroTitle": "Seçili web ve yazılım projeleri.",
-      "heroBlurb": "Üretim, perakende, konaklama ve klinik için web siteleri, paneller ve chatbotlar. Canlı projeler, ölçülebilir teslim.",
+      "heroTitle": "İşletmelerin operasyonel gereksinimlerine göre geliştirilen projeler.",
+      "heroBlurb": "Üretici firmalar için teklif platformları, butik markalar için kataloglar ve hizmet işletmeleri için randevu otomasyonları. Seçili projelerin teknik ve görsel kararlarını inceleyebilirsiniz.",
       "ctaLabel": "İletişim",
-      "ctaTitle": "Benzer bir proje mi istiyorsunuz?",
-      "ctaBlurb": "Sektör ve hedefi yazın. Uygun hizmet ve ilk adımı döneriz.",
+      "ctaTitle": "Yeni bir proje başlatalım.",
+      "ctaBlurb": "İşletmenizin dijital temas noktalarını ve ihtiyaç duyduğu yönetim araçlarını paylaşın. Projenin kapsamını birlikte belirleyelim.",
       "ctaButton": "İhtiyacımı yaz"
     },
     "services": {
-      "metaTitle": "Hizmetler | Web Tasarım, Yönetim Paneli, CRM, Chatbot · METEK Digital",
-      "metaDescription": "METEK Digital hizmetleri: özel web sitesi, kurumsal web tasarım, yönetim paneli, CRM, CSS tasarım sistemi, WhatsApp chatbot, Instagram chatbot, mobil uygulama.",
+      "metaTitle": "Hizmetler | Özel Web Tasarımı ve Yazılım Geliştirme · METEK Digital",
+      "metaDescription": "METEK Digital hizmetleri: özel web sitesi, kurumsal site, yönetim paneli, CRM, CSS tasarım sistemi, WhatsApp ve Instagram chatbot, mobil uygulama.",
       "heroLabel": "Hizmetler",
-      "heroTitle": "Web, panel, CRM ve chatbot.",
-      "heroBlurb": "İhtiyaca göre kapsam çıkarırız: web sitesi, yönetim paneli, CRM, CSS tasarım sistemi, WhatsApp veya Instagram chatbot, mobil uygulama.",
+      "heroTitle": "Web platformlarından operasyonel panellere uzanan geliştirme kapsamı.",
+      "heroBlurb": "Kurumsal web siteleri, özel yönetim panelleri, CRM entegrasyonları ve mesajlaşma asistanları. Hizmet seçimini işletmenizin mevcut işleyişine ve büyüme hedeflerine göre yapıyoruz.",
       "ctaLabel": "İletişim",
-      "ctaTitle": "Hangi hizmet gerektiğine emin değil misiniz?",
-      "ctaBlurb": "Kısaca yazın. Size uygun paketi ve kapsamı netleştiririz.",
+      "ctaTitle": "Projenizin ihtiyaç duyduğu uzmanlıkları konuşalım.",
+      "ctaBlurb": "Mevcut dijital yapınızı ve hedeflerinizi paylaşın. Web sitesi, panel, CRM veya otomasyon alanındaki gereksinimleri ilk toplantıda ele alalım.",
       "ctaButton": "Proje başlat"
     },
     "blog": {
-      "metaTitle": "Blog | Web Tasarım, Arayüz ve SEO Notları · METEK Digital",
-      "metaDescription": "METEK Digital blog: web tasarım, arayüz, SEO ve yazılım projelerinde pratik notlar.",
+      "metaTitle": "Blog | Web Tasarım, Arayüz Mimarisi ve Teknik SEO Notları · METEK Digital",
+      "metaDescription": "METEK Digital blog: web tasarım, arayüz mimarisi, teknik SEO, yazılım teslimi ve operasyon sistemlerinden pratik stüdyo notları.",
       "heroLabel": "Blog",
-      "heroTitle": "Web ve yazılım notları.",
-      "heroBlurb": "Web sitesi, panel ve chatbot projelerinden çıkan pratik yazılar. SEO ve arayüz kararları dahil.",
+      "heroTitle": "Web tasarımı, arayüz mimarisi ve teknik altyapı notları.",
+      "heroBlurb": "Web standartları, teknik SEO, arayüz sistemleri ve yazılım teslimi üzerine stüdyo deneyimlerimize dayanan teknik ve editoryal yazılar.",
       "ctaLabel": "İletişim",
-      "ctaTitle": "Projeniz için görüşelim.",
-      "ctaBlurb": "Konu tanıdık geldiyse yazın. İhtiyacınıza göre hizmet öneririz.",
+      "ctaTitle": "Projenizi birlikte planlayalım.",
+      "ctaBlurb": "Yazılarda ele aldığımız teknik konulardan biri işletmenizin güncel bir gereksinimine denk geliyorsa ayrıntıları paylaşın. Kapsamı birlikte oluşturalım.",
       "ctaButton": "Proje başlat"
     }
   },
   "blog": {
     "view": "Yazıyı oku",
     "teaserLabel": "Blog",
-    "teaserTitle": "Web ve yazılım yazıları.",
-    "teaserBlurb": "Tasarım, SEO ve geliştirme üzerine kısa notlar.",
+    "teaserTitle": "Stüdyo notları",
+    "teaserBlurb": "Tasarım, teknik SEO ve yazılım projelerinde karşılaştığımız kritik kararlar üzerine yazılar.",
     "teaserAll": "Tüm yazılar",
     "readMinutes": "{count} dk okuma",
     "relatedLabel": "Devamı",
     "relatedTitle": "İlgili yazılar",
     "articleCta": "Proje başlat",
-    "articleCtaBlurb": "Bu konu sizin projenize uyuyorsa yazın, kapsamı konuşalım.",
+    "articleCtaBlurb": "Sektörünüzü, hedef kitlenizi ve ihtiyaç duyduğunuz işlevleri paylaşın. Projenizin kapsamını birlikte planlayalım.",
     "crumbHome": "Ana sayfa",
     "crumbBlog": "Blog",
     "categories": {
@@ -113,21 +113,21 @@
     "label": "İlkeler",
     "stamp": "METEK Digital",
     "lines": [
-      "Hazır tema satmıyoruz.",
-      "Web, panel ve chatbot aynı ekipte.",
-      "Yayın öncesi hız ve SEO kontrolü.",
-      "Kapsam yazılı, teslim görünür."
+      "Arayüz kararlarını ziyaretçinin bilgi arama ve karar alma süreçlerine göre şekillendiririz.",
+      "Web platformunu ve arkasındaki yönetim araçlarını birbirini tamamlayan tek bir operasyonel sistem olarak kurgularız.",
+      "Geliştirme sürecinde mobil performansı, tipografik hiyerarşiyi ve teknik arama motoru standartlarını temel alırız.",
+      "Tasarım ve kodlamaya geçmeden önce sayfa mimarisini, veri modellerini ve teslim tarihlerini yazılı olarak netleştiririz."
     ]
   },
   "featured": {
     "label": "Öne çıkan proje",
     "client": "Wholesale Cabinet Creations · 2026",
-    "title": "ABD dolap üreticisi için kurumsal web sitesi ve panel",
-    "blurb": "Wholesale Cabinet Creations için kurumsal web sitesi geliştirdik. Mobilde hızlı açılır, arama için hazırlanır, teklif formu öne çıkar. İçerik yönetim paneliyle ekip metin ve görselleri kendi günceller.",
+    "title": "Kurumsal web platformu ve içerik mimarisi",
+    "blurb": "ABD merkezli dolap üreticisi Wholesale Cabinet Creations için ürün hatlarını, tamamlanmış mutfak projelerini ve doğrudan teklif altyapısını bir araya getiren kurumsal web platformu geliştirdik. Ürün ve referans sayfalarından teklif formuna kesintisiz geçiş kuruldu; ekip yeni içerikleri panelden yönetebiliyor.",
     "outcomes": [
-      "Teklif talebine kısa ve net yol",
-      "Mobilde ürün ve iletişim erişimi",
-      "İçerik ve SEO ayarları tek panelde"
+      "Ürün ve referans sayfalarından doğrudan teklif formuna geçiş",
+      "Masaüstü ve mobil ekranlar için özel optimize edilmiş editoryal sunum",
+      "Metin, görsel ve teknik SEO alanları için pratik içerik yönetim altyapısı"
     ],
     "cta": "Projeyi aç",
     "shotHero": "Wholesale Cabinet Creations, ana sayfa",
@@ -135,28 +135,28 @@
     "shotProjects": "Wholesale Cabinet Creations, proje galerisi",
     "shotBrands": "Wholesale Cabinet Creations, markalar",
     "sceneLabel": "Sonuç",
-    "sceneTitle": "Hızlı mobil site, yönetilebilir içerik",
-    "sceneBody": "Kurumsal web, teknik SEO hazırlığı ve yönetim paneli birlikte."
+    "sceneTitle": "Ürün keşfinden ticari teklif talebine",
+    "sceneBody": "Kurumsal web sitesi; masaüstü ve mobil düzenleri, teknik SEO hazırlığı ve içerik yönetim bağlantısıyla teslim edildi."
   },
   "principles": {
     "label": "İlkeler",
     "title": "Nasıl çalışıyoruz",
     "items": [
       {
-        "title": "Netlik",
-        "body": "Sayfada işlevsiz öğe bırakmayız. Ziyaretçi ne yaptığınızı hızlı anlamalı."
+        "title": "İşlev odaklı sayfa mimarisi",
+        "body": "Her sayfa ve bileşen, kullanıcının belirli bir sorusunu yanıtlamak veya onu bir sonraki işlem adımına yönlendirmek üzere kurgulanır."
       },
       {
-        "title": "Sistem",
-        "body": "Ortak bileşen ve CSS kurallarıyla ilerleriz. Yeni sayfa eklemek daha ucuz kalır."
+        "title": "Merkezi tasarım sistemi",
+        "body": "Renk paletini, tipografi ölçeğini, boşluk kurallarını ve buton standartlarını ortak tasarım token'larında toplarız."
       },
       {
-        "title": "Plan",
-        "body": "Verdiğimiz yayın tarihine bağlı kalırız. Kayma riskini önceden söyleriz."
+        "title": "Yazılı kapsam ve şeffaf takvim",
+        "body": "Geliştirme aşamalarını, teknik bağımlılıkları ve onay noktalarını baştan belirleriz. Proje süresince ilerlemeyi düzenli olarak aktarırız."
       },
       {
-        "title": "Kalite",
-        "body": "Yayın öncesi hız, mobil, erişilebilirlik ve teknik SEO kontrollerini yaparız."
+        "title": "Kapsamlı yayın öncesi denetim",
+        "body": "Yayın öncesinde sayfa yükleme hızlarını, mobil ekran uyumluluğunu, teknik SEO etiketlerini ve form işleyişlerini eksiksiz test ederiz."
       }
     ]
   },
@@ -164,114 +164,115 @@
     "line1": "METEK Digital",
     "line2": "web tasarım",
     "line3": "ajansı.",
-    "blurb": "Web sitesi, yönetim paneli, CRM, CSS, WhatsApp ve Instagram chatbot, mobil uygulama. Portföy aşağıda.",
+    "blurb": "İşletmelere özel web platformları, yönetim panelleri ve mesajlaşma otomasyonları tasarlayıp geliştiriyoruz.",
     "ctaWork": "Portföye bak",
     "ctaContact": "Proje başlat",
     "scroll": "Portföye bak",
     "metaStudio": "Web tasarım ve yazılım ajansı",
-    "metaLocation": "Malatya · Dünya geneli",
+    "metaLocation": "Türkiye · Uluslararası projeler",
     "availability": "Yeni projeler için açığız"
   },
   "selectedWork": {
     "label": "Portföy",
     "title": "Seçili projeler",
-    "blurb": "On dört canlı proje. Web sitesi, yönetim paneli, CRM ve chatbot çalışmaları. ABD, Almanya ve İtalya dahil.",
-    "viewAll": "Tüm portföy"
+    "blurb": "Üretim, mobilya, perakende, konaklama ve sağlık sektörleri için geliştirdiğimiz özel web platformları ve yazılım arayüzleri.",
+    "viewAll": "Tüm portföy",
+    "openProject": "Projeyi aç"
   },
   "capabilities": {
     "label": "Hizmetler",
-    "title": "Ne geliştiriyoruz",
-    "blurb": "Kurumsal web sitesi ve web tasarım. Yönetim paneli, CRM ve mobil uygulama. WhatsApp ve Instagram chatbot. CSS tasarım sistemi.",
+    "title": "Neler geliştiriyoruz",
+    "blurb": "Özel web platformları, ekiplerin müşteri ve sipariş kayıtlarını yönettiği paneller ile akıllı mesajlaşma sistemleri tasarlayıp kodluyoruz.",
     "cta": "Tüm hizmetler",
     "techLine": "Web · Panel · CRM · Chatbot · Mobil · SEO",
     "items": {
       "experiences": {
-        "title": "Web sitesi ve web tasarım",
-        "summary": "Kurumsal site, hizmet sayfaları, marka vitrinleri",
+        "title": "Özel web tasarımı ve geliştirme",
+        "summary": "Kurumsal web siteleri, hizmet sayfaları ve dijital kataloglar",
         "visual": "Web sitesi",
-        "body": "Özel web sitesi tasarımı ve geliştirme. Hazır tema değil; markanıza ve satış yolunuza göre.",
-        "detail": "Sayfa yapısı, metin hiyerarşisi, mobil düzen ve teknik SEO aynı planda yürür. Amaç: güven, net teklif, iletişim veya teklif formu.",
+        "body": "Bilgi mimarisini, tipografik düzeni ve kod yapısını işletmenizin kurumsal kimliğine ve teklif yapısına göre sıfırdan oluşturuyoruz.",
+        "detail": "Ziyaretçinin sunduğunuz hizmeti kavramasını ve doğrudan iletişime geçmesini sağlayan net bir hiyerarşi kuruyoruz.",
         "outcomes": [
-          "Kurumsal ve hizmet odaklı web siteleri",
-          "Mobil uyumlu, hızlı sayfalar",
-          "Teknik SEO ve ölçüm altyapısı"
+          "Kurumsal ve hizmet odaklı web platformları",
+          "Masaüstü ve mobil ekranlar için özel arayüz tasarımı",
+          "Teknik SEO ve performans altyapısı"
         ]
       },
       "systems": {
-        "title": "Yönetim paneli, CRM, mobil",
-        "summary": "Admin panel, CRM, CSS tasarım sistemi, mobil uygulama",
+        "title": "Yönetim paneli, CRM ve mobil altyapı",
+        "summary": "Operasyon ekranları, müşteri kayıtları ve CSS tasarım sistemi",
         "visual": "Yönetim paneli",
-        "body": "Günlük kullanılan yönetim paneli ve CRM. Gerekirse mobil uygulama ve CSS tasarım sistemi.",
-        "detail": "Ekibin her gün açtığı ekranlar sade ve tutarlı olmalı. Veri, randevu ve müşteri kayıtları tek yerde toplanır.",
+        "body": "Ekiplerin günlük operasyonlarını yönettiği özel panelleri ve müşteri takip arayüzlerini iş akışlarına uygun olarak tasarlayıp kodluyoruz.",
+        "detail": "Randevu, sipariş ve içerik yönetimi tek bir merkezi yapıda toplanır; veri akışı şeffaf ve düzenli şekilde izlenir.",
         "outcomes": [
-          "Yönetim paneli ve CRM ekranları",
-          "CSS tasarım sistemi ile tutarlı arayüz",
+          "Özel yönetim paneli ve CRM arayüzleri",
+          "Görsel tutarlılık için CSS tasarım sistemi",
           "Web ve mobil uygulama geliştirme"
         ]
       },
       "ai": {
-        "title": "WhatsApp ve Instagram chatbot",
-        "summary": "Randevu, sık sorular, satış paneli bağlantısı",
+        "title": "WhatsApp ve Instagram mesajlaşma sistemleri",
+        "summary": "Hizmet bilgisi, randevu akışı, takvim entegrasyonu ve CRM kaydı",
         "visual": "Mesajlaşma",
-        "body": "WhatsApp chatbot ve Instagram chatbot: fiyat ve hizmet bilgisi, randevu, hatırlatma, CRM bağlantısı.",
-        "detail": "Sohbet akışı işletme kurallarına göre kurulur. Belirsiz durumda ekibe özet düşer; rutin işler otomatik yürür.",
+        "body": "Fiyat, çalışma saatleri ve randevu sorularını onaylı işletme verileriyle yanıtlayan, takvimle senkronize çalışan mesajlaşma asistanları kuruyoruz.",
+        "detail": "Rutin sorular otomatik olarak karşılanır; yetki gerektiren görüşmeler konuşma bağlamı korunarak ilgili personele aktarılır.",
         "outcomes": [
           "WhatsApp chatbot kurulumu",
-          "Instagram chatbot kurulumu",
-          "CRM ve randevu paneli entegrasyonu"
+          "Instagram Direkt Mesaj otomasyonu",
+          "Merkezi CRM ve takvim senkronizasyonu"
         ]
       }
     }
   },
   "manifestoScene": {
     "label": "Odak",
-    "before": "İyi bir web sitesi önce",
-    "accent": "güven",
-    "after": "kurar, sonra teklifi anlatır."
+    "before": "İlk ekranda",
+    "accent": "güven,",
+    "after": "devamında anlaşılır bir teklif."
   },
   "approachTeaser": {
     "label": "Süreç",
     "title": "Proje nasıl ilerler",
-    "blurb": "Dört aşama. Her aşamada kontrol edebileceğiniz bir çıktı teslim ederiz.",
-    "principle": "Kapsam yazılıdır. İlerleme haftalık görünür. Tasarım ve geliştirme aynı ekipte yürür.",
+    "blurb": "Her aşama, ekibinizin inceleyip onaylayabileceği somut ve doğrulanabilir bir çıktıyla tamamlanır.",
+    "principle": "Kapsamı yazılı tutar, ilerlemeyi düzenli paylaşır; tasarım ile yazılım geliştirmeyi senkronize yürütürüz.",
     "cta": "Süreci incele",
     "steps": [
       {
         "title": "Keşif",
-        "body": "Hedef, kitle, kanal ve teknik sınırlar netleşir."
+        "body": "Hedeflerinizi, kullanıcı profilinizi, mevcut içeriklerinizi, teknik gereksinimleri ve proje sınırlarını birlikte inceleriz."
       },
       {
         "title": "Kapsam",
-        "body": "Hizmet seçimi, sayfa/özellik listesi ve onaylı kapsam."
+        "body": "Sayfaları, fonksiyonları, teslim edilecek çıktıları ve sorumlulukları net bir teknik dokümanda toplarız."
       },
       {
         "title": "Tasarım ve geliştirme",
-        "body": "Arayüz ve kod birlikte ilerler. Panel veya chatbot aynı plana girer."
+        "body": "Arayüz tasarımı ile kodlama paralel ilerler. Panel veya chatbot varsa ilgili veri akışları da bu aşamada entegre edilir."
       },
       {
         "title": "Denetim ve yayın",
-        "body": "Hız, mobil, erişim ve teknik SEO kontrolü; sonra yayın."
+        "body": "Hız performansı, mobil uyumluluk, erişilebilirlik, teknik SEO ve form dönüşüm yolları kapsamlı şekilde test edilerek yayın tamamlanır."
       }
     ]
   },
   "finalCta": {
     "label": "Teklif",
-    "title": "Projenizi yazın.",
-    "blurb": "Birkaç satır yeter. Bir gün içinde kapsam, süre ve fiyat aralığıyla döneriz.",
+    "title": "Projenizi anlatalım.",
+    "blurb": "İhtiyaçlarınızı birkaç cümleyle paylaşın. İlk görüşmede kapsamı, öncelikleri ve gerekli teslim kalemlerini birlikte netleştirelim.",
     "cta": "Proje başlat",
     "whatsapp": "WhatsApp ile yazın ↗",
-    "whatsappPrefill": "Merhaba METEK Digital. Web sitesi / panel / chatbot projesi için görüşmek istiyorum."
+    "whatsappPrefill": "Merhaba METEK Digital. Web sitesi veya yazılım projesi için görüşmek istiyorum."
   },
   "workLanes": {
     "web": "Web siteleri",
     "systems": "Panel, CRM, mobil",
-    "ai": "Chatbot",
+    "ai": "Mesajlaşma",
     "lab": "Denemeler"
   },
   "projects": {
     "label": "Portföy",
     "title": "Tüm projeler",
-    "blurb": "Web sitesi, yönetim paneli, CRM ve chatbot projeleri. Üretim, perakende, konaklama ve klinik.",
+    "blurb": "Üretim, perakende, konaklama, sağlık ve hizmet sektörleri için geliştirdiğimiz web siteleri, yönetim panelleri ve mesajlaşma sistemleri.",
     "loadMore": "Daha fazla",
     "seeCase": "Projeyi incele",
     "viewAll": "Tüm portföy"
@@ -286,124 +287,124 @@
   },
   "services": {
     "label": "Hizmetler",
-    "title": "Hizmet listesi",
+    "title": "Web sitesi, panel ve otomasyon hizmetleri",
     "included": "Dahil olanlar",
     "cta": "Proje başlat",
     "seeAll": "Tüm hizmetler",
     "items": [
       {
-        "title": "Başlangıç Web Sitesi",
-        "description": "İlk kurumsal web sitesini kuracak işletmeler için özel web tasarım. Mobil uyum, temel SEO, iletişim ve WhatsApp.",
+        "title": "Başlangıç web sitesi",
+        "description": "Hizmetlerini dijitale taşımak isteyen işletmeler için odaklı ve hızlı bir kurumsal web platformu. Hizmetlerinizi, kurumsal bilgilerinizi ve iletişim kanallarınızı düzenli bir bilgi mimarisiyle sunar.",
         "includes": [
           "1 ile 5 sayfa",
           "Özgün arayüz tasarımı",
           "Mobil uyumluluk",
-          "Temel arama düzeni",
+          "Temel teknik SEO hazırlığı",
           "İletişim ve WhatsApp bağlantısı",
-          "Hız ayarı",
-          "15 gün teknik destek"
+          "Performans kontrolü",
+          "Kapsama göre teslim sonrası teknik destek"
         ]
       },
       {
-        "title": "Kurumsal Web Sitesi",
-        "description": "Kurumsal web tasarım ve geliştirme. Daha fazla sayfa, güçlü ilk izlenim, ölçülebilir talep ve gelişmiş SEO.",
+        "title": "Kurumsal web sitesi",
+        "description": "Hizmetlerini, kurumsal uzmanlığını ve vaka referanslarını kapsamlı şekilde sunması gereken markalar için. Özel arayüz tasarımı, mobil hız optimizasyonu ve teknik SEO altyapısı bir arada kurgulanır.",
         "includes": [
           "5 ile 12 sayfa",
-          "Özgün arayüz ve kullanım tasarımı",
-          "Hareket ve küçük etkileşimler",
+          "Özgün arayüz ve kullanıcı deneyimi tasarımı",
+          "Amaca uygun hareket ve etkileşimler",
           "Blog veya içerik alanı",
-          "Gelişmiş arama düzeni",
-          "Ziyaretçi ölçüm bağlantısı",
-          "Hız ve güvenlik ayarı",
-          "30 gün teknik destek"
+          "Teknik SEO hazırlığı",
+          "Analitik bağlantısı",
+          "Performans ve güvenlik kontrolü",
+          "Kapsama göre teslim sonrası teknik destek"
         ]
       },
       {
-        "title": "Özel Web ve Panel",
-        "description": "Özel arayüz, yönetim paneli ve gerektiğinde CRM bağlantılı ileri web projeleri. Hazır tema kullanılmaz.",
+        "title": "Özel web ve panel",
+        "description": "Kurumsal web sitesiyle yönetim panelinin veya CRM sisteminin senkronize çalışması gereken projeler için. Ortak veri kayıtları, yetkilendirme ve ekip ekranları tek kapsamda planlanır.",
         "includes": [
-          "Tamamen özgün tasarım dili",
-          "3D veya ileri seviye hareketler",
+          "Projeye özel tasarım sistemi",
+          "Gerektiğinde 3D ve ileri hareket tasarımı",
           "Özel yönetim paneli",
-          "Müşteri takip sistemi ve otomasyon bağlantıları",
-          "Yapay zekâ özellikleri",
-          "İleri arama ve hız düzeni",
-          "Test ve yayınlama süreci",
-          "60 gün teknik destek"
+          "CRM ve otomasyon bağlantıları",
+          "İhtiyaca göre yanıt veya içerik otomasyonu",
+          "Teknik SEO ve performans hazırlığı",
+          "Test ve yayın süreci",
+          "Kapsama göre teslim sonrası teknik destek"
         ]
       },
       {
-        "title": "Logo ve Marka Kimliği",
-        "description": "Logo, renk, tipografi ve kullanım kuralları. Web ve sosyal yüzeylerde tutarlı marka dili.",
+        "title": "Logo ve marka kimliği",
+        "description": "Logo, renk paleti, tipografi kuralları ve kullanım kılavuzuyla markanızın görsel standartlarını kurarız. Web sitesi, sosyal medya ve basılı materyaller aynı kimliği taşır.",
         "includes": [
           "Keşif ve marka analizi",
-          "Özgün logo tasarımı (birkaç yön)",
+          "Özgün logo tasarımı ve alternatif yönler",
           "Renk paleti ve tipografi seçimi",
-          "Logo varyasyonları (yatay, dikey, ikon)",
-          "Kullanım kuralları (mini marka kılavuzu)",
+          "Yatay, dikey ve ikon logo varyasyonları",
+          "Temel marka kullanım kılavuzu",
           "Sosyal medya ve favicon setleri",
-          "Vektör kaynak dosyalar (SVG, PDF, PNG)"
+          "Kaynak ve kullanım dosyaları (SVG, PDF, PNG)"
         ]
       },
       {
-        "title": "Yönetim Paneli ve Mobil Uygulama",
-        "description": "Özel yazılım: yönetim paneli, mobil uygulama, entegrasyon ve otomasyon. Excel yerine günlük kullanılan sistem.",
+        "title": "Yönetim paneli ve mobil uygulama",
+        "description": "Ekiplerin günlük operasyonları için özel yönetim panelleri veya mobil uygulamalar. Ekranları, kullanıcı yetkilerini, entegrasyonları ve iş akışlarını çalışma biçiminize göre tasarlarız.",
         "includes": [
           "İhtiyaç ve sistem analizi",
           "Teknik yapı planı",
           "Web veya mobil uygulama",
           "Yönetim paneli",
-          "Diğer yazılımlarla bağlantı",
+          "Mevcut yazılımlarla entegrasyon",
           "Otomasyon senaryoları",
           "Güvenlik ve test süreçleri"
         ]
       },
       {
-        "title": "WhatsApp Chatbot",
-        "description": "WhatsApp chatbot: sık sorular, fiyat bilgisi, randevu, iptal ve hatırlatma. CRM paneline bağlanabilir.",
+        "title": "WhatsApp chatbot",
+        "description": "Fiyat, konum ve randevu sorularını 7/24 karşılayan, uygun saati takvimden bulup ayıran ve karmaşık konularda ekibinize bağlanan akıllı WhatsApp asistanı.",
         "includes": [
-          "Sizin üslubunuzla sohbet (fiyat ve hizmet bilgisiyle)",
-          "Boş saatleri bilme, randevuyu oraya yönlendirme",
-          "Dolu saatleri bilme, çakışmayı önleme",
-          "İptalde boşalan saati yeniden açma",
+          "Marka diline göre yanıtlar",
+          "Hizmet, fiyat ve çalışma saati bilgileri",
+          "Müsait saatlere randevu yönlendirmesi",
+          "İptal ve takvim güncellemesi",
           "Randevudan 1 saat önce hatırlatma",
-          "Satış paneli ile birlikte çalışma",
+          "CRM ve randevu paneli bağlantısı",
           "Kurulum ve kullanım eğitimi"
         ]
       },
       {
-        "title": "Instagram Chatbot",
-        "description": "Instagram chatbot: mesajlarda randevu ve bilgilendirme. WhatsApp ile aynı takvim ve CRM mantığı.",
+        "title": "Instagram chatbot",
+        "description": "Instagram Direkt Mesaj üzerinden gelen fiyat ve randevu taleplerini karşılayan asistan. WhatsApp akışıyla aynı merkezi takvim ve CRM veri tabanına bağlanabilir.",
         "includes": [
-          "Mesajlarda sizin adınıza sohbet",
-          "Fiyat, hizmet ve sık sorulara yanıt",
-          "Boş saatlere yönlendirme, dolu saatleri koruma",
-          "İptalde boşalan saati yeniden açma",
+          "Marka diline göre yanıtlar",
+          "Hizmet, fiyat ve sık soru bilgileri",
+          "Müsait saatlere randevu yönlendirmesi",
+          "İptal ve takvim güncellemesi",
           "Randevudan 1 saat önce hatırlatma",
-          "Satış paneli ile birlikte çalışma",
+          "CRM ve randevu paneli bağlantısı",
           "Kurulum ve kullanım eğitimi"
         ]
       },
       {
-        "title": "CRM ve Randevu Paneli",
-        "description": "CRM satış ve randevu paneli. WhatsApp ve Instagram chatbot kayıtları tek ekranda.",
+        "title": "CRM ve randevu paneli",
+        "description": "WhatsApp ve Instagram kanallarından gelen müşteri, görüşme ve randevu kayıtlarını tek ekranda izlemek ve yönetmek için tasarlanan operasyon paneli.",
         "includes": [
-          "Satış paneli",
-          "WhatsApp asistanı bağlantısı",
-          "Instagram mesaj asistanı bağlantısı",
-          "Randevuda otomatik kayıt",
-          "İptalde saatin yeniden boşalması",
-          "Günlük özet ve hatırlatmalar",
+          "Müşteri ve görüşme kayıtları",
+          "WhatsApp asistanı entegrasyonu",
+          "Instagram asistanı entegrasyonu",
+          "Randevu ve iptal akışları",
+          "Gün görünümü, etiketler ve ekip notları",
+          "Hatırlatma senaryoları",
           "Kurulum ve kullanım eğitimi"
         ]
       },
       {
-        "title": "CSS Tasarım Sistemi",
-        "description": "CSS tasarım sistemi: renk, tipografi, boşluk ve bileşen kuralları. Web ve panelde ortak dil.",
+        "title": "CSS tasarım sistemi",
+        "description": "Renk rolleri, tipografi skalası, boşluk adımları ve bileşen standartlarını ortak bir sistemde toplarız. Web sitesi ile yönetim panelleri aynı görsel kurallarla çalışır.",
         "includes": [
           "Renk ve yazı kuralları",
-          "Yazı tipi ölçeği",
-          "Eylem stilleri ve temel bileşenler",
+          "Tipografi ölçeği",
+          "Eylem öğeleri ve temel bileşenler",
           "Boşluk ve köşe yarıçapı sistemi",
           "Kullanım rehberi",
           "Web ve panel uyumu",
@@ -419,43 +420,43 @@
       {
         "title": "Keşif",
         "body": [
-          "Hedef, kitle ve teknik sınırlar yazıya dökülür.",
-          "Hangi hizmetin gerektiği (web, panel, CRM, chatbot) netleşir."
+          "Hedeflerinizi, kullanıcı profilinizi, mevcut içeriklerinizi ve teknik gereksinimleri inceleriz.",
+          "İhtiyacın web sitesi, panel, CRM, chatbot veya bunların entegrasyonu olup olmadığını bu aşamada belirleriz."
         ]
       },
       {
         "title": "Kapsam",
         "body": [
-          "Sayfa ve özellik listesi, öncelikler, başarı ölçüsü.",
-          "Onaylı kapsam olmadan geliştirmeye geçilmez."
+          "Sayfaları, özellikleri, öncelikleri, teslim edilecek çıktıları ve sorumlulukları yazılı hale getiririz.",
+          "Kapsam dokümanı üzerinde anlaştıktan sonra tasarım ve geliştirme sürecini başlatırız."
         ]
       },
       {
         "title": "Tasarım",
         "body": [
-          "Arayüz, bileşenler ve gerektiğinde CSS tasarım sistemi.",
-          "Marka dili yoksa önce kimlik, sonra kod."
+          "Bilgi mimarisini, arayüz ekranlarını, bileşenleri ve CSS tasarım sistemini hazırlarız.",
+          "Görsel kimlik eksikse arayüz çalışmasından önce temel kuralları tamamlarız."
         ]
       },
       {
         "title": "Geliştirme",
         "body": [
-          "Next.js ve React ile web; panel, CRM ve chatbot aynı sisteme bağlanır.",
-          "Mobil uygulama ihtiyacı varsa aynı planda ilerler."
+          "Projenin mimarisine uygun olarak Next.js, React ve TypeScript tabanlı modern bir altyapı kurarız.",
+          "Panel, CRM, chatbot veya mobil uygulama kapsamdaysa veri modellerini ve kullanıcı akışlarını geliştiririz."
         ]
       },
       {
         "title": "Denetim",
         "body": [
-          "Hız, mobil, erişilebilirlik ve teknik SEO kontrol edilir.",
-          "Kritik kullanıcı yolu (teklif, randevu, iletişim) test edilir."
+          "Hız performansı, mobil uyumluluk, erişilebilirlik ve teknik SEO standartlarını tek tek kontrol ederiz.",
+          "Teklif, randevu veya iletişim gibi ana dönüşüm yollarını uçtan uca test ederiz."
         ]
       },
       {
         "title": "Yayın",
         "body": [
-          "Canlıya alınır, izlenir. Teslim sonrası destek süresi pakete göre işler.",
-          "İyileştirme ihtiyacı doğarsa yeni kapsam açılır."
+          "Yayın hazırlığını tamamlar, alan adı ve gerekli harici servis bağlantılarını doğrularız.",
+          "Yeni gereksinimler ortaya çıktığında bunları bağımsız geliştirme fazları olarak planlarız."
         ]
       }
     ]
@@ -466,27 +467,27 @@
     "titleRest": "Digital",
     "whoLabel": "Kurucu",
     "whoTitle": "Nurullah Aydın.",
-    "origin": "Malatya, Türkiye",
-    "practice": "Web tasarım ve yazılım ajansı",
-    "p1": "METEK Digital, Malatya merkezli bir web tasarım ve yazılım ajansıdır. Kurumsal web sitesi, yönetim paneli, CRM, CSS tasarım sistemi, WhatsApp ve Instagram chatbot ile mobil uygulama geliştiriyoruz. Ajansı Nurullah Aydın yönetir.",
-    "p2": "Marka diliniz hazırsa onunla çalışırız. Değilse önce logo ve kimlik, onaydan sonra geliştirme.",
-    "highlight": "Önce görün, sonra karar verin.",
-    "p3": "Hazır tema satmıyoruz. Her proje işletmenin satış ve operasyon ihtiyacına göre kurulur.",
+    "origin": "Türkiye",
+    "practice": "Web tasarım ve yazılım stüdyosu",
+    "p1": "METEK Digital, Nurullah Aydın yönetiminde çalışan bağımsız bir web tasarım ve yazılım stüdyosudur. Kurumsal web platformlarının yanı sıra yönetim panelleri, CRM altyapıları ve mesajlaşma otomasyonları geliştiriyoruz.",
+    "p2": "Her projede işletmenin hizmet modelini, hedef kitlesinin karar süreçlerini ve ekibin günlük operasyonel ihtiyaçlarını analiz ederek arayüz ve kod mimarisini amaca özel olarak kurguluyoruz.",
+    "highlight": "Tasarım ve mühendislik kararlarımızı portföyümüz üzerinden inceleyebilirsiniz.",
+    "p3": "Tasarım ve geliştirme süreçlerinde gereksiz karmaşıklıktan uzak durur; yazılı kapsam, teknik disiplin ve öngörülebilir teslim takvimi ile çalışırız.",
     "doLabel": "Hizmet alanları",
-    "doTitle": "Web, panel, chatbot, mobil.",
-    "doIntro": "Paket raftan seçilmez. Web sitesi, panel, CRM, chatbot veya mobil uygulama ihtiyaca göre kapsamlanır.",
+    "doTitle": "Web, operasyon ve mesajlaşma sistemleri",
+    "doIntro": "Hizmet seçimini ihtiyacın başladığı noktaya göre yaparız. Web sitesi, yönetim paneli, CRM, chatbot ve mobil uygulama aynı projenin tamamlayıcı parçaları olabilir.",
     "items": [
       {
         "title": "Web sitesi",
-        "body": "Özel web tasarım ve geliştirme. Mobil hız, teknik SEO, net iletişim veya teklif yolu."
+        "body": "Özel web tasarımı ve geliştirme; mobil hız performansı, teknik SEO altyapısı ve teklif taleplerini artıran sayfa mimarisi."
       },
       {
         "title": "Panel ve CRM",
-        "body": "Yönetim paneli, CRM, CSS tasarım sistemi ve gerektiğinde mobil uygulama."
+        "body": "Yönetim paneli, CRM arayüzleri, CSS tasarım sistemi ve ihtiyaca göre mobil uygulama geliştirme."
       },
       {
         "title": "Chatbot",
-        "body": "WhatsApp ve Instagram chatbot. Randevu, bilgilendirme ve panele kayıt."
+        "body": "WhatsApp ve Instagram asistanları; sıkça sorulan sorular, randevu akışları, personele devir ve CRM entegrasyonu."
       }
     ],
     "linkWork": "Portföye bak",
@@ -496,18 +497,18 @@
   },
   "contact": {
     "label": "İletişim",
-    "titleLine1": "Projeniz mi var?",
-    "titleLine2": "Konuşalım.",
-    "blurb": "Web sitesi, yönetim paneli, CRM, chatbot veya mobil uygulama. Sektör ve hedefi yazın; bir gün içinde dönüş yaparız.",
+    "titleLine1": "Projenizi",
+    "titleLine2": "konuşalım.",
+    "blurb": "Sektörünüzü, mevcut durumunuzu ve çözmek istediğiniz iş hedefini paylaşın. İlk görüşmede en uygun hizmet kapsamını değerlendirelim.",
     "name": "İsim",
     "email": "E-posta",
     "interestedIn": "İlgilendiğiniz alan",
-    "message": "Hedef, zaman ve istediğiniz hizmet hakkında birkaç satır",
+    "message": "Hedefiniz, mevcut durumunuz ve planladığınız teslim dönemi hakkında birkaç satır",
     "send": "WhatsApp ile gönder",
-    "sentHint": "WhatsApp açılıyor. Genelde bir gün içinde döneriz.",
-    "errorName": "Adınızı yazar mısınız.",
-    "errorEmail": "Bu e-posta adresi geçerli görünmüyor.",
-    "errorMessage": "Birkaç satır daha yazın, doğru yanıt verelim.",
+    "sentHint": "Mesajınızla birlikte WhatsApp açılıyor.",
+    "errorName": "Devam etmek için adınızı yazın.",
+    "errorEmail": "Geçerli bir e-posta adresi yazın.",
+    "errorMessage": "İhtiyacınızı anlayabilmemiz için biraz daha ayrıntı ekleyin.",
     "mailSubject": "Proje talebi",
     "mailName": "İsim",
     "mailEmail": "E-posta",
@@ -524,11 +525,11 @@
       "Mevcut siteyi yenileme",
       "Diğer"
     ],
-    "response": "Genelde bir gün içinde döneriz. Acil durumda WhatsApp daha hızlıdır.",
+    "response": "Proje taleplerini e-posta ve WhatsApp üzerinden yanıtlıyoruz.",
     "emailCta": "E-postayı aç"
   },
   "footer": {
-    "tagline": "Web tasarım ve yazılım ajansı. Özel çözüm, hazır tema yok.",
+    "tagline": "İşletmelerin hedeflerine ve operasyonel süreçlerine özel web siteleri ve yazılım sistemleri.",
     "quickLinks": "Hızlı bağlantılar",
     "manifesto": "Ajans",
     "work": "İşler",
@@ -542,12 +543,12 @@
     "rights": "Tüm hakları saklıdır.",
     "brand": "METEK Digital",
     "founder": "Kurucu: Nurullah Aydın",
-    "location": "Malatya, Türkiye · Uzaktan dünya geneli",
+    "location": "Türkiye · Uluslararası projeler",
     "instagram": "Instagram"
   },
   "whatsapp": {
     "label": "WhatsApp",
-    "prefill": "Merhaba METEK Digital. Web sitesi / panel / chatbot projesi için görüşmek istiyorum.",
+    "prefill": "Merhaba METEK Digital. Web sitesi veya yazılım projesi için görüşmek istiyorum.",
     "cta": "WhatsApp'tan yazın",
     "fab": "Yazın"
   },
@@ -558,11 +559,40 @@
     "language": "Dil seçimi",
     "themeToDark": "Koyu temaya geç",
     "themeToLight": "Açık temaya geç",
-    "skipToContent": "İçeriğe geç"
+    "skipToContent": "İçeriğe geç",
+    "loading": "Sayfa yükleniyor"
   },
   "notFound": {
     "title": "Sayfa bulunamadı",
     "blurb": "Bu bağlantı geçersiz ya da sayfa taşınmış. {brand} ana sayfasına dönebilirsiniz.",
     "home": "Ana sayfaya dön"
+  },
+  "studioFrames": {
+    "kicker": "Atölyeden",
+    "title": "Dijital vitrinden günlük operasyona",
+    "lede": "Web sitesi talebi başlatır. Mesajlaşma asistanı gerekli bilgileri toplar; yönetim paneli kaydı ekibin önüne getirir. Bu temas noktalarını birbirine bağlıyoruz.",
+    "pullQuote": "Müşterinin gördüğü adımla ekibin yönettiği kayıt birbirinden kopmamalı.",
+    "frames": [
+      {
+        "label": "Vitrin",
+        "caption": "Havva, Köln-Ehrenfeld'de geleneksel bir baklava atölyesi. Web sitesi ürün kalitesini sergiliyor ve siparişleri doğrudan WhatsApp hattına yönlendiriyor.",
+        "alt": "Havva Köln baklava atölyesi sitesinin masaüstü görünümü."
+      },
+      {
+        "label": "Mesaj",
+        "caption": "WhatsApp asistanı sıkça sorulan soruları yanıtlıyor, hizmet detaylarını paylaşıyor ve onaylanan randevuları CRM sistemine aktarıyor.",
+        "alt": "WhatsApp chatbot konuşmasının telefon ekranındaki görünümü."
+      },
+      {
+        "label": "Sistem",
+        "caption": "Renk, tipografi, köşe ve bileşen kuralları merkezi bir kaynakta tutuluyor. Web sitesi ile yönetim panelleri aynı tasarım sistemini paylaşıyor.",
+        "alt": "METEK tasarım sistemi arayüz kitinin masaüstü görünümü."
+      }
+    ]
+  },
+  "intro": {
+    "skip": "Geç",
+    "soundOn": "Sesi aç",
+    "soundOff": "Sesi kapat"
   }
 }

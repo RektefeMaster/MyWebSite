@@ -43,6 +43,7 @@ export default async function ManifestoPage({
           { label: nav("home"), href: "/" },
           { label: nav("about") },
         ]}
+        showLanyard={true}
       />
       <StudioAbout />
       <Manifesto />

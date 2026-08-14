@@ -6,8 +6,8 @@ import { Link, usePathname } from "@/i18n/navigation";
 import BrandMark from "./BrandMark";
 import LanguageSwitcher from "./LanguageSwitcher";
 import Magnetic from "./Magnetic";
-import Marquee from "./Marquee";
 import ThemeToggle from "./ThemeToggle";
+import DecryptedText from "./DecryptedText";
 import { gsap, useGSAP, ScrollTrigger } from "@/lib/gsap";
 import { attachNavOffsetSync } from "@/lib/nav-scroll";
 
@@ -20,7 +20,7 @@ type NavHref =
   | "/blog"
   | { pathname: "/"; hash: string };
 
-/** Glass header + altında accent şerit — sayfa rotaları */
+/** İnce editöryal masthead — görsel gürültü ve reklam şeridi yok. */
 export default function Navbar() {
   const t = useTranslations("nav");
   const pathname = usePathname();
@@ -116,17 +116,17 @@ export default function Navbar() {
     >
       <header ref={headerRef} className="nav-shell">
         <div className="nav-glass border-b">
-          <nav className="mx-auto flex max-w-7xl items-center justify-between gap-1.5 px-3 py-2.5 sm:gap-3 sm:px-4 sm:py-3 md:gap-4 md:px-10 md:py-4">
+          <nav className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-2.5 sm:px-5 md:px-10 md:py-4">
             <BrandMark />
 
             <div className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 xl:gap-1 lg:flex">
               {links.map((link) => {
                 const isActive = Boolean(
                   link.match &&
-                    (link.match === "/"
-                      ? pathname === "/"
-                      : pathname === link.match ||
-                        pathname.startsWith(`${link.match}/`))
+                  (link.match === "/"
+                    ? pathname === "/"
+                    : pathname === link.match ||
+                    pathname.startsWith(`${link.match}/`))
                 );
                 const key =
                   typeof link.href === "string"
@@ -138,13 +138,19 @@ export default function Navbar() {
                     href={link.href}
                     scroll={false}
                     aria-current={isActive ? "page" : undefined}
-                    className={`relative inline-flex min-h-11 items-center whitespace-nowrap rounded-sm px-2.5 py-1.5 text-[12px] font-semibold tracking-tight transition-colors xl:px-3 xl:text-[13px] ${
-                      isActive
-                        ? "bg-ink text-ink-fg"
-                        : "text-ink/65 hover:text-ink"
-                    }`}
+                    className={`relative inline-flex min-h-11 items-center whitespace-nowrap px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] transition-colors xl:px-4 ${isActive
+                        ? "text-ink after:absolute after:inset-x-3 after:bottom-1 after:h-px after:bg-ink xl:after:inset-x-4"
+                        : "text-ink/45 hover:text-ink"
+                      }`}
                   >
-                    {link.label}
+                    <DecryptedText
+                      text={link.label}
+                      animateOn="hover"
+                      speed={25}
+                      maxIterations={8}
+                      sequential={true}
+                      encryptedClassName="text-accent font-bold"
+                    />
                   </Link>
                 );
               })}
@@ -153,12 +159,12 @@ export default function Navbar() {
             <div className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-2.5 md:gap-3.5">
               <ThemeToggle />
               <LanguageSwitcher />
-              <Magnetic strength={0.18}>
+              <Magnetic strength={0.18} className="shrink-0">
                 <Link
                   href={{ pathname: "/", hash: "contact" }}
                   scroll={false}
                   aria-label={t("cta")}
-                  className="btn-sheen btn-stable inline-flex min-h-10 shrink-0 rounded-sm bg-accent px-2.5 py-2 text-xs font-bold text-on-accent shadow-[inset_0_1px_0_var(--chrome-shine)] sm:px-3.5 md:min-h-0 md:px-5 md:py-2.5 md:text-sm"
+                  className="btn-stable inline-flex min-h-10 shrink-0 border border-ink bg-ink px-3 py-2 text-[11px] font-bold uppercase tracking-[0.1em] text-ink-fg transition-[background-color,color] hover:bg-transparent hover:text-ink sm:px-4 md:min-h-11 md:px-5"
                 >
                   <span className="sm:hidden" aria-hidden="true">
                     {t("ctaShort")}
@@ -171,14 +177,14 @@ export default function Navbar() {
             </div>
           </nav>
 
-          <div className="nav-mobile-rail flex gap-1.5 overflow-x-auto border-t border-hairline px-4 py-2.5 lg:hidden">
+          <div className="nav-mobile-rail flex gap-5 overflow-x-auto border-t border-hairline px-4 py-1.5 sm:px-5 lg:hidden">
             {links.map((link) => {
               const isActive = Boolean(
                 link.match &&
-                  (link.match === "/"
-                    ? pathname === "/"
-                    : pathname === link.match ||
-                      pathname.startsWith(`${link.match}/`))
+                (link.match === "/"
+                  ? pathname === "/"
+                  : pathname === link.match ||
+                  pathname.startsWith(`${link.match}/`))
               );
               const key =
                 typeof link.href === "string"
@@ -190,11 +196,10 @@ export default function Navbar() {
                   href={link.href}
                   scroll={false}
                   aria-current={isActive ? "page" : undefined}
-                  className={`inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-sm px-3.5 py-2 text-[13px] font-semibold transition-colors touch-manipulation ${
-                    isActive
-                      ? "bg-ink text-ink-fg"
-                      : "text-ink/60 active:bg-foreground/[0.06]"
-                  }`}
+                  className={`relative inline-flex min-h-10 shrink-0 items-center whitespace-nowrap py-1 text-[11px] font-bold uppercase tracking-[0.12em] transition-colors touch-manipulation ${isActive
+                      ? "text-ink after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-ink"
+                      : "text-ink/45 active:text-ink"
+                    }`}
                 >
                   {link.label}
                 </Link>
@@ -206,11 +211,9 @@ export default function Navbar() {
         <div
           ref={progressRef}
           aria-hidden
-          className="h-[2px] origin-left scale-x-0 bg-accent"
+          className="h-px origin-left scale-x-0 bg-ink/35"
         />
       </header>
-
-      <Marquee variant="header" />
     </div>
   );
 }

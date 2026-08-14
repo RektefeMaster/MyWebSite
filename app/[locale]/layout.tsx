@@ -24,6 +24,23 @@ import "../globals.css";
  * Italic başlık gerekirse şu satırı geri ekle (dosya `app/fonts/` içinde):
  *   { path: "../fonts/goks-italic.ttf", weight: "400", style: "italic" },
  */
+/*
+  DİKEY METRİK NOTU — `ascent-override` DENENDİ, BİLEREK GERİ ALINDI.
+
+  Goks'un gömülü metrikleri: ascent 1.360em, descent 0.340em (içerik kutusu
+  1.700em). Gerçek mürekkep ise cap height 1.050em (H/M/X/O ölçüldü), alt
+  uzantı -0.340em, İ 1.290em. Yani kutu mürekkepten 0.31em uzun.
+
+  `ascent-override: 105%` kutuyu mürekkeğe indiriyor ve editöryel hizalamayı
+  bedavaya getiriyor — AMA hero kelime markasını bozuyor: `.hero-wordmark`
+  `line-height: 1` ile iki sabit satır; ezme taban çizgisini kutu içinde
+  0.155em yukarı çekiyor, marka kilidi (~6rem'de ~15px) figürün başından ve
+  cam M'in bandından kayıyor. Hero korunmuş kompozisyon → ezme yok.
+
+  Kırpılma sorunu zaten metriklerden değil, `line-height`'tan geliyordu.
+  Ölçek `app/craft.css` içindeki `.type-display-*` sınıflarında; hizalama
+  `text-box: trim-both` ile metriklere dokunmadan çözülüyor.
+*/
 const goks = localFont({
   src: [{ path: "../fonts/goks-regular.ttf", weight: "400", style: "normal" }],
   variable: "--font-goks",
@@ -49,7 +66,7 @@ const spaceGrotesk = Space_Grotesk({
  *  `?intro=skip` atlar; `?intro` / `?intro=1` zorla oynatır (eski `indexOf("intro")`
  *  `intro=skip`’i de play sanıyordu).
  */
-const introInitScript = `(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var r=document.documentElement;var sp=new URLSearchParams(location.search);var iv=sp.get("intro");var forceSkip=iv==="skip"||iv==="0"||iv==="false";var forcePlay=!forceSkip&&(iv!==null||location.hash==="#intro");var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;var play=forceSkip?false:(forcePlay||(sessionStorage.getItem("metek-intro")!=="1"&&!reduce));r.setAttribute("data-intro",play?"play":"skip");if(play){setTimeout(function(){if(r.getAttribute("data-intro")==="play"){r.setAttribute("data-intro","skip");r.classList.remove("intro-lock");try{window.dispatchEvent(new Event("metek:intro-done"));}catch(e){}}},4200);}}catch(e){document.documentElement.setAttribute("data-intro","skip");}})();`;
+const introInitScript = `(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var r=document.documentElement;var sp=new URLSearchParams(location.search);var iv=sp.get("intro");var forceSkip=iv==="skip"||iv==="0"||iv==="false";var forcePlay=!forceSkip&&(iv!==null||location.hash==="#intro");var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;var seen=false;try{seen=sessionStorage.getItem("metek-intro")==="1";}catch(e){}var play=reduce?false:(forceSkip?false:(forcePlay||!seen));r.setAttribute("data-intro",play?"play":"skip");if(play){setTimeout(function(){if(r.getAttribute("data-intro")==="play"){r.setAttribute("data-intro","skip");r.classList.remove("intro-lock");try{window.dispatchEvent(new Event("metek:intro-done"));}catch(e){}}},12500);}}catch(e){document.documentElement.setAttribute("data-intro","skip");}})();`;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -130,7 +147,6 @@ export default async function LocaleLayout({
         description: tMeta("description"),
         email: SITE.email,
         telephone: SITE.phoneTel,
-        priceRange: "$$",
         founder: {
           "@type": "Person",
           name: "Nurullah Aydın",
@@ -138,10 +154,9 @@ export default async function LocaleLayout({
         },
         address: {
           "@type": "PostalAddress",
-          addressLocality: "Malatya",
+          addressLocality: "Türkiye",
           addressCountry: "TR",
         },
-        areaServed: { "@type": "Place", name: "Worldwide" },
         sameAs: [SITE.instagram],
         knowsAbout: [
           "Web Design",
@@ -157,7 +172,6 @@ export default async function LocaleLayout({
           email: SITE.email,
           telephone: SITE.phoneTel,
           contactType: "sales",
-          availableLanguage: ["Turkish", "English", "Spanish", "German"],
         },
       },
       {
@@ -199,7 +213,7 @@ export default async function LocaleLayout({
             <SmoothScroll>
               <a
                 href="#main-content"
-                className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[10000] focus:inline-flex focus:min-h-11 focus:items-center focus:rounded-sm focus:bg-accent focus:px-4 focus:text-sm focus:font-bold focus:text-on-accent"
+                className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[10000] focus:inline-flex focus:min-h-11 focus:items-center focus:bg-foreground focus:px-4 focus:text-sm focus:font-bold focus:text-background"
               >
                 {tA11y("skipToContent")}
               </a>

@@ -66,6 +66,7 @@ export function attachScrollReveal(
         return;
       }
       if (once && animation.progress() > 0) return;
+      if (animation.isActive()) return;
       animation.progress(0);
       onLeaveBack?.();
     },

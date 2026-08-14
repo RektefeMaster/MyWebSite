@@ -36,7 +36,7 @@ body {
   text-rendering: optimizeLegibility;
   overflow-x: clip;
   -webkit-tap-highlight-color: transparent;
-  caret-color: var(--accent-ink);
+  caret-color: var(--foreground);
   transition: var(--theme-ease);
 }
 
@@ -119,14 +119,14 @@ html::-webkit-scrollbar-corner {
 
 .nav-mobile-rail {
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
   scrollbar-width: none;
-  mask-image: linear-gradient(
-    90deg,
-    transparent 0,
-    #000 12px,
-    #000 calc(100% - 12px),
-    transparent 100%
-  );
+  mask-image: linear-gradient(90deg,
+      transparent 0,
+      #000 12px,
+      #000 calc(100% - 12px),
+      transparent 100%);
 }
 
 .nav-mobile-rail::-webkit-scrollbar {
@@ -156,12 +156,10 @@ html::-webkit-scrollbar-corner {
 
 /* Süreç timeline — renk CSS’te, GSAP yalnızca scale */
 .process-fill {
-  background: linear-gradient(
-    to bottom,
-    color-mix(in srgb, var(--accent) 85%, #fff) 0%,
-    var(--accent) 45%,
-    color-mix(in srgb, var(--accent) 62%, #10141a) 100%
-  );
+  background: linear-gradient(to bottom,
+      color-mix(in srgb, var(--accent) 85%, #fff) 0%,
+      var(--accent) 45%,
+      color-mix(in srgb, var(--accent) 62%, #10141a) 100%);
 }
 
 .process-head {
@@ -194,17 +192,11 @@ html::-webkit-scrollbar-corner {
   height: 2rem;
   padding: 0 0.55rem 0 0.65rem;
   border: 0;
-  border-radius: 4px;
-  background:
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface) 88%, #fff) 0%,
-      var(--surface) 100%
-    );
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 28%, transparent);
+  border-radius: 0;
+  background: transparent;
   color: var(--ink);
-  box-shadow:
-    inset 0 1px 0 var(--chrome-shine),
-    0 0 0 0.5px var(--chrome-edge);
+  box-shadow: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
@@ -222,16 +214,14 @@ html::-webkit-scrollbar-corner {
 }
 
 .lang-switch__trigger:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--ink);
   outline-offset: 3px;
 }
 
 .lang-switch.is-open .lang-switch__trigger,
 .lang-switch__trigger:active {
-  box-shadow:
-    inset 0 1px 0 var(--chrome-shine),
-    0 0 0 0.5px var(--chrome-edge),
-    0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+  border-bottom-color: var(--ink);
+  box-shadow: none;
 }
 
 .lang-switch__code {
@@ -249,7 +239,7 @@ html::-webkit-scrollbar-corner {
 
 .lang-switch.is-open .lang-switch__chevron {
   transform: rotate(180deg);
-  color: var(--accent-ink);
+  color: var(--ink);
 }
 
 .lang-switch__menu {
@@ -262,17 +252,13 @@ html::-webkit-scrollbar-corner {
   display: flex;
   min-width: 10.5rem;
   flex-direction: column;
-  gap: 0.25rem;
-  padding: 0.4rem;
-  border-radius: 6px;
-  background: var(--glass-strong);
+  gap: 0;
+  padding: 0;
+  border: 1px solid var(--hairline);
+  border-radius: 0;
+  background: var(--background);
   color: var(--foreground);
-  box-shadow:
-    inset 0 1px 0 var(--chrome-shine),
-    0 0 0 0.5px var(--chrome-edge),
-    0 14px 36px -18px rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(14px) saturate(1.2);
-  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  box-shadow: 0 14px 36px -22px rgba(0, 0, 0, 0.48);
   transform-origin: top right;
   animation: lang-switch-in 0.16s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -290,7 +276,8 @@ html::-webkit-scrollbar-corner {
   min-height: 2.75rem;
   padding: 0.45rem 0.7rem;
   border: 0;
-  border-radius: 4px;
+  border-bottom: 1px solid var(--hairline);
+  border-radius: 0;
   background: transparent;
   color: color-mix(in srgb, var(--ink) 72%, transparent);
   text-align: left;
@@ -322,11 +309,11 @@ html::-webkit-scrollbar-corner {
 }
 
 .lang-switch__option.is-active .lang-switch__option-code {
-  color: color-mix(in srgb, var(--ink-fg) 55%, var(--accent));
+  color: color-mix(in srgb, var(--ink-fg) 55%, transparent);
 }
 
 .lang-switch__option:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--ink);
   outline-offset: 1px;
 }
 
@@ -335,6 +322,7 @@ html::-webkit-scrollbar-corner {
     opacity: 0;
     transform: translateY(-4px) scale(0.98);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -347,7 +335,7 @@ html::-webkit-scrollbar-corner {
   }
 
   .lang-switch__trigger:hover .lang-switch__chevron {
-    color: var(--accent-ink);
+    color: var(--ink);
   }
 
   .lang-switch__option:not(.is-active):hover {
@@ -356,11 +344,12 @@ html::-webkit-scrollbar-corner {
   }
 
   .lang-switch__option:not(.is-active):hover .lang-switch__option-code {
-    color: var(--accent-ink);
+    color: var(--ink);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .lang-switch__chevron,
   .lang-switch__option,
   .lang-switch__trigger {
@@ -410,11 +399,9 @@ html::-webkit-scrollbar-corner {
   border-radius: 999px;
   border: 1px solid color-mix(in srgb, var(--foreground) 12%, transparent);
   background:
-    linear-gradient(
-      145deg,
+    linear-gradient(145deg,
       color-mix(in srgb, var(--surface) 55%, transparent) 0%,
-      color-mix(in srgb, var(--stone) 70%, transparent) 100%
-    );
+      color-mix(in srgb, var(--stone) 70%, transparent) 100%);
   box-shadow:
     inset 0 1px 0 color-mix(in srgb, #fff 55%, transparent),
     inset 0 -1px 0 color-mix(in srgb, #000 12%, transparent),
@@ -440,23 +427,19 @@ html::-webkit-scrollbar-corner {
 
 .theme-toggle__field--day {
   background:
-    radial-gradient(
-      120% 90% at 18% 40%,
+    radial-gradient(120% 90% at 18% 40%,
       #f4f3ed 0%,
       #dfe3e1 55%,
-      #cdd6dd 100%
-    );
+      #cdd6dd 100%);
   opacity: 1;
 }
 
 .theme-toggle__field--night {
   background:
-    radial-gradient(
-      120% 90% at 82% 55%,
+    radial-gradient(120% 90% at 82% 55%,
       #252a33 0%,
       #151920 50%,
-      #0c0e12 100%
-    );
+      #0c0e12 100%);
   opacity: 0;
 }
 
@@ -473,13 +456,11 @@ html::-webkit-scrollbar-corner {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(
-    115deg,
-    color-mix(in srgb, #fff 38%, transparent) 0%,
-    transparent 42%,
-    transparent 58%,
-    color-mix(in srgb, #fff 10%, transparent) 100%
-  );
+  background: linear-gradient(115deg,
+      color-mix(in srgb, #fff 38%, transparent) 0%,
+      transparent 42%,
+      transparent 58%,
+      color-mix(in srgb, #fff 10%, transparent) 100%);
   opacity: 0.55;
 }
 
@@ -508,13 +489,11 @@ html::-webkit-scrollbar-corner {
   inset: 0;
   border-radius: 999px;
   background:
-    radial-gradient(
-      120% 100% at 30% 22%,
+    radial-gradient(120% 100% at 30% 22%,
       rgba(255, 255, 255, 0.95) 0%,
       rgba(255, 255, 255, 0.35) 38%,
       rgba(210, 210, 205, 0.2) 70%,
-      rgba(140, 140, 135, 0.35) 100%
-    );
+      rgba(140, 140, 135, 0.35) 100%);
   border: 1px solid color-mix(in srgb, #fff 55%, transparent);
   box-shadow:
     0 2px 6px rgba(0, 0, 0, 0.18),
@@ -526,12 +505,10 @@ html::-webkit-scrollbar-corner {
 
 .dark .theme-toggle__knob-glass {
   background:
-    radial-gradient(
-      120% 100% at 30% 22%,
+    radial-gradient(120% 100% at 30% 22%,
       rgba(255, 255, 255, 0.55) 0%,
       rgba(200, 198, 190, 0.22) 40%,
-      rgba(40, 38, 34, 0.55) 100%
-    );
+      rgba(40, 38, 34, 0.55) 100%);
   border-color: color-mix(in srgb, #fff 22%, transparent);
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.45),
@@ -576,11 +553,53 @@ html::-webkit-scrollbar-corner {
   }
 }
 
+/* Monokrom tema kontrolü — eski cam parçaları DOM'dan kaldırıldı. */
+.theme-toggle {
+  gap: 0.28rem;
+  width: 3.25rem;
+  height: 2rem;
+  border-radius: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 28%, transparent);
+  color: var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.theme-toggle:focus-visible {
+  outline-color: var(--ink);
+}
+
+.theme-toggle__mode {
+  opacity: 0.28;
+  transition: opacity 0.2s ease;
+}
+
+.theme-toggle__mode.is-active {
+  opacity: 1;
+}
+
+.theme-toggle__divider {
+  opacity: 0.2;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .theme-toggle:hover .theme-toggle__mode {
+    opacity: 0.65;
+  }
+
+  .theme-toggle:hover .theme-toggle__mode.is-active {
+    opacity: 1;
+  }
+}
+
 /* Marka marquee — GPU, sürekli (masaüstü / ince pointer) */
 @keyframes marquee-x {
   from {
     transform: translate3d(0, 0, 0);
   }
+
   to {
     transform: translate3d(-33.333%, 0, 0);
   }
@@ -606,6 +625,7 @@ html::-webkit-scrollbar-corner {
 }
 
 @media (max-width: 768px) {
+
   /* Mobil: sürekli translate compositor jank — içerik aynı, animasyon yok */
   .marquee-track,
   .marquee-track--header {
@@ -642,25 +662,14 @@ html::-webkit-scrollbar-corner {
   }
 }
 
-/* Offscreen bölümleri boyama/layout dışına al — görünür olunca aynı görünüm */
-.cv-auto {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 720px;
-}
-
+/* Gerçek layout yüksekliği ilk karede hesaplanır. Büyük editöryel bölümlerde
+   content-visibility tahmini 4–5 bin px sapıp ilk wheel hareketinde document
+   yüksekliğini değiştiriyor; Lenis de bu farkı telafi ederken sayfa sıçrıyordu.
+   Görsellerin ağ yükü next/image lazy-loading ile yine görüş dışına ertelenir. */
+.cv-auto,
 .cv-card {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 520px;
-}
-
-@media (max-width: 640px) {
-  .cv-auto {
-    contain-intrinsic-size: auto 640px;
-  }
-
-  .cv-card {
-    contain-intrinsic-size: auto 480px;
-  }
+  content-visibility: visible;
+  contain-intrinsic-size: none;
 }
 
 /* Locale-stable CTA — dil değişince hug-width oynamasın */
@@ -697,11 +706,9 @@ html::-webkit-scrollbar-corner {
   right: 0;
   top: -4.5rem;
   height: 4.5rem;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    var(--band)
-  );
+  background: linear-gradient(to bottom,
+      transparent,
+      var(--band));
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -749,6 +756,7 @@ html::-webkit-scrollbar-corner {
 
 /* Dokunmatik: 300ms tap gecikmesini kaldır, hover sticky önle */
 @media (pointer: coarse) {
+
   /* Header şerit sabit — scroll sırasında sürekli paint yok */
   .marquee-track--header {
     animation: none;
@@ -805,6 +813,7 @@ html::-webkit-scrollbar-corner {
 
 /* Dar ekran: blur jank (ince pointer tablet dahil) */
 @media (max-width: 768px) {
+
   .nav-glass,
   .nav-shell.is-scrolled .nav-glass {
     backdrop-filter: none;
@@ -832,22 +841,18 @@ html::-webkit-scrollbar-corner {
    hero atmosferi ve başlık reveal yardımcıları
    ───────────────────────────────────────────── */
 
-/* Metin seçimi — marka accent */
+/* Metin seçimi — içerik yüzeylerinde monokrom. */
 ::selection {
-  background: color-mix(in srgb, var(--accent) 82%, transparent);
-  color: var(--on-accent);
+  background: var(--foreground);
+  color: var(--background);
 }
 
-/* Reveal: hydrate öncesi flash yok (SSR opak → GSAP 0 sıçraması) */
-@media (prefers-reduced-motion: no-preference) {
-  .reveal-boot {
-    opacity: 0;
-  }
-}
+/* Reveal fail-open kalır. GSAP başlangıç değerini layout effect içinde kurar;
+   ScrollTrigger/JS kesilirse SSR içeriği opak kalır ve sayfa boş görünmez. */
 
 /* Tutarlı odak halkası (klavye) */
 :where(a, button, [role="button"], input, textarea, select, summary):focus-visible {
-  outline: 2px solid color-mix(in srgb, var(--accent) 85%, var(--foreground));
+  outline: 2px solid var(--foreground);
   outline-offset: 3px;
   border-radius: inherit;
 }
@@ -863,9 +868,10 @@ html::-webkit-scrollbar-corner {
 }
 
 @media (hover: hover) and (pointer: fine) {
+
   .link-underline:hover,
   .group:hover .link-underline,
-  a:hover > .link-underline {
+  a:hover>.link-underline {
     background-size: 100% 1.5px;
   }
 }
@@ -882,12 +888,10 @@ html::-webkit-scrollbar-corner {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    115deg,
-    transparent 28%,
-    color-mix(in srgb, #fff 28%, transparent) 50%,
-    transparent 72%
-  );
+  background: linear-gradient(115deg,
+      transparent 28%,
+      color-mix(in srgb, #fff 28%, transparent) 50%,
+      transparent 72%);
   transform: translateX(-130%);
   pointer-events: none;
 }
@@ -920,12 +924,29 @@ html::-webkit-scrollbar-corner {
 }
 
 @keyframes grain-shift {
-  0% { transform: translate3d(0, 0, 0); }
-  20% { transform: translate3d(-4%, 3%, 0); }
-  40% { transform: translate3d(3%, -4%, 0); }
-  60% { transform: translate3d(-3%, 2%, 0); }
-  80% { transform: translate3d(4%, -2%, 0); }
-  100% { transform: translate3d(0, 0, 0); }
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  20% {
+    transform: translate3d(-4%, 3%, 0);
+  }
+
+  40% {
+    transform: translate3d(3%, -4%, 0);
+  }
+
+  60% {
+    transform: translate3d(-3%, 2%, 0);
+  }
+
+  80% {
+    transform: translate3d(4%, -2%, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 /* Kenar karartma — kadrajın kendi vinyetini uzatır, köşeleri kapatır */
@@ -933,11 +954,9 @@ html::-webkit-scrollbar-corner {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(
-    120% 100% at 50% 46%,
-    transparent 42%,
-    color-mix(in srgb, #000 62%, transparent) 100%
-  );
+  background: radial-gradient(120% 100% at 50% 46%,
+      transparent 42%,
+      color-mix(in srgb, #000 62%, transparent) 100%);
 }
 
 /*
@@ -959,19 +978,22 @@ html::-webkit-scrollbar-corner {
   filter: blur(70px);
   opacity: 0.5;
   mix-blend-mode: screen;
-  background: radial-gradient(
-    circle at 50% 50%,
-    color-mix(in srgb, var(--hero-field) 26%, transparent) 0%,
-    color-mix(in srgb, var(--hero-field) 8%, transparent) 42%,
-    transparent 68%
-  );
+  background: radial-gradient(circle at 50% 50%,
+      color-mix(in srgb, var(--hero-field) 26%, transparent) 0%,
+      color-mix(in srgb, var(--hero-field) 8%, transparent) 42%,
+      transparent 68%);
   animation: hero-halo-breathe 18s ease-in-out infinite alternate;
   will-change: transform;
 }
 
 @keyframes hero-halo-breathe {
-  0% { transform: translate3d(0, 0, 0) scale(1); }
-  100% { transform: translate3d(0, -2%, 0) scale(1.1); }
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate3d(0, -2%, 0) scale(1.1);
+  }
 }
 
 /* Petrol glow — Intro perdesi kullanıyor (hero'da .hero-halo var) */
@@ -987,11 +1009,9 @@ html::-webkit-scrollbar-corner {
   filter: blur(80px);
   opacity: 0.16;
   mix-blend-mode: screen;
-  background: radial-gradient(
-    circle at 50% 50%,
-    color-mix(in srgb, var(--accent) 12%, transparent) 0%,
-    transparent 62%
-  );
+  background: radial-gradient(circle at 50% 50%,
+      color-mix(in srgb, var(--accent) 12%, transparent) 0%,
+      transparent 62%);
   animation: hero-glow-drift 22s ease-in-out infinite alternate;
   will-change: transform;
 }
@@ -1006,8 +1026,13 @@ html::-webkit-scrollbar-corner {
 }
 
 @keyframes hero-glow-drift {
-  0% { transform: translate3d(-8%, -4%, 0) scale(1); }
-  100% { transform: translate3d(10%, 6%, 0) scale(1.12); }
+  0% {
+    transform: translate3d(-8%, -4%, 0) scale(1);
+  }
+
+  100% {
+    transform: translate3d(10%, 6%, 0) scale(1.12);
+  }
 }
 
 /* ── Hero marka kilidi ──
@@ -1057,21 +1082,36 @@ html::-webkit-scrollbar-corner {
   display: block;
   width: 1px;
   height: 44px;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    color-mix(in srgb, var(--hero-fg) 55%, transparent)
-  );
+  background: linear-gradient(to bottom,
+      transparent,
+      color-mix(in srgb, var(--hero-fg) 55%, transparent));
   mask-image: linear-gradient(to bottom, #000 0 55%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, #000 0 55%, transparent 100%);
   animation: hero-scroll-drop 2.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 @keyframes hero-scroll-drop {
-  0% { opacity: 0; transform: scaleY(0.35); transform-origin: top; }
-  35% { opacity: 1; }
-  70% { opacity: 1; transform: scaleY(1); transform-origin: top; }
-  100% { opacity: 0; transform: scaleY(1); transform-origin: bottom; }
+  0% {
+    opacity: 0;
+    transform: scaleY(0.35);
+    transform-origin: top;
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
 }
 
 [data-atmosphere-idle="true"] .hero-scroll__line {
@@ -1088,15 +1128,140 @@ html::-webkit-scrollbar-corner {
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
-  /* TR alt-uzantı + DE umlaut (ÄÖÜ) üst/alt kırpılmasın */
-  padding-block: 0.22em;
-  padding-inline: 0.03em;
-  margin-block: -0.22em;
-  margin-inline: -0.03em;
+  /*
+    Maske payı Goks metrikleriyle hesaplandı (ascent 1.36em, descent 0.34em,
+    içerik kutusu 1.70em). Satır kutusu L için taban çizgisi kutunun üstünden
+    (L - 1.70)/2 + 1.36 kadar aşağıda:
+      · alt uzantı taşması = 1.70 - L - (1.70 - L)/2 = (1.70 - L)/2
+      · İ (1.29em) taşması = (1.70 - L)/2 - 0.07
+
+    Ölçekteki en sıkı kademe L = 1.40 → alt taşma 0.15em, üst 0.08em.
+    0.24/0.18em pay her kademeyi ve TR/DE aksanlarını karşılıyor.
+
+    Asıl kırpılma sebebi bu pay DEĞİLDİ: `leading-[0.92]` ile taşma 0.39em'e
+    çıkıyor ve 0.22em pay yetmiyordu ("projects" p/j, "build", footer
+    "METEK Digital" hepsi kesikti). Leading düzeldiği için pay artık yeterli.
+  */
+  padding-block: 0.18em 0.24em;
+  padding-inline: 0.04em;
+  margin-block: -0.18em -0.24em;
+  margin-inline: -0.04em;
+}
+
+/* ─────────────────────────────────────────────
+   Display tipografi ölçeği — Goks
+   ─────────────────────────────────────────────
+   Goks cap height 1.050em, alt uzantı 0.340em. Yani mürekkep kutusu 1.390em
+   ve İKİ SATIR ARASI EN AZ 1.39em olmak ZORUNDA, yoksa üst satırın alt
+   uzantısı alt satırın cap'ine giriyor. `leading-[0.92]` bu yüzden satırları
+   üst üste bindiriyordu (ölçüldü: "A strong website earns trust first…").
+
+   Denklik tablosu (normal bir font ~0.70em cap ile karşılaştırma):
+     Goks 1.40  ≈  normal font 0.94   (poster sıkılığı)
+     Goks 1.46  ≈  normal font 0.98   (varsayılan başlık)
+     Goks 1.58  ≈  normal font 1.06   (çok satırlı okuma başlığı)
+
+   ELLE `leading-*` YAZMA. Başlık boyu değişecekse aşağıdaki sınıflardan
+   birini seç; hepsi cap-height'a göre optik hizalanmış.
+
+   Goks'un satır kutusu (1.70em) mürekkepten uzun olduğu için başlıkların
+   üstünde 0.31em'e varan hayalet boşluk kalıyor; bir kuralın ya da bandın
+   altına konan başlık bu yüzden "kaymış" duruyordu. `text-box: trim-both`
+   kutuyu cap üstü ↔ taban çizgisine kırpıp bunu metriklere DOKUNMADAN
+   çözüyor (metrik ezmesi hero kilidi bozuyordu — bkz. layout.tsx).
+   Desteklemeyen tarayıcıda yalnız eski hayalet boşluk kalır, kırpılma olmaz.
+*/
+.type-display {
+  font-family: var(--font-goks), var(--font-grotesk), system-ui, sans-serif;
+  font-weight: 400;
+  font-synthesis: none;
+  text-wrap: balance;
+}
+
+/*
+  YALNIZCA ÜST kırpma. `trim-both … alphabetic` alt kenarı taban çizgisine
+  çekiyor, alt uzantılar kutunun dışına taşıyor: footer markasında "g"
+  kapanış kuralının üstünden geçip kaza gibi duruyordu, akış içindeki
+  başlıklarda da bir sonraki elemana giriyor. Üstteki hayalet boşluk asıl
+  sorun (başlık bir kuralın altında "kaymış" görünüyordu); alt boşluk zaten
+  alt uzantının ihtiyacı kadar.
+*/
+@supports (text-box: trim-start cap) {
+  .type-display {
+    text-box: trim-start cap;
+  }
+}
+
+/* Sayfa/bölüm açan en büyük kademe — 1–3 kelime */
+.type-display-xl {
+  font-size: clamp(3rem, 8.2vw, 7.25rem);
+  line-height: 1.4;
+  letter-spacing: -0.045em;
+}
+
+/* Varsayılan bölüm başlığı */
+.type-display-lg {
+  font-size: clamp(2.5rem, 6vw, 4.75rem);
+  line-height: 1.44;
+  letter-spacing: -0.04em;
+}
+
+/* Kart / dosya başlığı */
+.type-display-md {
+  font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+  line-height: 1.48;
+  letter-spacing: -0.035em;
+}
+
+/* Uzun, çok satırlı ifade başlıkları (manifesto, odak cümlesi) */
+.type-display-quote {
+  font-size: clamp(1.9rem, 4.2vw, 3.5rem);
+  line-height: 1.58;
+  letter-spacing: -0.03em;
+}
+
+/*
+  Uzun TR/DE bileşik kelimeleri (ör. "Kurumsal", "Zusammenarbeit") büyük
+  puntoda kutuyu taşırıyor. Display başlıklarda tireleme yok — kelime
+  bölünürse marka sesi bozulur — bunun yerine taşma kırpılmadan sarılır.
+*/
+.type-display {
+  overflow-wrap: break-word;
+}
+
+/*
+  Footer kelime markası — kolofonun kapanış çizgisi, tam ölçüye oturur.
+
+  Eskiden `clamp(2.5rem, 11.5vw, 10rem)` + `overflow:hidden` idi ve
+  HER viewport'ta taşıyordu: "METEK Digital" Goks'ta 9.314em (advance 10.029em
+  eksi 13 karakterlik -0.055em tracking — ölçüldü). 11.5vw'de gereken genişlik
+  1.071×vw, kullanılabilir alan ise vw-80px; yani hiçbir genişlikte sığmıyor.
+  Ekranda "METEK Digi" diye kesiliyordu.
+
+  cqw ile punto ölçüden TÜRETİLİYOR: kap ne kadarsa marka tam o kadar.
+  Bölen ölçülen genişlik + %0.5 pay. Marka dizesi değişirse yeniden ölç.
+*/
+.footer-wordmark {
+  container-type: inline-size;
+}
+
+.footer-wordmark__text {
+  font-size: calc(100cqw / 9.36);
+  /* Tek satır: cap + alt uzantı (1.05 + 0.34) sığsın, fazlası boşluk olmasın */
+  line-height: 1.39;
+}
+
+@supports (text-box: trim-start cap) {
+  .footer-wordmark__text {
+    text-box: trim-start cap;
+  }
 }
 
 .word-reveal-inner {
   display: inline-block;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .word-reveal-inner.is-settled {
@@ -1104,23 +1269,304 @@ html::-webkit-scrollbar-corner {
 }
 
 /* ─────────────────────────────────────────────
-   Sinematik intro — ilk yükleme perdesi
+   Sinematik video intro — ilk yükleme perdesi
    ───────────────────────────────────────────── */
 .intro-root {
+  --intro-m-h: min(82dvh, 56vw);
+  --intro-m-w: calc(var(--intro-m-h) * 0.9642857);
   position: fixed;
   inset: 0;
   z-index: 9999;
+  display: block;
+  background: #bebdb7;
+  color: #111315;
+  overflow: hidden;
+  isolation: isolate;
+  cursor: default;
+  /* Failsafe: JS çalışmazsa / timeline kilitlenirse perde kalksın diye (12.5s) */
+  animation: intro-failsafe 0.8s cubic-bezier(0.22, 1, 0.36, 1) 12.5s forwards;
+}
+
+.intro-root:focus {
+  outline: 0;
+}
+
+.intro-video-wrapper {
+  position: absolute;
+  inset: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* Kinetic void — tema-bağımsız; perde her zaman atölye gecesi */
-  background: #0a0d11;
-  color: #eef1f4;
+  background: #bebdb7;
   overflow: hidden;
+}
+
+.intro-video,
+.intro-poster {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  pointer-events: none;
+}
+
+.intro-poster {
+  z-index: 1;
+  background: #bebdb7 url("/intro/metek-intro-poster.jpg") 50% 50% / cover no-repeat;
+}
+
+.intro-video {
+  z-index: 2;
+  opacity: 0;
+}
+
+/* React state/event yarışına bağlı değil: poster ancak tarayıcı gerçek bir
+   decode karesini compositor'a teslim ettiğinde tek karede yerini videoya bırakır. */
+.intro-video-wrapper[data-video-ready="true"] .intro-video {
+  opacity: 1;
+}
+
+.intro-matte {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), transparent 15%, transparent 82%, rgba(0, 0, 0, 0.07)),
+    radial-gradient(ellipse at center, transparent 48%, rgba(0, 0, 0, 0.1) 130%);
+}
+
+/* Son baskı yüzeyi, HeroScene'deki GlassM'nin birebir 2D maskesiyle üç fiziksel
+   parçaya ayrılır: inverse-M sol/sağ kabuk + ortadaki M çekirdeği. Maskeler
+   sabittir; yalnız wrapper transformları oynar, böylece geçiş GPU-dostudur. */
+.intro-exit-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro-exit-shell,
+.intro-exit-surface {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.intro-exit-shell--left {
+  clip-path: inset(0 49.94% 0 0);
+}
+
+.intro-exit-shell--right {
+  clip-path: inset(0 0 0 49.94%);
+}
+
+.intro-exit-surface--shell {
+  -webkit-mask-image:
+    linear-gradient(#fff 0 0),
+    url("/intro/metek-m-mask.svg");
+  -webkit-mask-position: 0 0, 50% 50%;
+  -webkit-mask-size: 100% 100%, var(--intro-m-w) var(--intro-m-h);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-composite: xor;
+  mask-image:
+    linear-gradient(#fff 0 0),
+    url("/intro/metek-m-mask.svg");
+  mask-position: 0 0, 50% 50%;
+  mask-size: 100% 100%, var(--intro-m-w) var(--intro-m-h);
+  mask-repeat: no-repeat;
+  mask-composite: exclude;
+}
+
+.intro-exit-surface--core {
+  -webkit-mask: url("/intro/metek-m-mask.svg") 50% 50% / var(--intro-m-w) var(--intro-m-h) no-repeat;
+  mask: url("/intro/metek-m-mask.svg") 50% 50% / var(--intro-m-w) var(--intro-m-h) no-repeat;
+}
+
+.intro-exit-frame {
+  position: absolute;
+  inset: 0;
+  background: #bebdb7 url("/intro/metek-intro-end.jpg") 50% 50% / cover no-repeat;
+}
+
+@supports not ((mask-image: url("/intro/metek-m-mask.svg")) or (-webkit-mask-image: url("/intro/metek-m-mask.svg"))) {
+  .intro-exit-surface--shell {
+    -webkit-mask: none;
+    mask: none;
+  }
+
+  .intro-exit-surface--core {
+    display: none;
+  }
+}
+
+/* Film künyesi + tek aksiyon. Video üstünde renk seçmek yerine difference
+   kullanılır; açık kâğıtta siyah, koyu baskıda beyaz kalır. */
+.intro-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding:
+    max(1.25rem, calc(env(safe-area-inset-top) + 0.75rem))
+    1.25rem 1rem;
+  color: #fff;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+.intro-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.625rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.intro-brand__folio {
+  opacity: 0.48;
+}
+
+.intro-skip-btn {
+  display: grid;
+  place-items: center;
+  align-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: -0.75rem -0.25rem 0 0;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, currentColor 58%, transparent);
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.intro-skip-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  overflow: visible;
+  stroke: currentColor;
+  stroke-width: 1.25;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.intro-skip-btn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.1875rem;
+}
+
+.intro-progress {
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: max(1.25rem, calc(env(safe-area-inset-bottom) + 0.75rem));
+  z-index: 30;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  color: #fff;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.5625rem;
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+
+.intro-progress-track {
+  position: relative;
+  height: 1px;
+  overflow: hidden;
+  background: color-mix(in srgb, currentColor 26%, transparent);
+}
+
+.intro-progress-bar {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  transform-origin: left center;
+  background: currentColor;
   will-change: transform;
-  /* Failsafe: JS çalışmazsa / timeline kilitlenirse perde kalkmasın diye (~4.2s) */
-  animation: intro-failsafe 0.6s ease 4.2s forwards;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .intro-skip-btn:hover {
+    border-color: currentColor;
+    background: color-mix(in srgb, currentColor 12%, transparent);
+  }
+
+  .intro-skip-btn:hover .intro-skip-icon {
+    transform: translateX(0.125rem);
+  }
+}
+
+@media (min-width: 768px) {
+  .intro-topbar {
+    padding: 1.75rem 2.25rem;
+  }
+
+  .intro-progress {
+    left: 2.25rem;
+    right: 2.25rem;
+    bottom: 1.75rem;
+    gap: 1rem;
+  }
+
+  .intro-brand {
+    font-size: 0.6875rem;
+  }
+}
+
+/* Tek yatay master portrede cover yapılırsa filmin %74'ü kesiliyordu.
+   Kâğıt zemine kaynaşan 1.42× bir film plakası, görüntüyü hâlâ güçlü tutarken
+   tipografinin büyük bölümünü kadraj içinde bırakır. Son kare aynı matematiği
+   kullandığı için geçiş sırasında çerçeve sıçramaz. */
+@media (orientation: portrait) {
+  .intro-root {
+    --intro-m-h: min(54dvh, 91vw);
+  }
+
+  .intro-video,
+  .intro-poster,
+  .intro-exit-frame {
+    inset: 50% auto auto 50%;
+    width: 142vw;
+    max-width: none;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    transform: translate(-50%, -50%);
+  }
+
+  .intro-video {
+    object-fit: contain;
+  }
+
+  .intro-poster,
+  .intro-exit-frame {
+    background-size: 100% 100%;
+  }
 }
 
 /* İlk boyamadan itibaren gizle — dönen ziyaretçi / reduced-motion */
@@ -1142,6 +1588,7 @@ html::-webkit-scrollbar-corner {
 html.intro-lock {
   touch-action: none;
 }
+
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
@@ -1230,6 +1677,7 @@ html.intro-lock {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -1273,11 +1721,13 @@ html.intro-lock {
 }
 
 @keyframes metek-loader-m {
+
   0%,
   100% {
     opacity: 0.92;
     transform: translateY(0);
   }
+
   45% {
     opacity: 1;
     transform: translateY(-3px);
@@ -1285,11 +1735,13 @@ html.intro-lock {
 }
 
 @keyframes metek-loader-dot {
+
   0%,
   100% {
     opacity: 0.45;
     transform: scale(0.92);
   }
+
   50% {
     opacity: 1;
     transform: scale(1);
@@ -1301,19 +1753,82 @@ html.intro-lock {
     transform: scaleX(0.12);
     opacity: 0.55;
   }
+
   55% {
     transform: scaleX(1);
     opacity: 1;
   }
+
   100% {
     transform: scaleX(0.12);
     opacity: 0.55;
   }
 }
 
-/* Proje cihaz mockup — hover’da sayfa kaydırma */
+/* Proje cihaz mockup — uzun ekran şeridinin kırpma geometrisi */
+/* ── İş levhası (WorkPlate) ──
+   Masaüstü ekranı tam kanama; derinlik telefonun taşmasından ve tek bir
+   temas gölgesinden geliyor. Kutu dolgusu / kalın kenarlık YOK — eski
+   `bg-[#d7d7d2]` levhası cihazın etrafında ölü alan bırakıyordu. */
+.work-plate__screen {
+  /* Yükleme boyunca ve şeffaf PNG altında kadraj sabit dursun */
+  background: var(--project-stage-gradient);
+  box-shadow:
+    0 1px 0 0 color-mix(in srgb, currentColor 14%, transparent) inset,
+    0 18px 44px -24px rgba(4, 6, 10, 0.55);
+  transition:
+    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group\/plate:hover .work-plate__screen {
+  box-shadow:
+    0 1px 0 0 color-mix(in srgb, currentColor 22%, transparent) inset,
+    0 30px 64px -26px rgba(4, 6, 10, 0.7);
+}
+
+/* Adres şeridi: ekranın üstünde okunması için kendi mini yıkaması */
+.work-plate__bar {
+  color: rgba(255, 255, 255, 0.82);
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 8, 11, 0.55),
+    rgba(6, 8, 11, 0)
+  );
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.work-plate__dot {
+  width: 5px;
+  height: 5px;
+  flex: none;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+/* Telefon levhanın dışına taşıyor; gölge onu zemine oturtuyor */
+.work-plate__phone {
+  filter: drop-shadow(0 18px 26px rgba(4, 6, 10, 0.45));
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group\/plate:hover .work-plate__phone {
+  transform: translateY(-6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-plate__screen,
+  .work-plate__phone {
+    transition: none;
+  }
+
+  .group\/plate:hover .work-plate__phone {
+    transform: none;
+  }
+}
+
 .device-screen-scroll {
-  container-type: size;
   overflow: hidden;
 }
 
@@ -1322,27 +1837,6 @@ html.intro-lock {
   width: 100%;
   height: auto;
   max-width: none;
-  transform: translate3d(0, 0, 0);
-  transform-origin: top center;
-  will-change: transform;
-  --scroll-duration: 4.2s;
-  transition: transform 1.15s cubic-bezier(0.33, 1, 0.68, 1);
-}
-
-@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .group\/mock:hover .device-screen-scroll__img {
-    transform: translate3d(0, min(0px, calc(-100% + 100cqh)), 0);
-    /* Süre img onLoad ile doğal yüksekliğe göre ayarlanır */
-    transition-duration: var(--scroll-duration, 4.2s);
-    transition-timing-function: cubic-bezier(0.4, 0.08, 0.45, 0.95);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .device-screen-scroll__img {
-    transition: none;
-    will-change: auto;
-  }
 }
 
 /* ── Hero zemini: "tarla" filmi ──
@@ -1443,17 +1937,13 @@ html.intro-lock {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(
-      to bottom,
+    linear-gradient(to bottom,
       color-mix(in srgb, var(--hero-void) 55%, transparent) 0%,
-      transparent 22%
-    ),
-    linear-gradient(
-      to bottom,
+      transparent 22%),
+    linear-gradient(to bottom,
       transparent 86%,
       color-mix(in srgb, var(--background) 45%, transparent) 94%,
-      var(--background) 100%
-    );
+      var(--background) 100%);
 }
 
 /* ── Atölye kareleri (StudioFrames) ──
@@ -1501,5 +1991,5 @@ html.intro-lock {
 }
 
 .studio-caption__index {
-  color: var(--accent);
+  color: color-mix(in srgb, var(--band-fg) 48%, transparent);
 }

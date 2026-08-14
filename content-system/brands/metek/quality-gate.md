@@ -18,6 +18,12 @@ Projects are reviewed against these gates before release (documented practice â€
 - [ ] Search intent aligned only where the page weight allows
 - [ ] No Forbidden claims from `proof-points.md`
 - [ ] Locale copy is native-quality (not literal translation)
+- [ ] Each paragraph contributes new information; sections cannot be freely reordered
+- [ ] No repeated case-study closer or project-summary template
+- [ ] Blog leads and endings remain distinct when the full series is read together
+- [ ] Sentence and paragraph rhythm varies without manufactured fragments
+- [ ] Final avoid-AI pass completed after SEO edits
+- [ ] Long-form copy read aloud and mobile headline wrapping checked
 
 ## Record
 

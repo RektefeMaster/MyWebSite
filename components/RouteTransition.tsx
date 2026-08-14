@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
 import MetekLoader from "@/components/MetekLoader";
 import { scheduleScrollTriggerRefresh } from "@/lib/nav-scroll";
@@ -60,6 +60,7 @@ function isInternalPageNav(anchor: HTMLAnchorElement): boolean {
 export default function RouteTransition() {
   const pathname = usePathname();
   const locale = useLocale();
+  const tA11y = useTranslations("a11y");
   const [active, setActive] = useState(false);
   const pending = useRef(false);
   const shownAt = useRef(0);
@@ -179,7 +180,7 @@ export default function RouteTransition() {
       aria-busy="true"
       aria-hidden={false}
     >
-      <MetekLoader />
+      <MetekLoader label={tA11y("loading")} />
     </div>
   );
 }

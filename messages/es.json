@@ -1,14 +1,14 @@
 {
   "meta": {
-    "title": "Agencia de Diseño Web | Panel, CRM, Chatbots · METEK Digital",
-    "description": "METEK Digital es una agencia de diseño web y software. Sitios a medida, paneles de gestión, CRM, sistemas de diseño CSS, chatbots de WhatsApp e Instagram, apps móviles. Portafolio y consulta."
+    "title": "Agencia de diseño web y software · METEK Digital",
+    "description": "METEK Digital desarrolla sitios web a medida, paneles administrativos y chatbots para empresas. Conozca nuestro trabajo o cuéntenos qué necesita."
   },
   "nav": {
     "about": "Agencia",
     "home": "Inicio",
     "manifesto": "Agencia",
     "studio": "Agencia",
-    "work": "Trabajos",
+    "work": "Proyectos",
     "approach": "Proceso",
     "services": "Servicios",
     "blog": "Blog",
@@ -17,76 +17,76 @@
     "contact": "Contacto",
     "bookMeeting": "Iniciar proyecto",
     "cta": "Iniciar proyecto",
-    "ctaShort": "Empezar"
+    "ctaShort": "Iniciar"
   },
   "pages": {
     "manifesto": {
-      "metaTitle": "Agencia | METEK Digital Diseño Web y Software",
-      "metaDescription": "METEK Digital: agencia de diseño web y software en Malatya. Sitios web, paneles, CRM, chatbots y apps móviles. Fundador Nurullah Aydın.",
+      "metaTitle": "Sobre la agencia · METEK Digital",
+      "metaDescription": "METEK Digital es una agencia de diseño web y software con sede en Türkiye. Creamos sitios a medida, paneles administrativos, CRM y chatbots.",
       "heroLabel": "Agencia",
-      "heroTitle": "Agencia METEK Digital.",
-      "heroBlurb": "Diseñamos y desarrollamos sitios web, paneles de gestión, CRM, sistemas de diseño CSS, chatbots de WhatsApp e Instagram y apps móviles.",
+      "heroTitle": "Sitio y sistema interno bajo un mismo plan.",
+      "heroBlurb": "METEK Digital diseña sitios web y desarrolla los paneles administrativos, CRM y chatbots que los acompañan. Nurullah Aydın fundó la agencia en Türkiye.",
       "ctaLabel": "Contacto",
-      "ctaTitle": "Cuéntenos su proyecto.",
-      "ctaBlurb": "Sector, objetivo y fecha deseada bastan. Respondemos con el servicio adecuado y el siguiente paso.",
-      "ctaButton": "Contactar"
+      "ctaTitle": "¿Qué necesita desarrollar?",
+      "ctaBlurb": "Comparta su sector, objetivo y plazo aproximado. Revisaremos la necesidad y propondremos el siguiente paso.",
+      "ctaButton": "Contar mi proyecto"
     },
     "approach": {
-      "metaTitle": "Proceso de proyecto | Desarrollo web y software · METEK Digital",
-      "metaDescription": "Cómo trabaja METEK Digital: descubrimiento, alcance, diseño, desarrollo, revisión y lanzamiento para sitios, paneles, CRM y chatbots.",
+      "metaTitle": "Proceso de proyectos web y software · METEK Digital",
+      "metaDescription": "Así trabaja METEK Digital: definición, alcance escrito, diseño, desarrollo, revisión y publicación. Cada etapa entrega algo que usted puede evaluar.",
       "heroLabel": "Proceso",
-      "heroTitle": "Camino claro del descubrimiento al lanzamiento.",
-      "heroBlurb": "El alcance queda por escrito. Cada etapa termina con algo que puede revisar. Sitio, panel o chatbot.",
+      "heroTitle": "El alcance precede al primer diseño.",
+      "heroBlurb": "Documentamos objetivos, funciones, responsables y límites. Así las decisiones se pueden revisar antes de que impliquen más trabajo.",
       "ctaLabel": "Contacto",
-      "ctaTitle": "¿Quiere este proceso para su proyecto?",
-      "ctaBlurb": "Describa la necesidad. Aclaramos alcance y plazos con usted.",
-      "ctaButton": "Iniciar proyecto"
+      "ctaTitle": "Definamos el siguiente paso.",
+      "ctaBlurb": "Describa la necesidad en unas líneas. Después acordaremos alcance, dependencias y plazos.",
+      "ctaButton": "Contar mi proyecto"
     },
     "work": {
-      "metaTitle": "Portafolio | Sitios, paneles, CRM y chatbots · METEK Digital",
-      "metaDescription": "Portafolio de METEK Digital: sitios corporativos, paneles, CRM y chatbots de WhatsApp e Instagram en Turquía, EE. UU. y Europa.",
+      "metaTitle": "Portafolio web y software · METEK Digital",
+      "metaDescription": "Portafolio de METEK Digital: sitios corporativos, paneles administrativos y chatbots para manufactura, comercio, hospitalidad y operaciones.",
       "heroLabel": "Portafolio",
-      "heroTitle": "Proyectos web y de software seleccionados.",
-      "heroBlurb": "Sitios, paneles y chatbots para fabricación, comercio, hotelería y clínicas. Proyectos en vivo, entrega clara.",
+      "heroTitle": "Trabajo para marcas y empresas.",
+      "heroBlurb": "Sitios y sistemas seleccionados para un fabricante de gabinetes en Estados Unidos, un hotel boutique en Roma, comercios y equipos internos.",
       "ctaLabel": "Contacto",
-      "ctaTitle": "¿Necesita un proyecto similar?",
-      "ctaBlurb": "Sector y objetivo bastan. Respondemos con encaje y primer paso.",
-      "ctaButton": "Describir mi necesidad"
+      "ctaTitle": "¿Su proyecto se parece a alguno?",
+      "ctaBlurb": "Comparta el sector y el objetivo. Revisaremos qué experiencia del portafolio puede ser útil para su caso.",
+      "ctaButton": "Contar mi proyecto"
     },
     "services": {
-      "metaTitle": "Servicios | Diseño web, panel, CRM, chatbots · METEK Digital",
-      "metaDescription": "Servicios de METEK Digital: diseño web a medida, sitios corporativos, paneles de gestión, CRM, sistemas CSS, chatbots de WhatsApp e Instagram, apps móviles.",
+      "metaTitle": "Servicios de diseño web y software · METEK Digital",
+      "metaDescription": "METEK Digital ofrece diseño web a medida, sitios corporativos, paneles administrativos, CRM, sistemas CSS, chatbots y apps móviles.",
       "heroLabel": "Servicios",
-      "heroTitle": "Web, paneles, CRM y chatbots.",
-      "heroBlurb": "Definimos lo que necesita: sitio web, panel, CRM, sistema de diseño CSS, chatbot de WhatsApp o Instagram, app móvil.",
+      "heroTitle": "¿Qué debe resolver su proyecto?",
+      "heroBlurb": "Un sitio nuevo, un rediseño y un panel interno requieren alcances distintos. Le ayudamos a ubicar la necesidad en un servicio concreto.",
       "ctaLabel": "Contacto",
-      "ctaTitle": "¿No sabe qué servicio encaja?",
-      "ctaBlurb": "Escriba unas líneas. Asignamos el paquete y el alcance.",
-      "ctaButton": "Iniciar proyecto"
+      "ctaTitle": "¿Qué debe incluir el proyecto?",
+      "ctaBlurb": "Describa la tarea, los usuarios y los sistemas actuales. Le ayudaremos a definir un alcance razonable.",
+      "ctaButton": "Contar mi proyecto"
     },
     "blog": {
-      "metaTitle": "Blog | Diseño web, UI y SEO · METEK Digital",
-      "metaDescription": "Blog de METEK Digital: notas prácticas sobre diseño web, interfaz, SEO y proyectos de software.",
+      "metaTitle": "Blog de diseño web, interfaz y SEO · METEK Digital",
+      "metaDescription": "Artículos de METEK Digital sobre diseño web, interfaces, SEO técnico y planificación de productos digitales.",
       "heroLabel": "Blog",
-      "heroTitle": "Notas de web y software.",
-      "heroBlurb": "Escritos prácticos de proyectos de sitios, paneles y chatbots. Incluye SEO y decisiones de UI.",
+      "heroTitle": "Criterio práctico para proyectos digitales.",
+      "heroBlurb": "Guías concretas sobre diseño, preparación técnica para buscadores y decisiones previas a la publicación.",
       "ctaLabel": "Contacto",
-      "ctaTitle": "Hablemos de su proyecto.",
-      "ctaBlurb": "Si un tema encaja con su necesidad, escríbanos.",
-      "ctaButton": "Iniciar proyecto"
+      "ctaTitle": "¿Un tema coincide con su proyecto?",
+      "ctaBlurb": "Cuéntenos la tarea concreta. Le ayudaremos a identificar el servicio y el alcance adecuados.",
+      "ctaButton": "Contar mi proyecto"
     }
   },
   "blog": {
     "view": "Leer artículo",
     "teaserLabel": "Blog",
-    "teaserTitle": "Notas de web y software.",
-    "teaserBlurb": "Notas cortas sobre diseño, SEO y desarrollo.",
+    "teaserTitle": "Desde la práctica",
+    "teaserBlurb": "Artículos sobre diseño, SEO y decisiones de proyecto.",
     "teaserAll": "Todos los artículos",
     "readMinutes": "{count} min de lectura",
-    "relatedLabel": "Seguir",
-    "relatedTitle": "Artículos relacionados",
-    "articleCta": "Iniciar mi proyecto",
-    "articleCtaBlurb": "Si encaja con su proyecto, escríbanos y definimos el alcance.",
+    "relatedLabel": "Más sobre el tema",
+    "relatedTitle": "Lecturas relacionadas",
+    "articleCta": "Iniciar proyecto",
+    "articleCtaBlurb": "Indique el negocio, el problema y las funciones necesarias. Revisaremos qué entregables deben entrar en el alcance.",
     "crumbHome": "Inicio",
     "crumbBlog": "Blog",
     "categories": {
@@ -99,7 +99,7 @@
   },
   "marquee": {
     "items": [
-      "Sitios web",
+      "Sitios a medida",
       "Paneles de gestión",
       "CRM",
       "Sistemas de diseño CSS",
@@ -113,154 +113,155 @@
     "label": "Principios",
     "stamp": "METEK Digital",
     "lines": [
-      "No vendemos plantillas compradas.",
-      "Web, paneles y chatbots en un equipo.",
-      "Control de velocidad y SEO antes del lanzamiento.",
-      "Alcance escrito, entrega visible."
+      "La interfaz responde a su oferta y a la forma en que opera.",
+      "El sitio y el panel interno comparten un mismo sistema.",
+      "Antes de publicar revisamos rendimiento móvil, accesibilidad básica y SEO técnico.",
+      "Los objetivos y el alcance quedan por escrito antes del desarrollo."
     ]
   },
   "featured": {
     "label": "Proyecto destacado",
     "client": "Wholesale Cabinet Creations · 2026",
-    "title": "Sitio corporativo y panel para fabricante de EE. UU.",
-    "blurb": "Construimos el sitio corporativo de Wholesale Cabinet Creations. Carga rápido en móvil, preparado para búsqueda, formulario de cotización al frente. El equipo actualiza textos e imágenes desde el panel.",
+    "title": "Sitio corporativo y panel para WCC",
+    "blurb": "Para Wholesale Cabinet Creations desarrollamos la estructura corporativa, páginas de servicios y proyectos, y una ruta clara para solicitar una cotización. Un panel conectado permite administrar el contenido y los metadatos acordados.",
     "outcomes": [
-      "Camino corto a la solicitud de cotización",
-      "Productos y contacto accesibles en móvil",
-      "Contenido y ajustes SEO en un solo panel"
+      "Ruta clara para solicitar una cotización",
+      "Servicios y proyectos legibles en el celular",
+      "Contenido acordado en un panel propio"
     ],
     "cta": "Abrir proyecto",
-    "shotHero": "Wholesale Cabinet Creations, portada",
-    "shotKitchen": "Wholesale Cabinet Creations, gabinetes de cocina",
+    "shotHero": "Wholesale Cabinet Creations, página de inicio",
+    "shotKitchen": "Wholesale Cabinet Creations, muebles de cocina",
     "shotProjects": "Wholesale Cabinet Creations, galería de proyectos",
     "shotBrands": "Wholesale Cabinet Creations, marcas",
     "sceneLabel": "Resultado",
-    "sceneTitle": "Sitio móvil rápido, contenido manejable",
-    "sceneBody": "Web corporativa, SEO técnico y panel de gestión juntos."
+    "sceneTitle": "Sitio y contenido conectados",
+    "sceneBody": "La entrega incluyó el sitio adaptable, la preparación técnica para buscadores y el panel administrativo."
   },
   "principles": {
     "label": "Principios",
     "title": "Cómo trabajamos",
     "items": [
       {
-        "title": "Claridad",
-        "body": "Si no cumple una función, sale de la página. El visitante debe entender rápido qué hace usted."
+        "title": "Prioridades claras",
+        "body": "Cada elemento apoya la información, la orientación o una acción. La oferta debe entenderse con rapidez."
       },
       {
-        "title": "Sistema",
-        "body": "Componentes compartidos y reglas CSS. Añadir la página once sigue siendo más barato."
+        "title": "Reglas compartidas",
+        "body": "Los componentes y las reglas CSS mantienen coherencia entre el sitio, sus páginas y las interfaces internas."
       },
       {
-        "title": "Plan",
-        "body": "Cumplimos la fecha de lanzamiento que damos. El riesgo de retraso se avisa pronto."
+        "title": "Riesgos visibles",
+        "body": "Documentamos dependencias y decisiones pendientes. Si afectan el calendario, lo comunicamos con anticipación."
       },
       {
-        "title": "Calidad",
-        "body": "Antes de publicar revisamos velocidad, móvil, acceso y SEO técnico."
+        "title": "Revisado antes de entregar",
+        "body": "Antes de la entrega revisamos rendimiento móvil, recorridos principales, accesibilidad básica y SEO técnico."
       }
     ]
   },
   "hero": {
     "line1": "METEK Digital",
-    "line2": "agencia de",
-    "line3": "diseño web.",
-    "blurb": "Sitios web, paneles, CRM, CSS, chatbots de WhatsApp e Instagram, apps móviles. Portafolio abajo.",
+    "line2": "diseño web y",
+    "line3": "software.",
+    "blurb": "Sitios web a medida, paneles administrativos y chatbots para marcas, fabricantes y equipos de operaciones.",
     "ctaWork": "Ver portafolio",
     "ctaContact": "Iniciar proyecto",
     "scroll": "Ver portafolio",
     "metaStudio": "Agencia de diseño web y software",
-    "metaLocation": "Malatya · Todo el mundo",
-    "availability": "Disponibles para nuevos proyectos"
+    "metaLocation": "Türkiye · proyectos internacionales",
+    "availability": "Recibimos consultas de proyectos"
   },
   "selectedWork": {
     "label": "Portafolio",
     "title": "Proyectos seleccionados",
-    "blurb": "Catorce proyectos en vivo. Sitios, paneles, CRM y chatbots. Incluye EE. UU., Alemania e Italia.",
-    "viewAll": "Portafolio completo"
+    "blurb": "Sitios y sistemas para manufactura, comercio, hospitalidad y equipos de operaciones en distintos mercados.",
+    "viewAll": "Portafolio completo",
+    "openProject": "Ver proyecto"
   },
   "capabilities": {
     "label": "Servicios",
-    "title": "Qué desarrollamos",
-    "blurb": "Sitios corporativos y diseño web. Paneles, CRM y apps móviles. Chatbots de WhatsApp e Instagram. Sistemas de diseño CSS.",
+    "title": "Qué construimos",
+    "blurb": "Desarrollamos sitios para marcas y servicios, paneles internos para operaciones y chatbots para consultas repetitivas.",
     "cta": "Todos los servicios",
     "techLine": "Web · Panel · CRM · Chatbot · Móvil · SEO",
     "items": {
       "experiences": {
-        "title": "Sitios web y diseño web",
-        "summary": "Sitios corporativos, páginas de servicios, vitrinas de marca",
+        "title": "Sitio web y diseño web",
+        "summary": "Sitios corporativos, servicios y marcas",
         "visual": "Sitio web",
-        "body": "Diseño y desarrollo web a medida. No es una plantilla comprada. Se arma según su marca y su camino de venta.",
-        "detail": "Estructura, jerarquía de contenido, móvil y SEO técnico van en un mismo plan. Objetivo: confianza, oferta clara, contacto o cotización.",
+        "body": "Diseño web a medida basado en su oferta y en los recorridos del usuario. La estructura, la experiencia móvil y la preparación técnica para buscadores se planifican juntas.",
+        "detail": "El visitante debe entender la oferta, encontrar evidencia pertinente y llegar al contacto sin rodeos.",
         "outcomes": [
           "Sitios corporativos y de servicios",
-          "Páginas rápidas y listas para móvil",
-          "SEO técnico y medición"
+          "Experiencia móvil con buen rendimiento",
+          "Preparación técnica para buscadores y medición"
         ]
       },
       "systems": {
-        "title": "Paneles, CRM y móvil",
-        "summary": "Panel de gestión, CRM, sistema CSS, app móvil",
-        "visual": "Panel de gestión",
-        "body": "Paneles y CRM de uso diario. Apps móviles y sistemas de diseño CSS cuando el proyecto lo pide.",
-        "detail": "Las pantallas del día a día se mantienen simples y coherentes. Datos, citas y clientes en un solo lugar.",
+        "title": "Panel administrativo, CRM y app",
+        "summary": "Operaciones, CRM, sistema CSS y app",
+        "visual": "Panel administrativo",
+        "body": "Paneles administrativos y vistas de CRM para procesos concretos. Una app móvil o un sistema de diseño CSS pueden formar parte del mismo alcance cuando son necesarios.",
+        "detail": "Las citas, consultas y superficies de contenido acordadas reciben una ruta clara de administración.",
         "outcomes": [
-          "Pantallas de panel y CRM",
-          "Sistema de diseño CSS para UI coherente",
-          "Desarrollo web y de apps móviles"
+          "Panel administrativo y vistas de CRM",
+          "Sistema de diseño CSS para la interfaz común",
+          "Desarrollo de apps web y móviles según el caso"
         ]
       },
       "ai": {
         "title": "Chatbots de WhatsApp e Instagram",
-        "summary": "Citas, preguntas frecuentes, enlace al panel de ventas",
+        "summary": "Precios, preguntas, citas y conexión al panel",
         "visual": "Mensajería",
-        "body": "Chatbots de WhatsApp e Instagram para precios, FAQs, citas, recordatorios y CRM.",
-        "detail": "Los flujos siguen sus reglas. Si el chat no es claro, el equipo recibe un resumen; lo rutinario sigue automático.",
+        "body": "Bots de WhatsApp e Instagram que responden con información aprobada y respetan las reglas de horario o citas configuradas.",
+        "detail": "Los flujos definidos se automatizan. Los casos especiales pasan a su equipo con el contexto disponible.",
         "outcomes": [
-          "Configuración de chatbot de WhatsApp",
-          "Configuración de chatbot de Instagram",
-          "Integración con CRM y panel de citas"
+          "Puesta en marcha del chatbot de WhatsApp",
+          "Puesta en marcha del chatbot de Instagram",
+          "Conexión con CRM y panel de citas"
         ]
       }
     }
   },
   "manifestoScene": {
     "label": "Enfoque",
-    "before": "Un buen sitio web primero gana",
+    "before": "Un buen sitio primero comunica",
     "accent": "confianza",
-    "after": "y después explica la oferta."
+    "after": "y luego guía por la oferta."
   },
   "approachTeaser": {
     "label": "Proceso",
-    "title": "Cómo avanza un proyecto",
-    "blurb": "Cuatro etapas. Cada una termina con una entrega que usted puede revisar.",
-    "principle": "Alcance por escrito. Avance visible cada semana. Diseño y desarrollo en un equipo.",
+    "title": "Cómo toma forma un proyecto",
+    "blurb": "Cuatro etapas llevan una necesidad definida hasta una publicación revisada. Cada una deja un resultado visible.",
+    "principle": "Alcance escrito, decisiones trazables y una persona responsable de la entrega.",
     "cta": "Ver el proceso",
     "steps": [
       {
-        "title": "Descubrimiento",
-        "body": "Objetivos, público, canales y límites técnicos."
+        "title": "Definición",
+        "body": "Reunimos objetivos, públicos, sistemas actuales y restricciones técnicas."
       },
       {
         "title": "Alcance",
-        "body": "Servicio elegido, lista de funciones y alcance aprobado."
+        "body": "Documentamos servicios, funciones, responsables y exclusiones."
       },
       {
         "title": "Diseño y desarrollo",
-        "body": "UI y código juntos. Panel o chatbot en el mismo plan."
+        "body": "La interfaz y la implementación avanzan coordinadas. El panel o chatbot siguen el mismo plan."
       },
       {
-        "title": "Revisión y lanzamiento",
-        "body": "Velocidad, móvil, acceso y SEO técnico; luego lanzamiento."
+        "title": "Revisión y publicación",
+        "body": "Revisamos los recorridos principales, el rendimiento móvil, la accesibilidad básica y el SEO técnico."
       }
     ]
   },
   "finalCta": {
     "label": "Consulta",
-    "title": "Cuéntenos el proyecto.",
-    "blurb": "Con unas líneas basta. En un día recibe alcance, plazos y rango de precio.",
+    "title": "Cuéntenos qué necesita.",
+    "blurb": "Comparta su sector, objetivo y plazo aproximado. Responderemos con preguntas concretas y el siguiente paso.",
     "cta": "Iniciar proyecto",
     "whatsapp": "Escribir por WhatsApp ↗",
-    "whatsappPrefill": "Hola METEK Digital. Me gustaría hablar de un proyecto de sitio / panel / chatbot."
+    "whatsappPrefill": "Hola METEK Digital. Me gustaría hablar sobre un proyecto de sitio web o software."
   },
   "workLanes": {
     "web": "Sitios web",
@@ -271,18 +272,18 @@
   "projects": {
     "label": "Portafolio",
     "title": "Todos los proyectos",
-    "blurb": "Proyectos de sitios, paneles, CRM y chatbots en fabricación, comercio, hotelería y clínicas.",
+    "blurb": "Sitios, paneles y chatbots para manufactura, comercio, hospitalidad, clínicas y operaciones internas.",
     "loadMore": "Ver más",
     "seeCase": "Ver proyecto",
     "viewAll": "Portafolio completo"
   },
   "projectUi": {
     "view": "Abrir proyecto",
-    "live": "Visitar el sitio",
+    "live": "Ir al sitio",
     "stack": "Tecnología",
-    "back": "Volver a los trabajos",
+    "back": "Volver a proyectos",
     "gallery": "Pantallas",
-    "galleryHint": "Pantallas seleccionadas del sitio en línea"
+    "galleryHint": "Pantallas seleccionadas del proyecto"
   },
   "services": {
     "label": "Servicios",
@@ -292,170 +293,170 @@
     "seeAll": "Todos los servicios",
     "items": [
       {
-        "title": "Sitio web inicial",
-        "description": "Diseño web a medida para el primer sitio serio. Móvil, SEO básico, contacto y WhatsApp.",
+        "title": "Sitio corporativo compacto",
+        "description": "Un sitio compacto para empresas de servicios, con una oferta fácil de entender, identidad propia y una ruta visible de contacto.",
         "includes": [
-          "De 1 a 5 páginas",
+          "Cantidad de páginas según el contenido",
           "Diseño de interfaz a medida",
-          "Adaptado a móvil",
-          "SEO básico",
+          "Experiencia adaptada al celular",
+          "Bases técnicas para buscadores",
           "Contacto y WhatsApp",
-          "Ajuste de velocidad",
-          "15 días de soporte técnico"
+          "Revisión de rendimiento móvil",
+          "Acompañamiento técnico tras la entrega"
         ]
       },
       {
         "title": "Sitio web corporativo",
-        "description": "Diseño y desarrollo web corporativo. Más páginas, mejor primera impresión, consultas medibles y SEO avanzado.",
+        "description": "Una presencia web amplia, con páginas de servicios, sección de contenido y una ruta clara para solicitar información o cotización.",
         "includes": [
-          "De 5 a 12 páginas",
+          "Arquitectura según las necesidades de contenido",
           "Diseño de interfaz y experiencia a medida",
-          "Movimiento y microinteracciones",
-          "Blog o área de contenido",
-          "SEO avanzado",
-          "Analítica",
-          "Velocidad y seguridad",
-          "30 días de soporte técnico"
+          "Animaciones e interacciones con una función clara",
+          "Blog o sección de contenido",
+          "Preparación técnica para buscadores",
+          "Medición según el proyecto",
+          "Revisión de rendimiento y seguridad",
+          "Acompañamiento técnico tras la entrega"
         ]
       },
       {
-        "title": "Web y panel a medida",
-        "description": "UI a medida, panel de gestión y proyectos web listos para CRM. Sin plantillas de marketplace.",
+        "title": "Sitio y panel a medida",
+        "description": "Un sitio con identidad propia y un panel administrativo, con conexión a CRM cuando el contenido o la operación lo requieren.",
         "includes": [
-          "Lenguaje de diseño totalmente propio",
-          "3D o movimiento avanzado",
-          "Panel de gestión a medida",
-          "CRM, API y automatización",
-          "Funciones con IA",
-          "SEO y rendimiento avanzados",
-          "Pruebas y lanzamiento",
-          "60 días de soporte técnico"
+          "Lenguaje visual propio",
+          "3D o animación avanzada según el caso",
+          "Panel administrativo propio",
+          "CRM, API y automatizaciones",
+          "Funciones adicionales según los requisitos",
+          "Revisión técnica de SEO y rendimiento",
+          "Control de calidad y publicación",
+          "Acompañamiento técnico tras la entrega"
         ]
       },
       {
         "title": "Logo e identidad de marca",
-        "description": "Logo, color, tipografía y reglas de uso para una marca coherente en web y redes.",
+        "description": "Logo, color, tipografía y reglas de uso para mantener una presencia coherente en el sitio, las redes y otros puntos de contacto.",
         "includes": [
-          "Descubrimiento y análisis de marca",
-          "Diseño de logotipo original (varias direcciones)",
+          "Definición y análisis de marca",
+          "Propuestas de logo en rutas acordadas",
           "Paleta de color y tipografía",
-          "Variantes del logotipo (horizontal, vertical, icono)",
-          "Guía de uso (mini manual de marca)",
-          "Sets para redes sociales y favicon",
+          "Variantes de logo (horizontal, vertical, ícono)",
+          "Guía breve de aplicación",
+          "Recursos para redes y favicon",
           "Archivos vectoriales (SVG, PDF, PNG)"
         ]
       },
       {
-        "title": "Panel de gestión y app móvil",
-        "description": "Software a medida: panel, app móvil, integraciones y automatización.",
+        "title": "Panel administrativo y app móvil",
+        "description": "Panel administrativo, app móvil, integraciones y automatización para tareas repetitivas y datos compartidos.",
         "includes": [
-          "Análisis de necesidades y del sistema",
-          "Arquitectura técnica",
-          "Aplicación web o móvil",
-          "Panel de gestión",
-          "API e integraciones",
+          "Análisis de necesidades y sistema",
+          "Plan de arquitectura técnica",
+          "App web o móvil según el caso",
+          "Panel administrativo",
+          "Conexión con otros sistemas",
           "Escenarios de automatización",
           "Seguridad y pruebas"
         ]
       },
       {
         "title": "Chatbot de WhatsApp",
-        "description": "Chatbot de WhatsApp para FAQs, precios, citas, cancelaciones y recordatorios. Puede enlazarse a CRM.",
+        "description": "Un bot de WhatsApp para preguntas aprobadas, precios, citas, cancelaciones y recordatorios, con conexión opcional al CRM.",
         "includes": [
-          "Conversa con su tono (con sus precios y servicios)",
-          "Conoce las horas libres y dirige las citas ahí",
-          "Conoce las horas ocupadas y evita duplicados",
-          "Reabre la hora tras una cancelación",
-          "Recordatorio 1 hora antes de la cita",
-          "Funciona con el panel de ventas",
-          "Instalación y capacitación"
+          "Conversaciones basadas en contenido aprobado",
+          "Consulta de horarios disponibles",
+          "Protección de espacios ocupados",
+          "Liberación del espacio tras una cancelación",
+          "Recordatorio configurable de la cita",
+          "Conexión opcional al panel de ventas",
+          "Puesta en marcha y capacitación"
         ]
       },
       {
         "title": "Chatbot de Instagram",
-        "description": "Chatbot de Instagram para citas y respuestas en DM. Misma lógica de calendario y CRM que WhatsApp.",
+        "description": "Un bot de Instagram para consultas repetitivas y citas, con la opción de compartir calendario y CRM con WhatsApp.",
         "includes": [
-          "Conversación en su nombre por mensaje directo",
-          "Respuestas sobre precio, servicios y preguntas frecuentes",
-          "Agenda las horas libres y protege las ocupadas",
-          "Reabre la hora tras una cancelación",
-          "Recordatorio 1 hora antes",
-          "Funciona con el panel de ventas",
-          "Instalación y capacitación"
+          "Conversaciones basadas en contenido aprobado",
+          "Respuestas sobre precios y servicios",
+          "Reserva de horarios disponibles",
+          "Liberación del espacio tras una cancelación",
+          "Recordatorio configurable de la cita",
+          "Conexión opcional al panel de ventas",
+          "Puesta en marcha y capacitación"
         ]
       },
       {
         "title": "CRM y panel de citas",
-        "description": "Panel CRM de ventas y citas. Registros de chatbots de WhatsApp e Instagram en una pantalla.",
+        "description": "Una vista compartida de ventas y citas para registros de WhatsApp, Instagram y otras fuentes acordadas.",
         "includes": [
           "Panel de ventas",
           "Conexión con el asistente de WhatsApp",
           "Conexión con el asistente de Instagram",
-          "Registro automático al agendar",
-          "La hora se libera tras una cancelación",
-          "Resumen diario y recordatorios",
-          "Instalación y capacitación"
+          "Registro automático al reservar",
+          "El horario se libera tras una cancelación",
+          "Agenda diaria y recordatorios",
+          "Puesta en marcha y capacitación"
         ]
       },
       {
         "title": "Sistema de diseño CSS",
-        "description": "Sistema de diseño CSS: color, tipografía, espacio y componentes. Lenguaje común para web y panel.",
+        "description": "Reglas compartidas de color, tipografía, espaciado y componentes para mantener consistencia entre el sitio y el panel.",
         "includes": [
-          "Conjunto de tokens de diseño",
+          "Reglas de color y tipografía",
           "Escala tipográfica",
           "Botones y componentes base",
           "Sistema de espaciado y radios",
-          "Superficie de documentación",
-          "Alineación entre web y panel",
-          "Guía de entrega"
+          "Guía de uso",
+          "Coherencia entre web y panel",
+          "Guía de entrega y mantenimiento"
         ]
       }
     ]
   },
   "process": {
     "label": "Proceso",
-    "title": "De la primera llamada al lanzamiento",
+    "title": "De la primera charla al lanzamiento",
     "steps": [
       {
-        "title": "Descubrimiento",
+        "title": "Definición",
         "body": [
-          "Objetivos, público y límites técnicos quedan por escrito.",
-          "Aclaramos si hace falta web, panel, CRM o chatbot."
+          "Documentamos objetivos, públicos, sistemas actuales y límites técnicos.",
+          "Determinamos si el proyecto requiere un sitio, un panel, una solución de CRM, un chatbot o una combinación."
         ]
       },
       {
         "title": "Alcance",
         "body": [
-          "Lista de páginas y funciones, prioridades, criterio de éxito.",
-          "Sin alcance aprobado no hay desarrollo."
+          "Definimos páginas, funciones, prioridades, responsables y criterios de revisión.",
+          "El desarrollo comienza cuando ambas partes aprueban el alcance."
         ]
       },
       {
         "title": "Diseño",
         "body": [
-          "Interfaz, componentes y sistema CSS si hace falta.",
-          "Si falta lenguaje de marca, la identidad va antes del código."
+          "Diseñamos la interfaz, los componentes y, cuando hace falta, un sistema de diseño CSS.",
+          "Si la marca aún carece de reglas claras, las definimos antes de cerrar la interfaz."
         ]
       },
       {
         "title": "Desarrollo",
         "body": [
-          "Web con Next.js y React; paneles, CRM y chatbots en el mismo sistema.",
-          "Las apps móviles entran al mismo plan cuando se requieren."
+          "Según la tarea, desarrollamos con Next.js, React y TypeScript.",
+          "El panel, CRM, chatbot o app móvil se conectan mediante interfaces definidas."
         ]
       },
       {
         "title": "Revisión",
         "body": [
-          "Se revisan velocidad, móvil, acceso y SEO técnico.",
-          "Se prueban rutas críticas (cotización, cita, contacto)."
+          "Revisamos rendimiento móvil, accesibilidad básica y SEO técnico por separado.",
+          "Probamos de principio a fin recorridos como cotización, cita y contacto."
         ]
       },
       {
-        "title": "Lanzamiento",
+        "title": "Publicación",
         "body": [
-          "Sale en vivo y lo monitoreamos. El soporte sigue el paquete.",
-          "Mejoras posteriores abren un nuevo alcance si hace falta."
+          "Tras la aprobación, publicamos el proyecto y documentamos la entrega acordada.",
+          "Las ampliaciones posteriores reciben un alcance propio y verificable."
         ]
       }
     ]
@@ -466,27 +467,27 @@
     "titleRest": "Digital",
     "whoLabel": "Fundador",
     "whoTitle": "Nurullah Aydın.",
-    "origin": "Malatya, Turquía",
-    "practice": "Agencia de diseño web y software",
-    "p1": "METEK Digital es una agencia de diseño web y software con sede en Malatya. Construimos sitios corporativos, paneles de gestión, CRM, sistemas de diseño CSS, chatbots de WhatsApp e Instagram y apps móviles. La agencia la dirige Nurullah Aydın.",
-    "p2": "Si su lenguaje de marca está listo, trabajamos dentro de él. Si no, empezamos por logo e identidad y luego desarrollamos tras la aprobación.",
-    "highlight": "Véalo primero, luego decida.",
-    "p3": "No vendemos plantillas compradas. Cada proyecto se define según cómo vende y opera el negocio.",
+    "origin": "Turquía",
+    "practice": "Estudio de diseño web y software",
+    "p1": "METEK Digital es una agencia de diseño web y software con sede en Türkiye. Desarrollamos sitios corporativos, paneles administrativos, CRM, chatbots y apps móviles. Nurullah Aydın dirige la agencia.",
+    "p2": "Aplicamos las reglas de una marca existente a la interfaz digital. Cuando esa base falta, definimos la identidad y su uso antes del desarrollo.",
+    "highlight": "Cada fase deja una decisión que usted puede revisar.",
+    "p3": "Cada proyecto recibe una interfaz propia basada en la oferta, el público y la operación de la empresa.",
     "doLabel": "Áreas de servicio",
-    "doTitle": "Web, paneles, chatbots, móvil.",
-    "doIntro": "Sin paquetes de estantería. Sitio, panel, CRM, chatbot o app se define según la necesidad real.",
+    "doTitle": "Sitios, sistemas y chatbots",
+    "doIntro": "El alcance depende de la tarea, los usuarios y los sistemas actuales. El mismo criterio aplica a sitios, paneles, CRM, chatbots y apps.",
     "items": [
       {
-        "title": "Sitios web",
-        "body": "Diseño y desarrollo web a medida. Velocidad móvil, SEO técnico, camino claro a contacto o cotización."
+        "title": "Sitio web",
+        "body": "Diseño y desarrollo web a medida, con rendimiento móvil, preparación técnica para buscadores y rutas claras de contacto."
       },
       {
-        "title": "Paneles y CRM",
-        "body": "Paneles de gestión, CRM, sistemas CSS y apps móviles cuando hace falta."
+        "title": "Panel y CRM",
+        "body": "Paneles administrativos, vistas de CRM, sistemas de diseño CSS y apps móviles para procesos definidos."
       },
       {
-        "title": "Chatbots",
-        "body": "Chatbots de WhatsApp e Instagram para citas, respuestas y registros en panel."
+        "title": "Chatbot",
+        "body": "Bots de WhatsApp e Instagram que responden información aprobada, apoyan la gestión de citas y pueden enviar registros al panel."
       }
     ],
     "linkWork": "Ver portafolio",
@@ -496,44 +497,44 @@
   },
   "contact": {
     "label": "Contacto",
-    "titleLine1": "¿Tiene un proyecto?",
-    "titleLine2": "Hablemos.",
-    "blurb": "Sitio web, panel, CRM, chatbot o app móvil. Cuéntenos sector y objetivo. Respondemos en un día.",
+    "titleLine1": "¿Qué necesita",
+    "titleLine2": "desarrollar?",
+    "blurb": "Comparta el sector, el objetivo y el plazo de su sitio, panel, chatbot o app. Responderemos con las preguntas necesarias.",
     "name": "Nombre",
-    "email": "Correo electrónico",
+    "email": "Correo",
     "interestedIn": "Me interesa",
-    "message": "Unas líneas sobre objetivo, plazos y el servicio que necesita",
+    "message": "Objetivo, plazo y funciones necesarias",
     "send": "Enviar por WhatsApp",
-    "sentHint": "Se abre WhatsApp. Solemos responder en un día.",
+    "sentHint": "WhatsApp se abrirá con su mensaje.",
     "errorName": "Escriba su nombre, por favor.",
-    "errorEmail": "Esa dirección de correo no parece válida.",
-    "errorMessage": "Unas líneas más para poder responder bien.",
+    "errorEmail": "Esta dirección de correo no parece válida.",
+    "errorMessage": "Describa el objetivo y la necesidad con un poco más de detalle.",
     "mailSubject": "Consulta de proyecto",
     "mailName": "Nombre",
-    "mailEmail": "Correo electrónico",
-    "mailInterest": "Interesado en",
+    "mailEmail": "Correo",
+    "mailInterest": "Interés",
     "interests": [
-      "Sitio web inicial",
+      "Sitio corporativo compacto",
       "Sitio web corporativo",
-      "Panel de gestión",
+      "Panel administrativo",
       "CRM",
       "Sistema de diseño CSS",
       "Chatbot de WhatsApp",
       "Chatbot de Instagram",
       "App móvil",
-      "Rediseño de sitio",
+      "Renovar el sitio actual",
       "Otro"
     ],
-    "response": "Solemos responder en un día. Si urge, WhatsApp es más rápido.",
+    "response": "Puede escribirnos por WhatsApp o correo. Responderemos después de revisar la información.",
     "emailCta": "Abrir correo"
   },
   "footer": {
-    "tagline": "Agencia de diseño web y software. Trabajo a medida, sin plantillas.",
+    "tagline": "Diseño web y software a medida para necesidades concretas.",
     "quickLinks": "Enlaces rápidos",
     "manifesto": "Agencia",
-    "work": "Trabajos",
+    "work": "Proyectos",
     "approach": "Proceso",
-    "bookMeeting": "Iniciar mi proyecto",
+    "bookMeeting": "Consultar mi proyecto",
     "services": "Servicios",
     "blog": "Blog",
     "projects": "Proyectos",
@@ -542,14 +543,14 @@
     "rights": "Todos los derechos reservados.",
     "brand": "METEK Digital",
     "founder": "Fundador: Nurullah Aydın",
-    "location": "Malatya, Turquía · Remoto en todo el mundo",
+    "location": "Turquía · colaboración internacional",
     "instagram": "Instagram"
   },
   "whatsapp": {
     "label": "WhatsApp",
-    "prefill": "Hola METEK Digital. Me gustaría hablar de un proyecto de sitio / panel / chatbot.",
+    "prefill": "Hola METEK Digital. Me gustaría hablar sobre un proyecto de sitio web o software.",
     "cta": "Escribir por WhatsApp",
-    "fab": "Chat"
+    "fab": "Escribir"
   },
   "a11y": {
     "breadcrumb": "Ruta de navegación",
@@ -558,11 +559,40 @@
     "language": "Idioma",
     "themeToDark": "Cambiar al tema oscuro",
     "themeToLight": "Cambiar al tema claro",
-    "skipToContent": "Ir al contenido"
+    "skipToContent": "Ir al contenido",
+    "loading": "Cargando la página"
   },
   "notFound": {
     "title": "Página no encontrada",
-    "blurb": "Este enlace no funciona o la página se movió. Vuelva a {brand}.",
+    "blurb": "Este enlace no es válido o la página se movió. Puede volver al inicio de {brand}.",
     "home": "Volver al inicio"
+  },
+  "studioFrames": {
+    "kicker": "Áreas de trabajo",
+    "title": "Sitio, mensaje y sistema forman un recorrido.",
+    "lede": "Después de publicar, las consultas deben atenderse y registrarse. Planificamos la interfaz, la comunicación y el flujo de datos como partes relacionadas.",
+    "pullQuote": "Un sistema común conecta la presencia pública con el trabajo interno.",
+    "frames": [
+      {
+        "label": "Presencia web",
+        "caption": "Havva · Una pastelería de baklava en Ehrenfeld, Colonia, con fotografía de producto y contacto directo por WhatsApp.",
+        "alt": "Vista de escritorio del sitio del taller de baklava Havva en Colonia."
+      },
+      {
+        "label": "Mensajería",
+        "caption": "El bot de WhatsApp recibe la consulta, responde información aprobada y transfiere el registro al CRM.",
+        "alt": "Pantalla de teléfono con una conversación del chatbot de WhatsApp."
+      },
+      {
+        "label": "Sistema",
+        "caption": "Color, tipografía, radios y componentes siguen las mismas reglas en el sitio y el panel.",
+        "alt": "Vista de escritorio del kit de interfaz del sistema de diseño METEK."
+      }
+    ]
+  },
+  "intro": {
+    "skip": "Saltar",
+    "soundOn": "Activar sonido",
+    "soundOff": "Silenciar"
   }
 }

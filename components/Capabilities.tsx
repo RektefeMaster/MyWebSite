@@ -1,12 +1,14 @@
 "use client";
 
-import { useCallback, useId, useRef, useState, type KeyboardEvent } from "react";
 import Image from "next/image";
+import { useRef } from "react";
 import { useTranslations } from "next-intl";
-import LightPhone from "./LightPhone";
+import { Link } from "@/i18n/navigation";
+import { gsap, useGSAP } from "@/lib/gsap";
 import Reveal from "./Reveal";
-import Magnetic from "./Magnetic";
-import SpecularButton from "./SpecularButton";
+import WordReveal from "./WordReveal";
+import DecryptedText from "./DecryptedText";
+import TextType from "./TextType";
 
 type CapId = "experiences" | "systems" | "ai";
 
@@ -14,335 +16,207 @@ const CAP_IDS: CapId[] = ["experiences", "systems", "ai"];
 
 const CAP_VISUAL: Record<
   CapId,
-  { hero: string; mobile: string; objectPosition: string; peep: boolean }
+  { hero: string; objectPosition: string; media: string; copy: string }
 > = {
   experiences: {
     hero: "/projects/casa-aurelia/desktop.jpg",
-    mobile: "/projects/casa-aurelia/mobile.jpg",
     objectPosition: "50% 0%",
-    peep: false,
+    media: "md:col-span-7 md:col-start-1",
+    copy: "md:col-span-4 md:col-start-9 md:self-end md:pb-10",
   },
   systems: {
     hero: "/projects/crm/desktop.jpg",
-    mobile: "/projects/crm/mobile.jpg",
     objectPosition: "8% 0%",
-    peep: true,
+    media: "md:col-span-6 md:col-start-7 md:order-2",
+    copy: "md:col-span-5 md:col-start-1 md:order-1 md:self-center",
   },
   ai: {
     hero: "/projects/aiahi/desktop.jpg",
-    mobile: "/projects/aiahi/mobile.jpg",
     objectPosition: "50% 18%",
-    peep: false,
+    media: "md:col-span-8 md:col-start-2",
+    copy: "md:col-span-5 md:col-start-8 md:-mt-20 md:bg-background md:p-8 md:relative md:z-10",
   },
 };
 
-function CapVisual({ id, label }: { id: CapId; label: string }) {
-  const visual = CAP_VISUAL[id];
-
-  return (
-    <div
-      aria-hidden
-      className="relative min-h-[220px] overflow-hidden rounded-sm bg-ink shadow-[inset_0_0_0_1px_var(--chrome-edge)] md:min-h-[300px]"
-    >
-      <Image
-        src={visual.hero}
-        alt=""
-        fill
-        sizes="(max-width: 1024px) 100vw, 55vw"
-        quality={75}
-        loading="lazy"
-        decoding="async"
-        className="object-cover object-top"
-        style={{ objectPosition: visual.objectPosition }}
-      />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/10 to-transparent" />
-
-      <div className="absolute left-4 top-4 z-[1] rounded-sm bg-ink/55 px-2.5 py-1 backdrop-blur-sm md:left-5 md:top-5">
-        <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-white/90">
-          {label}
-        </span>
-      </div>
-
-      {visual.peep ? <LightPhone src={visual.mobile} /> : null}
-    </div>
-  );
-}
-
-function CapDetail({
-  id,
-  body,
-  detail,
-  outcomes,
-  visualLabel,
-  showDetail,
-}: {
-  id: CapId;
-  body: string;
-  detail: string;
-  outcomes: string[];
-  visualLabel: string;
-  showDetail: boolean;
-}) {
-  return (
-    <>
-      <CapVisual id={id} label={visualLabel} />
-      <p className="mt-5 text-sm leading-relaxed text-foreground/55 md:mt-6 md:max-w-lg md:text-base">
-        {body}
-      </p>
-      <div
-        className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
-          showDetail
-            ? "grid-rows-[1fr] opacity-100"
-            : "grid-rows-[0fr] opacity-0"
-        }`}
-        aria-hidden={!showDetail}
-      >
-        <div className="overflow-hidden">
-          {showDetail ? (
-            <p className="mt-3 max-w-lg border-l-2 border-accent/70 pl-3.5 text-sm leading-relaxed text-foreground/70 md:text-[15px]">
-              {detail}
-            </p>
-          ) : null}
-        </div>
-      </div>
-      <ul className="mt-4 space-y-2.5 md:mt-5">
-        {outcomes.map((item) => (
-          <li
-            key={item}
-            className="flex items-start gap-3 text-sm text-foreground/70"
-          >
-            <span
-              aria-hidden
-              className="mt-2 size-1 shrink-0 rounded-full bg-accent"
-            />
-            {item}
-          </li>
-        ))}
-      </ul>
-    </>
-  );
-}
-
-function CapCta({ label }: { label: string }) {
-  return (
-    <Magnetic strength={0.25} className="w-full sm:w-auto">
-      <SpecularButton
-        href="/services"
-        tone="ink"
-        size="md"
-        fillMobile
-        className="btn-stable btn-stable--chip"
-      >
-        {label}
-        <span aria-hidden>→</span>
-      </SpecularButton>
-    </Magnetic>
-  );
-}
-
-/** Üç ana capability — hover: accent + preview; tık: seçim + detay metin */
+/** Üç üretim alanı: sekmeli panel yerine üç farklı editöryal dosya. */
 export default function Capabilities() {
   const t = useTranslations("capabilities");
-  const baseId = useId();
-  const [active, setActive] = useState(0);
-  const [hoverPreview, setHoverPreview] = useState<number | null>(null);
-  const [detailOpen, setDetailOpen] = useState(false);
-  const listRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
-  const shown = hoverPreview ?? active;
-  const shownId = CAP_IDS[shown];
-  const outcomes = t.raw(`items.${shownId}.outcomes`) as string[];
-  const showDetail = detailOpen && hoverPreview === null;
+  useGSAP(
+    () => {
+      const section = sectionRef.current;
+      if (!section) return;
+      const mm = gsap.matchMedia();
 
-  const select = useCallback(
-    (index: number) => {
-      setHoverPreview(null);
-      if (index === active) {
-        setDetailOpen((open) => !open);
-        return;
-      }
-      setActive(index);
-      setDetailOpen(true);
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const isTouch = window.matchMedia("(pointer: coarse), (max-width: 768px)").matches;
+        const shots = gsap.utils.toArray<HTMLElement>(
+          section.querySelectorAll("[data-capability-shot]")
+        );
+        shots.forEach((shot) => {
+          gsap.fromTo(
+            shot,
+            { yPercent: -4, scale: 1.045 },
+            {
+              yPercent: 4,
+              scale: 1,
+              ease: "none",
+              force3D: true,
+              scrollTrigger: {
+                trigger: shot.parentElement ?? shot,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: isTouch ? 0.4 : 0.7,
+                invalidateOnRefresh: true,
+              },
+            }
+          );
+        });
+      });
+
+      return () => mm.revert();
     },
-    [active]
+    { scope: sectionRef }
   );
-
-  const onListKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-    let next: number | null = null;
-    if (e.key === "ArrowDown") next = (active + 1) % CAP_IDS.length;
-    else if (e.key === "ArrowUp")
-      next = (active - 1 + CAP_IDS.length) % CAP_IDS.length;
-    else if (e.key === "Home") next = 0;
-    else if (e.key === "End") next = CAP_IDS.length - 1;
-    if (next === null) return;
-    e.preventDefault();
-    select(next);
-    listRef.current
-      ?.querySelectorAll<HTMLButtonElement>("[data-cap-tab]")
-      [next]?.focus();
-  };
 
   return (
     <section
+      ref={sectionRef}
       id="capabilities"
-      className="cv-auto scroll-mt-[var(--nav-offset)] border-t border-foreground/8 bg-paper px-5 py-16 md:px-10 md:py-28"
+      className="cv-auto scroll-mt-[var(--nav-offset)] bg-background px-5 py-14 text-foreground md:px-10 md:py-20"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 max-w-2xl md:mb-16">
-          <Reveal>
-            <h2 className="font-display text-4xl font-bold tracking-tight md:text-6xl">
-              {t("title")}
-            </h2>
-          </Reveal>
-          <Reveal delay={60}>
-            <p className="mt-5 max-w-[68ch] text-sm leading-relaxed text-foreground/55 md:text-base">
-              {t("blurb")}
-            </p>
-          </Reveal>
-          <Reveal delay={90}>
-            <p className="mt-3 max-w-md font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-foreground/30">
-              {t("techLine")}
-            </p>
-          </Reveal>
-        </div>
-
-        <div className="hidden gap-10 lg:grid lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
-          <div className="flex min-w-0 flex-col">
-          <div
-            ref={listRef}
-            role="tablist"
-            aria-orientation="vertical"
-            aria-label={t("label")}
-            onKeyDown={onListKeyDown}
-            className="flex flex-col border-t border-foreground/10"
-          >
-            {CAP_IDS.map((id, i) => {
-              const selected = active === i;
-              const preview = hoverPreview === i;
-              const hot = selected || preview;
-              return (
-                <button
-                  key={id}
-                  type="button"
-                  role="tab"
-                  id={`${baseId}-tab-${i}`}
-                  data-cap-tab
-                  aria-selected={selected}
-                  aria-controls={`${baseId}-panel`}
-                  aria-expanded={selected && detailOpen}
-                  tabIndex={selected ? 0 : -1}
-                  onClick={() => select(i)}
-                  onMouseEnter={() => setHoverPreview(i)}
-                  onMouseLeave={() => setHoverPreview(null)}
-                  className={`group flex items-start gap-5 border-b border-foreground/10 py-6 text-left transition-[color,transform] duration-300 ease-out ${
-                    hot
-                      ? "text-ink"
-                      : "text-foreground/40 [@media(hover:hover)_and_(pointer:fine)]:hover:text-foreground/70"
-                  } ${preview && !selected ? "translate-x-1" : ""}`}
-                >
-                  <span
-                    className={`font-mono text-xs font-bold transition-colors duration-300 ${
-                      hot ? "text-accent-ink" : "text-foreground/25"
-                    }`}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span>
-                    <span
-                      className={`block text-2xl font-bold tracking-tight transition-colors duration-300 md:text-3xl ${
-                        hot ? "text-foreground" : ""
-                      }`}
-                    >
-                      {t(`items.${id}.title`)}
-                    </span>
-                    <span className="mt-1 block max-w-sm text-sm leading-relaxed text-foreground/45 transition-opacity duration-300 group-hover:text-foreground/55">
-                      {t(`items.${id}.summary`)}
-                    </span>
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-            {/*
-              Sekme listesi sağ panelden kısa kalıyor; CTA ~230px boşlukta
-              yüzüyordu. mt-auto ile kolonun dibine otursun.
-            */}
-            <div className="mt-12 pt-2 lg:mt-auto">
-              <CapCta label={t("cta")} />
-            </div>
-          </div>
-
-          {/* Etiket her zaman *seçili* sekme — `shown` hover önizlemesiyle
-              değişiyor ve panel'i seçili olmayan bir sekmeye bağlıyordu. */}
-          <div
-            role="tabpanel"
-            id={`${baseId}-panel`}
-            aria-labelledby={`${baseId}-tab-${active}`}
-            className="min-w-0 transition-opacity duration-300"
-          >
-            <CapDetail
-              id={shownId}
-              body={t(`items.${shownId}.body`)}
-              detail={t(`items.${shownId}.detail`)}
-              outcomes={outcomes}
-              visualLabel={t(`items.${shownId}.visual`)}
-              showDetail={showDetail && shown === active}
+        <div className="grid grid-cols-12 gap-x-5 border-t border-foreground/20 pt-6 md:gap-x-6 md:pt-8">
+          <div className="col-span-12 md:col-span-8">
+            <WordReveal
+              text={t("title")}
+              className="font-display type-display text-[clamp(3rem,8vw,7rem)] leading-[1.4] tracking-[-0.05em]"
             />
           </div>
+          <Reveal delay={70} className="col-span-10 col-start-3 mt-8 md:col-span-3 md:col-start-10 md:mt-1">
+            <p className="text-[15px] leading-[1.7] text-foreground/62">
+              {t("blurb")}
+            </p>
+            <div className="mt-4 flex min-h-[2.85rem] items-center gap-1.5 font-mono text-[11px] font-bold text-accent sm:min-h-[1.5rem]">
+              <span>›</span>
+              <TextType
+                text={[
+                  "Next.js 16 & React Three Fiber",
+                  "Headless Mimari & Yüksek Performans",
+                  "Özel CRM & İşletim Panelleri",
+                  "WhatsApp & AI Entegrasyonları",
+                ]}
+                typingSpeed={40}
+                deletingSpeed={20}
+                pauseDuration={2400}
+                showCursor={true}
+                cursorCharacter="▍"
+                startOnVisible={true}
+                loop={true}
+              />
+            </div>
+            <p className="mt-4 font-mono text-[10px] font-bold uppercase leading-relaxed tracking-[0.15em] text-foreground/32">
+              <DecryptedText text={t("techLine")} animateOn="inViewHover" />
+            </p>
+          </Reveal>
         </div>
 
-        <div className="space-y-0 border-t border-foreground/10 lg:hidden">
-          {CAP_IDS.map((id, i) => {
-            const open = active === i;
+        <div className="mt-14 space-y-16 md:mt-20 md:space-y-24">
+          {CAP_IDS.map((id, index) => {
+            const visual = CAP_VISUAL[id];
+            const outcomes = t.raw(`items.${id}.outcomes`) as string[];
             return (
-              <div key={id} className="border-b border-foreground/10">
-                <button
-                  type="button"
-                  aria-expanded={open}
-                  aria-controls={`${baseId}-mobile-panel-${i}`}
-                  onClick={() => select(i)}
-                  className="flex w-full items-start gap-4 py-5 text-left"
-                >
-                  <span
-                    className={`font-mono text-xs font-bold transition-colors duration-300 ${
-                      open ? "text-accent-ink" : "text-foreground/30"
+              <article
+                key={id}
+                className="grid grid-cols-12 items-start gap-x-5 gap-y-8 md:gap-x-6"
+              >
+                <Reveal mode="mask" className={`col-span-12 ${visual.media}`}>
+                  <div
+                    className={`relative overflow-hidden bg-stone ${
+                      index === 1
+                        ? "aspect-[5/4]"
+                        : "aspect-[16/11] md:aspect-[16/10]"
                     }`}
                   >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="flex-1">
-                    <span className="block text-lg font-bold tracking-tight">
-                      {t(`items.${id}.title`)}
-                    </span>
-                    <span className="mt-0.5 block text-sm text-foreground/45">
-                      {t(`items.${id}.summary`)}
-                    </span>
-                  </span>
-                </button>
-                {open ? (
-                  <div
-                    id={`${baseId}-mobile-panel-${i}`}
-                    className="pb-6"
-                  >
-                    <CapDetail
-                      id={id}
-                      body={t(`items.${id}.body`)}
-                      detail={t(`items.${id}.detail`)}
-                      outcomes={t.raw(`items.${id}.outcomes`) as string[]}
-                      visualLabel={t(`items.${id}.visual`)}
-                      showDetail={detailOpen}
+                    <Image
+                      src={visual.hero}
+                      alt={t(`items.${id}.visual`)}
+                      fill
+                      sizes={
+                        index === 1
+                          ? "(max-width: 767px) calc(100vw - 40px), 50vw"
+                          : "(max-width: 767px) calc(100vw - 40px), 66vw"
+                      }
+                      quality={82}
+                      loading="lazy"
+                      decoding="async"
+                      data-capability-shot
+                      className="scale-[1.045] object-cover object-top"
+                      style={{ objectPosition: visual.objectPosition }}
                     />
                   </div>
-                ) : null}
-              </div>
+                </Reveal>
+
+                <Reveal delay={70} className={`col-span-12 ${visual.copy}`}>
+                  <div className="border-t border-foreground/20 pt-5">
+                    <div className="flex items-baseline justify-between gap-5">
+                      <DecryptedText
+                        text={String(index + 1).padStart(2, "0")}
+                        animateOn="inViewHover"
+                        className="font-mono text-[10px] font-bold tracking-[0.16em] text-foreground/35"
+                      />
+                      <span className="font-mono text-[9px] font-bold uppercase tracking-[0.14em] text-foreground/40">
+                        <DecryptedText
+                          text={t(`items.${id}.visual`)}
+                          animateOn="inViewHover"
+                        />
+                      </span>
+                    </div>
+                    <h3 className="mt-8 text-[clamp(2rem,4.2vw,4rem)] font-bold leading-[0.94] tracking-[-0.045em]">
+                      {t(`items.${id}.title`)}
+                    </h3>
+                    <p className="mt-5 max-w-[42ch] text-[15px] leading-[1.7] text-foreground/62">
+                      {t(`items.${id}.body`)}
+                    </p>
+                    <p className="mt-5 max-w-[40ch] font-subtitle text-base leading-relaxed text-foreground/74">
+                      {t(`items.${id}.detail`)}
+                    </p>
+                    <ul className="mt-8 border-t border-foreground/15">
+                      {outcomes.map((item) => (
+                        <li
+                          key={item}
+                          className="grid grid-cols-[1.25rem_1fr] gap-3 border-b border-foreground/15 py-3.5 text-sm text-foreground/62"
+                        >
+                          <span aria-hidden>—</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Reveal>
+              </article>
             );
           })}
         </div>
 
-        {/* lg+ CTA sekme kolonunun dibinde; burada yalnızca akordeon altı */}
-        <div className="mt-12 flex justify-start md:mt-16 lg:hidden">
-          <CapCta label={t("cta")} />
-        </div>
+        <Reveal>
+          <div className="mt-16 flex justify-end border-t border-foreground/20 pt-6 md:mt-20">
+            <Link
+              href="/services"
+              scroll={false}
+              className="group inline-flex min-h-11 items-center gap-5 text-sm font-bold"
+            >
+              <DecryptedText text={t("cta")} animateOn="hover" />
+              <span
+                aria-hidden
+                className="inline-flex size-10 items-center justify-center border border-foreground/30 transition-[background-color,color] group-hover:bg-foreground group-hover:text-background"
+              >
+                ↗
+              </span>
+            </Link>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

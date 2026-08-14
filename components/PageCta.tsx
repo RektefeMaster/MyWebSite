@@ -1,60 +1,91 @@
-"use client";
-
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { whatsappHref } from "@/lib/site";
 import Reveal from "./Reveal";
-import Magnetic from "./Magnetic";
-import WhatsAppButton from "./WhatsAppButton";
-import SpecularButton from "./SpecularButton";
+import TextType from "./TextType";
 
 type PageCtaProps = {
-  /** Kept for call-site API; not shown (no eyebrows). */
   label: string;
   title: string;
   blurb: string;
   cta: string;
 };
 
-/** Page-end void band — Atelier Signal kinetic close. */
-export default function PageCta({ title, blurb, cta }: PageCtaProps) {
-  return (
-    <section className="border-t border-band-fg/10 bg-band px-5 py-16 text-band-fg md:px-10 md:py-28">
-      <Reveal>
-        <div className="relative mx-auto flex max-w-7xl flex-col items-stretch justify-between gap-8 md:flex-row md:items-center md:gap-14">
-          <span
-            aria-hidden
-            className="brand-mark pointer-events-none absolute -bottom-4 right-0 select-none text-[7rem] leading-none text-band-fg/[0.04] md:text-[9rem]"
-          >
-            M
-          </span>
+/** Page-end editorial close: monochrome type, rules and two direct actions. */
+export default function PageCta({ label, title, blurb, cta }: PageCtaProps) {
+  const whatsapp = useTranslations("whatsapp");
 
-          <div className="relative max-w-xl">
-            <h2 className="font-display text-3xl font-bold tracking-[-0.03em] md:text-4xl lg:text-[2.75rem] lg:leading-[1.05]">
+  return (
+    <section className="border-y border-band-fg/20 bg-band px-5 py-14 text-band-fg md:px-10 md:py-20">
+      <div className="mx-auto max-w-7xl">
+        <Reveal>
+          <div className="grid grid-cols-12 gap-x-4 gap-y-10 md:gap-x-6">
+            <p className="col-span-12 border-t border-band-fg/25 pt-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-band-fg/55 md:col-span-2">
+              {label}
+            </p>
+
+            <h2 className="font-display type-display col-span-12 max-w-[11ch] text-[clamp(3rem,8vw,7rem)] leading-[1.4] tracking-[-0.05em] md:col-span-10">
               {title}
             </h2>
-            <p className="mt-4 max-w-[60ch] text-sm leading-relaxed text-band-fg/55 md:text-[15px]">
-              {blurb}
-            </p>
-          </div>
 
-          <div className="relative flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
-            <Magnetic strength={0.22} className="w-full sm:w-auto">
-              <SpecularButton
+            <div className="col-span-12 md:col-start-7 md:col-span-6 border-t border-band-fg/25 pt-5">
+              <p className="max-w-[58ch] text-base leading-[1.65] text-band-fg/68 md:text-lg">
+                {blurb}
+              </p>
+              <div className="mt-4 flex min-h-[1.5rem] items-center gap-2 font-mono text-xs text-band-fg/50">
+                <span className="font-bold text-accent">›</span>
+                <TextType
+                  text={[
+                    "Yeni bir dijital platform projeniz mi var?",
+                    "Özel yönetim paneli mi geliştirmek istiyorsunuz?",
+                    "Doğru mimari ve mühendislik yaklaşımını konuşalım."
+                  ]}
+                  typingSpeed={45}
+                  pauseDuration={2200}
+                  deletingSpeed={25}
+                  showCursor={true}
+                  cursorCharacter="▍"
+                  startOnVisible={true}
+                  loop={true}
+                  className="font-mono text-xs font-medium text-band-fg/75"
+                />
+              </div>
+            </div>
+
+            <div className="col-span-12 mt-2 grid border-t border-band-fg/25 sm:grid-cols-2 md:col-start-3 md:col-span-10">
+              <Link
                 href={{ pathname: "/", hash: "contact" }}
-                tone="accent"
-                size="lg"
-                fillMobile
-                className="btn-stable btn-stable--cta"
+                scroll={false}
+                className="group flex min-h-16 items-center justify-between border-b border-band-fg/25 py-4 text-sm font-bold uppercase tracking-[0.08em] text-band-fg transition-colors hover:bg-band-fg hover:px-4 hover:text-band sm:border-r"
               >
-                {cta}
-                <span aria-hidden>→</span>
-              </SpecularButton>
-            </Magnetic>
-            <WhatsAppButton
-              variant="outlineOnDark"
-              className="btn-stable btn-stable--cta w-full sm:w-auto"
-            />
+                <span>{cta}</span>
+                <span
+                  aria-hidden
+                  className="text-lg transition-transform motion-reduce:transition-none [@media(hover:hover)_and_(pointer:fine)]:group-hover:translate-x-1"
+                >
+                  →
+                </span>
+              </Link>
+
+              <a
+                href={whatsappHref(whatsapp("prefill"))}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={whatsapp("label")}
+                className="group flex min-h-16 items-center justify-between border-b border-band-fg/25 py-4 text-sm font-semibold text-band-fg/65 transition-colors hover:px-4 hover:text-band-fg sm:pl-5"
+              >
+                <span>{whatsapp("cta")}</span>
+                <span
+                  aria-hidden
+                  className="text-lg transition-transform motion-reduce:transition-none [@media(hover:hover)_and_(pointer:fine)]:group-hover:translate-x-1"
+                >
+                  ↗
+                </span>
+              </a>
+            </div>
           </div>
-        </div>
-      </Reveal>
+        </Reveal>
+      </div>
     </section>
   );
 }

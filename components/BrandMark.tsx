@@ -36,7 +36,7 @@ export default function BrandMark({
         d="M3.2 32V5.2h5.1L14.8 22.4 21.2 5.2h5.1V32h-4.6V14.8L16.9 32h-4.1L8 14.8V32H3.2Z"
         fill="currentColor"
       />
-      <circle cx="34.2" cy="28.4" r="3.15" className="fill-accent" />
+      <circle cx="34.2" cy="28.4" r="3.15" fill="currentColor" />
     </svg>
   );
 

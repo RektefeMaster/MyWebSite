@@ -2,437 +2,448 @@ import type { BlogArticle } from "../blog";
 
 const content: Record<string, BlogArticle> = {
   "what-is-seo": {
-    title: "Qué es SEO: guía clara para sitios web de negocios",
+    title: "Qué es SEO y cómo funciona para un sitio web empresarial",
     excerpt:
-      "Qué significa SEO, cómo los buscadores rastrean y ordenan páginas, y qué hacen el SEO técnico, el SEO on-page y el contenido en un sitio de negocio. Sin promesas de ranking. Definiciones prácticas.",
-    lead: "SEO significa optimización para motores de búsqueda. En lenguaje claro, es el trabajo de ayudar a que los buscadores encuentren sus páginas, entiendan de qué tratan y las muestren a quien ya busca lo que usted ofrece. En METEK Digital tratamos el SEO como parte de construir un sitio de negocio, no como un eslogan que se pega después del lanzamiento. Esta guía explica las piezas que importan, los mitos que gastan presupuesto y qué pedir al encargar un sitio.",
-    imageAlt: "Portátil y lupa que sugieren investigación de optimización en buscadores",
+      "El SEO ayuda a que los buscadores encuentren, entiendan y clasifiquen páginas. Conozca sus bases técnicas, de contenido y autoridad.",
+    lead: "SEO significa optimización para motores de búsqueda. Abarca el trabajo técnico y editorial que permite encontrar un sitio, comprender de qué trata y relacionarlo con consultas pertinentes. Para una empresa, el punto de partida es concreto: identificar qué busca el cliente, ofrecer una página que responda esa necesidad y mostrar evidencia que le permita avanzar.",
+    imageAlt: "Computadora portátil y lupa como representación de la optimización para motores de búsqueda",
     sections: [
       {
-        heading: "Qué significa SEO en la práctica",
+        heading: "Cómo procesa un buscador su sitio",
         paragraphs: [
-          "Los buscadores premian páginas que responden a una consulta real, cargan bien y se ven confiables. El SEO no es un truco secreto de palabras clave. Es una mezcla de preparación técnica, estructura clara, contenido útil y señales de que el negocio es legítimo.",
-          "Para una empresa de servicios, un fabricante, una clínica o una boutique, el SEO suele significar esto: cuando alguien busca el servicio que usted vende en el mercado que atiende, su sitio puede aparecer. Poder aparecer no es lo mismo que garantizar el primer puesto. Ninguna agencia honesta vende un ranking fijo.",
+          "Un buscador descubre direcciones por medio de enlaces, mapas del sitio y visitas anteriores. Después rastrea el contenido, interpreta la página y decide si la incorpora a su índice. Cuando alguien hace una consulta, el sistema selecciona y ordena páginas de ese índice.",
+          "Cada paso depende del anterior. Una página aislada puede tardar en descubrirse. Una instrucción canonical equivocada puede señalar otra URL como principal. Una página indexada puede quedar lejos de la consulta si su contenido es ambiguo. Por eso el SEO combina acceso técnico, estructura e intención de búsqueda.",
         ],
       },
       {
-        heading: "Cómo funcionan los buscadores: rastreo, índice y ranking",
+        heading: "La base técnica elimina obstáculos",
         paragraphs: [
-          "Rastreo: los bots descubren URLs por enlaces, sitemaps y visitas anteriores. Si una página está bloqueada, huérfana o perdida tras una navegación rota, puede no verse nunca.",
-          "Índice: el motor guarda lo que entendió de la página. Titles, encabezados, texto, datos estructurados y medios ayudan. Las páginas pobres o duplicadas son malas candidatas a una entrada fuerte en el índice.",
-          "Ranking: cuando una persona busca, el motor ordena las páginas elegibles por relevancia y señales de calidad. Su trabajo es hacer que la página sea la mejor coincidencia honesta con la consulta, no engañar una puntuación misteriosa.",
+          "Una navegación rastreable, códigos de estado correctos y un mapa XML actualizado ayudan a los buscadores a recorrer el sitio. También se revisan las redirecciones, la configuración de robots.txt y las etiquetas canonical. En un sitio multilingüe, hreflang debe indicar el idioma y mercado de cada versión.",
+          "El desempeño en el celular forma parte de la misma base. Las imágenes deben llegar al tamaño adecuado, las fuentes deben cargarse con cuidado y el contenido principal debe aparecer sin depender de scripts innecesarios. Estas medidas facilitan el uso y evitan barreras técnicas; ninguna garantiza una posición específica.",
         ],
       },
       {
-        heading: "SEO técnico: la base de un sitio de negocio",
+        heading: "Cada página responde a una intención",
         paragraphs: [
-          "El SEO técnico cubre si el sitio se puede rastrear y usar. Titles y meta descriptions únicos. Un H1 claro por página. Árbol de encabezados lógico. Buen rendimiento en móvil. Sitemap XML y robots.txt correctos. Canonicals coherentes. Redirecciones limpias cuando cambian las URLs.",
-          "En sitios multilingües, hreflang debe apuntar a las versiones correctas de idioma y mercado. Un hreflang mal puesto confunde a usuarios y motores. En desarrollos a medida, estos puntos deben planearse antes del lanzamiento, no parchearse meses después.",
-          "Si quiere una lista práctica para el día del lanzamiento, lea en este blog nuestra checklist de SEO técnico para sitios de negocio. Ese artículo es el compañero de campo de esta definición.",
+          "La persona que busca “qué es SEO” necesita una explicación. Quien escribe “agencia de diseño web para fabricantes” está comparando proveedores. Una búsqueda de “cotización para rediseñar sitio web” está más cerca de una conversación comercial. La página adecuada cambia según esa intención.",
+          "El título de la página identifica el tema. La descripción para buscadores resume lo que encontrará el usuario. Un H1 claro establece el enfoque y los subtítulos organizan la respuesta. La estructura debe sonar natural; repetir la misma frase en cada párrafo dificulta la lectura.",
         ],
       },
       {
-        heading: "SEO on-page: titles, estructura y claridad",
+        heading: "El contenido debe aportar una respuesta completa",
         paragraphs: [
-          "El SEO on-page es cómo cada página se explica a sí misma. El title debe nombrar el tema y, cuando sea natural, la marca. La meta description debe ganar el clic con una promesa clara. El H1 debe coincidir con el tema de la página. El cuerpo debe responder la consulta sin repetir la misma frase en cada oración.",
-          "Los enlaces internos importan. Servicios, casos del portafolio y contacto deben conectarse en el contenido, no solo en el pie. Un visitante y un rastreador deben entender a dónde ir después.",
-          "Las imágenes necesitan nombres descriptivos y texto alternativo cuando aportan significado. Las decorativas pueden quedarse calladas. Las capturas de producto y proyecto deben decir qué muestran.",
+          "Una página de servicio explica a quién ayuda, qué incluye el trabajo y cómo se desarrolla.",
+          "También debe dejar claro el siguiente paso. Un artículo especializado parte de una pregunta más estrecha y la desarrolla con ejemplos, límites y acciones que el lector puede aplicar.",
+          "La extensión por sí sola no mejora una página. Revise qué aporta cada párrafo. Si agrega un dato, resuelve una duda o conecta una idea con la siguiente, cumple una función. Si solo repite la premisa con otras palabras, conviene eliminarlo.",
         ],
       },
       {
-        heading: "Contenido e intención de búsqueda",
+        heading: "La autoridad necesita fuentes pertinentes",
         paragraphs: [
-          "La gente busca con intención. Las consultas informativas preguntan qué es algo. Las comerciales comparan opciones. Las transaccionales quieren contacto, cita o compra. Una portada, una página de servicio y un artículo de blog sirven intenciones distintas.",
-          "El buen contenido SEO es específico. Nombra el servicio, el público y el siguiente paso. No alarga por alargar. Una página de servicio corta que responde la pregunta real vence a un ensayo largo que nunca dice para quién es la oferta.",
-          "Un panel de gestión o CMS ayuda después del lanzamiento. El SEO no termina el día de publicar. Precios, horarios y líneas de servicio cambian. Su equipo necesita actualizar titles y textos sin esperar a un desarrollador en cada cambio.",
+          "Los buscadores también observan señales externas. Para una empresa local, los datos consistentes de nombre, dirección y teléfono ayudan a confirmar su presencia. Un fabricante puede beneficiarse de menciones del sector, páginas de distribuidores o casos que documenten una aplicación concreta. Priorice lugares donde un cliente realmente esperaría encontrar a la empresa; una referencia vinculada con el servicio pesa más que una lista extensa de directorios genéricos.",
         ],
       },
       {
-        heading: "Señales off-page y confianza",
+        heading: "Qué debe pedir al desarrollar un sitio",
         paragraphs: [
-          "El SEO off-page trata sobre todo de confianza y menciones fuera de su sitio: enlaces reputables, fichas de negocio coherentes y referencias reales. Comprar paquetes de enlaces al azar es una forma habitual de salir perjudicado.",
-          "Para negocios locales y oficios, el nombre, dirección y teléfono exactos en perfiles siguen importando. Para fabricantes B2B, casos claros y un sitio profesional suelen hacer más que un montón de directorios de baja calidad.",
+          "Defina quién prepara los títulos, descripciones, encabezados y el mapa del sitio antes de publicar. Pida una explicación del proceso para revisar velocidad móvil, indexación y redirecciones. Si el sitio atiende varios mercados, cada idioma necesita contenido escrito para ese público.",
+          "También debe existir una ruta de actualización. Un panel administrativo o un CMS puede permitir que su equipo mantenga servicios, ubicaciones y artículos sin tocar el código. Los campos disponibles deben corresponder a tareas reales de contenido.",
         ],
       },
       {
-        heading: "SEO frente a anuncios de pago",
+        heading: "La optimización continúa después de publicar",
         paragraphs: [
-          "La búsqueda de pago puede ponerlo delante de una consulta hoy. Cuando deja de pagar, la visibilidad suele caer. El SEO acumula si el sitio y el contenido se mantienen sanos, pero tarda más y nunca sustituye una oferta débil.",
-          "La mayoría de negocios usa ambos en etapas distintas. Los anuncios pueden probar mensajes mientras el sitio se construye listo para búsqueda. El SEO evita vivir para siempre solo del gasto publicitario. Ninguno de los dos arregla un sitio lento y confuso.",
-        ],
-      },
-      {
-        heading: "Mitos que gastan presupuesto",
-        paragraphs: [
-          "Mito: el SEO es una configuración de una sola vez. Realidad: la base se construye una vez y luego se mantiene cuando cambian contenido y estructura.",
-          "Mito: más palabras clave siempre traen más tráfico. Realidad: el relleno hace las páginas más difíciles de leer y más fáciles de desconfiar.",
-          "Mito: cualquier agencia puede garantizar la primera página en treinta días. Realidad: el ranking depende de competencia, demanda y calidad. Las garantías son táctica de venta, no método.",
-          "Mito: una plantilla barata con un plugin de SEO basta. Realidad: el plugin no reemplaza arquitectura clara, páginas rápidas y contenido alineado con la intención.",
-        ],
-      },
-      {
-        heading: "Qué pedir al construir un sitio de negocio",
-        paragraphs: [
-          "Pregunte quién define titles, meta, encabezados y sitemap antes del lanzamiento. Pregunte cómo se comprobará la velocidad en móvil. Pregunte si las páginas de servicio apuntarán a frases de búsqueda reales en el idioma de su mercado, no a restos traducidos.",
-          "Pregunte cómo actualizará el contenido tras la entrega. Pida ejemplos en vivo de sitios que sigan siendo manejables. En METEK Digital, la preparación de SEO técnico, la estructura legible y el control de contenido entran en el alcance del sitio cuando el proyecto debe competir en búsqueda.",
-          "Si su próximo proyecto necesita un sitio corporativo listo para búsqueda, un panel de gestión, o ambos, escríbanos con su sector y objetivo. Devolvemos un alcance claro. El SEO es parte de la construcción, no una línea vaga al final.",
+          "Los reportes de indexación y las consultas reales muestran qué partes del sitio necesitan atención. Los cambios de servicios requieren contenido actualizado. Las páginas retiradas necesitan una decisión sobre redirección, y los enlaces internos deben acompañar la nueva estructura.",
+          "El SEO trabaja con competencia y demanda cambiantes. Una práctica responsable documenta lo que puede controlar. Después corrige problemas de indexación y ajusta las páginas según consultas reales.",
         ],
       },
     ],
   },
+
   "website-pricing-why-cheap-costs-more": {
-    title: "Precios de sitios web: por qué lo a medida cuesta más y lo barato sale caro",
+    title: "Cuánto cuesta un sitio web y cómo comparar cotizaciones",
     excerpt:
-      "Cuánto cuesta un sitio web depende del alcance. Qué encarece el diseño web a medida, qué recortan las ofertas baratas y cómo comparar propuestas de agencia.",
-    lead: "Los precios de un sitio web no son un solo número. Dos cotizaciones pueden usar las mismas palabras y significar trabajos opuestos: recolorear una plantilla comprada frente a diseño a medida, código limpio, SEO técnico y soporte tras el lanzamiento. En METEK Digital fijamos el precio según el alcance, no según un catálogo. Este artículo muestra cómo leer propuestas y por qué un sitio barato suele terminar siendo el caro.",
-    imageAlt: "Escritorio que ilustra precios de sitios web y alcance del proyecto",
+      "El costo de un sitio depende del alcance, diseño, desarrollo, preparación para buscadores, administración de contenido y entrega técnica.",
+    lead: "Una cifra aislada dice poco sobre el costo de un sitio web. Dos propuestas pueden usar la frase “diseño a medida” y cubrir tareas muy distintas. Para compararlas, necesita saber qué páginas se crearán, cuáles funciones están incluidas, quién prepara el contenido y cómo se administrará el sitio después de publicarlo.",
+    imageAlt: "Escritorio con documentos para comparar costos y alcance de un sitio web",
     sections: [
       {
-        heading: "Por qué “cuánto cuesta un sitio web” es la mala primera pregunta",
+        heading: "El alcance determina la mayor parte del costo",
         paragraphs: [
-          "Pregunte qué incluye el precio. Número de páginas, diseño a medida o plantilla, quién escribe el contenido, controles de móvil y velocidad, SEO técnico, panel de gestión, días de soporte. Un número sin esa lista es regateo, no una estimación.",
-          "Un sitio corporativo, una tarjeta personal y un ecommerce no son el mismo paquete. Si suma un chatbot de WhatsApp o un panel CRM, el alcance crece otra vez. La mayoría de las diferencias de precio nacen ahí.",
+          "Un sitio corporativo compacto requiere menos planificación que una plataforma multilingüe con servicios, casos, blog y panel administrativo. Los formularios conectados a un CRM, la lógica de citas y las migraciones de contenido agregan trabajo técnico específico.",
+          "Una cotización útil enumera tipos de página, funciones, responsabilidades y exclusiones. También explica cuántas rutas de diseño se revisarán y qué sucede cuando una solicitud cambia el alcance aprobado.",
         ],
       },
       {
-        heading: "A dónde va el dinero",
+        heading: "Dónde se concentra el trabajo",
         paragraphs: [
-          "Descubrimiento y alcance: objetivos, público, límites y cómo se ve el éxito, por escrito. Si se salta, crecen las facturas de revisión.",
-          "Diseño e interfaz: composición, tipografía y componentes para la marca. En una plantilla esas decisiones son de otro. En diseño web a medida son de su negocio.",
-          "Desarrollo: código mantenible, móvil, formularios, panel cuando haga falta. SEO técnico: titles y meta únicos, estructura H1, sitemap, base de indexación. Entrega y soporte: después del lanzamiento, alguien es dueño de lo que se rompe.",
-          "Cada punto pide horas. Si la cotización esconde las horas, algo se recortó: calidad, propiedad, o ambas.",
+          "La definición inicial aclara público, objetivos y recorridos principales.",
+          "Con esa información se organiza el contenido y se diseñan los tipos de página esenciales. Una interfaz propia requiere decisiones consistentes sobre tipografía, color, espaciado y estados de interacción.",
+          "El desarrollo convierte esas reglas en componentes adaptables, formularios y conexiones con otros sistemas. Antes de entregar se prueban rutas de contacto, experiencia móvil, accesibilidad básica y preparación técnica para buscadores. Los accesos y la documentación forman parte del cierre acordado.",
         ],
       },
       {
-        heading: "Por qué no debería encargar un sitio web tirado de precio",
+        heading: "Una oferta muy baja merece preguntas precisas",
         paragraphs: [
-          "Los precios muy bajos suelen ser una plantilla de marketplace con otro color. Las plantillas envejecen, los plugins chocan, baja la velocidad, se rompe el móvil. Se ve bien una semana. A los seis meses el sitio no parece suyo.",
-          "Lo que se corta en el trabajo barato es previsible: sin descubrimiento, sin plan de contenido, sin SEO técnico, sin pase de accesibilidad, sin notas de entrega, sin soporte. Cuando el formulario falla o el sitio no aparece en búsqueda, nadie posee el arreglo.",
-          "Una reconstrucción más cara a menudo cuesta menos que años de parches sobre una base débil. Arreglar un cimiento malo es más difícil que construirlo bien una vez.",
+          "Un precio bajo puede ser adecuado para una primera etapa bien delimitada. El riesgo aparece cuando la propuesta promete muchas páginas y funciones sin asignar tiempo a contenido, pruebas o mantenimiento. En esos casos es frecuente encontrar una plantilla con ajustes visuales y poca atención a la estructura.",
+          "Los problemas suelen aparecer cuando el negocio necesita cambiar algo. Componentes improvisados dificultan una página nueva, varios complementos entran en conflicto o cada corrección de texto requiere un desarrollador. La cotización debe indicar quién atiende estas situaciones y bajo qué condiciones.",
         ],
       },
       {
-        heading: "Qué debe traer una cotización más alta",
+        heading: "Compare propiedad, administración y entrega",
         paragraphs: [
-          "Alcance por escrito. Páginas, funciones y exclusiones claras. Diseño a medida llamado a medida, no un nombre de plantilla en la letra pequeña. Controles previos al lanzamiento de velocidad, móvil y SEO técnico.",
-          "Quién actualiza el contenido. Sin panel o CMS, cada cambio de texto es otra factura. Duración del soporte y canal de contacto tras el lanzamiento. Trabajos en vivo que pueda abrir, no solo mockups.",
-          "METEK Digital mantiene esos encabezados explícitos. Sitio, panel, chatbot o trabajo de marca se define según lo que necesita. No un catálogo de descuentos. Una lista real de entregables.",
+          "Confirme quién controla el dominio, el alojamiento, el repositorio y las cuentas de servicios externos. Revise las licencias recurrentes. Su empresa debe recibir acceso a los recursos que forman parte de la entrega.",
+          "Entregue a cada proveedor la misma nota de proyecto y solicite detalles sobre diseño, experiencia móvil, preparación para buscadores, rondas de revisión y administración del contenido. Así las diferencias de alcance quedan visibles.",
+          "Revise trabajos relacionados con su sector o con una necesidad semejante. Pregunte qué parte realizó el proveedor y qué sistema recibió el cliente. Una imagen atractiva no demuestra por sí sola la calidad técnica ni el proceso de entrega.",
         ],
       },
       {
-        heading: "Cómo comparar propuestas",
+        heading: "Cómo priorizar con un presupuesto limitado",
         paragraphs: [
-          "Ponga tres cotizaciones juntas y haga las mismas preguntas. Diseño a medida o plantilla. SEO técnico incluido. Panel incluido. Días de soporte. Cómo van las revisiones. De quién son el código y las cuentas.",
-          "El número más bajo no es el menor riesgo. El más alto no es automáticamente el mejor trabajo. Gana quien escribe un alcance legible y sigue disponible después de la entrega.",
-          "Antes de hablar de precio, escriba un párrafo: para quién es el sitio, qué acción quiere (cotización, cita, WhatsApp) y cuándo debe estar en línea. Sin eso, todo precio es aire.",
-        ],
-      },
-      {
-        heading: "El precio correcto es el alcance correcto",
-        paragraphs: [
-          "Una buena inversión en sitio web compra confianza, un camino claro de contacto y un sitio que su equipo pueda actualizar. Un sitio barato a menudo alquila solo la primera pantalla y no transfiere la propiedad.",
-          "Si el presupuesto es justo, no pida todo a la vez. Empiece con un sitio corporativo sólido y un camino claro de consulta. Panel, chatbot o movimiento avanzado pueden venir después. Estrecho y correcto vence a amplio y a medias.",
-          "¿Quiere un rango de precio claro para el alcance de su sitio? Contacte a METEK Digital. Cuente sector, objetivo y plazos. En un día recibe alcance y rango de precio.",
+          "Empiece por las páginas que explican la oferta, muestran evidencia y permiten el contacto. Un blog amplio, animaciones complejas o automatizaciones pueden quedar para una etapa posterior. Conviene registrar esa expansión prevista para que la base técnica pueda admitirla.",
+          "Una primera versión enfocada permite estimar mejor el trabajo y revisar el resultado con claridad. Para solicitar una estimación a METEK Digital, comparta su sector, objetivo, funciones indispensables y plazo aproximado. Con esos datos podemos definir un alcance inicial.",
         ],
       },
     ],
   },
+
   "whatsapp-chatbot-for-business": {
-    title: "Chatbot de WhatsApp para negocios: qué hace y cómo se configura",
+    title: "Chatbot de WhatsApp para negocios: flujos, límites y CRM",
     excerpt:
-      "Qué debe hacer un chatbot de WhatsApp para negocios: preguntas frecuentes, citas, protección de horas ocupadas, recordatorios y enlace a CRM. Léalo antes de comprar automatización WhatsApp.",
-    lead: "La mayoría de los negocios responde cada día las mismas preguntas por WhatsApp: precio, horario, dirección, disponibilidad. Un chatbot de WhatsApp asume esa carga. Agenda horas libres, protege las ocupadas y entrega chats poco claros al equipo con un resumen breve. En METEK Digital construimos chatbots como herramientas de operación conectadas a un CRM o panel de citas, no como demos.",
-    imageAlt: "Teléfono en un escritorio para un artículo de chatbot WhatsApp para negocios",
+      "Un chatbot de WhatsApp puede responder preguntas y gestionar citas. Necesita datos aprobados, transferencia humana y una conexión operativa clara.",
+    lead: "Un chatbot de WhatsApp funciona mejor cuando recibe tareas estrechas y verificables. Puede responder información aprobada, consultar espacios disponibles o recopilar datos para una solicitud. Su valor operativo depende de fuentes actualizadas, límites explícitos y una transferencia ordenada a una persona.",
+    imageAlt: "Teléfono sobre un escritorio para un artículo sobre chatbots de WhatsApp para negocios",
     sections: [
       {
-        heading: "Qué es un chatbot de WhatsApp",
+        heading: "Use conversaciones reales para definir el alcance",
         paragraphs: [
-          "Un chatbot de WhatsApp es software que responde en la línea comercial según reglas que usted define. Es más que respuestas enlatadas. Conoce servicios y precios, revisa el calendario, abre o bloquea citas y escala a una persona cuando la conversación deja de ser rutina.",
-          "La gente busca automatización WhatsApp o chatbot de citas. La etiqueta importa menos que el trabajo. Qué termina el bot y qué debe quedar en el equipo. Si ese límite es vago, el bot genera ruido.",
+          "Revise mensajes de un periodo representativo y agrúpelos por intención.",
+          "Separe preguntas informativas, solicitudes de cita, cambios, cancelaciones y situaciones que requieren criterio humano. Ese inventario muestra qué parte del trabajo sigue reglas estables.",
+          "Cada respuesta automatizada debe tener una fuente aprobada y una persona responsable. Precios, horarios y condiciones cambian. Anote dónde se actualizan y cómo llega la modificación al chatbot.",
         ],
       },
       {
-        heading: "A qué negocios les encaja",
+        heading: "Los mejores flujos tienen un final comprobable",
         paragraphs: [
-          "Encaja donde hay muchas preguntas y citas: clínicas, belleza, servicios boutique, hoteles pequeños, servicio de campo, showrooms. Si la mayoría de mensajes gira en torno a precio, horario y huecos libres, el chatbot es buen candidato.",
-          "En ventas B2B donde cada trato pide negociación a medida, el bot debe ser solo un primer filtro. Detalle de cotización, precios excepcionales y quejas se quedan con personas. En proyectos METEK escribimos esos límites en la nota de proyecto desde el inicio.",
+          "Un flujo de citas consulta disponibilidad, presenta opciones y registra una elección confirmada. Una cancelación debe afectar la cita correcta y devolver el espacio al calendario. En un flujo informativo, el final puede ser una respuesta completa o el contacto con el área correspondiente.",
+          "Las quejas, negociaciones especiales y solicitudes ambiguas suelen necesitar una persona. Defina esas condiciones antes de desarrollar. El chatbot debe reconocer el límite de sus reglas y detenerse al transferir el caso.",
         ],
       },
       {
-        heading: "Qué hace un buen chatbot de negocio",
+        heading: "La transferencia debe incluir el contexto",
         paragraphs: [
-          "Responde preguntas frecuentes con su tono. Conoce horas libres y dirige las citas allí. No escribe en horas ocupadas. Reabre el hueco tras una cancelación. Envía un recordatorio antes de la cita.",
-          "Si el chat es confuso o enfadado, el bot no inventa. Entrega el hilo: quién es el cliente, qué preguntó, en qué paso se quedó. Sin ese resumen, la automatización queda incompleta.",
-          "Si los DM de Instagram usan el mismo calendario, un chatbot de Instagram debe seguir las mismas reglas. Dos canales, una disponibilidad. Si no, hay riesgo de doble reserva.",
+          "Una alerta aislada obliga al equipo a leer todo desde el principio. Una buena transferencia reúne los datos conocidos, la intención detectada, las opciones elegidas y la pregunta pendiente. Así la persona puede continuar la conversación con menos repeticiones.",
+          "Explique al cliente que alguien continuará la atención. El sistema también debe evitar nuevas respuestas automáticas dentro de ese mismo caso hasta que se cierre o se reasigne.",
         ],
       },
       {
-        heading: "Por qué hace falta un CRM o panel de citas",
+        heading: "Calendario y CRM sostienen la operación",
         paragraphs: [
-          "Si el chatbot solo conversa, los registros se dispersan. Quién reservó, qué canal escribió, qué se canceló: eso pertenece a un CRM o panel de ventas. Chatbot de WhatsApp más panel CRM deja ver el día sin abrir tres apps.",
-          "Se puede publicar un bot sin panel, pero es difícil de mantener. Cuando cambian precios, hay festivos o llega un servicio nuevo, la ruta de actualización debe ser obvia. METEK define chatbot y panel en el mismo alcance.",
+          "Cada conversación puede generar un contacto, una cita, una cancelación o una nota. Estos registros necesitan un destino definido en el CRM o panel de citas. Dejar parte en WhatsApp y parte en hojas de cálculo dificulta conocer el estado real.",
+          "Cuando WhatsApp e Instagram comparten agenda, ambos canales deben consultar la misma fuente de disponibilidad. El calendario decide qué espacio está libre; el chatbot presenta esa información y registra la selección según las reglas aprobadas.",
         ],
       },
       {
-        heading: "Pasos de configuración",
+        heading: "Pruebe errores antes de ampliar el flujo",
         paragraphs: [
-          "Empiece con mensajes reales de las últimas dos semanas. Liste lo que el bot debe saber: servicios, rangos de precio, horarios, ubicación, reglas de cancelación. Luego escriba disparadores de traspaso: quejas, precio especial, intención poco clara.",
-          "Pruebe los flujos: camino feliz, hora llena, cancelación, malentendido. Observe los primeros días tras el lanzamiento y ajuste respuestas antes de que se vuelvan bruscas. La necesidad de WhatsApp Business API o canal aprobado varía según el negocio y se aclara en el descubrimiento.",
-        ],
-      },
-      {
-        heading: "Checklist corta antes de publicar",
-        paragraphs: [
-          "Precios y servicios al día. Calendario correcto. Horas ocupadas protegidas. Las cancelaciones reabren huecos. Momento del recordatorio bien. Chats poco claros crean resumen para el equipo. Se crean registros en el panel.",
-          "Si esos puntos no están en verde, no abra el bot a todo el mundo. Empiece con un escenario estrecho. La automatización amplia puede esperar. Si quiere un chatbot de WhatsApp, de Instagram o un panel CRM para su negocio, contacte a METEK Digital.",
+          "Pruebe también horarios ocupados, mensajes duplicados, respuestas tardías y cambios durante una reserva. Confirme que el sistema asigna la zona horaria correcta y que una cancelación no afecta otro registro.",
+          "Comience con un solo flujo importante. Durante la primera etapa de uso, revise conversaciones que terminaron en transferencia o abandono. Esos casos muestran qué redacción o regla necesita ajuste.",
+          "Para evaluar un proyecto con METEK Digital, prepare las preguntas frecuentes y las reglas actuales de citas. Incluya una descripción del calendario o CRM y aclare quién atiende casos especiales. La revisión inicial separa configuración, integración y desarrollo propio.",
         ],
       },
     ],
   },
+
   "technical-seo-checklist-business-website": {
-    title: "Lista de SEO técnico para sitios web de negocios",
+    title: "Checklist de SEO técnico para un sitio web empresarial",
     excerpt:
-      "Checklist de SEO técnico antes del lanzamiento: titles y meta, estructura H1, velocidad, móvil, indexación y panel de contenido. Pasos claros para sitios corporativos.",
-    lead: "El SEO técnico no es una lista mágica de palabras clave. Es si los buscadores leen bien el sitio, si las páginas cargan rápido y si el equipo puede actualizar contenido. En METEK Digital estos controles son obligatorios antes de publicar. Use la lista si construye un sitio de negocio, con o sin panel de gestión.",
-    imageAlt:
-      "Portátil con analítica en un escritorio para revisión de SEO técnico",
+      "Revise rastreo, metadatos, desempeño móvil, indexación, mapa del sitio, redirecciones y administración antes de publicar.",
+    lead: "El SEO técnico permite que los buscadores recorran y comprendan las páginas importantes de una empresa. La revisión comienza con la arquitectura y continúa después de publicar. Esta lista organiza los controles por etapa para detectar problemas antes de que afecten muchas páginas.",
+    imageAlt: "Computadora portátil con datos para revisar el SEO técnico de un sitio empresarial",
     sections: [
       {
-        heading: "Qué es el SEO técnico y qué no es",
+        heading: "Antes de diseñar: asigne una función a cada página",
         paragraphs: [
-          "El SEO técnico cubre titles, meta descriptions, jerarquía de encabezados, velocidad, móvil, rastreo e indexación. No sustituye el buen contenido. Sin base técnica, la visibilidad sigue limitada.",
-          "Al contratar una agencia de diseño web, pida un pase de SEO técnico previo al lanzamiento, no solo diseño. Los temas a menudo lo dejan a medias. El desarrollo a medida puede construirlo desde el inicio.",
+          "Enumere los tipos de página que necesita el sitio: inicio, servicios, casos, ubicaciones, artículos y contacto. Asigne a cada uno un propósito y un encabezado principal. Esta vista revela contenidos duplicados y vacíos antes de trabajar en la interfaz.",
+          "Defina también las URL finales. En un rediseño, cada dirección anterior necesita una decisión documentada: conservarla, redirigirla a un destino pertinente o retirarla cuando ya no tenga reemplazo.",
         ],
       },
       {
-        heading: "Titles, meta y estructura H1",
+        heading: "Durante el desarrollo: controle el rastreo",
         paragraphs: [
-          "Cada página importante necesita title y meta únicos. El title nombra marca y servicio con claridad. La meta gana el clic sin relleno de palabras clave.",
-          "Un H1 por página. H2 y H3 llevan subtemas en orden. En la portada el H1 suele decir la oferta principal. Las páginas de servicios de diseño web, paneles o chatbots llevan su propio H1.",
-          "No copie el mismo title en varias páginas. Los titles duplicados debilitan la experiencia y los resultados de búsqueda.",
+          "Proteja los entornos de prueba para que no se indexen. En producción, conecte las páginas importantes mediante enlaces HTML normales. Revise en conjunto robots.txt, meta robots y canonical para evitar instrucciones contradictorias.",
+          "Genere un mapa XML con las páginas principales que sí deben indexarse. Excluya vistas previas, filtros sin valor y rutas del sistema. Para varios idiomas, cada hreflang debe apuntar a la versión correcta y recibir una referencia de regreso.",
         ],
       },
       {
-        heading: "Velocidad, móvil y Core Web Vitals",
+        heading: "Títulos, descripciones y encabezados",
         paragraphs: [
-          "La mayoría abre el sitio en el teléfono. Sirva imágenes en el tamaño correcto, recorte scripts y mantenga tipografías ligeras. Una primera pantalla rápida importa para ventas y SEO.",
-          "Revise el diseño móvil en un dispositivo real antes de publicar. Menú, contacto y formularios deben usarse con el pulgar. Un acabado solo de escritorio que falla en móvil también es un problema de SEO técnico.",
+          "Cada página importante necesita un título propio y una descripción útil para los resultados de búsqueda. El título identifica el tema. La descripción explica qué información encontrará la persona. Ambos deben leerse con naturalidad.",
+          "Use un H1 claro y organice los subtemas con H2 y H3 en orden lógico. El nivel del encabezado comunica estructura. Su tamaño visual se controla con estilos, no cambiando el nivel para lograr una apariencia determinada.",
         ],
       },
       {
-        heading: "Estructura, enlaces internos y sitemap",
+        heading: "Desempeño móvil y accesibilidad básica",
         paragraphs: [
-          "Servicios, portafolio, blog y contacto deben conectarse por menú y contenido. Las páginas importantes no deben vivir solo en el pie. Los enlaces internos guían a personas y rastreadores.",
-          "Publique con sitemap XML y robots.txt correctos. Corrija 404 con redirecciones. Mantenga canonicals coherentes. En sitios multilingües, hreflang debe ser preciso o se rompe el targeting de idioma.",
+          "Pruebe las páginas principales en un celular real y con una conexión limitada.",
+          "Observe el tamaño de las imágenes descargadas, los scripts que bloquean la vista y las fuentes que se cargan. El contenido principal debe aparecer sin una espera innecesaria.",
+          "Revise menú, formularios y acciones de contacto con teclado y pantalla táctil. Los campos necesitan etiquetas, estados de enfoque y mensajes de error comprensibles. Muchas barreras de uso también afectan la calidad técnica general del sitio.",
         ],
       },
       {
-        heading: "Panel de gestión y contenido actualizable",
+        heading: "Antes de publicar: estados, enlaces y datos estructurados",
         paragraphs: [
-          "El SEO técnico no es un evento único. Servicios y artículos cambian. Por eso importa un panel o CMS. El equipo debe actualizar titles, meta y textos sin esperar a un desarrollador en cada cambio.",
-          "En proyectos METEK el panel de contenido se planifica con controles de velocidad y SEO. El objetivo no es un pico el día del lanzamiento. Es un sitio de negocio manejable un año después.",
+          "Recorra la lista completa de URL y confirme los códigos de estado esperados. Simplifique cadenas de redirecciones y actualice los enlaces internos para que apunten al destino final. Compruebe también correo, teléfono, WhatsApp y formularios.",
+          "Use datos estructurados solo cuando coincidan con la información visible. Evite marcar reseñas, ubicaciones o servicios que la página no presenta. Después valide el resultado con las herramientas correspondientes.",
         ],
       },
       {
-        heading: "Checklist corta antes de publicar",
+        heading: "Después de publicar: monitoreo y mantenimiento",
         paragraphs: [
-          "Titles y meta únicos. Un H1 por página. Imágenes comprimidas al tamaño correcto. Camino de contacto claro en móvil. Sitemap y robots listos. Formularios y WhatsApp funcionando. 404 y redirecciones revisados.",
-          "La mayoría de estos puntos deben hablarse antes de cerrar el diseño. El SEO dejado para el último día cuesta dinero y estrés. Si quiere SEO técnico dentro del alcance de un sitio, panel o chatbot, contacte a METEK Digital.",
+          "Envíe el mapa del sitio a las herramientas para webmasters y vigile errores de indexación. Tras una migración, preste atención a URL antiguas, redirecciones y páginas 404. Un aumento en errores puede señalar enlaces internos o externos pendientes.",
+          "Asigne la administración de títulos, descripciones y contenido. Un panel administrativo o CMS debe ofrecer los campos que el equipo usa y proteger la estructura técnica.",
+          "Guarde los resultados en una lista de verificación para el lanzamiento. Repita la revisión después de cambios técnicos o editoriales importantes.",
         ],
       },
     ],
   },
+
   "identity-at-first-glance": {
-    title: "Primera impresión del sitio web: confianza antes del titular",
+    title: "La primera impresión de un sitio web empieza con su sistema visual",
     excerpt:
-      "El visitante lee diseño, espacio y ritmo en el primer segundo. El diseño web profesional trata la identidad de marca como jerarquía y claridad, no solo como un logo.",
-    lead: "En un sitio de negocio la primera pantalla no es un tablero de eslóganes. El visitante mide el desorden, el número de botones y si la marca se ve asentada. Si esas señales pelean con el texto, pierde el texto. En METEK Digital fijamos esa primera impresión antes de pulir las palabras.",
-    imageAlt: "Detalle de tipografía y composición en una portada de marca",
+      "Tipografía, jerarquía, espacio e imágenes definen la primera impresión del sitio. Aprenda a revisar la identidad en la primera pantalla.",
+    lead: "Un visitante percibe orden y prioridad antes de leer cada frase. La primera pantalla debe ubicar la oferta, mostrar el carácter de la marca y señalar una acción razonable. El logo participa en esa lectura, pero la jerarquía completa determina si la página se siente coherente.",
+    imageAlt: "Detalle de tipografía y composición en la página de inicio de una marca",
     sections: [
       {
-        heading: "Qué se registra en el primer segundo",
+        heading: "La primera pantalla establece el contexto",
         paragraphs: [
-          "Abra un sitio de servicios o de fabricación. Lo que llega primero casi nunca es el titular. Son márgenes apretados, logo contra menú, tres botones al mismo volumen. Eso aterriza antes de leer una frase.",
-          "La gente usa la calidad de interfaz como señal de calidad del negocio. No siempre es justo. Así actúan. Una oferta fuerte detrás de una primera vista llena empieza en desventaja. Una superficie calmada y legible gana unos segundos para la oferta.",
+          "Un sitio de manufactura, una clínica y un hotel boutique necesitan entradas distintas. El visitante debe reconocer el tipo de oferta mediante el mensaje, la imagen y la acción principal. Esa combinación establece una expectativa para el resto del recorrido.",
+          "Cuando el menú, una barra promocional y varias acciones compiten con el titular, la persona tiene que reconstruir el orden. Reduzca el peso de lo secundario y proteja una lectura principal.",
         ],
       },
       {
-        heading: "Identidad de marca en la web: tipo, ritmo, jerarquía",
+        heading: "La tipografía convierte contenido en jerarquía",
         paragraphs: [
-          "La identidad a primera vista no es el archivo del logo. Es cuántos tamaños de tipo compiten, con qué frecuencia aparece el color de acento y si el espacio sigue un sistema.",
-          "El ritmo también afirma. Video automático, marquesinas y ventanas antes de leer señalan ansiedad. Una página rápida, quieta y con un camino claro se ve asentada.",
-          "En plantillas compradas estas reglas se parchean después. En diseño web a medida la jerarquía vive en el código. En proyectos METEK esas reglas se fijan antes de abrir la carpeta de fotos.",
+          "La identidad tipográfica incluye más que una fuente.",
+          "El tamaño, peso y espacio entre el H1, el texto de apoyo y la navegación muestran qué debe leerse primero. Un conjunto limitado de reglas produce una voz más estable que muchas variaciones decorativas.",
+          "Abra la página en un celular estrecho. Si el titular ocupa casi toda la altura, el apoyo visual y la acción desaparecen del primer vistazo. Ajuste el texto o la composición antes de reducir la letra hasta comprometer la lectura.",
         ],
       },
       {
-        heading: "Tres controles que puede hacer hoy",
+        heading: "Las imágenes deben comprobar algo",
         paragraphs: [
-          "Una tesis en la primera pantalla. ¿Puede decir a quién sirve y qué hace en una línea, y el diseño la sostiene. Cinco afirmaciones en el mismo espacio no dejan ninguna.",
-          "Una acción primaria. Los enlaces secundarios pueden quedar un paso atrás. Dos botones iguales no producen decisión. En el teléfono, el tamaño de toque cuenta.",
-          "Consistencia después de la portada. Una home pulida que cae en defaults de plantilla en servicios o contacto rompe la confianza. Repare esa rotura antes de reescribir el eslogan.",
+          "Un fabricante puede mostrar materiales, proceso o instalaciones. Una propiedad de hospitalidad necesita imágenes que describan el espacio con honestidad. Para servicios profesionales, una interfaz o un entregable real suele aportar más que una fotografía genérica de oficina.",
+          "Defina la función de cada imagen. Si sirve como ambiente, debe proteger la legibilidad. Si actúa como evidencia, necesita tamaño suficiente y un recorte que conserve la información importante.",
         ],
       },
       {
-        heading: "Cuando la primera pantalla coincide con la oferta",
+        heading: "La estabilidad también comunica calidad",
         paragraphs: [
-          "En moda, fabricación, hotelería y servicios profesionales, el visitante compra primero el criterio. La primera pantalla es la muestra.",
-          "Velocidad, tipo legible, afirmaciones honestas y contraste van con la estética. Una página bonita pero lenta o rota sigue fallando el apretón de manos.",
-          "Si pasan los tres controles y algo sigue mal, el tema es estrategia. Escriba la frase que el diseño debe sostener y construya alrededor. METEK Digital puede ayudarle a fijar esa frase y el sistema.",
+          "Una composición cuidadosa pierde credibilidad si el contenido salta durante la carga o si el medio principal permanece vacío. Reserve dimensiones para imágenes y video, cargue las fuentes con moderación y revise la primera vista bajo condiciones móviles. La animación puede presentar el orden, pero después debe permitir una lectura estable.",
+        ],
+      },
+      {
+        heading: "Revise el recorrido completo",
+        paragraphs: [
+          "Observe la primera pantalla sin leer el cuerpo. ¿La composición indica qué tipo de empresa está viendo? Lea luego el titular y la acción principal. ¿Describen la oferta que existe en las páginas de servicio?",
+          "Continúe hacia una página interna y contacto. Tipografía, espaciado y prioridades deben conservar una relación reconocible. Una página de inicio pulida no puede compensar un sistema que cambia en cada sección.",
+          "Documente el uso del color de acento y la acción principal. Cuando esas reglas se repitan, conviértalas en tokens y componentes compartidos.",
         ],
       },
     ],
   },
+
   "system-not-logo": {
-    title: "Un logo no basta: necesita marca y sistema de diseño CSS",
+    title: "Del logo a un sistema de diseño para el sitio y el panel",
     excerpt:
-      "Un logo nuevo no arregla facturas ni fichas de producto. Para web y panel coherentes hacen falta reglas de color, tipografía, espacio y componentes.",
-    lead: "Los rebrands suelen empezar por el símbolo. El camino durable empieza por reglas. Sin tipografía, color, espacio y comportamiento de componentes compartidos, el nuevo signo se sienta sobre una experiencia rota. En METEK Digital planificamos el logo con un sistema de diseño CSS y normas de uso.",
-    imageAlt: "Retícula, muestras de color y tipografía para un sistema de marca",
+      "Un sistema CSS convierte la identidad en reglas de color, tipografía, espaciado, estados y componentes para interfaces consistentes.",
+    lead: "El logo identifica a la marca, pero la experiencia digital depende de muchas decisiones repetidas. Tamaños de texto, colores funcionales, espacios, formularios y estados interactivos forman el sistema que el usuario encuentra todos los días. Un sistema de diseño guarda esas decisiones en código y documentación breve.",
+    imageAlt: "Cuadrícula, muestras de color y tipografía para un sistema de diseño de marca",
     sections: [
       {
-        heading: "Qué recuerda la gente de verdad",
+        heading: "La marca gráfica y la interfaz resuelven tareas distintas",
         paragraphs: [
-          "Pida a alguien que describa una marca en la que confía. Casi nadie dibuja el logo. Habla del correo de confirmación, de si la factura coincide con el sitio, de si la red social coincide con el empaque.",
-          "Los puntos de contacto se multiplican más rápido que las variantes de logo. El signo debe aguantar en pequeño y en letreros. La carga real está después del clic: web, panel, email, social.",
+          "La marca gráfica debe conservarse en tamaños y fondos definidos. El sitio necesita reglas para navegar, leer y completar acciones. Un panel interno maneja más datos y tareas repetitivas, aunque todavía debe sentirse relacionado con la identidad pública.",
+          "La relación puede vivir en tipografía, colores funcionales y formas. La densidad y los componentes cambian según el contexto. Un panel no necesita copiar la composición de la página de inicio para pertenecer a la misma marca.",
         ],
       },
       {
-        heading: "Los sistemas hacen repetibles las decisiones",
+        heading: "Empiece con tokens que tengan una función",
         paragraphs: [
-          "Un sistema visual responde preguntas de producción pronto. Peso de H1 frente a H2, acentos por pantalla, ratio de foto, radio de botón, padding mínimo. El equipo deja de renegociar cada página.",
-          "Los buenos sistemas también dicen no. Sin logos estirados. Sin sombras en el cuerpo de texto. Sin tipografías al azar en el email. Los límites aceleran porque el rechazo es claro.",
-          "Cuando el sitio y el panel de gestión comparten un mismo set de reglas, el equipo ve la identidad como estructura. Lenguajes separados para sitio y panel parten la marca en dos.",
+          "Defina colores para fondo, texto, borde, acento, éxito y error. Organice la escala tipográfica por uso y establezca una serie limitada de espacios. Los radios y las sombras también necesitan valores comunes cuando forman parte de la identidad.",
+          "Estos tokens concentran los cambios. Si se ajusta un color de texto, las superficies relacionadas pueden actualizarse desde la misma fuente. Los valores sueltos repartidos por varios archivos producen inconsistencias difíciles de rastrear.",
         ],
       },
       {
-        heading: "Núcleo, producción, superficie",
+        heading: "Los componentes incluyen comportamiento",
         paragraphs: [
-          "Núcleo: tesis, familias tipográficas, tokens de color, espacio libre del logo, límites de voz. Se fija antes de escalar.",
-          "Producción: retícula, componentes de UI, lenguaje de iconos, dirección fotográfica, límites de movimiento. Aquí corre el día a día. Muchas guías de marca saltan esta capa.",
-          "Superficie: web, social, presentaciones, señalética, empaque. Diseñar el sitio aislado crea dos marcas. Un sistema, distintos lienzos.",
+          "Documente primero navegación, botones, enlaces, campos, alertas y tarjetas de contenido.",
+          "Para cada control, contemple los estados normal, enfocado, con error y desactivado. El estado de enfoque permite navegar y debe conservar contraste suficiente.",
+          "Pruebe los componentes con textos largos, errores y datos faltantes. Una muestra perfecta rara vez revela lo que ocurre con una dirección extensa, un producto sin imagen o una traducción que ocupa dos líneas.",
         ],
       },
       {
-        heading: "Un documento corto que sí se abre",
+        heading: "Comparta reglas sin forzar componentes idénticos",
         paragraphs: [
-          "Un libro de ochenta páginas que nadie abre es archivo. Una guía útil es corta, buscable y llena de ejemplos. Haga esto. Evite aquello. Muéstrelo en pantallas reales.",
-          "Cuando aparece un canal nuevo, amplíe el sistema en lugar de parchear. La prueba sigue igual: ¿la pieza hereda la lógica tipográfica y de color del núcleo.",
-          "Si las fichas de producto aún mezclan tres estilos de botón, pause la siguiente ronda de logo. Audite superficies, fije el sistema CSS y luego afine el signo. Unas líneas bastan si quiere que METEK Digital lleve ese trabajo.",
+          "El sitio público organiza oferta, evidencia y contacto. El panel organiza registros, estados y acciones frecuentes. Ambos pueden compartir tipografía y significado de color, pero necesitan composiciones propias.",
+          "Reutilice un componente cuando su propósito y comportamiento coincidan. Una tarjeta de proyecto pública y una fila de datos interna sirven a usuarios distintos. Unificarlas por apariencia puede volver más difícil mantener ambas.",
+        ],
+      },
+      {
+        heading: "Revise una identidad que ya está en uso",
+        paragraphs: [
+          "Reúna capturas del sitio, panel, correos y redes. Marque variaciones en botones, tipografía y color. Después separe las diferencias justificadas por el contexto de las que surgieron por falta de una regla.",
+          "Construya un núcleo con los patrones que funcionan y aparecen con frecuencia. Amplíelo cuando una nueva necesidad se repita. La documentación debe responder preguntas de producción.",
+        ],
+      },
+      {
+        heading: "Mantenga el sistema cerca del producto",
+        paragraphs: [
+          "Los tokens y componentes se versionan junto con la interfaz. Ejemplos breves explican cuándo usar cada variante y qué contenido admite.",
+          "La decisión de diseño permanece así conectada con la implementación. METEK Digital desarrolla sistemas CSS específicos para sitios y paneles.",
+          "Para evaluar un proyecto, comparta capturas de las inconsistencias y las superficies que necesitan reglas comunes.",
         ],
       },
     ],
   },
+
   "editorial-web-as-sales": {
-    title: "Diseño web que vende: orden, prueba y una acción clara",
+    title: "Cómo estructurar un sitio web que apoye la venta",
     excerpt:
-      "La conversión en un sitio de negocio rara vez llega subiendo el volumen visual. Tesis, prueba y acción en el orden correcto aclaran el camino de venta.",
-    lead: "Muchos sitios aún se leen como un folleto apilado para hacer scroll: portada, rejilla de funciones, franja de logos, botón abajo. Los bloques no siempre están mal. El orden sí. El visitante pasa por encima de la prueba y llega al botón sin convencimiento. En METEK Digital diseñamos páginas como camino de venta.",
-    imageAlt: "Portada editorial con jerarquía tipográfica clara",
+      "Una página de inicio útil organiza oferta, evidencia, objeciones y acción. Revise la secuencia y la jerarquía de su sitio empresarial.",
+    lead: "Un sitio apoya la venta cuando responde las preguntas del comprador en un orden lógico. Los bloques visualmente atractivos no forman una conversación por sí solos. La página debe presentar la oferta, probar su relevancia, atender dudas y facilitar una acción principal.",
+    imageAlt: "Página de inicio editorial con jerarquía tipográfica clara",
     sections: [
       {
-        heading: "Secuencia frente a apilar",
+        heading: "Presente una oferta que se pueda reconocer",
         paragraphs: [
-          "Apilar añade módulos hasta que la página se siente llena. Secuenciar pregunta qué debe creerse después: para quién es, qué cambia tras el contacto, luego prueba, luego acción.",
-          "Cada sección debe ganar el siguiente scroll. Si no puede nombrar el trabajo de un bloque en el argumento, córtelo o muévalo. Las páginas más cortas a menudo protegen la atención en lugar de borrar valor.",
+          "La primera pantalla debe indicar qué ofrece la empresa y para quién. Una descripción amplia obliga al visitante a interpretar demasiado. Un fabricante puede nombrar su categoría y mercado; una clínica puede indicar el servicio y la forma adecuada de solicitar una cita.",
+          "La acción principal debe corresponder a esa oferta. Puede ser solicitar una cotización, revisar disponibilidad o iniciar una consulta. Los enlaces secundarios permanecen disponibles con menor énfasis.",
         ],
       },
       {
-        heading: "El camino de venta es tipografía",
+        heading: "Ubique la evidencia junto a la afirmación",
         paragraphs: [
-          "El tamaño de tipo y el espacio hacen parte del trabajo de navegación. Escalones claros de H1 a H2 trazan la ruta. Longitud de línea legible y contraste honesto superan contadores animados.",
-          "El móvil castiga rápido una jerarquía débil. Si el titular se parte en cinco líneas y empuja el texto de apoyo, la promesa se encoge. Termine la página en el teléfono antes de que el mockup de escritorio fije el drama.",
+          "Después de una promesa de calidad, muestre el detalle que la respalda: un proyecto identificado, una explicación del proceso o una imagen del producto en uso. Una fila genérica de logos deja sin explicar qué demuestra cada relación.",
+          "La evidencia depende del negocio. En manufactura pueden importar materiales y aplicaciones. Una boutique necesita fotografía de producto y políticas claras. Un servicio profesional puede mostrar alcance, responsables y un caso documentado.",
         ],
       },
       {
-        heading: "Ponga la prueba donde aparece la duda",
+        heading: "Responda las objeciones en el momento adecuado",
         paragraphs: [
-          "Los testimonios metidos en una franja genérica se saltan fácil. La prueba funciona junto a la objeción: una línea de resultado tras la promesa, un proyecto con nombre tras la lista de servicios, una cita breve cerca del precio.",
-          "Un caso fuerte vence a diez estadísticas vagas sin fuente. Mostrar trabajo real en contexto, un sitio industrial, una vitrina boutique, un panel operativo, resulta más creíble.",
+          "Una vez que la oferta resulta pertinente, aparecen preguntas sobre capacidad, proceso y riesgo. La página debe responderlas antes de pedir un compromiso mayor. El orden puede colocar alcance antes de casos detallados, proceso antes del formulario y mantenimiento cerca de la decisión final.",
+          "No existe una secuencia universal. Las conversaciones de ventas, búsquedas del sitio y dudas frecuentes indican qué necesita saber su público primero. Use esa evidencia para organizar el contenido.",
         ],
       },
       {
-        heading: "Una acción primaria",
+        heading: "La jerarquía visual sostiene el argumento",
         paragraphs: [
-          "La acción primaria carga peso con etiqueta, posición y espacio alrededor. Los caminos secundarios se ven, pero más callados. Dos botones iguales dejan la decisión en el visitante.",
-          "El ritmo editorial respeta a quien piensa. Temporizadores y ventanas agresivas enseñan desconfianza.",
-          "Mapee su portada en columnas de tesis, prueba y acción. Los huecos aparecen al instante. Llenarlos es trabajo de texto y composición, no otro plugin. Contacte a METEK Digital si quiere esa estructura en un sitio corporativo.",
+          "Los encabezados marcan etapas y el texto explica lo necesario para pasar a la siguiente.",
+          "El tamaño, el contraste y el espacio deben revelar esa relación. La decoración no debe ocultar condiciones o información útil.",
+          "Los botones necesitan etiquetas específicas. “Solicitar cotización” explica mejor la consecuencia que “Conocer más”. Mantenga el mismo significado cuando la acción principal se repita en otra parte de la página.",
+        ],
+      },
+      {
+        heading: "Revise la página de inicio como un argumento",
+        paragraphs: [
+          "Asigne una función a cada sección: explicar la oferta, mostrar evidencia, resolver una objeción o permitir una acción. Si una sección no cumple una de esas tareas, revise su lugar. Los bloques que repiten la misma función pueden combinarse.",
+          "Después observe el orden en el celular. Una imagen o carrusel no debe separar la afirmación de su prueba. Al terminar cada pantalla, el visitante debería entender por qué sigue el próximo contenido.",
+          "Con el argumento definido, la composición puede explorar escala e imágenes sin perder orientación. Antes de publicar, confirme que cada sección responda una pregunta o prepare la acción siguiente.",
         ],
       },
     ],
   },
+
   "quiet-luxury-online": {
-    title: "Sitios web de marca de lujo: diseño quieto con motivo",
+    title: "Diseño web para marcas de lujo: sobrio, claro y legible",
     excerpt:
-      "El diseño web de lujo no es solo color pálido. Necesita espacio disciplinado, imagen honesta y movimiento con una función.",
-    lead: "Las marcas que se sienten calmadas en tienda a menudo se vuelven grises en pantalla y se detienen ahí. Lo quieto en pantalla no es la ausencia de color. Es que cada elemento tenga un motivo. En METEK Digital atamos esa disciplina a un sistema de diseño para boutiques, hotelería y retail selectivo.",
-    imageAlt: "Bodegón de producto sencillo con luz natural suave",
+      "Un diseño sobrio necesita tipografía legible, contraste, fotografía precisa, espacio funcional y movimiento que se detenga a tiempo.",
+    lead: "Una interfaz sobria puede comunicar cuidado sin sacrificar información. El problema aparece cuando el intento de verse exclusivo produce texto pequeño, contraste débil o grandes espacios sin orientación. La moderación funciona cuando cada decisión ayuda a mirar el producto y entender la oferta.",
+    imageAlt: "Composición sencilla de producto con luz natural suave",
     sections: [
       {
-        heading: "Menos ruido, mensaje más nítido",
+        heading: "La moderación conserva la información esencial",
         paragraphs: [
-          "Reducir limpia afirmaciones en competencia. Un mensaje principal, una línea de apoyo, un camino adelante. Tres titulares iguales en una pantalla suelen no dejar ninguno memorable.",
-          "Una paleta estrecha está bien. No poder leer no. La baja saturación igual debe superar el contraste. Una página demasiado callada para leer no es premium. Es descuidada.",
+          "Un sitio de boutique todavía debe explicar producto, material, medidas, precio o forma de consulta. El espacio puede dar protagonismo a esos datos, pero no debe obligar a buscarlos. Ordene el contenido por relevancia y mantenga en la primera vista el contexto necesario para orientar al visitante.",
         ],
       },
       {
-        heading: "Calidad material en pantalla",
+        heading: "Tipografía y contraste sostienen el tono",
         paragraphs: [
-          "El material digital nace de la disciplina fotográfica: luz consistente, textura honesta, profundidad controlada. Sonrisas de stock y filtros duros rompen una posición de lujo en un fotograma.",
-          "La tipografía también carga material. Tracking, peso y márgenes deben respirar. Una fuente de sistema metida en un relato de lujo se lee como etiqueta casera.",
+          "Elija una familia con formas claras y los pesos necesarios. Los titulares pueden tener personalidad; el texto descriptivo y los controles necesitan tamaños cómodos. Los trazos demasiado finos se deterioran con facilidad en pantallas pequeñas.",
+          "Una paleta discreta todavía debe ofrecer contraste. Revise texto, enlaces, botones y enfoque sobre cada fondo. El color de acento se percibe mejor cuando cumple una función consistente.",
         ],
       },
       {
-        heading: "Movimiento con trabajo",
+        heading: "La fotografía demuestra la calidad material",
         paragraphs: [
-          "La animación debe aclarar jerarquía, no actuar. Hover medido, transiciones pesadas y texto legible vencen al parallax que esconde la frase.",
-          "Si el movimiento sigue mientras alguien lee, el diseño falló. Párelo o quítelo. El control se lee como lujo. El temblor constante, como inseguridad.",
+          "La luz, la perspectiva y el encuadre deben permitir observar textura y acabado.",
+          "Una dirección fotográfica constante conecta mejor el catálogo que un filtro aplicado después. Prepare archivos con resolución suficiente para el tamaño donde se mostrarán.",
+          "Si una imagen llevará texto, considere esa necesidad durante la sesión. Colocar texto sobre una zona ocupada obliga a oscurecer la foto o reduce la legibilidad. La composición puede reservar espacio desde el origen.",
         ],
       },
       {
-        heading: "Una marca en tienda y en el navegador",
+        heading: "El espacio debe explicar relaciones",
         paragraphs: [
-          "Una marca que susurra en tienda y grita en línea se parte en dos. Alinee longitud de frase, nombres de producto y tono de llamado en ambos lados.",
-          "La velocidad es parte del sentir. Un diseño elegante que carga lento sigue leyéndose como descuido. Trate velocidad y acceso como criterios de entrega junto con espacio y tipografía.",
-          "Compare el sitio con su mejor punto de contacto físico. Si la tienda susurra y la pantalla grita, arréglelo antes de la siguiente campaña. Hable con METEK Digital si quiere un sitio de marca de lujo en esa línea.",
+          "Los espacios amplios separan grupos y dirigen la atención. Dentro de cada grupo, título, descripción y acción deben conservar cercanía. Una escala de espaciado evita que cada sección invente su propio ritmo.",
+          "Adapte esa escala al celular. El espacio vertical del escritorio puede empujar información esencial demasiado abajo en una pantalla pequeña. Pruebe la primera vista y las fichas de producto en ambos contextos.",
+        ],
+      },
+      {
+        heading: "Alinee movimiento y experiencia de marca",
+        paragraphs: [
+          "Una transición puede mostrar que cambió la vista o revelar un detalle de producto. Cuando la persona empieza a leer o comparar, la pantalla debe quedar estable. Respete también la preferencia de movimiento reducido.",
+          "Revise el sitio junto con empaque, tienda y comunicación al cliente. El color, el tratamiento fotográfico y el tono pueden crear continuidad mientras la interfaz conserva sus requisitos de lectura.",
+          "Antes de entregar, revise la lectura en celular y los estados de enfoque. Compruebe también la calidad de las imágenes y la estabilidad de la primera pantalla durante la carga.",
         ],
       },
     ],
   },
+
   "brief-that-works": {
-    title: "Cómo escribir una nota de proyecto que acorta el desarrollo web",
+    title: "Qué información necesita una agencia para definir su proyecto",
     excerpt:
-      "Objetivo, público, límites y referencias claras acortan proyectos de diseño web y software. Cuatro bloques para una nota útil a la agencia.",
-    lead: "El descubrimiento no es un tour de moodboards. Es escribir cómo se ve el éxito, a quién hay que convencer y qué queda fuera de alcance. La entrada vaga crea revisiones caras. La entrada clara deja avanzar diseño y código en el primer pase. En METEK Digital fijamos esa nota juntos en el proceso.",
-    imageAlt: "Notas de proyecto junto al teclado en un escritorio de estudio",
+      "Prepare problema, usuarios, acciones, contenido, integraciones, límites y responsable de decisiones para un sitio, panel o chatbot.",
+    lead: "Una nota de proyecto útil comienza con el problema que la empresa necesita resolver. Las referencias visuales y la lista de funciones se vuelven más claras cuando tienen ese contexto. La agencia también necesita conocer usuarios, contenido disponible, sistemas actuales y quién aprueba las decisiones.",
+    imageAlt: "Notas con requisitos de proyecto junto a un teclado",
     sections: [
       {
-        heading: "Cuatro bloques: objetivo, público, límites, referencias",
+        heading: "Describa el problema y al usuario principal",
         paragraphs: [
-          "Un objetivo nombra un cambio observable. La primera pantalla dice la oferta con claridad. El formulario se completa. El mapa de distribuidores se usa. Palabras de humor como moderno no son objetivos.",
-          "El bloque de público nombra al decisor, su miedo y la prueba que necesita. Los límites listan calendario, rango de presupuesto, activos listos, integraciones y líneas legales.",
-          "Las referencias muestran ritmo y estructura. No son blancos a copiar. Añada contrarreferencias: sitios o estilos que rechaza y por qué. Ese párrafo suele ser el más útil.",
+          "Use situaciones observables. Los clientes no encuentran el servicio adecuado, las solicitudes llegan sin datos básicos o el equipo transfiere citas entre varias herramientas. Estas frases permiten evaluar si el proyecto responde a una tarea concreta.",
+          "Identifique al usuario principal y su contexto. Un comprador que consulta desde el celular necesita otra estructura que un empleado que procesa muchos registros. Las audiencias secundarias pueden incluirse con una prioridad clara.",
         ],
       },
       {
-        heading: "Una buena frase vence a un deck largo",
+        heading: "Escriba las acciones requeridas con verbos",
         paragraphs: [
-          "Una página vence a diez documentos dispersos. Si los stakeholders no coinciden, la nota lo saca temprano. Sale más barato que descubrirlo en la cuarta revisión con componentes ya hechos.",
-          "En lugar de que sea más simple, escriba: una acción primaria en la primera pantalla y una ficha técnica que se descarga sin login. La segunda versión ya es construible.",
+          "Indique qué debe poder completar cada usuario: enviar una solicitud de cotización, elegir una cita, aprobar un registro o publicar un artículo. Estas acciones se traducen en pantallas, campos y estados.",
+          "Para los recorridos principales, explique qué datos se solicitan y qué ocurre después. ¿A qué sistema llega la consulta? ¿Quién la atiende? ¿Qué confirmación recibe la persona? Las respuestas revelan integraciones y responsabilidades.",
         ],
       },
       {
-        heading: "Fije temprano o pague después",
+        heading: "Haga un inventario del contenido disponible",
         paragraphs: [
-          "Estrategia, identidad, interfaz, desarrollo, lanzamiento. Cada etapa asume que la anterior sostuvo. Cambiar el posicionamiento con componentes hechos cuesta más que cambiar un boceto.",
-          "La nota de proyecto es el primer candado. Sitio, panel o chatbot: la intención escrita evita que el trabajo a medida se deslice hacia una plantilla.",
+          "Liste textos, imágenes, datos de producto y reglas de marca.",
+          "Asigne un responsable a lo que falta. La cantidad y el formato del contenido influyen en la arquitectura y en la producción visual.",
+          "Agregue referencias con una nota sobre lo que le resulta útil: jerarquía, ritmo, navegación o tratamiento de imágenes. Incluya ejemplos que desea evitar y explique la razón. Esa información vale más que una carpeta de enlaces sin comentario.",
         ],
       },
       {
-        heading: "Escribir la nota juntos",
+        heading: "Documente integraciones y restricciones",
         paragraphs: [
-          "Las mejores notas se escriben juntos. Usted aporta el conocimiento del oficio. La agencia hace preguntas que revelan huecos. Un vocabulario compartido reduce el no pedimos esto al final.",
-          "Antes de escribir a cualquier agencia, complete: sabremos que funcionó cuando ___. Si no puede llenar el blank, el descubrimiento no terminó.",
-          "Envíe esa frase con enlaces, límites y contrarreferencias. Obtiene una propuesta más nítida y un camino más corto al lanzamiento. Unas líneas bastan para empezar con METEK Digital.",
+          "Mencione el CRM, calendario, sistema de pagos o herramienta de medición que ya utiliza. Indique cuál conserva el registro principal y si existe una API disponible. Una integración requiere acceso y una persona responsable de cada sistema.",
+          "Añada restricciones legales, de seguridad o de organización. Pueden incluir región de alojamiento, niveles de acceso o un proceso interno de aprobación. Estas condiciones afectan la arquitectura desde el inicio.",
+        ],
+      },
+      {
+        heading: "Aclare plazos, decisiones y exclusiones",
+        paragraphs: [
+          "Explique qué evento determina la fecha deseada y cuáles dependencias ya conoce. La fotografía, la migración de datos o una revisión legal pueden definir el calendario. Nombre a la persona que aprobará alcance, contenido y diseño.",
+          "Registre lo que quedará fuera de la primera etapa. Una app móvil, una cuenta de cliente o un idioma adicional pueden planearse para después. Así la base puede considerar esas necesidades sin incluirlas en la estimación actual.",
+          "Un ejemplo compacto sería: “Nuestros distribuidores tardan en encontrar fichas técnicas. Los compradores deben filtrar productos por aplicación y descargar un PDF sin crear una cuenta. Los datos están en una hoja de cálculo; las fotos y el contenido en español están aprobados. Las consultas deben llegar al CRM actual. La directora de ventas aprueba el proyecto. La cuenta de cliente queda fuera de esta etapa.”",
+          "La nota permite formular preguntas específicas. Agregue las referencias y fechas disponibles. Indique también quién aprueba el alcance para delimitar la primera etapa.",
         ],
       },
     ],

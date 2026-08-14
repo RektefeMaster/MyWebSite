@@ -28,3 +28,13 @@ Browser: `/`, `/services`, `/work/wcc`, `/blog/identity-at-first-glance` × `en|
 ## Rewrite notes (2026-08)
 
 Agency + SEO pass: METEK Digital as web design & software agency (we-voice). Hero = brand + category. Service nouns explicit (web, admin panel, CRM, CSS, WhatsApp/Instagram chatbot, mobile app). Meta titles/descriptions keyword-led per locale. Founder named on Agency page, not as sole home voice.
+
+## Full human rewrite (2026-08-08)
+
+Surfaces rewritten ×4 locales: `messages/*`, all 15 project cases (`project-details` / card / punch), all 9 blog posts (`blog-content/{en,tr,de,es}`).
+
+- Dropped keyword-catalog repetition on every page; hero = one claim + portfolio proof + CTA.
+- Project voice I→we (`Ne yaptık?` / What we built / …).
+- Blog drafted independently per locale (not TR→translate); native SEO titles kept readable.
+- `npm run content:lint` PASS (forbidden critical=0, message overages=0).
+- Founder gate still open: visual spot-check + `proof-points.md` approval.

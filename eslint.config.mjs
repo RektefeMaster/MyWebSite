@@ -12,6 +12,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // External scripts & IDE skill assets:
+    ".cursor/**",
+    ".claude/**",
+    "content-system/**",
+    "scripts/**",
   ]),
 ]);
 

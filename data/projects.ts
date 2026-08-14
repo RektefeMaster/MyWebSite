@@ -60,8 +60,14 @@ export const projects: Project[] = [
     url: "https://wuffbutik.vercel.app/",
     desktopImage: "/projects/wuffbutik/desktop-v3.jpg",
     mobileImage: "/projects/wuffbutik/mobile-v3.jpg",
-    desktopScrollImage: "/projects/wuffbutik/desktop-scroll-v4.jpg",
-    mobileScrollImage: "/projects/wuffbutik/mobile-scroll-v4.jpg",
+    /*
+      v4 şeritleri BOZUKTU: "mobil" şerit 1200×4077, yani masaüstü genişliğinde
+      bir yakalama telefon ekranına sıkıştırılıyordu (diğer projelerde 390×3545).
+      Telefonda sayfa değil, küçültülmüş masaüstü görünüyordu. Yeniden
+      yakalandı — capture-project-scrolls.mjs.
+    */
+    desktopScrollImage: "/projects/wuffbutik/desktop-scroll.jpg",
+    mobileScrollImage: "/projects/wuffbutik/mobile-scroll.jpg",
     primaryLane: "web",
     lanes: ["web"],
     year: 2025,
@@ -127,6 +133,7 @@ export const projects: Project[] = [
     url: "https://mizan-ten-brown.vercel.app/",
     desktopImage: "/projects/mizan/desktop.jpg",
     mobileImage: "/projects/mizan/mobile.jpg",
+    /* Şeritler diskte vardı ama bağlanmamıştı — mockup hiç açılmıyordu. */
     desktopScrollImage: "/projects/mizan/desktop-scroll.jpg",
     mobileScrollImage: "/projects/mizan/mobile-scroll.jpg",
     primaryLane: "web",

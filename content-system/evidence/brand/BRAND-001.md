@@ -10,7 +10,7 @@ type: brand
 ## Facts
 
 - Brand: METEK Digital
-- Email: admin@metehtec.com (alt in site constants)
+- Email: metehtec@gmail.com
 - WhatsApp / phone / Instagram URLs in site constants
 
 ## Sources

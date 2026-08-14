@@ -22,28 +22,35 @@ export default function NotFoundView({
   embedded = false,
 }: NotFoundViewProps) {
   return (
-    <div
+    <section
       className={
         embedded
-          ? "flex min-h-[calc(100svh-var(--nav-offset)-14rem)] flex-col items-center justify-center bg-background px-5 py-16 text-center text-foreground"
-          : "flex min-h-[100svh] flex-col items-center justify-center bg-background px-5 text-center text-foreground"
+          ? "min-h-[calc(100svh-var(--nav-offset)-14rem)] bg-background px-5 py-16 text-foreground md:px-10"
+          : "min-h-[100svh] bg-background px-5 py-16 text-foreground md:px-10"
       }
     >
-      <p className="mb-4 font-mono text-xs font-bold tabular-nums tracking-[0.14em] text-accent-ink">
-        404
-      </p>
-      <h1 className="font-display max-w-lg text-4xl font-bold tracking-[-0.03em] md:text-5xl">
-        {title}
-      </h1>
-      <p className="mt-4 max-w-[60ch] text-sm leading-relaxed text-foreground/55">
-        {blurb}
-      </p>
-      <Link
-        href={homeHref}
-        className="mt-8 inline-flex min-h-12 items-center rounded-sm bg-accent px-6 text-sm font-bold text-on-accent shadow-[inset_0_1px_0_var(--chrome-shine)]"
-      >
-        {homeLabel}
-      </Link>
-    </div>
+      <div className="mx-auto grid max-w-7xl grid-cols-12 border-y border-foreground/20 py-8 md:py-12">
+        <p className="col-span-12 font-mono text-[10px] font-bold tabular-nums tracking-[0.2em] text-foreground/45 md:col-span-2">
+          404 / 404
+        </p>
+        <div className="col-span-12 mt-16 md:col-span-9 md:col-start-4 md:mt-28">
+          <h1 className="font-display type-display max-w-[12ch] text-[clamp(3.75rem,10vw,9rem)] leading-[1.4] tracking-[-0.055em]">
+            {title}
+          </h1>
+          <div className="mt-12 grid gap-8 border-t border-foreground/20 pt-6 sm:grid-cols-2 md:mt-20">
+            <p className="max-w-[50ch] text-sm leading-relaxed text-foreground/65">
+              {blurb}
+            </p>
+            <Link
+              href={homeHref}
+              className="group inline-flex min-h-11 items-center justify-between border-b border-foreground py-2 text-xs font-bold uppercase tracking-[0.14em]"
+            >
+              <span>{homeLabel}</span>
+              <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

@@ -7,10 +7,12 @@ Orchestrated by `.cursor/skills/metek-copy-pipeline/SKILL.md`.
 3. Audience — segment id(s) from `audience.md`
 4. Brief — `briefs/**/shared.md` (includes `## Market: *` sections)
 5. Draft — tr / en / de / es **independently** (never TR→translate)
-6. UX → SEO → avoid-AI (per locale; avoid-AI last)
-7. Lint — `npm run content:lint`
-8. Human — claims + visual (esp. de-DE lengths)
-9. Publish QA — titles/H1/alts/hreflang; GSC baseline
+6. Structure — every paragraph adds information; vary openings, sentence lengths, and section shapes; compare leads and endings across the full series
+7. UX → SEO → avoid-AI (per locale; avoid-AI last)
+8. Read aloud — remove metronomic rhythm, stock closers, and repeated project templates
+9. Lint — `npm run content:lint`
+10. Human — claims + visual (esp. de-DE lengths)
+11. Publish QA — titles/H1/alts/hreflang; GSC baseline
 
 ## Layout budgets
 
@@ -22,6 +24,8 @@ card_summary_max_chars: 120
 ```
 
 de-DE often +15–30%; shorten stems. Length overages are report-only unless `--strict-lengths`.
+
+Length compliance does not justify vague copy. Shorten the idea before replacing concrete nouns with slogans.
 
 ## Golden batch
 

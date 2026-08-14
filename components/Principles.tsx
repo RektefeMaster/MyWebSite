@@ -3,13 +3,14 @@
 import { useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { gsap, useGSAP } from "@/lib/gsap";
+import DecryptedText from "./DecryptedText";
 
 type Principle = {
   title: string;
   body: string;
 };
 
-/** Büyük satırlar — hover’da açılan prensipler (kart değil) */
+/** Monokrom editorial indeks — seçim ters yüzeyle, renk kullanmadan okunur. */
 export default function Principles() {
   const t = useTranslations("principles");
   const locale = useLocale();
@@ -44,19 +45,30 @@ export default function Principles() {
           onComplete: () => {
             gsap.set(rows, { clearProps: "opacity,transform" });
           },
-        }
+        },
       );
     },
-    { scope: listRef, dependencies: [locale, items.length] }
+    { scope: listRef, dependencies: [locale, items.length] },
   );
 
   return (
     <section
       id="approach"
-      className="bg-paper px-5 py-16 md:px-10 md:py-28"
+      className="overflow-hidden bg-paper px-5 py-16 md:px-10 md:py-28"
     >
       <div className="mx-auto max-w-7xl">
-        <div ref={listRef} className="border-t border-[color:var(--chrome-edge)]">
+        <div
+          aria-hidden
+          className="mb-6 flex items-end justify-between border-b border-foreground/20 pb-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/35 md:mb-8"
+        >
+          <DecryptedText text="01" animateOn="inViewHover" />
+          <DecryptedText
+            text={String(items.length).padStart(2, "0")}
+            animateOn="inViewHover"
+          />
+        </div>
+
+        <div ref={listRef}>
           {items.map((item, i) => {
             const isOpen = open === i;
             return (
@@ -67,31 +79,33 @@ export default function Principles() {
                 onMouseEnter={() => setOpen(i)}
                 onFocus={() => setOpen(i)}
                 onClick={() => setOpen(i)}
-                className={`group grid w-full grid-cols-[auto_1fr] gap-5 border-b border-foreground/10 py-7 text-left transition-colors md:grid-cols-[5rem_1fr_1.1fr] md:gap-10 md:py-9 ${
+                aria-pressed={isOpen}
+                className={`group grid w-full min-w-0 grid-cols-[3.25rem_minmax(0,1fr)] gap-x-4 gap-y-5 border-b border-foreground/15 px-3 py-8 text-left transition-[color,background-color] duration-300 sm:px-4 md:grid-cols-[6rem_minmax(0,1fr)_minmax(0,1.2fr)] md:gap-10 md:px-8 md:py-11 ${
                   isOpen
-                    ? "bg-band text-band-fg"
-                    : "[@media(hover:hover)_and_(pointer:fine)]:hover:bg-stone/50"
+                    ? "bg-foreground text-background"
+                    : "text-foreground [@media(hover:hover)_and_(pointer:fine)]:hover:bg-foreground/[0.04]"
                 }`}
               >
                 <span
-                  className={`pt-1 font-mono text-xs font-bold md:pt-2 ${
-                    isOpen ? "text-accent" : "text-foreground/30"
+                  className={`min-w-0 font-display type-display text-[2.75rem] leading-[1.44] tracking-[-0.06em] md:text-[4.5rem] ${
+                    isOpen ? "text-background/35" : "text-foreground/12"
                   }`}
+                  aria-hidden
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span
-                  className={`text-2xl font-bold tracking-tight transition-transform duration-300 md:text-4xl ${
+                  className={`min-w-0 font-display type-display text-[clamp(1.75rem,4vw,3.75rem)] font-bold leading-[1.46] tracking-[-0.035em] transition-transform duration-300 ${
                     isOpen ? "translate-x-1 md:translate-x-2" : ""
                   }`}
                 >
                   {item.title}
                 </span>
                 <span
-                  className={`col-span-2 max-w-md text-sm leading-relaxed md:col-span-1 md:justify-self-end md:text-[15px] ${
+                  className={`col-start-2 min-w-0 max-w-xl self-center text-sm leading-relaxed transition-colors md:col-start-3 md:text-base ${
                     isOpen
-                      ? "text-band-fg/65"
-                      : "text-foreground/45 [@media(hover:hover)_and_(pointer:fine)]:group-hover:text-foreground/60"
+                      ? "text-background/65"
+                      : "text-foreground/45 [@media(hover:hover)_and_(pointer:fine)]:group-hover:text-foreground/65"
                   }`}
                 >
                   {item.body}

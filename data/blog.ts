@@ -28,7 +28,7 @@ export const blogPosts: BlogPostMeta[] = [
   {
     slug: "what-is-seo",
     date: "2026-08-05",
-    readMinutes: 16,
+    readMinutes: 6,
     category: "digital",
     accent: "#0c6b66",
     image: "/blog/what-is-seo.webp",
@@ -36,7 +36,7 @@ export const blogPosts: BlogPostMeta[] = [
   {
     slug: "website-pricing-why-cheap-costs-more",
     date: "2026-08-05",
-    readMinutes: 12,
+    readMinutes: 4,
     category: "strategy",
     accent: "#14171c",
     image: "/blog/website-pricing-why-cheap-costs-more.webp",
@@ -44,7 +44,7 @@ export const blogPosts: BlogPostMeta[] = [
   {
     slug: "whatsapp-chatbot-for-business",
     date: "2026-08-05",
-    readMinutes: 11,
+    readMinutes: 4,
     category: "digital",
     accent: "#25D366",
     image: "/blog/whatsapp-chatbot-for-business.webp",
@@ -52,7 +52,7 @@ export const blogPosts: BlogPostMeta[] = [
   {
     slug: "technical-seo-checklist-business-website",
     date: "2026-08-05",
-    readMinutes: 12,
+    readMinutes: 4,
     category: "digital",
     accent: "#0c6b66",
     image: "/blog/technical-seo-checklist-business-website.webp",
@@ -60,7 +60,7 @@ export const blogPosts: BlogPostMeta[] = [
   {
     slug: "identity-at-first-glance",
     date: "2026-07-18",
-    readMinutes: 10,
+    readMinutes: 3,
     category: "identity",
     accent: "#0c6b66",
     image: "/blog/identity-at-first-glance.webp",
@@ -68,7 +68,7 @@ export const blogPosts: BlogPostMeta[] = [
   {
     slug: "system-not-logo",
     date: "2026-07-12",
-    readMinutes: 10,
+    readMinutes: 3,
     category: "identity",
     accent: "#14171c",
     image: "/blog/system-not-logo.webp",
@@ -76,7 +76,7 @@ export const blogPosts: BlogPostMeta[] = [
   {
     slug: "editorial-web-as-sales",
     date: "2026-07-05",
-    readMinutes: 10,
+    readMinutes: 3,
     category: "digital",
     accent: "#cdd6dd",
     image: "/blog/editorial-web-as-sales.webp",
@@ -84,7 +84,7 @@ export const blogPosts: BlogPostMeta[] = [
   {
     slug: "quiet-luxury-online",
     date: "2026-06-28",
-    readMinutes: 10,
+    readMinutes: 3,
     category: "strategy",
     accent: "#a8cfe4",
     image: "/blog/quiet-luxury-online.webp",
@@ -92,7 +92,7 @@ export const blogPosts: BlogPostMeta[] = [
   {
     slug: "brief-that-works",
     date: "2026-06-20",
-    readMinutes: 11,
+    readMinutes: 3,
     category: "process",
     accent: "#0c6b66",
     image: "/blog/brief-that-works.webp",

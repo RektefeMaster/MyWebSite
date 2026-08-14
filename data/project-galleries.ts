@@ -3,6 +3,8 @@ export type ProjectGalleryShot = {
   alt: string;
   /** FeaturedCase tarzı grid span sınıfları */
   span?: string;
+  /** Arayüz ekranlarını kırpmadan, fotoğraf karelerini taşırarak sun. */
+  fit?: "cover" | "contain";
 };
 
 const HERO =
@@ -12,36 +14,37 @@ const MID = "col-span-3 min-h-[140px] md:min-h-[170px]";
 const WIDE = "col-span-6 min-h-[140px] md:min-h-[190px]";
 const MOBILE_TALL =
   "col-span-2 row-span-2 min-h-[220px] md:min-h-[320px]";
+const SCREEN_WIDE = "col-span-6 aspect-[8/5]";
+const SCREEN_LARGE_LEFT =
+  "col-span-6 aspect-[8/5] md:col-span-5";
+const SCREEN_LARGE_RIGHT =
+  "col-span-6 aspect-[8/5] md:col-span-5 md:col-start-2";
+const SCREEN_HALF = "col-span-6 aspect-[8/5] md:col-span-3";
 
 type Locale = "tr" | "en" | "es" | "de";
 
 type GalleryPack = Record<Locale, ProjectGalleryShot[]>;
+type GallerySource = Omit<ProjectGalleryShot, "alt"> & {
+  alt: Record<Locale, string>;
+};
 
-function pack(
-  shots: { src: string; span: string; alt: Record<Locale, string> }[]
-): GalleryPack {
+function pack(shots: GallerySource[]): GalleryPack {
+  const localize = (locale: Locale) =>
+    shots.map(({ alt, ...shot }) => ({ ...shot, alt: alt[locale] }));
+
   return {
-    tr: shots.map(({ src, span, alt }) => ({ src, span, alt: alt.tr })),
-    en: shots.map(({ src, span, alt }) => ({ src, span, alt: alt.en })),
-    es: shots.map(({ src, span, alt }) => ({ src, span, alt: alt.es })),
-    de: shots.map(({ src, span, alt }) => ({ src, span, alt: alt.de })),
+    tr: localize("tr"),
+    en: localize("en"),
+    es: localize("es"),
+    de: localize("de"),
   };
 }
 
 const wcc = pack([
   {
-    src: "/projects/wcc/featured/01-hero.jpg",
-    span: HERO,
-    alt: {
-      tr: "Wholesale Cabinet Creations ana sayfa açılışı, mutfak dolabı hero görseli",
-      en: "Wholesale Cabinet Creations homepage hero with kitchen cabinet imagery",
-      es: "Hero de inicio de Wholesale Cabinet Creations con gabinetes de cocina",
-      de: "Startseiten-Hero von Wholesale Cabinet Creations mit Küchenschränken",
-    },
-  },
-  {
     src: "/projects/wcc/featured/02-kitchen.jpg",
-    span: HALF,
+    span: SCREEN_LARGE_LEFT,
+    fit: "contain",
     alt: {
       tr: "Wholesale Cabinet Creations mutfak dolabı galeri bölümü",
       en: "Wholesale Cabinet Creations kitchen cabinet gallery section",
@@ -51,22 +54,13 @@ const wcc = pack([
   },
   {
     src: "/projects/wcc/featured/03-projects.jpg",
-    span: HALF,
+    span: SCREEN_LARGE_RIGHT,
+    fit: "contain",
     alt: {
       tr: "Tamamlanan mutfak ve dolap projelerinin fotoğraf galerisi",
       en: "Photo gallery of completed kitchen and cabinet projects",
       es: "Galería fotográfica de proyectos terminados de cocinas y gabinetes",
       de: "Fotogalerie abgeschlossener Küchen- und Schrankprojekte",
-    },
-  },
-  {
-    src: "/projects/wcc/featured/04-brands.jpg",
-    span: WIDE,
-    alt: {
-      tr: "Sertifika, referans markalar ve üretim kapasitesi güven bölümü",
-      en: "Trust section with certifications, partner brands, and production capacity",
-      es: "Sección de confianza con certificaciones, marcas asociadas y capacidad productiva",
-      de: "Vertrauensbereich mit Zertifikaten, Partnermarken und Produktionskapazität",
     },
   },
 ]);
@@ -161,7 +155,7 @@ const wuffbutik = pack([
     alt: {
       tr: "Wuuf Butik spor giyim çizgisi koleksiyon bölümü",
       en: "Wuuf Butik sportswear line collection section",
-      es: "Sección de colección de la línea sport de Wuuf Butik",
+      es: "Sección de la línea deportiva de Wuuf Butik",
       de: "Kollektionsbereich der Sportlinie von Wuuf Butik",
     },
   },
@@ -171,8 +165,8 @@ const wuffbutik = pack([
     alt: {
       tr: "Wuuf Butik tesettür giyim çizgisi vitrin alanı",
       en: "Wuuf Butik modest wear line showcase area",
-      es: "Área de vitrina de la línea tesettür de Wuuf Butik",
-      de: "Vitrinenbereich der Tesettür-Linie von Wuuf Butik",
+      es: "Área de vitrina de la línea de moda modesta de Wuuf Butik",
+      de: "Vitrinenbereich der Modest-Fashion-Linie von Wuuf Butik",
     },
   },
 ]);
@@ -431,18 +425,9 @@ const havva = pack([
 
 const mizan = pack([
   {
-    src: "/projects/mizan/featured/01-hero.jpg",
-    span: HERO,
-    alt: {
-      tr: "MİZAN gülüş mimarisi stüdyosu sinematik açılış",
-      en: "MİZAN smile architecture studio cinematic hero",
-      es: "Hero cinematográfico del estudio de arquitectura de sonrisa MİZAN",
-      de: "Filmischer Hero des Lächeln-Architektur-Studios MİZAN",
-    },
-  },
-  {
     src: "/projects/mizan/featured/02-film.jpg",
-    span: HALF,
+    span: SCREEN_WIDE,
+    fit: "contain",
     alt: {
       tr: "Kaydırmalı gülüş filmi: kapalı ifade, ışık, açılış",
       en: "Scroll-driven smile film: closed expression, light, opening",
@@ -452,7 +437,8 @@ const mizan = pack([
   },
   {
     src: "/projects/mizan/featured/03-felsefe.jpg",
-    span: HALF,
+    span: SCREEN_HALF,
+    fit: "contain",
     alt: {
       tr: "Denge, oran ve sessizlik felsefe metni bölümü",
       en: "Philosophy section on balance, proportion, and silence",
@@ -462,7 +448,8 @@ const mizan = pack([
   },
   {
     src: "/projects/mizan/featured/04-hizmetler.jpg",
-    span: MID,
+    span: SCREEN_HALF,
+    fit: "contain",
     alt: {
       tr: "Tedavi protokolleri listesi, ritüel tonunda sunum",
       en: "Treatment protocols list presented as chosen rituals",
@@ -472,7 +459,8 @@ const mizan = pack([
   },
   {
     src: "/projects/mizan/featured/05-atoelye.jpg",
-    span: MID,
+    span: SCREEN_LARGE_LEFT,
+    fit: "contain",
     alt: {
       tr: "Nişantaşı atölye mekân fotoğrafları",
       en: "Nişantaşı atelier interior photography",
@@ -482,7 +470,8 @@ const mizan = pack([
   },
   {
     src: "/projects/mizan/featured/06-randevu.jpg",
-    span: WIDE,
+    span: SCREEN_LARGE_RIGHT,
+    fit: "contain",
     alt: {
       tr: "İlk ölçü randevusu talep bölümü",
       en: "First measurement booking request section",
@@ -560,10 +549,10 @@ const sahra = pack([
     src: "/projects/sahra-butik/featured/01-hero.jpg",
     span: HERO,
     alt: {
-      tr: "Sahra Butik Malatya kadın giyim ana sayfa açılışı",
-      en: "Sahra Butik Malatya women's wear homepage hero",
-      es: "Hero de inicio de moda mujer Sahra Butik en Malatya",
-      de: "Startseiten-Hero von Sahra Butik Damenmode in Malatya",
+      tr: "Sahra Butik kadın giyim ana sayfa açılışı",
+      en: "Sahra Butik women's wear homepage hero",
+      es: "Hero de inicio de moda mujer Sahra Butik",
+      de: "Startseiten-Hero von Sahra Butik Damenmode",
     },
   },
   {
@@ -580,10 +569,10 @@ const sahra = pack([
     src: "/projects/sahra-butik/featured/03-moods.jpg",
     span: HALF,
     alt: {
-      tr: "Günlük, spor ve tesettür tarz bölümleri yan yana",
-      en: "Daily, sport, and tesettür style sections side by side",
-      es: "Secciones de estilos günlük, sport y tesettür en paralelo",
-      de: "Günlük-, Sport- und Tesettür-Stilabschnitte nebeneinander",
+      tr: "Günlük, spor ve tesettür giyim bölümleri yan yana",
+      en: "Everyday, sportswear, and modest-wear sections side by side",
+      es: "Secciones de moda casual, deportiva y modesta en paralelo",
+      de: "Alltagsmode, Sportmode und Modest Fashion nebeneinander",
     },
   },
   {
@@ -662,7 +651,7 @@ const aiahi = pack([
     span: HALF,
     alt: {
       tr: "Kuaför, klinik ve servis gibi randevu yoğun sektörler bölümü",
-      en: "Section for appointment-heavy trades such as salons, clinics and repair",
+      en: "Section for appointment-heavy trades such as salons, clinics, and repair services",
       es: "Sección para oficios con muchas citas: salones, clínicas y talleres",
       de: "Abschnitt für terminstarke Betriebe wie Salons, Kliniken und Werkstätten",
     },

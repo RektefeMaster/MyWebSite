@@ -1,12 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import Reveal from "./Reveal";
 import WordReveal from "./WordReveal";
-import Magnetic from "./Magnetic";
-import SpecularButton from "./SpecularButton";
+import TextType from "./TextType";
 import { gsap, useGSAP, attachScrollReveal } from "@/lib/gsap";
 import { scheduleScrollTriggerRefresh } from "@/lib/nav-scroll";
 
@@ -26,6 +24,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
   const items = t.raw("items") as ServiceItem[];
   const isTeaser = variant === "teaser";
   const [open, setOpen] = useState(0);
+  const panelBaseId = useId();
   const listRef = useRef<HTMLDivElement>(null);
   const panelRefs = useRef<(HTMLDivElement | null)[]>([]);
   const openRef = useRef(0);
@@ -62,7 +61,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
 
       return () => mm.revert();
     },
-    { scope: listRef, dependencies: [items.length] }
+    { scope: listRef, dependencies: [items.length] },
   );
 
   useEffect(() => {
@@ -75,7 +74,9 @@ export default function Services({ variant = "full" }: ServicesProps) {
   const toggle = (i: number) => {
     const next = openRef.current === i ? -1 : i;
     const prev = openRef.current;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     openRef.current = next;
     setOpen(next);
@@ -101,7 +102,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
         tl.to(
           prevPanel,
           { height: 0, duration: 0.38, ease: "power2.inOut" },
-          0
+          0,
         );
       }
     }
@@ -112,12 +113,12 @@ export default function Services({ variant = "full" }: ServicesProps) {
         tl.to(
           nextPanel,
           { height: "auto", duration: 0.42, ease: "power2.inOut" },
-          prev >= 0 && prev !== next ? 0.08 : 0
+          prev >= 0 && prev !== next ? 0.08 : 0,
         );
-        const chips = nextPanel.querySelectorAll("[data-service-chips] > *");
-        if (chips.length) {
+        const lines = nextPanel.querySelectorAll("[data-service-lines] > *");
+        if (lines.length) {
           tl.fromTo(
-            chips,
+            lines,
             { opacity: 0, y: 8 },
             {
               opacity: 1,
@@ -126,7 +127,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
               duration: 0.28,
               ease: "power2.out",
             },
-            "-=0.2"
+            "-=0.2",
           );
         }
       }
@@ -140,102 +141,135 @@ export default function Services({ variant = "full" }: ServicesProps) {
     >
       <div className="mx-auto max-w-7xl">
         {isTeaser && (
-          <div className="mb-12 flex flex-col gap-4 md:mb-16 md:flex-row md:items-end md:justify-between">
-            <div>
+          <div className="mb-12 grid gap-8 border-t border-foreground/15 pt-6 md:mb-16 md:grid-cols-12 md:items-end md:pt-8">
+            <div className="md:col-span-8">
               <WordReveal
                 text={t("title")}
-                className="font-display text-3xl font-bold tracking-tight md:text-5xl"
+                className="font-display type-display text-[clamp(2.5rem,7vw,5.75rem)] font-bold leading-[1.44] tracking-[-0.045em]"
               />
+              <div className="mt-3 flex min-h-[1.5rem] items-center gap-2 font-mono text-xs text-foreground/45">
+                <span className="font-bold text-accent">›</span>
+                <TextType
+                  text={[
+                    "Özel Next.js & React Three Fiber Mimarisi",
+                    "Sıfır Hazır Tema / Sıfır Şablon Garantisi",
+                    "Uçtan Uca Tip Güvenli ve Hızlı Altyapı",
+                    "Google Core Web Vitals Tam Uyum"
+                  ]}
+                  typingSpeed={45}
+                  pauseDuration={2200}
+                  deletingSpeed={25}
+                  showCursor={true}
+                  cursorCharacter="▍"
+                  startOnVisible={true}
+                  loop={true}
+                  className="font-mono text-xs font-medium text-foreground/75"
+                />
+              </div>
             </div>
+            <p
+              aria-hidden
+              className="justify-self-start font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-foreground/35 md:col-span-4 md:justify-self-end"
+            >
+              01—{String(items.length).padStart(2, "0")}
+            </p>
           </div>
         )}
 
-        <div ref={listRef} className="space-y-2">
+        <div ref={listRef} className="border-y border-foreground/20">
           {items.map((item, i) => {
             const isOpen = open === i;
+            const panelId = `${panelBaseId}-panel-${i}`;
+            const triggerId = `${panelBaseId}-trigger-${i}`;
             return (
               <article
                 key={item.title}
                 data-service-item={i}
-                className={`overflow-hidden rounded-sm border ${
-                  isOpen
-                    ? "border-band"
-                    : "border-[color:var(--chrome-edge)] [@media(hover:hover)_and_(pointer:fine)]:hover:border-ink/25"
-                }`}
+                className="overflow-hidden border-b border-foreground/15 last:border-b-0"
               >
                 <button
+                  id={triggerId}
                   type="button"
                   aria-expanded={isOpen}
+                  aria-controls={panelId}
                   onClick={() => toggle(i)}
-                  className={`flex w-full items-center gap-4 px-5 py-5 text-left transition-colors duration-200 md:gap-6 md:px-7 md:py-6 ${
-                    isOpen ? "bg-band text-band-fg" : "bg-paper text-ink"
-                  }`}
+                  className="group grid w-full grid-cols-[3rem_minmax(0,1fr)_2rem] items-start gap-2 py-7 text-left text-foreground transition-opacity duration-300 md:grid-cols-[6rem_minmax(0,1fr)_3rem] md:items-center md:gap-6 md:py-10 [@media(hover:hover)_and_(pointer:fine)]:hover:opacity-60"
                 >
-                  <span
-                    className={`font-mono text-xs ${
-                      isOpen ? "text-accent" : "text-foreground/35"
-                    }`}
-                  >
+                  <span className="pt-1 font-mono text-[10px] font-bold tracking-[0.2em] text-foreground/40 md:pt-0 md:text-xs">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="min-w-0 flex-1 text-lg font-bold tracking-tight md:text-xl">
+                  <span
+                    className={`min-w-0 font-display type-display text-[clamp(1.55rem,3.4vw,3.25rem)] font-bold leading-[1.46] tracking-[-0.035em] transition-[transform,opacity] duration-300 ${
+                      isOpen
+                        ? "translate-x-1 opacity-100 md:translate-x-3"
+                        : "opacity-75"
+                    }`}
+                  >
                     {item.title}
                   </span>
                   <span
-                    className={`inline-flex size-8 shrink-0 items-center justify-center rounded-sm text-xl leading-none transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                      isOpen
-                        ? "rotate-45 bg-band-fg/10 text-accent"
-                        : "rotate-0 text-foreground/30"
-                    }`}
+                    aria-hidden
+                    className="justify-self-end font-mono text-xl font-light leading-none text-foreground/45 md:text-2xl"
                   >
-                    +
+                    {isOpen ? "−" : "+"}
                   </span>
                 </button>
 
                 <div
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={triggerId}
                   ref={(el) => {
                     panelRefs.current[i] = el;
                   }}
-                  className="bg-band text-band-fg"
+                  className="text-foreground"
                   style={{ height: i === 0 ? "auto" : 0, overflow: "hidden" }}
                 >
                   <div
                     data-service-body
-                    className="grid gap-8 px-5 pb-7 pt-1 md:grid-cols-[1.15fr_1fr] md:items-start md:gap-10 md:px-7 md:pb-8"
+                    className="grid gap-8 border-t border-foreground/10 pb-10 pt-7 md:grid-cols-12 md:gap-6 md:pb-14 md:pt-10"
                   >
-                    <div>
-                      <p className="max-w-md text-sm leading-relaxed text-band-fg/60">
+                    <div className="md:col-start-2 md:col-span-5">
+                      <p className="max-w-lg text-sm leading-relaxed text-foreground/65 md:text-base">
                         {item.description}
                       </p>
-                      <Magnetic strength={0.32} className="mt-5 inline-block">
-                        <SpecularButton
-                          href={{ pathname: "/", hash: "contact" }}
-                          tone="accent"
-                          size="sm"
-                          className="btn-stable btn-stable--chip"
+                      <Link
+                        href={{ pathname: "/", hash: "contact" }}
+                        scroll={false}
+                        className="group/link mt-7 inline-flex min-h-10 items-center gap-3 border-b border-foreground/35 text-sm font-bold text-foreground transition-colors hover:border-foreground"
+                      >
+                        {t("cta")}
+                        <span
+                          aria-hidden
+                          className="transition-transform duration-300 group-hover/link:translate-x-1"
                         >
-                          {t("cta")}
-                          <span aria-hidden>→</span>
-                        </SpecularButton>
-                      </Magnetic>
+                          →
+                        </span>
+                      </Link>
                     </div>
-                    <div>
-                      <p className="mb-3 text-xs uppercase tracking-wide text-band-fg/40">
+                    <div className="md:col-start-8 md:col-span-5">
+                      <p className="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/35">
                         {t("included")}
                       </p>
-                      <div
-                        data-service-chips
-                        className="flex flex-wrap gap-2"
+                      <ol
+                        data-service-lines
+                        className="border-t border-foreground/15"
                       >
-                        {item.includes.map((tag) => (
-                          <span
+                        {item.includes.map((tag, tagIndex) => (
+                          <li
                             key={tag}
-                            className="rounded-md border border-band-fg/15 px-2.5 py-1 text-xs text-band-fg/85"
+                            className="grid grid-cols-[2.5rem_1fr] gap-3 border-b border-foreground/10 py-2.5 text-sm text-foreground/70"
                           >
-                            {tag}
-                          </span>
+                            <span
+                              aria-hidden
+                              className="font-mono text-[9px] font-bold tracking-[0.14em] text-foreground/30"
+                            >
+                              {String(tagIndex + 1).padStart(2, "0")}
+                            </span>
+                            <span>{tag}</span>
+                          </li>
                         ))}
-                      </div>
+                      </ol>
                     </div>
                   </div>
                 </div>
@@ -245,22 +279,20 @@ export default function Services({ variant = "full" }: ServicesProps) {
         </div>
 
         {isTeaser && (
-          <div className="mt-10 flex justify-start">
-            <Magnetic strength={0.3}>
-              <Link
-                href="/services"
-                scroll={false}
-                className="group inline-flex min-h-11 items-center gap-2 text-sm font-bold text-ink"
+          <div className="mt-10 flex justify-end md:mt-12">
+            <Link
+              href="/services"
+              scroll={false}
+              className="group inline-flex min-h-11 items-center gap-3 border-b border-foreground/35 text-sm font-bold text-foreground transition-colors hover:border-foreground"
+            >
+              {t("seeAll")}
+              <span
+                aria-hidden
+                className="transition-transform duration-300 group-hover:translate-x-1"
               >
-                <span className="link-underline">{t("seeAll")}</span>
-                <span
-                  aria-hidden
-                  className="transition-transform duration-300 [@media(hover:hover)_and_(pointer:fine)]:group-hover:translate-x-1"
-                >
-                  →
-                </span>
-              </Link>
-            </Magnetic>
+                →
+              </span>
+            </Link>
           </div>
         )}
       </div>

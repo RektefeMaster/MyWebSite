@@ -3,7 +3,7 @@
 **Status:** `pending_human_approval`  
 Flip to `approved` after founder review.
 
-Contact constants: [`lib/site.ts`](../../lib/site.ts) — METEK Digital, `admin@metehtec.com`, WhatsApp, Instagram.
+Contact constants: [`lib/site.ts`](../../lib/site.ts) — METEK Digital, `metehtec@gmail.com`, WhatsApp, Instagram.
 
 ## Layers
 
@@ -58,10 +58,10 @@ confidence: 100
 priority: optional
 tags: [conversion, brand]
 allowed_surfaces: [services, project, blog, about, metadata]
-claim: Primary contact channels are email (admin@metehtec.com) and WhatsApp; Instagram is used for brand presence.
+claim: Primary contact channels are email (metehtec@gmail.com) and WhatsApp; Instagram is used for brand presence.
 evidence_ids: [BRAND-001]
 bad: We're always online for our passionate community.
-good: Email admin@metehtec.com or message on WhatsApp.
+good: Email metehtec@gmail.com or message on WhatsApp.
 ```
 
 ### `portfolio-verticals`
@@ -121,7 +121,7 @@ allowed_surfaces: [hero, services, project, about, blog]
 claim: Projects are led by one accountable delivery lead from discovery to launch.
 evidence_ids: [PROC-001]
 bad: A single founder does every pixel forever with no collaborators.
-good: One accountable delivery lead from discovery to launch — not a theme-reseller handoff chain.
+good: One accountable delivery lead stays with the project from discovery through launch.
 ```
 
 ### `no-theme-resale`
@@ -177,7 +177,7 @@ allowed_surfaces: [services, about, blog, metadata, project]
 claim: When an engagement requires multiple languages, native-quality copy is produced per locale rather than through literal translation.
 evidence_ids: [LOC-001, PROC-002]
 bad: Instant translation into all markets.
-good: Locale copy written for each market — not a word-for-word translation.
+good: Locale copy is written independently for each market and reviewed in context.
 ```
 
 ### `source-controlled-design`
@@ -191,7 +191,7 @@ allowed_surfaces: [services, project, blog, about]
 claim: Design systems are built specifically for each project instead of adapting marketplace templates.
 evidence_ids: [CSS-001]
 bad: Industry-leading design systems out of the box.
-good: Project-specific design tokens and components — not a reskinned theme kit.
+good: Project-specific design tokens and components keep the public and internal interfaces consistent.
 ```
 
 ### `documented-quality-gates`
@@ -237,7 +237,7 @@ allowed_surfaces: [services, project, blog, about]
 claim: Projects are structured to remain maintainable after launch rather than optimized only for delivery speed.
 evidence_ids: [CRM-001, CSS-001, PROC-001]
 bad: Future-proof architecture forever.
-good: Structured so your team can keep running the site after handoff — not a one-shot delivery dump.
+good: The structure leaves your team with clear routes for content updates and ongoing maintenance after handoff.
 ```
 
 ### `reusable-internal-systems`

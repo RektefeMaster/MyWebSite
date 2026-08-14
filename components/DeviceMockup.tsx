@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { CSSProperties, ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import type { Project } from "@/data/projects";
@@ -95,10 +95,15 @@ function PlaceholderScreen({
  * Hover’da tam sayfa gibi kaydırır. Uzun screenshot gerekir;
  * yoksa statik cover gösterilir.
  *
- * Scroll strip (ham JPG) yalnızca yakın viewport’ta yüklenir —
- * soft-nav’da 10× 0.5MB strip aynı anda inmesin.
+ * Scroll strip (ham JPG) yalnızca hover niyetinde yüklenir — aşağıdaki
+ * `pointerenter` kapısına bak.
+ *
+ * DIŞA AÇIK: SelectedWork da bunu kullanıyor. Ana sayfadaki kartlar eskiden
+ * statik `<Image>` + `scale(1.03)` hover'dı; projeler bu yüzden cansız
+ * duruyordu. Aynı kapı ve aynı süre hesabı iki yerde de geçerli olsun diye
+ * kopyalamak yerine bu bileşen paylaşılıyor.
  */
-function ScreenContent({
+export function ProjectScreen({
   src,
   scrollSrc,
   alt,
@@ -108,6 +113,7 @@ function ScreenContent({
   priority = false,
   scroll = false,
   quality = 75,
+  objectPosition,
 }: {
   src?: string;
   scrollSrc?: string;
@@ -118,79 +124,245 @@ function ScreenContent({
   priority?: boolean;
   scroll?: boolean;
   quality?: number;
+  /** Statik karede özel kadraj (SelectedWork stage'leri kullanıyor) */
+  objectPosition?: string;
 }) {
   const rootRef = useRef<HTMLDivElement>(null);
-  const [scrollReady, setScrollReady] = useState(false);
   const scrollable = Boolean(scroll && scrollSrc);
+  const startsReady = scrollable && (priority || !src);
+  const scrollImageRef = useRef<HTMLImageElement>(null);
+  const scrollReadyRef = useRef(startsReady);
+  const scrollLoadedRef = useRef(false);
+  const hoveringRef = useRef(false);
+  const reducedMotionRef = useRef(false);
+  const [scrollReady, setScrollReady] = useState(startsReady);
+  const [scrollLoaded, setScrollLoaded] = useState(false);
+  const [scrollActive, setScrollActive] = useState(false);
+  const [scrollMetrics, setScrollMetrics] = useState({
+    distance: 0,
+    duration: 4.2,
+  });
+
+  const measureScrollImage = useCallback(() => {
+    const root = rootRef.current;
+    const img = scrollImageRef.current;
+    if (!root || !img?.naturalWidth) return;
+
+    const screenWidth = root.clientWidth;
+    const screenHeight = root.clientHeight;
+    if (screenWidth < 8 || screenHeight < 8) return;
+
+    const displayedHeight =
+      (img.naturalHeight / img.naturalWidth) * screenWidth;
+    const distance = Math.max(0, displayedHeight - screenHeight);
+    const screens = distance / screenHeight;
+
+    /*
+      Gerçek bir sayfa gezintisi gibi: kısa sayfalar acele etmez, uzun
+      sayfalar da sonsuza uzamaz. Telefon ve laptop kendi mesafesini ölçer.
+
+      Tempo BİLEREK yavaş. Önceki katsayılar (2.4 + screens*1.25, tavan 9sn)
+      tipik bir sayfayı ~6.4sn'de bitiriyordu; ekran o hızda "kaydırılıyor"
+      değil "geçiliyor" gibi duruyor, içerik okunmuyordu. Ekran başına ~2.6sn
+      insanın gerçekten göz gezdirdiği hıza denk geliyor.
+    */
+    const duration = Math.min(16, Math.max(5.5, 3 + screens * 2.6));
+    setScrollMetrics((current) => {
+      if (
+        Math.abs(current.distance - distance) < 0.5 &&
+        Math.abs(current.duration - duration) < 0.01
+      ) {
+        return current;
+      }
+      return { distance, duration };
+    });
+  }, []);
 
   /*
     Hover şeridi ~250KB ham JPG ve sayfada onlarca kart var. Viewport'a girer
     girmez çekilince 768px'te LCP elemanı oluyor, /work'ü 5.5sn'ye çıkarıyordu.
     Artık yalnızca hover niyetinde iniyor: hover yoksa tek bayt inmez.
 
-    Hedef mockup değil tüm kart (`data-project-item`) — imleç kartın kenarına
-    değdiği anda başlıyor, mockup'a varana kadar şerit hazır oluyor.
-    Dokunmatikte `useScroll` zaten false, şerit hiç istenmiyor.
+    Şerit tüm kartta (`data-project-item`) hazırlanır, fakat hareket yalnızca
+    gerçek mockup/screen alanında başlar. Böylece kullanıcı başlık veya proje
+    notları üzerinde gezinirken ekran kendi kendine akmaz.
+
+    Dokunmatik kapısı ARTIK medya sorgusu DEĞİL, olayın kendisi. Önce
+    `matchMedia("(hover:hover) and (pointer:fine)")` bir state'e yazılıyordu;
+    o state hidrasyona bağlı olduğu için /work'te mount sonrası `false`
+    takılı kalıyordu (ölçüldü: mq true, maxTouchPoints 0, state hâlâ false)
+    ve şerit hiç inmiyordu. `pointerType` doğrudan olaydan okunuyor: fare
+    değilse şerit inmez, dokunmatikte tek bayt yüklenmez.
+
+    Animasyon `:hover` CSS'ine bırakılmıyor. İlk pointer temasında uzun görsel
+    hover zaten aktifken mount edilirse tarayıcı başlangıç karesini boyamadan
+    onu doğrudan sayfanın sonuna yerleştiriyordu. Burada niyet, yükleme ve
+    hareket ayrı tutuluyor; hover-out yalnız ekran içeriğini başa döndürüyor.
   */
   useEffect(() => {
-    if (!scrollable || priority || scrollReady) return;
+    if (!scrollable) return;
     const el = rootRef.current;
     if (!el) return;
 
-    const hoverTarget =
+    const preloadTarget =
       el.closest("[data-project-item]") ?? el.closest("[data-mock-root]") ?? el;
-    const load = () => setScrollReady(true);
-    hoverTarget.addEventListener("pointerenter", load, { once: true });
-    return () => hoverTarget.removeEventListener("pointerenter", load);
-  }, [scrollable, priority, scrollReady]);
+    const motionTarget = el.closest("[data-mock-root]") ?? el;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const syncMotionPreference = () => {
+      reducedMotionRef.current = reducedMotion.matches;
+      if (reducedMotion.matches) setScrollActive(false);
+    };
+    const prepare = (event: Event) => {
+      const pointerType = (event as PointerEvent).pointerType;
+      if (pointerType && pointerType !== "mouse") return;
+      if (reducedMotionRef.current) return;
+
+      if (!scrollReadyRef.current) {
+        scrollReadyRef.current = true;
+        setScrollReady(true);
+      }
+    };
+    const enter = (event: Event) => {
+      const pointerType = (event as PointerEvent).pointerType;
+      if (pointerType && pointerType !== "mouse") return;
+      hoveringRef.current = true;
+      if (reducedMotionRef.current) return;
+
+      prepare(event);
+      if (scrollLoadedRef.current) setScrollActive(true);
+    };
+    const leave = (event: Event) => {
+      const pointerType = (event as PointerEvent).pointerType;
+      if (pointerType && pointerType !== "mouse") return;
+      hoveringRef.current = false;
+      setScrollActive(false);
+    };
+
+    syncMotionPreference();
+    reducedMotion.addEventListener("change", syncMotionPreference);
+    preloadTarget.addEventListener("pointerenter", prepare);
+    motionTarget.addEventListener("pointerenter", enter);
+    motionTarget.addEventListener("pointerleave", leave);
+    return () => {
+      reducedMotion.removeEventListener("change", syncMotionPreference);
+      preloadTarget.removeEventListener("pointerenter", prepare);
+      motionTarget.removeEventListener("pointerenter", enter);
+      motionTarget.removeEventListener("pointerleave", leave);
+    };
+  }, [scrollable]);
+
+  /*
+    İlk top karesini kesin olarak boyat. Görsel cache'ten anında gelse bile iki
+    animation frame boyunca transform=0 kalır; ancak sonra aşağı yürür.
+  */
+  useEffect(() => {
+    if (!scrollLoaded || !hoveringRef.current || reducedMotionRef.current) {
+      return;
+    }
+
+    let secondFrame = 0;
+    const firstFrame = requestAnimationFrame(() => {
+      secondFrame = requestAnimationFrame(() => {
+        if (hoveringRef.current && !reducedMotionRef.current) {
+          setScrollActive(true);
+        }
+      });
+    });
+
+    return () => {
+      cancelAnimationFrame(firstFrame);
+      if (secondFrame) cancelAnimationFrame(secondFrame);
+    };
+  }, [scrollLoaded]);
+
+  useEffect(() => {
+    if (!scrollable || !scrollReady) return;
+    const root = rootRef.current;
+    if (!root || typeof ResizeObserver === "undefined") return;
+
+    const observer = new ResizeObserver(measureScrollImage);
+    observer.observe(root);
+    return () => observer.disconnect();
+  }, [measureScrollImage, scrollable, scrollReady]);
 
   if (!src && !scrollSrc) {
     return <PlaceholderScreen colors={colors} label={label} />;
   }
 
   if (scrollable && scrollSrc) {
-    // Yakın değilken optimize cover — soft-nav bandwidth
-    if (!scrollReady && !priority && src) {
-      return (
-        <div ref={rootRef} className="absolute inset-0 bg-black">
+    return (
+      <div
+        ref={rootRef}
+        className="device-screen-scroll absolute inset-0 bg-black"
+        data-scroll-active={scrollActive ? "true" : "false"}
+        data-scroll-loaded={scrollLoaded ? "true" : "false"}
+      >
+        {src ? (
           <Image
             src={src}
             alt={alt}
             fill
             sizes={sizes}
             quality={quality}
-            loading="lazy"
+            priority={priority}
+            loading={priority ? "eager" : "lazy"}
             decoding="async"
             className="object-cover object-top"
+            style={objectPosition ? { objectPosition } : undefined}
           />
-        </div>
-      );
-    }
+        ) : null}
 
-    return (
-      <div ref={rootRef} className="device-screen-scroll absolute inset-0 bg-black">
-        {/* eslint-disable-next-line @next/next/no-img-element -- tall scroll strip; next/image fill kırpar */}
-        <img
-          src={scrollSrc}
-          alt={alt}
-          className="device-screen-scroll__img"
-          loading={priority ? "eager" : "lazy"}
-          decoding="async"
-          draggable={false}
-          onLoad={(e) => {
-            const img = e.currentTarget;
-            const parent = img.parentElement;
-            if (!parent || !img.naturalWidth) return;
-            const cw = parent.clientWidth;
-            const ch = parent.clientHeight;
-            if (cw < 8 || ch < 8) return;
-            const displayedH = (img.naturalHeight / img.naturalWidth) * cw;
-            const screens = Math.max(0, displayedH - ch) / ch;
-            // ~1.4s / ekran; kısa şerit acele etmesin, uzun şerit uçmasın
-            const dur = Math.min(7.8, Math.max(3.5, 2.8 + screens * 1.4));
-            img.style.setProperty("--scroll-duration", `${dur.toFixed(2)}s`);
-          }}
-        />
+        {/*
+          `loading="eager"` BİLEREK. Bu <img> ancak `scrollReady` olunca, yani
+          kullanıcı zaten hover ettikten sonra DOM'a giriyor — gecikme katmak
+          istediğimiz şey değil, beklenen şey.
+
+          Dahası `lazy` burada şeridi tamamen ÖLDÜRÜYORDU: yüklenmeden önce
+          kutusu 8px'e çöküyor, Chrome sıfıra yakın kutulu lazy görseli
+          getirmiyor, görsel de yükselmediği için hiç yüksekliği olmuyor.
+          Telefon şeridi bu yüzden `complete:false / naturalWidth:0` takılı
+          kalıyordu (ölçüldü); `eager` yapınca 390×3545 olarak indi.
+        */}
+        {scrollReady ? (
+          /* eslint-disable-next-line @next/next/no-img-element -- tall scroll strip; next/image fill kırpar */
+          <img
+            ref={scrollImageRef}
+            src={scrollSrc}
+            alt={src ? "" : alt}
+            aria-hidden={src ? true : undefined}
+            className="device-screen-scroll__img pointer-events-none absolute left-0 top-0"
+            loading="eager"
+            decoding="async"
+            draggable={false}
+            style={{
+              opacity: scrollLoaded ? 1 : 0,
+              transform: scrollActive
+                ? "translate3d(0, -" +
+                  scrollMetrics.distance.toFixed(2) +
+                  "px, 0)"
+                : "translate3d(0, 0, 0)",
+              transitionProperty: "transform, opacity",
+              transitionDuration:
+                (scrollActive ? scrollMetrics.duration : 1.4) + "s, 180ms",
+              /*
+                İniş eğrisi neredeyse DOĞRUSAL. Eski `(0.32,0.04,0.18,1)` yolun
+                büyük kısmını başta harcayıp sonda sürünüyordu — sayfa
+                "kaydırılmış" değil "fırlatılmış" gibi duruyordu. Köşegene
+                yakın S: yumuşak kalkış, sabit okuma hızı, nazik duruş.
+              */
+              transitionTimingFunction:
+                (scrollActive
+                  ? "cubic-bezier(0.4, 0.08, 0.4, 0.92)"
+                  : "cubic-bezier(0.33, 1, 0.68, 1)") + ", ease-out",
+              willChange: scrollLoaded ? "transform" : undefined,
+            }}
+            onLoad={() => {
+              scrollLoadedRef.current = true;
+              measureScrollImage();
+              setScrollLoaded(true);
+            }}
+          />
+        ) : null}
       </div>
     );
   }
@@ -207,6 +379,7 @@ function ScreenContent({
         loading={priority ? "eager" : "lazy"}
         decoding="async"
         className="object-cover object-top"
+        style={objectPosition ? { objectPosition } : undefined}
       />
     </div>
   );
@@ -293,6 +466,53 @@ function DeviceFrame({
   );
 }
 
+/**
+ * Telefon — ÇERÇEVELİ, tek başına.
+ *
+ * WorkPlate bunu kullanıyor: masaüstü ekranı artık laptop kasası içinde değil,
+ * tam kanama bir levha; derinliği ve "gerçek cihaz" okumasını levhanın
+ * kenarından taşan bu telefon veriyor. Laptop kasası kaldırıldığı için
+ * (DESIGN.md: "Device chrome when the project image itself can carry the
+ * composition" yapma listesinde) tek cihaz çerçevesi burada kalıyor.
+ */
+export function PhoneMockup({
+  project,
+  className,
+  sizes = IPHONE_FRAME_SIZES,
+  screenSizes = IPHONE_SCREEN_SIZES,
+  scroll = true,
+}: {
+  project: Project;
+  className?: string;
+  sizes?: string;
+  screenSizes?: string;
+  scroll?: boolean;
+}) {
+  const t = useTranslations("a11y");
+
+  return (
+    <DeviceFrame
+      {...IPHONE}
+      priority={false}
+      quality={78}
+      sizes={sizes}
+      className={className}
+    >
+      <ProjectScreen
+        src={project.mobileImage}
+        scrollSrc={project.mobileScrollImage}
+        alt={t("deviceMobile", { name: project.name })}
+        colors={project.colors}
+        label={project.name.split(" ")[0] ?? project.name}
+        priority={false}
+        scroll={scroll && Boolean(project.mobileScrollImage)}
+        quality={78}
+        sizes={screenSizes}
+      />
+    </DeviceFrame>
+  );
+}
+
 /** Selected Work / Capabilities — Apple PNG peep kaldırıldı; LightPhone kullan */
 type DeviceMockupProps = {
   project: Project;
@@ -310,17 +530,13 @@ export default function DeviceMockup({
 }: DeviceMockupProps) {
   const t = useTranslations("a11y");
   const isHero = variant === "hero";
-  // Dokunmatik: hover-scroll yok → optimize statik next/image
-  const [coarse, setCoarse] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia("(pointer: coarse)");
-    const sync = () => setCoarse(mq.matches);
-    sync();
-    mq.addEventListener("change", sync);
-    return () => mq.removeEventListener("change", sync);
-  }, []);
-  const useScroll = !coarse && Boolean(project.desktopScrollImage);
-  const canScroll = Boolean(project.desktopScrollImage);
+  // Şeritlerden HANGİSİ varsa kaydırma açık — bazı projelerde yalnızca biri var
+  // Dokunmatik ayıklaması ProjectScreen'deki `pointerType` kapısında.
+  const hasStrip = Boolean(
+    project.desktopScrollImage || project.mobileScrollImage,
+  );
+  const useScroll = hasStrip;
+  const canScroll = hasStrip;
   const screenQ = isHero ? 85 : 75;
   const frameQ = isHero ? 85 : 75;
 
@@ -345,7 +561,7 @@ export default function DeviceMockup({
             : "absolute left-[1%] top-[4%] w-[84%] drop-shadow-[0_20px_40px_rgba(0,0,0,0.22)]"
         }
       >
-        <ScreenContent
+        <ProjectScreen
           src={project.desktopImage}
           scrollSrc={project.desktopScrollImage}
           alt={t("deviceDesktop", { name: project.name })}
@@ -370,28 +586,36 @@ export default function DeviceMockup({
         {...IPHONE}
         priority={false}
         quality={frameQ}
-        sizes={
-          isHero
-            ? "(max-width: 768px) 34vw, 250px"
-            : IPHONE_FRAME_SIZES
-        }
+        sizes={isHero ? "(max-width: 768px) 34vw, 250px" : IPHONE_FRAME_SIZES}
         className={
           isHero
             ? "absolute bottom-[2%] right-[2%] z-20 w-[28%] max-w-[220px] origin-bottom -rotate-[4deg] drop-shadow-[0_22px_40px_rgba(0,0,0,0.38)] md:right-[4%] md:bottom-[3%] md:w-[23%] md:max-w-[240px]"
             : "absolute bottom-[1%] right-[1%] z-20 w-[34%] max-w-[152px] origin-bottom -rotate-[4deg] drop-shadow-[0_16px_28px_rgba(0,0,0,0.34)] sm:w-[28%] sm:max-w-[140px]"
         }
       >
-        <ScreenContent
+        {/*
+          Telefon da kaydırıyor. `mobileScrollImage` 11 projede DOLUYDU ama
+          hiçbir yerde render edilmiyordu — şeritler deploy'a gidip hiç
+          gösterilmiyordu. Artık laptop ile birlikte akıyor: "canlı site"
+          okuması asıl buradan geliyor, çünkü mobil şerit sayfanın tamamını
+          gösteriyor.
+
+          Perf sözleşmesi değişmedi: şerit yalnızca `pointerenter` ile iner
+          (ProjectScreen içindeki kapı); dokunmatik pointer şeridi yüklemez.
+          Süre her şeridin kendi doğal yüksekliğinden hesaplandığı için
+          laptop ile telefon aynı anda değil, hafif kaymayla ilerliyor.
+        */}
+        <ProjectScreen
           src={project.mobileImage}
+          scrollSrc={project.mobileScrollImage}
           alt={t("deviceMobile", { name: project.name })}
           colors={project.colors}
           label={project.name.split(" ")[0] ?? project.name}
           priority={false}
+          scroll={useScroll}
           quality={screenQ}
           sizes={
-            isHero
-              ? "(max-width: 768px) 42vw, 280px"
-              : IPHONE_SCREEN_SIZES
+            isHero ? "(max-width: 768px) 42vw, 280px" : IPHONE_SCREEN_SIZES
           }
         />
       </DeviceFrame>

@@ -116,6 +116,31 @@ const PATTERNS = [
     note: "TR empty praise",
   },
   {
+    severity: "critical",
+    pattern: /\b(?:kısa bir (?:özet|not) yeter|a short (?:summary|note) is enough)\b/i,
+    note: "Repeated stock CTA closer",
+  },
+  {
+    severity: "critical",
+    pattern: /\b(?:un resumen breve basta|ein kurzer (?:überblick|hinweis) genügt)\b/i,
+    note: "Repeated stock CTA closer",
+  },
+  {
+    severity: "critical",
+    pattern: /\b(?:aynı dili konuş|speak the same language|habl\w* el mismo idioma|dieselbe sprache sprechen)\b/i,
+    note: "Vague system metaphor; name the shared rules",
+  },
+  {
+    severity: "critical",
+    pattern: /\b(?:günümüz(?:ün)? dijital dünyasında|in the modern digital world|en el mundo digital actual|in der heutigen digitalen welt)\b/i,
+    note: "Generic AI opener",
+  },
+  {
+    severity: "critical",
+    pattern: /\b(?:uçtan uca çözümler?|end[- ]to[- ]end solutions?|soluciones? integrales?|ganzheitliche lösungen?)\b/i,
+    note: "Generic agency scope claim",
+  },
+  {
     severity: "warning",
     pattern: /\boutcome[- ]driven\b/i,
     note: "Agency jargon — prefer concrete outcome",
@@ -149,6 +174,21 @@ const PATTERNS = [
     severity: "warning",
     pattern: /\bsynergy\b/i,
     note: "Corporate filler",
+  },
+  {
+    severity: "warning",
+    pattern: /—/,
+    note: "Em-dash pivot; rebuild the sentence for the final editorial pass",
+  },
+  {
+    severity: "warning",
+    pattern: /\b(?:tek akış|one flow|un solo recorrido|einem ablauf)\b/i,
+    note: "Vague flow claim; describe the actual sequence",
+  },
+  {
+    severity: "warning",
+    pattern: /\b(?:bu yazıda|in this article|en este artículo|in diesem artikel)\b/i,
+    note: "Meta narration; open on the subject instead",
   },
   {
     severity: "contextual",

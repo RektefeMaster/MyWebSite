@@ -10,7 +10,7 @@ export default function Footer() {
   const t = useTranslations("footer");
 
   return (
-    <footer className="border-t border-[color:var(--chrome-edge)] bg-paper px-5 pb-[calc(5.5rem+var(--safe-bottom))] pt-12 md:px-10 md:pb-16 md:pt-16">
+    <footer className="border-t border-[color:var(--chrome-edge)] bg-paper px-5 pb-[calc(5.5rem+var(--safe-bottom))] pt-12 text-foreground md:px-10 md:pb-16 md:pt-16">
       <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 md:grid-cols-[1.35fr_1fr_1fr_1fr]">
         <div>
           <Link
@@ -21,7 +21,7 @@ export default function Footer() {
           >
             <CircularText
               text={BRAND_RING}
-              spinDuration={28}
+              spinDuration={24}
               onHover="slowDown"
               className="absolute inset-0 opacity-70 transition-opacity group-hover:opacity-100"
             />

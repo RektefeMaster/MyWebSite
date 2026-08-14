@@ -119,7 +119,37 @@ export default function LanguageSwitcher() {
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
+        event.preventDefault();
         setOpen(false);
+        triggerRef.current?.focus();
+      } else if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        event.preventDefault();
+        const options = rootRef.current?.querySelectorAll<HTMLButtonElement>(
+          ".lang-switch__option"
+        );
+        if (!options || options.length === 0) return;
+        const currentIdx = Array.from(options).findIndex(
+          (el) => el === document.activeElement
+        );
+        let nextIdx = 0;
+        if (event.key === "ArrowDown") {
+          nextIdx = currentIdx < options.length - 1 ? currentIdx + 1 : 0;
+        } else {
+          nextIdx = currentIdx > 0 ? currentIdx - 1 : options.length - 1;
+        }
+        options[nextIdx]?.focus();
+      } else if (event.key === "Home") {
+        event.preventDefault();
+        const first = rootRef.current?.querySelector<HTMLButtonElement>(
+          ".lang-switch__option"
+        );
+        first?.focus();
+      } else if (event.key === "End") {
+        event.preventDefault();
+        const options = rootRef.current?.querySelectorAll<HTMLButtonElement>(
+          ".lang-switch__option"
+        );
+        options?.[options.length - 1]?.focus();
       }
     };
 
