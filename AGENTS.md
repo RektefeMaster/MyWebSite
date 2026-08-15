@@ -85,6 +85,23 @@ kontrastta kalıyordu (ölçüldü, gözle de okunmuyordu).
 
 ## Bilinen kısıtlar / dikkat
 
+- **Mobil performansın TAMAMI hero'da.** Ölçüldü (Pixel 7, 4x CPU kısma,
+  prod build): 3D hero'lu `/tr` sayfasında 117 uzun görev / 10.9sn bloklama,
+  hero'suz `/tr/services`'te 2 uzun görev / 0.16sn ve scroll 60fps. Yani
+  performans ararken önce hero'ya bak, uygulamanın geri kalanına değil.
+  - `samples` lite'ta **2** (6 değil): `anisotropicBlur 0.04` ile bulanıklık
+    yarıçapı zaten ihmal edilebilir, fazladan örnekleme boşa ALU. Ölçüldü:
+    SSIM 0.9993 (gözle fark yok), bloklama −%28.
+  - `resolution` lite'ta **512'nin altına İNME**. 384 denendi: SSIM 0.934,
+    kırılmada gözle görülür merdivenlenme. Geri alındı.
+  - Telefonda kare hızı **30'a sabit** (`frameloop="demand"` + 30Hz invalidate
+    sürücüsü). M tam turunu ~18.5sn'de atıyor, 30fps'te kare başına 0.35° —
+    judder görünmüyor, transmission geçişi yarıya iniyor. Faz delta-bazlı
+    olduğu için dönüş HIZI değişmiyor. Sınırı koyarken `PerformanceMonitor`
+    `bounds`'unu da 30'a göre ayarla ([24,31]); [50,60] bırakılırsa monitör
+    sürekli "decline" verip DPR'ı tabana indirir ve keskinlik kaybolur.
+  - Hero görüş dışına çıkınca çizim **0** (doğrulandı) — ekran dışı maliyet
+    yok, oraya tekrar optimizasyon arama.
 - **Intro perdesi UNMOUNT OLMAZ.** `Intro` layout'ta duruyor ve bitince `null`
   render ediyor; effect cleanup'ı hiç çalışmıyor. Scroll kilidini (wheel /
   touchmove `preventDefault`) cleanup'a bırakma — `releaseLockRef` ile perde

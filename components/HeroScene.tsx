@@ -542,7 +542,7 @@ function GlassM({
               metal transmission'ı söndürüp camı öldürüyor.
           */
           background={backdrop ?? undefined}
-          samples={lite ? 6 : 12}
+          samples={lite ? 2 : 12}
           /*
             FBO üst sınır. M ekranda küçüldüğü için bu bütçe eskisinden
             ucuz; 384 → 512 kırılmadaki merdivenlenmeyi toparlıyor.
@@ -864,6 +864,42 @@ export default function HeroScene({
     };
   }, [active, tabVisible, ready, contextKey, bootLive]);
 
+  const visible = active && tabVisible && !reduced;
+  // Intro altında: birkaç frame ısıt, sonra demand (GPU boş). Perde kalkınca always.
+  // bootLive: soft-nav settle sırasında IO false verse bile çiz — boş header olmasın.
+  const running = visible && !introCovering;
+  const warming =
+    (visible && introCovering && !baked) ||
+    (bootLive && tabVisible && !reduced && !introCovering);
+  const live = running || warming || bootLive;
+  /*
+    Telefonda kare hızı 30'a sabitleniyor (bkz. frameloop). Masaüstü ve
+    reduced-motion bunun dışında.
+  */
+  const capped = lite && !reduced;
+  const cappedLive = capped && live;
+
+  /*
+    30fps sürücüsü — yalnız telefonda (`capped`). frameloop "demand" olduğu
+    için sahne ancak burada invalidate edildiğinde çiziliyor; ~33ms'den önce
+    gelen rAF'ları atlıyoruz. Hero görünür değilken (live=false) döngü hiç
+    kurulmuyor, yani ekran dışında maliyet yine sıfır.
+  */
+  useEffect(() => {
+    if (!cappedLive) return;
+    let raf = 0;
+    let last = 0;
+    const FRAME_MS = 1000 / 30 - 1; // 1ms pay: 60Hz rAF'ta her ikinci kare
+    const tick = (now: number) => {
+      raf = requestAnimationFrame(tick);
+      if (now - last < FRAME_MS) return;
+      last = now;
+      invalidateRef.current?.();
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [cappedLive]);
+
   // Boot liveliness süresi — bake + font sonrası IO'ya bırak
   useEffect(() => {
     if (!bootLive || !baked) return;
@@ -882,26 +918,29 @@ export default function HeroScene({
     return () => window.removeEventListener("pageshow", onPageShow);
   }, []);
 
-  const visible = active && tabVisible && !reduced;
-  // Intro altında: birkaç frame ısıt, sonra demand (GPU boş). Perde kalkınca always.
-  // bootLive: soft-nav settle sırasında IO false verse bile çiz — boş header olmasın.
-  const running = visible && !introCovering;
-  const warming =
-    (visible && introCovering && !baked) ||
-    (bootLive && tabVisible && !reduced && !introCovering);
   /*
-    M kesintisiz döndüğü için görünürken tek doğru mod "always"; "demand"
-    dönüşü donduruyor. Boşta iş yapmamayı görünürlük sağlıyor: hero görüş
-    dışına çıkınca (veya sekme gizlenince) "never".
+    M kesintisiz döndüğü için görünürken masaüstünde tek doğru mod "always";
+    "demand" dönüşü donduruyor. Telefonda ise 30Hz invalidate sürücüsü
+    (yukarıda) dönüşü kendisi besliyor, o yüzden orada "demand" doğru.
+    Boşta iş yapmamayı görünürlük sağlıyor: hero görüş dışına çıkınca
+    (veya sekme gizlenince) "never".
     reduced-motion: dönüş zaten yok, tek kare yeter → "demand".
   */
   const frameloop = reduced
     ? "demand"
-    : running || warming || bootLive
-      ? "always"
+    : live
+      ? capped
+        ? "demand"
+        : "always"
       : "never";
   const dprCap = lite ? LITE_DPR_CAP : DESKTOP_DPR_CAP;
   const dprFloor = lite ? LITE_DPR_FLOOR : 1;
+  /*
+    PerformanceMonitor gerçek fps'i ölçüyor. 30'a sabitlerken [50,60] eşiği
+    sürekli "decline" verip DPR'ı tabana indirir, yani keskinlik kaybı olurdu.
+    Kapalı moda kendi hedefini veriyoruz.
+  */
+  const monitorBounds: [number, number] = capped ? [24, 31] : [50, 60];
 
   return (
     /*
@@ -982,7 +1021,7 @@ export default function HeroScene({
           flipflops={4}
           // Hedef 60fps: >55 iken keskinliğe (DPR cap'e) tırman, <50'de düşür.
           // Mobilde taban 1.5 olduğundan zorlanan cihaz bile eski bulanıklığa inmez.
-          bounds={() => [50, 60]}
+          bounds={() => monitorBounds}
           onDecline={() =>
             setDpr((d) => Math.max(dprFloor, +(d - 0.15).toFixed(2)))
           }
