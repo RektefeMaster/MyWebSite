@@ -32,6 +32,7 @@ constraints:
 | `casa-aurelia` | Bilingual hotel site | Review rooms and move to reservation contact | same |
 | `seraphine-atelier` | Fashion lookbook | Browse women/men collections and request a fitting | same |
 | `havva-baklava` | Workshop ordering site | See current offer and order through WhatsApp | same |
+| `mizan` | Clinic website | Understand treatments and request a consultation | same |
 | `sahra-butik` | Boutique catalog | Browse lines and ask about size or stock | same |
 | `vela-skin-atelier` | Skin studio booking site | Review protocols and request a consultation | same |
 | `aiahi` | WhatsApp assistant + CRM | Turn appointment inquiries into calendar and customer records | `AIAHI-001` |

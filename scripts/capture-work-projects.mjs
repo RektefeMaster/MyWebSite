@@ -28,6 +28,11 @@ const sites = [
     waitFor: "text=HAVVA",
   },
   {
+    id: "mizan",
+    url: "https://mizan-ten-brown.vercel.app/",
+    waitFor: "text=MIZAN",
+  },
+  {
     id: "sahra-butik",
     url: "https://sahrabutik.vercel.app/",
     waitFor: "text=SAHRA",

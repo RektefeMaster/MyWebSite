@@ -772,20 +772,19 @@ html::-webkit-scrollbar-corner {
     touch-action: manipulation;
   }
 
-  /* Fixed nav blur — iOS scroll jank; opak glass, görünüm korunur.
-     Blur yokken %94 saydamlık "cam" değil HATA gibi okunuyordu: altından
-     geçen dev editöryel başlıklar (Seçili projeler, Casa Aurelia) ve proje
-     mockup'ları nav çubuğunun içinden hayalet gibi görünüyordu. Blur'suz
-     nav TAM OPAK olmalı. */
+  /* Fixed nav blur — iOS scroll jank; opak glass, görünüm korunur */
   .nav-glass,
   .nav-shell.is-scrolled .nav-glass {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
 
-  .nav-glass,
+  .nav-glass {
+    background: color-mix(in srgb, var(--background) 94%, transparent);
+  }
+
   .nav-shell.is-scrolled .nav-glass {
-    background: var(--background);
+    background: color-mix(in srgb, var(--background) 98%, transparent);
   }
 
   .theme-toggle__glass,
@@ -821,10 +820,12 @@ html::-webkit-scrollbar-corner {
     -webkit-backdrop-filter: none;
   }
 
-  /* Blur'suz nav tam opak — bkz. coarse-pointer bloğundaki not. */
-  .nav-glass,
+  .nav-glass {
+    background: color-mix(in srgb, var(--background) 94%, transparent);
+  }
+
   .nav-shell.is-scrolled .nav-glass {
-    background: var(--background);
+    background: color-mix(in srgb, var(--background) 98%, transparent);
   }
 
   .theme-toggle__glass,
@@ -1145,59 +1146,6 @@ html::-webkit-scrollbar-corner {
   padding-inline: 0.04em;
   margin-block: -0.18em -0.24em;
   margin-inline: -0.04em;
-  /*
-    Tek kelime kutudan genişse maske onu KESİYORDU (inline-block shrink-to-fit
-    max-content'e büyüyor, başlıktaki `overflow-wrap` hiç devreye girmiyor).
-    Ölçüldü: 320px'te "geliştiriyoruz" 381px sürüyor ve son heceler ekranın
-    dışında okunmaz kalıyordu. Kelime maskesi artık kendi içinde satır
-    kırabiliyor; TR/DE'nin uzun bileşik kelimeleri taşmıyor.
-  */
-  max-width: 100%;
-}
-
-/* Maskenin içindeki her sarmalayıcı da (word-reveal-inner, PageHero'nun
-   data-ph-word'ü, SelectedWork'ün data-work-word'ü) inline-block. Sadece
-   dış maskeyi sınırlamak yetmiyor — iç kutu max-content'e büyüyüp taşmayı
-   geri getiriyordu (ölçüldü: /tr/work "gereksinimlerine", 320px'te 95px). */
-.word-reveal-inner,
-.word-reveal-word * {
-  max-width: 100%;
-}
-
-/*
-  Son emniyet ağı: tek bir kelime satıra sığmıyorsa kutudan taşıp kırpılmak
-  yerine kırılsın. Yalnızca "başka çare yok" durumunda devreye girer, normal
-  sarmalamaya dokunmaz. Gerekçe: DE bileşikleri (Suchmaschinenoptimierung,
-  24 karakter) 320px'te kart başlığını 26px taşırıp son heceleri okunmaz
-  hâle getiriyordu; TR'de aynı şey uzun eklerle oluyor.
-*/
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-li,
-dd,
-figcaption {
-  overflow-wrap: break-word;
-  /*
-    `overflow-wrap: break-word` min-content genişliğini KÜÇÜLTMEZ. Grid/flex
-    çocuğunun varsayılan `min-width: auto`'su min-content'e kilitlendiği için
-    başlık, kırılmak yerine track'i uzun kelime kadar şişiriyordu (ölçüldü:
-    /de ana sayfa blog kartı 320px'te 280px'lik track'te 306px). Normal
-    akıştaki blok elemanlar zaten `width:auto`, bu yüzden `min-width: 0`
-    yalnızca bu şişmeyi kesiyor.
-  */
-  min-width: 0;
-}
-
-/* Aynı inline-block tuzağı BlurText'te de var — uzun TR kelimeleri dar
-   ekranda satır kıramayıp sağa taşıyordu. */
-.blur-text-item {
-  max-width: 100%;
-  overflow-wrap: break-word;
 }
 
 /* ─────────────────────────────────────────────
@@ -1246,14 +1194,14 @@ figcaption {
 
 /* Sayfa/bölüm açan en büyük kademe — 1–3 kelime */
 .type-display-xl {
-  font-size: clamp(2.25rem, 8.2vw, 7.25rem);
+  font-size: clamp(3rem, 8.2vw, 7.25rem);
   line-height: 1.4;
   letter-spacing: -0.045em;
 }
 
 /* Varsayılan bölüm başlığı */
 .type-display-lg {
-  font-size: clamp(1.7rem, 6vw, 4.75rem);
+  font-size: clamp(2.5rem, 6vw, 4.75rem);
   line-height: 1.44;
   letter-spacing: -0.04em;
 }
@@ -1948,8 +1896,8 @@ html.intro-lock {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Kırpma payı gökten gitsin (zemin ve figür korunsun) */
-  object-position: 50% 100%;
+  /* Kırpma payı gökten değil zeminden gitsin (bkz. kadraj sözleşmesi) */
+  object-position: 50% 16%;
   /*
     Ne transform ne filtre. İkisi de kareyi bir kez daha örneklettiriyor
     (scale ile yumuşama, filter ile ek kompozit geçişi); kadraj 1:1

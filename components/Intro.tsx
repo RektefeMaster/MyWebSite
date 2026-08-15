@@ -41,34 +41,12 @@ export default function Intro() {
   const watchdogRef = useRef<number | null>(null);
   const isExiting = useRef(false);
   const warmed = useRef(false);
-  /*
-    Perde kalkarken sökülecek scroll kilidi. Intro layout'ta duruyor ve
-    bittiğinde `null` render ediyor — UNMOUNT OLMUYOR, yani effect cleanup'ı
-    hiç çalışmıyor. Dinleyiciler cleanup'a bırakılırsa `touchmove`
-    preventDefault'ı oturum boyunca asılı kalıyor ve mobilde sayfa hiç
-    kaydırılamıyor (masaüstünde Lenis programatik kaydırdığı için fark
-    edilmiyordu). Bu yüzden kilit ayrı bir kapatıcıda tutuluyor ve hem
-    completeExit hem cleanup aynı kapatıcıyı çağırıyor.
-  */
-  const releaseLockRef = useRef<(() => void) | null>(null);
-  /*
-    Çıkış timeline'ı GSAP tickerine bağlı; sekme arkaplandayken rAF durursa
-    onComplete hiç gelmiyor ve perde açık kalıyordu. Timeline en fazla ~1.2sn
-    sürüyor — üstüne setTimeout tabanlı sert bir tavan koyuyoruz.
-  */
-  const exitFailsafeRef = useRef<number | null>(null);
 
   const unlockScroll = useCallback(() => {
     document.documentElement.classList.remove("intro-lock");
-    releaseLockRef.current?.();
-    releaseLockRef.current = null;
   }, []);
 
   const completeExit = useCallback(() => {
-    if (exitFailsafeRef.current !== null) {
-      window.clearTimeout(exitFailsafeRef.current);
-      exitFailsafeRef.current = null;
-    }
     unlockScroll();
     document.documentElement.dataset.intro = "skip";
     window.__lenis?.start();
@@ -126,8 +104,6 @@ export default function Intro() {
       completeExit();
       return;
     }
-
-    exitFailsafeRef.current = window.setTimeout(completeExit, 1800);
 
     const mobile = window.matchMedia(
       "(max-width: 767px), (pointer: coarse)",
@@ -266,18 +242,6 @@ export default function Intro() {
     window.addEventListener("touchmove", preventScroll, { passive: false });
     window.addEventListener("keydown", handleKeyDown);
 
-    releaseLockRef.current = () => {
-      window.removeEventListener("wheel", preventScroll);
-      window.removeEventListener("touchmove", preventScroll);
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-
-    const warmAt = window.matchMedia(
-      "(max-width: 767px), (pointer: coarse)",
-    ).matches
-      ? 5.2
-      : 2;
-
     let playbackFallback: number | null = null;
     let seekFallback: number | null = null;
     let playbackPrepared = false;
@@ -303,15 +267,7 @@ export default function Intro() {
           progressBarRef.current.style.transform = `scaleX(${ratio})`;
         }
 
-        /*
-          Isıtma noktası cihaza göre. Masaüstünde 2sn'de WebGL boot + hero
-          videosu perdenin altında rahat sığıyor. Telefonda aynı anda üç ağır
-          iş oluyordu (perde videosu decode + WebGL context/shader + ikinci
-          video indirme) ve perde gözle görülür şekilde takılıyordu. Lite'ta
-          ısıtmayı filmin ikinci yarısına alıyoruz — kalan ~5sn + çıkış
-          animasyonu sahnenin hazır olmasına yetiyor.
-        */
-        if (video.currentTime >= warmAt && !warmed.current) {
+        if (video.currentTime >= 2 && !warmed.current) {
           warmed.current = true;
           if (pathname === "/") {
             window.dispatchEvent(new Event("metek:hero-warm"));
@@ -422,10 +378,6 @@ export default function Intro() {
         window.clearTimeout(watchdogRef.current);
         watchdogRef.current = null;
       }
-      if (exitFailsafeRef.current !== null) {
-        window.clearTimeout(exitFailsafeRef.current);
-        exitFailsafeRef.current = null;
-      }
       if (playbackFallback !== null) {
         window.clearTimeout(playbackFallback);
       }
@@ -447,6 +399,9 @@ export default function Intro() {
       video?.removeEventListener("loadedmetadata", preparePlayback);
       video?.removeEventListener("seeked", beginPlayback);
       exitTimelineRef.current?.kill();
+      window.removeEventListener("wheel", preventScroll);
+      window.removeEventListener("touchmove", preventScroll);
+      window.removeEventListener("keydown", handleKeyDown);
       unlockScroll();
       document.documentElement.dataset.intro = "skip";
       window.__lenis?.start();
@@ -475,14 +430,8 @@ export default function Intro() {
           suppressHydrationWarning
           onEnded={finish}
         >
-          {/*
-            webm ÖNCE: aynı master, ölçülen SSIM 0.981 (gözle ayırt edilemez)
-            ama 1.33MB — mp4 2.03MB. Tarayıcı ilk oynatabildiği kaynağı seçtiği
-            için sıralama tersken VP9 dosyası hiç kullanılmıyordu ve her ziyaretçi
-            700KB fazladan indiriyordu. Safari webm/VP9'u atlayıp mp4'e düşer.
-          */}
-          <source src="/intro/metek-intro.webm" type="video/webm" />
           <source src="/intro/metek-intro.mp4" type="video/mp4" />
+          <source src="/intro/metek-intro.webm" type="video/webm" />
         </video>
         <div className="intro-matte" aria-hidden="true" />
       </div>

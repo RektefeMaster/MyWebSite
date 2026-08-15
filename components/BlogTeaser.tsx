@@ -26,7 +26,7 @@ export default async function BlogTeaser({ locale }: BlogTeaserProps) {
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-12 gap-x-5 border-t border-foreground/20 pt-6 md:gap-x-6 md:pt-8">
           <Reveal className="col-span-12 md:col-span-8">
-            <h2 className="font-display type-display text-[clamp(2.2rem,8vw,7rem)] leading-[1.4] tracking-[-0.05em]">
+            <h2 className="font-display type-display text-[clamp(3rem,8vw,7rem)] leading-[1.4] tracking-[-0.05em]">
               {t("teaserTitle")}
             </h2>
           </Reveal>

@@ -164,7 +164,7 @@ export default async function ProjectDetailView({
             </Reveal>
 
             <Reveal delay={45} className="col-span-12 md:col-span-10">
-              <h1 className="font-display type-display max-w-[14ch] break-words text-[clamp(2.5rem,9vw,8rem)] leading-[1.4] tracking-[-0.055em]">
+              <h1 className="font-display type-display max-w-[14ch] break-words text-[clamp(3.5rem,9vw,8rem)] leading-[1.4] tracking-[-0.055em]">
                 {forDisplay(name)}
               </h1>
               <p className="font-subtitle mt-6 max-w-[60ch] border-t border-foreground/20 pt-5 text-base leading-relaxed text-foreground/65 md:ml-auto md:text-xl">

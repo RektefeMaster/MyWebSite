@@ -27,7 +27,7 @@ export default function FeaturedCase() {
             <p className="border-t border-foreground/20 pt-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/40">
               <DecryptedText text={t("client")} animateOn="inViewHover" />
             </p>
-            <h2 className="mt-8 font-display type-display text-[clamp(1.7rem,6vw,5.4rem)] leading-[1.44] tracking-[-0.05em]">
+            <h2 className="mt-8 font-display type-display text-[clamp(2.8rem,6vw,5.4rem)] leading-[1.44] tracking-[-0.05em]">
               {t("title")}
             </h2>
             <div className="mt-3 flex min-h-[1.5rem] items-center gap-1.5 font-mono text-[11px] font-bold text-accent">

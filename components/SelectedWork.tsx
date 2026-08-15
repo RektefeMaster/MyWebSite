@@ -16,7 +16,7 @@ function AnimatedTitle({ text }: { text: string }) {
 
   return (
     <h3
-      className="font-display type-display max-w-[13ch] text-[clamp(1.95rem,7vw,6.7rem)] leading-[1.44] tracking-[-0.05em]"
+      className="font-display type-display max-w-[13ch] text-[clamp(2.8rem,7vw,6.7rem)] leading-[1.44] tracking-[-0.05em]"
       aria-label={text}
     >
       <span aria-hidden>
@@ -275,7 +275,7 @@ export default function SelectedWork() {
           <div className="col-span-12 md:col-span-9">
             <WordReveal
               text={t("title")}
-              className="font-display type-display text-[clamp(2.6rem,9.5vw,8.5rem)] leading-[1.4] tracking-[-0.052em]"
+              className="font-display type-display text-[clamp(3.25rem,9.5vw,8.5rem)] leading-[1.4] tracking-[-0.052em]"
             />
           </div>
           <Reveal
