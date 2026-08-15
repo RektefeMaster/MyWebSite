@@ -85,6 +85,36 @@ kontrastta kalıyordu (ölçüldü, gözle de okunmuyordu).
 
 ## Bilinen kısıtlar / dikkat
 
+- **Intro perdesi UNMOUNT OLMAZ.** `Intro` layout'ta duruyor ve bitince `null`
+  render ediyor; effect cleanup'ı hiç çalışmıyor. Scroll kilidini (wheel /
+  touchmove `preventDefault`) cleanup'a bırakma — `releaseLockRef` ile perde
+  kalkarken sök. Bırakılırsa mobilde sayfa oturum boyunca kaydırılamıyor
+  (masaüstünde Lenis programatik kaydırdığı için fark edilmiyor; mobilde Lenis
+  kapalı, native scroll doğrudan preventDefault yiyor). Çıkış timeline'ı GSAP
+  ticker'ına bağlı olduğundan sekme arkaplandayken `onComplete` gelmiyor —
+  `exitFailsafeRef` (setTimeout, rAF'tan bağımsız) o yüzden var.
+- **Display başlıklarında punto çifti:** `text-[clamp(1.15rem,≤6.5vw,MAX)]`
+  + `sm:text-[ORİJİNAL clamp]`. Telefonda eğim en fazla **6.5vw**; 640px ve
+  üstünde `sm:` orijinali geri koyuyor, yani masaüstü/tablet birebir korunuyor
+  (48 sayfa/genişlik kombinasyonu baseline ile karşılaştırılarak doğrulandı).
+  Sebep: eski clamp'lerin TABANI (3–4rem) telefonda devreye giriyordu ve
+  "platformlarından" gibi TR/DE kelimeleri 320px'te 519px sürüp maskeden
+  taşıyordu. Yeni bir başlık eklerken aynı çifti kur; tek clamp yazma.
+- **Reveal maskelerine `max-width: 100%` VERME.** Maskeler iç içe
+  `inline-block`; iç kutunun yüzdesi dıştaki shrink-to-fit genişliğe çözülüyor
+  ve genişlik kendi kendine bağımlı hâle geliyor. Sığan kelimeler bile son
+  harfini alt satıra atıyor ("Casa Aurelia Roma" → "Cas/a Aureli/a Rom/a",
+  "Ahi AI" → "Ah/i A/I"). Taşma punto tarafında çözülür, maske zorlanarak
+  değil.
+- Kelime maskelerinde boşluk sarmalayıcının **dışında** kalmalı: `inline-block`
+  sonundaki beyaz boşluk kırpılıyor ve başlıklar "CasaAureliaRoma" diye
+  bitişik çıkıyordu (bkz. `SelectedWork.tsx`, `Fragment` kullanımı).
+- Hero'ya `max-h-[1100px]` geri koyma: 1440px+ ekranlarda film 1100px'te
+  kesilip figürün bacakları ve çiçek tarlası kadraj dışında kalıyor, altında
+  boş bant oluşuyordu (2560×1440'ta ölçüldü). Hero tam `100svh` olmalı.
+- Blur'suz nav (coarse pointer / ≤768px) **tam opak** olmalı. %94 saydamlıkta
+  altından geçen başlıklar ve proje görselleri çubuğun içinden görünüyor,
+  "cam" değil hata gibi okunuyor.
 - `reactStrictMode: false` ŞART: StrictMode'un çift effect çalıştırması R3F'in WebGL context'ini kalıcı kaybettiriyor (boş gri hero). Açma.
 - `public/fonts/SpaceGrotesk-Bold.ttf` **silinmeyecek**: `app/icon.tsx` ve
   `opengraph-image.tsx` `readFile` ile okuyor (next/og TTF ister). Kod içinde

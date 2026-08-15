@@ -91,7 +91,7 @@ export default function Capabilities() {
           <div className="col-span-12 md:col-span-8">
             <WordReveal
               text={t("title")}
-              className="font-display type-display text-[clamp(3rem,8vw,7rem)] leading-[1.4] tracking-[-0.05em]"
+              className="font-display type-display text-[clamp(1.15rem,6.5vw,7rem)] sm:text-[clamp(3rem,8vw,7rem)] leading-[1.4] tracking-[-0.05em]"
             />
           </div>
           <Reveal delay={70} className="col-span-10 col-start-3 mt-8 md:col-span-3 md:col-start-10 md:mt-1">

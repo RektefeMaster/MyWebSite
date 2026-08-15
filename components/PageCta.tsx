@@ -24,7 +24,7 @@ export default function PageCta({ label, title, blurb, cta }: PageCtaProps) {
               {label}
             </p>
 
-            <h2 className="font-display type-display col-span-12 max-w-[11ch] text-[clamp(3rem,8vw,7rem)] leading-[1.4] tracking-[-0.05em] md:col-span-10">
+            <h2 className="font-display type-display col-span-12 max-w-[11ch] text-[clamp(1.15rem,6.5vw,7rem)] sm:text-[clamp(3rem,8vw,7rem)] leading-[1.4] tracking-[-0.05em] md:col-span-10">
               {title}
             </h2>
 

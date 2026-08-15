@@ -772,19 +772,18 @@ html::-webkit-scrollbar-corner {
     touch-action: manipulation;
   }
 
-  /* Fixed nav blur — iOS scroll jank; opak glass, görünüm korunur */
+  /* Fixed nav blur — iOS scroll jank; opak glass, görünüm korunur.
+
+     Blur YOKKEN %94 saydamlık "cam" değil HATA gibi okunuyor: altından geçen
+     proje görselleri ve dev editöryel başlıklar çubuğun içinden hayalet gibi
+     görünüyordu (ekran görüntüsüyle doğrulandı: /tr/work, 390px — "Wholesale
+     Cabinet Creations" başlığı nav'ın ortasından geçiyor). Bulanıklık o %6'yı
+     dağıtmadığı için blur'suz nav TAM OPAK olmalı. */
   .nav-glass,
   .nav-shell.is-scrolled .nav-glass {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-  }
-
-  .nav-glass {
-    background: color-mix(in srgb, var(--background) 94%, transparent);
-  }
-
-  .nav-shell.is-scrolled .nav-glass {
-    background: color-mix(in srgb, var(--background) 98%, transparent);
+    background: var(--background);
   }
 
   .theme-toggle__glass,
@@ -814,18 +813,12 @@ html::-webkit-scrollbar-corner {
 /* Dar ekran: blur jank (ince pointer tablet dahil) */
 @media (max-width: 768px) {
 
+  /* Blur'suz nav tam opak — bkz. coarse-pointer bloğundaki not. */
   .nav-glass,
   .nav-shell.is-scrolled .nav-glass {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-  }
-
-  .nav-glass {
-    background: color-mix(in srgb, var(--background) 94%, transparent);
-  }
-
-  .nav-shell.is-scrolled .nav-glass {
-    background: color-mix(in srgb, var(--background) 98%, transparent);
+    background: var(--background);
   }
 
   .theme-toggle__glass,
@@ -1227,6 +1220,50 @@ html::-webkit-scrollbar-corner {
 */
 .type-display {
   overflow-wrap: break-word;
+}
+
+/*
+  Son emniyet ağı — YALNIZCA dar ekranda.
+
+  Ölçüldü (/de, 320px): "Suchmaschinenoptimierung" blog kartı başlığını 6px
+  taşırıyordu. `min-width: 0` şart, çünkü `overflow-wrap: break-word`
+  min-content genişliğini KÜÇÜLTMEZ; grid/flex çocuğunun varsayılan
+  `min-width: auto`'su min-content'e kilitlenip track'i uzun kelime kadar
+  şişiriyordu.
+
+  MASAÜSTÜNE SIZDIRMA. Bu kurallar bir kez global yazıldı ve büyük ekranda
+  başlıkları kelime ORTASINDAN böldü ("Ahi AI" → "Ah / i  A / I", 1440px'te
+  ekran görüntüsüyle yakalandı): geniş kutuda kırılmaya hiç gerek yokken
+  `break-word` maskenin daralan genişliğiyle birleşince heceleri alt satıra
+  atıyor. Emniyet ağı yalnız kutunun gerçekten dar olduğu yerde açılmalı.
+*/
+@media (max-width: 639.98px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li,
+  dd,
+  figcaption {
+    overflow-wrap: break-word;
+    min-width: 0;
+  }
+
+  /*
+    Reveal maskelerine `max-width: 100%` VERME. Maskeler iç içe inline-block
+    (word-reveal-word → word-reveal-inner / data-ph-word / data-work-word,
+    SelectedWork'te bir de dış sarmalayıcı); iç kutunun yüzdesi dıştaki
+    shrink-to-fit genişliğe çözülüyor, yani genişlik kendi kendine bağımlı
+    hâle geliyor. Sonuç: sığan kelimeler bile son harfini alt satıra atıyordu
+    ("Casa Aurelia Roma" → "Cas/a  Aureli/a  Rom/a", 390px'te yakalandı).
+
+    Doğru çözüm punto tarafında: display başlıkları telefonda en fazla 6.5vw
+    (bkz. bileşenlerdeki `text-[clamp(...)] sm:text-[...]` çifti). Kelimeler
+    o ölçüde zaten sığıyor, maskeyi zorlamaya gerek yok.
+  */
 }
 
 /*

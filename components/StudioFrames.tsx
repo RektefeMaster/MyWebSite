@@ -131,7 +131,7 @@ export default function StudioFrames() {
         <div className="grid grid-cols-12 gap-x-5 gap-y-12 md:gap-x-6">
           <div className="col-span-12 md:col-span-5 md:self-end md:pb-2">
             <Reveal delay={60}>
-              <h2 className="border-t border-band-fg/18 pt-6 font-display type-display text-[clamp(2.75rem,6vw,5.25rem)] font-bold leading-[1.44] tracking-[-0.045em]">
+              <h2 className="border-t border-band-fg/18 pt-6 font-display type-display text-[clamp(1.15rem,6vw,5.25rem)] sm:text-[clamp(2.75rem,6vw,5.25rem)] font-bold leading-[1.44] tracking-[-0.045em]">
                 {t("title")}
               </h2>
             </Reveal>

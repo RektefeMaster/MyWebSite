@@ -65,8 +65,13 @@ const spaceGrotesk = Space_Grotesk({
 /** Perde kararı — ilk boyamadan önce html[data-intro] ayarlar (FOUC yok).
  *  `?intro=skip` atlar; `?intro` / `?intro=1` zorla oynatır (eski `indexOf("intro")`
  *  `intro=skip`’i de play sanıyordu).
+ *
+ *  Dar bant: perde 1.3MB video + ~10sn scroll kilidi demek. Save-Data açıkken
+ *  veya 2g bağlantıda bu, siteyi "açılmıyor" gibi gösteriyor — o durumda perde
+ *  reduced-motion gibi tamamen atlanır ve ziyaretçi doğrudan hero'ya iner.
+ *  `?intro` ile zorlama yine çalışır (reduced-motion hariç).
  */
-const introInitScript = `(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var r=document.documentElement;var sp=new URLSearchParams(location.search);var iv=sp.get("intro");var forceSkip=iv==="skip"||iv==="0"||iv==="false";var forcePlay=!forceSkip&&(iv!==null||location.hash==="#intro");var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;var seen=false;try{seen=sessionStorage.getItem("metek-intro")==="1";}catch(e){}var play=reduce?false:(forceSkip?false:(forcePlay||!seen));r.setAttribute("data-intro",play?"play":"skip");if(play){setTimeout(function(){if(r.getAttribute("data-intro")==="play"){r.setAttribute("data-intro","skip");r.classList.remove("intro-lock");try{window.dispatchEvent(new Event("metek:intro-done"));}catch(e){}}},12500);}}catch(e){document.documentElement.setAttribute("data-intro","skip");}})();`;
+const introInitScript = `(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var r=document.documentElement;var sp=new URLSearchParams(location.search);var iv=sp.get("intro");var forceSkip=iv==="skip"||iv==="0"||iv==="false";var forcePlay=!forceSkip&&(iv!==null||location.hash==="#intro");var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;var c=navigator.connection||{};var thin=c.saveData===true||/^(slow-2g|2g)$/.test(c.effectiveType||"");var seen=false;try{seen=sessionStorage.getItem("metek-intro")==="1";}catch(e){}var play=(reduce||thin)?false:(forceSkip?false:(forcePlay||!seen));if(forcePlay&&!reduce)play=true;r.setAttribute("data-intro",play?"play":"skip");if(play){setTimeout(function(){if(r.getAttribute("data-intro")==="play"){r.setAttribute("data-intro","skip");r.classList.remove("intro-lock");try{window.dispatchEvent(new Event("metek:intro-done"));}catch(e){}}},12500);}}catch(e){document.documentElement.setAttribute("data-intro","skip");}})();`;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

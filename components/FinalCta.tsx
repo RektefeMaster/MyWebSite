@@ -109,7 +109,7 @@ export default function FinalCta() {
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-band-fg/36">
               {t("label")}
             </p>
-            <h2 className="mt-8 max-w-[12ch] font-display type-display text-[clamp(3.6rem,10.5vw,9.5rem)] leading-[1.4] tracking-[-0.055em]">
+            <h2 className="mt-8 max-w-[12ch] font-display type-display text-[clamp(1.15rem,6.5vw,9.5rem)] sm:text-[clamp(3.6rem,10.5vw,9.5rem)] leading-[1.4] tracking-[-0.055em]">
               {t("title")}
             </h2>
           </Reveal>

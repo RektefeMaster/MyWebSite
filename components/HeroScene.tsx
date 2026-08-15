@@ -155,10 +155,19 @@ function drawWordmark(ctx: CanvasRenderingContext2D, scale: number) {
  * poster karesi yeterli, her karede GPU'ya doku yüklenmiyor. Dosya
  * HeroFilm'in posteriyle aynı (lib/hero-media): ikinci indirme değil.
  */
-function useFilmBackdrop(portrait: boolean, aspect: number) {
+function useFilmBackdrop(portrait: boolean, aspect: number, lite: boolean) {
   const [texture, setTexture] = useState<THREE.Texture | null>(null);
   // Her piksellik resize'da yeniden çizme — en-boy basamağı yeterli
   const step = Math.round(aspect * 20) / 20;
+  /*
+    Bake genişliği cihaza göre. 1536 masaüstünde ekranın üstünde bir pay
+    bırakıyor (cam kırarken büyütüyor). Telefonda ise fazlasıyla üstünde:
+    393pt × DPR ~2 = ~790 aygıt pikseli, buna karşılık DİKEY kadrajda
+    1536×3340'lık RGBA doku ≈ 20MB GPU belleği ve tek karede çok büyük bir
+    yükleme. 1024 hâlâ aygıt genişliğinin ~1.3 katı — kırılan görüntüde gözle
+    fark yok, bellek dörtte birine iniyor.
+  */
+  const bakeWidth = lite ? 1024 : 1536;
 
   useEffect(() => {
     let cancelled = false;
@@ -173,7 +182,7 @@ function useFilmBackdrop(portrait: boolean, aspect: number) {
     const draw = () => {
       if (cancelled) return;
       // Kırılan görüntünün (film + kelime markası) çözünürlüğü
-      const w = 1536;
+      const w = bakeWidth;
       const h = Math.max(1, Math.round(w / step));
       const canvas = document.createElement("canvas");
       canvas.width = w;
@@ -208,7 +217,7 @@ function useFilmBackdrop(portrait: boolean, aspect: number) {
       made?.dispose();
       setTexture(null);
     };
-  }, [portrait, step]);
+  }, [portrait, step, bakeWidth]);
 
   return texture;
 }
@@ -430,7 +439,7 @@ function GlassM({
     ) / GEOMETRY_HEIGHT;
   const offsetY =
     viewport.height * (0.5 - (portrait ? MARK_Y_PORTRAIT : MARK_Y));
-  const backdrop = useFilmBackdrop(portrait, viewport.aspect);
+  const backdrop = useFilmBackdrop(portrait, viewport.aspect, lite);
   /* Serbest gezinme payı — M kelime markasının üstünden geçebilsin diye
      dikeyde kilitli değil (bkz. useFrame). */
   const driftX = viewport.width * (portrait ? 0.12 : 0.14);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { Fragment, useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { getFeaturedProjects, type Project } from "@/data/projects";
@@ -16,21 +16,26 @@ function AnimatedTitle({ text }: { text: string }) {
 
   return (
     <h3
-      className="font-display type-display max-w-[13ch] text-[clamp(2.8rem,7vw,6.7rem)] leading-[1.44] tracking-[-0.05em]"
+      className="font-display type-display max-w-[13ch] text-[clamp(1.15rem,6.5vw,6.7rem)] sm:text-[clamp(2.8rem,7vw,6.7rem)] leading-[1.44] tracking-[-0.05em]"
       aria-label={text}
     >
       <span aria-hidden>
         {/* Maske payı WordReveal ile ORTAK (.word-reveal-word) — eski
             `pb-[0.08em]` Goks'un 0.34em alt uzantısını kesiyordu. */}
+        {/* Boşluk sarmalayıcının DIŞINDA kalmalı: inline-block'un sonundaki
+            beyaz boşluk kırpılıyor ve başlıklar "CasaAureliaRoma" diye
+            bitişik çıkıyordu (her iki temada, her genişlikte). */}
         {words.map((word, index) => (
-          <span key={`${word}-${index}`} className="inline-block">
-            <span className="word-reveal-word">
-              <span data-work-word className="inline-block">
-                {word}
+          <Fragment key={`${word}-${index}`}>
+            <span className="inline-block">
+              <span className="word-reveal-word">
+                <span data-work-word className="inline-block">
+                  {word}
+                </span>
               </span>
             </span>
             {index < words.length - 1 ? " " : null}
-          </span>
+          </Fragment>
         ))}
       </span>
     </h3>
@@ -275,7 +280,7 @@ export default function SelectedWork() {
           <div className="col-span-12 md:col-span-9">
             <WordReveal
               text={t("title")}
-              className="font-display type-display text-[clamp(3.25rem,9.5vw,8.5rem)] leading-[1.4] tracking-[-0.052em]"
+              className="font-display type-display text-[clamp(1.15rem,6.5vw,8.5rem)] sm:text-[clamp(3.25rem,9.5vw,8.5rem)] leading-[1.4] tracking-[-0.052em]"
             />
           </div>
           <Reveal

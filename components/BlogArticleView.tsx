@@ -82,7 +82,7 @@ export default async function BlogArticleView({
             </Reveal>
 
             <Reveal delay={40} className="col-span-12 md:col-span-10">
-              <h1 className="font-display type-display max-w-[13ch] break-words text-[clamp(3.25rem,8vw,7.5rem)] leading-[1.4] tracking-[-0.05em]">
+              <h1 className="font-display type-display max-w-[13ch] break-words text-[clamp(1.15rem,6.5vw,7.5rem)] sm:text-[clamp(3.25rem,8vw,7.5rem)] leading-[1.4] tracking-[-0.05em]">
                 {forDisplay(article.title)}
               </h1>
               <p className="font-subtitle mt-8 max-w-[58ch] border-t border-foreground/20 pt-5 text-base leading-relaxed text-foreground/65 md:ml-auto md:text-xl">
@@ -180,7 +180,7 @@ export default async function BlogArticleView({
               <p className="col-span-12 border-t border-foreground/25 pt-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/45 md:col-span-2">
                 {t("relatedLabel")}
               </p>
-              <h2 className="font-display type-display col-span-12 text-[clamp(3rem,7vw,6.5rem)] leading-[1.44] tracking-[-0.05em] md:col-span-10">
+              <h2 className="font-display type-display col-span-12 text-[clamp(1.15rem,6.5vw,6.5rem)] sm:text-[clamp(3rem,7vw,6.5rem)] leading-[1.44] tracking-[-0.05em] md:col-span-10">
                 {t("relatedTitle")}
               </h2>
             </div>

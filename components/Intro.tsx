@@ -41,12 +41,42 @@ export default function Intro() {
   const watchdogRef = useRef<number | null>(null);
   const isExiting = useRef(false);
   const warmed = useRef(false);
+  /*
+    Perde kalkarken sökülecek scroll kilidi.
+
+    Intro layout'ta duruyor ve bittiğinde `null` render ediyor — UNMOUNT
+    OLMUYOR, yani effect cleanup'ı hiç çalışmıyor. Dinleyicileri cleanup'a
+    bırakmak `touchmove` preventDefault'ını oturum boyunca asılı bırakıyordu:
+    perde kalktıktan sonra mobilde sayfa hiç kaydırılamıyordu (ölçüldü: Pixel 7
+    emülasyonu, gerçek dokunma sürüklemesi sonrası scrollY 0'da kalıyor).
+    Masaüstünde fark edilmiyordu çünkü Lenis wheel'i kendi dinleyicisiyle alıp
+    programatik kaydırıyor; mobilde Lenis kapalı (SmoothScroll: coarse pointer)
+    ve native scroll doğrudan preventDefault yiyordu.
+
+    Kilit bu yüzden ayrı bir kapatıcıda tutuluyor; hem completeExit hem cleanup
+    aynı kapatıcıyı çağırıyor.
+  */
+  const releaseLockRef = useRef<(() => void) | null>(null);
+  /*
+    Çıkış timeline'ı GSAP ticker'ına (rAF) bağlı. Sekme arkaplandayken rAF
+    donuyor, onComplete hiç gelmiyor ve completeExit çalışmıyordu — perde
+    yalnızca init script'inin 12.5sn'lik CSS failsafe'iyle gizleniyor, kilit
+    ise açık kalıyordu. Timeline en fazla ~1.2sn sürüyor; üstüne setTimeout
+    tabanlı (rAF'tan bağımsız) sert bir tavan koyuyoruz.
+  */
+  const exitFailsafeRef = useRef<number | null>(null);
 
   const unlockScroll = useCallback(() => {
     document.documentElement.classList.remove("intro-lock");
+    releaseLockRef.current?.();
+    releaseLockRef.current = null;
   }, []);
 
   const completeExit = useCallback(() => {
+    if (exitFailsafeRef.current !== null) {
+      window.clearTimeout(exitFailsafeRef.current);
+      exitFailsafeRef.current = null;
+    }
     unlockScroll();
     document.documentElement.dataset.intro = "skip";
     window.__lenis?.start();
@@ -104,6 +134,9 @@ export default function Intro() {
       completeExit();
       return;
     }
+
+    // rAF donsa bile perde kalkar ve kilit açılır (bkz. exitFailsafeRef).
+    exitFailsafeRef.current = window.setTimeout(completeExit, 1800);
 
     const mobile = window.matchMedia(
       "(max-width: 767px), (pointer: coarse)",
@@ -242,6 +275,26 @@ export default function Intro() {
     window.addEventListener("touchmove", preventScroll, { passive: false });
     window.addEventListener("keydown", handleKeyDown);
 
+    /* Kilidi perde kalkar kalkmaz sök — unmount'u bekleme, gelmiyor. */
+    releaseLockRef.current = () => {
+      window.removeEventListener("wheel", preventScroll);
+      window.removeEventListener("touchmove", preventScroll);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+
+    /*
+      WebGL ısıtma noktası cihaza göre. Masaüstünde 2sn'de hero sahnesinin
+      boot'u perdenin altına rahat sığıyor. Telefonda aynı anda üç ağır iş
+      çakışıyordu (perde videosu decode + WebGL context/shader derleme + hero
+      filminin inmesi) ve perde gözle görülür şekilde takılıyordu. Lite'ta
+      ısıtmayı filmin ikinci yarısına alıyoruz — kalan ~5sn artı çıkış
+      animasyonu sahnenin hazır olmasına yetiyor, sahne kalitesi aynı.
+    */
+    const warmAt = window.matchMedia("(max-width: 767px), (pointer: coarse)")
+      .matches
+      ? 5.2
+      : 2;
+
     let playbackFallback: number | null = null;
     let seekFallback: number | null = null;
     let playbackPrepared = false;
@@ -267,7 +320,7 @@ export default function Intro() {
           progressBarRef.current.style.transform = `scaleX(${ratio})`;
         }
 
-        if (video.currentTime >= 2 && !warmed.current) {
+        if (video.currentTime >= warmAt && !warmed.current) {
           warmed.current = true;
           if (pathname === "/") {
             window.dispatchEvent(new Event("metek:hero-warm"));
@@ -324,6 +377,15 @@ export default function Intro() {
         seekFallback = null;
       }
       video.removeEventListener("seeked", beginPlayback);
+      /*
+        Gövdeyi ANCAK arama bittikten sonra iste. `preload="auto"` baştan
+        açıkken tarayıcı dosyayı 0'dan sıralı indirmeye başlıyor, hemen
+        ardından gelen `currentTime = 5/24` aramasi indirmeyi iptal edip
+        kaynağı 64KB ofsetinden YENİDEN indiriyordu. Ölçüldü: 1.33MB'lık webm
+        için 2.53MB trafik (tam dosya + 1.25MB tekrar). Arama önce, gövde
+        sonra: dosya bir kez iniyor.
+      */
+      video.preload = "auto";
       void video.play().then(startProgress).catch(handlePlaybackFailure);
     };
 
@@ -349,7 +411,8 @@ export default function Intro() {
       video.defaultMuted = true;
       video.muted = true;
       video.volume = 0;
-      video.preload = "auto";
+      // Önce yalnız metadata — gövde `beginPlayback`'te, aramadan SONRA istenir.
+      video.preload = "metadata";
       video.addEventListener("playing", startProgress);
       video.addEventListener("error", handlePlaybackFailure);
       video.addEventListener("loadedmetadata", preparePlayback, { once: true });
@@ -378,6 +441,10 @@ export default function Intro() {
         window.clearTimeout(watchdogRef.current);
         watchdogRef.current = null;
       }
+      if (exitFailsafeRef.current !== null) {
+        window.clearTimeout(exitFailsafeRef.current);
+        exitFailsafeRef.current = null;
+      }
       if (playbackFallback !== null) {
         window.clearTimeout(playbackFallback);
       }
@@ -399,9 +466,7 @@ export default function Intro() {
       video?.removeEventListener("loadedmetadata", preparePlayback);
       video?.removeEventListener("seeked", beginPlayback);
       exitTimelineRef.current?.kill();
-      window.removeEventListener("wheel", preventScroll);
-      window.removeEventListener("touchmove", preventScroll);
-      window.removeEventListener("keydown", handleKeyDown);
+      // Dinleyiciler unlockScroll içindeki releaseLockRef ile sökülüyor.
       unlockScroll();
       document.documentElement.dataset.intro = "skip";
       window.__lenis?.start();
@@ -430,8 +495,15 @@ export default function Intro() {
           suppressHydrationWarning
           onEnded={finish}
         >
-          <source src="/intro/metek-intro.mp4" type="video/mp4" />
+          {/*
+            webm ÖNCE. Tarayıcı oynatabildiği İLK kaynağı seçtiği için sıra
+            tersken VP9 dosyası hiç kullanılmıyordu: Chrome/Android her
+            ziyarette 2.03MB mp4 indiriyordu, 1.33MB webm dururken.
+            Ölçüldü: 240 karede ortalama SSIM 0.9932 — gözle ayırt edilemez,
+            kazanç 707KB (%35). Safari VP9/webm'i atlayıp mp4'e düşer.
+          */}
           <source src="/intro/metek-intro.webm" type="video/webm" />
+          <source src="/intro/metek-intro.mp4" type="video/mp4" />
         </video>
         <div className="intro-matte" aria-hidden="true" />
       </div>
