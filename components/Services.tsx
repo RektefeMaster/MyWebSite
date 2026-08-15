@@ -145,7 +145,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
             <div className="md:col-span-8">
               <WordReveal
                 text={t("title")}
-                className="font-display type-display text-[clamp(2.5rem,7vw,5.75rem)] font-bold leading-[1.44] tracking-[-0.045em]"
+                className="font-display type-display text-[clamp(1.95rem,7vw,5.75rem)] font-bold leading-[1.44] tracking-[-0.045em]"
               />
               <div className="mt-3 flex min-h-[1.5rem] items-center gap-2 font-mono text-xs text-foreground/45">
                 <span className="font-bold text-accent">›</span>

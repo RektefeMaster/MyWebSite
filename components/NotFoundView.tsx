@@ -34,7 +34,7 @@ export default function NotFoundView({
           404 / 404
         </p>
         <div className="col-span-12 mt-16 md:col-span-9 md:col-start-4 md:mt-28">
-          <h1 className="font-display type-display max-w-[12ch] text-[clamp(3.75rem,10vw,9rem)] leading-[1.4] tracking-[-0.055em]">
+          <h1 className="font-display type-display max-w-[12ch] text-[clamp(2.75rem,10vw,9rem)] leading-[1.4] tracking-[-0.055em]">
             {title}
           </h1>
           <div className="mt-12 grid gap-8 border-t border-foreground/20 pt-6 sm:grid-cols-2 md:mt-20">

@@ -29,7 +29,7 @@ export default function ManifestoScene() {
             as="p"
             stagger={0.045}
             duration={0.8}
-            className="max-w-[23ch] font-display type-display text-[clamp(2.15rem,6vw,5rem)] font-bold leading-[1.44] tracking-[-0.04em]"
+            className="max-w-[23ch] font-display type-display text-[clamp(1.7rem,6vw,5rem)] font-bold leading-[1.44] tracking-[-0.04em]"
           />
         </div>
       </div>

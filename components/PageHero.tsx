@@ -173,7 +173,7 @@ export default function PageHero({
           </p>
 
           <h1
-            className="font-display type-display col-span-12 max-w-[13ch] break-words text-[clamp(3.25rem,9vw,8rem)] leading-[1.4] tracking-[-0.052em] md:col-span-10"
+            className="font-display type-display col-span-12 max-w-[13ch] break-words text-[clamp(2.5rem,9vw,8rem)] leading-[1.4] tracking-[-0.052em] md:col-span-10"
             aria-label={safeTitle}
           >
             <span aria-hidden>

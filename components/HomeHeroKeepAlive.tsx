@@ -13,7 +13,7 @@ import { loadHeroScene } from "@/lib/load-hero-scene";
 const Hero = dynamic(() => import("@/components/Hero"), {
   loading: () => (
     <div
-      className="relative h-[100svh] max-h-[1100px] bg-background"
+      className="relative h-[100svh] bg-background"
       aria-hidden
     />
   ),
@@ -72,7 +72,7 @@ export default function HomeHeroKeepAlive() {
       inert={!onHome ? true : undefined}
       className={
         onHome
-          ? "relative min-h-[100svh] max-h-[1100px]"
+          ? "relative min-h-[100svh]"
           : "relative h-0 max-h-0 overflow-hidden opacity-0 pointer-events-none"
       }
     >
@@ -80,7 +80,7 @@ export default function HomeHeroKeepAlive() {
         className={
           onHome
             ? "relative"
-            : "pointer-events-none absolute inset-x-0 top-0 -z-10 h-[100svh] max-h-[1100px] overflow-hidden opacity-0"
+            : "pointer-events-none absolute inset-x-0 top-0 -z-10 h-[100svh] overflow-hidden opacity-0"
         }
       >
         <Hero parked={!onHome} />

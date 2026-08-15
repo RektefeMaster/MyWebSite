@@ -54,7 +54,7 @@ export default function Projects() {
         <div className="mb-14 grid grid-cols-12 gap-x-5 border-t border-band-fg/18 pt-6 md:mb-20 md:gap-x-6 md:pt-8">
           <div className="col-span-12 md:col-span-8">
             <Reveal>
-              <h2 className="font-display type-display text-[clamp(3.25rem,9vw,8rem)] leading-[1.4] tracking-[-0.052em]">
+              <h2 className="font-display type-display text-[clamp(2.5rem,9vw,8rem)] leading-[1.4] tracking-[-0.052em]">
                 {t("title")}
               </h2>
             </Reveal>

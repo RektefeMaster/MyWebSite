@@ -53,11 +53,6 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
       summary:
         "HAVVA'nın atölye hikâyesi, günlük ürün fiyatları ve WhatsApp siparişi aynı sayfada buluşuyor.",
     },
-    mizan: {
-      tag: "Estetik klinik",
-      summary:
-        "MİZAN'ın yaklaşımını, tedavilerini ve Nişantaşı'ndaki kliniğini ilk danışmanlığa bağlayan site.",
-    },
     "sahra-butik": {
       tag: "Butik web",
       summary:
@@ -132,11 +127,6 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
       tag: "Artisan food",
       summary:
         "HAVVA pairs its Gaziantep-to-Cologne workshop story with current prices and WhatsApp ordering.",
-    },
-    mizan: {
-      tag: "Aesthetic clinic",
-      summary:
-        "MİZAN's site connects its clinical approach, treatments, and Nişantaşı space to an initial consultation.",
     },
     "sahra-butik": {
       tag: "Boutique web",
@@ -213,11 +203,6 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
       summary:
         "HAVVA combina su historia de taller con precios vigentes y pedidos por WhatsApp.",
     },
-    mizan: {
-      tag: "Clínica estética",
-      summary:
-        "MİZAN presenta su enfoque, tratamientos y espacio de Nişantaşı antes de la primera consulta.",
-    },
     "sahra-butik": {
       tag: "Catálogo de moda",
       summary:
@@ -292,11 +277,6 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
       tag: "Lebensmittelhandwerk",
       summary:
         "HAVVA verbindet seine Werkstattgeschichte mit aktuellen Preisen und Bestellung per WhatsApp.",
-    },
-    mizan: {
-      tag: "Ästhetische Praxis",
-      summary:
-        "MİZAN ordnet Ansatz, Behandlungen und Praxisräume in Nişantaşı vor der ersten Beratung.",
     },
     "sahra-butik": {
       tag: "Modekatalog",

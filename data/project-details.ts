@@ -215,33 +215,6 @@ export const projectDetails: ProjectDetailsByLocale = {
         "Ürün çeşitlerinizi ve sipariş alma yönteminizi paylaşın, müşterilerinizin kolayca sipariş vereceği bir yapı kuralım.",
       ctaButton: "Projemi başlat",
     },
-    mizan: {
-      tag: "Estetik klinik",
-      summary:
-        "MİZAN Nişantaşı kliniği için medikal uzmanlığı, tedavi protokollerini ve hasta kabul sürecini berrak bir dille aktaran kurumsal klinik sitesi.",
-      whatTitle: "Klinik yaklaşımı ve tedavi dizini",
-      what: [
-        "Doğallık ve altın oran yaklaşımını yansıtan sakin görsel düzen ve tipografi.",
-        "Gülüş tasarımı ve medikal estetik tedavilerini detaylandıran kapsamlı hizmet sayfaları.",
-        "Nişantaşı kliniğinin steril ve çağdaş ortamını gösteren fotoğraf alanları.",
-        "Tedavi öncesi sık sorulan soruları karşılayan bilgilendirici içerik mimarisi.",
-        "İlk danışmanlık ve muayene randevusuna açılan doğrudan iletişim kanalları.",
-      ],
-      howTitle: "Tedavi incelemesinden ilk konsültasyona",
-      how: [
-        "Hasta adayı kliniğin tıbbi felsefesini ve ilgilendiği tedavi protokolünü inceler.",
-        "Hekim yaklaşımı ve klinik ortamı hakkında net bilgi edindikten sonra randevu formuna geçer.",
-        "Klinik koordinatörü gelen talebi hasta kartı olarak sisteme alıp görüşmeyi organize eder.",
-      ],
-      stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
-      result:
-        "Klinik sitesi, tedavi süreçlerini şeffaflıkla anlatarak hasta adaylarının güvenle ilk randevularını oluşturmalarını sağlıyor.",
-      ctaLabel: "Benzer proje",
-      ctaTitle: "Kliniğiniz için güven veren tedavi ve randevu platformu",
-      ctaBlurb:
-        "Tedavi alanlarınızı ve hasta kabul sürecinizi iletin, kliniğinize özel kurumsal web yapısını planlayalım.",
-      ctaButton: "Projemi başlat",
-    },
     "sahra-butik": {
       tag: "Butik web",
       summary:
@@ -624,33 +597,6 @@ export const projectDetails: ProjectDetailsByLocale = {
       ctaTitle: "A menu and rapid ordering site for your culinary business",
       ctaBlurb:
         "Provide your product menu, pricing model, and order fulfillment routine to build a focused sales platform.",
-      ctaButton: "Start a project",
-    },
-    mizan: {
-      tag: "Aesthetic clinic",
-      summary:
-        "A clinical web platform for MİZAN Nişantaşı presenting dental and aesthetic treatment protocols, medical philosophy, and consultation scheduling with clarity.",
-      whatTitle: "Clinical approach and treatment directory",
-      what: [
-        "Calm, balanced visual hierarchy and typography reflecting facial harmony and natural aesthetics.",
-        "Comprehensive service directory detailing smile design and medical aesthetic protocols.",
-        "Studio tour showcasing the contemporary Nişantaşı clinical facilities.",
-        "Structured patient FAQ sections addressing procedural questions and recovery timelines.",
-        "Direct consultation and initial assessment booking paths.",
-      ],
-      howTitle: "From treatment evaluation to first consultation",
-      how: [
-        "Prospective patients review the clinic's medical philosophy and specific treatment protocols.",
-        "Visitors evaluate doctor credentials and facility standards before submitting an appointment inquiry.",
-        "Patient coordinators receive structured lead details to schedule initial consultations.",
-      ],
-      stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
-      result:
-        "The site establishes clinical authority and transparent treatment guidance, guiding prospective patients smoothly into confirmed consultations.",
-      ctaLabel: "Similar project",
-      ctaTitle: "A trusted treatment and appointment platform for your clinic",
-      ctaBlurb:
-        "Share your medical specialties, treatment protocols, and consultation workflow to build a bespoke clinic website.",
       ctaButton: "Start a project",
     },
     "sahra-butik": {
@@ -1037,33 +983,6 @@ export const projectDetails: ProjectDetailsByLocale = {
         "Facilite su carta, precios y método de entrega para crear una plataforma de pedidos clara y directa.",
       ctaButton: "Iniciar proyecto",
     },
-    mizan: {
-      tag: "Clínica estética",
-      summary:
-        "Sitio web médico para MİZAN Nişantaşı que explica tratamientos estéticos y dentales, filosofía clínica y solicitud de primera consulta.",
-      whatTitle: "Enfoque clínico y directorio de tratamientos",
-      what: [
-        "Diseño sereno y equilibrado que transmite rigor médico y estética natural.",
-        "Directorio completo de tratamientos de diseño de sonrisa y estética médica.",
-        "Galería de instalaciones que muestra la clínica en Nişantaşı.",
-        "Preguntas frecuentes que resuelven dudas antes de la consulta.",
-        "Canales directos para solicitar una evaluación diagnóstica inicial.",
-      ],
-      howTitle: "De la información de tratamiento a la primera consulta",
-      how: [
-        "El paciente consulta la filosofía médica y el tratamiento que necesita.",
-        "Conoce las credenciales del equipo y las instalaciones antes de reservar.",
-        "El equipo de atención recibe los datos para programar la consulta.",
-      ],
-      stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
-      result:
-        "La web transmite confianza profesional y claridad en los procedimientos, facilitando la llegada de nuevos pacientes a consulta.",
-      ctaLabel: "Proyecto similar",
-      ctaTitle: "Una plataforma de tratamientos y citas para su clínica",
-      ctaBlurb:
-        "Comparta sus especialidades y proceso de admisión para desarrollar un sitio web clínico a medida.",
-      ctaButton: "Iniciar proyecto",
-    },
     "sahra-butik": {
       tag: "Web boutique",
       summary:
@@ -1446,33 +1365,6 @@ export const projectDetails: ProjectDetailsByLocale = {
       ctaTitle: "Sortimentsübersicht und Schnellbestellung für Ihren Betrieb",
       ctaBlurb:
         "Nennen Sie Produkte, Preise und Lieferoptionen für eine direkte Verkaufsplattform.",
-      ctaButton: "Projekt starten",
-    },
-    mizan: {
-      tag: "Ästhetische Klinik",
-      summary:
-        "Medizinische Webpräsenz für MİZAN Nişantaşı, die zahnmedizinische und ästhetische Behandlungsansätze, Praxisräume und Erstberatungen verständlich darstellt.",
-      whatTitle: "Behandlungsübersicht und klinischer Ansatz",
-      what: [
-        "Ruhige, ausgewogene Gestaltung zur Vermittlung medizinischer Professionalität.",
-        "Übersichtlicher Behandlungskatalog für Smile Design und ästhetische Medizin.",
-        "Fotostrecke der modernen Praxisräume im Istanbuler Stadtteil Nişantaşı.",
-        "Patientenorientierte Antworten auf häufige Fragen vor der Behandlung.",
-        "Einfache Kontaktaufnahme zur Terminierung der Erstberatung.",
-      ],
-      howTitle: "Von der Behandlungsinformation zum Erstgespräch",
-      how: [
-        "Patienten informieren sich über medizinische Methoden und Behandlungsabläufe.",
-        "Qualifikationen und Praxisumgebung schaffen Vertrauen vor der Buchung.",
-        "Das Praxisteam nimmt die Daten zur Terminabstimmung direkt entgegen.",
-      ],
-      stack: ["Next.js", "TypeScript", "GSAP", "Lenis"],
-      result:
-        "Die Website vermittelt medizinische Kompetenz und transparente Information für neue Patientenanfragen.",
-      ctaLabel: "Ähnliches Projekt",
-      ctaTitle: "Eine vertrauensbildende Behandlungsplattform für Ihre Praxis",
-      ctaBlurb:
-        "Teilen Sie Behandlungsschwerpunkte und Praxisabläufe mit, um Ihren Webauftritt aufzusetzen.",
       ctaButton: "Projekt starten",
     },
     "sahra-butik": {

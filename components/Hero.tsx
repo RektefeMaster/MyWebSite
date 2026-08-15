@@ -185,7 +185,7 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
     <section
       ref={sectionRef}
       id={parked ? undefined : "home"}
-      className="hero-section relative flex h-[100svh] max-h-[1100px] min-h-[560px] flex-col overflow-x-clip overflow-y-hidden"
+      className="hero-section relative flex h-[100svh] min-h-[560px] flex-col overflow-x-clip overflow-y-hidden"
     >
       {/*
         Zemin: humanoid + çiçek tarlası filmi, tam ekran. Cam "M" bunun

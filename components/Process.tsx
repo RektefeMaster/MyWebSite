@@ -63,7 +63,7 @@ export default function Process() {
       <div className="mx-auto max-w-7xl">
         <header className="grid grid-cols-12 items-end gap-x-5 border-b border-foreground/20 pb-10 md:gap-x-6 md:pb-16">
           <div className="col-span-12 md:col-span-9">
-            <h2 className="max-w-[10ch] font-display type-display text-[clamp(3.25rem,9vw,8rem)] font-bold leading-[1.4] tracking-[-0.052em]">
+            <h2 className="max-w-[10ch] font-display type-display text-[clamp(2.5rem,9vw,8rem)] font-bold leading-[1.4] tracking-[-0.052em]">
               {t("title")}
             </h2>
             <div className="mt-4 flex min-h-[2.75rem] items-center gap-1.5 font-mono text-xs text-foreground/45 sm:min-h-[1.5rem]">

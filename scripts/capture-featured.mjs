@@ -37,17 +37,6 @@ const sites = [
     waitFor: /havva|baklava|köln|koln/i,
   },
   {
-    id: "mizan",
-    urls: [
-      "https://mizan-ten-brown.vercel.app/",
-      "https://mizan-ten-brown.vercel.app/felsefe",
-      "https://mizan-ten-brown.vercel.app/hizmetler",
-      "https://mizan-ten-brown.vercel.app/atoelye",
-      "https://mizan-ten-brown.vercel.app/randevu",
-    ],
-    waitFor: /mizan|gülüş|gulush|yüz|yuz/i,
-  },
-  {
     id: "sahra-butik",
     urls: ["https://sahrabutik.vercel.app/"],
     waitFor: /sahra|lookbook/i,

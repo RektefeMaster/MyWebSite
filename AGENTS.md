@@ -32,7 +32,7 @@ UI, proje, blog ve meta metinlerinde **zorunlu**: `content-system/` + Cursor ski
   - **Perf**: DPR tavan masaüstü 2 / lite 1.75, zemin 1.5; `PerformanceMonitor bounds=[50,60]`. Transmission `resolution` desktop 1024 / lite 512 (~1024 üstüne çıkarma). Env tek sefer bake. M sürekli döndüğü için görünürken `frameloop:always` — eski "pointer idle → demand" modu dönüşü donduruyordu; boştaki maliyeti görünürlük kesiyor (görüş dışı/sekme gizli → `never`). Context loss'ta Canvas remount. `reactStrictMode: false` şart.
 
 - **Hero zemini = film** (components/HeroFilm.tsx + `public/hero/` + `lib/hero-media.ts`): hero'nun tüm arka planı, ışıyan çiçek tarlasında duran humanoid; gökyüzü mutlak siyah. Marka kilidi (cam M + kelime markası) bu göğe oturuyor.
-  - **Gökyüzü uzatıldı**: kaynağın üst ~%26'sı gerçek siyah (ölçüldü: ilk 120 satır max RGB 4/5). Master'lar üstten saf siyahla uzatıldı — dikiş görünmüyor (sınırda 0 → max 2) ama nav ile figürün başı arasında kilit için gerçek yer açılıyor (uzatmasız ~130px kalıyordu). `object-position: 50% 16%` da kırpma payını gökten değil zeminden alıyor.
+  - **Gökyüzü uzatıldı**: kaynağın üst ~%26'sı gerçek siyah (ölçüldü: ilk 120 satır max RGB 4/5). Master'lar üstten saf siyahla uzatıldı — dikiş görünmüyor (sınırda 0 → max 2) ama nav ile figürün başı arasında kilit için gerçek yer açılıyor (uzatmasız ~130px kalıyordu). `object-position: 50% 100%` kırpma payını gökten verip zemini (çiçek tarlası ve figür) ekranda tutuyor.
   - **Siyah ezme**: x264 near-black'i blok blok 2/255'e kaldırıp gren/vinyet altında görünür dikdörtgen leke yapıyordu. `curves` ile yumuşak toe (0..~5 → 0) uygulandı; gök artık tam 0, tarlanın halesi duruyor.
   - **Yön başına ayrı master**: yatay `void-1920x1500.mp4` (~2.7MB, üstten 432px dolgu) ve dikey `void-1080x1920.mp4` (~1.5MB, kaynak 1100px'e kırpılıp üstten 868px dolgu). Seçim `matchMedia("(orientation: portrait)")`, dönüşte `change` ile master değişir. Poster yolları HeroScene ile ORTAK (`lib/hero-media.ts`) — cam aynı dosyayı kırılma/env dokusu olarak okuyor, ikinci indirme yok.
   - **Kesintisiz döngü**: kaynak 12.04sn ve başladığı yere dönmüyor (ilk/son kare RMSE 0.022); son 0.6sn ilk 0.6sn üstüne `xfade` ile bindirilip 11.46sn'ye indirildi. Yeni klip gelirse aynı işlemi uygula.
@@ -46,7 +46,9 @@ UI, proje, blog ve meta metinlerinde **zorunlu**: `content-system/` + Cursor ski
   - Katmanlar: `.hero-halo` (M'in arkasında ay ışığı, `--hero-mark-y`'den besleniyor), `.hero-vignette`, `.hero-grain` (opaklık 0.12 — mutlak siyahta gren çabuk "kar"a dönüyor), `.hero-scroll__line` (metinsiz kaydırma imi). Canvas bunların ÜSTÜNDE (`z-[3]`) ki cam yazının üstünden geçebilsin.
   - **Perf:** hero görüş dışına çıkınca wrapper `data-atmosphere-idle="true"` → grain/halo/scroll animasyonları duraklar; canvas zaten `frameloop:never` olur. Ekran dışında sıfır sürekli iş.
 
-- **Sinematik video intro** (components/Intro.tsx + craft.css `.intro-*`): ilk yükleme perdesi — stop-motion kâğıt katlama/yıkım sanatı ile METEK posterine dönüşen video (`public/intro/metek-intro.{mp4,webm}`), ses açma/kapama, `Geç` (Esc/Boşluk) kontrolü ve alt ilerleme çizgisi. Kararı layout içindeki `introInitScript` ilk boyamadan önce verir → `html[data-intro="play"|"skip"]` (FOUC yok). Oturum başına bir kez (`sessionStorage['metek-intro']`), reduced-motion'da atlanır, `?intro` ile yeniden tetiklenir, JS yoksa CSS failsafe (~12.5s) temizler. Oynatma sırasında (~2s) below-fold chunk’lar + font + (home) WebGL ısıtılır (`metek:hero-warm`). Video sonlandığında veya atlandığında GSAP ile kusursuz blur/scale erimesiyle 3D Hero sahnesi açılır. Oynarken scroll kilidi **event ile** (wheel/touchmove `preventDefault` + scroll tuşları) + `html.intro-lock { touch-action:none }` + Lenis `stop()`; bitince listener'lar kalkar + `start()` + `ScrollTrigger.refresh()`. **`overflow:hidden` KULLANMA** — custom scrollbar'ı (10px) kaldırıp perde kalkınca tüm sayfayı (sabit navbar dahil) yatay kaydırıp "zıplama" yaratıyor.
+- **Sinematik video intro** (components/Intro.tsx + craft.css `.intro-*`): ilk yükleme perdesi — stop-motion kâğıt katlama/yıkım sanatı ile METEK posterine dönüşen video (`public/intro/metek-intro.{mp4,webm}`), ses açma/kapama, `Geç` (Esc/Boşluk) kontrolü ve alt ilerleme çizgisi. Kararı layout içindeki `introInitScript` ilk boyamadan önce verir → `html[data-intro="play"|"skip"]` (FOUC yok). Oturum başına bir kez (`sessionStorage['metek-intro']`), reduced-motion'da atlanır, `?intro` ile yeniden tetiklenir, JS yoksa CSS failsafe (~12.5s) temizler. Oynatma sırasında (~2s) below-fold chunk’lar + font + (home) WebGL ısıtılır (`metek:hero-warm`). Video sonlandığında veya atlandığında GSAP ile kusursuz blur/scale erimesiyle 3D Hero sahnesi açılır. Oynatma noktası cihaza göre: masaüstünde ~2s, lite'ta 5.2s (telefonda perde decode + WebGL boot + ikinci video indirme aynı anda perdeyi takıyordu). Save-Data / 2g'de perde hiç oynamaz (bkz. `introInitScript`). Kaynak sırası **webm ÖNCE** (1.33MB vs mp4 2.03MB, SSIM 0.981); ters çevirme, VP9 dosyası ölü ağırlığa döner. Oynarken scroll kilidi **event ile** (wheel/touchmove `preventDefault` + scroll tuşları) + `html.intro-lock { touch-action:none }` + Lenis `stop()`.
+  - **Kilit `completeExit` içinde sökülmeli, effect cleanup'ına BIRAKMA.** Intro layout'ta duruyor ve bitince `null` render ediyor — UNMOUNT OLMUYOR, yani cleanup hiç çalışmıyor. Dinleyiciler cleanup'a bırakıldığında `touchmove` preventDefault'ı oturum boyunca asılı kalıyor ve **mobilde sayfa hiç kaydırılamıyordu** (masaüstünde Lenis programatik kaydırdığı için görünmüyordu). Kilit `releaseLockRef` kapatıcısında; `unlockScroll` hem `completeExit`'ten hem cleanup'tan çağrılıyor.
+  - **Çıkış timeline'ına sert tavan var** (`exitFailsafeRef`, 1.8s): timeline GSAP ticker'ına bağlı, sekme arkaplandayken rAF durunca `onComplete` hiç gelmiyor ve perde açık kalıyordu. **`overflow:hidden` KULLANMA** — custom scrollbar'ı (10px) kaldırıp perde kalkınca tüm sayfayı (sabit navbar dahil) yatay kaydırıp "zıplama" yaratıyor.
 - **Başlık reveal** (components/WordReveal.tsx): büyük bölüm başlıkları için maskeli kelime-kelime yükselme (GSAP + `attachScrollReveal`). Düz metin string alır; TR alt-uzantıları padding ile korunur.
 - **SEO altyapısı**:
   - `app/[locale]/opengraph-image.tsx` — locale'e göre marka paylaşım kartı (`next/og` ImageResponse, 1200×630). Font: `public/fonts/SpaceGrotesk-Bold.ttf` (`readFile`). Başlık = hero satırları birleşik. Node runtime (edge yapma; `readFile` gerekir).
@@ -86,6 +88,26 @@ kontrastta kalıyordu (ölçüldü, gözle de okunmuyordu).
 ## Bilinen kısıtlar / dikkat
 
 - `reactStrictMode: false` ŞART: StrictMode'un çift effect çalıştırması R3F'in WebGL context'ini kalıcı kaybettiriyor (boş gri hero). Açma.
+- **Blur'suz nav TAM OPAK olmalı.** Mobilde `backdrop-filter` iOS scroll jank'i
+  yüzünden kapalı; zemin `color-mix(... 94%)` bırakılınca altından geçen dev
+  editöryel başlıklar ve proje mockup'ları nav çubuğunun içinden görünüyordu —
+  "cam" değil hata gibi okunuyor. Saydamlık yalnızca blur AÇIKKEN anlamlı.
+- **Display `clamp()` alt sınırları mobili yönetir.** Orta terim (`8vw` vb.)
+  320–430px'te alt sınırın altında kaldığı için o aralıkta boyutu ALT SINIR
+  belirliyor; eski `3rem` değerleri 320px'te 48px verip TR/DE kelimelerini
+  (“geliştiriyoruz” 381px) ekran dışına taşırıyordu. Sınırlar rampanın ~440px'te
+  düzleşeceği şekilde seçildi — **≥460px'te hiçbir boyut değişmedi** (ölçüldü:
+  768/1280/1600 birebir aynı). Yeni başlıkta aynı oranı koru (`min ≈ vw × 0.275rem`).
+- **`WordReveal` / `BlurText` maskeleri `inline-block`**: shrink-to-fit kutu
+  max-content'e büyüdüğü için başlıktaki `overflow-wrap` HİÇ çalışmıyor. Maske
+  ve içindeki her sarmalayıcı `max-width: 100%` almalı (craft.css). Metin
+  elemanlarındaki `min-width: 0` de şart — `overflow-wrap: break-word`
+  min-content'i küçültmediğinden grid/flex çocuğu track'i uzun kelime kadar
+  şişiriyordu. Bunlar emniyet ağı; normalde punto zaten sığmalı.
+- **Kırılma arkaplanı bake genişliği cihaza bağlı** (`useFilmBackdrop`):
+  masaüstü 1536, lite 1024. Telefonda 1536 dikey kadrajda 1536×2743 RGBA
+  (~17MB GPU) demek ve aygıt genişliğinin 4 katı — 1024 hâlâ ~1.5 katı,
+  görüntüde fark yok.
 - `public/fonts/SpaceGrotesk-Bold.ttf` **silinmeyecek**: `app/icon.tsx` ve
   `opengraph-image.tsx` `readFile` ile okuyor (next/og TTF ister). Kod içinde
   import edilmediği için "kullanılmıyor" gibi görünür.
