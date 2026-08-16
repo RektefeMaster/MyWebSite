@@ -1,4 +1,4 @@
-import type { ProjectGalleryShot } from "./project-galleries";
+import { getProjectGallery, type ProjectGalleryShot } from "./project-galleries";
 
 export type { ProjectGalleryShot };
 
@@ -1788,5 +1788,19 @@ export function getProjectDetail(
   id: string
 ): ProjectDetail | undefined {
   const byLocale = projectDetails[locale] ?? projectDetails.en;
-  return byLocale[id] ?? projectDetails.en?.[id] ?? projectDetails.tr?.[id];
+  const detail = byLocale[id] ?? projectDetails.en?.[id] ?? projectDetails.tr?.[id];
+  if (!detail) return undefined;
+
+  /*
+    `gallery` alanı hiçbir projede elle doldurulmuyor; kareler
+    project-galleries.ts'te yaşıyor. Tip yorumu bu geri düşüşü ("yoksa
+    project-galleries.ts kullanılır") baştan vaat ediyordu ama bağlanmamıştı —
+    16 projenin galerisi de yazılı olduğu hâlde hiç basılmıyordu.
+
+    Modül seviyesindeki nesneyi MUTASYONA UĞRATMA: projectDetails süreç
+    boyunca paylaşılıyor, alan ataması istekler arasında sızar. Kopya döndür.
+  */
+  if (detail.gallery) return detail;
+  const gallery = getProjectGallery(locale, id);
+  return gallery?.length ? { ...detail, gallery } : detail;
 }

@@ -122,8 +122,18 @@ export default async function ProjectDetailView({
   const a11y = await getTranslations("a11y");
   const whatsapp = await getTranslations("whatsapp");
   const name = detail.title ?? project.name;
-  const gallery = detail.gallery ?? [];
   const heroImage = project.desktopImage ?? project.mobileImage;
+  /*
+    Hero'da BASILAN kareyi galeride tekrarlama. project-galleries.ts'teki
+    `devicePack` (crm, whatsapp-bot, instagram-bot, css-system) galeri karesi
+    olarak projenin kendi desktop/mobile görselini üretiyor — yani hero'nun
+    aynısını. Süzgeç olmadan bu dört sayfada aynı görsel arka arkaya iki kez
+    basıyor; süzgeçten sonra galeri bölümü hiç açılmıyor, ki doğrusu o.
+  */
+  const shown = new Set(
+    [project.desktopImage, project.mobileImage].filter(Boolean)
+  );
+  const gallery = (detail.gallery ?? []).filter((shot) => !shown.has(shot.src));
   const hasCta = Boolean(detail.ctaTitle && detail.ctaButton);
 
   return (

@@ -1,25 +1,38 @@
 export type ProjectGalleryShot = {
   src: string;
   alt: string;
-  /** FeaturedCase tarzı grid span sınıfları */
+  /** Grid span sınıfı; verilmezse ritimden türetilir */
   span?: string;
   /** Arayüz ekranlarını kırpmadan, fotoğraf karelerini taşırarak sun. */
   fit?: "cover" | "contain";
 };
 
-const HERO =
-  "col-span-4 row-span-2 min-h-[220px] md:min-h-[320px]";
-const HALF = "col-span-2 min-h-[130px] md:min-h-[154px]";
-const MID = "col-span-3 min-h-[140px] md:min-h-[170px]";
-const WIDE = "col-span-6 min-h-[140px] md:min-h-[190px]";
-const MOBILE_TALL =
-  "col-span-2 row-span-2 min-h-[220px] md:min-h-[320px]";
+/*
+  Kutu oranı yakalama oranıyla AYNI (8:5) ve görsel `contain` basılıyor.
+
+  Sebep: buradaki kaynakların tamamı site ekran görüntüsü, fotoğraf değil.
+  Eski ritim (`HERO/HALF/MID/WIDE` + `cover`) 1920×1200'lük bir yakalamayı
+  190px'lik banda kırpıyordu; sonuç, cümlesi ortadan kesilmiş bir şerit —
+  kasıtlı kadraj değil, hata gibi okunuyordu (Casa Aurelia'da ölçüldü:
+  "…just stone / from the S" diye kesiliyordu). Fotoğraf karesi eklenirse
+  `fit: "cover"` ile kare kare geçilebilir.
+*/
 const SCREEN_WIDE = "col-span-6 aspect-[8/5]";
-const SCREEN_LARGE_LEFT =
-  "col-span-6 aspect-[8/5] md:col-span-5";
-const SCREEN_LARGE_RIGHT =
-  "col-span-6 aspect-[8/5] md:col-span-5 md:col-start-2";
 const SCREEN_HALF = "col-span-6 aspect-[8/5] md:col-span-3";
+
+/**
+ * İlk kare tam genişlik — açılış ekranı vitrinin kendisi.
+ * Kalanlar ikişerli; tek sayıda kalırsa sonuncusu da tam genişliğe çıkar,
+ * böylece satır sonunda yarım boş kutu kalmıyor.
+ */
+function rhythmSpans(count: number): string[] {
+  return Array.from({ length: count }, (_, i) => {
+    if (i === 0) return SCREEN_WIDE;
+    const isLast = i === count - 1;
+    const restIsOdd = (count - 1) % 2 === 1;
+    return isLast && restIsOdd ? SCREEN_WIDE : SCREEN_HALF;
+  });
+}
 
 type Locale = "tr" | "en" | "es" | "de";
 
@@ -29,8 +42,14 @@ type GallerySource = Omit<ProjectGalleryShot, "alt"> & {
 };
 
 function pack(shots: GallerySource[]): GalleryPack {
+  const spans = rhythmSpans(shots.length);
   const localize = (locale: Locale) =>
-    shots.map(({ alt, ...shot }) => ({ ...shot, alt: alt[locale] }));
+    shots.map(({ alt, ...shot }, index) => ({
+      ...shot,
+      span: shot.span ?? spans[index],
+      fit: shot.fit ?? ("contain" as const),
+      alt: alt[locale],
+    }));
 
   return {
     tr: localize("tr"),
@@ -43,8 +62,6 @@ function pack(shots: GallerySource[]): GalleryPack {
 const wcc = pack([
   {
     src: "/projects/wcc/featured/02-kitchen.jpg",
-    span: SCREEN_LARGE_LEFT,
-    fit: "contain",
     alt: {
       tr: "Wholesale Cabinet Creations mutfak dolabı galeri bölümü",
       en: "Wholesale Cabinet Creations kitchen cabinet gallery section",
@@ -54,8 +71,6 @@ const wcc = pack([
   },
   {
     src: "/projects/wcc/featured/03-projects.jpg",
-    span: SCREEN_LARGE_RIGHT,
-    fit: "contain",
     alt: {
       tr: "Tamamlanan mutfak ve dolap projelerinin fotoğraf galerisi",
       en: "Photo gallery of completed kitchen and cabinet projects",
@@ -68,7 +83,6 @@ const wcc = pack([
 const aydnnacar = pack([
   {
     src: "/projects/aydnnacar/featured/01-hero.jpg",
-    span: HERO,
     alt: {
       tr: "Nacar Mobilya ana sayfa açılışı, koleksiyon vitrini",
       en: "Nacar Mobilya homepage hero showcasing furniture collections",
@@ -78,7 +92,6 @@ const aydnnacar = pack([
   },
   {
     src: "/projects/aydnnacar/featured/02-collections.jpg",
-    span: HALF,
     alt: {
       tr: "Salon, yemek ve yatak odası koleksiyonlarının genel görünümü",
       en: "Overview grid of living, dining, and bedroom collections",
@@ -88,7 +101,6 @@ const aydnnacar = pack([
   },
   {
     src: "/projects/aydnnacar/featured/03-salon.jpg",
-    span: HALF,
     alt: {
       tr: "Nacar Mobilya salon koleksiyonu ürün kartları",
       en: "Nacar Mobilya living room collection product cards",
@@ -98,7 +110,6 @@ const aydnnacar = pack([
   },
   {
     src: "/projects/aydnnacar/featured/04-yatak.jpg",
-    span: WIDE,
     alt: {
       tr: "Nacar Mobilya yatak odası koleksiyonu geniş görünüm",
       en: "Wide view of Nacar Mobilya bedroom collection lineup",
@@ -111,7 +122,6 @@ const aydnnacar = pack([
 const wuffbutik = pack([
   {
     src: "/projects/wuffbutik/featured/01-hero-v3.jpg",
-    span: HERO,
     alt: {
       tr: "Wuuf Butik ana sayfa açılışı, butik vitrin düzeni",
       en: "Wuuf Butik homepage hero with boutique showcase layout",
@@ -121,7 +131,6 @@ const wuffbutik = pack([
   },
   {
     src: "/projects/wuffbutik/featured/02-selections.jpg",
-    span: HALF,
     alt: {
       tr: "Mağazadan seçilen ürünler vitrin bölümü",
       en: "In-store selections featured on the showcase page",
@@ -131,7 +140,6 @@ const wuffbutik = pack([
   },
   {
     src: "/projects/wuffbutik/featured/03-yakin-bak.jpg",
-    span: HALF,
     alt: {
       tr: "Ürün detayına yakın plan görsel bölümü",
       en: "Close-up product detail section on the Wuuf site",
@@ -141,7 +149,6 @@ const wuffbutik = pack([
   },
   {
     src: "/projects/wuffbutik/featured/04-gunluk.jpg",
-    span: MID,
     alt: {
       tr: "Wuuf Butik günlük giyim çizgisi vitrin sayfası",
       en: "Wuuf Butik everyday wear line showcase page",
@@ -151,7 +158,6 @@ const wuffbutik = pack([
   },
   {
     src: "/projects/wuffbutik/featured/05-spor.jpg",
-    span: MID,
     alt: {
       tr: "Wuuf Butik spor giyim çizgisi koleksiyon bölümü",
       en: "Wuuf Butik sportswear line collection section",
@@ -161,7 +167,6 @@ const wuffbutik = pack([
   },
   {
     src: "/projects/wuffbutik/featured/06-tesettur.jpg",
-    span: WIDE,
     alt: {
       tr: "Wuuf Butik tesettür giyim çizgisi vitrin alanı",
       en: "Wuuf Butik modest wear line showcase area",
@@ -174,7 +179,6 @@ const wuffbutik = pack([
 const altitude = pack([
   {
     src: "/projects/altitude-residence/featured/01-hero.jpg",
-    span: HERO,
     alt: {
       tr: "Altitude Private Residences sinematik açılış, şehir manzarası",
       en: "Altitude Private Residences cinematic hero with city skyline",
@@ -184,7 +188,6 @@ const altitude = pack([
   },
   {
     src: "/projects/altitude-residence/featured/02-residence.jpg",
-    span: HALF,
     alt: {
       tr: "Rezidans tipleri ve yaşam alanları tanıtım bölümü",
       en: "Residence types and living spaces introduction section",
@@ -194,7 +197,6 @@ const altitude = pack([
   },
   {
     src: "/projects/altitude-residence/featured/03-city.jpg",
-    span: HALF,
     alt: {
       tr: "Panoramik şehir manzarası ve konum avantajları bölümü",
       en: "Panoramic city view and location advantages section",
@@ -204,7 +206,6 @@ const altitude = pack([
   },
   {
     src: "/projects/altitude-residence/featured/04-wellness.jpg",
-    span: MID,
     alt: {
       tr: "Spa ve wellness kulübü olanakları tanıtımı",
       en: "Spa and wellness club amenities overview",
@@ -214,7 +215,6 @@ const altitude = pack([
   },
   {
     src: "/projects/altitude-residence/featured/05-hours.jpg",
-    span: MID,
     alt: {
       tr: "Rezidans sakinlerine özel zaman ve ritim anlatım bölümü",
       en: "Editorial section on private hours and daily rhythm for residents",
@@ -224,7 +224,6 @@ const altitude = pack([
   },
   {
     src: "/projects/altitude-residence/featured/06-club.jpg",
-    span: WIDE,
     alt: {
       tr: "Sosyal kulüp alanları ve ortak yaşam programı bölümü",
       en: "Social club spaces and shared lifestyle program section",
@@ -237,7 +236,6 @@ const altitude = pack([
 const casa = pack([
   {
     src: "/projects/casa-aurelia/featured/01-hero.jpg",
-    span: HERO,
     alt: {
       tr: "Casa Aurelia Roma sinematik açılış, butik otel hero",
       en: "Casa Aurelia Roma cinematic homepage hero for the boutique hotel",
@@ -247,7 +245,6 @@ const casa = pack([
   },
   {
     src: "/projects/casa-aurelia/featured/02-intro.jpg",
-    span: HALF,
     alt: {
       tr: "Otel hikâyesi ve marka giriş metni bölümü",
       en: "Hotel story and brand introduction text section",
@@ -257,7 +254,6 @@ const casa = pack([
   },
   {
     src: "/projects/casa-aurelia/featured/03-rome.jpg",
-    span: HALF,
     alt: {
       tr: "Roma konumu ve çevre hikâyesi harita destekli bölüm",
       en: "Map-supported section telling the Rome location and surroundings",
@@ -267,7 +263,6 @@ const casa = pack([
   },
   {
     src: "/projects/casa-aurelia/featured/04-rooms.jpg",
-    span: MID,
     alt: {
       tr: "Oda tipleri ve süit seçenekleri tanıtım grid'i",
       en: "Room types and suite options showcase grid",
@@ -277,7 +272,6 @@ const casa = pack([
   },
   {
     src: "/projects/casa-aurelia/featured/05-gastronomy.jpg",
-    span: MID,
     alt: {
       tr: "Restoran ve gastronomi deneyimi tanıtım bölümü",
       en: "Restaurant and gastronomy experience section",
@@ -287,7 +281,6 @@ const casa = pack([
   },
   {
     src: "/projects/casa-aurelia/featured/06-musica.jpg",
-    span: WIDE,
     alt: {
       tr: "Sala della Musica etkinlik ve müzik salonu bölümü",
       en: "Sala della Musica event and music hall section",
@@ -300,7 +293,6 @@ const casa = pack([
 const seraphine = pack([
   {
     src: "/projects/seraphine-atelier/featured/01-hero.jpg",
-    span: HERO,
     alt: {
       tr: "Séraphine Atelier sisli sinematik açılış filmi",
       en: "Séraphine Atelier misty cinematic opening film hero",
@@ -310,7 +302,6 @@ const seraphine = pack([
   },
   {
     src: "/projects/seraphine-atelier/featured/02-lookbook.jpg",
-    span: HALF,
     alt: {
       tr: "SS26 kadın koleksiyonu lookbook grid düzeni",
       en: "SS26 women's collection lookbook grid layout",
@@ -320,7 +311,6 @@ const seraphine = pack([
   },
   {
     src: "/projects/seraphine-atelier/featured/03-women.jpg",
-    span: HALF,
     alt: {
       tr: "Kadın koleksiyonu parça kartları, isim ve fiyat hiyerarşisi",
       en: "Women's collection piece cards with name and price hierarchy",
@@ -330,7 +320,6 @@ const seraphine = pack([
   },
   {
     src: "/projects/seraphine-atelier/featured/04-maison.jpg",
-    span: MID,
     alt: {
       tr: "Butik zemin hikâyesi ve mağaza atmosferi fotoğrafları",
       en: "Maison floor story with boutique atmosphere photography",
@@ -340,7 +329,6 @@ const seraphine = pack([
   },
   {
     src: "/projects/seraphine-atelier/featured/05-men.jpg",
-    span: MID,
     alt: {
       tr: "Erkek koleksiyonu karanlık podyum grid düzeni",
       en: "Men's collection in a dark runway-style grid",
@@ -350,7 +338,6 @@ const seraphine = pack([
   },
   {
     src: "/projects/seraphine-atelier/featured/06-appointment.jpg",
-    span: WIDE,
     alt: {
       tr: "Özel prova randevusu talep bölümü ve çağrı",
       en: "Private fitting appointment request section and call to action",
@@ -363,7 +350,6 @@ const seraphine = pack([
 const havva = pack([
   {
     src: "/projects/havva-baklava/featured/01-hero.jpg",
-    span: HERO,
     alt: {
       tr: "HAVVA Baklava elde açılan katmanlı baklava hero görseli",
       en: "HAVVA Baklava hero showing hand-layered pastry",
@@ -373,7 +359,6 @@ const havva = pack([
   },
   {
     src: "/projects/havva-baklava/featured/02-gaziantep.jpg",
-    span: HALF,
     alt: {
       tr: "Gaziantep'ten Köln Ehrenfeld'e uzanan ustalık hikâyesi panelleri",
       en: "Craft story panels from Gaziantep to Köln Ehrenfeld",
@@ -383,7 +368,6 @@ const havva = pack([
   },
   {
     src: "/projects/havva-baklava/featured/03-pistazie.jpg",
-    span: HALF,
     alt: {
       tr: "Katmanlar arasında Antep fıstığı detay görseli",
       en: "Close detail of Antep pistachio between pastry layers",
@@ -393,7 +377,6 @@ const havva = pack([
   },
   {
     src: "/projects/havva-baklava/featured/04-tepsi.jpg",
-    span: MID,
     alt: {
       tr: "Taze baklava tepsisi açılış fotoğrafı",
       en: "Hero photograph of a fresh tray of baklava",
@@ -403,7 +386,6 @@ const havva = pack([
   },
   {
     src: "/projects/havva-baklava/featured/05-werkstatt.jpg",
-    span: MID,
     alt: {
       tr: "Ehrenfeld atölyesi el işçiliği ve üretim hikâyesi bölümü",
       en: "Ehrenfeld workshop handcraft and production story section",
@@ -413,7 +395,6 @@ const havva = pack([
   },
   {
     src: "/projects/havva-baklava/featured/06-whatsapp.jpg",
-    span: WIDE,
     alt: {
       tr: "WhatsApp üzerinden sipariş çağrısı bölümü",
       en: "Order via WhatsApp call-to-action section",
@@ -426,8 +407,6 @@ const havva = pack([
 const mizan = pack([
   {
     src: "/projects/mizan/featured/02-film.jpg",
-    span: SCREEN_WIDE,
-    fit: "contain",
     alt: {
       tr: "Kaydırmalı gülüş filmi: kapalı ifade, ışık, açılış",
       en: "Scroll-driven smile film: closed expression, light, opening",
@@ -437,8 +416,6 @@ const mizan = pack([
   },
   {
     src: "/projects/mizan/featured/03-felsefe.jpg",
-    span: SCREEN_HALF,
-    fit: "contain",
     alt: {
       tr: "Denge, oran ve sessizlik felsefe metni bölümü",
       en: "Philosophy section on balance, proportion, and silence",
@@ -448,8 +425,6 @@ const mizan = pack([
   },
   {
     src: "/projects/mizan/featured/04-hizmetler.jpg",
-    span: SCREEN_HALF,
-    fit: "contain",
     alt: {
       tr: "Tedavi protokolleri listesi, ritüel tonunda sunum",
       en: "Treatment protocols list presented as chosen rituals",
@@ -459,8 +434,6 @@ const mizan = pack([
   },
   {
     src: "/projects/mizan/featured/05-atoelye.jpg",
-    span: SCREEN_LARGE_LEFT,
-    fit: "contain",
     alt: {
       tr: "Nişantaşı atölye mekân fotoğrafları",
       en: "Nişantaşı atelier interior photography",
@@ -470,8 +443,6 @@ const mizan = pack([
   },
   {
     src: "/projects/mizan/featured/06-randevu.jpg",
-    span: SCREEN_LARGE_RIGHT,
-    fit: "contain",
     alt: {
       tr: "İlk ölçü randevusu talep bölümü",
       en: "First measurement booking request section",
@@ -484,7 +455,6 @@ const mizan = pack([
 const vela = pack([
   {
     src: "/projects/vela-skin-atelier/featured/01-hero.jpg",
-    span: HERO,
     alt: {
       tr: "VELA Skin Atelier SoHo açılış, krem zemin ve terracotta vurgu",
       en: "VELA Skin Atelier SoHo hero with cream ground and terracotta accent",
@@ -494,7 +464,6 @@ const vela = pack([
   },
   {
     src: "/projects/vela-skin-atelier/featured/02-philosophy.jpg",
-    span: HALF,
     alt: {
       tr: "Önce gözlem yaklaşımını anlatan felsefe bölümü",
       en: "Philosophy section explaining the observation-first approach",
@@ -504,7 +473,6 @@ const vela = pack([
   },
   {
     src: "/projects/vela-skin-atelier/featured/03-index.jpg",
-    span: HALF,
     alt: {
       tr: "Reset, Sculpt, Renew protokolleri tedavi listesi",
       en: "Skin Index listing Reset, Sculpt, Renew, and other protocols",
@@ -514,7 +482,6 @@ const vela = pack([
   },
   {
     src: "/projects/vela-skin-atelier/featured/04-reset.jpg",
-    span: MID,
     alt: {
       tr: "VELA Reset öne çıkan ritüel tanıtım bölümü",
       en: "Featured VELA Reset ritual introduction section",
@@ -524,7 +491,6 @@ const vela = pack([
   },
   {
     src: "/projects/vela-skin-atelier/featured/05-studio.jpg",
-    span: MID,
     alt: {
       tr: "Tek danışanlı stüdyo mekânı ve seans ritmi",
       en: "One-client studio space and session rhythm",
@@ -534,7 +500,6 @@ const vela = pack([
   },
   {
     src: "/projects/vela-skin-atelier/featured/06-book.jpg",
-    span: WIDE,
     alt: {
       tr: "Danışmanlık ve randevu rezervasyon çağrısı bölümü",
       en: "Consultation and appointment booking call-to-action section",
@@ -547,7 +512,6 @@ const vela = pack([
 const sahra = pack([
   {
     src: "/projects/sahra-butik/featured/01-hero.jpg",
-    span: HERO,
     alt: {
       tr: "Sahra Butik kadın giyim ana sayfa açılışı",
       en: "Sahra Butik women's wear homepage hero",
@@ -557,7 +521,6 @@ const sahra = pack([
   },
   {
     src: "/projects/sahra-butik/featured/02-lookbook.jpg",
-    span: HALF,
     alt: {
       tr: "Güncel modeller lookbook grid düzeni",
       en: "Current models lookbook grid layout",
@@ -567,7 +530,6 @@ const sahra = pack([
   },
   {
     src: "/projects/sahra-butik/featured/03-moods.jpg",
-    span: HALF,
     alt: {
       tr: "Günlük, spor ve tesettür giyim bölümleri yan yana",
       en: "Everyday, sportswear, and modest-wear sections side by side",
@@ -577,7 +539,6 @@ const sahra = pack([
   },
   {
     src: "/projects/sahra-butik/featured/04-boutique.jpg",
-    span: MID,
     alt: {
       tr: "Fiziksel butik mağaza atmosferi ve stil fotoğrafları",
       en: "Physical boutique store atmosphere and style photography",
@@ -587,7 +548,6 @@ const sahra = pack([
   },
   {
     src: "/projects/sahra-butik/featured/05-whisper.jpg",
-    span: MID,
     alt: {
       tr: "Stok ve beden sorusu için iletişim bandı",
       en: "Contact band for stock and size questions",
@@ -597,7 +557,6 @@ const sahra = pack([
   },
   {
     src: "/projects/sahra-butik/featured/06-garden.jpg",
-    span: WIDE,
     alt: {
       tr: "Kaydırmalı keşif bölümü, pin scroll düzeni",
       en: "Scroll discovery section with pin scroll layout",
@@ -614,7 +573,6 @@ function devicePack(
   return pack([
     {
       src: `/projects/${id}/desktop.jpg`,
-      span: HERO,
       alt: {
         tr: `${name.tr} masaüstü panel arayüzü ekran görüntüsü`,
         en: `${name.en} desktop panel interface screenshot`,
@@ -624,7 +582,6 @@ function devicePack(
     },
     {
       src: `/projects/${id}/mobile.jpg`,
-      span: MOBILE_TALL,
       alt: {
         tr: `${name.tr} mobil panel arayüzü ekran görüntüsü`,
         en: `${name.en} mobile panel interface screenshot`,
@@ -638,7 +595,6 @@ function devicePack(
 const aiahi = pack([
   {
     src: "/projects/aiahi/featured/01-hero.jpg",
-    span: HERO,
     alt: {
       tr: "Ahi AI ana sayfa: WhatsApp sohbeti ve günlük randevu paneli",
       en: "Ahi AI homepage with WhatsApp chat and daily booking panel",
@@ -648,7 +604,6 @@ const aiahi = pack([
   },
   {
     src: "/projects/aiahi/featured/02-sectors.jpg",
-    span: HALF,
     alt: {
       tr: "Kuaför, klinik ve servis gibi randevu yoğun sektörler bölümü",
       en: "Section for appointment-heavy trades such as salons, clinics, and repair services",
@@ -658,7 +613,6 @@ const aiahi = pack([
   },
   {
     src: "/projects/aiahi/featured/03-panel.jpg",
-    span: HALF,
     alt: {
       tr: "Müşteri kaydı, ziyaret geçmişi ve ekip notları paneli",
       en: "Customer record panel with visit history and team notes",
@@ -668,7 +622,6 @@ const aiahi = pack([
   },
   {
     src: "/projects/aiahi/featured/04-how.jpg",
-    span: MID,
     alt: {
       tr: "Müşteri yazar, kurallar yanıtlar, randevu kayda düşer adımları",
       en: "Steps from customer message to rule-based reply and booked record",
@@ -678,7 +631,6 @@ const aiahi = pack([
   },
   {
     src: "/projects/aiahi/featured/05-cta.jpg",
-    span: MID,
     alt: {
       tr: "Ahi AI iletişim ve panel inceleme çağrısı",
       en: "Ahi AI contact and panel preview call to action",
@@ -688,7 +640,6 @@ const aiahi = pack([
   },
   {
     src: "/projects/aiahi/mobile.jpg",
-    span: MOBILE_TALL,
     alt: {
       tr: "Ahi AI mobil ana sayfa ekran görüntüsü",
       en: "Ahi AI mobile homepage screenshot",
@@ -701,8 +652,6 @@ const aiahi = pack([
 const masal = pack([
   {
     src: "/projects/masal-koltuk/featured/01-hizmetler.jpg",
-    span: SCREEN_LARGE_LEFT,
-    fit: "contain",
     alt: {
       tr: "MASAL hizmetler sayfası: yerinde koltuk yıkama ve döşeme temizliği başlığı",
       en: "MASAL services page: on-site upholstery and furniture cleaning",
@@ -712,8 +661,6 @@ const masal = pack([
   },
   {
     src: "/projects/masal-koltuk/featured/02-fiyatlar.jpg",
-    span: SCREEN_LARGE_RIGHT,
-    fit: "contain",
     alt: {
       tr: "2026 fiyat listesi: koltuk takımı, köşe takım ve yatak için açık fiyatlar",
       en: "2026 price list with open rates for sofa sets, corner units, and beds",
@@ -723,8 +670,6 @@ const masal = pack([
   },
   {
     src: "/projects/masal-koltuk/featured/03-isler.jpg",
-    span: SCREEN_WIDE,
-    fit: "contain",
     alt: {
       tr: "Araç koltuğu temizliği iş kaydı: önce ve sonra karşılaştırma sürgüsü",
       en: "Car seat cleaning job record with a before and after comparison slider",
@@ -734,8 +679,6 @@ const masal = pack([
   },
   {
     src: "/projects/masal-koltuk/featured/04-bolgeler.jpg",
-    span: SCREEN_HALF,
-    fit: "contain",
     alt: {
       tr: "Battalgazi ve Yeşilyurt hizmet bölgeleri sayfası",
       en: "Service area page for the Battalgazi and Yeşilyurt districts",
@@ -745,8 +688,6 @@ const masal = pack([
   },
   {
     src: "/projects/masal-koltuk/featured/05-rehber.jpg",
-    span: SCREEN_HALF,
-    fit: "contain",
     alt: {
       tr: "Rehber bölümü: kuruma, leke ve kumaş sorularını yanıtlayan yazılar",
       en: "Guide section answering drying, stain, and fabric questions",
