@@ -18,6 +18,11 @@ export type ProjectCardCopy = {
 
 const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
   tr: {
+    "masal-koltuk": {
+      tag: "Yerel arama",
+      summary:
+        "Malatya'da yerinde koltuk yıkama; 32 rota hizmet, fiyat ve mahalleye ayrılıyor, hepsi fotoğrafla teklife çıkıyor.",
+    },
     wcc: {
       tag: "Kurumsal web",
       summary:
@@ -98,6 +103,11 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
     },
   },
   en: {
+    "masal-koltuk": {
+      tag: "Local search",
+      summary:
+        "On-site upholstery cleaning in Malatya: 32 routes split by service, price, and district, each ending in a quote.",
+    },
     wcc: {
       tag: "Corporate web",
       summary:
@@ -178,6 +188,11 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
     },
   },
   es: {
+    "masal-koltuk": {
+      tag: "Búsqueda local",
+      summary:
+        "Limpieza de tapicería a domicilio en Malatya: 32 rutas por servicio, precio y barrio, todas hacia un presupuesto.",
+    },
     wcc: {
       tag: "Sitio corporativo",
       summary:
@@ -258,6 +273,11 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
     },
   },
   de: {
+    "masal-koltuk": {
+      tag: "Lokale Suche",
+      summary:
+        "Polsterreinigung vor Ort in Malatya: 32 Seiten nach Leistung, Preis und Stadtteil, jede endet in einer Anfrage.",
+    },
     wcc: {
       tag: "Unternehmenswebsite",
       summary:

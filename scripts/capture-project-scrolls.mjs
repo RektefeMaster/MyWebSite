@@ -34,6 +34,7 @@ const TARGETS = [
   { id: "sahra-butik", url: "https://sahrabutik.vercel.app/" },
   { id: "vela-skin-atelier", url: "https://vela-skin-atelier.vercel.app/" },
   { id: "aiahi", url: "https://www.aiahi.net/" },
+  { id: "masal-koltuk", url: "https://malatyakoltuktemizleme.com/" },
 ];
 
 const DESKTOP = { width: 1440, height: 900 };

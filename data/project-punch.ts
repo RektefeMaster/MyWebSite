@@ -4,6 +4,7 @@
  */
 const projectPunch: Record<string, Record<string, string>> = {
   tr: {
+    "masal-koltuk": "32 rotalı yerel arama mimarisi; her sayfa fotoğrafla teklife çıkıyor.",
     wcc: "Ürün galerisinden teklif talebine uzanan, mobil öncelikli üretici sitesi.",
     aydnnacar: "Koleksiyonu oda, model ve ölçü üzerinden gezdiren mobilya kataloğu.",
     wuffbutik: "Koleksiyon, mağaza bilgisi ve WhatsApp görüşmesi tek vitrinde.",
@@ -21,6 +22,7 @@ const projectPunch: Record<string, Record<string, string>> = {
     "css-system": "Site ve paneli ortak token'larla yöneten CSS tasarım sistemi.",
   },
   en: {
+    "masal-koltuk": "A 32-route local search architecture where every page ends in a photo quote.",
     wcc: "A mobile-first manufacturer site from product gallery to quote request.",
     aydnnacar: "A furniture catalog organized by room, model, and dimensions.",
     wuffbutik: "Collections, store details, and WhatsApp contact in one storefront.",
@@ -38,6 +40,7 @@ const projectPunch: Record<string, Record<string, string>> = {
     "css-system": "A token-based CSS system shared by the site and admin panel.",
   },
   es: {
+    "masal-koltuk": "Arquitectura de búsqueda local de 32 rutas; cada página termina en un presupuesto.",
     wcc: "Líneas de gabinetes y proyectos terminados antes de solicitar una cotización.",
     aydnnacar: "Muebles organizados por ambiente, modelo y medidas.",
     wuffbutik: "Colecciones y datos de tienda con consulta por WhatsApp.",
@@ -55,6 +58,7 @@ const projectPunch: Record<string, Record<string, string>> = {
     "css-system": "Tokens compartidos por el sitio público y el panel interno.",
   },
   de: {
+    "masal-koltuk": "32 Routen lokale Suche; jede Seite endet bei der Preisanfrage per Foto.",
     wcc: "Schranklinien und Referenzprojekte vor der Angebotsanfrage.",
     aydnnacar: "Möbel nach Raum, Modell und Maßen geordnet.",
     wuffbutik: "Kollektionen und Ladenangaben mit WhatsApp-Anfrage.",

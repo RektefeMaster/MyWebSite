@@ -698,6 +698,64 @@ const aiahi = pack([
   },
 ]);
 
+const masal = pack([
+  {
+    src: "/projects/masal-koltuk/featured/01-hizmetler.jpg",
+    span: SCREEN_LARGE_LEFT,
+    fit: "contain",
+    alt: {
+      tr: "MASAL hizmetler sayfası: yerinde koltuk yıkama ve döşeme temizliği başlığı",
+      en: "MASAL services page: on-site upholstery and furniture cleaning",
+      es: "Página de servicios de MASAL: limpieza de tapicería a domicilio",
+      de: "MASAL-Leistungsseite: Polster- und Möbelreinigung vor Ort",
+    },
+  },
+  {
+    src: "/projects/masal-koltuk/featured/02-fiyatlar.jpg",
+    span: SCREEN_LARGE_RIGHT,
+    fit: "contain",
+    alt: {
+      tr: "2026 fiyat listesi: koltuk takımı, köşe takım ve yatak için açık fiyatlar",
+      en: "2026 price list with open rates for sofa sets, corner units, and beds",
+      es: "Lista de precios 2026 con tarifas abiertas para sofás, rinconeras y camas",
+      de: "Preisliste 2026 mit offenen Sätzen für Sofas, Ecksofas und Betten",
+    },
+  },
+  {
+    src: "/projects/masal-koltuk/featured/03-isler.jpg",
+    span: SCREEN_WIDE,
+    fit: "contain",
+    alt: {
+      tr: "Araç koltuğu temizliği iş kaydı: önce ve sonra karşılaştırma sürgüsü",
+      en: "Car seat cleaning job record with a before and after comparison slider",
+      es: "Registro de limpieza de asiento con deslizador de antes y después",
+      de: "Auftragsbericht zur Autositzreinigung mit Vorher-Nachher-Schieber",
+    },
+  },
+  {
+    src: "/projects/masal-koltuk/featured/04-bolgeler.jpg",
+    span: SCREEN_HALF,
+    fit: "contain",
+    alt: {
+      tr: "Battalgazi ve Yeşilyurt hizmet bölgeleri sayfası",
+      en: "Service area page for the Battalgazi and Yeşilyurt districts",
+      es: "Página de zonas de servicio para los distritos de Battalgazi y Yeşilyurt",
+      de: "Einsatzgebietsseite für die Stadtteile Battalgazi und Yeşilyurt",
+    },
+  },
+  {
+    src: "/projects/masal-koltuk/featured/05-rehber.jpg",
+    span: SCREEN_HALF,
+    fit: "contain",
+    alt: {
+      tr: "Rehber bölümü: kuruma, leke ve kumaş sorularını yanıtlayan yazılar",
+      en: "Guide section answering drying, stain, and fabric questions",
+      es: "Sección de guías sobre secado, manchas y tipos de tejido",
+      de: "Ratgeberbereich zu Trocknung, Flecken und Gewebearten",
+    },
+  },
+]);
+
 const whatsapp = devicePack("whatsapp-bot", {
   tr: "WhatsApp Asistanı",
   en: "WhatsApp Assistant",
@@ -727,6 +785,7 @@ const cssSystem = devicePack("css-system", {
 });
 
 export const projectGalleries: Record<string, GalleryPack> = {
+  "masal-koltuk": masal,
   wcc,
   aydnnacar,
   wuffbutik,

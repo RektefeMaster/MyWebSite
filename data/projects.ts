@@ -25,6 +25,27 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    /*
+      Portföyün en geniş kapsamlı işi: 32 rotalı yerel SEO mimarisi (hizmet,
+      fiyat, bölge, iş kaydı, rehber). Bu yüzden hem /work web şeridinin
+      başında hem de ana sayfa Selected Work'ün ilk dosyası.
+    */
+    id: "masal-koltuk",
+    name: "MASAL Koltuk Yıkama",
+    colors: ["#071b22", "#5B9BC4"],
+    url: "https://malatyakoltuktemizleme.com/",
+    desktopImage: "/projects/masal-koltuk/desktop.jpg",
+    mobileImage: "/projects/masal-koltuk/mobile.jpg",
+    desktopScrollImage: "/projects/masal-koltuk/desktop-scroll.jpg",
+    mobileScrollImage: "/projects/masal-koltuk/mobile-scroll.jpg",
+    primaryLane: "web",
+    lanes: ["web"],
+    featured: true,
+    featuredOrder: 1,
+    year: 2026,
+    displayPreference: "hero",
+  },
+  {
     id: "wcc",
     name: "Wholesale Cabinet Creations",
     colors: ["#171512", "#C89B63"],
@@ -50,7 +71,7 @@ export const projects: Project[] = [
     primaryLane: "web",
     lanes: ["web"],
     featured: true,
-    featuredOrder: 2,
+    featuredOrder: 3,
     year: 2025,
   },
   {
@@ -97,7 +118,7 @@ export const projects: Project[] = [
     primaryLane: "web",
     lanes: ["web"],
     featured: true,
-    featuredOrder: 3,
+    featuredOrder: 4,
     year: 2025,
   },
   {
@@ -178,7 +199,7 @@ export const projects: Project[] = [
     primaryLane: "ai",
     lanes: ["ai", "systems"],
     featured: true,
-    featuredOrder: 1,
+    featuredOrder: 2,
     year: 2026,
     displayPreference: "hero",
   },
@@ -211,7 +232,7 @@ export const projects: Project[] = [
     primaryLane: "systems",
     lanes: ["systems", "ai"],
     featured: true,
-    featuredOrder: 4,
+    featuredOrder: 5,
     year: 2025,
   },
   {

@@ -26,6 +26,34 @@ export type ProjectDetailsByLocale = Record<string, Record<string, ProjectDetail
 
 export const projectDetails: ProjectDetailsByLocale = {
   tr: {
+    "masal-koltuk": {
+      tag: "Yerel arama",
+      summary:
+        "MASAL'ın Malatya'daki yerinde koltuk yıkama hizmetini otuz iki ayrı rotaya bölen; hizmet, fiyat, mahalle, iş kaydı ve rehber sayfalarını tek bir teklif akışında birleştiren yerel arama mimarisi.",
+      whatTitle: "Sayfa mimarisi ve arama kapsamı",
+      what: [
+        "Hizmet, fiyat, bölge, iş kaydı ve rehber olmak üzere beş sayfa ailesi; her biri ayrı bir arama niyetine yanıt veriyor.",
+        "Battalgazi, Yeşilyurt ve mahalle bazlı bölge sayfaları; her birinde kendi kapsam listesi ve randevu notu var.",
+        "LocalBusiness, Service, BreadcrumbList ve CollectionPage şemalarını taşıyan yapısal veri grafiği.",
+        "Önce/sonra sürgüsüyle karşılaştırılan iş kayıtları; yöntem, süre ve kuruma bilgisi her kaydın yanında.",
+        "Kuruma, kumaş türü, leke kimyası ve firma seçimi gibi soruları tek tek karşılayan on üç rehber yazısı.",
+        "İndirimli web fiyatı ayrı gösterilen, kalem kalem açık yazılmış 2026 fiyat listesi.",
+      ],
+      howTitle: "Aramadan randevuya",
+      how: [
+        "Ziyaretçi ilçesini ya da temizletmek istediği eşyayı arıyor ve doğrudan o konunun sayfasına düşüyor.",
+        "Fiyatı listeden okuyor, önce/sonra kayıtlarında aynı işin nasıl bittiğini görüyor.",
+        "Koltuğun fotoğrafını WhatsApp'tan yolluyor; teklif tek mesajda netleşiyor.",
+      ],
+      stack: ["HTML", "CSS", "JavaScript", "JSON-LD"],
+      result:
+        "Site yalnızca marka adına değil, insanların gerçekten yazdığı sorulara açılıyor. Her rota kendi ziyaretçisini karşılıyor ve hepsi aynı tek adımlı teklife bağlanıyor.",
+      ctaLabel: "Benzer proje",
+      ctaTitle: "Hizmet bölgenizde sorulan her soruya bir sayfa",
+      ctaBlurb:
+        "Hizmetleriniz, fiyatlarınız ve çalıştığınız mahalleler belli olduğunda arama mimarisini ve teklif akışını birlikte kurabiliriz.",
+      ctaButton: "Projemi başlat",
+    },
     wcc: {
       tag: "Kurumsal web",
       summary:
@@ -437,6 +465,34 @@ export const projectDetails: ProjectDetailsByLocale = {
     },
   },
   en: {
+    "masal-koltuk": {
+      tag: "Local search",
+      summary:
+        "A local search architecture for MASAL, an on-site upholstery cleaner in Malatya: thirty-two routes covering services, prices, districts, job records, and guides, all feeding one quote flow.",
+      whatTitle: "Page families and search coverage",
+      what: [
+        "Five page families, each answering a different search intent: services, prices, districts, job records, and guides.",
+        "District pages for Battalgazi, Yeşilyurt, and individual neighborhoods, each carrying its own coverage list and booking note.",
+        "A structured data graph carrying LocalBusiness, Service, BreadcrumbList, and CollectionPage schemas.",
+        "Job records compared through a before/after slider, with method, timing, and drying notes beside each one.",
+        "Thirteen guide articles on drying time, fabric type, stain chemistry, and how to choose a cleaner.",
+        "A 2026 price list written out line by line, with the discounted web rate shown separately.",
+      ],
+      howTitle: "From search to booking",
+      how: [
+        "A visitor searches for their district or the piece they need cleaned and lands on that exact page.",
+        "They read the price off the list and watch the same job finish in the before/after records.",
+        "They send a photo over WhatsApp, and the quote is settled in a single message.",
+      ],
+      stack: ["HTML", "CSS", "JavaScript", "JSON-LD"],
+      result:
+        "The site opens on the questions people actually type, not only on the brand name. Every route meets its own visitor, and all of them lead to the same one-step quote.",
+      ctaLabel: "Similar project",
+      ctaTitle: "A page for every question asked in your service area",
+      ctaBlurb:
+        "Once your services, prices, and coverage areas are settled, we can build the search architecture and the quote flow together.",
+      ctaButton: "Start a project",
+    },
     wcc: {
       tag: "Corporate web",
       summary:
@@ -848,6 +904,34 @@ export const projectDetails: ProjectDetailsByLocale = {
     },
   },
   es: {
+    "masal-koltuk": {
+      tag: "Búsqueda local",
+      summary:
+        "Arquitectura de búsqueda local para MASAL, limpieza de tapicería a domicilio en Malatya: treinta y dos rutas entre servicios, precios, barrios, registros de trabajo y guías, todas hacia un mismo presupuesto.",
+      whatTitle: "Familias de páginas y cobertura",
+      what: [
+        "Cinco familias de páginas: servicios, precios, zonas, trabajos y guías. Cada una responde a una intención de búsqueda distinta.",
+        "Páginas de zona para Battalgazi, Yeşilyurt y barrios concretos, con su propia lista de cobertura y su nota de cita.",
+        "Un grafo de datos estructurados con esquemas LocalBusiness, Service, BreadcrumbList y CollectionPage.",
+        "Registros de trabajo comparados con un deslizador antes/después, junto al método, el tiempo y el secado.",
+        "Trece guías que responden al secado, al tipo de tejido, a la química de la mancha y a cómo elegir empresa.",
+        "Una lista de precios 2026 escrita partida por partida, con la tarifa web rebajada aparte.",
+      ],
+      howTitle: "De la búsqueda a la cita",
+      how: [
+        "El visitante busca su barrio o el mueble que quiere limpiar y aterriza justo en esa página.",
+        "Lee el precio en la lista y ve cómo termina ese mismo trabajo en los registros antes/después.",
+        "Envía una foto por WhatsApp y el presupuesto queda cerrado en un solo mensaje.",
+      ],
+      stack: ["HTML", "CSS", "JavaScript", "JSON-LD"],
+      result:
+        "La web se abre a las preguntas que la gente escribe de verdad, no solo al nombre de la marca. Cada ruta recibe a su visitante y todas llevan al mismo presupuesto de un paso.",
+      ctaLabel: "Proyecto similar",
+      ctaTitle: "Una página para cada pregunta de tu zona de servicio",
+      ctaBlurb:
+        "Cuando tus servicios, tus precios y tus zonas están claros, montamos juntos la arquitectura de búsqueda y el flujo de presupuesto.",
+      ctaButton: "Iniciar proyecto",
+    },
     wcc: {
       tag: "Web corporativa",
       summary:
@@ -1259,6 +1343,34 @@ export const projectDetails: ProjectDetailsByLocale = {
     },
   },
   de: {
+    "masal-koltuk": {
+      tag: "Lokale Suche",
+      summary:
+        "Eine lokale Sucharchitektur für MASAL, Polsterreinigung vor Ort in Malatya: zweiunddreißig Seiten zu Leistungen, Preisen, Stadtteilen, Auftragsberichten und Ratgebern, die alle in eine Anfrage münden.",
+      whatTitle: "Seiten, Schema und Suche",
+      what: [
+        "Fünf Seitenfamilien: Leistungen, Preise, Gebiete, Aufträge und Ratgeber. Jede beantwortet eine eigene Suchabsicht.",
+        "Gebietsseiten für Battalgazi, Yeşilyurt und einzelne Stadtteile, jeweils mit eigener Abdeckungsliste und Terminnotiz.",
+        "Ein Graph strukturierter Daten mit LocalBusiness, Service, BreadcrumbList und CollectionPage.",
+        "Auftragsberichte im Vorher/Nachher-Schieber, daneben Verfahren, Dauer und Trocknungshinweis.",
+        "Dreizehn Ratgeber zu Trocknungszeit, Gewebeart, Fleckenchemie und Firmenwahl.",
+        "Eine Preisliste 2026, Posten für Posten ausgeschrieben, der rabattierte Webpreis separat.",
+      ],
+      howTitle: "Von der Suche zum Termin",
+      how: [
+        "Wer nach seinem Stadtteil oder seinem Möbelstück sucht, landet genau auf dieser Seite.",
+        "Der Preis steht in der Liste, und die Vorher/Nachher-Berichte zeigen denselben Auftrag zu Ende gebracht.",
+        "Ein Foto per WhatsApp genügt; nach einer Nachricht steht das Angebot.",
+      ],
+      stack: ["HTML", "CSS", "JavaScript", "JSON-LD"],
+      result:
+        "Die Website öffnet sich den Fragen, die Menschen tatsächlich eintippen, nicht nur dem Markennamen. Jede Route empfängt ihren eigenen Besucher, und alle führen zur selben Anfrage in einem Schritt.",
+      ctaLabel: "Ähnliches Projekt",
+      ctaTitle: "Für jede Frage aus Ihrem Einzugsgebiet eine Seite",
+      ctaBlurb:
+        "Sobald Leistungen, Preise und Einsatzgebiete feststehen, bauen wir Sucharchitektur und Anfragestrecke gemeinsam auf.",
+      ctaButton: "Projekt starten",
+    },
     wcc: {
       tag: "Unternehmens-Web",
       summary:

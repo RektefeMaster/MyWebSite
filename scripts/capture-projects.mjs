@@ -64,6 +64,13 @@ const sites = [
     url: "https://vela-skin-atelier.vercel.app/",
     waitFor: "text=VELA",
   },
+  {
+    id: "masal-koltuk",
+    url: "https://malatyakoltuktemizleme.com/",
+    waitFor: "text=MASAL",
+    // Hero kelime markası harf harf açılıyor; erken kare "MAS" yakalıyor.
+    settleMs: 4200,
+  },
 ];
 
 async function hideChrome(page) {
@@ -102,7 +109,7 @@ async function capture(page, site, outPath, width, height) {
   }
 
   // Intro / loader geçsin, görseller otursun
-  await page.waitForTimeout(2800);
+  await page.waitForTimeout(site.settleMs ?? 2800);
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.waitForTimeout(400);
 
@@ -209,7 +216,12 @@ const browser = await chromium.launch({ headless: true });
 const DESKTOP_DPR = 1920 / 1600; // → 1920×1200
 const MOBILE_DPR = 3; // 390×3 → 1170 (telefon mockup için yeterli)
 
-for (const site of sites) {
+/* Argümansız çalışınca TÜM projeleri yeniden çeker ve mevcut kareleri ezer.
+   Tek işi tazelerken `node scripts/capture-projects.mjs <id>` kullan. */
+const only = process.argv.slice(2);
+const queue = only.length ? sites.filter((s) => only.includes(s.id)) : sites;
+
+for (const site of queue) {
   const dir = join(root, "public/projects", site.id);
   mkdirSync(dir, { recursive: true });
   console.log("Capturing", site.id, "←", site.url);
