@@ -151,6 +151,22 @@ kontrastta kalıyordu (ölçüldü, gözle de okunmuyordu).
 - `DeviceMockup` hover şeridi (~250KB ham JPG) yalnızca `pointerenter` ile
   iner. Viewport tetiğine geri alma — 768px'te LCP elemanı olup /work'ü
   5.5sn'ye çıkarıyordu.
+- **`public/lanyard/card.glb` dokusu BİLEREK boş** (176KB; eskiden 2.34MB).
+  Kaynak ReactBits demo modeli 1678×1677 bir atlas gömüyordu (2.19MB, dosyanın
+  %94'ü) ama o doku EKRANA HİÇ ÇIKMIYOR: `card` mesh'i UV'de yalnızca
+  V ∈ [0.0022, 0.7572] örnekliyor, `Lanyard.tsx`'teki `cardMap` composite'i ise
+  FRONT/BACK_UV_RECT ile x[0,1] × y[0,0.757]'yi `#090a0d` + METEK kart
+  görseliyle yeniden boyuyor; `clip`/`clamp` mesh'leri dokusuz "metal"
+  materyalini kullanıyor. Atlas aynı ÖLÇÜDE düz `#090a0d` PNG ile değiştirildi —
+  ölçü şart, çünkü composite canvas boyutunu `baseMap.image.width/height`'tan
+  alıyor; küçültmek kart yüzünün çözünürlüğünü düşürür. Modeli yeniden
+  dışa aktarırsan `node scripts/strip-card-glb-texture.mjs` çalıştır, yoksa
+  2.2MB ölü doku geri gelir.
+- **Lanyard idle'da bağlanır** (`PageHero` → `useIdleMount`). Kart rapier'ı
+  (2.18MB ham / 816KB gzip — wasm base64 olarak JS'in İÇİNDE, indirilip parse
+  ediliyor) + three'yi çekiyor; hydrate anında bağlanınca telefonda başlık ve
+  fontlar otururken araya giriyordu. `requestIdleCallback`'in `timeout`'unu
+  silme — sayfa meşgulse rIC hiç ateşlemez ve kart hiç gelmez.
 - UI fontu next/font ile Space Grotesk (`latin` + `latin-ext` subset).
 - `next/image` `sizes` değerine **sabit px yazma**. Editorial grid'de kart 4/5/7/8/12
   kolon olabiliyor; sabit `360px` 12 kolonluk kartta 1075px'lik kutuya 384px

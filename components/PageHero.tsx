@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { Fragment, useRef } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { gsap, useGSAP } from "@/lib/gsap";
@@ -9,6 +9,39 @@ import { forDisplay } from "@/lib/typography";
 import DecryptedText from "./DecryptedText";
 
 const Lanyard = dynamic(() => import("./Lanyard"), { ssr: false });
+
+/**
+ * Lanyard'ı hydrate anında değil, ana iş parçacığı boşalınca bağla.
+ *
+ * Kart üç ağır şey çekiyor: rapier fizik motoru (2.18MB ham / 816KB gzip —
+ * wasm base64 olarak JS'in içinde, yani indirilip PARSE de ediliyor), three
+ * (230KB gzip) ve card.glb. `dynamic(ssr:false)` bunu hydrate biter bitmez
+ * başlatıyordu; telefonda başlık yazısı ve fontlar daha oturmadan ~1MB indirme
+ * + ~2MB JS parse araya giriyordu.
+ *
+ * Idle'a alınca kadraj aynı kalıyor (kart mutlak konumlu bir katmanda, düzen
+ * kaymıyor), yalnızca kart bir tık sonra sarkmaya başlıyor. Ana sayfadaki
+ * `usePrefetchHeroScene` ile aynı desen.
+ *
+ * `timeout` şart: sayfa meşgulse rIC hiç ateşlemeyebiliyor ve kart hiç gelmez.
+ */
+function useIdleMount() {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const ric = window.requestIdleCallback as
+      | typeof window.requestIdleCallback
+      | undefined;
+    if (!ric) {
+      const timer = window.setTimeout(() => setReady(true), 400);
+      return () => window.clearTimeout(timer);
+    }
+    const handle = ric(() => setReady(true), { timeout: 1200 });
+    return () => window.cancelIdleCallback(handle);
+  }, []);
+
+  return ready;
+}
 
 type Crumb = {
   label: string;
@@ -34,6 +67,7 @@ export default function PageHero({
   const t = useTranslations("a11y");
   const locale = useLocale();
   const ref = useRef<HTMLElement>(null);
+  const lanyardReady = useIdleMount();
   const safeTitle = forDisplay(title);
   const words = safeTitle.split(" ").filter(Boolean);
 
@@ -117,17 +151,19 @@ export default function PageHero({
           aria-hidden
           className="absolute inset-0 z-10 pointer-events-auto overflow-hidden"
         >
-          <Lanyard
-            position={[0, 0, 20]}
-            gravity={[0, -40, 0]}
-            fov={20}
-            frontImage="/lanyard/metek-card-black.png"
-            backImage="/lanyard/metek-card-black.png"
-            imageFit="contain"
-            lanyardImage="/lanyard/metek-lanyard.png"
-            lanyardWidth={1.25}
-            transparent={true}
-          />
+          {lanyardReady ? (
+            <Lanyard
+              position={[0, 0, 20]}
+              gravity={[0, -40, 0]}
+              fov={20}
+              frontImage="/lanyard/metek-card-black.png"
+              backImage="/lanyard/metek-card-black.png"
+              imageFit="contain"
+              lanyardImage="/lanyard/metek-lanyard.png"
+              lanyardWidth={1.25}
+              transparent={true}
+            />
+          ) : null}
         </div>
       ) : null}
 
