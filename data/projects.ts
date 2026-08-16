@@ -148,20 +148,6 @@ export const projects: Project[] = [
     year: 2025,
   },
   {
-    id: "mizan",
-    name: "MİZAN",
-    colors: ["#141210", "#c4a574"],
-    url: "https://mizan-ten-brown.vercel.app/",
-    desktopImage: "/projects/mizan/desktop.jpg",
-    mobileImage: "/projects/mizan/mobile.jpg",
-    /* Şeritler diskte vardı ama bağlanmamıştı — mockup hiç açılmıyordu. */
-    desktopScrollImage: "/projects/mizan/desktop-scroll.jpg",
-    mobileScrollImage: "/projects/mizan/mobile-scroll.jpg",
-    primaryLane: "web",
-    lanes: ["web"],
-    year: 2025,
-  },
-  {
     id: "sahra-butik",
     name: "Sahra Butik",
     colors: ["#111111", "#d4b5b0"],

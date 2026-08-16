@@ -404,54 +404,6 @@ const havva = pack([
   },
 ]);
 
-const mizan = pack([
-  {
-    src: "/projects/mizan/featured/02-film.jpg",
-    alt: {
-      tr: "Kaydırmalı gülüş filmi: kapalı ifade, ışık, açılış",
-      en: "Scroll-driven smile film: closed expression, light, opening",
-      es: "Film de sonrisa con scroll: expresión cerrada, luz, apertura",
-      de: "Scrollbarer Smile-Film: geschlossener Ausdruck, Licht, Öffnung",
-    },
-  },
-  {
-    src: "/projects/mizan/featured/03-felsefe.jpg",
-    alt: {
-      tr: "Denge, oran ve sessizlik felsefe metni bölümü",
-      en: "Philosophy section on balance, proportion, and silence",
-      es: "Sección de filosofía sobre equilibrio, proporción y silencio",
-      de: "Philosophie-Abschnitt zu Balance, Proportion und Stille",
-    },
-  },
-  {
-    src: "/projects/mizan/featured/04-hizmetler.jpg",
-    alt: {
-      tr: "Tedavi protokolleri listesi, ritüel tonunda sunum",
-      en: "Treatment protocols list presented as chosen rituals",
-      es: "Lista de protocolos de tratamiento presentada como rituales",
-      de: "Protokollliste als gewählte Rituale präsentiert",
-    },
-  },
-  {
-    src: "/projects/mizan/featured/05-atoelye.jpg",
-    alt: {
-      tr: "Nişantaşı atölye mekân fotoğrafları",
-      en: "Nişantaşı atelier interior photography",
-      es: "Fotografía del interior del atelier en Nişantaşı",
-      de: "Innenaufnahmen des Ateliers in Nişantaşı",
-    },
-  },
-  {
-    src: "/projects/mizan/featured/06-randevu.jpg",
-    alt: {
-      tr: "İlk ölçü randevusu talep bölümü",
-      en: "First measurement booking request section",
-      es: "Sección para solicitar cita de primera medida",
-      de: "Bereich zur Anfrage der ersten Messung",
-    },
-  },
-]);
-
 const vela = pack([
   {
     src: "/projects/vela-skin-atelier/featured/01-hero.jpg",
@@ -734,7 +686,6 @@ export const projectGalleries: Record<string, GalleryPack> = {
   "casa-aurelia": casa,
   "seraphine-atelier": seraphine,
   "havva-baklava": havva,
-  mizan,
   "sahra-butik": sahra,
   "vela-skin-atelier": vela,
   aiahi,
