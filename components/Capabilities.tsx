@@ -142,12 +142,15 @@ export default function Capabilities() {
                 key={id}
                 className="grid grid-cols-12 items-start gap-x-5 gap-y-8 md:gap-x-6"
               >
-                <Reveal mode="mask" className={`col-span-12 ${visual.media}`}>
+                <Reveal
+                  mode="mask"
+                  className={`col-span-12 md:flex md:flex-col md:self-stretch ${visual.media}`}
+                >
                   <div
-                    className={`relative overflow-hidden bg-stone ${
+                    className={`relative overflow-hidden bg-stone md:min-h-0 md:flex-1 ${
                       index === 1
-                        ? "aspect-[5/4]"
-                        : "aspect-[16/11] md:aspect-[16/10]"
+                        ? "aspect-[5/4] md:aspect-auto"
+                        : "aspect-[16/11] md:aspect-auto"
                     }`}
                   >
                     <Image
@@ -168,7 +171,7 @@ export default function Capabilities() {
                     />
                   </div>
                   {visual.caseUrl && (
-                    <div className="mt-4 flex items-center justify-between gap-4 border-t border-foreground/15 pt-4 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-foreground/40">
+                    <div className="mt-4 flex shrink-0 items-center justify-between gap-4 border-t border-foreground/15 pt-4 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-foreground/40">
                       <span>{t("liveLabel")}</span>
                       <a
                         href={visual.caseUrl}
