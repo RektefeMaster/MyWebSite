@@ -49,7 +49,7 @@ export const projects: Project[] = [
     id: "wcc",
     name: "Wholesale Cabinet Creations",
     colors: ["#171512", "#C89B63"],
-    url: "https://websites-production-4b1d.up.railway.app/",
+    url: "https://websites-ruddy-nu.vercel.app/",
     desktopImage: "/projects/wcc/desktop.jpg",
     mobileImage: "/projects/wcc/mobile.jpg",
     desktopScrollImage: "/projects/wcc/desktop-scroll.jpg",
