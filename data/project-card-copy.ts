@@ -18,6 +18,10 @@ export type ProjectCardCopy = {
 
 const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
   tr: {
+    "elif-seren": {
+      tag: "Kurumsal web",
+      summary: "Uzm. Klinik Psikolog Elif Seren için güven veren dijital alan. EMDR ve psikoterapi hizmetleri, kurumsal kimlikle randevuya yönlendirir.",
+    },
     "masal-koltuk": {
       tag: "Yerel arama",
       summary:
@@ -98,6 +102,10 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
     },
   },
   en: {
+    "elif-seren": {
+      tag: "Corporate web",
+      summary: "A reassuring digital space for Clinical Psychologist Elif Seren. Showcases EMDR and psychotherapy services, routing to appointments.",
+    },
     "masal-koltuk": {
       tag: "Local search",
       summary:
@@ -178,6 +186,10 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
     },
   },
   es: {
+    "elif-seren": {
+      tag: "Web corporativa",
+      summary: "Un espacio digital tranquilizador para la Psicóloga Clínica Elif Seren. Muestra servicios de EMDR y psicoterapia, guiando a citas.",
+    },
     "masal-koltuk": {
       tag: "Búsqueda local",
       summary:
@@ -258,6 +270,10 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
     },
   },
   de: {
+    "elif-seren": {
+      tag: "Corporate web",
+      summary: "Ein beruhigender digitaler Raum für die klinische Psychologin Elif Seren. Zeigt EMDR- und Psychotherapie-Dienste und leitet zu Terminen.",
+    },
     "masal-koltuk": {
       tag: "Lokale Suche",
       summary:

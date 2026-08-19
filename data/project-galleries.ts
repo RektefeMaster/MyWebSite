@@ -670,6 +670,79 @@ const crm = devicePack("crm", {
   de: "CRM-Verkaufspanel",
 });
 
+const elifSeren = pack([
+  {
+    src: "/projects/elif-seren/featured/01-hero.jpg",
+    span: HERO,
+    alt: {
+      tr: "Elif Seren ana sayfa açılışı",
+      en: "Elif Seren homepage hero",
+      es: "Inicio de Elif Seren",
+      de: "Elif Seren Startseite",
+    },
+  },
+  {
+    src: "/projects/elif-seren/featured/02-menu.jpg",
+    span: HALF,
+    alt: {
+      tr: "Tam ekran menü tasarımı",
+      en: "Full screen menu design",
+      es: "Diseño de menú a pantalla completa",
+      de: "Vollbild-Menü-Design",
+    },
+  },
+  {
+    src: "/projects/elif-seren/featured/03-about.jpg",
+    span: HALF,
+    alt: {
+      tr: "Hakkımda ve uzmanlık alanı bölümü",
+      en: "About and expertise section",
+      es: "Sección de sobre mí y experiencia",
+      de: "Über mich und Expertise-Bereich",
+    },
+  },
+  {
+    src: "/projects/elif-seren/featured/04-blog.jpg",
+    span: HALF,
+    alt: {
+      tr: "İçgörüler ve makaleler giriş sayfası",
+      en: "Insights and articles landing page",
+      es: "Página de inicio de perspectivas y artículos",
+      de: "Landingpage für Einblicke und Artikel",
+    },
+  },
+  {
+    src: "/projects/elif-seren/featured/05-blog-grid.jpg",
+    span: WIDE,
+    alt: {
+      tr: "Klinik psikoloji makaleleri grid görünümü",
+      en: "Clinical psychology articles grid view",
+      es: "Vista de cuadrícula de artículos de psicología clínica",
+      de: "Rasteransicht für Artikel zur klinischen Psychologie",
+    },
+  },
+  {
+    src: "/projects/elif-seren/featured/06-clinic-1.jpg",
+    span: HALF,
+    alt: {
+      tr: "Klinik deneyimi ve iç mekan",
+      en: "Clinic experience and interior",
+      es: "Experiencia de la clínica e interior",
+      de: "Klinikerfahrung und Interieur",
+    },
+  },
+  {
+    src: "/projects/elif-seren/featured/07-clinic-2.jpg",
+    span: HALF,
+    alt: {
+      tr: "Klinik lokasyonu ve mekanın iyileştirici gücü",
+      en: "Clinic location and healing space",
+      es: "Ubicación de la clínica y espacio curativo",
+      de: "Klinikstandort und Heilungsraum",
+    },
+  }
+]);
+
 const cssSystem = devicePack("css-system", {
   tr: "Tasarım Sistemi",
   en: "CSS Design System",
@@ -692,6 +765,7 @@ export const projectGalleries: Record<string, GalleryPack> = {
   "whatsapp-bot": whatsapp,
   "instagram-bot": instagram,
   crm,
+  "elif-seren": elifSeren,
   "css-system": cssSystem,
 };
 

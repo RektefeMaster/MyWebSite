@@ -26,6 +26,31 @@ export type ProjectDetailsByLocale = Record<string, Record<string, ProjectDetail
 
 export const projectDetails: ProjectDetailsByLocale = {
   tr: {
+    "elif-seren": {
+      tag: "Kurumsal web",
+      summary: "Uzm. Klinik Psikolog Elif Seren için güven veren dijital alan. EMDR ve psikoterapi hizmetleri, kurumsal kimlikle randevuya yönlendirir.",
+      whatTitle: "Ne yaptık?",
+      what: [
+        "Güven ve dinginlik veren tipografi ve renk paleti.",
+        "EMDR, Psikodinamik ve Somatik Deneyimleme gibi uzmanlık alanlarının sunumu.",
+        "Klinik ortamını ve akademik yetkinliği öne çıkaran içerik mimarisi.",
+        "Randevu ve iletişim için net bir akış.",
+        "Mobilde pürüzsüz çalışan tek sayfalık hissiyat.",
+      ],
+      howTitle: "Nasıl çalışıyor?",
+      how: [
+        "Ziyaretçi terapi yaklaşımlarını ve uzmanlıkları inceler.",
+        "Kliniğin fiziksel konumu ve atmosferi hakkında bilgi alır.",
+        "Randevu oluşturma adımlarına kolayca geçer.",
+        "Yüksek performanslı altyapı ile sayfa anında yüklenir.",
+      ],
+      stack: ["Next.js", "React", "Tailwind CSS"],
+      result: "Canlı site: güven uyandıran, randevu odaklı ve mobil uyumlu kurumsal klinik sitesi.",
+      ctaLabel: "Sıradaki proje",
+      ctaTitle: "Kliniğiniz için dijital bir alan mı istiyorsunuz?",
+      ctaBlurb: "Uzmanlığınızı yansıtan ve danışanlarınıza güven veren bir web sitesi kuralım. Kısa özetten sonra kapsamı netleştiririm.",
+      ctaButton: "Projemi başlat",
+    },
     "masal-koltuk": {
       tag: "Yerel arama",
       summary:
@@ -438,6 +463,31 @@ export const projectDetails: ProjectDetailsByLocale = {
     },
   },
   en: {
+    "elif-seren": {
+      tag: "Corporate web",
+      summary: "A reassuring digital space for Clinical Psychologist Elif Seren. Showcases EMDR and psychotherapy services, routing to appointments.",
+      whatTitle: "What we built",
+      what: [
+        "Typography and color palette conveying trust and calm.",
+        "Presentation of specialties like EMDR, Psychodynamic, and Somatic Experiencing.",
+        "Content architecture highlighting clinical environment and academic expertise.",
+        "Clear path to appointments and contact.",
+        "Smooth mobile experience with a clear flow.",
+      ],
+      howTitle: "How it works",
+      how: [
+        "Visitors explore therapy approaches and expertise.",
+        "Learn about the clinic's physical location and atmosphere.",
+        "Easily transition to appointment booking steps.",
+        "Fast-loading infrastructure ensures instant page delivery.",
+      ],
+      stack: ["Next.js", "React", "Tailwind CSS"],
+      result: "Live site: a trustworthy, appointment-driven, and mobile-ready corporate clinic site.",
+      ctaLabel: "Up next",
+      ctaTitle: "Need a digital space for your clinic?",
+      ctaBlurb: "Let's build a website that reflects your expertise and builds trust with your clients. Send a short note and I will outline the build.",
+      ctaButton: "Start my project",
+    },
     "masal-koltuk": {
       tag: "Local search",
       summary:
@@ -850,6 +900,31 @@ export const projectDetails: ProjectDetailsByLocale = {
     },
   },
   es: {
+    "elif-seren": {
+      tag: "Web corporativa",
+      summary: "Un espacio digital tranquilizador para la Psicóloga Clínica Elif Seren. Muestra servicios de EMDR y psicoterapia, guiando a citas.",
+      whatTitle: "Lo que construimos",
+      what: [
+        "Tipografía y paleta de colores que transmiten confianza y calma.",
+        "Presentación de especialidades como EMDR, Psicodinámica y Experiencia Somática.",
+        "Arquitectura de contenido destacando el entorno clínico y experiencia académica.",
+        "Camino claro hacia citas y contacto.",
+        "Experiencia móvil fluida.",
+      ],
+      howTitle: "Cómo funciona",
+      how: [
+        "Los visitantes exploran los enfoques de terapia y experiencia.",
+        "Conocen la ubicación física y atmósfera de la clínica.",
+        "Transición fácil hacia los pasos de reserva de citas.",
+        "La infraestructura de carga rápida garantiza una entrega instantánea.",
+      ],
+      stack: ["Next.js", "React", "Tailwind CSS"],
+      result: "Sitio en vivo: un sitio clínico corporativo confiable, enfocado en citas y listo para móviles.",
+      ctaLabel: "Siguiente paso",
+      ctaTitle: "¿Necesita un espacio digital para su clínica?",
+      ctaBlurb: "Construyamos un sitio web que refleje su experiencia y genere confianza. Envíe una nota breve y describiré el proyecto.",
+      ctaButton: "Iniciar mi proyecto",
+    },
     "masal-koltuk": {
       tag: "Búsqueda local",
       summary:
@@ -1262,6 +1337,31 @@ export const projectDetails: ProjectDetailsByLocale = {
     },
   },
   de: {
+    "elif-seren": {
+      tag: "Corporate web",
+      summary: "Ein beruhigender digitaler Raum für die klinische Psychologin Elif Seren. Zeigt EMDR- und Psychotherapie-Dienste und leitet zu Terminen.",
+      whatTitle: "Was wir gebaut haben",
+      what: [
+        "Typografie und Farbpalette, die Vertrauen und Ruhe vermitteln.",
+        "Präsentation von Fachgebieten wie EMDR, Psychodynamik und Somatic Experiencing.",
+        "Inhaltsarchitektur, die das klinische Umfeld und akademische Expertise hervorhebt.",
+        "Klarer Weg zu Terminen und Kontakt.",
+        "Reibungsloses mobiles Erlebnis.",
+      ],
+      howTitle: "Wie es funktioniert",
+      how: [
+        "Besucher erkunden Therapieansätze und Expertise.",
+        "Erfahren Sie mehr über den physischen Standort und die Atmosphäre der Klinik.",
+        "Einfacher Übergang zu den Schritten der Terminbuchung.",
+        "Schnell ladende Infrastruktur sorgt für sofortige Bereitstellung.",
+      ],
+      stack: ["Next.js", "React", "Tailwind CSS"],
+      result: "Live-Website: eine vertrauenswürdige, terminorientierte und mobilgerätefähige Klinik-Website.",
+      ctaLabel: "Als Nächstes",
+      ctaTitle: "Benötigen Sie einen digitalen Raum für Ihre Klinik?",
+      ctaBlurb: "Lassen Sie uns eine Website erstellen, die Ihre Expertise widerspiegelt und Vertrauen aufbaut. Senden Sie eine kurze Nachricht.",
+      ctaButton: "Mein Projekt starten",
+    },
     "masal-koltuk": {
       tag: "Lokale Suche",
       summary:

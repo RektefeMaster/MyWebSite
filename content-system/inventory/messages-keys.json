@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-16T01:02:04.426Z",
+  "generatedAt": "2026-08-19T22:31:45.689Z",
   "locales": [
     "en",
     "tr",
     "es",
     "de"
   ],
-  "totalLeafKeysEn": 408,
+  "totalLeafKeysEn": 409,
   "byNamespace": {
     "meta": 2,
     "nav": 14,
@@ -18,7 +18,7 @@
     "principles": 10,
     "hero": 10,
     "selectedWork": 5,
-    "capabilities": 29,
+    "capabilities": 30,
     "manifestoScene": 4,
     "approachTeaser": 13,
     "finalCta": 6,
@@ -38,22 +38,22 @@
   },
   "parity": {
     "en": {
-      "leafCount": 408,
+      "leafCount": 409,
       "missingVsEn": 0,
       "extraVsEn": 0
     },
     "tr": {
-      "leafCount": 408,
+      "leafCount": 409,
       "missingVsEn": 0,
       "extraVsEn": 0
     },
     "es": {
-      "leafCount": 408,
+      "leafCount": 409,
       "missingVsEn": 0,
       "extraVsEn": 0
     },
     "de": {
-      "leafCount": 408,
+      "leafCount": 409,
       "missingVsEn": 0,
       "extraVsEn": 0
     }

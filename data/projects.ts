@@ -25,6 +25,19 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "elif-seren",
+    name: "Elif Seren",
+    colors: ["#1c1917", "#d8d2c4"],
+    url: "https://editorial-psychologist-site.vercel.app/",
+    desktopImage: "/projects/elif-seren/desktop.jpg",
+    mobileImage: "/projects/elif-seren/mobile.jpg",
+    desktopScrollImage: "/projects/elif-seren/desktop-scroll.jpg",
+    mobileScrollImage: "/projects/elif-seren/mobile-scroll.jpg",
+    primaryLane: "web",
+    lanes: ["web"],
+    year: 2026,
+  },
+  {
     /*
       Portföyün en geniş kapsamlı işi: 32 rotalı yerel SEO mimarisi (hizmet,
       fiyat, bölge, iş kaydı, rehber). Bu yüzden hem /work web şeridinin
