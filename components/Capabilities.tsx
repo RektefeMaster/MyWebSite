@@ -16,13 +16,22 @@ const CAP_IDS: CapId[] = ["experiences", "systems", "ai"];
 
 const CAP_VISUAL: Record<
   CapId,
-  { hero: string; objectPosition: string; media: string; copy: string }
+  {
+    hero: string;
+    objectPosition: string;
+    media: string;
+    copy: string;
+    caseName?: string;
+    caseUrl?: string;
+  }
 > = {
   experiences: {
     hero: "/projects/casa-aurelia/desktop.jpg",
     objectPosition: "50% 0%",
     media: "md:col-span-7 md:col-start-1",
     copy: "md:col-span-4 md:col-start-9 md:self-end md:pb-10",
+    caseName: "Casa Aurelia Roma",
+    caseUrl: "https://casa-aurelia-jet.vercel.app/",
   },
   systems: {
     hero: "/projects/crm/desktop.jpg",
@@ -35,6 +44,8 @@ const CAP_VISUAL: Record<
     objectPosition: "50% 18%",
     media: "md:col-span-8 md:col-start-2",
     copy: "md:col-span-5 md:col-start-8 md:-mt-20 md:bg-background md:p-8 md:relative md:z-10",
+    caseName: "Ahi AI",
+    caseUrl: "https://www.aiahi.net/",
   },
 };
 
@@ -156,6 +167,20 @@ export default function Capabilities() {
                       style={{ objectPosition: visual.objectPosition }}
                     />
                   </div>
+                  {visual.caseUrl && (
+                    <div className="mt-4 flex items-center justify-between gap-4 border-t border-foreground/15 pt-4 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-foreground/40">
+                      <span>{t("liveLabel")}</span>
+                      <a
+                        href={visual.caseUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 text-foreground/60 transition-colors hover:text-accent-ink"
+                      >
+                        {visual.caseName}
+                        <span aria-hidden>↗</span>
+                      </a>
+                    </div>
+                  )}
                 </Reveal>
 
                 <Reveal delay={70} className={`col-span-12 ${visual.copy}`}>
