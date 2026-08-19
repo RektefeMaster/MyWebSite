@@ -672,7 +672,7 @@ const crm = devicePack("crm", {
 
 const elifSeren = pack([
   {
-    src: "/projects/elif-seren/featured/01-hero.jpg",
+    src: "/projects/elif-seren/featured/01-hero-v2.jpg",
     alt: {
       tr: "Elif Seren ana sayfa açılışı",
       en: "Elif Seren homepage hero",
@@ -681,7 +681,7 @@ const elifSeren = pack([
     },
   },
   {
-    src: "/projects/elif-seren/featured/02-menu.jpg",
+    src: "/projects/elif-seren/featured/02-menu-v2.jpg",
     alt: {
       tr: "Tam ekran menü tasarımı",
       en: "Full screen menu design",
@@ -690,7 +690,7 @@ const elifSeren = pack([
     },
   },
   {
-    src: "/projects/elif-seren/featured/03-about.jpg",
+    src: "/projects/elif-seren/featured/03-about-v2.jpg",
     alt: {
       tr: "Hakkımda ve uzmanlık alanı bölümü",
       en: "About and expertise section",
@@ -699,7 +699,7 @@ const elifSeren = pack([
     },
   },
   {
-    src: "/projects/elif-seren/featured/04-blog.jpg",
+    src: "/projects/elif-seren/featured/04-blog-v2.jpg",
     alt: {
       tr: "İçgörüler ve makaleler giriş sayfası",
       en: "Insights and articles landing page",
@@ -708,7 +708,7 @@ const elifSeren = pack([
     },
   },
   {
-    src: "/projects/elif-seren/featured/05-blog-grid.jpg",
+    src: "/projects/elif-seren/featured/05-blog-grid-v2.jpg",
     alt: {
       tr: "Klinik psikoloji makaleleri grid görünümü",
       en: "Clinical psychology articles grid view",
@@ -717,7 +717,7 @@ const elifSeren = pack([
     },
   },
   {
-    src: "/projects/elif-seren/featured/06-clinic-1.jpg",
+    src: "/projects/elif-seren/featured/06-clinic-1-v2.jpg",
     alt: {
       tr: "Klinik deneyimi ve iç mekan",
       en: "Clinic experience and interior",
@@ -726,7 +726,7 @@ const elifSeren = pack([
     },
   },
   {
-    src: "/projects/elif-seren/featured/07-clinic-2.jpg",
+    src: "/projects/elif-seren/featured/07-clinic-2-v2.jpg",
     alt: {
       tr: "Klinik lokasyonu ve mekanın iyileştirici gücü",
       en: "Clinic location and healing space",
