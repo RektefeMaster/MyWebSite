@@ -1,4 +1,4 @@
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import type { Metadata, ResolvingMetadata } from "next";
 import { SITE, absoluteUrl, pageMeta } from "@/lib/site";
@@ -6,6 +6,17 @@ import { blogPosts, getPostMeta } from "@/data/blog";
 import { getBlogArticle } from "@/data/blog-content";
 import { routing } from "@/i18n/routing";
 import BlogArticleView from "@/components/BlogArticleView";
+import JsonLd from "@/components/JsonLd";
+import {
+  HOWTO_BLOG_SLUGS,
+  ORG_ID,
+  PERSON_ID,
+  breadcrumbList,
+  founderNode,
+  graph,
+  howToNode,
+} from "@/lib/seo";
+import { localeTag } from "@/lib/i18n-tags";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -29,6 +40,8 @@ export async function generateMetadata(
       description: article.excerpt,
       type: "article",
       image: meta.image,
+      publishedTime: meta.date,
+      modifiedTime: meta.updated ?? meta.date,
     },
     parent
   );
@@ -46,57 +59,55 @@ export default async function BlogPostPage({
   const article = await getBlogArticle(locale, slug);
   if (!meta || !article) notFound();
 
+  const nav = await getTranslations("nav");
+  const tBlog = await getTranslations("blog");
   const pageUrl = absoluteUrl(locale, `/blog/${slug}`);
-  const jsonLd = {
-    "@context": "https://schema.org",
+  const modified = meta.updated ?? meta.date;
+  const posting = {
     "@type": "BlogPosting",
     headline: article.title,
     description: article.excerpt,
     image: `${SITE.url}${meta.image}`,
     datePublished: meta.date,
-    dateModified: meta.date,
-    inLanguage: locale,
-    author: [
-      {
-        "@type": "Organization",
-        "@id": `${SITE.url}/#org`,
-        name: SITE.brand,
-        url: SITE.url,
-      },
-      {
-        "@type": "Person",
-        name: "Nurullah Aydın",
-        url: SITE.url,
-        jobTitle: "Founder",
-        worksFor: { "@id": `${SITE.url}/#org` },
-      },
-    ],
-    publisher: {
-      "@type": "Organization",
-      "@id": `${SITE.url}/#org`,
-      name: SITE.brand,
-      logo: {
-        "@type": "ImageObject",
-        url: `${SITE.url}/icon`,
-        width: 256,
-        height: 256,
-      },
-    },
+    dateModified: modified,
+    inLanguage: localeTag(locale),
+    isAccessibleForFree: true,
+    articleSection: meta.category,
+    author: [{ "@id": PERSON_ID }, { "@id": ORG_ID }],
+    publisher: { "@id": ORG_ID },
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": pageUrl,
     },
     url: pageUrl,
   };
+  const jsonLd = graph([
+    founderNode(),
+    posting,
+    ...(HOWTO_BLOG_SLUGS.has(slug)
+      ? [
+          howToNode({
+            locale,
+            path: `/blog/${slug}`,
+            name: article.title,
+            description: article.excerpt,
+            steps: article.sections.map((section) => ({
+              name: section.heading,
+              text: section.paragraphs.join(" "),
+            })),
+          }),
+        ]
+      : []),
+    breadcrumbList(locale, [
+      { name: nav("home"), path: "" },
+      { name: tBlog("crumbBlog"), path: "/blog" },
+      { name: article.title, path: `/blog/${slug}` },
+    ]),
+  ]);
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-        }}
-      />
+      <JsonLd data={jsonLd} />
       <BlogArticleView locale={locale} meta={meta} article={article} />
     </>
   );

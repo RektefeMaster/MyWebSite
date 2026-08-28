@@ -74,7 +74,38 @@
       "ctaTitle": "Passt ein Thema zu Ihrem Projekt?",
       "ctaBlurb": "Schildern Sie uns die konkrete Aufgabe. Wir ordnen ein, welche Leistung und welcher Umfang dazu passen.",
       "ctaButton": "Bedarf schildern"
+    },
+    "contact": {
+      "metaTitle": "Kontakt METEK Digital | Website-Projekt starten",
+      "metaDescription": "Schreiben Sie METEK Digital per E-Mail oder WhatsApp für eine individuelle Website, ein Panel oder einen Chatbot. Nurullah Aydın prüft Passung und Umfang.",
+      "heroLabel": "Kontakt",
+      "heroTitle": "Sagen Sie uns, was gebaut werden muss.",
+      "heroBlurb": "Nennen Sie das Geschäft, die Fläche (Website, Panel, Chatbot oder eine Mischung) und den Zeitrahmen. Wir prüfen die Passung und antworten mit den nächsten Fragen.",
+      "emailLabel": "E-Mail",
+      "phoneLabel": "Telefon",
+      "whatsappLabel": "WhatsApp",
+      "whatsappValue": "Studio schreiben",
+      "hours": "Projektanfragen werden über E-Mail und WhatsApp gelesen. Auf diesem Kanal läuft kein Bot; eine Person liest die Anfrage.",
+      "formLabel": "Projektanfrage",
+      "formTitle": "Beschreiben Sie die Arbeit klar."
+    },
+    "industries": {
+      "metaTitle": "Branchen | Fertigung, Hotels, Möbel, lokale Dienste",
+      "metaDescription": "METEK Digital baut Websites für Fertigung, Möbelmarken, Hotels und lokale Betriebe: Katalog, Zimmer, Kollektion und Gebietsseiten.",
+      "heroLabel": "Branchen",
+      "heroTitle": "Sites, die zum Verkaufsweg der Branche passen.",
+      "heroBlurb": "Fertigungsanfrage, Möbelkollektion, Hotelzimmer und lokale Leistungsseiten sind verschiedene Jobs. Diese Seiten folgen dem Verkaufsweg, den wir im Portfolio schon geliefert haben.",
+      "ctaLabel": "Kontakt",
+      "ctaTitle": "Nennen Sie Branche und Besucheraktion.",
+      "ctaBlurb": "Werksanfrage, Showroom, Hotelaufenthalt oder lokaler Auftrag. Dieser Satz entscheidet, welchen Seitensatz wir skizzieren.",
+      "ctaButton": "Projekt starten"
     }
+  },
+  "faqUi": {
+    "sectionTitle": "Häufige Fragen"
+  },
+  "intent": {
+    "related": "Verwandte Seiten"
   },
   "blog": {
     "view": "Beitrag lesen",
@@ -541,6 +572,9 @@
     "bookMeeting": "Projekt anfragen",
     "services": "Leistungen",
     "blog": "Blog",
+    "faq": "FAQ",
+    "industries": "Branchen",
+    "glossary": "Glossar",
     "projects": "Projekte",
     "contact": "Kontakt",
     "follow": "Folgen",

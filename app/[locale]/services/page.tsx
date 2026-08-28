@@ -4,6 +4,14 @@ import { pageMeta } from "@/lib/site";
 import PageHero from "@/components/PageHero";
 import Services from "@/components/Services";
 import PageCta from "@/components/PageCta";
+import JsonLd from "@/components/JsonLd";
+import {
+  breadcrumbList,
+  founderNode,
+  graph,
+  organizationNode,
+  webPageNode,
+} from "@/lib/seo";
 
 export async function generateMetadata(
   { params }: { params: Promise<{ locale: string }> },
@@ -31,9 +39,27 @@ export default async function ServicesPage({
   setRequestLocale(locale);
   const t = await getTranslations("pages.services");
   const nav = await getTranslations("nav");
+  const tMeta = await getTranslations("meta");
+
+  const jsonLd = graph([
+    organizationNode(tMeta("description")),
+    founderNode(),
+    webPageNode({
+      locale,
+      path: "/services",
+      name: t("metaTitle"),
+      description: t("metaDescription"),
+      type: "CollectionPage",
+    }),
+    breadcrumbList(locale, [
+      { name: nav("home"), path: "" },
+      { name: nav("services"), path: "/services" },
+    ]),
+  ]);
 
   return (
     <>
+      <JsonLd data={jsonLd} />
       <PageHero
         label={t("heroLabel")}
         title={t("heroTitle")}

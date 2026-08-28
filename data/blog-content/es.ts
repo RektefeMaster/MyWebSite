@@ -1,6 +1,492 @@
 import type { BlogArticle } from "../blog";
 
 const content: Record<string, BlogArticle> = {
+  "hotel-website-design": {
+    title: "Diseño web de hotel que consigue una consulta directa",
+    excerpt:
+      "Lo que un sitio de hotel debe hacer antes de la atmósfera: URLs por tipo de habitación, una frase de ubicación y un camino que no tire al huésped a un motor con peor tarifa.",
+    lead: "Un tema de hotel pone tres adjetivos sobre un slider. El huésped sigue necesitando tipos de habitación, dónde está el edificio y cómo escribir o reservar sin perder la tarifa. METEK Digital trata el sitio de hospitalidad como un documento de la propiedad. Casa Aurelia Roma y Altitude Residences son los ejemplos públicos de ese ritmo.",
+    imageAlt: "Foto de habitación junto a un wireframe de tipos de habitación",
+    sections: [
+      {
+        heading: "Cada tipo de habitación tiene dirección",
+        paragraphs: [
+          "Un suite y una habitación al patio son búsquedas distintas y correos distintos a recepción. Una página de 'alojamiento' desperdicia ambos. Title y H1 deben nombrar la habitación como la escribiría un huésped.",
+          "La fotografía tiene que mostrar escala y luz de día, no solo un rincón estilizado. Titule lo que se ve. 'Estadía de lujo' junto a un interior de stock no ayuda a comparar dos propiedades en la misma calle.",
+        ],
+      },
+      {
+        heading: "Camino directo frente al motor",
+        paragraphs: [
+          "Si toman reservas directas, recojan fechas, ocupación y motivo, y pásenlo a recepción o al motor que sí usan. Vestir un widget de terceros sin copy de la propiedad sigue pareciendo cualquier hotel.",
+          "Si WhatsApp o el correo todavía confirman la estadía, díganlo y armen ese camino. Fingir checkout instantáneo mientras una persona aprueba produce dobles reservas.",
+        ],
+      },
+      {
+        heading: "Los términos de ciudad viven en ubicación",
+        paragraphs: [
+          "El lenguaje de barrio pertenece a una página cuyo asunto es la ubicación, no relleno en cada titular. Un boutique en Roma y un residence no comparten texto porque ambos tienen camas.",
+          "Si los huéspedes buscan en más de un idioma, escriba cada locale. Traducir la página de habitación en inglés con máquina no posiciona en el segundo mercado.",
+        ],
+      },
+      {
+        heading: "Un rediseño necesita las URLs viejas de habitación",
+        paragraphs: [
+          "Si el sitio actual ya posiciona por el nombre del hotel o un tipo de habitación, mapee esas direcciones antes del lanzamiento. Cambiar slugs sin 301 entrega esa historia a un 404.",
+          "El SEO técnico aquí es titles, URLs de habitación, canonicals, sitemap y esa lista de redirecciones. Las promesas de ranking no forman parte del trabajo. La página de industria de hospitalidad es la superficie de servicio si van a briefar un build.",
+        ],
+      },
+    ],
+  },
+  "manufacturing-company-website": {
+    title: "Sitio web para fabricantes: catálogo, fichas, cotización",
+    excerpt:
+      "El comprador de trade necesita familias de producto, especificación suficiente para hablar y un formulario que ventas sí abre. Una home de folleto no es ese sitio.",
+    lead: "Un sitio de planta falla cuando parece el folleto de una empresa que todavía cotiza por PDF. La superficie útil nombra la línea, muestra un finish o una medida y manda una solicitud completa. Wholesale Cabinet Creations es el ejemplo público más cercano del portafolio.",
+    imageAlt: "Ficha técnica junto a un formulario de cotización en una laptop",
+    sections: [
+      {
+        heading: "Escriba la primera pantalla para el comprador",
+        paragraphs: [
+          "Distribuidores y contratistas confirman que existe la línea, que hay una restricción publicada y que se puede hablar de fecha. La historia de la empresa puede ir más abajo. Los certificados junto al producto al que aplican.",
+          "Si esos tres datos están a cuatro clics y un contacto genérico, escriben a quien ya los publicó.",
+        ],
+      },
+      {
+        heading: "Una familia, una URL",
+        paragraphs: [
+          "Gabinetes al por mayor y closets a medida no pueden compartir una home delgada. Cada familia necesita asunto, title, H1 y enlaces desde páginas relacionadas.",
+          "No invente un carrito si los pedidos siguen pasando por una persona. Catálogo más solicitud es el producto honesto. El ecommerce es otro alcance cuando precio y stock son reales.",
+        ],
+      },
+      {
+        heading: "Campos que ventas abre",
+        paragraphs: [
+          "Nombre, correo y mensaje producen basura. Pida tipo de proyecto, cantidad o habitaciones, zona de envío, timing y archivos si hay planos. El registro va a quien ya tiene el buzón o el CRM.",
+          "El artículo de solicitudes B2B lista los campos que ponemos en formularios de manufactura. Léalo antes de copiar un bloque de 'contáctenos' de consumo.",
+        ],
+      },
+      {
+        heading: "Quién actualiza el catálogo después del lanzamiento",
+        paragraphs: [
+          "Si cambian plazos y finishes, el mismo encargo debe incluir un panel con esos campos. Un catálogo bonito que nadie edita envejece en una temporada.",
+          "Empiece por familias, tipo de comprador, idiomas y si se reemplaza una URL viva. La página de industria de manufactura es la superficie de servicio si van a acotar.",
+        ],
+      },
+    ],
+  },
+  "local-seo-for-service-businesses": {
+    title: "SEO local para servicios: un trabajo por URL",
+    excerpt:
+      "Páginas de servicio y de zona honestas ganan a una home que reclama toda la región. Google Business Profile es hermano, no sustituto. El ranking del pack de mapas no es un entregable.",
+    lead: "Una limpieza o un taller de tapicería no posiciona porque Inicio dice servicio de calidad en nuestra ciudad. Los buscadores necesitan una página cuyo asunto es el trabajo, y a menudo una cuyo asunto es el trabajo en una zona nombrada. METEK entrega esa arquitectura; MASAL Koltuk es el ejemplo público de un set local amplio.",
+    imageAlt: "Pin de mapa y una lista de páginas de servicio en un mapa del sitio",
+    sections: [
+      {
+        heading: "Nombre el trabajo en su propia página",
+        paragraphs: [
+          "Limpieza de sofá, de colchón y de oficina son consultas distintas. Pueden compartir sistema visual. No deben compartir un párrafo en Inicio. Cada servicio necesita title, H1, prueba y un formulario que nombre ese trabajo.",
+          "Publique contexto de precio solo si es cierto y lo van a mantener. Banners inventados de 'desde 99' entrenan a la llamada equivocada.",
+        ],
+      },
+      {
+        heading: "Páginas de zona solo donde van",
+        paragraphs: [
+          "Diez pueblos copiados con el nombre cambiado es peor que tres específicos. Escriban traslado, estacionamiento, tipo de edificio, tiempo de respuesta. Si no cubren el lugar, no publiquen la URL.",
+          "Los enlaces internos deben atar trabajos relacionados y las zonas que cubren de verdad. Las páginas de zona huérfanas parecen un generador aunque el resto del sitio sea honesto.",
+        ],
+      },
+      {
+        heading: "El perfil no es el sitio",
+        paragraphs: [
+          "Google Business Profile manda a quien ya confía en el pack de mapas. El sitio todavía tiene que responder la consulta de servicio y tomar la solicitud. Categorías y fotos del perfil deben coincidir con las páginas.",
+          "No vendemos el primer lugar en Maps. Armamos páginas indexables y alineamos nombre, dirección y teléfono. El ranking del pack depende de señales que no controlamos.",
+        ],
+      },
+      {
+        heading: "Banderas a revisar antes del lanzamiento",
+        paragraphs: [
+          "Titles únicos por servicio, HTML rastreable, canonicals, sitemap, NAP consistente con el perfil, schema LocalBusiness sin reseñas falsas. En un rediseño, redirigir cada URL vieja de servicio y de zona. Esas páginas locales suelen ser el único capital de un negocio chico.",
+          "Si WhatsApp cierra el trabajo, el botón debe pasar servicio y zona al mensaje. Un chatbot genérico en un sitio de una página no es este trabajo. La página de industria de servicios locales es la superficie comercial.",
+        ],
+      },
+    ],
+  },
+  "schema-markup-for-business-websites": {
+    title: "Marcado schema en un sitio de empresa (sin teatro)",
+    excerpt:
+      "El JSON-LD debe reiterar hechos ya visibles: organización, servicios, FAQ, artículos. Estrellas falsas y oficinas inventadas son cómo se gana una acción manual.",
+    lead: "Schema es un vocabulario que las máquinas comparten. No hace rankear una página delgada. Ayuda a un crawler o a un motor de respuestas a nombrar la organización, el tipo de página y las preguntas que ya respondió en HTML. METEK marca esos tipos en el sitio del estudio y en builds de cliente cuando los hechos existen.",
+    imageAlt: "Fragmento de JSON-LD impreso junto a un FAQ en el navegador",
+    sections: [
+      {
+        heading: "Marque lo que el visitante ya puede leer",
+        paragraphs: [
+          "Organization o ProfessionalService con nombre real, URL, correo, teléfono y país. Person para un fundador nombrado. WebSite para el locale. BreadcrumbList para la ruta. FAQPage solo si las preguntas se ven. BlogPosting en artículos. Service en una URL de servicio.",
+          "Si la página no contiene el hecho, no lo ponga en JSON-LD. Ratings agregados inventados y estrellas son un camino frecuente a que lo ignoren o lo penalicen.",
+        ],
+      },
+      {
+        heading: "LocalBusiness es una afirmación de lugar",
+        paragraphs: [
+          "Úselo cuando hay un área de servicio o un local que van a sostener, con NAP alineado al perfil de Google. No peguen un bloque LocalBusiness en un estudio remoto que lista una ciudad de adorno.",
+          "areaServed pueden ser países de los que sí toman trabajo. No es una lista de mercados donde desearían una oficina.",
+        ],
+      },
+      {
+        heading: "HowTo y DefinedTermSet tienen un trabajo",
+        paragraphs: [
+          "HowTo pertenece a una lista de control genuina, no a una página de venta disfrazada de pasos. DefinedTermSet pertenece a un glosario. Meter HowTo en cada artículo es cómo los rich results dejan de confiar.",
+          "Este sitio del estudio usa HowTo en unos pocos posts de checklist y DefinedTermSet en el glosario. Ese es el patrón que copiamos a sitios de cliente cuando el contenido coincide.",
+        ],
+      },
+      {
+        heading: "Pruebe el grafo antes del lanzamiento",
+        paragraphs: [
+          "Pegue la URL viva en la prueba de resultados enriquecidos de Google y corrija errores. La URL canónica del grafo debe coincidir con la página. Las respuestas de FAQ deben ser las mismas frases que el HTML.",
+          "Schema es parte del SEO técnico en la entrega del sitio, no un paquete de ranking. El glosario define los términos vecinos. La página de servicio SEO dice qué incluimos en un build.",
+        ],
+      },
+    ],
+  },
+  "wordpress-vs-custom-website": {
+    title: "WordPress o un sitio web a medida",
+    excerpt:
+      "WordPress es un producto con temas y plugins. Un sitio a medida es una interfaz diseñada para la marca, con panel solo si el equipo usará campos concretos. Son compras distintas.",
+    lead: "El tenedor no es 'moderno versus viejo'. Es si compra un ecosistema de CMS o encarga una interfaz. METEK no revende temas de marketplace como trabajo a medida. Si necesita WordPress, es otro tipo de proveedor. Si necesita páginas y campos que coincidan con el negocio, ese es el camino a medida.",
+    imageAlt: "Dos pilas de papel, opciones de tema y mapa de páginas",
+    sections: [
+      {
+        heading: "Qué está comprando de verdad",
+        paragraphs: [
+          "WordPress da un mercado grande de plugins, un editor familiar y una carga de actualizaciones que no termina. Un tema de muebles o de hotel comprado sigue siendo ese producto con colores nuevos.",
+          "A medida significa layouts diseñados para la oferta, código suyo en el handoff, y un panel de contenido solo para los objetos que nombró: colecciones, habitaciones, plazos. No hay un directorio de plugins que tape un objeto que falta.",
+        ],
+      },
+      {
+        heading: "Cuándo WordPress es la elección honesta",
+        paragraphs: [
+          "Un publisher muy de blog, un equipo ya entrenado en Gutenberg, o un sitio cuyo trabajo principal son posts frecuentes. También un presupuesto que no cubre diseño a medida y aun así necesita estar en vivo.",
+          "Entonces contrate a alguien que posea actualizaciones, backups y los límites del tema. No pague precios a medida por instalar un tema.",
+        ],
+      },
+      {
+        heading: "Cuándo lo a medida es la elección honesta",
+        paragraphs: [
+          "Manufactura que cotiza, un hotel con URLs por tipo de habitación, un set de páginas de servicio local, un mercado multilingüe con copy nativo: esos trabajos pelean con un tema genérico. El dinero va a plugins y parches o a las páginas.",
+          "Lo a medida igual usa plantillas internas. El layout de artículo puede repetirse. La diferencia es propiedad, no la ausencia de patrón.",
+        ],
+      },
+      {
+        heading: "Preguntas que separan la cotización",
+        paragraphs: [
+          "Quién edita después del lanzamiento, qué campos, de quién es el hosting, qué pasa con las URLs viejas, quién escribe titles. Pregúntelo a cada proveedor. Las respuestas separan un sitio de un refresco visual.",
+          "Si ya compara agencias, el artículo de cómo elegir agencia es la lista hermana. El de sitio a medida versus plantilla cubre las pieles de marketplace. Este es el tenedor de CMS.",
+        ],
+      },
+    ],
+  },
+  "b2b-website-quote-requests": {
+    title: "Solicitudes de cotización B2B que ventas puede usar",
+    excerpt:
+      "Nombre, correo y un recuadro de mensaje producen basura. Los sitios de manufactura y trade necesitan tipo de proyecto, cantidad, región, timing y archivos. El registro tiene que caer donde ventas ya trabaja.",
+    lead: "Un formulario de cotización es parte del escritorio de ventas, no un widget de contacto. Si la oficina reescribe cada envío en una hoja, el sitio no terminó el trabajo. METEK planea los campos desde el apaño del viernes y manda el registro al correo o al panel que el equipo sí abre.",
+    imageAlt: "Campos de cotización de tipo de proyecto y cantidad en un escritorio",
+    sections: [
+      {
+        heading: "Empiece por la última solicitud perdida",
+        paragraphs: [
+          "Pregunte a ventas qué tuvieron que perseguir en las últimas tres consultas: falta zona de envío, no hay cantidad, foto de la ficha de un competidor. Esos huecos se vuelven campos obligatorios o carga de archivos.",
+          "Un recuadro de consumo 'cómo podemos ayudar' entrena al visitante equivocado. El comprador de trade se salta un formulario que parece alta a newsletter. Completa uno que parece un ticket de trabajo.",
+        ],
+      },
+      {
+        heading: "Campos que van en un formulario de manufactura",
+        paragraphs: [
+          "Tipo de proyecto o familia de producto, cantidad o número de habitaciones, zona de envío, fecha objetivo, planos si existen, y cómo se enteraron solo si lo van a leer. El teléfono sirve cuando el escritorio todavía llama.",
+          "No pidan un número de presupuesto si no lo van a usar para calificar. Los campos opcionales que nadie mapea al CRM son decoración.",
+        ],
+      },
+      {
+        heading: "A dónde va el registro",
+        paragraphs: [
+          "El correo alcanza cuando el volumen es bajo y una persona posee el buzón. Un panel o un paso a CRM entra en el alcance cuando varias personas trabajan la cola o cuando el catálogo público se edita en el mismo sistema.",
+          "WhatsApp puede llevar un ticket precargado si el escritorio ya responde así. Un chatbot que no crea el mismo registro es un segundo buzón, no automatización.",
+        ],
+      },
+      {
+        heading: "La búsqueda sigue necesitando las páginas de producto",
+        paragraphs: [
+          "Un formulario perfecto en una home que nunca nombra la familia de producto no trae al visitante. Las URLs de catálogo y el formulario trabajan en pareja. La página de industria de manufactura y el artículo de sitio para fabricantes cubren esa pareja.",
+          "En el brief, envíe las últimas tres consultas reales (limpias) y dónde deberían haber caído. Con eso se arma la lista de campos.",
+        ],
+      },
+    ],
+  },
+  "how-to-choose-web-design-agency": {
+    title: "Cómo elegir una agencia de diseño web sin adivinar",
+    excerpt:
+      "Lista práctica para comparar agencias: alcance, trabajo a medida frente a plantilla, SEO en la construcción, control del contenido y quién responde después del lanzamiento.",
+    lead: "Elegir agencia es más fácil cuando se compara el mismo trabajo. Pida a cada estudio que describa las páginas, la acción del visitante, el SEO técnico y quién podrá editar el sitio después. Las diferencias útiles salen en esas respuestas, no en un moodboard ni en la promesa del primer puesto.",
+    imageAlt: "Cuaderno con una lista de comparación de agencias junto a un portátil",
+    sections: [
+      {
+        heading: "Escriba el trabajo antes de pedir presupuestos",
+        paragraphs: [
+          "Nombre el público, la acción que el sitio debe sostener, los idiomas y si es un primer sitio o un rebuild. Incluya panel, chatbot o migración si aplica. Ese párrafo permite cotizar el mismo trabajo.",
+          "Si solo envía “necesitamos un sitio nuevo”, recibirá cifras incomparables. Un presupuesto puede ocultar una plantilla y ninguna redirección. Otro incluye diseño propio, metadatos y un panel. La brecha es alcance, no misterio.",
+        ],
+      },
+      {
+        heading: "Pregunte qué significa “a medida”",
+        paragraphs: [
+          "A medida quiere decir que la interfaz se diseña y se construye para la marca. Un tema de marketplace con colores nuevos es otro producto. Pregunte qué maquetas son únicas, qué páginas comparten plantilla y si el código queda suyo al entregar.",
+          "METEK Digital no revende temas listos como trabajo a medida. Si un proveedor no puede mostrar un proyecto donde el sitio público y las herramientas internas se planearon juntos, eso es información.",
+        ],
+      },
+      {
+        heading: "Meta la búsqueda y las URL en la comparación",
+        paragraphs: [
+          "Pregunte quién escribe los title, cómo se genera el sitemap XML y qué pasa con las direcciones viejas en un rebuild. El SEO técnico pertenece a la entrega del sitio. Las posiciones no son un paquete que alguien pueda garantizar con honestidad.",
+          "Un rebuild sin mapa de redirecciones descarta páginas que el buscador ya conoce. Si ya aparece en consultas útiles, ese mapeo debe ser una línea de la propuesta.",
+        ],
+      },
+      {
+        heading: "Averigüe quién se queda después del lanzamiento",
+        paragraphs: [
+          "Confirme quién posee dominio, hosting, analítica y código. Confirme qué campos puede editar el equipo sin un desarrollador. Confirme cómo se tratan los defectos de lo acordado frente a peticiones nuevas.",
+          "Una persona responsable de entrega desde el descubrimiento hasta el lanzamiento es más clara que un “equipo” sin nombre que cambia en cada llamada. Pida el nombre de quien seguirá ahí en la entrega.",
+        ],
+      },
+      {
+        heading: "Lea el portafolio como prueba",
+        paragraphs: [
+          "Busque negocios que venden como usted: cotización, reserva, catálogo o páginas de servicio local. Una captura bonita sin el problema que resolvió es decoración.",
+          "Cuando esté listo, envíe a METEK Digital ese párrafo del trabajo. Diremos si encaja y a qué servicio se parece: sitio, panel, automatización o una mezcla.",
+        ],
+      },
+    ],
+  },
+  "multilingual-website-seo": {
+    title: "SEO multilingüe: hreflang, texto nativo y un tema por URL",
+    excerpt:
+      "Cómo funciona el SEO multilingüe en un sitio de empresa: texto por mercado, hreflang, canonicals y por qué traducir una lista de palabras clave no es una estrategia.",
+    lead: "Un sitio multilingüe es un conjunto de páginas con idioma y mercado, no un botón que cambia palabras. El buscador necesita que cada URL declare su idioma, apunte a sus hermanas y lleve texto escrito para las consultas de ese mercado. Hreflang es el apretón técnico. La redacción nativa es el contenido.",
+    imageAlt: "Cuatro etiquetas de idioma junto a impresiones de un sitio",
+    sections: [
+      {
+        heading: "Una URL, un idioma, un trabajo",
+        paragraphs: [
+          "No sirva inglés y español en el mismo HTML con un interruptor solo de cliente que el buscador no puede guardar como documentos separados. Dé a cada locale una dirección estable. En este sitio el inglés vive en la raíz; turco, español y alemán usan prefijo.",
+          "Cada página sigue necesitando un tema. La URL de servicios en español debe explicar servicios en el lenguaje de búsqueda de ese mercado. Copiar el titular inglés es cómo cuatro páginas flojas compiten entre sí.",
+        ],
+      },
+      {
+        heading: "Hreflang tiene que ser recíproco",
+        paragraphs: [
+          "Cada versión debe listarse a sí misma y a las otras, más x-default en el locale de respaldo. Si el español apunta al inglés y el inglés ignora el español, la señal queda incompleta.",
+          "Los canonicals deben apuntar cada locale a sí mismo. Apuntar todos al inglés dice que las traducciones son copias. Pueden salir del índice.",
+        ],
+      },
+      {
+        heading: "Las consultas no son traducciones",
+        paragraphs: [
+          "En EE. UU. se busca “custom website design”. En español de EE. UU., “diseño web a medida”. En alemán, “individuelle Website”. Escriba esas páginas desde el brief del mercado, no desde una hoja de keywords traducida.",
+          "Los encargos METEK con más de un idioma producen texto independiente. El sitio del estudio sigue la misma regla. Es más lento que la traducción automática y es la única forma de responder la consulta que la página declara.",
+        ],
+      },
+      {
+        heading: "Sitemaps y enlaces internos",
+        paragraphs: [
+          "El sitemap XML debe listar la URL canónica de cada locale e incluir enlaces xhtml alternates. Los internos de una página en español deben seguir en español salvo que envíe al lector a otro mercado a propósito.",
+          "El selector de idioma necesita href rastreables, no solo un script al clic. Si el único camino a /de/services es un widget de JavaScript, el rastreador puede no guardar la página alemana.",
+        ],
+      },
+      {
+        heading: "Qué poner en el alcance del sitio",
+        paragraphs: [
+          "Liste mercados, locale por defecto, quién escribe cada idioma y si ya existen URL. Los rebuilds necesitan un mapa para que las carpetas de idioma viejas no den 404.",
+          "Si ahora basta un idioma, publíquelo bien. Añadir locales después es normal. Cuatro cascarones traducidos a máquina el primer día no es SEO multilingüe.",
+        ],
+      },
+    ],
+  },
+  "custom-admin-panel-vs-crm": {
+    title: "Panel de administración a medida frente a un CRM genérico",
+    excerpt:
+      "Cuándo basta un CRM de estantería, cuándo los atajos del personal piden un panel a medida y qué enviar a una agencia para que el alcance sea honesto.",
+    lead: "Un CRM trae los objetos de otro: contactos, deals, etapas. Un panel a medida usa los suyos: líneas de gabinetes, tipos de habitación, reglas de cita, campos de contenido alineados con las páginas públicas. El error caro es comprar el primero cuando ya vive en el segundo y exportar hojas cada viernes.",
+    imageAlt: "Una tubería genérica frente a una lista operativa a medida",
+    sections: [
+      {
+        heading: "Empiece por el atajo del viernes",
+        paragraphs: [
+          "Si la verdad ya está en una hoja, un chat o un calendario paralelo, el CRM con licencia no es el sistema de registro. El trabajo a medida se justifica cuando esos atajos son el proceso real.",
+          "Si la gente llena un embudo estándar y los informes se usan en reuniones, quédese con el CRM. Sustituir una herramienta que sí se usa es otro proyecto que sustituir una que se evita.",
+        ],
+      },
+      {
+        heading: "Objetos, no funciones",
+        paragraphs: [
+          "Liste los nombres: paquete de cotización, duración del servicio, plantilla, borrador de artículo, ubicación de distribuidor. Luego los verbos: aprobar, publicar, asignar, cancelar, exportar. Las pantallas siguen esas listas.",
+          "Un catálogo de funciones retrasa ese trabajo. METEK acota paneles a partir de registros y acciones. Las integraciones con el sitio, WhatsApp o correo se escriben para que el panel no quede aislado.",
+        ],
+      },
+      {
+        heading: "El sitio público suele ir en el mismo plan",
+        paragraphs: [
+          "Un formulario de cotización que no crea el registro que abre ventas es un camino roto. Cuando ambas superficies entran en el encargo, diseñamos los campos juntos.",
+          "El portafolio incluye el panel de contenido de un fabricante junto al sitio corporativo. Ese emparejamiento sirve si necesita vitrina e interfaz operativa.",
+        ],
+      },
+      {
+        heading: "Propiedad después del lanzamiento",
+        paragraphs: [
+          "Las ediciones rutinarias deben quedar en su equipo. Objetos nuevos e integraciones siguen siendo desarrollo. Escriba esa división en el alcance. Un “siempre estaremos” implícito no es una política de soporte.",
+          "Pregunte quién crea usuarios, quién borra un registro y dónde viven las copias. Esas respuestas van junto a los diseños de pantalla.",
+        ],
+      },
+      {
+        heading: "Qué enviar antes de un estimado",
+        paragraphs: [
+          "Una captura de la hoja o del CRM actual, los trabajos del día y lo que no se puede perder. Nombre lo que queda fuera. Reconstruir contabilidad y almacén en el mismo sprint suele retrasar el panel que habría ayudado este trimestre.",
+          "Si duda, empiece por el camino operativo que les bloquea. La página de software de este sitio describe cómo corre esa conversación.",
+        ],
+      },
+    ],
+  },
+  "business-website-checklist": {
+    title: "Qué necesita un sitio de empresa antes de publicarse",
+    excerpt:
+      "Lista de lanzamiento: oferta, prueba, ruta de contacto, móvil, títulos, sitemap y quién puede actualizar las páginas después.",
+    lead: "Un sitio de empresa tiene pocos trabajos. Debe nombrar la oferta, mostrar prueba suficiente para tomarse en serio y dejar obvio el siguiente paso en un teléfono. El resto es apoyo. Publique cuando esos trabajos funcionan, no cuando se ha probado cada adorno.",
+    imageAlt: "Lista de lanzamiento impresa junto a un teléfono con botón de contacto",
+    sections: [
+      {
+        heading: "La oferta tiene que encontrarse en segundos",
+        paragraphs: [
+          "La primera pantalla debe decir qué vende y a quién. Un eslogan que serviría a cualquier empresa del sector no es una oferta. Cada página de servicio lleva un servicio, no un revoltijo de líneas que quizá añada el año que viene.",
+          "Si un extraño no distingue si instala gabinetes, reserva habitaciones o construye software, el resto del diseño no salva la visita.",
+        ],
+      },
+      {
+        heading: "Prueba y siguiente paso",
+        paragraphs: [
+          "Muestre trabajo, ubicaciones o contexto que un comprador pueda comprobar. Contacto, cotización o reserva deben alcanzarse sin buscar. WhatsApp puede ir junto al correo si así escribe el mercado. Un formulario que pide una novela es una puerta cerrada.",
+          "Pruebe el camino en un teléfono pequeño y una conexión lenta. Si el botón queda bajo un muro de cookies o un vídeo hero que no carga, el sitio no ha lanzado de un modo útil.",
+        ],
+      },
+      {
+        heading: "El acceso de búsqueda es un ítem de lanzamiento",
+        paragraphs: [
+          "Títulos, H1, enlaces rastreables, canonicals, robots y el sitemap XML entran en la misma revisión que el pase visual. Un noindex de staging dejado en producción es una forma habitual de “lanzar” un sitio que Google no guardará.",
+          "Los rebuilds necesitan redirecciones. El artículo de la lista técnica de SEO recorre esa revisión. Ejecútela contra el dominio de producción, no solo contra staging.",
+        ],
+      },
+      {
+        heading: "Alguien debe poder cambiar el texto",
+        paragraphs: [
+          "Servicios, horarios y nombres cambian. Decida qué campos edita el equipo y qué cambios piden desarrollo. Un sitio hermoso que requiere un ticket de agencia para un teléfono se pudre.",
+          "Si hace falta un panel, acote los campos que realmente tocarán. Un CMS genérico con doscientos módulos apagados no es propiedad.",
+        ],
+      },
+      {
+        heading: "Use esta lista en el brief",
+        paragraphs: [
+          "Claridad de oferta, prueba, ruta de contacto, móvil, títulos y sitemap, redirecciones si cambia dominio o slug, y propiedad del contenido. Basta para comparar agencias.",
+          "METEK Digital trata esos puntos como entrega del sitio, no como extras. Envíe la lista con el sitio actual y la acción que el visitante debe completar.",
+        ],
+      },
+    ],
+  },
+  "website-redesign-keep-seo": {
+    title: "Rediseñar el sitio sin perder SEO",
+    excerpt:
+      "Cómo reconstruir un sitio de empresa sin tirar URL indexadas: inventario, redirecciones, canonicals, títulos y un sitemap de las direcciones finales.",
+    lead: "Un rediseño puede conservar la visibilidad que ya tiene si el sitio nuevo hereda las direcciones o las mapea con redirecciones antes del lanzamiento. El fallo es conocido: slugs nuevos, sin 301, enlaces internos al host de staging y un sitemap lleno de 404. El trabajo visual se sienta encima de un rastreo roto.",
+    imageAlt: "Impresiones del sitio viejo y nuevo con flechas entre URL",
+    sections: [
+      {
+        heading: "Inventarie las URL que ya funcionan",
+        paragraphs: [
+          "Exporte el sitemap actual, las páginas de Search Console y las URL que traen consultas útiles. Anote titles y si la página es servicio, ubicación, artículo o utilidad. Esa lista es la memoria del rebuild.",
+          "Decida qué URL se quedan iguales. La estabilidad sale más barata que un esquema de carpetas ingenioso. Cambie un slug solo cuando la ruta vieja representa mal la página.",
+        ],
+      },
+      {
+        heading: "Las redirecciones son entrega, no un favor",
+        paragraphs: [
+          "Cada URL retirada necesita un 301 único al equivalente más cercano, no una cadena ni un volcado a la portada. Pruebe bucles. Actualice internos para que apunten a la dirección final.",
+          "Los canonicals deben coincidir con esa dirección, incluido https y el host que realmente sirve. Un canonical a www mientras el sitio vive en el apex parte la señal.",
+        ],
+      },
+      {
+        heading: "Conserve el tema de cada página importante",
+        paragraphs: [
+          "Si una página posiciona por instalación de gabinetes, el reemplazo debe seguir tratando de eso. Fusionar cinco páginas de servicio en un “qué hacemos” hace más difícil acertar cada consulta.",
+          "Titles y H1 se pueden reescribir para mayor claridad. No deben convertirse en un eslogan que ya no nombra el trabajo.",
+        ],
+      },
+      {
+        heading: "Publique un sitemap limpio en el host de producción",
+        paragraphs: [
+          "El XML debe listar URL canónicas e indexables del dominio en vivo. Quite staging, páginas de gracias que no quiere indexar y lo que aún redirige. Envíelo tras el corte y mire si se descubren las URL clave.",
+          "Un rebuild multilingüe necesita hreflang actualizado a las rutas nuevas en el mismo release. Dejar carpetas de idioma viejas vivas junto a las nuevas crea duplicados.",
+        ],
+      },
+      {
+        heading: "Meta el mapa en el alcance de la agencia",
+        paragraphs: [
+          "Pregunte quién posee la hoja de URL, quién prueba redirecciones y quién actualiza Search Console. Si la propuesta describe el rediseño solo como pantallas, la pérdida de SEO ya está programada.",
+          "METEK incluye ese trabajo técnico en los rebuilds. Envíe el sitemap actual con la consulta si ya depende del tráfico de búsqueda.",
+        ],
+      },
+    ],
+  },
+  "custom-website-vs-template": {
+    title: "Sitio a medida frente a plantilla: cuál es el producto real",
+    excerpt:
+      "La diferencia entre un sitio de empresa a medida y una plantilla de marketplace: propiedad del diseño, ruta de venta, SEO técnico y qué se puede cambiar después.",
+    lead: "Una plantilla es una maqueta que alguien diseñó para una empresa genérica. Un sitio a medida es una interfaz alrededor de su oferta, su prueba y la acción que el visitante debe completar. Ambos se pueden publicar. No son la misma compra, y mezclar el lenguaje en una propuesta es cómo se encuentran presupuestos baratos y arrepentimientos caros.",
+    imageAlt: "Una retícula genérica junto al boceto de una página de servicio",
+    sections: [
+      {
+        heading: "Las plantillas asumen una venta que quizá no tiene",
+        paragraphs: [
+          "La mayoría espera un blog, una tienda o un hero con tres iconos. Un fabricante que cotiza desde fotos de proyecto, o una clínica que reserva según horarios de personal, gastará el presupuesto luchando esas suposiciones: plugins, páginas de más y CSS que se rompe en la siguiente actualización.",
+          "El trabajo a medida parte de la acción. Cotizar, reservar, llamar o recorrer un catálogo. La navegación y los tipos de página siguen esa acción. Se reutilizan componentes internos. No se reutiliza la arquitectura de un desconocido.",
+        ],
+      },
+      {
+        heading: "Propiedad después de la factura",
+        paragraphs: [
+          "Pregunte quién puede cambiar texto, títulos e imágenes sin contratar al diseñador original. El encierro del tema suele ser un maquetador que el equipo teme tocar, o un ticket de desarrollo para un teléfono.",
+          "Una entrega a medida debe dejar un camino de edición limitado y obvio o un panel pequeño. METEK arma esos campos cuando el equipo los va a usar, no un CMS con todos los módulos encendidos.",
+        ],
+      },
+      {
+        heading: "El buscador lee la página, no el nombre del tema",
+        paragraphs: [
+          "Las plantillas traen titles duplicados, bloques de servicio flojos y trampas de rastreo en archivos de etiquetas. Limpiarlo es trabajo real. Contarlo como “SEO incluido” porque hay un plugin no es el mismo trabajo.",
+          "Los sitios a medida siguen necesitando titles, encabezados, sitemap y enlaces rastreables. La diferencia es que esos campos entran en las plantillas que realmente publica, en lugar de pelearlos tras una actualización del tema.",
+        ],
+      },
+      {
+        heading: "Cuándo un sitio a medida más chico gana a un tema grande",
+        paragraphs: [
+          "Cinco páginas únicas que explican la oferta y recogen una solicitud completa superan un tema de veinte páginas que el equipo no puede mantener. Recorte la lista al camino que genera negocio. Añada artículos u otros mercados cuando tenga algo que decir.",
+          "Una landing temporal puede quedarse en un stack simple. El problema empieza cuando esa landing se vende como la plataforma permanente de la empresa.",
+        ],
+      },
+      {
+        heading: "Compare propuestas con la misma lista",
+        paragraphs: [
+          "Maquetas únicas frente a tema, propiedad del contenido, redirecciones si ya hay URL, campos de SEO técnico y quién responde en la entrega. El artículo de precios explica por qué se mueve la cifra cuando cambian esas líneas.",
+          "Si quiere el camino a medida, describa el negocio y la acción del visitante. Basta para ver si METEK es el estudio adecuado.",
+        ],
+      },
+    ],
+  },
   "what-is-seo": {
     title: "Qué es SEO y cómo funciona para un sitio web empresarial",
     excerpt:

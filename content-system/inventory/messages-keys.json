@@ -1,35 +1,37 @@
 {
-  "generatedAt": "2026-08-19T22:31:45.689Z",
+  "generatedAt": "2026-08-28T21:15:49.799Z",
   "locales": [
     "en",
     "tr",
     "es",
     "de"
   ],
-  "totalLeafKeysEn": 409,
+  "totalLeafKeysEn": 438,
   "byNamespace": {
     "meta": 2,
     "nav": 14,
-    "pages": 45,
+    "pages": 66,
+    "faqUi": 1,
+    "intent": 1,
     "blog": 17,
     "marquee": 8,
     "manifesto": 6,
     "featured": 15,
     "principles": 10,
     "hero": 10,
-    "selectedWork": 5,
+    "selectedWork": 6,
     "capabilities": 30,
     "manifestoScene": 4,
     "approachTeaser": 13,
     "finalCta": 6,
     "workLanes": 4,
     "projects": 6,
-    "projectUi": 6,
+    "projectUi": 8,
     "services": 88,
     "process": 20,
     "about": 24,
     "contact": 29,
-    "footer": 16,
+    "footer": 19,
     "whatsapp": 4,
     "a11y": 8,
     "notFound": 3,
@@ -38,22 +40,22 @@
   },
   "parity": {
     "en": {
-      "leafCount": 409,
+      "leafCount": 438,
       "missingVsEn": 0,
       "extraVsEn": 0
     },
     "tr": {
-      "leafCount": 409,
+      "leafCount": 438,
       "missingVsEn": 0,
       "extraVsEn": 0
     },
     "es": {
-      "leafCount": 409,
+      "leafCount": 438,
       "missingVsEn": 0,
       "extraVsEn": 0
     },
     "de": {
-      "leafCount": 409,
+      "leafCount": 438,
       "missingVsEn": 0,
       "extraVsEn": 0
     }

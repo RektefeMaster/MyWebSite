@@ -1,50 +1,6 @@
 import type { MetadataRoute } from "next";
-import { absoluteUrl } from "@/lib/site";
-import { routing } from "@/i18n/routing";
-import { blogPosts } from "@/data/blog";
-import { projects } from "@/data/projects";
-
-const PATHS = [
-  "",
-  "/manifesto",
-  "/work",
-  "/approach",
-  "/services",
-  "/blog",
-] as const;
+import { sitemapEntries } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-  const entries: MetadataRoute.Sitemap = [];
-
-  for (const locale of routing.locales) {
-    for (const path of PATHS) {
-      entries.push({
-        url: absoluteUrl(locale, path),
-        lastModified: now,
-        changeFrequency: path === "" ? "weekly" : "monthly",
-        priority: path === "" ? 1 : 0.7,
-      });
-    }
-
-    for (const post of blogPosts) {
-      entries.push({
-        url: absoluteUrl(locale, `/blog/${post.slug}`),
-        lastModified: now,
-        changeFrequency: "monthly",
-        priority: 0.55,
-      });
-    }
-
-    for (const project of projects) {
-      entries.push({
-        url: absoluteUrl(locale, `/work/${project.id}`),
-        lastModified: now,
-        changeFrequency: "monthly",
-        priority: 0.65,
-      });
-    }
-  }
-
-  return entries;
+  return sitemapEntries();
 }

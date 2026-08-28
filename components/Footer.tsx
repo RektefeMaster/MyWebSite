@@ -94,10 +94,37 @@ export default function Footer() {
             <li>
               <Link
                 scroll={false}
-                href={{ pathname: "/", hash: "contact" }}
+                href="/contact"
                 className="inline-flex min-h-10 items-center hover:text-foreground"
               >
                 {t("bookMeeting")}
+              </Link>
+            </li>
+            <li>
+              <Link
+                scroll={false}
+                href="/faq"
+                className="inline-flex min-h-10 items-center hover:text-foreground"
+              >
+                {t("faq")}
+              </Link>
+            </li>
+            <li>
+              <Link
+                scroll={false}
+                href="/industries"
+                className="inline-flex min-h-10 items-center hover:text-foreground"
+              >
+                {t("industries")}
+              </Link>
+            </li>
+            <li>
+              <Link
+                scroll={false}
+                href="/glossary"
+                className="inline-flex min-h-10 items-center hover:text-foreground"
+              >
+                {t("glossary")}
               </Link>
             </li>
           </ul>

@@ -19,6 +19,15 @@ type ServicesProps = {
   variant?: "teaser" | "full";
 };
 
+const SERVICE_HREFS = [
+  "/services/web-design",
+  "/services/web-design",
+  "/services/software",
+  "/contact",
+  "/services/software",
+  "/services/automation",
+] as const;
+
 export default function Services({ variant = "full" }: ServicesProps) {
   const t = useTranslations("services");
   const items = t.raw("items") as ServiceItem[];
@@ -234,7 +243,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
                         {item.description}
                       </p>
                       <Link
-                        href={{ pathname: "/", hash: "contact" }}
+                        href={SERVICE_HREFS[i] ?? "/contact"}
                         scroll={false}
                         className="group/link mt-7 inline-flex min-h-10 items-center gap-3 border-b border-foreground/35 text-sm font-bold text-foreground transition-colors hover:border-foreground"
                       >

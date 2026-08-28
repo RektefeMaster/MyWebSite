@@ -2,7 +2,6 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { whatsappHref } from "@/lib/site";
 import Reveal from "./Reveal";
-import TextType from "./TextType";
 
 type PageCtaProps = {
   label: string;
@@ -32,29 +31,11 @@ export default function PageCta({ label, title, blurb, cta }: PageCtaProps) {
               <p className="max-w-[58ch] text-base leading-[1.65] text-band-fg/68 md:text-lg">
                 {blurb}
               </p>
-              <div className="mt-4 flex min-h-[1.5rem] items-center gap-2 font-mono text-xs text-band-fg/50">
-                <span className="font-bold text-accent">›</span>
-                <TextType
-                  text={[
-                    "Yeni bir dijital platform projeniz mi var?",
-                    "Özel yönetim paneli mi geliştirmek istiyorsunuz?",
-                    "Doğru mimari ve mühendislik yaklaşımını konuşalım."
-                  ]}
-                  typingSpeed={45}
-                  pauseDuration={2200}
-                  deletingSpeed={25}
-                  showCursor={true}
-                  cursorCharacter="▍"
-                  startOnVisible={true}
-                  loop={true}
-                  className="font-mono text-xs font-medium text-band-fg/75"
-                />
-              </div>
             </div>
 
             <div className="col-span-12 mt-2 grid border-t border-band-fg/25 sm:grid-cols-2 md:col-start-3 md:col-span-10">
               <Link
-                href={{ pathname: "/", hash: "contact" }}
+                href="/contact"
                 scroll={false}
                 className="group flex min-h-16 items-center justify-between border-b border-band-fg/25 py-4 text-sm font-bold uppercase tracking-[0.08em] text-band-fg transition-colors hover:bg-band-fg hover:px-4 hover:text-band sm:border-r"
               >

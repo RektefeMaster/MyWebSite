@@ -135,7 +135,7 @@ export default async function ProjectDetailView({
                 ) : null}
                 <Link
                   scroll={false}
-                  href={{ pathname: "/", hash: "contact" }}
+                  href="/contact"
                   className="group flex min-h-14 items-center justify-between border-b border-foreground/20 py-3 text-sm font-bold sm:border-r sm:px-5"
                 >
                   {detail.ctaButton ?? t("view")} <span aria-hidden>→</span>

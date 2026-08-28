@@ -14,6 +14,15 @@ type CapId = "experiences" | "systems" | "ai";
 
 const CAP_IDS: CapId[] = ["experiences", "systems", "ai"];
 
+const CAP_HREF: Record<
+  CapId,
+  "/services/web-design" | "/services/software" | "/services/automation"
+> = {
+  experiences: "/services/web-design",
+  systems: "/services/software",
+  ai: "/services/automation",
+};
+
 const CAP_VISUAL: Record<
   CapId,
   {
@@ -202,7 +211,13 @@ export default function Capabilities() {
                       </span>
                     </div>
                     <h3 className="mt-8 text-[clamp(2rem,4.2vw,4rem)] font-bold leading-[0.94] tracking-[-0.045em]">
-                      {t(`items.${id}.title`)}
+                      <Link
+                        href={CAP_HREF[id]}
+                        scroll={false}
+                        className="transition-colors hover:text-accent-ink"
+                      >
+                        {t(`items.${id}.title`)}
+                      </Link>
                     </h3>
                     <p className="mt-5 max-w-[42ch] text-[15px] leading-[1.7] text-foreground/62">
                       {t(`items.${id}.body`)}

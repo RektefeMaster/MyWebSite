@@ -74,7 +74,38 @@
       "ctaTitle": "¿Un tema coincide con su proyecto?",
       "ctaBlurb": "Cuéntenos la tarea concreta. Le ayudaremos a identificar el servicio y el alcance adecuados.",
       "ctaButton": "Contar mi proyecto"
+    },
+    "contact": {
+      "metaTitle": "Contacto METEK Digital | Iniciar un proyecto web",
+      "metaDescription": "Escriba a METEK Digital por correo o WhatsApp para un sitio a medida, un panel o un chatbot. Nurullah Aydın revisa el encaje y el alcance.",
+      "heroLabel": "Contacto",
+      "heroTitle": "Cuéntenos qué hay que construir.",
+      "heroBlurb": "Comparta el negocio, la superficie (sitio, panel, chatbot o una mezcla) y cualquier fecha. Revisamos el encaje y respondemos con las siguientes preguntas.",
+      "emailLabel": "Correo",
+      "phoneLabel": "Teléfono",
+      "whatsappLabel": "WhatsApp",
+      "whatsappValue": "Escribir al estudio",
+      "hours": "Las consultas de proyecto se revisan por correo y WhatsApp. No hay un bot automático en este canal; una persona lee la solicitud.",
+      "formLabel": "Consulta de proyecto",
+      "formTitle": "Describa el trabajo en términos claros."
+    },
+    "industries": {
+      "metaTitle": "Industrias | Manufactura, hoteles, muebles, servicio local",
+      "metaDescription": "METEK Digital construye sitios para fabricantes, marcas de muebles, hoteles y servicios locales: catálogo, habitaciones, colecciones y páginas de zona.",
+      "heroLabel": "Industrias",
+      "heroTitle": "Sitios armados según cómo vende ese negocio.",
+      "heroBlurb": "La cotización de planta, la colección de muebles, la habitación de hotel y las páginas de servicio local son trabajos distintos. Estas páginas siguen el camino de venta que ya entregamos en el portafolio.",
+      "ctaLabel": "Contacto",
+      "ctaTitle": "Nombre el vertical y la acción del visitante.",
+      "ctaBlurb": "Cotización de fábrica, consulta de showroom, estadía de hotel o un trabajo local. Esa frase decide qué set de páginas armamos.",
+      "ctaButton": "Iniciar proyecto"
     }
+  },
+  "faqUi": {
+    "sectionTitle": "Preguntas habituales"
+  },
+  "intent": {
+    "related": "Páginas relacionadas"
   },
   "blog": {
     "view": "Leer artículo",
@@ -541,6 +572,9 @@
     "bookMeeting": "Consultar mi proyecto",
     "services": "Servicios",
     "blog": "Blog",
+    "faq": "Preguntas",
+    "industries": "Industrias",
+    "glossary": "Glosario",
     "projects": "Proyectos",
     "contact": "Contacto",
     "follow": "Seguir",

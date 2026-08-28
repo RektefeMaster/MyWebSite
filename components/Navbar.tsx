@@ -18,6 +18,8 @@ type NavHref =
   | "/approach"
   | "/services"
   | "/blog"
+  | "/contact"
+  | "/faq"
   | { pathname: "/"; hash: string };
 
 /** İnce editöryal masthead — görsel gürültü ve reklam şeridi yok. */
@@ -161,7 +163,7 @@ export default function Navbar() {
               <LanguageSwitcher />
               <Magnetic strength={0.18} className="shrink-0">
                 <Link
-                  href={{ pathname: "/", hash: "contact" }}
+                  href="/contact"
                   scroll={false}
                   aria-label={t("cta")}
                   className="btn-stable inline-flex min-h-10 shrink-0 border border-ink bg-ink px-3 py-2 text-[11px] font-bold uppercase tracking-[0.1em] text-ink-fg transition-[background-color,color] hover:bg-transparent hover:text-ink sm:px-4 md:min-h-11 md:px-5"

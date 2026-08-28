@@ -236,6 +236,22 @@ function collectCorpus() {
     "data/blog-content/tr.ts",
     "data/blog-content/es.ts",
     "data/blog-content/de.ts",
+    "data/service-landers-content/en.ts",
+    "data/service-landers-content/tr.ts",
+    "data/service-landers-content/es.ts",
+    "data/service-landers-content/de.ts",
+    "data/faq-content/en.ts",
+    "data/faq-content/tr.ts",
+    "data/faq-content/es.ts",
+    "data/faq-content/de.ts",
+    "data/industries-content/en.ts",
+    "data/industries-content/tr.ts",
+    "data/industries-content/es.ts",
+    "data/industries-content/de.ts",
+    "data/glossary-content/en.ts",
+    "data/glossary-content/tr.ts",
+    "data/glossary-content/es.ts",
+    "data/glossary-content/de.ts",
   ];
   for (const rel of dataFiles) {
     const full = path.join(ROOT, rel);

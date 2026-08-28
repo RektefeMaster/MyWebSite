@@ -45,7 +45,7 @@ function useIdleMount() {
 
 type Crumb = {
   label: string;
-  href?: "/" | "/manifesto" | "/work" | "/approach" | "/services" | "/blog";
+  href?: string;
 };
 
 type PageHeroProps = {

@@ -74,7 +74,38 @@
       "ctaTitle": "Projenizi birlikte planlayalım.",
       "ctaBlurb": "Yazılarda ele aldığımız teknik konulardan biri işletmenizin güncel bir gereksinimine denk geliyorsa ayrıntıları paylaşın. Kapsamı birlikte oluşturalım.",
       "ctaButton": "Proje başlat"
+    },
+    "contact": {
+      "metaTitle": "İletişim | Web Sitesi ve Yazılım Projesi · METEK Digital",
+      "metaDescription": "Özel web sitesi, yönetim paneli veya WhatsApp chatbot projesi için METEK Digital'e e-posta veya WhatsApp ile yazın. Nurullah Aydın talebi inceler.",
+      "heroLabel": "İletişim",
+      "heroTitle": "Ne kurmamız gerektiğini yazın.",
+      "heroBlurb": "İşletmeyi, gereken yüzeyi (site, panel, chatbot veya karışım) ve varsa zaman kısıtını paylaşın. Uyuma bakar, sonraki sorularla döneriz.",
+      "emailLabel": "E-posta",
+      "phoneLabel": "Telefon",
+      "whatsappLabel": "WhatsApp",
+      "whatsappValue": "Stüdyoya yazın",
+      "hours": "Proje talepleri e-posta ve WhatsApp üzerinden okunur. Bu kanalda otomatik bot yok; isteği bir kişi inceler.",
+      "formLabel": "Proje talebi",
+      "formTitle": "İşi düz cümleyle yazın."
+    },
+    "industries": {
+      "metaTitle": "Sektörler | Üretim, Otel, Mobilya, Yerel Hizmet · METEK",
+      "metaDescription": "METEK Digital üretim, mobilya, otel ve yerel hizmet işletmeleri için site kurar: katalog, oda, koleksiyon ve hizmet-bölge sayfaları.",
+      "heroLabel": "Sektörler",
+      "heroTitle": "O işletmenin satışına göre kurulan siteler.",
+      "heroBlurb": "Üretim teklifi, mobilya koleksiyonu, otel odası ve yerel hizmet sayfası ayrı işlerdir. Bu sayfalar portföyde teslim ettiğimiz satış yolunu izler.",
+      "ctaLabel": "İletişim",
+      "ctaTitle": "Sektörü ve ziyaretçi eylemini yazın.",
+      "ctaBlurb": "Fabrika teklifi, showroom talebi, otel konaklaması veya yerel iş isteği. O cümle hangi sayfa setini çıkaracağımızı kararlaştırır.",
+      "ctaButton": "Proje başlat"
     }
+  },
+  "faqUi": {
+    "sectionTitle": "Sık gelen sorular"
+  },
+  "intent": {
+    "related": "İlgili sayfalar"
   },
   "blog": {
     "view": "Yazıyı oku",
@@ -541,6 +572,9 @@
     "bookMeeting": "Projemi başlat",
     "services": "Hizmetler",
     "blog": "Blog",
+    "faq": "SSS",
+    "industries": "Sektörler",
+    "glossary": "Sözlük",
     "projects": "Projeler",
     "contact": "İletişim",
     "follow": "Takip",

@@ -13,6 +13,13 @@ import WhatsAppFab from "@/components/WhatsAppFab";
 import Intro from "@/components/Intro";
 import RouteTransition from "@/components/RouteTransition";
 import { SITE, alternatesFor, socialMeta } from "@/lib/site";
+import JsonLd from "@/components/JsonLd";
+import {
+  founderNode,
+  graph,
+  organizationNode,
+  websiteNode,
+} from "@/lib/seo";
 import { ThemeProvider, themeInitScript } from "@/lib/theme";
 import "../globals.css";
 
@@ -105,7 +112,12 @@ export async function generateMetadata({
       kendi yolunu veriyor — bu sürümde relative canonical route'a göre değil
       metadataBase'e göre çözüldüğü için miras yeterli olmuyor.
     */
-    alternates: alternatesFor(locale, ""),
+    alternates: {
+      ...alternatesFor(locale, ""),
+      types: {
+        "application/rss+xml": `${SITE.url}/feed.xml`,
+      },
+    },
     applicationName: SITE.brand,
     authors: [{ name: "Nurullah Aydın", url: SITE.url }],
     creator: "Nurullah Aydın",
@@ -114,7 +126,13 @@ export async function generateMetadata({
     robots: {
       index: true,
       follow: true,
-      googleBot: { index: true, follow: true, "max-image-preview": "large" },
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
     },
   };
 }
@@ -133,62 +151,11 @@ export default async function LocaleLayout({
   const tMeta = await getTranslations({ locale, namespace: "meta" });
   const tA11y = await getTranslations({ locale, namespace: "a11y" });
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": ["ProfessionalService", "Organization"],
-        "@id": `${SITE.url}/#org`,
-        name: SITE.brand,
-        alternateName: "METEK",
-        url: SITE.url,
-        logo: {
-          "@type": "ImageObject",
-          url: `${SITE.url}/icon`,
-          width: 256,
-          height: 256,
-        },
-        image: `${SITE.url}/icon`,
-        description: tMeta("description"),
-        email: SITE.email,
-        telephone: SITE.phoneTel,
-        founder: {
-          "@type": "Person",
-          name: "Nurullah Aydın",
-          jobTitle: "Founder",
-        },
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Türkiye",
-          addressCountry: "TR",
-        },
-        sameAs: [SITE.instagram],
-        knowsAbout: [
-          "Web Design",
-          "Web Development",
-          "Software Development",
-          "Artificial Intelligence",
-          "Automation",
-          "UI/UX Design",
-          "SEO",
-        ],
-        contactPoint: {
-          "@type": "ContactPoint",
-          email: SITE.email,
-          telephone: SITE.phoneTel,
-          contactType: "sales",
-        },
-      },
-      {
-        "@type": "WebSite",
-        "@id": `${SITE.url}/#website`,
-        url: SITE.url,
-        name: SITE.brand,
-        inLanguage: locale,
-        publisher: { "@id": `${SITE.url}/#org` },
-      },
-    ],
-  };
+  const jsonLd = graph([
+    organizationNode(tMeta("description")),
+    founderNode(),
+    websiteNode(locale),
+  ]);
 
   return (
     <html
@@ -207,12 +174,7 @@ export default async function LocaleLayout({
         */}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script dangerouslySetInnerHTML={{ __html: introInitScript }} />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-          }}
-        />
+        <JsonLd data={jsonLd} />
         <NextIntlClientProvider>
           <ThemeProvider>
             <SmoothScroll>

@@ -1,6 +1,492 @@
 import type { BlogArticle } from "../blog";
 
 const content: Record<string, BlogArticle> = {
+  "hotel-website-design": {
+    title: "Hotel website design that books a direct inquiry",
+    excerpt:
+      "What a hotel website has to do before atmosphere: room-type URLs, a location sentence, and a path that does not dump the guest into a worse-rate engine.",
+    lead: "A hotel template puts three adjectives over a slider. The guest still needs room types, where the building sits, and how to write or book without losing the rate. METEK Digital treats a hospitality site as a property document. Casa Aurelia Roma and Altitude Residences are the public examples of that pacing.",
+    imageAlt: "Hotel room photograph beside a simple website wireframe of room types",
+    sections: [
+      {
+        heading: "Give every room type an address",
+        paragraphs: [
+          "A suite and a courtyard room are different searches and different emails to the desk. One 'accommodations' page wastes both. Title and H1 should name the room the way a guest would type it.",
+          "Photography has to show scale and daylight, not only a styled corner. Caption what the visitor is looking at. 'Luxury stay' next to a stock interior does not help someone compare two properties on the same street.",
+        ],
+      },
+      {
+        heading: "Direct path versus the engine",
+        paragraphs: [
+          "If you take direct bookings, collect dates, occupancy, and stay purpose, then hand that to the desk or the engine you actually use. Skinning a third-party widget without property copy still looks like every other hotel.",
+          "If WhatsApp or email still confirms the stay, say so and build that path. Pretending there is instant checkout while a human approves is how guests double-book.",
+        ],
+      },
+      {
+        heading: "City terms live on the location page",
+        paragraphs: [
+          "Neighborhood language belongs on one page whose subject is location, not stuffed into every heading. A Rome boutique and a residence product do not share copy because both have beds.",
+          "When guests search in more than one language, write each locale. Machine-translating the English room page is how you rank for nothing in the second market.",
+        ],
+      },
+      {
+        heading: "Rebuilds need the old room URLs",
+        paragraphs: [
+          "If the current site already ranks for the hotel name or a room type, map those addresses before launch. Changing slugs without 301s hands that history to a 404.",
+          "Technical SEO here is titles, room URLs, canonicals, sitemap, and that redirect list. Rank promises are not part of the work. The hospitality industry page is the service surface if you are briefing a build.",
+        ],
+      },
+    ],
+  },
+  "manufacturing-company-website": {
+    title: "Manufacturing company website: catalogue, specs, quotes",
+    excerpt:
+      "Trade buyers need product families, enough specification to start a conversation, and a quote form sales will actually open. A brochure homepage is not that site.",
+    lead: "A factory site fails when it looks like a company brochure for a business that still quotes from PDFs. The useful surface names the line, shows a finish or dimension, and sends a complete request. Wholesale Cabinet Creations is the nearest public example in the METEK portfolio.",
+    imageAlt: "Product specification sheet next to a quote request form on a laptop",
+    sections: [
+      {
+        heading: "Write the first screen for the buyer",
+        paragraphs: [
+          "Dealers and contractors confirm that a line exists, that a constraint is published, and that a date can be discussed. Company history can sit lower. Certifications belong next to the product they apply to.",
+          "If those three facts take four clicks and a generic contact box, they email someone who already listed them.",
+        ],
+      },
+      {
+        heading: "One family, one URL",
+        paragraphs: [
+          "Kitchen cabinets wholesale and custom closet systems cannot share one thin homepage. Each family needs a subject, a title, an H1, and links from related pages.",
+          "Do not invent a cart if orders still go through a human. A catalogue plus a request form is the honest product. Ecommerce is a different scope when prices and stock are real.",
+        ],
+      },
+      {
+        heading: "Fields sales will open",
+        paragraphs: [
+          "Name, email, and message produce junk. Ask for project type, quantity or rooms, ship-to region, timing, and files if drawings exist. Pass the record to whoever already owns the inbox or CRM.",
+          "The companion article on B2B quote requests lists the fields we put on manufacturing forms. Read it before you copy a consumer 'get in touch' block.",
+        ],
+      },
+      {
+        heading: "Who updates the catalogue after launch",
+        paragraphs: [
+          "If lead times and finishes change, the same delivery should include an admin panel with those fields. A pretty catalogue nobody can edit is stale in a season.",
+          "Start with families, buyer type, languages, and whether this replaces a live URL. The manufacturing industry page is the service brief if you are ready to scope.",
+        ],
+      },
+    ],
+  },
+  "local-seo-for-service-businesses": {
+    title: "Local SEO for service businesses: one job per URL",
+    excerpt:
+      "Service pages and honest area pages beat a homepage that claims the whole region. Google Business Profile is a sibling, not a substitute. Map Pack rank is not a deliverable.",
+    lead: "A cleaner or upholstery studio does not rank because Home says quality service in our city. Search engines need a page whose subject is the job, and often a page whose subject is the job in a named area. METEK ships that architecture; MASAL Koltuk is the public example of a wide local page set.",
+    imageAlt: "Map pin and a list of service pages on a printed site map",
+    sections: [
+      {
+        heading: "Name the job on its own page",
+        paragraphs: [
+          "Sofa cleaning, mattress cleaning, and office cleaning are different queries. They can share a visual system. They should not share one paragraph on Home. Give each service a title, an H1, proof, and a form that names that job.",
+          "Publish price context only if it is true and you will maintain it. Invented 'from $99' banners are how you train the wrong caller.",
+        ],
+      },
+      {
+        heading: "Area pages only where you go",
+        paragraphs: [
+          "Ten copied towns with the city name swapped is worse than three specific ones. Write travel, parking, building types, response time. If you do not serve the place, do not publish the URL.",
+          "Internal links should tie related jobs and the areas you actually cover. Orphan area pages look like a generator even when the rest of the site is honest.",
+        ],
+      },
+      {
+        heading: "The profile is not the website",
+        paragraphs: [
+          "Google Business Profile sends people who already trust the map pack. The website still has to answer the service query and take the request. Categories and photos on the profile should match the pages.",
+          "We do not sell first place on Maps. We build indexable pages and keep name, address, and phone aligned. Rank on the pack depends on signals we do not control.",
+        ],
+      },
+      {
+        heading: "Flags to check before launch",
+        paragraphs: [
+          "Titles unique per service, crawlable HTML, canonicals, sitemap, NAP consistent with the profile, LocalBusiness schema without fake reviews. Redirect every old service and area URL on a rebuild. Those local pages are often the only equity a small firm owns.",
+          "If WhatsApp books the job, the button should pass service and area into the message. A generic chatbot on a one-page site is not this work. The local services industry page is the commercial surface.",
+        ],
+      },
+    ],
+  },
+  "schema-markup-for-business-websites": {
+    title: "Schema markup for a business website (without the theatre)",
+    excerpt:
+      "JSON-LD should restate facts already on the page: organization, services, FAQs, articles. Fake stars and invented offices are how you earn a manual action.",
+    lead: "Schema is a vocabulary machines share. It does not make a thin page rank. It helps a crawler or an answer engine name the organization, the page type, and the questions you already answered in HTML. METEK marks those types on the studio site and on client builds when the facts exist.",
+    imageAlt: "Printed JSON-LD snippet beside a browser showing an FAQ section",
+    sections: [
+      {
+        heading: "Mark what the visitor can already read",
+        paragraphs: [
+          "Organization or ProfessionalService with a real name, URL, email, phone, and country. Person for a named founder. WebSite for the locale. BreadcrumbList for the path. FAQPage only when the questions are visible. BlogPosting on articles. Service on a service URL.",
+          "If the page does not contain the fact, do not put it in JSON-LD. Invented aggregate ratings and review stars are a common way to get ignored or penalized.",
+        ],
+      },
+      {
+        heading: "LocalBusiness is a claim about place",
+        paragraphs: [
+          "Use it when you have a service area or a premises you will stand behind, with NAP matching the Google profile. Do not paste a LocalBusiness block on a purely remote studio that lists a city for decoration.",
+          "Area served can be countries you actually take work from. It is not a list of markets you wish you had an office in.",
+        ],
+      },
+      {
+        heading: "HowTo and DefinedTermSet have a job",
+        paragraphs: [
+          "HowTo belongs on a genuine checklist, not on a sales page dressed as steps. DefinedTermSet belongs on a glossary. Stuffing every article as HowTo is how rich results stop trusting you.",
+          "This studio site uses HowTo on a few checklist posts and DefinedTermSet on the glossary. That is the pattern we copy into client sites when the content matches.",
+        ],
+      },
+      {
+        heading: "Test the graph before launch",
+        paragraphs: [
+          "Paste the live URL into Google's rich results test and fix errors. Confirm the canonical URL in the graph matches the page. Confirm FAQ answers are the same sentences as the HTML.",
+          "Schema is part of technical SEO in the website delivery, not a ranking package. The glossary defines the neighboring terms. The SEO service page states what we include in a build.",
+        ],
+      },
+    ],
+  },
+  "wordpress-vs-custom-website": {
+    title: "WordPress vs a custom website: how to choose",
+    excerpt:
+      "WordPress is a product with themes and plugins. A custom site is an interface designed for the brand, with a panel only if the team will use specific fields. They are different purchases.",
+    lead: "The fork is not 'modern versus old.' It is whether you are buying a CMS ecosystem or commissioning an interface. METEK does not resell marketplace themes as custom work. If you need WordPress, that is a different kind of vendor. If you need pages and fields that match the business, that is the custom path.",
+    imageAlt: "Two stacks of paper, one labeled theme options and one labeled page map",
+    sections: [
+      {
+        heading: "What you are actually buying",
+        paragraphs: [
+          "WordPress gives you a large plugin market, a familiar editor, and a security and update burden that never really ends. A purchased furniture or hotel theme is still that product with new colors.",
+          "Custom means the layouts are designed for the offer, the code is yours at handoff, and a content panel exists only for the objects you named: collections, rooms, lead times. There is no plugin directory to paper over a missing object.",
+        ],
+      },
+      {
+        heading: "When WordPress is the honest choice",
+        paragraphs: [
+          "A blog-heavy publisher, a team already trained on Gutenberg, or a site whose main job is frequent posts can be a fit. So can a budget that cannot cover custom design and still needs something live.",
+          "Then hire someone who will own updates, backups, and the theme's limits. Do not pay custom prices for a theme install.",
+        ],
+      },
+      {
+        heading: "When custom is the honest choice",
+        paragraphs: [
+          "Quote-led manufacturing, a hotel with room-type URLs, a local service page set, a multilingual market with native copy: these jobs fight a generic theme. You spend the money either on plugins and workarounds or on the pages.",
+          "Custom still uses internal templates. The article layout can repeat. The difference is ownership, not the absence of pattern.",
+        ],
+      },
+      {
+        heading: "Questions that settle the quote",
+        paragraphs: [
+          "Who can edit after launch, which fields, who owns hosting, what happens to old URLs, who writes titles. Ask those of every vendor. The answers separate a website from a visual refresh.",
+          "If you are already comparing agencies, the choosing-an-agency article is the sibling checklist. The custom-versus-template article covers marketplace skins. This one is the CMS fork.",
+        ],
+      },
+    ],
+  },
+  "b2b-website-quote-requests": {
+    title: "B2B website quote requests sales can actually use",
+    excerpt:
+      "Name, email, and a message box produce junk. Manufacturing and trade sites need project type, quantity, region, timing, and files. Then the record has to land where sales already works.",
+    lead: "A quote form is part of the sales desk, not a contact widget. If the office still re-types every submission into a spreadsheet, the site did not finish the job. METEK plans the fields from the Friday workaround, then sends the record to email or a panel the team will open.",
+    imageAlt: "Quote form fields for project type and quantity on a desktop screen",
+    sections: [
+      {
+        heading: "Start from the last lost request",
+        paragraphs: [
+          "Ask sales what they had to chase on the last three inquiries: missing ship-to, no quantity, a photo of a competitor's spec. Those gaps become required fields or file uploads.",
+          "A consumer 'how can we help' box trains the wrong visitor. Trade buyers will skip a form that looks like a newsletter signup. They will complete one that looks like a job ticket.",
+        ],
+      },
+      {
+        heading: "Fields that belong on a manufacturing form",
+        paragraphs: [
+          "Project type or product family, quantity or room count, ship-to region, target date, drawings if they exist, and how they heard of you only if you will actually read it. Phone is useful when the desk still calls.",
+          "Do not ask for a budget number if you will not use it to qualify. Optional fields that nobody maps into the CRM are decoration.",
+        ],
+      },
+      {
+        heading: "Where the record goes",
+        paragraphs: [
+          "Email is enough when volume is low and one person owns the inbox. A panel or CRM handoff belongs in scope when several people work the queue or when the public catalogue is edited in the same system.",
+          "WhatsApp can carry a prefilled ticket if that is already how the desk replies. A chatbot that cannot create the same record is a second inbox, not automation.",
+        ],
+      },
+      {
+        heading: "Search still needs the product pages",
+        paragraphs: [
+          "A perfect form on a homepage that never names the product family will not get the visitor. Catalogue URLs and the form work as a pair. The manufacturing industry page and the manufacturing website article cover that pair.",
+          "When you brief us, send the last three real inquiries (scrubbed) and where they should have landed. That is enough to draft the field list.",
+        ],
+      },
+    ],
+  },
+  "how-to-choose-web-design-agency": {
+    title: "How to choose a web design agency without guessing",
+    excerpt:
+      "A practical checklist for comparing web design agencies: scope, custom work versus templates, SEO in the build, content ownership, and who stays accountable after launch.",
+    lead: "Choosing an agency is easier when you compare the same job. Ask each studio to describe the pages, the visitor action, the technical SEO work, and who can edit the site after launch. The useful differences show up in those answers, not in a moodboard or a promise of first place on Google.",
+    imageAlt: "Notebook with a short agency comparison list beside a laptop",
+    sections: [
+      {
+        heading: "Write the job before you collect quotes",
+        paragraphs: [
+          "Name the audience, the action the site must support, the languages, and whether this is a first site or a rebuild. Include any panel, chatbot, or migration. That paragraph lets every provider price the same work.",
+          "If you only send “we need a new website,” you will receive incomparable numbers. One quote may hide a template and no redirects. Another may include custom design, metadata, and an admin panel. The gap is scope, not mystery.",
+        ],
+      },
+      {
+        heading: "Ask what “custom” actually means",
+        paragraphs: [
+          "Custom work means the interface is designed and built for the brand. A marketplace theme with new colors is a different product. Ask which layouts are unique, which pages share a template, and whether the code is yours after handoff.",
+          "METEK Digital does not resell ready-made themes as custom. If a provider cannot show a project where the public site and the operating tools were planned together, that is information, not an insult.",
+        ],
+      },
+      {
+        heading: "Put search and URLs in the comparison",
+        paragraphs: [
+          "Ask who writes title tags, how the XML sitemap is produced, and what happens to old addresses in a rebuild. Technical SEO belongs in the website delivery. Rankings are not a package anyone can honestly guarantee.",
+          "A rebuild without a redirect map discards pages search engines already know. If you already appear for useful queries, that mapping should be a line in the proposal.",
+        ],
+      },
+      {
+        heading: "Find out who stays after launch",
+        paragraphs: [
+          "Confirm who owns the domain, hosting, analytics, and source. Confirm which fields the team can edit without a developer. Confirm how defects in the agreed delivery are handled versus new requests.",
+          "One accountable delivery lead from discovery to launch is a clearer arrangement than an unnamed “team” that changes at every call. Ask for the name of the person who will still be there at handoff.",
+        ],
+      },
+      {
+        heading: "Read the portfolio as evidence",
+        paragraphs: [
+          "Look for businesses that sell the way you sell: quotes, bookings, catalogue, or local service pages. A pretty screenshot without the problem it solved is decoration.",
+          "When you are ready, send METEK Digital that job paragraph. We will tell you whether the work fits and which service it resembles: website, panel, automation, or a combination.",
+        ],
+      },
+    ],
+  },
+  "multilingual-website-seo": {
+    title: "Multilingual website SEO: hreflang, copy, and one subject per URL",
+    excerpt:
+      "How multilingual SEO actually works for a business site: native copy per market, hreflang, canonicals, and why translating a keyword list is not a strategy.",
+    lead: "A multilingual site is a set of pages with a language and a market, not a button that swaps words. Search engines need each URL to declare its language, point to its siblings, and carry copy written for the queries people type in that market. Hreflang is the technical handshake. Native writing is the substance.",
+    imageAlt: "Four language labels on a desk next to website printouts",
+    sections: [
+      {
+        heading: "One URL, one language, one job",
+        paragraphs: [
+          "Do not serve English and Turkish in the same HTML with a client-only switch that search engines cannot fetch as separate documents. Give each locale a stable address. On this studio site English lives at the root; Turkish, Spanish, and German use a prefix.",
+          "Each page still needs a subject. The Turkish services URL should explain services in Turkish search language. Copying the English heading and hoping is how four thin pages compete with each other.",
+        ],
+      },
+      {
+        heading: "Hreflang must be reciprocal",
+        paragraphs: [
+          "Every language version should list itself and the others, plus x-default on the locale you treat as fallback. If Turkish points at English but English ignores Turkish, the signal is incomplete.",
+          "Canonical tags should point each locale at itself. Pointing every language at English tells search engines the translations are copies. They may drop them from the index.",
+        ],
+      },
+      {
+        heading: "Queries are not translations",
+        paragraphs: [
+          "US buyers search “custom website design.” Turkish buyers search “özel web sitesi” or “web tasarım ajansı.” German buyers use compounds such as “individuelle Website.” Write those pages from the market brief, not from a translated keyword spreadsheet.",
+          "METEK engagements that need more than one language produce independent copy. The studio site follows the same rule. That is slower than machine translation and the only way the page can answer the query it claims.",
+        ],
+      },
+      {
+        heading: "Sitemaps and internal links",
+        paragraphs: [
+          "The XML sitemap should list the canonical URL for each locale and include xhtml alternate links between them. Internal links on a Turkish page should stay in Turkish unless you are explicitly sending the reader to another market.",
+          "Language switchers need crawlable hrefs, not click-only scripts. If the only path to /de/services is a JavaScript widget, a crawler may never store the German page.",
+        ],
+      },
+      {
+        heading: "What to put in the website scope",
+        paragraphs: [
+          "List the markets, the default locale, who writes each language, and whether URLs already exist. Rebuilds need a map so old language folders do not 404.",
+          "If you only need one language now, ship that well. Adding locales later is normal. Adding four machine-translated shells on day one is not multilingual SEO.",
+        ],
+      },
+    ],
+  },
+  "custom-admin-panel-vs-crm": {
+    title: "Custom admin panel vs off-the-shelf CRM",
+    excerpt:
+      "When a generic CRM is enough, when staff workarounds mean you need a custom admin panel, and what to send an agency so the scope stays honest.",
+    lead: "A CRM is a product with someone else’s objects: contacts, deals, stages. A custom admin panel is software whose objects are yours: cabinet lines, room types, appointment rules, content fields that match public pages. The expensive mistake is buying the first when you already live in the second, then exporting spreadsheets every Friday.",
+    imageAlt: "Two screens, one a generic pipeline and one a tailored operations list",
+    sections: [
+      {
+        heading: "Start from the Friday workaround",
+        paragraphs: [
+          "If the team already keeps the truth in a sheet, a chat, or a side calendar, the licensed CRM is not the system of record. Custom work is justified when those workarounds are the real process.",
+          "If people faithfully fill a standard pipeline and the reports are used in meetings, keep the CRM. Replacing a tool the team actually uses is a different project from replacing one they avoid.",
+        ],
+      },
+      {
+        heading: "Objects, not features",
+        paragraphs: [
+          "List the nouns: quote packet, service duration, staff roster, article draft, dealer location. Then list the verbs: approve, publish, assign, cancel, export. Screens follow those lists.",
+          "A feature catalog (“dashboards, automation, AI”) delays that work. METEK scopes panels from records and actions. Integrations with the public site, WhatsApp, or email are written down so the panel is not an island.",
+        ],
+      },
+      {
+        heading: "The public site often belongs in the same plan",
+        paragraphs: [
+          "A quote form that does not create the record sales opens is a broken path. When both surfaces are in the engagement, we design the fields together.",
+          "Portfolio work includes a manufacturer’s content panel beside the corporate site. That pairing is the useful reference if you need a storefront and an operating interface.",
+        ],
+      },
+      {
+        heading: "Ownership after launch",
+        paragraphs: [
+          "Routine edits should sit with your team. New objects and integrations remain development. Write that split in the scope. An implied “we will always be there” is not a support policy.",
+          "Ask who can create users, who can delete a record, and where backups live. Those answers belong next to the screen designs.",
+        ],
+      },
+      {
+        heading: "What to send before an estimate",
+        paragraphs: [
+          "A screenshot of the current sheet or CRM view, the jobs done each day, and what must not be lost. Name what is out of scope. Accounting and warehouse rebuilds in the same sprint usually delay the panel that would have helped this quarter.",
+          "If you are unsure, start with the operator path that is blocking you. The custom admin panel page on this site describes how that conversation runs.",
+        ],
+      },
+    ],
+  },
+  "business-website-checklist": {
+    title: "What a business website needs before you launch",
+    excerpt:
+      "A launch checklist for a company website: offer, proof, contact path, mobile, titles, sitemap, and who can update the pages after go-live.",
+    lead: "A business website has a short list of jobs. It must name the offer, show enough proof to be taken seriously, and make the next step obvious on a phone. Everything else is supporting material. Launch when those jobs work, not when every decorative idea has been tried.",
+    imageAlt: "Printed launch checklist next to a phone showing a contact button",
+    sections: [
+      {
+        heading: "The offer has to be findable in seconds",
+        paragraphs: [
+          "The first screen should say what you sell and to whom. A slogan that could sit on any company in the sector is not an offer. Service pages should each carry one service, not a mash of every line you might add next year.",
+          "If a stranger cannot tell whether you install cabinets, book hotel rooms, or build software, the rest of the design will not save the visit.",
+        ],
+      },
+      {
+        heading: "Proof and the next step",
+        paragraphs: [
+          "Show work, locations, or operating context that a buyer can verify. Contact, quote, or booking must be reachable without hunting. WhatsApp can sit beside email if that is how the market writes. A form that asks for a novel is a closed door.",
+          "Test the path on a small phone with a slow connection. If the button sits under a cookie wall or a hero video that never loads, the site has not launched in any useful sense.",
+        ],
+      },
+      {
+        heading: "Search access is a launch item",
+        paragraphs: [
+          "Titles, H1s, crawlable links, canonicals, robots rules, and the XML sitemap belong in the same review as the visual pass. Staging noindex flags left on production are a common way to “launch” a site Google will not store.",
+          "Rebuilds need redirects. Our technical SEO checklist article walks through that review in order. Run it against the production domain, not only the staging URL.",
+        ],
+      },
+      {
+        heading: "Someone must be able to change the copy",
+        paragraphs: [
+          "Services, hours, and staff names change. Decide which fields the team edits and which changes need development. A beautiful site that requires an agency ticket to fix a phone number will rot.",
+          "When the team needs a panel, scope the fields they will actually touch. A generic CMS with two hundred unused modules is not ownership.",
+        ],
+      },
+      {
+        heading: "Use this list in the brief",
+        paragraphs: [
+          "Offer clarity, proof, contact path, mobile, titles and sitemap, redirects if you are replacing a domain or slug, and content ownership. That is enough to compare agencies.",
+          "METEK Digital treats those items as website delivery, not optional extras. Send the list with your current site and the action you need visitors to complete.",
+        ],
+      },
+    ],
+  },
+  "website-redesign-keep-seo": {
+    title: "Website redesign without losing SEO",
+    excerpt:
+      "How to rebuild a business website without throwing away indexed URLs: inventory, redirects, canonicals, titles, and a sitemap of the final addresses.",
+    lead: "A redesign can keep the search visibility you already have if the new site inherits the old addresses or maps them with redirects before launch. The failure mode is familiar: new slugs, no 301s, internal links still pointing at the staging host, and a sitemap full of URLs that 404. The visual work then sits on top of a broken crawl.",
+    imageAlt: "Old and new website printouts with arrows mapping URLs",
+    sections: [
+      {
+        heading: "Inventory the URLs that already work",
+        paragraphs: [
+          "Export the current sitemap, Search Console pages, and any URLs that bring useful queries. Note titles and whether the page is a service, location, article, or utility. That list is the rebuild’s memory.",
+          "Decide which URLs stay identical. Stability is cheaper than a clever new folder scheme. Change a slug only when the old path misrepresents the page.",
+        ],
+      },
+      {
+        heading: "Redirects are delivery, not a favor",
+        paragraphs: [
+          "Every retired URL needs a single 301 to the closest equivalent, not a chain and not a homepage dump. Test for loops. Update internal links so they point at the final address rather than hopping through the old one.",
+          "Canonical tags must agree with that final address, including https and the host you actually serve. A canonical to www while the site lives on the apex splits the signal.",
+        ],
+      },
+      {
+        heading: "Keep the subject of each important page",
+        paragraphs: [
+          "If a page ranks for cabinet installation, the replacement should still be about cabinet installation. Merging five service pages into one “what we do” blob makes each query harder to match.",
+          "Titles and H1s can be rewritten for clarity. They should not be rewritten into a slogan that no longer names the work.",
+        ],
+      },
+      {
+        heading: "Publish a clean sitemap on the production host",
+        paragraphs: [
+          "The XML sitemap should list canonical, indexable URLs on the live domain. Remove staging, thank-you pages you do not want indexed, and anything that still redirects. Submit it after the cutover and watch whether key URLs get discovered.",
+          "Multilingual rebuilds need hreflang updated to the new paths in the same release. Leaving old language folders alive beside new ones creates duplicates.",
+        ],
+      },
+      {
+        heading: "Put the map in the agency scope",
+        paragraphs: [
+          "Ask who owns the URL spreadsheet, who tests redirects, and who updates Search Console. If a proposal describes the redesign as screens only, the SEO loss is already scheduled.",
+          "METEK includes that technical work in rebuilds. Send the current sitemap with the inquiry if you already depend on search traffic.",
+        ],
+      },
+    ],
+  },
+  "custom-website-vs-template": {
+    title: "Custom website vs template: which one is the real product",
+    excerpt:
+      "The difference between a custom business website and a marketplace template: design ownership, sales path, technical SEO, and what you can change after launch.",
+    lead: "A template is a layout someone else designed for a generic company. A custom website is an interface designed around your offer, your proof, and the action a visitor must take. Both can be published on the internet. They are not the same purchase, and mixing the language in a proposal is how cheap quotes and expensive regrets meet.",
+    imageAlt: "A generic layout grid beside a purpose-built service page sketch",
+    sections: [
+      {
+        heading: "Templates assume a sales path you may not have",
+        paragraphs: [
+          "Most themes expect a blog, a shop, or a hero with three icons. A manufacturer quoting from project photos, or a clinic booking around staff hours, will spend the budget fighting those assumptions: plugins, extra pages, and CSS overrides that break on the next update.",
+          "Custom work starts from the action. Quote, book, call, or browse a catalogue. Navigation and page types follow that action. You still reuse internal components. You do not reuse a stranger’s information architecture.",
+        ],
+      },
+      {
+        heading: "Ownership after the invoice",
+        paragraphs: [
+          "Ask who can change copy, titles, and images without hiring the original designer. Theme lock-in often means a page builder the team is afraid to touch, or a developer ticket for a phone number.",
+          "A custom delivery should leave a limited, obvious editing path or a small admin panel. METEK builds those fields when the team will actually use them, not a CMS with every module switched on.",
+        ],
+      },
+      {
+        heading: "Search engines read the page, not the theme name",
+        paragraphs: [
+          "Templates ship with duplicated titles, thin service blocks, and crawl traps in tag archives. Cleaning that up is real work. Counting it as “SEO included” because a plugin is installed is not the same work.",
+          "Custom sites still need titles, headings, a sitemap, and crawlable links. The difference is those fields are designed into the templates you actually publish, instead of being fought after a theme update.",
+        ],
+      },
+      {
+        heading: "When a smaller custom site beats a large theme",
+        paragraphs: [
+          "Five unique pages that explain the offer and collect a complete inquiry will outperform a twenty-page theme the team cannot maintain. Cut the page list to the path that makes money. Add articles or extra markets when you have something to say.",
+          "A temporary landing page can stay on a simple stack. Trouble starts when that landing page is sold as the company’s permanent platform.",
+        ],
+      },
+      {
+        heading: "Compare proposals on the same list",
+        paragraphs: [
+          "Unique layouts versus theme, content ownership, redirects if you already have URLs, technical SEO fields, and who is accountable at handoff. Our pricing article explains why the number moves when those lines change.",
+          "If you want the custom path, describe the business and the visitor action. That is enough to see whether METEK is the right studio for the job.",
+        ],
+      },
+    ],
+  },
   "what-is-seo": {
     title: "What is SEO? A practical guide for business websites",
     excerpt:

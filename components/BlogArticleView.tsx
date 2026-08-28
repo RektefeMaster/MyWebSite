@@ -141,7 +141,7 @@ export default async function BlogArticleView({
             </p>
             <div className="col-span-12 grid sm:grid-cols-2 md:col-start-7 md:col-span-6">
               <Link
-                href={{ pathname: "/", hash: "contact" }}
+                href="/contact"
                 scroll={false}
                 className="group flex min-h-14 items-center justify-between border-y border-foreground/25 py-3 text-sm font-bold sm:border-r"
               >

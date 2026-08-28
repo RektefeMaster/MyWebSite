@@ -1,5 +1,6 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { routing } from "@/i18n/routing";
+import { ogAlternateLocales, ogLocale } from "@/lib/i18n-tags";
 
 /** Tek kaynak — iletişim ve sosyal sabitler */
 export const SITE = {
@@ -72,6 +73,8 @@ export function socialMeta({
   description,
   type = "website",
   image,
+  publishedTime,
+  modifiedTime,
 }: {
   locale: string;
   path: string;
@@ -79,6 +82,8 @@ export function socialMeta({
   description: string;
   type?: "website" | "article";
   image?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
 }): Pick<Metadata, "openGraph" | "twitter"> {
   const url = absoluteUrl(locale, path);
   const imageUrl = image
@@ -91,10 +96,18 @@ export function socialMeta({
       title,
       description,
       url,
-      locale,
+      locale: ogLocale(locale),
+      alternateLocale: ogAlternateLocales(locale),
       type,
       siteName: SITE.brand,
       ...(imageUrl ? { images: [{ url: imageUrl }] } : {}),
+      ...(type === "article"
+        ? {
+            publishedTime,
+            modifiedTime: modifiedTime ?? publishedTime,
+            authors: ["Nurullah Aydın"],
+          }
+        : {}),
     },
     twitter: {
       card: "summary_large_image",
@@ -114,6 +127,8 @@ export async function pageMeta(
     description,
     type = "website",
     image,
+    publishedTime,
+    modifiedTime,
   }: {
     locale: string;
     path: string;
@@ -121,6 +136,8 @@ export async function pageMeta(
     description: string;
     type?: "website" | "article";
     image?: string;
+    publishedTime?: string;
+    modifiedTime?: string;
   },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
@@ -132,6 +149,8 @@ export async function pageMeta(
     description,
     type,
     image,
+    publishedTime,
+    modifiedTime,
   });
   const ogImages = image
     ? social.openGraph?.images
@@ -143,7 +162,12 @@ export async function pageMeta(
   return {
     title,
     description,
-    alternates: alternatesFor(locale, path),
+    alternates: {
+      ...alternatesFor(locale, path),
+      types: {
+        "application/rss+xml": `${SITE.url}/feed.xml`,
+      },
+    },
     openGraph: {
       ...social.openGraph,
       ...(ogImages ? { images: ogImages } : {}),

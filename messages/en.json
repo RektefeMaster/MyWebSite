@@ -74,7 +74,38 @@
       "ctaTitle": "Does one of these issues sound familiar?",
       "ctaBlurb": "Send us the context. We will help you identify the kind of project the problem calls for.",
       "ctaButton": "Start a project"
+    },
+    "contact": {
+      "metaTitle": "Contact METEK Digital | Start a Website Project",
+      "metaDescription": "Email or WhatsApp METEK Digital to start a custom website, admin panel, or messaging project. Founder Nurullah Aydın reviews fit and scope.",
+      "heroLabel": "Contact",
+      "heroTitle": "Tell us what you need to build.",
+      "heroBlurb": "Share the business, the surface required (website, panel, chatbot, or a mix), and any timing constraint. We review fit and reply with the next questions.",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "whatsappLabel": "WhatsApp",
+      "whatsappValue": "Message the studio",
+      "hours": "Project inquiries are reviewed through email and WhatsApp. There is no automated chatbot on this channel; a person reads the request.",
+      "formLabel": "Project inquiry",
+      "formTitle": "Write the job in plain terms."
+    },
+    "industries": {
+      "metaTitle": "Industries | Manufacturing, Hotels, Furniture, Local Services",
+      "metaDescription": "METEK Digital builds websites for manufacturers, furniture brands, hotels, and local service firms: catalogue, rooms, collections, and service-area pages.",
+      "heroLabel": "Industries",
+      "heroTitle": "Sites built for how that business sells.",
+      "heroBlurb": "Manufacturing quotes, furniture collections, hotel rooms, and local service pages are different jobs. These pages follow the sales path we have already shipped in the portfolio.",
+      "ctaLabel": "Contact",
+      "ctaTitle": "Name the vertical and the visitor action.",
+      "ctaBlurb": "Factory quote, showroom inquiry, hotel stay, or a local job request. That sentence decides which page set we outline.",
+      "ctaButton": "Start a project"
     }
+  },
+  "faqUi": {
+    "sectionTitle": "Questions we are asked"
+  },
+  "intent": {
+    "related": "Related pages"
   },
   "blog": {
     "view": "Read article",
@@ -541,6 +572,9 @@
     "bookMeeting": "Start a project",
     "services": "Services",
     "blog": "Blog",
+    "faq": "FAQ",
+    "industries": "Industries",
+    "glossary": "Glossary",
     "projects": "Projects",
     "contact": "Contact",
     "follow": "Follow",

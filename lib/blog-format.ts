@@ -1,7 +1,7 @@
 const localeMap: Record<string, string> = {
   tr: "tr-TR",
-  en: "en-GB",
-  es: "es-ES",
+  en: "en-US",
+  es: "es-US",
   de: "de-DE",
 };
 
