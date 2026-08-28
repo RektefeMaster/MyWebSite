@@ -1,4 +1,4 @@
-import Image, { getImageProps } from "next/image";
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import type { Project } from "@/data/projects";
@@ -7,6 +7,7 @@ import { whatsappHref } from "@/lib/site";
 import { forDisplay } from "@/lib/typography";
 import Reveal from "./Reveal";
 import PageCta from "./PageCta";
+import ProjectLiveHero from "./ProjectLiveHero";
 
 type ProjectDetailViewProps = {
   project: Project;
@@ -45,74 +46,7 @@ const DEFAULT_GALLERY_SPANS = [
   "col-span-6 min-h-[240px] md:min-h-[420px]",
 ] as const;
 
-const HERO_IMAGE_SIZES =
-  "(max-width: 767px) calc(100vw - 40px), (max-width: 1359px) 92vw, 1160px";
-
-function ProjectHeroImage({
-  desktopSrc,
-  mobileSrc,
-  alt,
-}: {
-  desktopSrc?: string;
-  mobileSrc?: string;
-  alt: string;
-}) {
-  if (desktopSrc && mobileSrc) {
-    const common = {
-      alt,
-      sizes: HERO_IMAGE_SIZES,
-      quality: 88,
-      fetchPriority: "high" as const,
-      decoding: "async" as const,
-    };
-    const {
-      props: { srcSet: desktopSrcSet },
-    } = getImageProps({
-      ...common,
-      src: desktopSrc,
-      width: 1920,
-      height: 1200,
-    });
-    const {
-      props: { srcSet: mobileSrcSet, ...mobileProps },
-    } = getImageProps({
-      ...common,
-      src: mobileSrc,
-      width: 900,
-      height: 1947,
-    });
-
-    return (
-      <picture>
-        <source media="(min-width: 768px)" srcSet={desktopSrcSet} />
-        <source media="(max-width: 767px)" srcSet={mobileSrcSet} />
-        <img
-          {...mobileProps}
-          alt={alt}
-          className="absolute inset-0 h-full w-full object-cover object-top"
-        />
-      </picture>
-    );
-  }
-
-  const src = desktopSrc ?? mobileSrc;
-  if (!src) return null;
-
-  return (
-    <Image
-      src={src}
-      alt={alt}
-      fill
-      preload
-      quality={88}
-      sizes={HERO_IMAGE_SIZES}
-      decoding="async"
-      className="object-cover object-top"
-    />
-  );
-}
-
-/** Proje detayı — cihaz demosu değil, projenin kendi görsel dosyası. */
+/** Proje detayı — mockup vitrin + proje dosyası. */
 export default async function ProjectDetailView({
   project,
   detail,
@@ -122,7 +56,12 @@ export default async function ProjectDetailView({
   const a11y = await getTranslations("a11y");
   const whatsapp = await getTranslations("whatsapp");
   const name = detail.title ?? project.name;
-  const heroImage = project.desktopImage ?? project.mobileImage;
+  const hasMockHero = Boolean(
+    project.desktopImage ||
+      project.mobileImage ||
+      project.desktopScrollImage ||
+      project.mobileScrollImage
+  );
   /*
     Hero'da BASILAN kareyi galeride tekrarlama. project-galleries.ts'teki
     `devicePack` (crm, whatsapp-bot, instagram-bot, css-system) galeri karesi
@@ -214,21 +153,11 @@ export default async function ProjectDetailView({
             </Reveal>
           </div>
         </div>
-
-        {heroImage ? (
-          <Reveal mode="mask">
-            <div className="mx-auto grid max-w-7xl grid-cols-12 px-5 pb-12 md:px-10 md:pb-16">
-              <div className="relative col-span-12 aspect-[900/1947] overflow-hidden bg-stone md:col-start-2 md:col-span-11 md:aspect-[8/5]">
-                <ProjectHeroImage
-                  desktopSrc={project.desktopImage}
-                  mobileSrc={project.mobileImage}
-                  alt={name}
-                />
-              </div>
-            </div>
-          </Reveal>
-        ) : null}
       </header>
+
+      {hasMockHero ? (
+        <ProjectLiveHero project={project} title={name} />
+      ) : null}
 
       {gallery.length > 0 ? (
         <section className="bg-band px-5 py-16 text-band-fg md:px-10 md:py-24">

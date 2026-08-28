@@ -13,8 +13,8 @@ export type WorkStage = {
 
 export const selectedWorkStages: Record<string, WorkStage> = {
   aiahi: {
-    hero: "/projects/aiahi/desktop.jpg",
-    objectPosition: "50% 18%",
+    hero: "/projects/aiahi/featured/01-hero.jpg",
+    objectPosition: "50% 0%",
     mobile: "/projects/aiahi/mobile.jpg",
     peep: false,
   },

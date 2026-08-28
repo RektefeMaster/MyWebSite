@@ -6,10 +6,10 @@ import { Link } from "@/i18n/navigation";
 import { getFeaturedProjects, type Project } from "@/data/projects";
 import { getProjectCardCopy } from "@/data/project-card-copy";
 import { getProjectPunch } from "@/data/project-punch";
-import { gsap, useGSAP } from "@/lib/gsap";
-import WorkPlate from "./WorkPlate";
+import DeviceMockup from "./DeviceMockup";
 import Reveal from "./Reveal";
 import WordReveal from "./WordReveal";
+import { gsap, useGSAP } from "@/lib/gsap";
 
 function AnimatedTitle({ text }: { text: string }) {
   const words = text.split(" ").filter(Boolean);
@@ -20,11 +20,6 @@ function AnimatedTitle({ text }: { text: string }) {
       aria-label={text}
     >
       <span aria-hidden>
-        {/* Maske payı WordReveal ile ORTAK (.word-reveal-word) — eski
-            `pb-[0.08em]` Goks'un 0.34em alt uzantısını kesiyordu. */}
-        {/* Boşluk sarmalayıcının DIŞINDA kalmalı: inline-block'un sonundaki
-            beyaz boşluk kırpılıyor ve başlıklar "CasaAureliaRoma" diye
-            bitişik çıkıyordu (her iki temada, her genişlikte). */}
         {words.map((word, index) => (
           <Fragment key={`${word}-${index}`}>
             <span className="inline-block">
@@ -42,6 +37,94 @@ function AnimatedTitle({ text }: { text: string }) {
   );
 }
 
+function MockStage({
+  project,
+  priority = false,
+}: {
+  project: Project;
+  priority?: boolean;
+}) {
+  const t = useTranslations("selectedWork");
+  const stageRef = useRef<HTMLDivElement>(null);
+  const tiltRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      const stage = stageRef.current;
+      const tilt = tiltRef.current;
+      if (!stage || !tilt) return;
+
+      const mm = gsap.matchMedia();
+
+      mm.add("(prefers-reduced-motion: reduce)", () => {
+        gsap.set(tilt, { clearProps: "all" });
+      });
+
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+        const onMove = (event: PointerEvent) => {
+          if (!finePointer.matches) return;
+          const rect = stage.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - 0.5;
+          const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+          gsap.to(tilt, {
+            rotateY: x * 2.5,
+            rotateX: -y * 2,
+            duration: 0.6,
+            ease: "power2.out",
+            transformPerspective: 1200,
+          });
+        };
+
+        const onLeave = () => {
+          gsap.to(tilt, {
+            rotateY: 0,
+            rotateX: 0,
+            duration: 0.8,
+            ease: "power3.out",
+          });
+        };
+
+        stage.addEventListener("pointermove", onMove);
+        stage.addEventListener("pointerleave", onLeave);
+
+        return () => {
+          stage.removeEventListener("pointermove", onMove);
+          stage.removeEventListener("pointerleave", onLeave);
+        };
+      });
+
+      return () => mm.revert();
+    },
+    { scope: stageRef }
+  );
+
+  return (
+    <div
+      ref={stageRef}
+      className="home-mock-stage"
+      data-work-mock=""
+    >
+      <div ref={tiltRef} className="home-mock-stage__inner">
+        <DeviceMockup
+          project={project}
+          variant="hero"
+          priority={priority}
+          cardCols={9}
+        />
+      </div>
+      <p
+        aria-hidden
+        className="home-mock-stage__hint pointer-events-none absolute bottom-3 left-1/2 z-10 -translate-x-1/2 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-band-fg/28 md:bottom-4"
+      >
+        {t("scrollHint")}
+      </p>
+    </div>
+  );
+}
+
 function WorkSpread({
   project,
   locale,
@@ -55,8 +138,7 @@ function WorkSpread({
   const name = copy?.title ?? project.name;
   const punch = getProjectPunch(locale, project.id);
   const t = useTranslations("selectedWork");
-  /* Levha yönü sırayla değişiyor — üç iş üst üste aynı kadrajda durmasın */
-  const plateOnRight = index % 2 === 0;
+  const mockOnRight = index % 2 === 0;
 
   return (
     <article
@@ -89,21 +171,15 @@ function WorkSpread({
         {project.year ? <span>{project.year}</span> : null}
       </div>
 
-      {/*
-        Levha + karşı kolon. Eski düzende levha 12 kolonu kaplıyor, altındaki
-        satırda metin şeridi geliyordu; levhanın yanındaki alan tamamen boştu.
-        Artık levha 9 kolon, kalan 3 kolon punch metnini ve bağlantıyı taşıyor
-        — ölü alan yerine karşı ağırlık. Yön (`side`) sırayla değişiyor.
-      */}
       <div
-        className={`col-span-12 mt-8 grid grid-cols-12 items-end gap-x-5 gap-y-6 md:mt-12 md:gap-x-6 ${
-          plateOnRight ? "" : "md:[direction:ltr]"
+        className={`col-span-12 mt-8 grid grid-cols-12 items-center gap-x-5 gap-y-8 md:mt-12 md:gap-x-6 ${
+          mockOnRight ? "" : "md:[direction:rtl] md:[&>*]:![direction:ltr]"
         }`}
       >
         <div
           data-work-copy
-          className={`col-span-12 flex flex-col gap-5 md:col-span-3 md:pb-2 ${
-            plateOnRight ? "md:col-start-1 md:order-1" : "md:col-start-10 md:order-2"
+          className={`col-span-12 flex flex-col gap-5 md:col-span-4 ${
+            mockOnRight ? "md:col-start-1 md:order-1" : "md:col-start-9 md:order-2"
           }`}
         >
           {punch ? (
@@ -128,31 +204,20 @@ function WorkSpread({
           </Link>
         </div>
 
-        <Link
-          href={`/work/${project.id}`}
-          scroll={false}
-          aria-label={name}
+        <div
           data-work-frame
-          className={`col-span-12 block md:col-span-9 ${
-            plateOnRight ? "md:col-start-4 md:order-2" : "md:col-start-1 md:order-1"
+          className={`col-span-12 md:col-span-8 ${
+            mockOnRight ? "md:col-start-5 md:order-2" : "md:col-start-1 md:order-1"
           }`}
         >
-          {/*
-            Telefon her zaman sayfanın İÇİNE taşar (metin kolonuna bakan
-            kenara). Dışa taşarsa `max-w-7xl` kenarında düz kesiliyor.
-          */}
-          <WorkPlate
-            project={project}
-            cols={9}
-            side={plateOnRight ? "left" : "right"}
-          />
-        </Link>
+          <MockStage project={project} priority={index === 0} />
+        </div>
       </div>
     </article>
   );
 }
 
-/** Hero sonrası ilk dosya: üç işi laptop + telefon içinde canlı sayfa gibi gösterir. */
+/** Hero sonrası: MacBook + iPhone mockup, hover scroll, scroll giriş animasyonları. */
 export default function SelectedWork() {
   const t = useTranslations("selectedWork");
   const locale = useLocale();
@@ -168,9 +233,9 @@ export default function SelectedWork() {
       mm.add("(prefers-reduced-motion: reduce)", () => {
         gsap.set(
           root.querySelectorAll(
-            "[data-work-frame], [data-plate-screen], .work-plate__phone, [data-work-word], [data-work-copy], [data-work-meta], [data-work-folio], [data-work-rule]"
+            "[data-work-frame], [data-work-word], [data-work-copy], [data-work-meta], [data-work-folio], [data-work-rule], [data-work-mock]"
           ),
-          { clearProps: "all", opacity: 1, x: 0, y: 0, scale: 1 }
+          { clearProps: "all", opacity: 1, x: 0, y: 0, scale: 1, rotateZ: 0 }
         );
       });
 
@@ -182,26 +247,20 @@ export default function SelectedWork() {
 
         spreads.forEach((spread, index) => {
           const frame = spread.querySelector<HTMLElement>("[data-work-frame]");
-          /* clip-path YALNIZCA ekrana — sarmalayıcıda taşan telefonu kesiyor */
-          const screen = spread.querySelector<HTMLElement>("[data-plate-screen]");
-          const phone = spread.querySelector<HTMLElement>(
-            ".work-plate__phone"
-          );
-          const words = spread.querySelectorAll<HTMLElement>(
-            "[data-work-word]"
-          );
+          const mockStage = spread.querySelector<HTMLElement>("[data-work-mock]");
+          const words = spread.querySelectorAll<HTMLElement>("[data-work-word]");
           const copy = spread.querySelector<HTMLElement>("[data-work-copy]");
           const meta = spread.querySelector<HTMLElement>("[data-work-meta]");
           const folio = spread.querySelector<HTMLElement>("[data-work-folio]");
           const rule = spread.querySelector<HTMLElement>("[data-work-rule]");
-          if (!frame) return;
+          if (!frame || !mockStage) return;
 
           const timeline = gsap.timeline({
             defaults: { ease: "none" },
             scrollTrigger: {
               trigger: spread,
-              start: isTouch ? "top 95%" : "top 92%",
-              end: isTouch ? "top 40%" : "top 30%",
+              start: isTouch ? "top 95%" : "top 88%",
+              end: isTouch ? "top 42%" : "top 32%",
               scrub: isTouch ? 0.45 : 0.75,
               invalidateOnRefresh: true,
             },
@@ -215,34 +274,30 @@ export default function SelectedWork() {
               0
             )
             .fromTo(
+              mockStage,
+              {
+                y: isTouch ? 48 : 96,
+                opacity: 0.35,
+                scale: isTouch ? 0.94 : 0.88,
+                rotateY: index % 2 ? -10 : 10,
+                transformPerspective: 1200,
+              },
+              {
+                y: 0,
+                opacity: 1,
+                scale: 1,
+                rotateY: 0,
+                duration: 0.85,
+              },
+              0
+            )
+            .fromTo(
               frame,
               {
-                y: isTouch ? 40 : 72,
-                scale: isTouch ? 0.98 : 0.965,
-                rotateZ: isTouch ? 0 : index % 2 ? 0.8 : -0.8,
-                transformOrigin: index % 2 ? "right center" : "left center",
+                y: isTouch ? 32 : 56,
               },
-              { y: 0, scale: 1, rotateZ: 0, duration: 0.8 },
+              { y: 0, duration: 0.85 },
               0
-            );
-
-          if (!isTouch && screen) {
-            timeline.fromTo(
-              screen,
-              { clipPath: "inset(10% 0 10% 0)" },
-              { clipPath: "inset(0% 0 0% 0)", duration: 0.8 },
-              0
-            );
-          }
-
-          timeline
-            /* Telefon levhadan biraz sonra ve biraz daha uzağa yürüyor —
-               parallaks derinliği kırılan kadrajı gerçek gösteriyor. */
-            .fromTo(
-              phone,
-              { y: isTouch ? 60 : 118, opacity: 0 },
-              { y: 0, opacity: 1, duration: 0.72 },
-              0.12
             )
             .fromTo(
               words,
@@ -252,7 +307,10 @@ export default function SelectedWork() {
             )
             .fromTo(
               [folio, meta],
-              { opacity: 0, x: index % 2 ? (isTouch ? 12 : 24) : (isTouch ? -12 : -24) },
+              {
+                opacity: 0,
+                x: index % 2 ? (isTouch ? 12 : 24) : isTouch ? -12 : -24,
+              },
               { opacity: 1, x: 0, duration: 0.4 },
               0.08
             )
@@ -278,6 +336,9 @@ export default function SelectedWork() {
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-12 gap-x-5 border-t border-band-fg/18 pt-6 md:gap-x-6 md:pt-7">
           <div className="col-span-12 md:col-span-9">
+            <p className="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-band-fg/38">
+              {t("label")}
+            </p>
             <WordReveal
               text={t("title")}
               className="font-display type-display text-[clamp(1.15rem,6.5vw,8.5rem)] sm:text-[clamp(3.25rem,9.5vw,8.5rem)] leading-[1.4] tracking-[-0.052em]"
@@ -293,7 +354,7 @@ export default function SelectedWork() {
           </Reveal>
         </div>
 
-        <div className="mt-14 grid grid-cols-12 gap-x-5 gap-y-20 md:mt-20 md:gap-x-6 md:gap-y-24">
+        <div className="mt-14 grid grid-cols-12 gap-x-5 gap-y-20 md:mt-20 md:gap-x-6 md:gap-y-28">
           {items.map((project, index) => (
             <WorkSpread
               key={project.id}

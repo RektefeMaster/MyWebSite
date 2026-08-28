@@ -49,6 +49,7 @@ export default function ProjectCard({
           ratio={ratio}
           showPhone={showPhone}
           side={index % 2 === 0 ? "right" : "left"}
+          priority={index < 3}
         />
       </Link>
 

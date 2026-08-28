@@ -16,10 +16,14 @@ const root = path.join(__dirname, "..");
 const TARGETS = [
   {
     id: "wcc",
-    url: "https://websites-production-4b1d.up.railway.app/",
+    url: "https://websites-ruddy-nu.vercel.app/",
   },
   { id: "aydnnacar", url: "https://ayd-nnacar.vercel.app/" },
-  { id: "wuffbutik", url: "https://wuffbutik.vercel.app/" },
+  {
+    id: "wuffbutik",
+    url: "https://wuffbutik.vercel.app/",
+    settleMs: 4200,
+  },
   {
     id: "altitude-residence",
     url: "https://altitude-residence.vercel.app/",
@@ -33,7 +37,11 @@ const TARGETS = [
   { id: "sahra-butik", url: "https://sahrabutik.vercel.app/" },
   { id: "vela-skin-atelier", url: "https://vela-skin-atelier.vercel.app/" },
   { id: "aiahi", url: "https://www.aiahi.net/" },
-  { id: "masal-koltuk", url: "https://malatyakoltuktemizleme.com/" },
+  {
+    id: "masal-koltuk",
+    url: "https://malatyakoltuktemizleme.com/",
+    settleMs: 4500,
+  },
 ];
 
 const DESKTOP = { width: 1440, height: 900 };
@@ -44,13 +52,40 @@ const MAX_SCREENS = 4.2;
 const ABS_MAX_DESKTOP_H = 4200;
 const ABS_MAX_MOBILE_H = 3800;
 
-async function captureFixed(page, url, viewport, outPath) {
+/** CDP full-page capture sticky/fixed öğeleri her karede tekrarlar — düzleştir */
+async function flattenFixedElements(page) {
+  await page.evaluate(() => {
+    window.scrollTo(0, 0);
+    document.querySelectorAll("*").forEach((el) => {
+      if (!(el instanceof HTMLElement)) return;
+      const style = getComputedStyle(el);
+      if (style.position !== "fixed" && style.position !== "sticky") return;
+      const rect = el.getBoundingClientRect();
+      el.style.setProperty("position", "absolute", "important");
+      el.style.setProperty(
+        "top",
+        `${window.scrollY + rect.top}px`,
+        "important",
+      );
+      el.style.setProperty("left", `${rect.left}px`, "important");
+      el.style.setProperty("width", `${rect.width}px`, "important");
+      el.style.setProperty("right", "auto", "important");
+    });
+  });
+}
+
+async function captureFixed(page, url, viewport, outPath, settleMs = 0) {
   await page.setViewportSize(viewport);
   try {
     await page.goto(url, { waitUntil: "networkidle", timeout: 90_000 });
   } catch {
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: 90_000 });
     await page.waitForTimeout(2800);
+  }
+
+  if (settleMs > 0) {
+    await page.waitForTimeout(settleMs);
+    await page.evaluate(() => window.scrollTo(0, 0));
   }
 
   await page.addStyleTag({
@@ -69,7 +104,11 @@ async function captureFixed(page, url, viewport, outPath) {
       [id*="onetrust"],
       #onetrust-banner-sdk,
       .osano-cm-window,
-      [class*="privacy"] {
+      [class*="privacy"],
+      [class*="boot"],
+      [class*="preloader"],
+      [class*="loader"],
+      .ahi-boot-exit {
         display: none !important;
         visibility: hidden !important;
         opacity: 0 !important;
@@ -89,6 +128,10 @@ async function captureFixed(page, url, viewport, outPath) {
   });
   await page.waitForTimeout(500);
 
+  /* Sticky nav tekrarını önle — CDP öncesi zorunlu */
+  await flattenFixedElements(page);
+  await page.waitForTimeout(150);
+
   const metrics = await page.evaluate(() => ({
     width: Math.min(
       Math.max(
@@ -107,7 +150,7 @@ async function captureFixed(page, url, viewport, outPath) {
     viewport.width <= 500 ? ABS_MAX_MOBILE_H : ABS_MAX_DESKTOP_H;
   const maxH = Math.min(Math.round(viewport.height * MAX_SCREENS), absMax);
   const clipH = Math.min(metrics.height, maxH);
-  const clipW = Math.min(metrics.width, viewport.width);
+  const clipW = viewport.width;
 
   const client = await page.context().newCDPSession(page);
   const { data } = await client.send("Page.captureScreenshot", {
@@ -121,6 +164,19 @@ async function captureFixed(page, url, viewport, outPath) {
 
   await writeFile(outPath, Buffer.from(data, "base64"));
   console.log(`  ${path.basename(outPath)} ${clipW}×${clipH}`);
+}
+
+/** Viewport karesi — scroll şeridiyle aynı oturum, üst hizalama garantili */
+async function captureViewportThumb(page, viewport, outPath) {
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(200);
+  await page.screenshot({
+    path: outPath,
+    type: "jpeg",
+    quality: 88,
+    fullPage: false,
+  });
+  console.log(`  ${path.basename(outPath)} ${viewport.width}×${viewport.height}`);
 }
 
 async function main() {
@@ -145,6 +201,12 @@ async function main() {
       target.url,
       DESKTOP,
       path.join(dir, "desktop-scroll.jpg"),
+      target.settleMs ?? 0,
+    );
+    await captureViewportThumb(
+      page,
+      DESKTOP,
+      path.join(dir, "desktop.jpg"),
     );
 
     console.log(`→ ${target.id} mobile`);
@@ -153,6 +215,12 @@ async function main() {
       target.url,
       MOBILE,
       path.join(dir, "mobile-scroll.jpg"),
+      target.settleMs ?? 0,
+    );
+    await captureViewportThumb(
+      page,
+      MOBILE,
+      path.join(dir, "mobile.jpg"),
     );
 
     await context.close();

@@ -21,9 +21,7 @@ import { cardImageSizes } from "@/lib/editorial-layout";
  * ÜST ŞERİT: ağır tarayıcı kromu değil, tek hairline + gerçek yayın adresi.
  * "Gerçek site" okumasını mono tipografiyle veriyor, kasa taklit etmiyor.
  *
- * Hover'da sayfa kaydırma sözleşmesi DeviceMockup/ProjectScreen'de: şerit
- * yalnızca fare ile hover'da iner (`data-project-item` kapısı), dokunmatikte
- * tek bayt inmez. Bu yüzden kök `data-project-item` taşımalı.
+ * Hover'da sayfa kaydırma: `data-mock-root` üzerinde dinlenir (ProjectScreen).
  */
 export default function WorkPlate({
   project,
@@ -79,6 +77,7 @@ export default function WorkPlate({
           scroll={Boolean(project.desktopScrollImage)}
           quality={82}
           sizes={cardImageSizes(cols, 1)}
+          eagerStrip={priority}
         />
 
         {/* Adres şeridi — ekranın ÜSTÜNDE, kasa değil. */}
@@ -107,6 +106,7 @@ export default function WorkPlate({
             project={project}
             sizes="(min-width: 768px) 170px, 30vw"
             screenSizes="(min-width: 768px) 140px, 26vw"
+            eagerStrip={priority}
           />
         </div>
       ) : null}

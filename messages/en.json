@@ -177,7 +177,8 @@
     "title": "Selected projects",
     "blurb": "Websites and operational tools created for manufacturing, furniture, retail, hospitality, and appointment-based businesses.",
     "viewAll": "View full portfolio",
-    "openProject": "View project"
+    "openProject": "View project",
+    "scrollHint": "Hover to scroll homepage"
   },
   "capabilities": {
     "label": "Capabilities",
@@ -281,6 +282,8 @@
   "projectUi": {
     "view": "View project",
     "live": "Visit website",
+    "livePreview": "Site preview",
+    "livePreviewHint": "Hover over the devices to scroll through the homepage.",
     "stack": "Technology",
     "back": "Back to portfolio",
     "gallery": "Project screens",

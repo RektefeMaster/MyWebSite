@@ -177,7 +177,8 @@
     "title": "Seçili projeler",
     "blurb": "Üretim, mobilya, perakende, konaklama ve sağlık sektörleri için geliştirdiğimiz özel web platformları ve yazılım arayüzleri.",
     "viewAll": "Tüm portföy",
-    "openProject": "Projeyi aç"
+    "openProject": "Projeyi aç",
+    "scrollHint": "Ana sayfayı kaydırmak için üzerine gelin"
   },
   "capabilities": {
     "label": "Hizmetler",
@@ -281,6 +282,8 @@
   "projectUi": {
     "view": "Projeyi aç",
     "live": "Siteyi aç",
+    "livePreview": "Site önizlemesi",
+    "livePreviewHint": "Ana sayfayı kaydırmak için cihazların üzerine gelin.",
     "stack": "Teknoloji",
     "back": "İşlere dön",
     "gallery": "Ekranlar",

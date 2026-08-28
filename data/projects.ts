@@ -92,13 +92,11 @@ export const projects: Project[] = [
     name: "Wuuf Butik",
     colors: ["#111111", "#e5e5e5"],
     url: "https://wuffbutik.vercel.app/",
-    desktopImage: "/projects/wuffbutik/desktop-v3.jpg",
-    mobileImage: "/projects/wuffbutik/mobile-v3.jpg",
+    desktopImage: "/projects/wuffbutik/desktop.jpg",
+    mobileImage: "/projects/wuffbutik/mobile.jpg",
     /*
-      v4 şeritleri BOZUKTU: "mobil" şerit 1200×4077, yani masaüstü genişliğinde
-      bir yakalama telefon ekranına sıkıştırılıyordu (diğer projelerde 390×3545).
-      Telefonda sayfa değil, küçültülmüş masaüstü görünüyordu. Yeniden
-      yakalandı — capture-project-scrolls.mjs.
+      Eski v3/v4 şeritleri hizasız veya masaüstü genişliğinde mobil yakalaması
+      içeriyordu. capture-project-scrolls.mjs ile 1440/390 viewport hizalı.
     */
     desktopScrollImage: "/projects/wuffbutik/desktop-scroll.jpg",
     mobileScrollImage: "/projects/wuffbutik/mobile-scroll.jpg",
@@ -152,8 +150,8 @@ export const projects: Project[] = [
     name: "HAVVA Baklava",
     colors: ["#0a0a0a", "#c4a56a"],
     url: "https://baklavac-site.vercel.app/",
-    desktopImage: "/projects/havva-baklava/desktop-air.jpg",
-    mobileImage: "/projects/havva-baklava/mobile-clear.jpg",
+    desktopImage: "/projects/havva-baklava/desktop.jpg",
+    mobileImage: "/projects/havva-baklava/mobile.jpg",
     desktopScrollImage: "/projects/havva-baklava/desktop-scroll.jpg",
     mobileScrollImage: "/projects/havva-baklava/mobile-scroll.jpg",
     primaryLane: "web",
@@ -165,8 +163,8 @@ export const projects: Project[] = [
     name: "Sahra Butik",
     colors: ["#111111", "#d4b5b0"],
     url: "https://sahrabutik.vercel.app/",
-    desktopImage: "/projects/sahra-butik/desktop-v2.jpg",
-    mobileImage: "/projects/sahra-butik/mobile-v2.jpg",
+    desktopImage: "/projects/sahra-butik/desktop.jpg",
+    mobileImage: "/projects/sahra-butik/mobile.jpg",
     desktopScrollImage: "/projects/sahra-butik/desktop-scroll.jpg",
     mobileScrollImage: "/projects/sahra-butik/mobile-scroll.jpg",
     primaryLane: "web",
@@ -179,9 +177,9 @@ export const projects: Project[] = [
     colors: ["#f3efe6", "#c45c3a"],
     url: "https://vela-skin-atelier.vercel.app/",
     desktopImage: "/projects/vela-skin-atelier/desktop.jpg",
-    mobileImage: "/projects/vela-skin-atelier/mobile-v2.jpg",
-    desktopScrollImage: "/projects/vela-skin-atelier/desktop-scroll-v2.jpg",
-    mobileScrollImage: "/projects/vela-skin-atelier/mobile-scroll-v2.jpg",
+    mobileImage: "/projects/vela-skin-atelier/mobile.jpg",
+    desktopScrollImage: "/projects/vela-skin-atelier/desktop-scroll.jpg",
+    mobileScrollImage: "/projects/vela-skin-atelier/mobile-scroll.jpg",
     primaryLane: "web",
     lanes: ["web"],
     year: 2025,

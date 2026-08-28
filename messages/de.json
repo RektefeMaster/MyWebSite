@@ -177,7 +177,8 @@
     "title": "Ausgewählte Projekte",
     "blurb": "Websites und Systeme für Fertigung, Handel, Hotellerie und betriebliche Teams in mehreren Märkten.",
     "viewAll": "Ganzes Portfolio",
-    "openProject": "Projekt öffnen"
+    "openProject": "Projekt öffnen",
+    "scrollHint": "Hover zum Scrollen der Startseite"
   },
   "capabilities": {
     "label": "Leistungen",
@@ -281,6 +282,8 @@
   "projectUi": {
     "view": "Projekt öffnen",
     "live": "Website öffnen",
+    "livePreview": "Website-Vorschau",
+    "livePreviewHint": "Mit der Maus über die Geräte fahren, um die Startseite zu scrollen.",
     "stack": "Technologie",
     "back": "Zurück zu Projekten",
     "gallery": "Ansichten",

@@ -177,7 +177,8 @@
     "title": "Proyectos seleccionados",
     "blurb": "Sitios y sistemas para manufactura, comercio, hospitalidad y equipos de operaciones en distintos mercados.",
     "viewAll": "Portafolio completo",
-    "openProject": "Ver proyecto"
+    "openProject": "Ver proyecto",
+    "scrollHint": "Pase el cursor para desplazar la portada"
   },
   "capabilities": {
     "label": "Servicios",
@@ -281,6 +282,8 @@
   "projectUi": {
     "view": "Abrir proyecto",
     "live": "Ir al sitio",
+    "livePreview": "Vista previa del sitio",
+    "livePreviewHint": "Pase el cursor sobre los dispositivos para desplazar la página principal.",
     "stack": "Tecnología",
     "back": "Volver a proyectos",
     "gallery": "Pantallas",
