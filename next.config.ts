@@ -1,5 +1,9 @@
+import path from "node:path";
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+
+/** Home'daki stray lockfile Next'in kökü ~ olarak seçmesine yol açıyor. */
+const projectRoot = path.resolve(process.cwd());
 
 const withNextIntl = createNextIntlPlugin();
 
@@ -12,7 +16,8 @@ const nextConfig: NextConfig = {
   reactStrictMode: false,
   allowedDevOrigins: ["127.0.0.1", "localhost"],
   // a stray lockfile in the home directory makes Next guess the wrong root
-  turbopack: { root: process.cwd() },
+  outputFileTracingRoot: projectRoot,
+  turbopack: { root: projectRoot },
   compress: true,
   images: {
     formats: ["image/avif", "image/webp"],

@@ -1048,7 +1048,10 @@ html::-webkit-scrollbar-corner {
      gökyüzü kumlanıyordu). Sadece filmin dokusunu taşıyacak kadar. */
   opacity: 0.12;
   mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  /* SVG feTurbulence her kompozitte yeniden rasterize oluyordu; aynı
+     160px karo PNG bir kez boyanır, görünüm aynı sınıf ince gren. */
+  background-image: url("/hero/grain.png");
+  background-size: 160px 160px;
   animation: grain-shift 7s steps(6) infinite;
   will-change: transform;
 }

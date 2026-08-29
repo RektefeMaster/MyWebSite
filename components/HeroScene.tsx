@@ -8,6 +8,7 @@ import {
   Lightformer,
   MeshTransmissionMaterial,
   PerformanceMonitor,
+  useFBO,
 } from "@react-three/drei";
 import { HERO_FILM } from "@/lib/hero-media";
 
@@ -424,7 +425,24 @@ function GlassM({
   const phaseY = useRef(0);
   const phaseZ = useRef(0);
   const phaseFloat = useRef(0);
-  const { viewport } = useThree();
+  const blitKey = useRef("");
+  /*
+    Selector şart: çıplak `useThree()` her karede clock/pointer ile
+    re-render tetikler, MeshTransmissionMaterial her kare reconcile olur.
+    viewport yalnız resize'da değişir.
+  */
+  const viewport = useThree((s) => s.viewport);
+  const sizeW = useThree((s) => s.size.width);
+  const sizeH = useThree((s) => s.size.height);
+  const dpr = useThree((s) => s.viewport.dpr);
+  /*
+    Film durağan (poster). Transmission FBO'su mesh gizlenince yalnızca
+    o posteri içeriyor — M'in dönüşü shader'da kırılıyor, tamponun
+    her kare yeniden çizilmesine gerek yok. drei her karede 512×(h·dpr)
+    sahne geçişi yapıyordu; lite'ta bir kez bake edip donduruyoruz.
+    Masaüstü backside canlı kalsın diye orada drei'nin kendi FBO'su durur.
+  */
+  const frozenFbo = useFBO(lite ? 512 : 1, undefined, { depthBuffer: false });
   /*
     Kilit: M gökyüzünde, kelime markası altında, figür ikisinin altında.
     Mesh z=0 — viewport ölçüsü de z=0'da, yani ölçek/konum birebir yüzde
@@ -465,7 +483,29 @@ function GlassM({
 
   useFrame((state, delta) => {
     const parent = mesh.current;
-    if (!parent || reduced) return;
+    if (!parent) return;
+
+    if (lite && backdrop) {
+      const key = `${backdrop.uuid}:${sizeW}x${sizeH}@${dpr.toFixed(2)}`;
+      if (blitKey.current !== key) {
+        const { gl, scene, camera } = state;
+        const oldVis = parent.visible;
+        const oldBg = scene.background;
+        const oldTone = gl.toneMapping;
+        parent.visible = false;
+        gl.toneMapping = THREE.NoToneMapping;
+        scene.background = backdrop;
+        gl.setRenderTarget(frozenFbo);
+        gl.render(scene, camera);
+        parent.visible = oldVis;
+        scene.background = oldBg;
+        gl.setRenderTarget(null);
+        gl.toneMapping = oldTone;
+        blitKey.current = key;
+      }
+    }
+
+    if (reduced) return;
 
     // Giriş — ilk ~1sn'de yumuşak ölçek + oturma
     if (intro.current < 1) {
@@ -496,8 +536,8 @@ function GlassM({
         pointer almıyor, orada yalnızca gezinme kalıyor.
     */
     const t = phaseFloat.current;
-    const px = state.pointer.x;
-    const py = state.pointer.y;
+    const px = lite ? 0 : state.pointer.x;
+    const py = lite ? 0 : state.pointer.y;
     parent.position.x = THREE.MathUtils.lerp(
       parent.position.x,
       THREE.MathUtils.clamp(
@@ -535,23 +575,23 @@ function GlassM({
         <MeshTransmissionMaterial
           /*
             ŞEFFAF CAM + KROM.
-            · `background`: transmission geçişinde sahne arkaplanı olarak
-              filmin karesi konuyor — camın içinden tarla görünüyor.
-              Bu olmadan sahne boş kalıyor ve M opak levhaya dönüyor.
+            · Lite: dondurulmuş FBO (`buffer`) — drei her kare sahneyi
+              yeniden çizmıyor. Masaüstü: `background` + canlı FBO,
+              backside için (iç cam) kare başı geçiş şart.
             · Kromu env yansıması + clearcoat veriyor, metalness DEĞİL:
               metal transmission'ı söndürüp camı öldürüyor.
           */
-          background={backdrop ?? undefined}
+          buffer={lite ? frozenFbo.texture : undefined}
+          background={lite ? undefined : (backdrop ?? undefined)}
           samples={lite ? 2 : 12}
           /*
-            FBO üst sınır. M ekranda küçüldüğü için bu bütçe eskisinden
-            ucuz; 384 → 512 kırılmadaki merdivenlenmeyi toparlıyor.
-            640 üstüne ÇIKMA (bkz. AGENTS.md) — kazanç yok, bellek var.
+            FBO üst sınır. Lite'ta drei'nin kendi hedefi 1px — asıl tampon
+            `frozenFbo` (512). Masaüstü 1024. 640 altına inme (merdiven).
           */
-          resolution={lite ? 512 : 1024}
+          resolution={lite ? 1 : 1024}
           backside={!lite}
           backsideThickness={0.1}
-          backsideResolution={lite ? 384 : 512}
+          backsideResolution={lite ? 1 : 512}
           /*
             CAM + KROM dengesi. transmission=1 saf camdı: arkasında mutlak
             siyah gök olduğu için Fresnel dışında hiçbir şey yansıtmıyor ve
@@ -617,8 +657,8 @@ function GlassM({
  */
 /** Filmden türetilen env; hazır olana kadar elle kurulmuş yedek. */
 function FilmEnvironment() {
-  const { viewport } = useThree();
-  const map = useFilmEnvironment(viewport.width < viewport.height);
+  const portrait = useThree((s) => s.viewport.width < s.viewport.height);
+  const map = useFilmEnvironment(portrait);
   return map ? <Environment map={map} /> : <VoidEnvironment />;
 }
 
@@ -708,9 +748,10 @@ function VoidEnvironment() {
 }
 
 /**
- * Mobil/lite: 60fps + keskinlik. DPR 1.5–1.75 — eski 1.2 tabanı bulanıklık
- * yapıyordu; PerformanceMonitor bu aralıkta oynatır. Kalite düşürmeden maliyet
- * idle frameloop / scoped pointer / lazy chunk ile yönetilir.
+ * Mobil/lite: 60fps + keskinlik. Transmission FBO lite'ta dondurulduğu için
+ * kare başı maliyet tek mesh geçişi; 30fps kilidine gerek yok. DPR 1.5–1.75
+ * — eski 1.2 tabanı bulanıklık yapıyordu; PerformanceMonitor bu aralıkta
+ * oynatır. Boştaki maliyet idle frameloop / scoped pointer / lazy chunk.
  */
 const LITE_DPR_CAP = 1.75;
 /*
@@ -872,33 +913,6 @@ export default function HeroScene({
     (visible && introCovering && !baked) ||
     (bootLive && tabVisible && !reduced && !introCovering);
   const live = running || warming || bootLive;
-  /*
-    Telefonda kare hızı 30'a sabitleniyor (bkz. frameloop). Masaüstü ve
-    reduced-motion bunun dışında.
-  */
-  const capped = lite && !reduced;
-  const cappedLive = capped && live;
-
-  /*
-    30fps sürücüsü — yalnız telefonda (`capped`). frameloop "demand" olduğu
-    için sahne ancak burada invalidate edildiğinde çiziliyor; ~33ms'den önce
-    gelen rAF'ları atlıyoruz. Hero görünür değilken (live=false) döngü hiç
-    kurulmuyor, yani ekran dışında maliyet yine sıfır.
-  */
-  useEffect(() => {
-    if (!cappedLive) return;
-    let raf = 0;
-    let last = 0;
-    const FRAME_MS = 1000 / 30 - 1; // 1ms pay: 60Hz rAF'ta her ikinci kare
-    const tick = (now: number) => {
-      raf = requestAnimationFrame(tick);
-      if (now - last < FRAME_MS) return;
-      last = now;
-      invalidateRef.current?.();
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [cappedLive]);
 
   // Boot liveliness süresi — bake + font sonrası IO'ya bırak
   useEffect(() => {
@@ -919,28 +933,20 @@ export default function HeroScene({
   }, []);
 
   /*
-    M kesintisiz döndüğü için görünürken masaüstünde tek doğru mod "always";
-    "demand" dönüşü donduruyor. Telefonda ise 30Hz invalidate sürücüsü
-    (yukarıda) dönüşü kendisi besliyor, o yüzden orada "demand" doğru.
-    Boşta iş yapmamayı görünürlük sağlıyor: hero görüş dışına çıkınca
-    (veya sekme gizlenince) "never".
+    M kesintisiz döndüğü için görünürken tek doğru mod "always" (masaüstü
+    ve telefon). "demand" dönüşü donduruyor. Boşta iş yapmamayı görünürlük
+    sağlıyor: hero görüş dışına çıkınca (veya sekme gizlenince) "never".
     reduced-motion: dönüş zaten yok, tek kare yeter → "demand".
   */
-  const frameloop = reduced
-    ? "demand"
-    : live
-      ? capped
-        ? "demand"
-        : "always"
-      : "never";
+  const frameloop = reduced ? "demand" : live ? "always" : "never";
   const dprCap = lite ? LITE_DPR_CAP : DESKTOP_DPR_CAP;
   const dprFloor = lite ? LITE_DPR_FLOOR : 1;
   /*
-    PerformanceMonitor gerçek fps'i ölçüyor. 30'a sabitlerken [50,60] eşiği
-    sürekli "decline" verip DPR'ı tabana indirir, yani keskinlik kaybı olurdu.
-    Kapalı moda kendi hedefini veriyoruz.
+    Üst eşik 60 OLAMAZ: 60fps ≥ 60 → her 2.5sn incline → 4 flipflop sonra
+    onFallback DPR'ı tabana kilitler (eski 30fps kilidinde [24,31] bu yüzden
+    vardı). 70: 60Hz'de ne incline ne decline; 50'nin altında düşer.
   */
-  const monitorBounds: [number, number] = capped ? [24, 31] : [50, 60];
+  const monitorBounds: [number, number] = [50, 70];
 
   return (
     /*
@@ -1018,9 +1024,7 @@ export default function HeroScene({
         }}
       >
         <PerformanceMonitor
-          flipflops={4}
-          // Hedef 60fps: >55 iken keskinliğe (DPR cap'e) tırman, <50'de düşür.
-          // Mobilde taban 1.5 olduğundan zorlanan cihaz bile eski bulanıklığa inmez.
+          flipflops={8}
           bounds={() => monitorBounds}
           onDecline={() =>
             setDpr((d) => Math.max(dprFloor, +(d - 0.15).toFixed(2)))
@@ -1030,7 +1034,6 @@ export default function HeroScene({
               Math.min(dprCap, +(d + 0.15).toFixed(2), window.devicePixelRatio)
             )
           }
-          onFallback={() => setDpr(dprFloor)}
         />
         <GlassM reduced={reduced} lite={lite} />
         <FilmEnvironment />

@@ -29,7 +29,7 @@ UI, proje, blog ve meta metinlerinde **zorunlu**: `content-system/` + Cursor ski
   - **Env = filmin kendisi** (`useFilmEnvironment`): equirect canvas — üstte gece göğü (mutlak siyah DEĞİL; sıfırlanırsa M siyah bir deliğe düşüyor), ufukta figürün halesi, altta 4 kez aynalanarak döşenmiş tarla, + tek "ay" speküları. Canvas LDR olduğu için `envMapIntensity` yüksek (9) — eski elle konmuş Lightformer'lar HDR'dı.
   - **Malzeme dengesi**: `transmission 0.82` + `metalness 0.3`. Saf cam (1.0) siyah gökte fizik gereği görünmez oluyor; saf krom da "arkasını göstermiyor". `thickness` DÜNYA BİRİMİNDE ve M sahnede ~0.5 birim — 0.2 civarında tut, büyütürsen cam ekranın ta altındaki tarlayı örnekleyip mavi levhaya dönüyor.
   - **Hareket**: sürekli Y dönüşü (~16sn/tur; gövde `depth 0.5` — inceltirsen profilde marka kayboluyor) + Lissajous gezinme + imleç takibi (`state.pointer`, bu yüzden canvas'ta masaüstünde `pointer-events: auto`). Gezinme bandının merkezi kelime markasıyla ÇAKIŞIR — yazı ancak cam üstünden geçince okunduğu için M'i yukarı sabitleme. Toplam yol `MARK_LIMIT_*` ile kırpılır ve sınırlar M'in YARIM boyu kadar içeri çekilir (merkezi kırpmak yetmiyor; büyük gövdenin üstü nav'ın altına giriyordu).
-  - **Perf**: DPR tavan masaüstü 2 / lite 1.75, zemin 1.5; `PerformanceMonitor bounds=[50,60]`. Transmission `resolution` desktop 1024 / lite 512 (~1024 üstüne çıkarma). Env tek sefer bake. M sürekli döndüğü için görünürken `frameloop:always` — eski "pointer idle → demand" modu dönüşü donduruyordu; boştaki maliyeti görünürlük kesiyor (görüş dışı/sekme gizli → `never`). Context loss'ta Canvas remount. `reactStrictMode: false` şart.
+  - **Perf**: DPR tavan masaüstü 2 / lite 1.75, zemin 1.5; `PerformanceMonitor bounds=[50,70]` (üst 60 olursa 60fps incline + fallback DPR'ı ezer). Transmission `resolution` desktop 1024 / lite 512 (~1024 üstüne çıkarma). Lite'ta FBO **bir kez** bake (film durağan) — kare başı sahne geçişi yok. Env tek sefer bake. M sürekli döndüğü için görünürken `frameloop:always` (mobil dahil 60fps). Boştaki maliyeti görünürlük kesiyor (görüş dışı/sekme gizli → `never`). Context loss'ta Canvas remount. `reactStrictMode: false` şart.
 
 - **Hero zemini = film** (components/HeroFilm.tsx + `public/hero/` + `lib/hero-media.ts`): hero'nun tüm arka planı, ışıyan çiçek tarlasında duran humanoid; gökyüzü mutlak siyah. Marka kilidi (cam M + kelime markası) bu göğe oturuyor.
   - **Gökyüzü uzatıldı**: kaynağın üst ~%26'sı gerçek siyah (ölçüldü: ilk 120 satır max RGB 4/5). Master'lar üstten saf siyahla uzatıldı — dikiş görünmüyor (sınırda 0 → max 2) ama nav ile figürün başı arasında kilit için gerçek yer açılıyor (uzatmasız ~130px kalıyordu). `object-position: 50% 16%` da kırpma payını gökten değil zeminden alıyor.
@@ -94,12 +94,11 @@ kontrastta kalıyordu (ölçüldü, gözle de okunmuyordu).
     SSIM 0.9993 (gözle fark yok), bloklama −%28.
   - `resolution` lite'ta **512'nin altına İNME**. 384 denendi: SSIM 0.934,
     kırılmada gözle görülür merdivenlenme. Geri alındı.
-  - Telefonda kare hızı **30'a sabit** (`frameloop="demand"` + 30Hz invalidate
-    sürücüsü). M tam turunu ~18.5sn'de atıyor, 30fps'te kare başına 0.35° —
-    judder görünmüyor, transmission geçişi yarıya iniyor. Faz delta-bazlı
-    olduğu için dönüş HIZI değişmiyor. Sınırı koyarken `PerformanceMonitor`
-    `bounds`'unu da 30'a göre ayarla ([24,31]); [50,60] bırakılırsa monitör
-    sürekli "decline" verip DPR'ı tabana indirir ve keskinlik kaybolur.
+  - Telefonda **60fps** (`frameloop="always"`). Transmission FBO lite'ta
+    **bir kez** bake edilir (film poster, mesh gizli) — drei her karede
+    512×(h·dpr) sahne geçişi yapmasın. Kırılma shader'da, görüntü aynı.
+    `PerformanceMonitor bounds=[50,70]` — üst 60 olursa 60fps incline sayılıp
+    DPR tabana kilitlenir. 70: 60Hz'de sabit. 50'nin altında düşer.
   - Hero görüş dışına çıkınca çizim **0** (doğrulandı) — ekran dışı maliyet
     yok, oraya tekrar optimizasyon arama.
 - **Intro perdesi UNMOUNT OLMAZ.** `Intro` layout'ta duruyor ve bitince `null`
