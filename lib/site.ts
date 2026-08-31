@@ -5,11 +5,6 @@ import { ogAlternateLocales, ogLocale } from "@/lib/i18n-tags";
 /** Tek kaynak — iletişim ve sosyal sabitler */
 export const SITE = {
   brand: "METEK Digital",
-  /*
-    Birincil iletişim Gmail. Kurumsal adres `metehtec.com` üzerindeydi ama o
-    alan adı "Yakında" placeholder'ı sunuyor; site metektechnologies.com'da.
-    Çalışmayan bir alan adına e-posta vermek güven kırıyordu.
-  */
   email: "metehtec@gmail.com",
   phoneDisplay: "+90 506 055 02 39",
   phoneTel: "+905060550239",
