@@ -69,6 +69,13 @@ const content: Record<ServiceLanderSlug, ServiceLanderContent> = {
           "Stüdyo sitesi İngilizce, Türkçe, İspanyolca ve Almanca yayınlanır. Müşteri işi tek dil veya birkaç dil olabilir. Birden fazla pazar varsa metin her yerel için ayrı yazılır, satır satır çevirilmez.",
       },
     ],
+    related: [
+      { href: "/sehirler", label: "Türkiye geneli: 81 ilde web tasarım" },
+      { href: "/sehirler/istanbul", label: "İstanbul web tasarım ve yazılım" },
+      { href: "/sehirler/ankara", label: "Ankara web tasarım ve yazılım" },
+      { href: "/sehirler/izmir", label: "İzmir web tasarım ve yazılım" },
+      { href: "/services/seo", label: "Teknik SEO ve arama görünürlüğü" },
+    ],
     ctaLabel: "İletişim",
     ctaTitle: "İhtiyacınız olan siteyi yazın.",
     ctaBlurb:
@@ -130,6 +137,13 @@ const content: Record<ServiceLanderSlug, ServiceLanderContent> = {
         answer:
           "Rutin içerik ve kayıt güncellemesi sizin ekibinizde kalacak şekilde kurarız. Yeni özellik ve entegrasyon geliştirme işidir. Destek kapsamda yazılır, ima edilmez.",
       },
+    ],
+    related: [
+      { href: "/sehirler", label: "Türkiye geneli: 81 ilde yazılım ve panel" },
+      { href: "/sehirler/bursa", label: "Bursa sanayi için panel ve site" },
+      { href: "/sehirler/kocaeli", label: "Kocaeli sanayi için panel ve site" },
+      { href: "/sehirler/konya", label: "Konya üreticileri için panel ve site" },
+      { href: "/services/web-design", label: "Özel web tasarım hizmeti" },
     ],
     ctaLabel: "İletişim",
     ctaTitle: "Ekibin ihtiyaç duyduğu sistemi yazın.",
@@ -193,6 +207,13 @@ const content: Record<ServiceLanderSlug, ServiceLanderContent> = {
           "CRM veya özel panel kapsamdaysa ve alanlar tanımlıysa evet. Yalnızca sohbet içinde yaşayan bot, sonra ad ve saat aratan bir ekip bırakır.",
       },
     ],
+    related: [
+      { href: "/sehirler", label: "Türkiye geneli: 81 ilde otomasyon kurulumu" },
+      { href: "/sehirler/antalya", label: "Antalya turizm için WhatsApp otomasyonu" },
+      { href: "/sehirler/mugla", label: "Muğla turizm için WhatsApp otomasyonu" },
+      { href: "/sehirler/istanbul", label: "İstanbul işletmeleri için otomasyon" },
+      { href: "/services/software", label: "Yönetim paneli ve CRM yazılımı" },
+    ],
     ctaLabel: "İletişim",
     ctaTitle: "Karşılanmasını istediğiniz mesajları gösterin.",
     ctaBlurb:
@@ -254,6 +275,13 @@ const content: Record<ServiceLanderSlug, ServiceLanderContent> = {
         answer:
           "Yeniden yapım veya belirli sayfalara bağlı teknik inceleme olarak evet. Mevcut site haritası, önemsediğiniz sorgular ve adreslerin değişip değişmeyeceği iyi bir başlangıçtır.",
       },
+    ],
+    related: [
+      { href: "/sehirler", label: "Türkiye geneli: 81 ilde yerel SEO sayfaları" },
+      { href: "/sehirler/istanbul", label: "İstanbul SEO ve arama görünürlüğü" },
+      { href: "/sehirler/izmir", label: "İzmir SEO ve arama görünürlüğü" },
+      { href: "/sehirler/gaziantep", label: "Gaziantep ihracat odaklı SEO" },
+      { href: "/services/web-design", label: "Özel web tasarım hizmeti" },
     ],
     ctaLabel: "İletişim",
     ctaTitle: "Aramayı site kapsamına yazın.",

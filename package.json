@@ -11,7 +11,8 @@
     "content:evidence": "node scripts/content/verify-evidence.mjs",
     "content:lint": "node scripts/content/lint.mjs",
     "content:forbidden": "node scripts/content/check-forbidden-copy.mjs",
-    "capture:scrolls": "node scripts/capture-project-scrolls.mjs"
+    "capture:scrolls": "node scripts/capture-project-scrolls.mjs",
+    "content:cities": "node scripts/content/check-city-uniqueness.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

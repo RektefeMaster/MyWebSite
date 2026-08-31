@@ -252,6 +252,12 @@ function collectCorpus() {
     "data/glossary-content/tr.ts",
     "data/glossary-content/es.ts",
     "data/glossary-content/de.ts",
+    // Şehir yüzeyi: 81 il kaydı, 7 bölge metni ve besteleyicinin havuzları.
+    // Besteleme sonucu bu üç dosyadaki dizelerden çıkıyor, dolayısıyla
+    // yasaklı kalıp taraması burada yapılmazsa 89 sayfa gate'in dışında kalır.
+    "data/turkiye-cities.ts",
+    "data/turkiye-regions.ts",
+    "lib/city-copy.ts",
   ];
   for (const rel of dataFiles) {
     const full = path.join(ROOT, rel);

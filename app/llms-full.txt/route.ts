@@ -5,6 +5,11 @@ import { INDUSTRY_LANDERS } from "@/data/industries";
 import { blogPosts } from "@/data/blog";
 import { projects } from "@/data/projects";
 import { routing } from "@/i18n/routing";
+import {
+  CITIES,
+  CITY_HUB_PATH,
+  CITY_LOCALE,
+} from "@/data/turkiye-cities";
 
 export const dynamic = "force-static";
 
@@ -41,6 +46,16 @@ function GET() {
     .map((project) => `- ${project.name}: ${SITE.url}/work/${project.id}`)
     .join("\n");
 
+  /*
+    İl sayfaları tek dilli (tr) olduğu için locale indeksine karışmıyor;
+    ayrı bir blok olarak veriliyor. Sektör bilgisi de yazılıyor: alıntı
+    yapan model "hangi ilde ne işi var" sorusunu buradan cevaplayabiliyor.
+  */
+  const provinces = CITIES.map(
+    (city) =>
+      `- ${city.name} (${city.sectors.slice(0, 3).join(", ")}): ${SITE.url}${localePath(CITY_LOCALE, `${CITY_HUB_PATH}/${city.slug}`)}`,
+  ).join("\n");
+
   const body = [
     llmsTxt().trimEnd(),
     "",
@@ -59,6 +74,12 @@ function GET() {
     "## Selected work URLs",
     "",
     work,
+    "",
+    "## Türkiye province pages (Turkish)",
+    "",
+    "One page per province. Each describes the local economy, what businesses there need from a website, and the service that fits. Delivery is remote; distance does not change scope or price.",
+    "",
+    provinces,
     "",
   ].join("\n");
 

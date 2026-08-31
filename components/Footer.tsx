@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import WhatsAppButton from "./WhatsAppButton";
 import CircularText from "./CircularText";
@@ -8,6 +8,14 @@ const BRAND_RING = "METEK DIGITAL · ";
 
 export default function Footer() {
   const t = useTranslations("footer");
+  const locale = useLocale();
+  /*
+    Şehir yüzeyi yalnızca Türkçe yayınlanıyor, bu yüzden bağlantı da yalnızca
+    TR'de görünüyor. Diğer dillerde gösterilirse ziyaretçi 404 alıyor.
+    Anahtar dört dilde de duruyor: `content:lint` parity kontrolü eksik
+    anahtarda düşüyor.
+  */
+  const showCities = locale === "tr";
 
   return (
     <footer className="border-t border-[color:var(--chrome-edge)] bg-paper px-5 pb-[calc(5.5rem+var(--safe-bottom))] pt-12 text-foreground md:px-10 md:pb-16 md:pt-16">
@@ -127,6 +135,17 @@ export default function Footer() {
                 {t("glossary")}
               </Link>
             </li>
+            {showCities ? (
+              <li>
+                <Link
+                  scroll={false}
+                  href="/sehirler"
+                  className="inline-flex min-h-10 items-center hover:text-foreground"
+                >
+                  {t("cities")}
+                </Link>
+              </li>
+            ) : null}
           </ul>
         </div>
 

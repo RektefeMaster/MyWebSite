@@ -59,6 +59,7 @@ export default async function ServiceLanderPage({
   const nav = await getTranslations("nav");
   const tMeta = await getTranslations("meta");
   const tFaq = await getTranslations("faqUi");
+  const tIntent = await getTranslations("intent");
   const path = `/services/${slug}`;
 
   const jsonLd = graph([
@@ -95,6 +96,7 @@ export default async function ServiceLanderPage({
           { label: content.heroLabel },
         ]}
         faqHeading={tFaq("sectionTitle")}
+        relatedHeading={tIntent("related")}
       />
     </>
   );

@@ -6,6 +6,13 @@ import { blogPosts } from "@/data/blog";
 import { projects } from "@/data/projects";
 import { SERVICE_LANDERS } from "@/data/service-landers";
 import { INDUSTRY_LANDERS } from "@/data/industries";
+import {
+  CITIES,
+  CITY_REGIONS,
+  CITY_CONTENT_REVIEWED,
+  CITY_HUB_PATH,
+  CITY_LOCALE,
+} from "@/data/turkiye-cities";
 
 /** Static marketing surfaces last touched in this SEO pass. */
 export const CONTENT_UPDATED = "2026-08-28";
@@ -382,6 +389,38 @@ export function sitemapEntries(): MetadataRoute.Sitemap {
         ...(images ? { images } : {}),
       });
     }
+  }
+
+  /*
+    Şehir yüzeyi yalnızca Türkçe (bkz. lib/city-seo.ts). Bu yüzden locale
+    döngüsünün DIŞINDA ve `alternates` YOK: olmayan dil sürümüne hreflang
+    vermek 404'e işaret eden bir dil etiketi bırakıyor.
+  */
+  entries.push({
+    url: absoluteUrl(CITY_LOCALE, CITY_HUB_PATH),
+    lastModified: CITY_CONTENT_REVIEWED,
+    changeFrequency: "monthly",
+    priority: 0.88,
+  });
+
+  for (const region of CITY_REGIONS) {
+    entries.push({
+      url: absoluteUrl(CITY_LOCALE, `${CITY_HUB_PATH}/bolge/${region}`),
+      lastModified: CITY_CONTENT_REVIEWED,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    });
+  }
+
+  for (const city of CITIES) {
+    entries.push({
+      url: absoluteUrl(CITY_LOCALE, `${CITY_HUB_PATH}/${city.slug}`),
+      lastModified: CITY_CONTENT_REVIEWED,
+      changeFrequency: "monthly",
+      // Tier, ilin gerçek talep hacmini yansıtıyor; hepsini 0.8 yapmak
+      // öncelik sinyalini tamamen anlamsız kılıyor.
+      priority: city.tier === 1 ? 0.82 : city.tier === 2 ? 0.74 : 0.66,
+    });
   }
 
   return entries;

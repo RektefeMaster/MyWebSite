@@ -14,6 +14,7 @@ UI, proje, blog ve meta metinlerinde **zorunlu**: `content-system/` + Cursor ski
 
 - `npm run content:inventory` — yüzey envanteri
 - `npm run content:lint` — parity / empty / forbidden / duplicate meta / length raporu
+- `npm run content:cities` — 81 şehir sayfası için benzersizlik, uzunluk ve tekrar gate'i (lint hattının içinde de çalışır)
 
 ## Komutlar
 
@@ -54,6 +55,15 @@ UI, proje, blog ve meta metinlerinde **zorunlu**: `content-system/` + Cursor ski
   - JSON-LD (`app/[locale]/layout.tsx` body): `ProfessionalService`/`Organization` + `WebSite` grafiği. `<` → `<` ile kaçırılır.
   - Twitter kartı + `metadataBase` layout `generateMetadata` içinde.
   - `proxy.ts` matcher metadata rotalarını (icon vb.) i18n yönlendirmesinden muaf tutar — yoksa 307.
+- **Şehir yüzeyi (81 il, YALNIZCA Türkçe)**: `/tr/sehirler` (ülke hub'ı) → `/tr/sehirler/bolge/{7 bölge}` → `/tr/sehirler/{81 il}`. Veri `data/turkiye-cities.ts`, bölge metni `data/turkiye-regions.ts`, metin besteleyici `lib/city-copy.ts`, şema `lib/city-seo.ts`.
+  - **Neden ara katman var**: tek hub 15-25 alt sayfadan sonra bağ değerini dağıtıyor. Bölge hub'ları 81 sayfayı ana sayfadan üç tık mesafede tutuyor; il sayfaları ayrıca komşu illere bağlanıyor.
+  - **Neden tek dilli**: "Sivas web tasarım" araması Türkçe yapılıyor. Dört dile çıkarmak 324 sayfa üretip hiçbirine okuyucu getirmiyor. Tek dilli sayfada **hreflang HİÇ verilmez** (`trOnlyPageMeta`), yalnızca kendine dönen canonical yazılır; olmayan sürüme hreflang vermek 404'e işaret eden dil etiketi bırakıyor. Rotalarda `dynamicParams = false` + `locale !== "tr"` → 404.
+  - **Doorway riski ÖLÇÜLÜYOR, varsayılmıyor**: `npm run content:cities` (lint hattına bağlı). Ölçtükleri: sayfa çiftleri arası 5-gram Jaccard (eşik %50), sayfaya özgü pasaj oranı (taban %35) ve özgün kelime sayısı (taban 190), meta benzersizliği ve uzunluğu, aynı sayfadaki soru tekrarı, aynı iddianın sayfa içinde tekrarı.
+  - **Ölçüm tarihçesi (eşiği düşürmeden önce oku)**: ilk sürümde dört ortak bölüm her ilde birebir aynıydı → 85 sayfa çifti %55 üstünde, özgün oran **%23**. Aynı cümleyi farklı yazmak oranı KIPIRDATMADI (%54,8'de takıldı). Oranı yükselten üç şey: (1) ortak bölümlerin `tier`/`angle`/`region`'a göre gerçekten farklılaşması, (2) il başına elle yazılan `faq2` ve `build` alanları, (3) genel SSS'lerin (fiyat, uzaktan çalışma, hazır tema) sayfadan çıkarılıp `/faq` ile hizmet sayfalarına bırakılması. Sonuç: özgün oran **%41 medyan**, özgün kelime **248 medyan**, en yüksek çift benzerliği **%41**.
+  - **Sektörde dolaşan "%60 özgün içerik" rakamı Google'ın yayımladığı bir eşik değil.** 81 ilde %60'a çıkmak sayfa başına ~450 elle yazılmış kelime, yani ~36 bin kelime demek; o hacimde kalite düşüyor. Ortak kalan kısım gizlenmiş kopya değil, her meşru çok lokasyonlu sitede bulunan hizmet anlatımı.
+  - **Yeni il eklerken**: `economy` / `demand` / `anchor` / `faq` / `faq2` / `build` alanlarının HEPSİ elle ve o ile özgü yazılır. Şablona il adı yazmak doorway üretiyor. `sectors` ve `hubs` gerçek olacak; uydurma OSB yazma. Ekledikten sonra `npm run content:cities` çalıştır.
+  - **Türkçe ekler türetiliyor** (`lib/tr-suffix.ts`): ünlü uyumu + sert ünsüz benzeşmesi. Tek istisna `-eli` ile biten iller (Kocaeli, Kırklareli, Tunceli) kaynaştırma `n`'si alıyor. Ek elle yazma, fonksiyonu kullan.
+  - **GEO tarafı**: il başına dört `Service` düğümü (site / yazılım / otomasyon / SEO) + `areaServed` City, FAQPage, BreadcrumbList ve `dateModified` (`CITY_CONTENT_REVIEWED`). Tazelik sayılıyor: uzun süre dokunulmayan sayfa alıntılanma sırasını kaybediyor, tarihi güncellerken içeriği de gözden geçir.
 - **i18n**: en (varsayılan) / tr / es / de. Rotalama `i18n/routing.ts` (`localePrefix: as-needed` → `/` = EN), metinler `messages/*.json`, proxy.ts locale yönlendirmesi yapar.
 - **Projeler**: `data/projects.ts` içindeki liste; kartlarda gerçekçi laptop+telefon mockup (`ProjectCard.tsx`). Ekran görselleri: `desktopImage` / `mobileImage` → dosyalar `public/projects/{id}/`. Path yoksa renkli placeholder.
 - **Blog**: meta `data/blog.ts`, yazılar `data/blog-content/{tr,en,es,de}.ts`. Liste `/blog`, detay `/blog/[slug]`.

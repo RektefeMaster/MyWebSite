@@ -32,6 +32,8 @@ function run(file, extraArgs = []) {
 /** @type {{ name: string, status: number }[]} */
 const results = [];
 results.push({ name: "inventory", status: run("inventory-copy.mjs") });
+// Şehir yüzeyi: benzersizlik, uzunluk, meta ve SSS tekrarı.
+results.push({ name: "cities", status: run("check-city-uniqueness.mjs") });
 results.push({
   name: "evidence",
   status: run(
