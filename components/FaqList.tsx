@@ -22,7 +22,7 @@ export default function FaqList({
           {items.map((item, index) => (
             <Reveal key={item.question} delay={index * 30}>
               <article className="grid grid-cols-12 gap-x-4 gap-y-4 border-t border-foreground/25 py-8 md:gap-x-6 md:py-12">
-                <p className="col-span-2 font-mono text-[10px] font-bold tabular-nums tracking-[0.16em] text-foreground/40 md:col-span-1">
+                <p className="col-span-2 font-mono text-[10px] font-bold tabular-nums tracking-[0.16em] text-foreground/62 md:col-span-1">
                   {String(index + 1).padStart(2, "0")}
                 </p>
                 <h3 className="font-display type-display col-span-10 max-w-[28ch] text-[clamp(1.35rem,2.4vw,2.15rem)] leading-[1.4] tracking-[-0.03em] md:col-span-5">

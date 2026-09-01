@@ -27,10 +27,10 @@ export default function Manifesto() {
             <Reveal>
               <DecryptedText
                 text={t("label")}
-                className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-band-fg/45"
+                className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-band-fg/55"
               />
             </Reveal>
-            <div className="mt-3 flex min-h-[1.5rem] items-center gap-1.5 font-mono text-[11px] text-band-fg/45">
+            <div className="mt-3 flex min-h-[1.5rem] items-center gap-1.5 font-mono text-[11px] text-band-fg/55">
               <span className="font-bold text-accent">›</span>
               <TextType
                 text={[
@@ -68,9 +68,9 @@ export default function Manifesto() {
               <div className="flex items-center justify-between">
                 <DecryptedText
                   text={String(i + 1).padStart(2, "0")}
-                  className="font-mono text-xs font-bold tracking-[0.18em] text-band-fg/40"
+                  className="font-mono text-xs font-bold tracking-[0.18em] text-band-fg/55"
                 />
-                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-band-fg/30">
+                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-band-fg/55">
                   Standart
                 </span>
               </div>
@@ -94,7 +94,7 @@ export default function Manifesto() {
             />
           </Reveal>
           <Reveal delay={140}>
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-band-fg/40">
+            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-band-fg/55">
               Özel Web ve Yazılım Stüdyosu
             </span>
           </Reveal>

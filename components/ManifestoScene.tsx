@@ -20,7 +20,7 @@ export default function ManifestoScene() {
         <Reveal className="col-span-3 md:col-span-2">
           <DecryptedText
             text={t("label")}
-            className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-foreground/35"
+            className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-foreground/62"
           />
         </Reveal>
         <div className="col-span-9 col-start-4 md:col-span-9 md:col-start-4">

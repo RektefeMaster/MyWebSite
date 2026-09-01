@@ -97,7 +97,7 @@ export default async function ContactPage({
               delay={index * 40}
               className="col-span-12 border-t border-foreground/20 pt-5 md:col-span-4"
             >
-              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/40">
+              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/62">
                 {channel.label}
               </p>
               <a
@@ -123,7 +123,7 @@ export default async function ContactPage({
         className="scroll-mt-[var(--nav-offset)] bg-band px-5 py-14 text-band-fg md:px-10 md:py-20"
       >
         <div className="mx-auto max-w-7xl">
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-band-fg/36">
+          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-band-fg/55">
             {t("formLabel")}
           </p>
           <h2 className="mt-6 max-w-[14ch] font-display type-display text-[clamp(1.15rem,6.5vw,4.5rem)] sm:text-[clamp(2.4rem,5vw,4.5rem)] leading-[1.4] tracking-[-0.04em]">

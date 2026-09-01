@@ -156,7 +156,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
                 text={t("title")}
                 className="font-display type-display text-[clamp(1.15rem,6.5vw,5.75rem)] sm:text-[clamp(2.5rem,7vw,5.75rem)] font-bold leading-[1.44] tracking-[-0.045em]"
               />
-              <div className="mt-3 flex min-h-[1.5rem] items-center gap-2 font-mono text-xs text-foreground/45">
+              <div className="mt-3 flex min-h-[1.5rem] items-center gap-2 font-mono text-xs text-foreground/62">
                 <span className="font-bold text-accent">›</span>
                 <TextType
                   text={[
@@ -178,7 +178,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
             </div>
             <p
               aria-hidden
-              className="justify-self-start font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-foreground/35 md:col-span-4 md:justify-self-end"
+              className="justify-self-start font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-foreground/62 md:col-span-4 md:justify-self-end"
             >
               01—{String(items.length).padStart(2, "0")}
             </p>
@@ -204,7 +204,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
                   onClick={() => toggle(i)}
                   className="group grid w-full grid-cols-[3rem_minmax(0,1fr)_2rem] items-start gap-2 py-7 text-left text-foreground transition-opacity duration-300 md:grid-cols-[6rem_minmax(0,1fr)_3rem] md:items-center md:gap-6 md:py-10 [@media(hover:hover)_and_(pointer:fine)]:hover:opacity-60"
                 >
-                  <span className="pt-1 font-mono text-[10px] font-bold tracking-[0.2em] text-foreground/40 md:pt-0 md:text-xs">
+                  <span className="pt-1 font-mono text-[10px] font-bold tracking-[0.2em] text-foreground/62 md:pt-0 md:text-xs">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span
@@ -218,7 +218,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
                   </span>
                   <span
                     aria-hidden
-                    className="justify-self-end font-mono text-xl font-light leading-none text-foreground/45 md:text-2xl"
+                    className="justify-self-end font-mono text-xl font-light leading-none text-foreground/62 md:text-2xl"
                   >
                     {isOpen ? "−" : "+"}
                   </span>
@@ -257,7 +257,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
                       </Link>
                     </div>
                     <div className="md:col-start-8 md:col-span-5">
-                      <p className="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/35">
+                      <p className="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/62">
                         {t("included")}
                       </p>
                       <ol
@@ -271,7 +271,7 @@ export default function Services({ variant = "full" }: ServicesProps) {
                           >
                             <span
                               aria-hidden
-                              className="font-mono text-[9px] font-bold tracking-[0.14em] text-foreground/30"
+                              className="font-mono text-[9px] font-bold tracking-[0.14em] text-foreground/62"
                             >
                               {String(tagIndex + 1).padStart(2, "0")}
                             </span>

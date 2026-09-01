@@ -58,7 +58,7 @@ export default function ProjectCard({
           showPhone ? "mt-6 md:mt-8" : ""
         }`}
       >
-        <div className="flex items-baseline justify-between gap-4 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-band-fg/32">
+        <div className="flex items-baseline justify-between gap-4 font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-band-fg/55">
           {detail?.tag ? (
             <DecryptedText
               text={detail.tag}
@@ -77,7 +77,7 @@ export default function ProjectCard({
               animateOn="inViewHover"
               speed={35}
               maxIterations={8}
-              className="text-band-fg/40"
+              className="text-band-fg/55"
               encryptedClassName="text-accent/70"
             />
           ) : null}
@@ -92,7 +92,7 @@ export default function ProjectCard({
           </Link>
         </h3>
         {punch || detail?.summary ? (
-          <p className="mt-4 max-w-[40ch] text-sm leading-relaxed text-band-fg/48">
+          <p className="mt-4 max-w-[40ch] text-sm leading-relaxed text-band-fg/55">
             {punch ?? detail?.summary}
           </p>
         ) : null}
@@ -110,7 +110,7 @@ export default function ProjectCard({
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-10 items-center gap-2 text-band-fg/38 transition-colors hover:text-band-fg/70"
+              className="inline-flex min-h-10 items-center gap-2 text-band-fg/55 transition-colors hover:text-band-fg/70"
             >
               {t("live")} <span aria-hidden>↗</span>
             </a>

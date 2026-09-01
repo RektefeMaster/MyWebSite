@@ -23,10 +23,10 @@ export default function FeaturedCase() {
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-12 gap-x-5 md:gap-x-6">
           <Reveal className="col-span-12 md:col-span-4 md:pt-2">
-            <p className="border-t border-foreground/20 pt-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/40">
+            <p className="border-t border-foreground/20 pt-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/62">
               <DecryptedText text={t("client")} animateOn="inViewHover" />
             </p>
-            <h2 className="mt-8 font-display type-display text-[clamp(1.15rem,6vw,5.4rem)] sm:text-[clamp(2.8rem,6vw,5.4rem)] leading-[1.44] tracking-[-0.05em]">
+            <h2 className="mt-8 font-display type-display text-[clamp(1.15rem,6vw,5.4rem)] sm:text-[clamp(2.3rem,4.7vw,4.4rem)] leading-[1.44] tracking-[-0.05em]">
               {t("title")}
             </h2>
             <p className="mt-3 font-mono text-[11px] font-bold text-accent">
@@ -42,7 +42,7 @@ export default function FeaturedCase() {
                   key={item}
                   className="grid grid-cols-[2.5rem_1fr] gap-3 border-b border-foreground/18 py-4 text-sm leading-relaxed"
                 >
-                  <span className="font-mono text-[10px] font-bold tabular-nums text-foreground/35">
+                  <span className="font-mono text-[10px] font-bold tabular-nums text-foreground/62">
                     <DecryptedText
                       text={String(index + 1).padStart(2, "0")}
                       animateOn="inViewHover"
@@ -87,7 +87,7 @@ export default function FeaturedCase() {
                   <p className="text-lg font-bold leading-tight tracking-tight">
                     {t("sceneTitle")}
                   </p>
-                  <p className="text-sm leading-relaxed text-foreground/52">
+                  <p className="text-sm leading-relaxed text-foreground/68">
                     {t("sceneBody")}
                   </p>
                 </figcaption>

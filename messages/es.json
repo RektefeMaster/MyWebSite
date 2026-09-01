@@ -539,6 +539,7 @@
     "email": "Correo",
     "interestedIn": "Me interesa",
     "message": "Objetivo, plazo y funciones necesarias",
+    "messageLabel": "Resumen del proyecto",
     "send": "Enviar por WhatsApp",
     "sentHint": "WhatsApp se abrirá con su mensaje.",
     "errorName": "Escriba su nombre, por favor.",

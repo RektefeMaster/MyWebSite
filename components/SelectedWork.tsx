@@ -117,7 +117,7 @@ function MockStage({
       </div>
       <p
         aria-hidden
-        className="home-mock-stage__hint pointer-events-none absolute bottom-3 left-1/2 z-10 -translate-x-1/2 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-band-fg/28 md:bottom-4"
+        className="home-mock-stage__hint pointer-events-none absolute bottom-3 left-1/2 z-10 -translate-x-1/2 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-band-fg/55 md:bottom-4"
       >
         {t("scrollHint")}
       </p>
@@ -154,7 +154,7 @@ function WorkSpread({
 
       <p
         data-work-folio
-        className="col-span-2 font-mono text-[10px] font-bold tabular-nums tracking-[0.18em] text-band-fg/38 md:col-span-1"
+        className="col-span-2 font-mono text-[10px] font-bold tabular-nums tracking-[0.18em] text-band-fg/55 md:col-span-1"
       >
         {String(index + 1).padStart(2, "0")}
       </p>
@@ -165,7 +165,7 @@ function WorkSpread({
 
       <div
         data-work-meta
-        className="col-span-10 col-start-3 mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-band-fg/38 md:col-span-3 md:col-start-10 md:mt-1 md:justify-end md:text-right"
+        className="col-span-10 col-start-3 mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-band-fg/55 md:col-span-3 md:col-start-10 md:mt-1 md:justify-end md:text-right"
       >
         {copy?.tag ? <span>{copy.tag}</span> : null}
         {project.year ? <span>{project.year}</span> : null}
@@ -336,7 +336,7 @@ export default function SelectedWork() {
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-12 gap-x-5 border-t border-band-fg/18 pt-6 md:gap-x-6 md:pt-7">
           <div className="col-span-12 md:col-span-9">
-            <p className="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-band-fg/38">
+            <p className="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-band-fg/55">
               {t("label")}
             </p>
             <WordReveal

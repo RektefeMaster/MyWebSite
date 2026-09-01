@@ -1,4 +1,4 @@
-import { loc, gen, dat } from "@/lib/tr-suffix";
+import { loc, gen } from "@/lib/tr-suffix";
 import {
   type CityRecord,
   type CityAngle,
@@ -221,8 +221,6 @@ function localSearchSection(city: CityRecord): CitySection {
  * değiştiği için örnek soru da `angle`'dan geliyor.
  */
 function geoSection(city: CityRecord): CitySection {
-  const where = loc(city.name);
-
   const example: Record<CityAngle, string> = {
     metropol: `"${loc(city.name)} kurumsal web sitesi kim yapıyor" gibi bir soruda model, hizmeti adlandıran ve fiyat mantığını açıklayan sayfayı alıntılıyor; slogan yazan sayfayı atlıyor.`,
     sanayi: `"${city.name} ${city.sectors[0]} üreticisi" gibi bir soruda model, kapasite ve ürün bilgisini yazılı veren sayfaları topluyor. Bilgisi yalnızca PDF katalogda duran firma bu derlemeye hiç girmiyor.`,

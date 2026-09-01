@@ -45,15 +45,15 @@ export default function Footer() {
             </span>
           </Link>
           <p className="mt-5 text-sm font-bold text-ink">{t("brand")}</p>
-          <p className="mt-1 text-xs text-foreground/45">{t("founder")}</p>
-          <p className="mt-4 max-w-xs text-sm text-foreground/45">{t("tagline")}</p>
+          <p className="mt-1 text-xs text-foreground/62">{t("founder")}</p>
+          <p className="mt-4 max-w-xs text-sm text-foreground/62">{t("tagline")}</p>
         </div>
 
         <div>
           <h2 className="mb-4 text-xs font-bold uppercase tracking-wide">
             {t("quickLinks")}
           </h2>
-          <ul className="space-y-1 text-sm text-foreground/60">
+          <ul className="space-y-1 text-sm text-foreground/62">
             <li>
               <Link
                 scroll={false}
@@ -153,10 +153,10 @@ export default function Footer() {
           <h2 className="mb-4 text-xs font-bold uppercase tracking-wide">
             {t("contact")}
           </h2>
-          <p className="mb-3 text-sm leading-relaxed text-foreground/60">
+          <p className="mb-3 text-sm leading-relaxed text-foreground/62">
             {t("location")}
           </p>
-          <ul className="space-y-1 text-sm text-foreground/60">
+          <ul className="space-y-1 text-sm text-foreground/62">
             <li>
               <a
                 href={`mailto:${SITE.email}`}
@@ -180,7 +180,7 @@ export default function Footer() {
           <h2 className="mb-4 text-xs font-bold uppercase tracking-wide">
             {t("follow")}
           </h2>
-          <ul className="space-y-2 text-sm text-foreground/60">
+          <ul className="space-y-2 text-sm text-foreground/62">
             <li>
               <a
                 href={SITE.instagram}
@@ -198,7 +198,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 max-w-7xl border-t border-foreground/10 pt-6 text-xs text-foreground/40">
+      <div className="mx-auto mt-12 max-w-7xl border-t border-foreground/10 pt-6 text-xs text-foreground/62">
         © {new Date().getFullYear()} {SITE.brand} — {t("rights")}
       </div>
     </footer>

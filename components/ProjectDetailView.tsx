@@ -83,7 +83,7 @@ export default async function ProjectDetailView({
           <Reveal>
             <nav
               aria-label={a11y("breadcrumb")}
-              className="flex flex-wrap items-center gap-2 border-b border-foreground/20 pb-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground/45"
+              className="flex flex-wrap items-center gap-2 border-b border-foreground/20 pb-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground/62"
             >
               <Link
                 scroll={false}
@@ -107,7 +107,7 @@ export default async function ProjectDetailView({
 
           <div className="mt-8 grid grid-cols-12 gap-x-5 gap-y-8 md:mt-10 md:gap-x-6">
             <Reveal className="col-span-12 md:col-span-2">
-              <div className="border-t border-foreground/20 pt-4 font-mono text-[10px] font-bold uppercase leading-relaxed tracking-[0.16em] text-foreground/42">
+              <div className="border-t border-foreground/20 pt-4 font-mono text-[10px] font-bold uppercase leading-relaxed tracking-[0.16em] text-foreground/62">
                 <p>{detail.tag}</p>
                 {project.year ? <p className="mt-2">{project.year}</p> : null}
               </div>
@@ -146,7 +146,7 @@ export default async function ProjectDetailView({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={whatsapp("label")}
-                  className="group flex min-h-14 items-center justify-between border-b border-foreground/20 py-3 text-sm text-foreground/58 sm:pl-5"
+                  className="group flex min-h-14 items-center justify-between border-b border-foreground/20 py-3 text-sm text-foreground/68 sm:pl-5"
                 >
                   {whatsapp("cta")} <span aria-hidden>↗</span>
                 </a>
@@ -218,7 +218,7 @@ export default async function ProjectDetailView({
                   key={item}
                   className="grid grid-cols-[2.5rem_1fr] gap-3 border-b border-foreground/20 py-4 text-[15px] leading-relaxed text-foreground/68"
                 >
-                  <span className="font-mono text-[10px] font-bold text-foreground/35">
+                  <span className="font-mono text-[10px] font-bold text-foreground/62">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <span>{item}</span>
@@ -239,7 +239,7 @@ export default async function ProjectDetailView({
                   key={item}
                   className="grid grid-cols-[2.5rem_1fr] gap-3 border-b border-foreground/20 py-4 text-[15px] leading-relaxed text-foreground/68"
                 >
-                  <span className="font-mono text-[10px] font-bold text-foreground/35">
+                  <span className="font-mono text-[10px] font-bold text-foreground/62">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <span>{item}</span>
@@ -261,7 +261,7 @@ export default async function ProjectDetailView({
 
         <Reveal delay={95}>
           <section className="grid grid-cols-12 gap-x-5 gap-y-5 border-b border-foreground/25 py-10 md:gap-x-6 md:py-14">
-            <h2 className="col-span-3 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/40 md:col-span-2">
+            <h2 className="col-span-3 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/62 md:col-span-2">
               {t("stack")}
             </h2>
             <p className="col-span-9 text-sm leading-loose text-foreground/65 md:col-span-8 md:col-start-5 md:text-base">

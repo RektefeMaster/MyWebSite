@@ -80,7 +80,7 @@ export default function ProjectLiveHero({
       <div className="mx-auto max-w-7xl px-5 py-10 md:px-10 md:py-14">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4 border-b border-band-fg/15 pb-5">
           <div>
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-band-fg/40">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-band-fg/55">
               {t("livePreview")}
             </p>
             <p className="mt-2 text-sm text-band-fg/55">{t("livePreviewHint")}</p>

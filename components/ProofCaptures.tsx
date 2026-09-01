@@ -38,7 +38,7 @@ export default function ProofCaptures({ proof }: ProofCapturesProps) {
         <Reveal>
           <div className="grid grid-cols-12 gap-x-5 gap-y-8 border-t border-foreground/25 pt-8 md:gap-x-6 md:pt-10">
             <div className="col-span-12 md:col-span-5">
-              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/40">
+              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/62">
                 {proof.kicker}
               </p>
               <h2 className="font-display type-display mt-5 max-w-[14ch] text-[clamp(2.2rem,4.6vw,4.6rem)] leading-[1.4] tracking-[-0.045em]">
@@ -78,10 +78,10 @@ export default function ProofCaptures({ proof }: ProofCapturesProps) {
                     />
                   </div>
                   <figcaption className="border-b border-foreground/18 py-3">
-                    <p className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-foreground/40">
+                    <p className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-foreground/62">
                       {shot.source}
                     </p>
-                    <p className="mt-1.5 text-[13px] leading-relaxed text-foreground/58">
+                    <p className="mt-1.5 text-[13px] leading-relaxed text-foreground/68">
                       {shot.caption}
                     </p>
                   </figcaption>
@@ -93,7 +93,7 @@ export default function ProofCaptures({ proof }: ProofCapturesProps) {
 
         {proof.note ? (
           <Reveal delay={80}>
-            <p className="mt-10 max-w-[62ch] font-mono text-[11px] leading-relaxed text-foreground/45 md:mt-12">
+            <p className="mt-10 max-w-[62ch] font-mono text-[11px] leading-relaxed text-foreground/62 md:mt-12">
               {proof.note}
             </p>
           </Reveal>

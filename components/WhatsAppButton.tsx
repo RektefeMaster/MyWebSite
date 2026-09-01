@@ -30,7 +30,7 @@ export default function WhatsAppButton({
       break;
     case "footer":
       styles =
-        "inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-foreground/60 hover:text-foreground";
+        "inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-foreground/62 hover:text-foreground";
       break;
     case "outline":
       styles =

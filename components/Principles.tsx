@@ -59,7 +59,7 @@ export default function Principles() {
       <div className="mx-auto max-w-7xl">
         <div
           aria-hidden
-          className="mb-6 flex items-end justify-between border-b border-foreground/20 pb-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/35 md:mb-8"
+          className="mb-6 flex items-end justify-between border-b border-foreground/20 pb-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/62 md:mb-8"
         >
           <DecryptedText text="01" animateOn="inViewHover" />
           <DecryptedText
@@ -95,7 +95,7 @@ export default function Principles() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span
-                  className={`min-w-0 font-display type-display text-[clamp(1.75rem,4vw,3.75rem)] font-bold leading-[1.46] tracking-[-0.035em] transition-transform duration-300 ${
+                  className={`min-w-0 font-display type-display text-[clamp(1.4rem,3.2vw,3.6rem)] font-bold leading-[1.46] tracking-[-0.035em] transition-transform duration-300 ${
                     isOpen ? "translate-x-1 md:translate-x-2" : ""
                   }`}
                 >
@@ -105,7 +105,7 @@ export default function Principles() {
                   className={`col-start-2 min-w-0 max-w-xl self-center text-sm leading-relaxed transition-colors md:col-start-3 md:text-base ${
                     isOpen
                       ? "text-background/65"
-                      : "text-foreground/45 [@media(hover:hover)_and_(pointer:fine)]:group-hover:text-foreground/65"
+                      : "text-foreground/62 [@media(hover:hover)_and_(pointer:fine)]:group-hover:text-foreground/65"
                   }`}
                 >
                   {item.body}

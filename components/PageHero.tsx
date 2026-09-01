@@ -172,7 +172,7 @@ export default function PageHero({
           <nav
             data-ph-meta
             aria-label={t("breadcrumb")}
-            className="pointer-events-auto flex flex-wrap items-center gap-x-2 gap-y-1 border-b border-foreground/20 pb-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground/45"
+            className="pointer-events-auto flex flex-wrap items-center gap-x-2 gap-y-1 border-b border-foreground/20 pb-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground/62"
           >
             {crumbs.map((crumb, index) => (
               <span
@@ -203,7 +203,7 @@ export default function PageHero({
         <div className="mt-8 grid grid-cols-12 gap-x-4 gap-y-8 md:mt-12 md:gap-x-6">
           <p
             data-ph-meta
-            className="col-span-12 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/45 md:col-span-2 md:pt-3"
+            className="col-span-12 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/62 md:col-span-2 md:pt-3"
           >
             <DecryptedText text={label} animateOn="inViewHover" />
           </p>

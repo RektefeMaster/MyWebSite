@@ -167,7 +167,7 @@
     "shotBrands": "Google aramasında MASAL en üstte",
     "sceneLabel": "Sıradaki",
     "sceneTitle": "Maliyet değil, yatırım yapın!",
-    "sceneBody": "Sizin de işletmeniz veya bireysel işleriniz yapay zekalar ve Google aramaları tarafından görünüp potansiyel müşterilerinizin karşısına çıkmasını istiyorsanız bize ulaşın!"
+    "sceneBody": "İşletmenizin veya kendi işinizin yapay zeka yanıtlarında ve Google aramalarında görünüp potansiyel müşterilerinizin karşısına çıkmasını istiyorsanız bize ulaşın!"
   },
   "principles": {
     "label": "İlkeler",
@@ -539,6 +539,7 @@
     "email": "E-posta",
     "interestedIn": "İlgilendiğiniz alan",
     "message": "Hedefiniz, mevcut durumunuz ve planladığınız teslim dönemi hakkında birkaç satır",
+    "messageLabel": "Proje özeti",
     "send": "WhatsApp ile gönder",
     "sentHint": "Mesajınızla birlikte WhatsApp açılıyor.",
     "errorName": "Devam etmek için adınızı yazın.",

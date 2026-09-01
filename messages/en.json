@@ -539,6 +539,7 @@
     "email": "Email address",
     "interestedIn": "Project type",
     "message": "Describe the goal, timing, and what you need to build",
+    "messageLabel": "Project brief",
     "send": "Continue on WhatsApp",
     "sentHint": "Opening WhatsApp with your project details.",
     "errorName": "Enter your name.",

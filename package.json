@@ -12,7 +12,8 @@
     "content:lint": "node scripts/content/lint.mjs",
     "content:forbidden": "node scripts/content/check-forbidden-copy.mjs",
     "capture:scrolls": "node scripts/capture-project-scrolls.mjs",
-    "content:cities": "node scripts/content/check-city-uniqueness.mjs"
+    "content:cities": "node scripts/content/check-city-uniqueness.mjs",
+    "check:wordbreaks": "node scripts/content/check-word-breaks.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

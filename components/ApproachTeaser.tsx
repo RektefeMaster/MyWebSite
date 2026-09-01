@@ -35,7 +35,7 @@ export default function ApproachTeaser() {
             <li key={step.title} className="border-b border-foreground/20">
               <Reveal delay={index * 45}>
                 <div className="grid grid-cols-[3rem_1fr] gap-x-4 py-6 md:grid-cols-12 md:gap-x-6 md:py-8">
-                  <span className="font-mono text-[10px] font-bold tabular-nums tracking-[0.14em] text-foreground/35 md:col-span-1 md:pt-2">
+                  <span className="font-mono text-[10px] font-bold tabular-nums tracking-[0.14em] text-foreground/62 md:col-span-1 md:pt-2">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <h3

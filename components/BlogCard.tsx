@@ -61,13 +61,13 @@ export default function BlogCard({
             featured ? "md:min-h-[520px]" : "content-start"
           }`}
         >
-          <div className="col-span-12 flex items-start justify-between gap-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-foreground/45">
+          <div className="col-span-12 flex items-start justify-between gap-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-foreground/62">
             <DecryptedText
               text={String(index).padStart(2, "0")}
               animateOn="inViewHover"
               speed={35}
               maxIterations={8}
-              className="font-mono tabular-nums text-foreground/60"
+              className="font-mono tabular-nums text-foreground/62"
               encryptedClassName="text-accent font-mono"
             />
             <span className="flex flex-wrap justify-end gap-x-2 gap-y-1 text-right">
@@ -76,7 +76,7 @@ export default function BlogCard({
                 animateOn="inViewHover"
                 speed={40}
                 maxIterations={10}
-                className="text-foreground/60"
+                className="text-foreground/62"
                 encryptedClassName="text-accent"
               />
               <span aria-hidden>/</span>
@@ -128,7 +128,7 @@ export default function BlogCard({
                 {title}
               </Heading>
               <p
-                className={`mt-5 max-w-[52ch] text-sm leading-relaxed text-foreground/60 ${
+                className={`mt-5 max-w-[52ch] text-sm leading-relaxed text-foreground/62 ${
                   textOnly ? "md:max-w-[62ch]" : "md:text-base"
                 }`}
               >

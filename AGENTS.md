@@ -15,6 +15,7 @@ UI, proje, blog ve meta metinlerinde **zorunlu**: `content-system/` + Cursor ski
 - `npm run content:inventory` — yüzey envanteri
 - `npm run content:lint` — parity / empty / forbidden / duplicate meta / length raporu
 - `npm run content:cities` — 81 şehir sayfası için benzersizlik, uzunluk ve tekrar gate'i (lint hattının içinde de çalışır)
+- `npm run check:wordbreaks` — display başlıklarında SESSİZ kelime bölünmesi taraması (çalışan bir prod sunucu ister; `BASE` ile port verilebilir)
 
 ## Komutlar
 
@@ -40,7 +41,7 @@ UI, proje, blog ve meta metinlerinde **zorunlu**: `content-system/` + Cursor ski
   - **Kalite**: crf 26/27. Daha agresif sıkıştırma (crf 31) çiçek dokusunu gözle görülür şekilde eziyordu. CSS'te `transform`/`filter` YOK — ikisi de kareyi yeniden örnekletip yumuşatıyor.
   - **Perf:** `preload="none"` + src YOK; kaynak ancak Hero'nun boot kapısı (`metek:hero-warm` / idle) açılınca bağlanıyor, hero görüş dışına çıkınca `pause()`. İlk görsel `<picture>` posteri (~73KB webp, `fetchPriority=high` — LCP elemanı odur); video `playing` olunca `data-playing` ile üstüne açılıyor. reduced-motion'da video hiç inmiyor, poster kalıyor. `.hero-film__veil` yalnızca iki uçta çalışıyor: üstte nav okunurluğu, altta sayfaya geçiş (%14 — tarla griye boyanmıyor).
 
-- **Atölye kareleri** (components/StudioFrames.tsx + `public/studio/`): Capabilities ile Manifesto arasında, `bg-band` üstünde üç kareli editöryal yayılma (01 talep · 02 iz · 03 zanaat). Üç görsel tek sanat yönüne çekildi: "eller" karesinin beyaz zemini luminans matıyla silindi (şeffaf webp), heykelin mor ışığı `hue=-85:s=0.25` ile petrole döndürüldü, parmak izi desatüre edildi. Kareler `Reveal mode="mask"` + scrub parallax (`data-parallax`, reduced-motion'da yok). Metin `messages.studioFrames`.
+- **Atölye kareleri** (components/StudioFrames.tsx): Capabilities ile Manifesto arasında, `bg-band` üstünde üç kareli editöryal yayılma (01 vitrin · 02 mesaj · 03 panel). Kareler artık soyut stok görseller değil, gerçek proje ekranları (`havva-baklava`, `whatsapp-bot`, `css-system`) — yani bölüm iddiayı kendi işiyle kanıtlıyor. `public/studio/` KLASÖRÜ SİLİNDİ (728KB, hiçbir yerden referans verilmiyordu); geri ekleme. Kareler `Reveal mode="mask"` + scrub parallax (`data-parallax`, reduced-motion'da yok). Metin `messages.studioFrames`.
 - **Hero atmosferi + marka kilidi** (components/Hero.tsx + craft.css): hero'da **başka metin yok** — yalnızca kelime markası. `hero.line2/line3` yalnız `sr-only` tanım satırında ve OG başlığında yaşıyor (mesaj anahtarları duruyor, `opengraph-image.tsx` onları okuyor).
   - **Kelime markası** iki basamak: METEK sol üstte, Digital sağ altta (`--hero-word-stagger`, em cinsinden). Sahne hazır olunca sönüyor — marka camın içinden okunuyor (bkz. Hero 3D). Renk tema tokenı DEĞİL (`--hero-fg`): açık temada siyah kadrajda siyah yazı olurdu. Hero tokenları `.hero-section` üstünde ve tema-bağımsız; tek istisna perdenin alt ucu, orası kasten sayfanın zeminine erir.
   - **Kadraj eşlemesi**: `--hero-mark-y` / `--hero-word-y` figürün başının konumuyla hizalı (yatay master'da ~%50, dikeyde ~%61). Değiştirirsen HeroScene'deki `MARK_Y` / `MARK_Y_PORTRAIT` ile birlikte değiştir.
@@ -157,9 +158,24 @@ kontrastta kalıyordu (ölçüldü, gözle de okunmuyordu).
   basıyor, hydrate'te Suspense fallback'i yerine geçip altındaki her şeyi
   zıplatıyor. `WorkBelowFold`/`ApproachBelowFold` bu yüzden statik import.
   Görüş dışı bölümler için `LazyMount` kullan (o `null` render eder, swap yok).
-- `DeviceMockup` hover şeridi (~250KB ham JPG) yalnızca `pointerenter` ile
-  iner. Viewport tetiğine geri alma — 768px'te LCP elemanı olup /work'ü
-  5.5sn'ye çıkarıyordu.
+- **`DeviceMockup` hover şeridi: fine pointer + `pointerenter`, başka tetik YOK.**
+  `ProjectScreen` şeridi `useSyncExternalStore` ile
+  `(hover: hover) and (pointer: fine)` arkasına alır; dokunmatikte hiç
+  mount edilmez (statik `next/image` önizlemesi zaten ekranda ve `onEnter`
+  `pointerType !== "mouse"` ile çıkıyordu, yani telefonda şerit inip HİÇ
+  oynamıyordu). Viewport tetiği (IntersectionObserver) BİLEREK KALDIRILDI:
+  hover edilmese bile /tr/work'te 20 şerit indiriyordu.
+  Ölçüldü (prod, Pixel 7 UA, 4x CPU, 1.6Mbps):
+  /tr/work mobil **8695KB → 1082KB**, masaüstü **8695KB → 2538KB**;
+  /tr mobil 4699KB → 2841KB. Hover gecikmesi görünmüyor —
+  `activateScroll` zaten `stripLoaded`'ı bekliyor ve kayma 5.5–18sn sürüyor.
+- **Şeritler WebP** (`*-scroll.webp`), `next/image` hattının DIŞINDA ham
+  servis ediliyor (uzun şeridi `naturalHeight` ile ölçüyoruz). JPEG q82 →
+  WebP q82: 8.2MB → 3.9MB, RMSE 2.3 (gözle fark yok).
+  `scripts/capture-project-scrolls.mjs` artık doğrudan WebP yazıyor —
+  JPEG'e geri döndürme. WebP tavanı 16383px: `elif-seren` mobil şeridi
+  20004px olduğu için yarıya indiriliyor (telefon maketinde ~230 CSS px
+  gösteriliyor, hâlâ 2x üstü).
 - **`public/lanyard/card.glb` dokusu BİLEREK boş** (176KB; eskiden 2.34MB).
   Kaynak ReactBits demo modeli 1678×1677 bir atlas gömüyordu (2.19MB, dosyanın
   %94'ü) ama o doku EKRANA HİÇ ÇIKMIYOR: `card` mesh'i UV'de yalnızca
@@ -183,6 +199,47 @@ kontrastta kalıyordu (ölçüldü, gözle de okunmuyordu).
   `cardImageSizes(cols, frac)` (lib/editorial-layout.ts), proje galerisi
   `gallerySizes(span)` ile türetilir. Yeni görsel eklerken kutuyu ölç:
   `served_w >= box * dpr` olmalı.
+- **Muted metin alfa TABANI: `text-foreground/62`, `text-band-fg/55`.**
+  Bunun altına inme. Ölçüldü (WCAG 2.1 AA, 4.5:1): açık temada
+  `#10141a` on `#e5e8eb` için minimum **/60**, koyu temada `#eef1f4` on
+  `#0a0d11` için **/48** — sınırı açık tema koyuyor. Eski ölçek `/28`–`/45`
+  arasındaydı, yani 1.84–2.92:1: 15 rotada 679 metin düğümü AA'nın altındaydı
+  (footer telif satırı, tarih/okuma süresi, "01/02" indeksleri, bölüm
+  kicker'ları, form placeholder'ı, "Siteyi aç" bağlantıları). Tek istisna
+  `aria-hidden` filigran rakamları (`Process` `text-foreground/[0.1]`,
+  `Principles` `text-foreground/12`) — sıra `<ol>` ile taşınıyor.
+  Form alanı çizgileri ayrı kural: WCAG 1.4.11 (UI bileşen sınırı) 3:1
+  istiyor → `border-band-fg/45`.
+- **Display başlıklarda SESSİZ kelime bölünmesi**: `.type-display` global
+  `overflow-wrap: break-word` taşıyor (dar telefon için bilinçli emniyet
+  ağı). Punto kutusundan büyük olduğunda geniş ekranda da ateşliyor ve
+  kelimeyi TİRESİZ ikiye bölüyor — "operasyona" → "operasyo / na" (1440px),
+  "görüşmeden", "Llamaron", "Cuéntenos", "bulunamadı", "Website" …
+  31 kelime, 7 farklı başlık kalıbı, 4 locale'de yakalandı.
+  Kural: **≥640px'te hiçbir display kelimesi bölünmeyecek**;
+  `npm run check:wordbreaks` bunu ölçüyor. Yeni başlık eklerken çalıştır.
+  Çözerken sırayla bak: (1) kutu `max-w-[Nch]` ile mi sınırlı — Goks'ta
+  **1ch ≈ 1em**, yani `max-w-[10ch]` = 10em ve punto küçültmek kutuyu da
+  küçülttüğü için oranı KIPIRDATMIYOR (Process H2'de böyleydi, `11ch` çözdü);
+  (2) kutu kolondan geliyorsa clamp'in tavanını/min'ini kıs; (3) taşma tek
+  dilde ise `[html[lang=de]_&]:text-[...]` ile o dile özel kıs — dört dili
+  birden küçültme (Almanca "Veröffentlichung" 10.3em, ortak ölçekle sığmıyor).
+- **Türkçe glifler fontlarda EKSİKTİ — `scripts/patch-turkish-glyphs.mjs` ile
+  yamalanıyor.** Ölçüldü: Goks'un `ğ`/`Ğ` glifi breve yerine 49×14 birimlik
+  bir NOKTA taşıyordu (1000 upem'de %1.4 — 44px'te 0.6px, ekranda yok);
+  "gerektiğini" → "gerektigini" diye okunuyordu. Vireon'da `ğ Ğ İ ş Ş`
+  HİÇ YOKTU, `.font-subtitle` (PageHero lede'si dahil) o harflerde Space
+  Grotesk'e düşüyor, kelimenin ortasında yüz değişiyordu. Betik aksanı
+  fontun KENDİ ölçülerinden türetiyor (dieresis bandı, `l` sap genişliği,
+  taban glif merkezi) ve `app/fonts/*.orig` yedeğinden çalıştığı için
+  idempotent. Fontları yeniden dışa aktarırsan tekrar çalıştır;
+  `--check` ile doğrula.
+- **`NextIntlClientProvider`'a messages VER.** Boş bırakılırsa tüm katalog
+  (TR 26KB) her sayfanın RSC payload'ına VE her `<Link>` prefetch cevabına
+  gömülüyor. `pages / blog / meta / notFound / faqUi / intent` yalnız
+  sunucuda okunuyor (`getTranslations`), o yüzden `SERVER_ONLY_NAMESPACES`
+  ile ayıklanıyor — katalogun ~%26'sı. Bir istemci bileşeni bunlardan birini
+  isterse next-intl net bir MISSING_MESSAGE atar.
 - **Accent metin rengi tema-duyarlı**: `--accent` (#0c6b66 / dark #3dcdc4) açık
   zeminde metin olarak zayıf kalabilir. Tema-takipli yüzeylerde (`bg-background`,
   `bg-paper`) metin için `text-accent-ink` kullan. Her iki temada da koyu kalan

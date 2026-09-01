@@ -32,9 +32,9 @@ export default function StudioAbout() {
               <Reveal>
                 <DecryptedText
                   text={t("origin")}
-                  className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/45"
+                  className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/62"
                 />
-                <p className="mt-3 max-w-[18rem] text-sm leading-relaxed text-foreground/50">
+                <p className="mt-3 max-w-[18rem] text-sm leading-relaxed text-foreground/68">
                   {t("practice")}
                 </p>
               </Reveal>
@@ -77,11 +77,11 @@ export default function StudioAbout() {
               </div>
 
               <Reveal delay={220}>
-                <div className="mt-10 border-t border-foreground/15 pt-5 text-sm text-foreground/50">
+                <div className="mt-10 border-t border-foreground/15 pt-5 text-sm text-foreground/68">
                   <span className="block font-semibold text-foreground/80">
                     {t("name")}
                   </span>
-                  <span className="mt-1 block font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/40">
+                  <span className="mt-1 block font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-foreground/62">
                     {t("role")}
                   </span>
                 </div>
@@ -102,17 +102,17 @@ export default function StudioAbout() {
               <Reveal>
                 <DecryptedText
                   text={t("doLabel")}
-                  className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/45"
+                  className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/62"
                 />
                 <BlurText
                   text={forDisplay(t("doTitle"))}
                   as="h2"
                   className="mt-4 max-w-[12ch] font-display type-display text-[clamp(2.25rem,4vw,3.75rem)] font-bold leading-[1.3] tracking-[-0.035em]"
                 />
-                <p className="mt-6 max-w-sm text-base leading-relaxed text-foreground/60">
+                <p className="mt-6 max-w-sm text-base leading-relaxed text-foreground/62">
                   {t("doIntro")}
                 </p>
-                <div className="mt-4 flex min-h-[1.75rem] items-center gap-2 border-l border-foreground/30 pl-3 font-mono text-xs tracking-wide text-foreground/50">
+                <div className="mt-4 flex min-h-[1.75rem] items-center gap-2 border-l border-foreground/30 pl-3 font-mono text-xs tracking-wide text-foreground/68">
                   <span className="font-bold text-accent">›</span>
                   <TextType
                     text={items.map((it) => it.title)}
@@ -166,7 +166,7 @@ export default function StudioAbout() {
                   <li key={item.title} className="border-b border-foreground/15">
                     <Reveal delay={40 * i}>
                       <div className="grid grid-cols-1 gap-y-3 py-8 md:grid-cols-12 md:gap-x-6 md:py-10">
-                        <span className="font-mono text-xs font-bold tracking-[0.18em] text-foreground/30 md:col-span-2">
+                        <span className="font-mono text-xs font-bold tracking-[0.18em] text-foreground/62 md:col-span-2">
                           <DecryptedText text={String(i + 1).padStart(2, "0")} />
                         </span>
                         <h3 className="font-display type-display text-xl font-bold leading-[1.4] tracking-[-0.025em] md:col-span-4 md:text-2xl">

@@ -57,7 +57,7 @@ export default async function BlogTeaser({ locale }: BlogTeaserProps) {
                 />
               </div>
               <div className="grid gap-4 border-b border-foreground/20 py-5 md:grid-cols-[1fr_2fr] md:gap-8">
-                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-foreground/35">
+                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-foreground/62">
                   <DecryptedText
                     text={t(`categories.${lead.post.category}`)}
                     animateOn="inViewHover"
@@ -80,7 +80,7 @@ export default async function BlogTeaser({ locale }: BlogTeaserProps) {
                     scroll={false}
                     className="group block border-b border-foreground/20 py-7 md:py-9"
                   >
-                    <p className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-foreground/35">
+                    <p className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-foreground/62">
                       <DecryptedText
                         text={String(index + 2).padStart(2, "0")}
                         animateOn="inViewHover"
@@ -94,10 +94,10 @@ export default async function BlogTeaser({ locale }: BlogTeaserProps) {
                     <h3 className="mt-8 text-2xl font-bold leading-[1.05] tracking-[-0.035em] transition-opacity group-hover:opacity-55 md:text-3xl">
                       {article.title}
                     </h3>
-                    <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-foreground/52">
+                    <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-foreground/68">
                       {article.excerpt}
                     </p>
-                    <p className="mt-8 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-foreground/35">
+                    <p className="mt-8 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-foreground/62">
                       {formatBlogDate(post.date, locale)} ·{" "}
                       {t("readMinutes", { count: post.readMinutes })}
                     </p>

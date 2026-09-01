@@ -52,10 +52,10 @@ export default function FinalCta() {
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-12 gap-x-5 border-t border-band-fg/20 pt-6 md:gap-x-6 md:pt-8">
           <Reveal className="col-span-12 md:col-span-9">
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-band-fg/36">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-band-fg/55">
               {t("label")}
             </p>
-            <h2 className="mt-8 max-w-[12ch] font-display type-display text-[clamp(1.15rem,6.5vw,9.5rem)] sm:text-[clamp(3.6rem,10.5vw,9.5rem)] leading-[1.4] tracking-[-0.055em]">
+            <h2 className="mt-8 max-w-[12ch] font-display type-display text-[clamp(1.15rem,6.5vw,9.5rem)] sm:text-[clamp(3.3rem,9.6vw,8.6rem)] leading-[1.4] tracking-[-0.055em]">
               {t("title")}
             </h2>
           </Reveal>
@@ -86,7 +86,7 @@ export default function FinalCta() {
                 href={whatsappHref(t("whatsappPrefill"))}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-5 block w-fit text-xs text-band-fg/40 underline underline-offset-4 transition-colors hover:text-band-fg/75"
+                className="mt-5 -mb-1.5 block w-fit py-1.5 text-xs text-band-fg/62 underline underline-offset-4 transition-colors hover:text-band-fg"
               >
                 {t("whatsapp")}
               </a>

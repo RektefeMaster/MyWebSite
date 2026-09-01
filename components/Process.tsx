@@ -63,10 +63,20 @@ export default function Process() {
       <div className="mx-auto max-w-7xl">
         <header className="grid grid-cols-12 items-end gap-x-5 border-b border-foreground/20 pb-10 md:gap-x-6 md:pb-16">
           <div className="col-span-12 md:col-span-9">
-            <h2 className="max-w-[10ch] font-display type-display text-[clamp(1.15rem,6.5vw,8rem)] sm:text-[clamp(3.25rem,9vw,8rem)] font-bold leading-[1.4] tracking-[-0.052em]">
+            <h2
+              /*
+                Punto tavanı bu başlıkta ÖLÇÜLEREK kısıldı: 9vw/8rem ile
+                TR "görüşmeden" 1024–1920px arasında kolonu 3–25px taşırıp
+                `overflow-wrap: break-word` üzerinden sessizce ikiye
+                bölünüyordu. Almanca "Veröffentlichung" 10.3em geniş ve
+                hiçbir ortak ölçekle sığmıyor — dört dili birden küçültmek
+                yerine tavan yalnız `html[lang=de]` altında iniyor.
+              */
+              className="max-w-[11ch] font-display type-display text-[clamp(1.15rem,6.5vw,8rem)] sm:text-[clamp(3.25rem,8.6vw,7.7rem)] [html[lang=de]_&]:text-[clamp(1.15rem,6.3vw,5.7rem)] font-bold leading-[1.4] tracking-[-0.052em]"
+            >
               {t("title")}
             </h2>
-            <div className="mt-4 flex min-h-[2.75rem] items-center gap-1.5 font-mono text-xs text-foreground/45 sm:min-h-[1.5rem]">
+            <div className="mt-4 flex min-h-[2.75rem] items-center gap-1.5 font-mono text-xs text-foreground/62 sm:min-h-[1.5rem]">
               <span className="font-bold text-accent">›</span>
               <TextType
                 text={[
@@ -88,7 +98,7 @@ export default function Process() {
           </div>
           <div
             aria-hidden
-            className="col-span-12 mt-8 flex items-end justify-between font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/35 md:col-span-3 md:mt-0 md:block md:text-right"
+            className="col-span-12 mt-8 flex items-end justify-between font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/62 md:col-span-3 md:mt-0 md:block md:text-right"
           >
             <span className="md:block">
               <DecryptedText text="01" animateOn="inViewHover" />
@@ -120,7 +130,7 @@ export default function Process() {
 
                 <article className="col-span-12 mt-8 grid min-w-0 grid-cols-1 gap-10 md:col-span-10 md:mt-0 md:grid-cols-10 md:gap-x-6">
                   <h3
-                    className={`min-w-0 font-display type-display text-[clamp(2rem,4.5vw,4.25rem)] font-bold leading-[1.46] tracking-[-0.04em] md:col-span-4 ${
+                    className={`min-w-0 font-display type-display text-[clamp(1.6rem,3vw,2.9rem)] font-bold leading-[1.46] tracking-[-0.04em] md:col-span-5 ${
                       shifted ? "md:col-start-2" : ""
                     }`}
                   >
@@ -140,11 +150,11 @@ export default function Process() {
                       >
                         <span
                           aria-hidden
-                          className="font-mono text-[9px] font-bold tracking-[0.14em] text-foreground/30"
+                          className="font-mono text-[9px] font-bold tracking-[0.14em] text-foreground/62"
                         >
                           {String(i + 1).padStart(2, "0")}.{noteIndex + 1}
                         </span>
-                        <p className="text-sm leading-relaxed text-foreground/60 md:text-base">
+                        <p className="text-sm leading-relaxed text-foreground/62 md:text-base">
                           {p}
                         </p>
                       </div>

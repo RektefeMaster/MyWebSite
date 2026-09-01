@@ -136,7 +136,7 @@ export default function Capabilities() {
                 loop={true}
               />
             </div>
-            <p className="mt-4 font-mono text-[10px] font-bold uppercase leading-relaxed tracking-[0.15em] text-foreground/32">
+            <p className="mt-4 font-mono text-[10px] font-bold uppercase leading-relaxed tracking-[0.15em] text-foreground/62">
               <DecryptedText text={t("techLine")} animateOn="inViewHover" />
             </p>
           </Reveal>
@@ -180,13 +180,15 @@ export default function Capabilities() {
                     />
                   </div>
                   {visual.caseUrl && (
-                    <div className="mt-4 flex shrink-0 items-center justify-between gap-4 border-t border-foreground/15 pt-4 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-foreground/40">
+                    <div className="mt-4 flex shrink-0 items-center justify-between gap-4 border-t border-foreground/15 pt-4 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-foreground/62">
                       <span>{t("liveLabel")}</span>
                       <a
                         href={visual.caseUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1.5 text-foreground/60 transition-colors hover:text-accent-ink"
+                        /* py/-my çifti: hedef 24px'e çıkar, düzen kaymaz
+                           (WCAG 2.2 AA 2.5.8) */
+                        className="-my-1.5 inline-flex min-h-6 items-center gap-1.5 py-1.5 text-foreground/62 transition-colors hover:text-accent-ink"
                       >
                         {visual.caseName}
                         <span aria-hidden>↗</span>
@@ -201,9 +203,9 @@ export default function Capabilities() {
                       <DecryptedText
                         text={String(index + 1).padStart(2, "0")}
                         animateOn="inViewHover"
-                        className="font-mono text-[10px] font-bold tracking-[0.16em] text-foreground/35"
+                        className="font-mono text-[10px] font-bold tracking-[0.16em] text-foreground/62"
                       />
-                      <span className="font-mono text-[9px] font-bold uppercase tracking-[0.14em] text-foreground/40">
+                      <span className="font-mono text-[9px] font-bold uppercase tracking-[0.14em] text-foreground/62">
                         <DecryptedText
                           text={t(`items.${id}.visual`)}
                           animateOn="inViewHover"

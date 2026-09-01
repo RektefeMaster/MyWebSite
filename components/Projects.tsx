@@ -73,7 +73,7 @@ export default function Projects() {
             return (
               <div key={lane} className="grid grid-cols-12 gap-x-5 md:gap-x-6">
                 <Reveal className="col-span-12">
-                  <h3 className="mb-10 flex items-baseline justify-between border-t border-band-fg/18 pt-5 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-band-fg/38 md:mb-14">
+                  <h3 className="mb-10 flex items-baseline justify-between border-t border-band-fg/18 pt-5 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-band-fg/55 md:mb-14">
                     <span>{String(laneIndex + 1).padStart(2, "0")}</span>
                     {tLanes(lane)}
                   </h3>

@@ -142,7 +142,7 @@ export default function Navbar() {
                     aria-current={isActive ? "page" : undefined}
                     className={`relative inline-flex min-h-11 items-center whitespace-nowrap px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] transition-colors xl:px-4 ${isActive
                         ? "text-ink after:absolute after:inset-x-3 after:bottom-1 after:h-px after:bg-ink xl:after:inset-x-4"
-                        : "text-ink/45 hover:text-ink"
+                        : "text-ink/62 hover:text-ink"
                       }`}
                   >
                     <DecryptedText
@@ -200,7 +200,7 @@ export default function Navbar() {
                   aria-current={isActive ? "page" : undefined}
                   className={`relative inline-flex min-h-10 shrink-0 items-center whitespace-nowrap py-1 text-[11px] font-bold uppercase tracking-[0.12em] transition-colors touch-manipulation ${isActive
                       ? "text-ink after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-ink"
-                      : "text-ink/45 active:text-ink"
+                      : "text-ink/62 active:text-ink"
                     }`}
                 >
                   {link.label}

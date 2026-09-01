@@ -23,20 +23,20 @@ export default function CityGrid({
             scroll={false}
             className="group flex items-baseline gap-3 border-b border-foreground/15 py-3.5 text-foreground"
           >
-            <span className="font-mono text-[10px] font-bold tabular-nums tracking-[0.16em] text-foreground/40">
+            <span className="font-mono text-[10px] font-bold tabular-nums tracking-[0.16em] text-foreground/62">
               {String(city.plate).padStart(2, "0")}
             </span>
             <span className="flex-1 text-[15px] font-medium md:text-base">
               {city.name}
               {showSectors ? (
-                <span className="mt-0.5 block text-[13px] font-normal leading-[1.6] text-foreground/55">
+                <span className="mt-0.5 block text-[13px] font-normal leading-[1.6] text-foreground/68">
                   {city.sectors.slice(0, 2).join(", ")}
                 </span>
               ) : null}
             </span>
             <span
               aria-hidden
-              className="text-base text-foreground/40 transition-transform motion-reduce:transition-none [@media(hover:hover)_and_(pointer:fine)]:group-hover:translate-x-1"
+              className="text-base text-foreground/62 transition-transform motion-reduce:transition-none [@media(hover:hover)_and_(pointer:fine)]:group-hover:translate-x-1"
             >
               →
             </span>
@@ -65,17 +65,17 @@ export function CityRegionBlock({
     <Reveal delay={index * 30}>
       <section className="border-t border-foreground/25 py-10 md:py-14">
         <div className="grid grid-cols-12 gap-x-4 gap-y-5 md:gap-x-6">
-          <p className="col-span-2 font-mono text-[10px] font-bold tabular-nums tracking-[0.16em] text-foreground/40 md:col-span-1">
+          <p className="col-span-2 font-mono text-[10px] font-bold tabular-nums tracking-[0.16em] text-foreground/62 md:col-span-1">
             {String(index + 1).padStart(2, "0")}
           </p>
           <div className="col-span-10 md:col-span-4">
-            <h2 className="font-display type-display max-w-[18ch] text-[clamp(1.15rem,6.5vw,3.5rem)] leading-[1.46] tracking-[-0.03em] sm:text-[clamp(2rem,3.5vw,3.5rem)]">
+            <h2 className="font-display type-display max-w-[18ch] text-[clamp(1.15rem,6.5vw,3.5rem)] leading-[1.46] tracking-[-0.03em] sm:text-[clamp(1.55rem,3.3vw,3.1rem)]">
               {title}
             </h2>
             <Link
               href={href}
               scroll={false}
-              className="mt-4 inline-block text-[13px] font-medium text-accent-ink underline underline-offset-4"
+              className="-mb-1.5 mt-4 inline-block py-1.5 text-[13px] font-medium text-accent-ink underline underline-offset-4"
             >
               {title} sayfası
             </Link>

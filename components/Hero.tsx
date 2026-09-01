@@ -233,6 +233,11 @@ export default function Hero({ parked = false }: { parked?: boolean }) {
               Bölme boşluktan — marka dört locale'de de "METEK Digital",
               boşluk yoksa tek satıra düşüyor. */}
           <span className="hero-wordmark__lead">{brandLead}</span>
+          {/* Boşluk metinde ŞART: iki span bitişik yazılınca <h1>'in metni
+              "METEKDigital" oluyordu (ekran okuyucu ve arama motoru onu
+              okuyor). `.hero-wordmark` flex container olduğu için sadece
+              boşluktan oluşan bu düğüm kutu üretmiyor — görsel etkisi yok. */}
+          {brandTail ? " " : null}
           {brandTail ? (
             <span className="hero-wordmark__tail">{brandTail}</span>
           ) : null}

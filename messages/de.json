@@ -539,6 +539,7 @@
     "email": "E-Mail",
     "interestedIn": "Ich interessiere mich für",
     "message": "Ziel, Zeitrahmen und benötigte Funktionen",
+    "messageLabel": "Projektbeschreibung",
     "send": "Per WhatsApp senden",
     "sentHint": "WhatsApp wird mit Ihrer Nachricht geöffnet.",
     "errorName": "Bitte tragen Sie Ihren Namen ein.",
