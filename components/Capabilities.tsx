@@ -30,6 +30,8 @@ const CAP_VISUAL: Record<
     objectPosition: string;
     media: string;
     copy: string;
+    /** Metin kartı görselin üstüne biniyorsa künye şeridini kısalt */
+    captionWidth?: string;
     caseName?: string;
     caseUrl?: string;
   }
@@ -48,11 +50,35 @@ const CAP_VISUAL: Record<
     media: "md:col-span-6 md:col-start-7 md:order-2",
     copy: "md:col-span-5 md:col-start-1 md:order-1 md:self-center",
   },
+  /*
+    Bu blok bilerek ÇAKIŞIYOR: geniş görselin sağ ucunun üstüne opak metin
+    kartı biniyor. `md:row-start-1` İKİSİNDE DE ŞART — kolon 8–9 ortak
+    olduğu için otomatik yerleşim çakışmaya izin vermiyor ve metni ikinci
+    satıra atıyordu. O zaman görselin satırı kendi içeriğine düşüyor,
+    `md:flex-1` dolduracak yükseklik bulamıyor ve resim `height: 0` oluyordu:
+    kadrajın sol üçte ikisi bomboş kalıyordu (1440px'te ölçüldü, ekran
+    görüntüsüyle yakalandı). Satır açıkça verilince ikisi aynı satırda
+    üst üste biniyor, görsel `self-stretch` ile bloğun tam boyunu dolduruyor.
+    Aynı sebeple `-mt-20` kaldırıldı: iki satırlı yığılmayı telafi etmek
+    içindi, tek satırda kartı görselin tepesinden yukarı taşıyor.
+  */
   ai: {
     hero: "/projects/aiahi/desktop.jpg",
-    objectPosition: "50% 18%",
-    media: "md:col-span-8 md:col-start-2",
-    copy: "md:col-span-5 md:col-start-8 md:-mt-20 md:bg-background md:p-8 md:relative md:z-10",
+    /*
+      Sola hizalı: kutu 845×695 (1.22), kaynak 1.6 — `object-cover` 267px
+      kırpıyor. Ortadan kırpınca ekran görüntüsünün sol içeriği ("Ahi AI",
+      başlık) kesiliyordu; sağ ucu zaten metin kartı örttüğü için kırpma
+      payını sağdan almak kadrajı kurtarıyor.
+    */
+    objectPosition: "0% 14%",
+    media: "md:col-span-8 md:col-start-2 md:row-start-1",
+    copy: "md:col-span-5 md:col-start-8 md:row-start-1 md:self-center md:bg-background md:p-8 md:relative md:z-10",
+    /*
+      Künye şeridi görselin 8 kolonunu kaplıyor ama opak metin kartı son
+      2 kolonun üstüne biniyor; "Ahi AI ↗" bağlantısı kartın ALTINDA kalıp
+      tıklanamaz oluyordu (elementFromPoint ile doğrulandı). 6/8 = 3/4.
+    */
+    captionWidth: "md:w-3/4",
     caseName: "Ahi AI",
     caseUrl: "https://www.aiahi.net/",
   },
@@ -180,7 +206,9 @@ export default function Capabilities() {
                     />
                   </div>
                   {visual.caseUrl && (
-                    <div className="mt-4 flex shrink-0 items-center justify-between gap-4 border-t border-foreground/15 pt-4 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-foreground/62">
+                    <div
+                      className={`mt-4 flex shrink-0 items-center justify-between gap-4 border-t border-foreground/15 pt-4 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-foreground/62 ${visual.captionWidth ?? ""}`}
+                    >
                       <span>{t("liveLabel")}</span>
                       <a
                         href={visual.caseUrl}
