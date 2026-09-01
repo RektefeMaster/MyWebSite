@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Reveal from "./Reveal";
 import DecryptedText from "./DecryptedText";
-import TextType from "./TextType";
 
 const FEATURED_MAIN_SIZES =
   "(min-width: 1360px) 737px, (min-width: 768px) calc((100vw - 80px) * 0.5833), calc(100vw - 40px)";
@@ -14,7 +13,7 @@ const FEATURED_LEFT_SIZES =
 const FEATURED_RIGHT_SIZES =
   "(min-width: 1360px) 360px, (min-width: 768px) calc((100vw - 80px) * 0.282), calc((100vw - 40px) * 0.4167)";
 
-/** Tek vaka: portföy kartı değil, iki sayfalık bir dergi dosyası. */
+/** Ana vaka: MASAL yayın sonrası sohbet motoru kayıtları. */
 export default function FeaturedCase() {
   const t = useTranslations("featured");
   const outcomes = t.raw("outcomes") as string[];
@@ -30,25 +29,10 @@ export default function FeaturedCase() {
             <h2 className="mt-8 font-display type-display text-[clamp(1.15rem,6vw,5.4rem)] sm:text-[clamp(2.8rem,6vw,5.4rem)] leading-[1.44] tracking-[-0.05em]">
               {t("title")}
             </h2>
-            <div className="mt-3 flex min-h-[1.5rem] items-center gap-1.5 font-mono text-[11px] font-bold text-accent">
-              <span>›</span>
-              <TextType
-                text={[
-                  "Next.js 16 Web Platformu",
-                  "100/100 Core Web Vitals Skoru",
-                  "Özel Mermer & Taş Koleksiyon Kataloğu",
-                  "0.4s İlk İçerikli Boyama (LCP)",
-                ]}
-                typingSpeed={42}
-                deletingSpeed={22}
-                pauseDuration={2200}
-                showCursor={true}
-                cursorCharacter="▍"
-                startOnVisible={true}
-                loop={true}
-              />
-            </div>
-            <p className="mt-5 max-w-[42ch] text-[15px] leading-[1.7] text-foreground/62">
+            <p className="mt-3 font-mono text-[11px] font-bold text-accent">
+              ChatGPT · Gemini · Google AI
+            </p>
+            <p className="mt-5 max-w-[64ch] text-[15px] leading-[1.7] text-foreground/62">
               {t("blurb")}
             </p>
 
@@ -70,7 +54,7 @@ export default function FeaturedCase() {
             </ol>
 
             <Link
-              href="/work/wcc"
+              href="/contact"
               scroll={false}
               className="group mt-9 inline-flex min-h-11 items-center gap-5 text-sm font-bold"
             >
@@ -87,9 +71,9 @@ export default function FeaturedCase() {
           <div className="col-span-12 mt-14 md:col-span-7 md:col-start-6 md:mt-0">
             <Reveal mode="mask" from="right" y={0}>
               <figure className="m-0">
-                <div className="relative aspect-[8/5] overflow-hidden bg-stone">
+                <div className="relative aspect-[16/11] overflow-hidden bg-stone">
                   <Image
-                    src="/projects/wcc/featured/01-hero.jpg"
+                    src="/projects/masal-koltuk/proof/gemini-sofa.webp"
                     alt={t("shotHero")}
                     fill
                     sizes={FEATURED_MAIN_SIZES}
@@ -112,9 +96,9 @@ export default function FeaturedCase() {
 
             <div className="mt-12 grid grid-cols-12 items-end gap-3 md:-ml-[18%] md:mt-16 md:gap-4">
               <Reveal mode="mask" className="col-span-7">
-                <div className="relative aspect-[8/5] overflow-hidden bg-stone">
+                <div className="relative aspect-[9/16] overflow-hidden bg-stone sm:aspect-[8/11]">
                   <Image
-                    src="/projects/wcc/featured/02-kitchen.jpg"
+                    src="/projects/masal-koltuk/proof/chatgpt-steam.webp"
                     alt={t("shotKitchen")}
                     fill
                     sizes={FEATURED_LEFT_SIZES}
@@ -126,9 +110,9 @@ export default function FeaturedCase() {
                 </div>
               </Reveal>
               <Reveal mode="mask" delay={70} className="col-span-5 md:mb-[18%]">
-                <div className="relative aspect-[8/5] overflow-hidden bg-stone">
+                <div className="relative aspect-[9/16] overflow-hidden bg-stone sm:aspect-[8/11]">
                   <Image
-                    src="/projects/wcc/featured/03-projects.jpg"
+                    src="/projects/masal-koltuk/proof/google-ai.webp"
                     alt={t("shotProjects")}
                     fill
                     sizes={FEATURED_RIGHT_SIZES}

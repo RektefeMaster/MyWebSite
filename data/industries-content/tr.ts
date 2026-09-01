@@ -267,7 +267,7 @@ const content: Record<IndustrySlug, IndustryContent> = {
     heroTitle: "Hizmet ve bölge sayfaları, ince ana sayfa değil.",
     heroBlurb:
       "İş plus yer aranır. Yerel hizmet sitelerini eşleşen başlıklı sayfa seti olarak kuruyoruz. Google İşletme Profili kardeş yüzeydir, sitenin yerine geçmez.",
-    lead: "Tesisatçı, temizlikçi veya döşeme atölyesi ana sayfada 'şehrimizde kaliteli hizmet' yazdığı için sıralanmaz. Arama motoru konusu o hizmet olan bir sayfa ister; çoğu zaman hizmetin adı geçen bölgede olduğu bir sayfa da. METEK Digital bu mimariyi teslim eder; MASAL Koltuk geniş yerel sayfa setinin kamu örneğidir.",
+    lead: "Tesisatçı, temizlikçi veya döşeme atölyesi ana sayfada 'şehrimizde kaliteli hizmet' yazdığı için sıralanmaz. Arama motoru konusu o hizmet olan bir sayfa ister; çoğu zaman hizmetin adı geçen bölgede olduğu bir sayfa da. MASAL Koltuk bunun kamu örneği: on beş gün önce sitesi yoktu, bugün Google ve yapay zekada en başta.",
     hubTitle: "Yerel hizmet siteleri",
     hubBlurb:
       "Hizmet, bölge ve talep. Yakında aranan işletmeler için.",
@@ -327,14 +327,14 @@ const content: Record<IndustrySlug, IndustryContent> = {
       {
         question: "MASAL örneği nedir?",
         answer:
-          "Geniş hizmet, fiyat ve bölge sayfalı yerel döşeme temizleme sitesi. Mimarisi gösterir. Sizin sayfa sayınız gerçek kapsama uyar.",
+          "15 gün önce web sitesi yoktu. Bugün Google ve yapay zekada en başta. Site yayına girdikten sonra müşteriler aradı, firma yeni müşteri buldu.",
       },
     ],
     related: [
       { href: "/services/seo", label: "Teslimdeki teknik SEO" },
       {
-        href: "/blog/local-seo-for-service-businesses",
-        label: "Hizmet işletmesi yerel SEO",
+        href: "/blog/chatgpt-gemini-local-service",
+        label: "ChatGPT yerel firma kaydı",
       },
       { href: "/work/masal-koltuk", label: "MASAL Koltuk" },
       { href: "/services/web-design", label: "Özel web tasarımı" },

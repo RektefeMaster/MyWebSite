@@ -2,6 +2,24 @@ import { getProjectGallery, type ProjectGalleryShot } from "./project-galleries"
 
 export type { ProjectGalleryShot };
 
+export type ProjectProofShot = {
+  src: string;
+  alt: string;
+  source: string;
+  caption: string;
+  span?: string;
+  /** Default cover. Contain keeps full chat UI readable. */
+  fit?: "cover" | "contain";
+};
+
+export type ProjectProof = {
+  kicker: string;
+  title: string;
+  lead: string;
+  note?: string;
+  shots: ProjectProofShot[];
+};
+
 export type ProjectDetail = {
   /** Kart / detay başlığı; yoksa projects.ts name kullanılır */
   title?: string;
@@ -13,6 +31,8 @@ export type ProjectDetail = {
   how: string[];
   stack: string[];
   result?: string;
+  /** Yayın sonrası sohbet motoru / yerel paket kayıtları */
+  proof?: ProjectProof;
   /** Detay sayfasında ek ekran görüntüleri; yoksa project-galleries.ts kullanılır. */
   gallery?: ProjectGalleryShot[];
   /** Sayfa sonu CTA bandı */
@@ -54,30 +74,82 @@ export const projectDetails: ProjectDetailsByLocale = {
     "masal-koltuk": {
       tag: "Yerel arama",
       summary:
-        "MASAL'ın Malatya'daki yerinde koltuk yıkama hizmetini otuz iki ayrı rotaya bölen; hizmet, fiyat, mahalle, iş kaydı ve rehber sayfalarını tek bir teklif akışında birleştiren yerel arama mimarisi.",
-      whatTitle: "Sayfa mimarisi ve arama kapsamı",
+        "Web sitesi ihtiyacı için Türkiye'de Malatya'da faaliyet gösteren MASAL Koltuk Yıkama firması için SEO ve GEO öncelikli, son teknolojiler ile özenle hazırlanmış web sitesini baştan sona tasarladık. 15 gün önce web sitesi olmayan bu işletme bugün hem Google aramalarında hem de tüm yapay zeka platformlarında aynı niyetli bütün sorgularda en başta öneriliyor. Site yayına girdikten sonra müşteriler aramaya başladı, firma yeni müşteri buldu.",
+      whatTitle: "Ne yaptık",
       what: [
-        "Hizmet, fiyat, bölge, iş kaydı ve rehber olmak üzere beş sayfa ailesi; her biri ayrı bir arama niyetine yanıt veriyor.",
-        "Battalgazi, Yeşilyurt ve mahalle bazlı bölge sayfaları; her birinde kendi kapsam listesi ve randevu notu var.",
-        "LocalBusiness, Service, BreadcrumbList ve CollectionPage şemalarını taşıyan yapısal veri grafiği.",
-        "Önce/sonra sürgüsüyle karşılaştırılan iş kayıtları; yöntem, süre ve kuruma bilgisi her kaydın yanında.",
-        "Kuruma, kumaş türü, leke kimyası ve firma seçimi gibi soruları tek tek karşılayan on üç rehber yazısı.",
-        "İndirimli web fiyatı ayrı gösterilen, kalem kalem açık yazılmış 2026 fiyat listesi.",
+        "Web sitesi ihtiyacı için Türkiye'de Malatya'da faaliyet gösteren MASAL Koltuk Yıkama firması için SEO ve GEO öncelikli, son teknolojiler ile özenle hazırlanmış web sitesini baştan sona tasarladık.",
+        "Google İşletme Profili ve Search Console profilini açıp yönetmeye devam ettik.",
       ],
-      howTitle: "Aramadan randevuya",
+      howTitle: "Ne oldu",
       how: [
-        "Ziyaretçi ilçesini ya da temizletmek istediği eşyayı arıyor ve doğrudan o konunun sayfasına düşüyor.",
-        "Fiyatı listeden okuyor, önce/sonra kayıtlarında aynı işin nasıl bittiğini görüyor.",
-        "Koltuğun fotoğrafını WhatsApp'tan yolluyor; teklif tek mesajda netleşiyor.",
+        "15 gün önce web sitesi olmayan bu işletme bugün hem Google aramalarında hem de tüm yapay zeka platformlarında aynı niyetli bütün sorgularda en başta öneriliyor.",
+        "Site yayına girdikten sonra müşteriler aramaya başladı. İnsanlar Google'dan ve yapay zekadan MASAL'ı bulup aradı. Müşteri geldi, iş geldi.",
+        "MASAL Koltuk Yıkama web sitesi maliyetini çoktan çıkardı.",
       ],
       stack: ["HTML", "CSS", "JavaScript", "JSON-LD"],
       result:
-        "Site yalnızca marka adına değil, insanların gerçekten yazdığı sorulara açılıyor. Her rota kendi ziyaretçisini karşılıyor ve hepsi aynı tek adımlı teklife bağlanıyor.",
-      ctaLabel: "Benzer proje",
-      ctaTitle: "Hizmet bölgenizde sorulan her soruya bir sayfa",
+        "Bize güvenen müşterimize güveninin karşılığını en iyi şekilde verdik ve vermeye devam edeceğiz. Yalnız görünmek değil, iş getirmek. Bunu yaptık.",
+      proof: {
+        kicker: "Kanıt",
+        title: "Kayıtlar duruyor",
+        lead: "Artık insanlar Google aramalarından daha çok yapay zeka aramalarına yöneliyor, biz de bunun bilincindeyiz! Teknolojik altyapımızı dönemin şartlarına ve gelişmelerine uygun olarak güncelliyor, geliştiriyor ve takibini sürdürüyoruz. Aşağıdaki kayıtlar yayından sonraki gerçek sonuç: ChatGPT, Gemini, Google AI ve Google aynı niyetli sorgularda MASAL'ı en başta öneriyor.",
+        note: "Sizin de işletmeniz veya bireysel işleriniz yapay zekalar ve Google aramaları tarafından görünüp potansiyel müşterilerinizin karşısına çıkmasını istiyorsanız bize ulaşın! Maliyet değil, yatırım yapın!",
+        shots: [
+          {
+            src: "/projects/masal-koltuk/proof/gemini-sofa.webp",
+            alt: "Gemini, Malatya koltuk yıkama sorusunda MASAL'ı en başta öneriyor",
+            source: "Gemini",
+            caption: "Malatya'da koltuk yıkama. MASAL en başta.",
+            span: "col-span-6 md:col-span-4 md:row-span-2 min-h-[280px] md:min-h-[560px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/chatgpt-steam.webp",
+            alt: "ChatGPT buharlı temizlik sorusunda MASAL'ı ilk öneriyor",
+            source: "ChatGPT",
+            caption: "Buharlı temizlik. İlk öneri MASAL.",
+            span: "col-span-3 md:col-span-2 min-h-[240px] md:min-h-[272px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/google-ai.webp",
+            alt: "Google AI, MASAL'ı en başta öneriyor",
+            source: "Google AI",
+            caption: "Google AI. Yine MASAL en başta.",
+            span: "col-span-3 md:col-span-2 min-h-[240px] md:min-h-[272px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/google-local.webp",
+            alt: "Google aramasında MASAL en üstte",
+            source: "Google",
+            caption: "Google araması. En üstte MASAL.",
+            span: "col-span-3 md:col-span-2 min-h-[240px] md:min-h-[300px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/chatgpt-car.webp",
+            alt: "ChatGPT araç koltuğu sorusunda MASAL'ı ilk öneriyor",
+            source: "ChatGPT",
+            caption: "Araç koltuğu. Yine MASAL.",
+            span: "col-span-3 md:col-span-2 min-h-[240px] md:min-h-[300px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/gemini-car.webp",
+            alt: "Gemini araç içi temizlik sorusunda MASAL'ı en başta öneriyor",
+            source: "Gemini",
+            caption: "Araç içi temizlik. Yine en başta.",
+            span: "col-span-6 md:col-span-4 min-h-[220px] md:min-h-[320px]",
+            fit: "contain",
+          },
+        ],
+      },
+      ctaLabel: "Sıradaki iş",
+      ctaTitle: "Maliyet değil, yatırım yapın!",
       ctaBlurb:
-        "Hizmetleriniz, fiyatlarınız ve çalıştığınız mahalleler belli olduğunda arama mimarisini ve teklif akışını birlikte kurabiliriz.",
-      ctaButton: "Projemi başlat",
+        "Sizin de işletmeniz veya bireysel işleriniz yapay zekalar ve Google aramaları tarafından görünüp potansiyel müşterilerinizin karşısına çıkmasını istiyorsanız bize ulaşın!",
+      ctaButton: "Bize ulaşın",
     },
     wcc: {
       tag: "Kurumsal web",
@@ -491,30 +563,82 @@ export const projectDetails: ProjectDetailsByLocale = {
     "masal-koltuk": {
       tag: "Local search",
       summary:
-        "A local search architecture for MASAL, an on-site upholstery cleaner in Malatya: thirty-two routes covering services, prices, districts, job records, and guides, all feeding one quote flow.",
-      whatTitle: "Page families and search coverage",
+        "They needed a website. MASAL Koltuk Yıkama works in Malatya, Turkey. We designed the whole site from start to finish, SEO and GEO first, carefully, with the latest tech. 15 days ago this business had no website. Today it gets recommended first on Google search and on every AI platform, on every query with the same intent. After launch, people called. The firm found new customers.",
+      whatTitle: "What we did",
       what: [
-        "Five page families, each answering a different search intent: services, prices, districts, job records, and guides.",
-        "District pages for Battalgazi, Yeşilyurt, and individual neighborhoods, each carrying its own coverage list and booking note.",
-        "A structured data graph carrying LocalBusiness, Service, BreadcrumbList, and CollectionPage schemas.",
-        "Job records compared through a before/after slider, with method, timing, and drying notes beside each one.",
-        "Thirteen guide articles on drying time, fabric type, stain chemistry, and how to choose a cleaner.",
-        "A 2026 price list written out line by line, with the discounted web rate shown separately.",
+        "They needed a website. We designed the whole site from start to finish for MASAL Koltuk Yıkama in Malatya, Turkey, SEO and GEO first, carefully, with the latest tech.",
+        "We opened the Google Business Profile and the Search Console profile and we still run them.",
       ],
-      howTitle: "From search to booking",
+      howTitle: "What happened",
       how: [
-        "A visitor searches for their district or the piece they need cleaned and lands on that exact page.",
-        "They read the price off the list and watch the same job finish in the before/after records.",
-        "They send a photo over WhatsApp, and the quote is settled in a single message.",
+        "15 days ago this business had no website. Today it gets recommended first on Google search and on every AI platform, on every query with the same intent.",
+        "After launch, people called. They found MASAL on Google and on AI, then they picked up the phone. New customers came in. Work came in.",
+        "The MASAL Koltuk Yıkama website has already paid for itself.",
       ],
       stack: ["HTML", "CSS", "JavaScript", "JSON-LD"],
       result:
-        "The site opens on the questions people actually type, not only on the brand name. Every route meets its own visitor, and all of them lead to the same one-step quote.",
-      ctaLabel: "Similar project",
-      ctaTitle: "A page for every question asked in your service area",
+        "The client who trusted us got that trust back the best way we can, and we will keep giving it back. Not just visibility. Work. That's what we did.",
+      proof: {
+        kicker: "The proof",
+        title: "The captures are still here",
+        lead: "People are turning to AI search more than Google now, and we know it! We keep updating, developing, and following our tech so it matches the times. These captures are the real result after launch: ChatGPT, Gemini, Google AI, and Google put MASAL first on the same kind of questions.",
+        note: "If you want your business or your own work to show up in the AIs and in Google search, in front of people who could become your customers, get in touch! Don't treat it as a cost. Invest!",
+        shots: [
+          {
+            src: "/projects/masal-koltuk/proof/gemini-sofa.webp",
+            alt: "Gemini puts MASAL first for sofa cleaning in Malatya",
+            source: "Gemini",
+            caption: "Sofa cleaning in Malatya. MASAL first.",
+            span: "col-span-6 md:col-span-4 md:row-span-2 min-h-[280px] md:min-h-[560px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/chatgpt-steam.webp",
+            alt: "ChatGPT puts MASAL first for steam cleaning",
+            source: "ChatGPT",
+            caption: "Steam cleaning. First suggestion: MASAL.",
+            span: "col-span-3 md:col-span-2 min-h-[240px] md:min-h-[272px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/google-ai.webp",
+            alt: "Google AI puts MASAL first",
+            source: "Google AI",
+            caption: "Google AI. MASAL first again.",
+            span: "col-span-3 md:col-span-2 min-h-[240px] md:min-h-[272px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/google-local.webp",
+            alt: "MASAL at the top of Google search",
+            source: "Google",
+            caption: "Google search. MASAL at the top.",
+            span: "col-span-3 md:col-span-2 min-h-[240px] md:min-h-[300px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/chatgpt-car.webp",
+            alt: "ChatGPT puts MASAL first for car seats",
+            source: "ChatGPT",
+            caption: "Car seats. MASAL again.",
+            span: "col-span-3 md:col-span-2 min-h-[240px] md:min-h-[300px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/gemini-car.webp",
+            alt: "Gemini puts MASAL first for car interior cleaning",
+            source: "Gemini",
+            caption: "Car interior. First again.",
+            span: "col-span-6 md:col-span-4 min-h-[220px] md:min-h-[320px]",
+            fit: "contain",
+          },
+        ],
+      },
+      ctaLabel: "Your turn",
+      ctaTitle: "Don't treat it as a cost. Invest!",
       ctaBlurb:
-        "Once your services, prices, and coverage areas are settled, we can build the search architecture and the quote flow together.",
-      ctaButton: "Start a project",
+        "If you want your business or your own work to show up in the AIs and in Google search, in front of people who could become your customers, get in touch!",
+      ctaButton: "Get in touch",
     },
     wcc: {
       tag: "Corporate web",
@@ -928,30 +1052,82 @@ export const projectDetails: ProjectDetailsByLocale = {
     "masal-koltuk": {
       tag: "Búsqueda local",
       summary:
-        "Arquitectura de búsqueda local para MASAL, limpieza de tapicería a domicilio en Malatya: treinta y dos rutas entre servicios, precios, barrios, registros de trabajo y guías, todas hacia un mismo presupuesto.",
-      whatTitle: "Familias de páginas y cobertura",
+        "Necesitaban un sitio. MASAL Koltuk Yıkama trabaja en Malatya, Turquía. Diseñamos el sitio de punta a punta, SEO y GEO primero, con la última técnica y con cuidado. Hace 15 días este negocio no tenía web. Hoy se recomienda primero en Google y en todas las plataformas de IA, en todas las consultas con la misma intención. Después del lanzamiento, la gente llamó. El negocio encontró clientes nuevos.",
+      whatTitle: "Qué hicimos",
       what: [
-        "Cinco familias de páginas: servicios, precios, zonas, trabajos y guías. Cada una responde a una intención de búsqueda distinta.",
-        "Páginas de zona para Battalgazi, Yeşilyurt y barrios concretos, con su propia lista de cobertura y su nota de cita.",
-        "Un grafo de datos estructurados con esquemas LocalBusiness, Service, BreadcrumbList y CollectionPage.",
-        "Registros de trabajo comparados con un deslizador antes/después, junto al método, el tiempo y el secado.",
-        "Trece guías que responden al secado, al tipo de tejido, a la química de la mancha y a cómo elegir empresa.",
-        "Una lista de precios 2026 escrita partida por partida, con la tarifa web rebajada aparte.",
+        "Necesitaban un sitio. Diseñamos de punta a punta el de MASAL Koltuk Yıkama en Malatya, Turquía: SEO y GEO primero, con la última técnica y con cuidado.",
+        "Abrimos la ficha de Google y el perfil de Search Console y las seguimos llevando.",
       ],
-      howTitle: "De la búsqueda a la cita",
+      howTitle: "Qué pasó",
       how: [
-        "El visitante busca su barrio o el mueble que quiere limpiar y aterriza justo en esa página.",
-        "Lee el precio en la lista y ve cómo termina ese mismo trabajo en los registros antes/después.",
-        "Envía una foto por WhatsApp y el presupuesto queda cerrado en un solo mensaje.",
+        "Hace 15 días este negocio no tenía web. Hoy se recomienda primero en Google y en todas las plataformas de IA, en todas las consultas con la misma intención.",
+        "Después del lanzamiento, la gente llamó. Encontraron a MASAL en Google y en la IA y marcaron. Llegaron clientes. Llegó trabajo.",
+        "El sitio de MASAL Koltuk Yıkama ya cubrió su costo.",
       ],
       stack: ["HTML", "CSS", "JavaScript", "JSON-LD"],
       result:
-        "La web se abre a las preguntas que la gente escribe de verdad, no solo al nombre de la marca. Cada ruta recibe a su visitante y todas llevan al mismo presupuesto de un paso.",
-      ctaLabel: "Proyecto similar",
-      ctaTitle: "Una página para cada pregunta de tu zona de servicio",
+        "Quien nos confió el trabajo recibió esa confianza de la mejor manera, y vamos a seguir dándola. No solo verse. Traer trabajo. Eso hicimos.",
+      proof: {
+        kicker: "La prueba",
+        title: "Las capturas siguen ahí",
+        lead: "La gente se está yendo más a las búsquedas de IA que a Google, ¡y lo tenemos claro! Actualizamos, desarrollamos y seguimos nuestra base técnica según los tiempos. Estas capturas son el resultado real después del lanzamiento: ChatGPT, Gemini, Google AI y Google ponen a MASAL primero en las mismas consultas.",
+        note: "Si quiere que su negocio o su trabajo propio salga en las IAs y en Google, delante de quien puede ser su cliente, ¡escríbanos! No es un gasto. ¡Es una inversión!",
+        shots: [
+          {
+            src: "/projects/masal-koltuk/proof/gemini-sofa.webp",
+            alt: "Gemini pone a MASAL primero para limpieza de sofás en Malatya",
+            source: "Gemini",
+            caption: "Limpieza de sofás en Malatya. MASAL primero.",
+            span: "col-span-6 md:col-span-4 md:row-span-2 min-h-[280px] md:min-h-[560px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/chatgpt-steam.webp",
+            alt: "ChatGPT pone a MASAL primero para limpieza a vapor",
+            source: "ChatGPT",
+            caption: "Limpieza a vapor. Primera sugerencia: MASAL.",
+            span: "col-span-3 md:col-span-2 min-h-[240px] md:min-h-[272px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/google-ai.webp",
+            alt: "Google AI pone a MASAL primero",
+            source: "Google AI",
+            caption: "Google AI. MASAL primero otra vez.",
+            span: "col-span-3 md:col-span-2 min-h-[240px] md:min-h-[272px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/google-local.webp",
+            alt: "MASAL arriba en Google",
+            source: "Google",
+            caption: "Búsqueda de Google. MASAL arriba.",
+            span: "col-span-3 md:col-span-2 min-h-[240px] md:min-h-[300px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/chatgpt-car.webp",
+            alt: "ChatGPT pone a MASAL primero para asientos de auto",
+            source: "ChatGPT",
+            caption: "Asientos de auto. MASAL otra vez.",
+            span: "col-span-3 md:col-span-2 min-h-[240px] md:min-h-[300px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/gemini-car.webp",
+            alt: "Gemini pone a MASAL primero para limpieza interior",
+            source: "Gemini",
+            caption: "Interior del auto. Primero otra vez.",
+            span: "col-span-6 md:col-span-4 min-h-[220px] md:min-h-[320px]",
+            fit: "contain",
+          },
+        ],
+      },
+      ctaLabel: "Siguiente",
+      ctaTitle: "No es un gasto. ¡Es una inversión!",
       ctaBlurb:
-        "Cuando tus servicios, tus precios y tus zonas están claros, montamos juntos la arquitectura de búsqueda y el flujo de presupuesto.",
-      ctaButton: "Iniciar proyecto",
+        "Si quiere que su negocio o su trabajo propio salga en las IAs y en Google, delante de quien puede ser su cliente, ¡escríbanos!",
+      ctaButton: "Escríbanos",
     },
     wcc: {
       tag: "Web corporativa",
@@ -1365,30 +1541,82 @@ export const projectDetails: ProjectDetailsByLocale = {
     "masal-koltuk": {
       tag: "Lokale Suche",
       summary:
-        "Eine lokale Sucharchitektur für MASAL, Polsterreinigung vor Ort in Malatya: zweiunddreißig Seiten zu Leistungen, Preisen, Stadtteilen, Auftragsberichten und Ratgebern, die alle in eine Anfrage münden.",
-      whatTitle: "Seiten, Schema und Suche",
+        "Sie brauchten eine Website. MASAL Koltuk Yıkama arbeitet in Malatya, Türkei. Wir haben die ganze Website von vorn bis hinten gestaltet, SEO und GEO zuerst, mit der neuesten Technik, mit Sorgfalt. Vor 15 Tagen hatte dieser Betrieb keine Website. Heute wird er bei Google und auf allen KI-Plattformen bei denselben Anfragen zuerst empfohlen. Nach dem Launch riefen Kunden an. Der Betrieb fand neue Kunden.",
+      whatTitle: "Was wir gemacht haben",
       what: [
-        "Fünf Seitenfamilien: Leistungen, Preise, Gebiete, Aufträge und Ratgeber. Jede beantwortet eine eigene Suchabsicht.",
-        "Gebietsseiten für Battalgazi, Yeşilyurt und einzelne Stadtteile, jeweils mit eigener Abdeckungsliste und Terminnotiz.",
-        "Ein Graph strukturierter Daten mit LocalBusiness, Service, BreadcrumbList und CollectionPage.",
-        "Auftragsberichte im Vorher/Nachher-Schieber, daneben Verfahren, Dauer und Trocknungshinweis.",
-        "Dreizehn Ratgeber zu Trocknungszeit, Gewebeart, Fleckenchemie und Firmenwahl.",
-        "Eine Preisliste 2026, Posten für Posten ausgeschrieben, der rabattierte Webpreis separat.",
+        "Sie brauchten eine Website. Für MASAL Koltuk Yıkama in Malatya, Türkei, haben wir die ganze Website von vorn bis hinten gestaltet, SEO und GEO zuerst, mit der neuesten Technik, mit Sorgfalt.",
+        "Das Google-Unternehmensprofil und das Search-Console-Profil haben wir eingerichtet und führen beides weiter.",
       ],
-      howTitle: "Von der Suche zum Termin",
+      howTitle: "Was passiert ist",
       how: [
-        "Wer nach seinem Stadtteil oder seinem Möbelstück sucht, landet genau auf dieser Seite.",
-        "Der Preis steht in der Liste, und die Vorher/Nachher-Berichte zeigen denselben Auftrag zu Ende gebracht.",
-        "Ein Foto per WhatsApp genügt; nach einer Nachricht steht das Angebot.",
+        "Vor 15 Tagen hatte dieser Betrieb keine Website. Heute wird er bei Google und auf allen KI-Plattformen bei denselben Anfragen zuerst empfohlen.",
+        "Nach dem Launch riefen Kunden an. Die Leute fanden MASAL bei Google und in der KI und griffen zum Telefon. Neue Kunden kamen. Arbeit kam rein.",
+        "Die MASAL-Website hat sich schon bezahlt gemacht.",
       ],
       stack: ["HTML", "CSS", "JavaScript", "JSON-LD"],
       result:
-        "Die Website öffnet sich den Fragen, die Menschen tatsächlich eintippen, nicht nur dem Markennamen. Jede Route empfängt ihren eigenen Besucher, und alle führen zur selben Anfrage in einem Schritt.",
-      ctaLabel: "Ähnliches Projekt",
-      ctaTitle: "Für jede Frage aus Ihrem Einzugsgebiet eine Seite",
+        "Wer uns vertraut hat, hat das Vertrauen auf die beste Weise zurückbekommen, und das bleibt so. Nicht nur sichtbar sein. Arbeit bringen. Das haben wir gemacht.",
+      proof: {
+        kicker: "Der Beweis",
+        title: "Die Aufnahmen sind da",
+        lead: "Die Leute gehen inzwischen mehr zur KI-Suche als zu Google, und uns ist das klar! Wir aktualisieren, entwickeln und verfolgen unsere Technik, passend zu den Bedingungen der Zeit. Die Aufnahmen unten sind das echte Ergebnis nach dem Launch: ChatGPT, Gemini, Google AI und Google setzen MASAL bei denselben Anfragen an die Spitze.",
+        note: "Wenn Ihr Betrieb oder Ihre eigene Arbeit in den KIs und bei Google vor möglichen Kunden auftauchen soll, schreiben Sie uns! Keine Kosten. Eine Investition!",
+        shots: [
+          {
+            src: "/projects/masal-koltuk/proof/gemini-sofa.webp",
+            alt: "Gemini setzt MASAL bei Polsterreinigung in Malatya an die Spitze",
+            source: "Gemini",
+            caption: "Polsterreinigung in Malatya. MASAL vorn.",
+            span: "col-span-6 md:col-span-4 md:row-span-2 min-h-[280px] md:min-h-[560px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/chatgpt-steam.webp",
+            alt: "ChatGPT setzt MASAL bei Dampfreinigung an die Spitze",
+            source: "ChatGPT",
+            caption: "Dampfreinigung. Erster Vorschlag: MASAL.",
+            span: "col-span-3 md:col-span-2 min-h-[240px] md:min-h-[272px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/google-ai.webp",
+            alt: "Google AI setzt MASAL an die Spitze",
+            source: "Google AI",
+            caption: "Google AI. Wieder MASAL vorn.",
+            span: "col-span-3 md:col-span-2 min-h-[240px] md:min-h-[272px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/google-local.webp",
+            alt: "MASAL oben in der Google-Suche",
+            source: "Google",
+            caption: "Google-Suche. MASAL oben.",
+            span: "col-span-3 md:col-span-2 min-h-[240px] md:min-h-[300px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/chatgpt-car.webp",
+            alt: "ChatGPT setzt MASAL bei Autositzen an die Spitze",
+            source: "ChatGPT",
+            caption: "Autositze. Wieder MASAL.",
+            span: "col-span-3 md:col-span-2 min-h-[240px] md:min-h-[300px]",
+            fit: "contain",
+          },
+          {
+            src: "/projects/masal-koltuk/proof/gemini-car.webp",
+            alt: "Gemini setzt MASAL bei Innenreinigung an die Spitze",
+            source: "Gemini",
+            caption: "Innenreinigung. Wieder vorn.",
+            span: "col-span-6 md:col-span-4 min-h-[220px] md:min-h-[320px]",
+            fit: "contain",
+          },
+        ],
+      },
+      ctaLabel: "Als Nächstes",
+      ctaTitle: "Keine Kosten. Eine Investition!",
       ctaBlurb:
-        "Sobald Leistungen, Preise und Einsatzgebiete feststehen, bauen wir Sucharchitektur und Anfragestrecke gemeinsam auf.",
-      ctaButton: "Projekt starten",
+        "Wenn Ihr Betrieb oder Ihre eigene Arbeit in den KIs und bei Google vor möglichen Kunden auftauchen soll, schreiben Sie uns!",
+      ctaButton: "Schreiben Sie uns",
     },
     wcc: {
       tag: "Unternehmens-Web",

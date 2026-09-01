@@ -1,6 +1,42 @@
 import type { BlogArticle } from "../blog";
 
 const content: Record<string, BlogArticle> = {
+  "chatgpt-gemini-local-service": {
+    title: "Site yayına girdi, müşteri aradı",
+    excerpt:
+      "15 gün önce web sitesi yoktu. Bugün Google ve yapay zekada en başta. Site yayına girdikten sonra müşteriler aradı, firma yeni müşteri buldu.",
+    lead: "Web sitesi ihtiyacı için Türkiye'de Malatya'da faaliyet gösteren MASAL Koltuk Yıkama firması için SEO ve GEO öncelikli, son teknolojiler ile özenle hazırlanmış web sitesini baştan sona tasarladık. Google İşletme Profili ve Search Console profilini açıp yönetmeye devam ettik. 15 gün önce web sitesi olmayan bu işletme bugün hem Google aramalarında hem de tüm yapay zeka platformlarında aynı niyetli bütün sorgularda en başta öneriliyor. Site yayına girdikten sonra müşteriler aramaya başladı, firma yeni müşteri buldu. MASAL Koltuk Yıkama web sitesi maliyetini çoktan çıkardı.",
+    imageAlt: "Gemini, Malatya koltuk yıkama sorusunda MASAL'ı en başta öneriyor",
+    sections: [
+      {
+        heading: "Kanıt duruyor",
+        paragraphs: [
+          "ChatGPT, Gemini, Google AI ve Google aynı niyetli sorgularda MASAL'ı en başta öneriyor. Ekran kayıtları vaka sayfasında. Bu uydurma değil, yayından sonraki gerçek sonuç.",
+        ],
+      },
+      {
+        heading: "Müşteri aradı, iş geldi",
+        paragraphs: [
+          "Site yayına girdikten sonra müşteriler aramaya başladı. İnsanlar Google'dan ve yapay zekadan MASAL'ı bulup aradı. Yeni müşteri bulundu, iş geldi. Web sitesi maliyetini çoktan çıkardı.",
+          "Bize güvenen müşterimize güveninin karşılığını en iyi şekilde verdik ve vermeye devam edeceğiz. Yalnız görünmek değil, iş getirmek. Bunu yaptık.",
+        ],
+      },
+      {
+        heading: "Biz de bunun bilincindeyiz",
+        paragraphs: [
+          "Artık insanlar Google aramalarından daha çok yapay zeka aramalarına yöneliyor, biz de bunun bilincindeyiz!",
+          "Teknolojik altyapımızı dönemin şartlarına ve gelişmelerine uygun olarak güncelliyor, geliştiriyor ve takibini sürdürüyoruz.",
+        ],
+      },
+      {
+        heading: "Bize ulaşın",
+        paragraphs: [
+          "Sizin de işletmeniz veya bireysel işleriniz yapay zekalar ve Google aramaları tarafından görünüp potansiyel müşterilerinizin karşısına çıkmasını istiyorsanız bize ulaşın!",
+          "Maliyet değil, yatırım yapın!",
+        ],
+      },
+    ],
+  },
   "hotel-website-design": {
     title: "Doğrudan talep alan otel sitesi tasarımı",
     excerpt:
@@ -79,7 +115,7 @@ const content: Record<string, BlogArticle> = {
     title: "Hizmet işletmesi için yerel SEO: adres başına bir iş",
     excerpt:
       "Hizmet sayfaları ve dürüst bölge sayfaları, tüm bölgeyi savunan ana sayfayı yener. İşletme profili kardeştir, yerine geçmez. Harita paketi teslim kalemi değildir.",
-    lead: "Temizlikçi veya döşeme atölyesi ana sayfada 'şehrimizde kaliteli hizmet' yazdığı için sıralanmaz. Arama motoru konusu o iş olan bir sayfa ister; çoğu zaman işin adı geçen yerde olduğu bir sayfa da. METEK bu mimariyi teslim eder; MASAL Koltuk geniş yerel sayfa setinin kamu örneğidir.",
+    lead: "Temizlikçi veya döşeme atölyesi ana sayfada 'şehrimizde kaliteli hizmet' yazdığı için sıralanmaz. Arama motoru konusu o iş olan bir sayfa ister; çoğu zaman işin adı geçen yerde olduğu bir sayfa da. MASAL Koltuk bunun kamu örneği: 15 gün önce web sitesi yoktu, bugün Google ve yapay zekada en başta öneriliyor.",
     imageAlt: "Harita iğnesi ve basılı site haritasında hizmet sayfaları",
     sections: [
       {

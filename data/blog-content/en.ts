@@ -1,6 +1,42 @@
 import type { BlogArticle } from "../blog";
 
 const content: Record<string, BlogArticle> = {
+  "chatgpt-gemini-local-service": {
+    title: "The site went live. Customers called.",
+    excerpt:
+      "15 days ago they had no website. Today they sit first on Google and on AI. After launch, people called. The firm found new customers.",
+    lead: "They needed a website. MASAL Koltuk Yıkama works in Malatya, Turkey. We designed the whole site from start to finish, SEO and GEO first, carefully, with the latest tech. We opened the Google Business Profile and the Search Console profile and we still run them. 15 days ago this business had no website. Today it gets recommended first on Google search and on every AI platform, on every query with the same intent. After launch, people called. The firm found new customers. The MASAL Koltuk Yıkama website has already paid for itself.",
+    imageAlt: "Gemini puts MASAL first for sofa cleaning in Malatya",
+    sections: [
+      {
+        heading: "The proof is still here",
+        paragraphs: [
+          "ChatGPT, Gemini, Google AI, and Google put MASAL first on the same kind of questions. The captures sit on the case page. That is the real result after launch, not a guessed ranking.",
+        ],
+      },
+      {
+        heading: "People called. Work came in",
+        paragraphs: [
+          "After launch, customers started calling. People found MASAL on Google and on AI, then they picked up the phone. New customers came in. Work came in. The website has already paid for itself.",
+          "The client who trusted us got that trust back the best way we can, and we will keep giving it back. Not just visibility. Work. That's what we did.",
+        ],
+      },
+      {
+        heading: "And we know it",
+        paragraphs: [
+          "People are turning to AI search more than Google now, and we know it!",
+          "We keep updating, developing, and following our tech so it matches the times.",
+        ],
+      },
+      {
+        heading: "Get in touch",
+        paragraphs: [
+          "If you want your business or your own work to show up in the AIs and in Google search, in front of people who could become your customers, get in touch!",
+          "Don't treat it as a cost. Invest!",
+        ],
+      },
+    ],
+  },
   "hotel-website-design": {
     title: "Hotel website design that books a direct inquiry",
     excerpt:
@@ -79,7 +115,7 @@ const content: Record<string, BlogArticle> = {
     title: "Local SEO for service businesses: one job per URL",
     excerpt:
       "Service pages and honest area pages beat a homepage that claims the whole region. Google Business Profile is a sibling, not a substitute. Map Pack rank is not a deliverable.",
-    lead: "A cleaner or upholstery studio does not rank because Home says quality service in our city. Search engines need a page whose subject is the job, and often a page whose subject is the job in a named area. METEK ships that architecture; MASAL Koltuk is the public example of a wide local page set.",
+    lead: "A cleaner or upholstery studio does not rank because Home says quality service in our city. Search engines need a page whose subject is the job, and often a page whose subject is the job in a named area. MASAL Koltuk is the public example: fifteen days ago they had no website; today Google and AI put them first.",
     imageAlt: "Map pin and a list of service pages on a printed site map",
     sections: [
       {

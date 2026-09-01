@@ -1,6 +1,6 @@
 # Portfolio cases — shared semantic brief
 
-This brief covers project pages other than WCC. WCC keeps its dedicated brief at `projects/wcc/shared.md`.
+This brief covers project pages other than WCC and MASAL. WCC: `projects/wcc/shared.md`. MASAL: `projects/masal-koltuk/shared.md`.
 
 ```yaml
 page_goal: Show the business situation, the shipped interface, and the primary user path without inventing commercial outcomes.
@@ -26,6 +26,7 @@ constraints:
 
 | Project | Business surface | Primary reader task | Evidence |
 |---|---|---|---|
+| `masal-koltuk` | Local search site + dated chat-engine captures | See dedicated brief | `MASAL-001` |
 | `aydnnacar` | Furniture catalog | Browse collections and contact sales about a model | `data/projects.ts`, `data/project-details.ts`, screenshots |
 | `wuffbutik` | Boutique storefront | Browse collections, find the store, open WhatsApp | same |
 | `altitude-residence` | Residence sales site | Compare residences and request a viewing | same |

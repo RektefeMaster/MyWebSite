@@ -106,6 +106,20 @@ bad: Globally localized in every language.
 good: Studio site available in en, tr, es, and de.
 ```
 
+### `masal-chat-engine-captures-2026`
+
+```yaml
+layer: verified
+confidence: 96
+priority: core
+tags: [seo, trust]
+allowed_surfaces: [hero, project, blog, services, about]
+claim: Fifteen days after a blank start, ChatGPT, Gemini, Google AI, and Google search put MASAL Malatya Koltuk Yıkama first on the same kind of Malatya queries (sofa cleaning, steam cleaning, car-seat cleaning). METEK built the site around SEO and GEO and still runs the Google Business Profile and Search Console. After launch, inbound customer calls started and the firm found new work. The site has already paid for itself.
+evidence_ids: [MASAL-001]
+bad: Forever number one on every keyword. Guaranteed rankings as a product we sell. Invented call counts or revenue figures.
+good: Fifteen days ago they had no website. Today Google and the AI platforms put them first. After launch, customers called. The site paid for itself.
+```
+
 ---
 
 ## Supported
@@ -194,6 +208,20 @@ bad: Industry-leading design systems out of the box.
 good: Project-specific design tokens and components keep the public and internal interfaces consistent.
 ```
 
+### `masal-launch-window`
+
+```yaml
+layer: supported
+confidence: 88
+priority: secondary
+tags: [seo, trust]
+allowed_surfaces: [project, blog, services]
+claim: The MASAL site was designed and launched from a blank start in fifteen days. The chat-engine and local-pack captures were taken within two weeks of that launch.
+evidence_ids: [MASAL-001]
+bad: Page one in 15 days, every keyword, forever.
+good: The site went live in fifteen days. The dated captures were taken in the two weeks after launch.
+```
+
 ### `documented-quality-gates`
 
 ```yaml
@@ -263,7 +291,7 @@ Never invent or imply without new verified evidence:
 | Ban | Examples |
 |-----|----------|
 | Money / growth | ROI, revenue, traffic %, conversion-rate lifts |
-| Rankings | “#1 on Google,” guaranteed rankings |
+| Rankings | “#1 on Google,” guaranteed rankings, “page one in 30 days” as a product promise. Dated screenshots of named queries are verified observations (`masal-chat-engine-captures-2026`), not a ranking guarantee. |
 | Awards / trust theatre | award-winning, trusted by [unnamed], client-count inflation |
 | Superlatives | world-class, industry-leading, best-in-class, cutting-edge |
 | Empty praise | innovative solutions, digital excellence, tailored solutions, future-proof, game-changing |

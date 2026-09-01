@@ -267,7 +267,7 @@ const content: Record<IndustrySlug, IndustryContent> = {
     heroTitle: "Páginas de servicio y de zona, no una home delgada.",
     heroBlurb:
       "Se busca el trabajo más el lugar. Armamos sitios de servicio local como un set de páginas con titles que coinciden. Google Business Profile es hermano, no sustituto del sitio.",
-    lead: "Un plomero, una limpieza o un taller de tapicería no posiciona porque la home dice 'servicio de calidad en nuestra ciudad'. Los buscadores necesitan una página cuyo asunto es el servicio, y a menudo una cuyo asunto es el servicio en una zona nombrada. METEK Digital entrega esa arquitectura; MASAL Koltuk es el ejemplo público de un set local amplio.",
+    lead: "Un plomero, una limpieza o un taller de tapicería no posiciona porque la home dice 'servicio de calidad en nuestra ciudad'. Los buscadores necesitan una página cuyo asunto es el servicio, y a menudo una cuyo asunto es el servicio en una zona nombrada. MASAL Koltuk es el ejemplo público: hace quince días no tenía web; hoy Google y la IA lo ponen primero.",
     hubTitle: "Sitios de servicio local",
     hubBlurb:
       "Servicio, zona y consulta para negocios que se buscan cerca.",
@@ -327,14 +327,14 @@ const content: Record<IndustrySlug, IndustryContent> = {
       {
         question: "¿Qué es el ejemplo MASAL?",
         answer:
-          "Un sitio local de limpieza de tapicería con un set grande de páginas de servicio, precio y zona. Muestra la arquitectura. El número de páginas de ustedes sigue su cobertura real.",
+          "Hace 15 días no tenía web. Hoy primero en Google y en la IA. Después del lanzamiento, la gente llamó. El negocio encontró clientes nuevos.",
       },
     ],
     related: [
       { href: "/services/seo", label: "SEO técnico en la entrega" },
       {
-        href: "/blog/local-seo-for-service-businesses",
-        label: "SEO local para servicios",
+        href: "/blog/chatgpt-gemini-local-service",
+        label: "Capturas de ChatGPT local",
       },
       { href: "/work/masal-koltuk", label: "MASAL Koltuk" },
       { href: "/services/web-design", label: "Diseño web a medida" },

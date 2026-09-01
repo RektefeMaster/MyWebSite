@@ -267,7 +267,7 @@ const content: Record<IndustrySlug, IndustryContent> = {
     heroTitle: "Service and area pages, not one thin homepage.",
     heroBlurb:
       "People search the job plus the place. We build local service sites as a set of pages with matching titles, and we treat Google Business Profile as a sibling, not a substitute for the website.",
-    lead: "A plumber, cleaner, or upholstery studio does not rank because the homepage says 'quality service in our city.' Search engines need a page whose subject is the service, and often a page whose subject is the service in a named area. METEK Digital ships that architecture; the MASAL Koltuk site is the public example of a wide local page set.",
+    lead: "A plumber, cleaner, or upholstery studio does not rank because the homepage says 'quality service in our city.' Search engines need a page whose subject is the service, and often a page whose subject is the service in a named area. MASAL Koltuk is the public example: fifteen days ago they had no website; today Google and AI put them first.",
     hubTitle: "Local service sites",
     hubBlurb:
       "Service, area, and inquiry pages for businesses people search nearby.",
@@ -327,14 +327,14 @@ const content: Record<IndustrySlug, IndustryContent> = {
       {
         question: "What is the MASAL example?",
         answer:
-          "A local upholstery-cleaning site with a large set of service, price, and area pages. It shows the architecture. Your page count will follow your actual coverage.",
+          "15 days ago they had no website. Today they sit first on Google and on AI. After launch, people called. The firm found new customers.",
       },
     ],
     related: [
       { href: "/services/seo", label: "Technical SEO in the build" },
       {
-        href: "/blog/local-seo-for-service-businesses",
-        label: "Local SEO for service businesses",
+        href: "/blog/chatgpt-gemini-local-service",
+        label: "ChatGPT local-firm captures",
       },
       { href: "/work/masal-koltuk", label: "MASAL Koltuk" },
       { href: "/services/web-design", label: "Custom website design" },

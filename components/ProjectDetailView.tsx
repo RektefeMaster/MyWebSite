@@ -8,6 +8,7 @@ import { forDisplay } from "@/lib/typography";
 import Reveal from "./Reveal";
 import PageCta from "./PageCta";
 import ProjectLiveHero from "./ProjectLiveHero";
+import ProofCaptures from "./ProofCaptures";
 
 type ProjectDetailViewProps = {
   project: Project;
@@ -158,6 +159,8 @@ export default async function ProjectDetailView({
       {hasMockHero ? (
         <ProjectLiveHero project={project} title={name} />
       ) : null}
+
+      {detail.proof ? <ProofCaptures proof={detail.proof} /> : null}
 
       {gallery.length > 0 ? (
         <section className="bg-band px-5 py-16 text-band-fg md:px-10 md:py-24">

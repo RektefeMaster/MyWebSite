@@ -267,7 +267,7 @@ const content: Record<IndustrySlug, IndustryContent> = {
     heroTitle: "Leistungs- und Gebietsseiten, keine dünne Startseite.",
     heroBlurb:
       "Gesucht wird die Arbeit plus der Ort. Wir bauen lokale Dienstleister-Sites als Seitensatz mit passenden Titles. Das Google-Unternehmensprofil ist Geschwister, kein Ersatz für die Website.",
-    lead: "Klempner, Reinigung oder Polsterei ranken nicht, weil die Startseite 'Qualität in unserer Stadt' behauptet. Suchmaschinen brauchen eine Seite, deren Gegenstand die Leistung ist, oft auch eine Seite für die Leistung in einem genannten Gebiet. METEK Digital liefert diese Architektur; MASAL Koltuk ist das öffentliche Beispiel eines breiten lokalen Seitensatzes.",
+    lead: "Klempner, Reinigung oder Polsterei ranken nicht, weil die Startseite 'Qualität in unserer Stadt' behauptet. Suchmaschinen brauchen eine Seite, deren Gegenstand die Leistung ist, oft auch eine Seite für die Leistung in einem genannten Gebiet. MASAL Koltuk ist das öffentliche Beispiel: vor fünfzehn Tagen keine Website, heute setzen Google und KI sie an die Spitze.",
     hubTitle: "Sites für lokale Dienste",
     hubBlurb:
       "Leistung, Gebiet und Anfrage für Betriebe, die in der Nähe gesucht werden.",
@@ -327,14 +327,14 @@ const content: Record<IndustrySlug, IndustryContent> = {
       {
         question: "Was ist das MASAL-Beispiel?",
         answer:
-          "Eine lokale Polsterreinigungs-Site mit einem großen Satz aus Leistungs-, Preis- und Gebietsseiten. Sie zeigt die Architektur. Ihre Seitenzahl folgt Ihrer tatsächlichen Abdeckung.",
+          "Vor 15 Tagen keine Website. Heute zuerst bei Google und der KI. Nach dem Launch riefen Kunden an. Der Betrieb fand neue Kunden.",
       },
     ],
     related: [
       { href: "/services/seo", label: "Technisches SEO in der Lieferung" },
       {
-        href: "/blog/local-seo-for-service-businesses",
-        label: "Local SEO für Dienstleister",
+        href: "/blog/chatgpt-gemini-local-service",
+        label: "ChatGPT-Aufnahmen zur lokalen Firma",
       },
       { href: "/work/masal-koltuk", label: "MASAL Koltuk" },
       { href: "/services/web-design", label: "Individuelles Webdesign" },

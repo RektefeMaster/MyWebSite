@@ -1,6 +1,42 @@
 import type { BlogArticle } from "../blog";
 
 const content: Record<string, BlogArticle> = {
+  "chatgpt-gemini-local-service": {
+    title: "Website live, Kunden am Telefon",
+    excerpt:
+      "Vor 15 Tagen keine Website. Heute zuerst bei Google und der KI. Nach dem Launch riefen Kunden an. Der Betrieb fand neue Kunden.",
+    lead: "Sie brauchten eine Website. MASAL Koltuk Yıkama arbeitet in Malatya, Türkei. Wir haben die ganze Website von vorn bis hinten gestaltet, SEO und GEO zuerst, mit der neuesten Technik, mit Sorgfalt. Das Google-Unternehmensprofil und das Search-Console-Profil haben wir eingerichtet und führen beides weiter. Vor 15 Tagen hatte dieser Betrieb keine Website. Heute wird er bei Google und auf allen KI-Plattformen bei denselben Anfragen zuerst empfohlen. Nach dem Launch riefen Kunden an. Der Betrieb fand neue Kunden. Die MASAL-Website hat sich schon bezahlt gemacht.",
+    imageAlt: "Gemini setzt MASAL bei Polsterreinigung in Malatya an die Spitze",
+    sections: [
+      {
+        heading: "Der Beweis ist da",
+        paragraphs: [
+          "ChatGPT, Gemini, Google AI und Google setzen MASAL bei denselben Anfragen an die Spitze. Die Aufnahmen stehen auf der Case-Seite. Das ist das echte Ergebnis nach dem Launch, kein geratenes Ranking.",
+        ],
+      },
+      {
+        heading: "Kunden riefen an. Arbeit kam rein",
+        paragraphs: [
+          "Nach dem Launch fingen Kunden an zu rufen. Die Leute fanden MASAL bei Google und in der KI und griffen zum Telefon. Neue Kunden kamen. Arbeit kam rein. Die Website hat sich schon bezahlt gemacht.",
+          "Wer uns vertraut hat, hat das Vertrauen auf die beste Weise zurückbekommen, und das bleibt so. Nicht nur sichtbar sein. Arbeit bringen. Das haben wir gemacht.",
+        ],
+      },
+      {
+        heading: "Uns ist das klar",
+        paragraphs: [
+          "Die Leute gehen inzwischen mehr zur KI-Suche als zu Google, und uns ist das klar!",
+          "Wir aktualisieren, entwickeln und verfolgen unsere Technik, passend zu den Bedingungen der Zeit.",
+        ],
+      },
+      {
+        heading: "Schreiben Sie uns",
+        paragraphs: [
+          "Wenn Ihr Betrieb oder Ihre eigene Arbeit in den KIs und bei Google vor möglichen Kunden auftauchen soll, schreiben Sie uns!",
+          "Keine Kosten. Eine Investition!",
+        ],
+      },
+    ],
+  },
   "hotel-website-design": {
     title: "Hotel-Website, die eine direkte Anfrage trägt",
     excerpt:
@@ -79,7 +115,7 @@ const content: Record<string, BlogArticle> = {
     title: "Local SEO für Dienstleister: eine Aufgabe pro URL",
     excerpt:
       "Leistungsseiten und ehrliche Gebietsseiten schlagen eine Startseite, die die ganze Region behauptet. Das Unternehmensprofil ist Geschwister, kein Ersatz. Map-Pack-Rang ist kein Deliverable.",
-    lead: "Reinigung oder Polsterei rankt nicht, weil Start 'Qualität in unserer Stadt' sagt. Suchmaschinen brauchen eine Seite, deren Gegenstand der Job ist, oft auch eine für den Job in einem genannten Gebiet. METEK liefert diese Architektur; MASAL Koltuk ist das öffentliche Beispiel eines breiten lokalen Seitensatzes.",
+    lead: "Reinigung oder Polsterei rankt nicht, weil Start 'Qualität in unserer Stadt' sagt. Suchmaschinen brauchen eine Seite, deren Gegenstand der Job ist, oft auch eine für den Job in einem genannten Gebiet. MASAL Koltuk ist das öffentliche Beispiel: vor fünfzehn Tagen keine Website, heute setzen Google und KI sie an die Spitze.",
     imageAlt: "Kartenpin und eine Liste von Leistungsseiten auf einem Siteplan",
     sections: [
       {

@@ -31,6 +31,15 @@ export type BlogArticle = {
 /** Slug sırası = yayın sırası (yeniden eskiye) */
 export const blogPosts: BlogPostMeta[] = [
   {
+    slug: "chatgpt-gemini-local-service",
+    date: "2026-09-01",
+    readMinutes: 7,
+    category: "digital",
+    cluster: "seo",
+    accent: "#0c6b66",
+    image: "/blog/chatgpt-gemini-local-service.webp",
+  },
+  {
     slug: "hotel-website-design",
     date: "2026-08-28",
     readMinutes: 7,

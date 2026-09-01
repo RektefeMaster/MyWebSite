@@ -152,22 +152,22 @@
   },
   "featured": {
     "label": "Öne çıkan proje",
-    "client": "Wholesale Cabinet Creations · 2026",
-    "title": "Kurumsal web platformu ve içerik mimarisi",
-    "blurb": "ABD merkezli dolap üreticisi Wholesale Cabinet Creations için ürün hatlarını, tamamlanmış mutfak projelerini ve doğrudan teklif altyapısını bir araya getiren kurumsal web platformu geliştirdik. Ürün ve referans sayfalarından teklif formuna kesintisiz geçiş kuruldu; ekip yeni içerikleri panelden yönetebiliyor.",
+    "client": "MASAL Koltuk Yıkama · 2026",
+    "title": "Site yayına girdi, müşteri aradı",
+    "blurb": "Web sitesi ihtiyacı için Türkiye'de Malatya'da faaliyet gösteren MASAL Koltuk Yıkama firması için SEO ve GEO öncelikli, son teknolojiler ile özenle hazırlanmış web sitesini baştan sona tasarladık. Google İşletme Profili ve Search Console profilini açıp yönetmeye devam ettik. 15 gün önce web sitesi olmayan bu işletme bugün hem Google aramalarında hem de tüm yapay zeka platformlarında aynı niyetli bütün sorgularda en başta öneriliyor. Site yayına girdikten sonra müşteriler aramaya başladı, firma yeni müşteri buldu. MASAL Koltuk Yıkama web sitesi maliyetini çoktan çıkardı.",
     "outcomes": [
-      "Ürün ve referans sayfalarından doğrudan teklif formuna geçiş",
-      "Masaüstü ve mobil ekranlar için özel optimize edilmiş editoryal sunum",
-      "Metin, görsel ve teknik SEO alanları için pratik içerik yönetim altyapısı"
+      "Yayından sonra hem Google'da hem yapay zekada en başta öneriliyor. Kayıtlar duruyor",
+      "İnsanlar siteden, Google'dan ve yapay zekadan bulup aradı. Müşteri geldi, iş geldi",
+      "Bize güvenen müşterimize güveninin karşılığını en iyi şekilde verdik ve vermeye devam edeceğiz"
     ],
-    "cta": "Projeyi aç",
-    "shotHero": "Wholesale Cabinet Creations, ana sayfa",
-    "shotKitchen": "Wholesale Cabinet Creations, mutfak dolapları",
-    "shotProjects": "Wholesale Cabinet Creations, proje galerisi",
-    "shotBrands": "Wholesale Cabinet Creations, markalar",
-    "sceneLabel": "Sonuç",
-    "sceneTitle": "Ürün keşfinden ticari teklif talebine",
-    "sceneBody": "Kurumsal web sitesi; masaüstü ve mobil düzenleri, teknik SEO hazırlığı ve içerik yönetim bağlantısıyla teslim edildi."
+    "cta": "Bize ulaşın",
+    "shotHero": "Gemini, Malatya koltuk yıkama sorusunda MASAL'ı en başta öneriyor",
+    "shotKitchen": "ChatGPT buharlı temizlik sorusunda MASAL'ı ilk öneriyor",
+    "shotProjects": "Google AI, MASAL'ı en başta öneriyor",
+    "shotBrands": "Google aramasında MASAL en üstte",
+    "sceneLabel": "Sıradaki",
+    "sceneTitle": "Maliyet değil, yatırım yapın!",
+    "sceneBody": "Sizin de işletmeniz veya bireysel işleriniz yapay zekalar ve Google aramaları tarafından görünüp potansiyel müşterilerinizin karşısına çıkmasını istiyorsanız bize ulaşın!"
   },
   "principles": {
     "label": "İlkeler",

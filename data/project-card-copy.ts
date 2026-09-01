@@ -25,7 +25,7 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
     "masal-koltuk": {
       tag: "Yerel arama",
       summary:
-        "Malatya'da yerinde koltuk yıkama; 32 rota hizmet, fiyat ve mahalleye ayrılıyor, hepsi fotoğrafla teklife çıkıyor.",
+        "Malatya'da MASAL Koltuk. Site yayına girdi, müşteri aradı. Google ve yapay zekada en başta.",
     },
     wcc: {
       tag: "Kurumsal web",
@@ -109,7 +109,7 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
     "masal-koltuk": {
       tag: "Local search",
       summary:
-        "On-site upholstery cleaning in Malatya: 32 routes split by service, price, and district, each ending in a quote.",
+        "On-site cleaning in Malatya. Site went live, customers called. First on Google and AI.",
     },
     wcc: {
       tag: "Corporate web",
@@ -193,7 +193,7 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
     "masal-koltuk": {
       tag: "Búsqueda local",
       summary:
-        "Limpieza de tapicería a domicilio en Malatya: 32 rutas por servicio, precio y barrio, todas hacia un presupuesto.",
+        "Limpieza en Malatya. Salió el sitio, llamaron clientes. Primero en Google y en la IA.",
     },
     wcc: {
       tag: "Sitio corporativo",
@@ -277,7 +277,7 @@ const projectCardCopy: Record<string, Record<string, ProjectCardCopy>> = {
     "masal-koltuk": {
       tag: "Lokale Suche",
       summary:
-        "Polsterreinigung vor Ort in Malatya: 32 Seiten nach Leistung, Preis und Stadtteil, jede endet in einer Anfrage.",
+        "Polsterreinigung in Malatya. Website live, Kunden am Telefon. Zuerst bei Google und der KI.",
     },
     wcc: {
       tag: "Unternehmenswebsite",

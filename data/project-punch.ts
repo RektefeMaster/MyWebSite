@@ -5,7 +5,7 @@
 const projectPunch: Record<string, Record<string, string>> = {
   tr: {
     "elif-seren": "Nişantaşı'nda klinik psikolog için güven veren dijital alan.",
-    "masal-koltuk": "32 rotalı yerel arama mimarisi; her sayfa fotoğrafla teklife çıkıyor.",
+    "masal-koltuk": "Site yayına girdi, müşteri aradı. Google ve yapay zekada en başta.",
     wcc: "Ürün galerisinden teklif talebine uzanan, mobil öncelikli üretici sitesi.",
     aydnnacar: "Koleksiyonu oda, model ve ölçü üzerinden gezdiren mobilya kataloğu.",
     wuffbutik: "Koleksiyon, mağaza bilgisi ve WhatsApp görüşmesi tek vitrinde.",
@@ -23,7 +23,7 @@ const projectPunch: Record<string, Record<string, string>> = {
   },
   en: {
     "elif-seren": "A reassuring digital space for a clinical psychologist in Nişantaşı.",
-    "masal-koltuk": "A 32-route local search architecture where every page ends in a photo quote.",
+    "masal-koltuk": "The site went live. Customers called. First on Google and AI.",
     wcc: "A mobile-first manufacturer site from product gallery to quote request.",
     aydnnacar: "A furniture catalog organized by room, model, and dimensions.",
     wuffbutik: "Collections, store details, and WhatsApp contact in one storefront.",
@@ -41,7 +41,7 @@ const projectPunch: Record<string, Record<string, string>> = {
   },
   es: {
     "elif-seren": "Un espacio digital tranquilizador para un psicólogo clínico en Nişantaşı.",
-    "masal-koltuk": "Arquitectura de búsqueda local de 32 rutas; cada página termina en un presupuesto.",
+    "masal-koltuk": "Salió el sitio. Llamaron clientes. Primero en Google y en la IA.",
     wcc: "Líneas de gabinetes y proyectos terminados antes de solicitar una cotización.",
     aydnnacar: "Muebles organizados por ambiente, modelo y medidas.",
     wuffbutik: "Colecciones y datos de tienda con consulta por WhatsApp.",
@@ -59,7 +59,7 @@ const projectPunch: Record<string, Record<string, string>> = {
   },
   de: {
     "elif-seren": "Ein beruhigender digitaler Raum für einen klinischen Psychologen in Nişantaşı.",
-    "masal-koltuk": "32 Routen lokale Suche; jede Seite endet bei der Preisanfrage per Foto.",
+    "masal-koltuk": "Website live, Kunden am Telefon. Zuerst bei Google und der KI.",
     wcc: "Schranklinien und Referenzprojekte vor der Angebotsanfrage.",
     aydnnacar: "Möbel nach Raum, Modell und Maßen geordnet.",
     wuffbutik: "Kollektionen und Ladenangaben mit WhatsApp-Anfrage.",

@@ -1,6 +1,42 @@
 import type { BlogArticle } from "../blog";
 
 const content: Record<string, BlogArticle> = {
+  "chatgpt-gemini-local-service": {
+    title: "Salió el sitio. Llamaron clientes.",
+    excerpt:
+      "Hace 15 días no tenía web. Hoy primero en Google y en la IA. Después del lanzamiento, la gente llamó. El negocio encontró clientes nuevos.",
+    lead: "Necesitaban un sitio. MASAL Koltuk Yıkama trabaja en Malatya, Turquía. Diseñamos el sitio de punta a punta, SEO y GEO primero, con la última técnica y con cuidado. Abrimos la ficha de Google y el perfil de Search Console y las seguimos llevando. Hace 15 días este negocio no tenía web. Hoy se recomienda primero en Google y en todas las plataformas de IA, en todas las consultas con la misma intención. Después del lanzamiento, la gente llamó. El negocio encontró clientes nuevos. El sitio de MASAL Koltuk Yıkama ya cubrió su costo.",
+    imageAlt: "Gemini pone a MASAL primero para limpieza de sofás en Malatya",
+    sections: [
+      {
+        heading: "La prueba sigue ahí",
+        paragraphs: [
+          "ChatGPT, Gemini, Google AI y Google ponen a MASAL primero en las mismas consultas. Las capturas están en la ficha. Es el resultado real después del lanzamiento, no un ranking inventado.",
+        ],
+      },
+      {
+        heading: "Llamaron. Llegó trabajo",
+        paragraphs: [
+          "Después del lanzamiento, los clientes empezaron a llamar. La gente encontró a MASAL en Google y en la IA y marcó. Llegaron clientes nuevos. Llegó trabajo. El sitio ya cubrió su costo.",
+          "Quien nos confió el trabajo recibió esa confianza de la mejor manera, y vamos a seguir dándola. No solo verse. Traer trabajo. Eso hicimos.",
+        ],
+      },
+      {
+        heading: "Y lo tenemos claro",
+        paragraphs: [
+          "La gente se está yendo más a las búsquedas de IA que a Google, ¡y lo tenemos claro!",
+          "Actualizamos, desarrollamos y seguimos nuestra base técnica según los tiempos.",
+        ],
+      },
+      {
+        heading: "Escríbanos",
+        paragraphs: [
+          "Si quiere que su negocio o su trabajo propio salga en las IAs y en Google, delante de quien puede ser su cliente, ¡escríbanos!",
+          "No es un gasto. ¡Es una inversión!",
+        ],
+      },
+    ],
+  },
   "hotel-website-design": {
     title: "Diseño web de hotel que consigue una consulta directa",
     excerpt:
@@ -79,7 +115,7 @@ const content: Record<string, BlogArticle> = {
     title: "SEO local para servicios: un trabajo por URL",
     excerpt:
       "Páginas de servicio y de zona honestas ganan a una home que reclama toda la región. Google Business Profile es hermano, no sustituto. El ranking del pack de mapas no es un entregable.",
-    lead: "Una limpieza o un taller de tapicería no posiciona porque Inicio dice servicio de calidad en nuestra ciudad. Los buscadores necesitan una página cuyo asunto es el trabajo, y a menudo una cuyo asunto es el trabajo en una zona nombrada. METEK entrega esa arquitectura; MASAL Koltuk es el ejemplo público de un set local amplio.",
+    lead: "Una limpieza o un taller de tapicería no posiciona porque Inicio dice servicio de calidad en nuestra ciudad. Los buscadores necesitan una página cuyo asunto es el trabajo, y a menudo una cuyo asunto es el trabajo en una zona nombrada. MASAL Koltuk es el ejemplo público: hace quince días no tenía web; hoy Google y la IA lo ponen primero.",
     imageAlt: "Pin de mapa y una lista de páginas de servicio en un mapa del sitio",
     sections: [
       {
