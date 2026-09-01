@@ -940,7 +940,6 @@ html::-webkit-scrollbar-corner {
   }
 
   /* Intro: atmosfer animasyonu WebGL boot ile çakışmasın */
-  .intro-root .hero-grain,
   .intro-root .hero-glow {
     animation: none;
     will-change: auto;
@@ -1035,51 +1034,36 @@ html::-webkit-scrollbar-corner {
 
 /* ── Hero atmosferi ──
    Hero artık her iki temada da aynı siyah film; bu katmanlar tema-bağımsız.
-   (.hero-glow + .hero-vignette + .hero-grain'i Intro perdesi de kullanıyor —
-   o perde de ink zeminli, aynı ayar ikisine de doğru geliyor.) */
+   .hero-glow Intro perdesinde de var (ink zemin); .hero-vignette ve
+   .hero-grain yalnız hero kadrajında. */
 
-/* İnce film greni */
+/* Film dokusu — yalnız tarlada, statik.
+   Gökyüzü master'da tam 0; ama hale + üst perde göğü biraz kaldırınca
+   overlay gren görünür oluyor. Eskiden `grain-shift` (7sn / 6 adım) o
+   gürültüyü yürütüyordu → siyah "karıncalanıyordu". `will-change:
+   transform` da katmanı izole edip overlay'i bozuyor, gren %12 kar
+   olarak siyahın üstüne biniyordu. */
 .hero-grain {
   position: absolute;
-  /* Yalnızca ±4% kayma için gereken taşma — daha az harmanlanan alan */
-  inset: -14%;
+  inset: 0;
   pointer-events: none;
-  /* Kadraj mutlak siyah: gren burada çok çabuk "kar"a dönüyor (0.26'da
-     gökyüzü kumlanıyordu). Sadece filmin dokusunu taşıyacak kadar. */
-  opacity: 0.12;
+  opacity: 0.08;
   mix-blend-mode: overlay;
-  /* SVG feTurbulence her kompozitte yeniden rasterize oluyordu; aynı
-     160px karo PNG bir kez boyanır, görünüm aynı sınıf ince gren. */
   background-image: url("/hero/grain.png");
   background-size: 160px 160px;
-  animation: grain-shift 7s steps(6) infinite;
-  will-change: transform;
-}
-
-@keyframes grain-shift {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  20% {
-    transform: translate3d(-4%, 3%, 0);
-  }
-
-  40% {
-    transform: translate3d(3%, -4%, 0);
-  }
-
-  60% {
-    transform: translate3d(-3%, 2%, 0);
-  }
-
-  80% {
-    transform: translate3d(4%, -2%, 0);
-  }
-
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
+  /* Kilit + gök temiz kalsın. Gren yalnızca tarlada (figürün altında). */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 58%,
+    #000 78%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 58%,
+    #000 78%
+  );
 }
 
 /* Kenar karartma — kadrajın kendi vinyetini uzatır, köşeleri kapatır */
@@ -1151,7 +1135,6 @@ html::-webkit-scrollbar-corner {
 
 /* Hero görüş dışındayken atmosfer animasyonlarını duraklat — boşa
    harmanlama/blur kompozit maliyeti olmasın (görsel değişmez) */
-[data-atmosphere-idle="true"] .hero-grain,
 [data-atmosphere-idle="true"] .hero-halo,
 [data-atmosphere-idle="true"] .hero-glow {
   animation-play-state: paused;
@@ -1783,7 +1766,6 @@ html.intro-lock {
     transition: none;
   }
 
-  .hero-grain,
   .hero-halo,
   .hero-glow,
   .hero-scroll__line {
