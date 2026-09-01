@@ -3,7 +3,11 @@ import { Space_Grotesk } from "next/font/google";
 import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import {
+  getMessages,
+  getTranslations,
+  setRequestLocale,
+} from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/Navbar";
@@ -84,6 +88,26 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+/**
+ * `NextIntlClientProvider`'a messages VERMEZSEN tüm katalog RSC payload'ına
+ * gömülüyor: TR'de 26KB, ve aynı katalog her `<Link>` prefetch'inin RSC
+ * cevabında TEKRAR iniyor. Aşağıdaki isim uzayları yalnızca sunucuda
+ * (`getTranslations` / `generateMetadata`) okunuyor — istemciye gönderilmeleri
+ * için bir sebep yok; katalogun ~%26'sı bunlar.
+ *
+ * Bir istemci bileşeni bunlardan birini `useTranslations` ile isterse
+ * next-intl geliştirmede net bir MISSING_MESSAGE hatası atar — o zaman
+ * ilgili adı buradan çıkar.
+ */
+const SERVER_ONLY_NAMESPACES = [
+  "pages",
+  "blog",
+  "meta",
+  "notFound",
+  "faqUi",
+  "intent",
+] as const;
+
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#e5e8eb" },
@@ -151,6 +175,14 @@ export default async function LocaleLayout({
   const tMeta = await getTranslations({ locale, namespace: "meta" });
   const tA11y = await getTranslations({ locale, namespace: "a11y" });
 
+  const allMessages = await getMessages();
+  const clientMessages = Object.fromEntries(
+    Object.entries(allMessages).filter(
+      ([namespace]) =>
+        !(SERVER_ONLY_NAMESPACES as readonly string[]).includes(namespace),
+    ),
+  );
+
   const jsonLd = graph([
     organizationNode(tMeta("description")),
     founderNode(),
@@ -175,7 +207,7 @@ export default async function LocaleLayout({
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script dangerouslySetInnerHTML={{ __html: introInitScript }} />
         <JsonLd data={jsonLd} />
-        <NextIntlClientProvider>
+        <NextIntlClientProvider messages={clientMessages}>
           <ThemeProvider>
             <SmoothScroll>
               <a

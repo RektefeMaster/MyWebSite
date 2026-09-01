@@ -313,7 +313,7 @@ export default function DeviceMockup({
           scroll={Boolean(project.desktopScrollImage)}
           quality={screenQ}
           preferLive={preferLive}
-          eagerStrip={isHero}
+          eagerStrip={isHero && priority}
           sizes={
             isHero
               ? "(max-width: 768px) 82vw, 740px"
@@ -358,7 +358,7 @@ export default function DeviceMockup({
           scroll={Boolean(project.mobileScrollImage)}
           quality={screenQ}
           preferLive={preferLive}
-          eagerStrip={isHero}
+          eagerStrip={isHero && priority}
           sizes={
             isHero ? "(max-width: 768px) 42vw, 280px" : IPHONE_SCREEN_SIZES
           }

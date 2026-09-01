@@ -77,7 +77,6 @@ export default function WorkPlate({
           scroll={Boolean(project.desktopScrollImage)}
           quality={82}
           sizes={cardImageSizes(cols, 1)}
-          eagerStrip={priority}
         />
 
         {/* Adres şeridi — ekranın ÜSTÜNDE, kasa değil. */}
@@ -106,8 +105,7 @@ export default function WorkPlate({
             project={project}
             sizes="(min-width: 768px) 170px, 30vw"
             screenSizes="(min-width: 768px) 140px, 26vw"
-            eagerStrip={priority}
-          />
+            />
         </div>
       ) : null}
     </div>

@@ -52,10 +52,6 @@ const nextConfig: NextConfig = {
         headers: [{ key: "Cache-Control", value: STATIC_CACHE }],
       },
       {
-        source: "/studio/:path*",
-        headers: [{ key: "Cache-Control", value: STATIC_CACHE }],
-      },
-      {
         source: "/blog/:path*",
         headers: [{ key: "Cache-Control", value: STATIC_CACHE }],
       },

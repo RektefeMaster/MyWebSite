@@ -1,8 +1,36 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import { bustScrollAsset } from "@/lib/project-assets";
+
+/*
+  Şerit YALNIZCA fare olan cihazda iner.
+
+  Şeritler `next/image` hattının dışında duran ham JPG'ler (400KB–1.4MB) ve
+  tek işleri hover'da kaymak. Dokunmatikte `onEnter` zaten `pointerType`
+  kontrolüyle çıkıyor, yani telefonda şerit indirilse bile HİÇ oynamıyordu —
+  ölçüldü: /tr/work mobilde 8.7MB indiriyordu, 8.2MB'ı bu şeritlerdi.
+  Kapı fine pointer'da: statik `src` (optimize edilmiş next/image) zaten
+  ekranda duruyor, görsel çıktı dokunmatikte birebir aynı.
+*/
+const HOVER_QUERY = "(hover: hover) and (pointer: fine)";
+
+function getCanHover() {
+  return window.matchMedia(HOVER_QUERY).matches;
+}
+
+function subscribeCanHover(onStoreChange: () => void) {
+  const mql = window.matchMedia(HOVER_QUERY);
+  mql.addEventListener("change", onStoreChange);
+  return () => mql.removeEventListener("change", onStoreChange);
+}
 
 function PlaceholderScreen({
   colors,
@@ -70,10 +98,24 @@ export function ProjectScreen({
   const stripLoadedRef = useRef(false);
   const reducedMotionRef = useRef(false);
 
-  const scrollable = Boolean(scroll && bustedScrollSrc);
-  const [stripMounted, setStripMounted] = useState(
-    scrollable && (priority || eagerStrip),
+  /* SSR anlık görüntüsü `false` — sunucuda şerit HİÇ basılmıyor, hydrate'te
+     yalnız fareli cihazda açılıyor. */
+  const canHover = useSyncExternalStore(
+    subscribeCanHover,
+    getCanHover,
+    () => false,
   );
+
+  const scrollable = Boolean(scroll && bustedScrollSrc && canHover);
+  /* IntersectionObserver / hover ile açılan kapı; `priority`/`eagerStrip`
+     doğrudan `stripMounted` içinde okunuyor ki effect içinde setState
+     zinciri kurulmasın. */
+  const [stripRequested, setStripRequested] = useState(false);
+  /* `priority` YALNIZCA statik önizlemenin (next/image) yükleme önceliği.
+     Şeridi mount etmesine izin verme: /work'te ilk üç kart `priority`
+     taşıyor ve bu, hover edilmeyen 6 şeridi (~1.2MB) indiriyordu.
+     Şeridi erken isteyen tek yer `eagerStrip` (LCP mockup'ı). */
+  const stripMounted = scrollable && (eagerStrip || stripRequested);
   const [stripLoaded, setStripLoaded] = useState(false);
   const [scrollActive, setScrollActive] = useState(false);
   const [scrollMetrics, setScrollMetrics] = useState({
@@ -143,29 +185,16 @@ export function ProjectScreen({
     }
   }, [stripMounted, bustedScrollSrc, handleStripReady]);
 
-  /* Scroll şeridini erken yükle */
-  useEffect(() => {
-    if (!scrollable || stripMounted) return;
-    const root = rootRef.current;
-    if (!root) return;
+  /*
+    Şerit YALNIZCA `pointerenter` ile iner — viewport tetiği YOK.
 
-    if (priority) {
-      setStripMounted(true);
-      return;
-    }
-
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          setStripMounted(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: "280px 0px" },
-    );
-    io.observe(root);
-    return () => io.disconnect();
-  }, [scrollable, stripMounted, priority]);
+    Eskiden 280px rootMargin'li bir IntersectionObserver şeritleri önden
+    çekiyordu; /tr/work'te bu, hiç hover edilmese bile 20 şerit (masaüstünde
+    ~8MB) indiriyordu. Gecikme görünmüyor: `activateScroll` zaten
+    `stripLoaded`'ı bekliyor ve kayma animasyonu 5.5–18sn sürüyor, yani
+    şeridin ilk hover'da inmesi gözle fark edilmiyor. Beklerken statik
+    `src` önizlemesi ekranda duruyor.
+  */
 
   /* Hover — mockup kökünde dinle (çerçeve PNG pointer engeli) */
   useEffect(() => {
@@ -185,7 +214,7 @@ export function ProjectScreen({
       const pt = (event as PointerEvent).pointerType;
       if (pt && pt !== "mouse") return;
       hoveringRef.current = true;
-      if (!stripMounted) setStripMounted(true);
+      if (!stripMounted) setStripRequested(true);
       if (stripLoadedRef.current) activateScroll();
     };
 
