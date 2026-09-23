@@ -12,6 +12,10 @@
     { "binding": "WORKER_SELF_REFERENCE", "service": "my-web-site" }
   ],
   "images": { "binding": "IMAGES" },
+  "routes": [
+    { "pattern": "metektechnologies.com", "custom_domain": true },
+    { "pattern": "www.metektechnologies.com", "custom_domain": true }
+  ],
   "workers_dev": true,
   "observability": { "enabled": true }
 }
