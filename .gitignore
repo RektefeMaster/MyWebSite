@@ -43,3 +43,7 @@ next-env.d.ts
 # content-system review exports (generated locally)
 content-system/inventory/exports/*
 !content-system/inventory/exports/.gitkeep
+
+# Cloudflare / OpenNext
+.open-next
+.wrangler
